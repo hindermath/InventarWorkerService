@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarWorkerService", "InventarWorkerService\InventarWorkerService.csproj", "{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
