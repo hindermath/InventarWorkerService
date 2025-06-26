@@ -1,0 +1,115 @@
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+namespace CtrlWorkerServiceApp.Controller;
+
+public class CrossPlatformServiceController
+{
+    private readonly string _serviceName;
+    
+    public CrossPlatformServiceController(string serviceName)
+    {
+        _serviceName = serviceName;
+    }
+    
+    public void StartService()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            StartWindowsService();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            StartLinuxService();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            StartMacOSService();
+        }
+        else
+        {
+            throw new PlatformNotSupportedException("Plattform wird nicht unterstützt");
+        }
+    }
+    
+    public void StopService()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            StopWindowsService();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            StopLinuxService();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            StopMacOSService();
+        }
+    }
+    
+    private void StartWindowsService()
+    {
+        using var service = new System.ServiceProcess.ServiceController(_serviceName);
+        if (service.Status == System.ServiceProcess.ServiceControllerStatus.Stopped)
+        {
+            service.Start();
+        }
+    }
+    
+    private void StopWindowsService()
+    {
+        using var service = new System.ServiceProcess.ServiceController(_serviceName);
+        if (service.Status == System.ServiceProcess.ServiceControllerStatus.Running)
+        {
+            service.Stop();
+        }
+    }
+    
+    private void StartLinuxService()
+    {
+        ExecuteCommand("systemctl", $"start {_serviceName}");
+    }
+    
+    private void StopLinuxService()
+    {
+        ExecuteCommand("systemctl", $"stop {_serviceName}");
+    }
+    
+    private void StartMacOSService()
+    {
+        ExecuteCommand("launchctl", $"start {_serviceName}");
+    }
+    
+    private void StopMacOSService()
+    {
+        ExecuteCommand("launchctl", $"stop {_serviceName}");
+    }
+    
+    private void ExecuteCommand(string fileName, string arguments)
+    {
+        try
+        {
+            using var process = Process.Start(new ProcessStartInfo
+            {
+                FileName = fileName,
+                Arguments = arguments,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            });
+            
+            process?.WaitForExit();
+            
+            if (process?.ExitCode != 0)
+            {
+                var error = process.StandardError.ReadToEnd();
+                throw new InvalidOperationException($"Befehl fehlgeschlagen: {error}");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"Fehler beim Ausführen von '{fileName} {arguments}': {ex.Message}");
+        }
+    }
+}
