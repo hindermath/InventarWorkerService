@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarWorkerService", "InventarWorkerService\InventarWorkerService.csproj", "{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtrlWorkerServiceApp", "CtrlWorkerServiceApp\CtrlWorkerServiceApp.csproj", "{8EDA5EF1-C215-411A-9A99-169D1D879C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9777D2A1-CAF4-4BE0-A85E-20231BCCCCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDA5EF1-C215-411A-9A99-169D1D879C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDA5EF1-C215-411A-9A99-169D1D879C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDA5EF1-C215-411A-9A99-169D1D879C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDA5EF1-C215-411A-9A99-169D1D879C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
