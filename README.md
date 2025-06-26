@@ -298,7 +298,7 @@ setup/setup_macos.sh
 ```
 Passe Program.cs und Worker.cs gemäß dem plattformübergreifenden Worker-Modell an (siehe oben).
 
-Erstelle das .zip-Archiv (z. B. auf macOS/Linux):
+Erstelle das .zip-Archiv (z.B. auf macOS/Linux):
 ```bash
 cd ..
 zip -r MyWorkerService.zip MyWorkerService/
