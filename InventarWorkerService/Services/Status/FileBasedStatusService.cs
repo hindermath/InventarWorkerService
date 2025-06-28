@@ -1,7 +1,7 @@
 using System.Text.Json;
 using InventarWorkerService.Models;
 
-namespace InventarWorkerService.StatusService.FileBased;
+namespace InventarWorkerService.Services.Status;
 
 public class FileBasedStatusService
 {
