@@ -521,6 +521,20 @@ public class HardwareInventoryService
 
     public async Task<object?> GetHardwareInfoAsync()
     {
-        throw new NotImplementedException();
+        try
+        {
+            _logger.LogInformation("Hardware-Informationen werden abgerufen...");
+        
+            var hardwareInfo = await CollectHardwareInfoAsync();
+        
+            _logger.LogInformation("Hardware-Informationen erfolgreich abgerufen");
+        
+            return hardwareInfo;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Abrufen der Hardware-Informationen");
+            return null;
+        }
     }
 }
