@@ -136,7 +136,6 @@ public class Worker : BackgroundService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Fehler beim Speichern des Hardware-Inventars");
-            throw;
         }
     }
 
