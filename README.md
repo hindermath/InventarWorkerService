@@ -305,4 +305,25 @@ Oder auf Windows (in PowerShell):
 Compress-Archive -Path .\MyWorkerService\* -DestinationPath .\MyWorkerService.zip
 ```
 
+## Verwendung der REST API
+Nach der Implementierung können Sie den Service folgendermaßen abfragen:
+### Beispiel-Aufrufe:
+1. **Service Status**: `GET http://[IP-Adresse]:5000/api/inventar/status`
+2. **Hardware Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/hardware`
+3. **Software Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/software`
+4. **Komplettes Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/full`
+
+### Mit curl
+```bash
+curl -X GET "http://192.168.1.100:5000/api/inventar/full" \
+  -H "accept: application/json"
+```
+
+### Mit PowerShell
+```powershell
+Invoke-RestMethod -Uri "http://192.168.1.100:5000/api/inventar/full" -Method Get
+```
+### Mit Swagger
+Die Swagger UI ist unter `http://[IP-Adresse]:5000/swagger` verfügbar und bietet eine interaktive Dokumentation der API.
+
 ### 📦 Fertig!
