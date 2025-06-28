@@ -1,7 +1,7 @@
-using InventarWorkerService.Models.Hardware;
 using InventarWorkerService.Models.Service;
+using InventarWorkerService.Models.Software;
 
-namespace InventarWorkerService.Models;
+namespace InventarWorkerService.Models.Hardware;
 
 public record HardwareInfo
 {
