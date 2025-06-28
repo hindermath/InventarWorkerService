@@ -1,6 +1,4 @@
-using InventarWorkerService.Models.Software;
-
-namespace InventarWorkerService.Models;
+namespace InventarWorkerService.Models.Software;
 
 public record SoftwareInventory
 {
