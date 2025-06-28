@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using InventarWorkerService.Services.Hardware;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -63,7 +64,10 @@ public class Program
                 //loggingBuilder.AddFile($"logs/app-{DateTime.Today}.txt"); // requires Serilog.Extensions.Logging.File
             }
         );
-        
+
+        // Hardware-Inventarisierungsservice registrieren
+        builder.Services.AddSingleton<HardwareInventoryService>();
+
         builder.Services.AddHostedService<Worker>();
 
         var host = builder.Build();
