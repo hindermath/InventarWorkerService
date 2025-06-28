@@ -25,10 +25,7 @@ Einmal eingerichtet, kannst du sie mit sudo systemctl start|stop|enable meineApp
 Das Coole ist: Du schreibst deine Anwendung einmal in C#, und durch das plattformunabhängige Hosting-Modell von .NET läuft sie auf beiden Systemen stabil und performant. Wenn du willst, zeige ich dir gerne, wie du das mit einem kleinen Worker-Projekt praktisch umsetzt.
 
 
-Sie sagten
-kann man mit C#/.Net Core Windows Services und Linux Deamons oder auch macOS Deamons erstellen?
-Copilot sagte
-Absolut — mit C# und .NET Core (bzw. dem modernen .NET ab Version 5+) kannst du nicht nur Windows Services und Linux Daemons, sondern auch macOS Daemons bauen. Das Ganze läuft über das flexible Hosting-Modell von .NET, das plattformübergreifend funktioniert.
+Mit C# und .NET Core (bzw. dem modernen .NET ab Version 5+) kannst du nicht nur Windows Services und Linux Daemons, sondern auch macOS Daemons bauen. Das Ganze läuft über das flexible Hosting-Modell von .NET, das plattformübergreifend funktioniert.
 
 🛠️ Was ist möglich?
 Windows Services: Mit UseWindowsService() kannst du deine App als Dienst registrieren. Installation per sc.exe oder PowerShell.
