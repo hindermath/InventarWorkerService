@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtrlWorkerServiceApp", "Ctr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStatusReaderApp", "ServiceStatusReaderApp\ServiceStatusReaderApp.csproj", "{39041A24-C42D-4B67-83DF-C6466B31207F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarViewerApp", "InventarViewerApp\InventarViewerApp.csproj", "{F956AC80-CB8F-4A89-B913-ADBD3A3A248C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{39041A24-C42D-4B67-83DF-C6466B31207F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39041A24-C42D-4B67-83DF-C6466B31207F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39041A24-C42D-4B67-83DF-C6466B31207F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F956AC80-CB8F-4A89-B913-ADBD3A3A248C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F956AC80-CB8F-4A89-B913-ADBD3A3A248C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F956AC80-CB8F-4A89-B913-ADBD3A3A248C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F956AC80-CB8F-4A89-B913-ADBD3A3A248C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
