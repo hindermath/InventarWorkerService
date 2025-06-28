@@ -518,4 +518,9 @@ public class HardwareInventoryService
         _cpuCounter?.Dispose();
         _memoryAvailableCounter?.Dispose();
     }
+
+    public async Task<object?> GetHardwareInfoAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
