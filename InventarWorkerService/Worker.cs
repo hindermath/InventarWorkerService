@@ -1,6 +1,7 @@
 using System.Text.Json;
 using InventarWorkerService.Models;
 using InventarWorkerService.Services.Hardware;
+using InventarWorkerService.Services.Software;
 using InventarWorkerService.Services.Status;
 
 namespace InventarWorkerService;
@@ -10,14 +11,18 @@ public class Worker : BackgroundService
     private readonly ILogger<Worker> _logger;
     private readonly FileBasedStatusService _statusService;
     private readonly HardwareInventoryService _hardwareInventoryService;
+    private readonly SoftwareInventoryService _softwareInventoryService;
     private int _processedItems = 0;
     private DateTime _startTime = DateTime.Now;
 
-    public Worker(ILogger<Worker> logger, HardwareInventoryService hardwareInventoryService)
+    public Worker(ILogger<Worker> logger, 
+                  HardwareInventoryService hardwareInventoryService,
+                  SoftwareInventoryService softwareInventoryService)
     {
         _logger = logger;
         _statusService = new FileBasedStatusService();
         _hardwareInventoryService = hardwareInventoryService;
+        _softwareInventoryService = softwareInventoryService;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -33,7 +38,7 @@ public class Worker : BackgroundService
         {
             try
             {
-                // Hardware-Inventarisierung durchführen
+                // Hardware- und Software-Inventarisierung durchführen
                 await ProcessInventoryItems();
                 
                 _processedItems++;
@@ -56,7 +61,7 @@ public class Worker : BackgroundService
                     MemoryUsage = GC.GetTotalMemory(false)
                 });
                 
-                var message = $"Hardware-Inventarisierung abgeschlossen: {_processedItems} Durchläufe";
+                var message = $"Inventarisierung abgeschlossen: {_processedItems} Durchläufe";
                 _logger.LogInformation(message);
                 _statusService.WriteLog(message);
                 
@@ -89,67 +94,64 @@ public class Worker : BackgroundService
 
     private async Task ProcessInventoryItems()
     {
-        _logger.LogInformation("Starte Hardware-Inventarisierung...");
+        _logger.LogInformation("Starte Hardware- und Software-Inventarisierung...");
         
         try
         {
-            var hardwareInfo = await _hardwareInventoryService.CollectHardwareInfoAsync();
+            // Parallel sammeln für bessere Performance
+            var hardwareTask = _hardwareInventoryService.CollectHardwareInfoAsync();
+            var softwareTask = _softwareInventoryService.CollectSoftwareInventoryAsync();
             
-            // Hardware-Informationen speichern
-            await SaveHardwareInventory(hardwareInfo);
+            await Task.WhenAll(hardwareTask, softwareTask);
             
-            _logger.LogInformation("Hardware-Inventarisierung erfolgreich abgeschlossen");
+            var hardwareInfo = await hardwareTask;
+            var softwareInventory = await softwareTask;
+            
+            // Software-Inventar zu Hardware-Info hinzufügen
+            hardwareInfo.Software = softwareInventory;
+            
+            // Inventar speichern
+            await SaveInventory(hardwareInfo);
+            
+            _logger.LogInformation("Inventarisierung erfolgreich abgeschlossen");
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Fehler bei der Hardware-Inventarisierung");
+            _logger.LogError(ex, "Fehler bei der Inventarisierung");
             throw;
         }
     }
 
-    private async Task SaveHardwareInventory(HardwareInfo hardwareInfo)
+    private async Task SaveInventory(HardwareInfo hardwareInfo)
     {
         try
         {
-            // var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            // var fileName = $"hardware_inventory_{timestamp}.json";
-            // var filePath = Path.Combine("inventory", fileName);
-            //
-            // // Verzeichnis erstellen falls nicht vorhanden
-            // Directory.CreateDirectory("inventory");
-            //
-            // var jsonOptions = new JsonSerializerOptions
-            // {
-            //     WriteIndented = true,
-            //     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            // };
-            //
-            // var jsonData = JsonSerializer.Serialize(hardwareInfo, jsonOptions);
-            // await File.WriteAllTextAsync(filePath, jsonData);
-            //
             await _statusService.WriteHardwareInventory(hardwareInfo);
-            _logger.LogInformation("Hardware-Inventar gespeichert.");
+            _logger.LogInformation("Inventar gespeichert.");
             
             // Kurzzusammenfassung loggen
-            LogHardwareSummary(hardwareInfo);
+            LogInventorySummary(hardwareInfo);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Fehler beim Speichern des Hardware-Inventars");
+            _logger.LogError(ex, "Fehler beim Speichern des Inventars");
         }
     }
 
-    private void LogHardwareSummary(HardwareInfo hardwareInfo)
+    private void LogInventorySummary(HardwareInfo hardwareInfo)
     {
         var summary = $@"
-=== Hardware-Inventar Zusammenfassung ===
+=== Inventar Zusammenfassung ===
 System: {hardwareInfo.System.MachineName} ({hardwareInfo.OperatingSystem.Platform})
 CPU: {hardwareInfo.Cpu.ProcessorName} ({hardwareInfo.Cpu.ProcessorCount} Kerne)
 Speicher: {hardwareInfo.Memory.TotalPhysicalMemory / (1024 * 1024 * 1024)} GB total, {hardwareInfo.Memory.MemoryUsagePercentage:F1}% verwendet
 Festplatten: {hardwareInfo.Disks.Count} Laufwerke
 Netzwerk: {hardwareInfo.NetworkInterfaces.Count} Schnittstellen
+Software: {hardwareInfo.Software.InstalledSoftware.Count} installierte Programme
+Prozesse: {hardwareInfo.Software.RunningProcesses.Count} laufende Prozesse
+Services: {hardwareInfo.Software.WindowsServices.Count} Windows-Services
 Uptime: {hardwareInfo.System.Uptime.Days} Tage, {hardwareInfo.System.Uptime.Hours:D2}:{hardwareInfo.System.Uptime.Minutes:D2}
-==========================================";
+===============================";
         
         _logger.LogInformation(summary);
     }
