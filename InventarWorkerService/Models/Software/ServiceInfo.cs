@@ -1,4 +1,4 @@
-namespace InventarWorkerService.Models;
+namespace InventarWorkerService.Models.Software;
 
 public record ServiceInfo
 {

@@ -1,3 +1,6 @@
+using InventarWorkerService.Models.Hardware;
+using InventarWorkerService.Models.Service;
+
 namespace InventarWorkerService.Models;
 
 public record HardwareInfo

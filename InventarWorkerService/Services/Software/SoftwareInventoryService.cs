@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.ServiceProcess;
 using Microsoft.Win32;
 using InventarWorkerService.Models;
+using InventarWorkerService.Models.Software;
 
 namespace InventarWorkerService.Services.Software;
 

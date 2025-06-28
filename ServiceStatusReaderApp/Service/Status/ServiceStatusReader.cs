@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using InventarWorkerService.Models;
+using InventarWorkerService.Models.Service;
 
 namespace ServiceStatusReaderApp.ServiceStatus;
 
@@ -19,7 +19,7 @@ public class ServiceStatusReader
         };
     }
 
-    public InventarWorkerService.Models.ServiceStatus? ReadStatus()
+    public InventarWorkerService.Models.Service.ServiceStatus? ReadStatus()
     {
         try
         {
@@ -27,7 +27,7 @@ public class ServiceStatusReader
             if (!File.Exists(statusFile)) return null;
             
             var json = File.ReadAllText(statusFile);
-            return JsonSerializer.Deserialize<InventarWorkerService.Models.ServiceStatus>(json, _jsonOptions);
+            return JsonSerializer.Deserialize<InventarWorkerService.Models.Service.ServiceStatus>(json, _jsonOptions);
         }
         catch (Exception ex)
         {
