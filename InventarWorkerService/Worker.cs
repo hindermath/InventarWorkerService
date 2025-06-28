@@ -1,8 +1,8 @@
 using InventarWorkerService.Models;
 using InventarWorkerService.Services;
-using InventarWorkerService.StatusService.FileBased;
 using System.Text.Json;
 using InventarWorkerService.Services.Hardware;
+using InventarWorkerService.Services.Status;
 
 namespace InventarWorkerService;
 
