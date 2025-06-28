@@ -1,0 +1,124 @@
+using Terminal.Gui;
+using InventarViewerApp.Services;
+
+namespace InventarViewerApp.UI
+{
+    public class HardwareView : FrameView
+    {
+        private readonly ApiService _apiService;
+        private readonly DatabaseService _dbService;
+        private ListView _listView;
+        private Label _statusLabel;
+        private Button _refreshButton;
+        private Button _saveButton;
+
+        public HardwareView(ApiService apiService, DatabaseService dbService) : base("Hardware Inventar")
+        {
+            _apiService = apiService;
+            _dbService = dbService;
+            
+            InitializeUI();
+        }
+
+        private void InitializeUI()
+        {
+            // Status-Label
+            _statusLabel = new Label("Bereit")
+            {
+                X = 0,
+                Y = 0,
+                Width = Dim.Fill()
+            };
+            
+            // ListView für Hardware-Daten
+            _listView = new ListView()
+            {
+                X = 0,
+                Y = 1,
+                Width = Dim.Fill(),
+                Height = Dim.Fill() - 3
+            };
+            
+            // Buttons
+            _refreshButton = new Button("Aktualisieren")
+            {
+                X = 0,
+                Y = Pos.Bottom(_listView),
+                Width = 15
+            };
+            
+            _refreshButton.Clicked += async () => await RefreshData();
+            
+            _saveButton = new Button("In DB speichern")
+            {
+                X = Pos.Right(_refreshButton) + 2,
+                Y = Pos.Bottom(_listView),
+                Width = 20
+            };
+            
+            _saveButton.Clicked += async () => await SaveToDatabase();
+            
+            Add(_statusLabel, _listView, _refreshButton, _saveButton);
+            
+            // Initial Daten laden
+            Task.Run(async () => await RefreshData());
+        }
+
+        public async Task RefreshData()
+        {
+            try
+            {
+                Application.MainLoop.Invoke(() => _statusLabel.Text = "Daten werden geladen...");
+                
+                var hardwareData = await _apiService.GetHardwareInventoryAsync();
+                
+                Application.MainLoop.Invoke(() => {
+                    var items = new string[hardwareData.Count];
+                    
+                    for (int i = 0; i < hardwareData.Count; i++)
+                    {
+                        var hw = hardwareData[i];
+                        items[i] = $"{hw.MachineName} - {hw.Processor} - {hw.Memory}";
+                    }
+                    
+                    _listView.SetSource(items);
+                    _statusLabel.Text = $"Hardware Daten geladen: {DateTime.Now}";
+                });
+            }
+            catch (Exception ex)
+            {
+                Application.MainLoop.Invoke(() => {
+                    _statusLabel.Text = $"Fehler: {ex.Message}";
+                    MessageBox.ErrorQuery("Fehler", $"Fehler beim Laden der Hardware-Daten: {ex.Message}", "OK");
+                });
+            }
+        }
+
+        private async Task SaveToDatabase()
+        {
+            try
+            {
+                Application.MainLoop.Invoke(() => _statusLabel.Text = "Speichere in Datenbank...");
+                
+                var hardwareData = await _apiService.GetHardwareInventoryAsync();
+                
+                foreach (var hw in hardwareData)
+                {
+                    await _dbService.SaveHardwareInventoryAsync(hw);
+                }
+                
+                Application.MainLoop.Invoke(() => {
+                    _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
+                    MessageBox.Query("Erfolg", $"{hardwareData.Count} Hardware-Einträge in Datenbank gespeichert", "OK");
+                });
+            }
+            catch (Exception ex)
+            {
+                Application.MainLoop.Invoke(() => {
+                    _statusLabel.Text = $"Fehler: {ex.Message}";
+                    MessageBox.ErrorQuery("Fehler", $"Fehler beim Speichern in die Datenbank: {ex.Message}", "OK");
+                });
+            }
+        }
+    }
+}
