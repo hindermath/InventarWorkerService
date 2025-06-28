@@ -326,4 +326,26 @@ Invoke-RestMethod -Uri "http://192.168.1.100:5000/api/inventar/full" -Method Get
 ### Mit Swagger
 Die Swagger UI ist unter `http://[IP-Adresse]:5000/swagger` verfügbar und bietet eine interaktive Dokumentation der API.
 
+## 🚀 Verwendung des .http Files
+1. **Speichern Sie die Datei** als `api-tests.http` in Ihrem Projekt
+2. **In JetBrains Rider** können Sie:
+    - Auf den grünen "Play"-Button neben jeder Anfrage klicken
+    - `Ctrl+Enter` (Windows/Linux) oder `Cmd+Enter` (macOS) verwenden
+    - Über das Kontextmenü "Run" auswählen
+
+### 📝 Anpassungen
+- **IP-Adressen**: Ändern Sie `192.168.1.100` zu Ihrer tatsächlichen Server-IP
+- **Port**: Falls Ihr Service auf einem anderen Port läuft, passen Sie `5000` entsprechend an
+- **Endpoints**: Fügen Sie weitere API-Endpunkte hinzu, falls vorhanden
+
+### 🔧 Erweiterte Features
+Das File nutzt:
+- **Variablen** (`@baseUrl`, `@remoteUrl`) für einfache Umgebungsumschaltung
+- **Dynamische Werte** (`{{$timestamp}}`) für eindeutige Request-IDs
+- **Mehrere Umgebungen** (lokal, remote)
+- **Verschiedene Content-Types** und Headers
+
+So können Sie systematisch alle Ihre API-Endpunkte testen!
+
+
 ### 📦 Fertig!
