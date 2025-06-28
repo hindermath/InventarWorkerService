@@ -141,18 +141,19 @@ public class Worker : BackgroundService
 
     private void LogInventorySummary(HardwareInfo hardwareInfo)
     {
-        var summary = $@"
-=== Inventar Zusammenfassung ===
-System: {hardwareInfo.System.MachineName} ({hardwareInfo.OperatingSystem.Platform})
-CPU: {hardwareInfo.Cpu.ProcessorName} ({hardwareInfo.Cpu.ProcessorCount} Kerne)
-Speicher: {hardwareInfo.Memory.TotalPhysicalMemory / (1024 * 1024 * 1024)} GB total, {hardwareInfo.Memory.MemoryUsagePercentage:F1}% verwendet
-Festplatten: {hardwareInfo.Disks.Count} Laufwerke
-Netzwerk: {hardwareInfo.NetworkInterfaces.Count} Schnittstellen
-Software: {hardwareInfo.Software.InstalledSoftware.Count} installierte Programme
-Prozesse: {hardwareInfo.Software.RunningProcesses.Count} laufende Prozesse
-Services: {hardwareInfo.Software.WindowsServices.Count} Windows-Services
-Uptime: {hardwareInfo.System.Uptime.Days} Tage, {hardwareInfo.System.Uptime.Hours:D2}:{hardwareInfo.System.Uptime.Minutes:D2}
-===============================";
+        var summary = $"""
+            === Inventar Zusammenfassung ===
+            System: {hardwareInfo.System.MachineName} ({hardwareInfo.OperatingSystem.Platform})
+            CPU: {hardwareInfo.Cpu.ProcessorName} ({hardwareInfo.Cpu.ProcessorCount} Kerne)
+            Speicher: {hardwareInfo.Memory.TotalPhysicalMemory / (1024 * 1024 * 1024)} GB total, {hardwareInfo.Memory.MemoryUsagePercentage:F1}% verwendet
+            Festplatten: {hardwareInfo.Disks.Count} Laufwerke
+            Netzwerk: {hardwareInfo.NetworkInterfaces.Count} Schnittstellen
+            Software: {hardwareInfo.Software.InstalledSoftware.Count} installierte Programme
+            Prozesse: {hardwareInfo.Software.RunningProcesses.Count} laufende Prozesse
+            Services: {hardwareInfo.Software.WindowsServices.Count} Windows-Services
+            Uptime: {hardwareInfo.System.Uptime.Days} Tage, {hardwareInfo.System.Uptime.Hours:D2}:{hardwareInfo.System.Uptime.Minutes:D2}
+            ===============================
+            """;
         
         _logger.LogInformation(summary);
     }
