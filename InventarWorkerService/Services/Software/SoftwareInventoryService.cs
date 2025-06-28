@@ -779,6 +779,20 @@ public class SoftwareInventoryService
 
     public async Task<object?> GetSoftwareInfoAsync()
     {
-        throw new NotImplementedException();
+        try
+        {
+            _logger.LogInformation("Sammle Software-Informationen...");
+        
+            var softwareInventory = await CollectSoftwareInventoryAsync();
+        
+            _logger.LogInformation("Software-Informationen erfolgreich gesammelt");
+        
+            return softwareInventory;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Fehler beim Sammeln der Software-Informationen");
+            return null;
+        }
     }
 }
