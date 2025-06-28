@@ -776,4 +776,9 @@ public class SoftwareInventoryService
     }
 
     #endregion
+
+    public async Task<object?> GetSoftwareInfoAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
