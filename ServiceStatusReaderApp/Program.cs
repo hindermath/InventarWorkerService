@@ -1,0 +1,71 @@
+﻿using ServiceStatusReaderApp.ServiceStatus;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        var reader = new ServiceStatusReader();
+        
+        Console.WriteLine("=== InventarWorkerService Status ===\n");
+        
+        // Service-Status prüfen
+        var isRunning = reader.IsServiceRunning();
+        Console.WriteLine($"Service läuft: {(isRunning ? "JA" : "NEIN")}");
+        
+        // Detaillierter Status
+        var status = reader.ReadStatus();
+        if (status != null)
+        {
+            Console.WriteLine($"Zustand: {status.State}");
+            Console.WriteLine($"Gestartet: {status.StartTime:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine($"Letzte Aktivität: {status.LastActivity:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine($"Verarbeitete Items: {status.ProcessedItems}");
+            if (!string.IsNullOrEmpty(status.LastError))
+            {
+                Console.WriteLine($"Letzter Fehler: {status.LastError}");
+            }
+        }
+        
+        Console.WriteLine();
+        
+        // Statistiken
+        var stats = reader.ReadStatistics();
+        if (stats != null)
+        {
+            Console.WriteLine("=== Statistiken ===");
+            Console.WriteLine($"Gesamt verarbeitete Items: {stats.TotalProcessedItems}");
+            Console.WriteLine($"Durchschnittliche Verarbeitungszeit: {stats.AverageProcessingTime:F2} ms");
+            Console.WriteLine($"Laufzeit: {stats.Uptime:dd\\.hh\\:mm\\:ss}");
+            Console.WriteLine($"Speicherverbrauch: {stats.MemoryUsage / 1024 / 1024:F2} MB");
+        }
+        
+        Console.WriteLine();
+        
+        // Letzte Logs
+        var logs = reader.ReadRecentLogs(10);
+        if (logs.Any())
+        {
+            Console.WriteLine("=== Letzte 10 Log-Einträge ===");
+            foreach (var log in logs)
+            {
+                Console.WriteLine(log);
+            }
+        }
+        
+        // Kontinuierliche Überwachung
+        if (args.Contains("--monitor"))
+        {
+            Console.WriteLine("\n=== Kontinuierliche Überwachung (Strg+C zum Beenden) ===");
+            while (true)
+            {
+                await Task.Delay(5000);
+                
+                var currentStatus = reader.ReadStatus();
+                if (currentStatus != null)
+                {
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] {currentStatus.State} - Items: {currentStatus.ProcessedItems}");
+                }
+            }
+        }
+    }
+}
