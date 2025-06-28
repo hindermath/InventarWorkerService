@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using InventarWorkerService.Models;
 
 namespace ServiceStatusReaderApp.ServiceStatus;
@@ -13,7 +14,8 @@ public class ServiceStatusReader
         _statusDirectory = statusDirectory;
         _jsonOptions = new JsonSerializerOptions 
         { 
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
         };
     }
 
