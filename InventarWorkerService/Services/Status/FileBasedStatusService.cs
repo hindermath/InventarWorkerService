@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using InventarWorkerService.Models;
 
 namespace InventarWorkerService.Services.Status;
@@ -14,7 +15,8 @@ public class FileBasedStatusService
         _jsonOptions = new JsonSerializerOptions 
         { 
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            WriteIndented = true
+            WriteIndented = true,
+            NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
         };
         
         Directory.CreateDirectory(_statusDirectory);
