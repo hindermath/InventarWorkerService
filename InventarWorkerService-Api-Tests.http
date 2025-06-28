@@ -1,0 +1,96 @@
+### REST API Tests für Inventar Service
+
+### 1. Service Status prüfen
+GET http://localhost:5000/api/inventar/status
+Accept: application/json
+
+###
+
+### 2. Hardware Inventar abrufen
+GET http://localhost:5000/api/inventar/hardware
+Accept: application/json
+
+###
+
+### 3. Software Inventar abrufen
+GET http://localhost:5000/api/inventar/software
+Accept: application/json
+
+###
+
+### 4. Komplettes Inventar abrufen
+GET http://localhost:5000/api/inventar/full
+Accept: application/json
+
+###
+
+### 5. Tests mit verschiedenen IP-Adressen
+### Lokaler Test
+GET http://127.0.0.1:5000/api/inventar/status
+Accept: application/json
+
+###
+
+### Netzwerk Test (Beispiel IP - anpassen nach Bedarf)
+GET http://192.168.1.100:5000/api/inventar/status
+Accept: application/json
+
+###
+
+### 6. Test mit Custom Headers
+GET http://localhost:5000/api/inventar/full
+Accept: application/json
+User-Agent: InventarClient/1.0
+X-Request-ID: test-{{$timestamp}}
+
+###
+
+### 7. Test der Swagger Dokumentation
+GET http://localhost:5000/swagger/index.html
+Accept: text/html
+
+###
+
+### 8. Gesundheitscheck (falls vorhanden)
+GET http://localhost:5000/health
+Accept: application/json
+
+###
+
+### 9. API Dokumentation
+GET http://localhost:5000/swagger/v1/swagger.json
+Accept: application/json
+
+###
+
+### 10. Performance Test - Mehrere Anfragen
+GET http://localhost:5000/api/inventar/hardware
+Accept: application/json
+
+###
+
+GET http://localhost:5000/api/inventar/software
+Accept: application/json
+
+###
+
+GET http://localhost:5000/api/inventar/status
+Accept: application/json
+
+###
+
+### Variablen für verschiedene Umgebungen
+@baseUrl = http://localhost:5000
+@remoteUrl = http://192.168.1.100:5000
+
+### Test mit Variablen
+GET {{baseUrl}}/api/inventar/full
+Accept: application/json
+
+###
+
+### Remote Test mit Variablen
+GET {{remoteUrl}}/api/inventar/status
+Accept: application/json
+
+###
