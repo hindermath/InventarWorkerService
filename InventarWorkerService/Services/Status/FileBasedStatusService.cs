@@ -47,4 +47,12 @@ public class FileBasedStatusService
         var json = JsonSerializer.Serialize(metrics, _jsonOptions);
         File.WriteAllText(metricsFile, json);
     }
+
+    public async Task WriteHardwareInventory(HardwareInfo hardwareInfo)
+    {
+        var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        var inventoryFile = Path.Combine(_statusDirectory, $"hardware_inventory_{timestamp}.json");
+        var json = JsonSerializer.Serialize(hardwareInfo, _jsonOptions);
+        await File.WriteAllTextAsync(inventoryFile, json);
+    }
 }
