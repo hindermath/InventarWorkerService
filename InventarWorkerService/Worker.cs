@@ -1,6 +1,5 @@
-using InventarWorkerService.Models;
-using InventarWorkerService.Services;
 using System.Text.Json;
+using InventarWorkerService.Models;
 using InventarWorkerService.Services.Hardware;
 using InventarWorkerService.Services.Status;
 
@@ -112,23 +111,24 @@ public class Worker : BackgroundService
     {
         try
         {
-            var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            var fileName = $"hardware_inventory_{timestamp}.json";
-            var filePath = Path.Combine("inventory", fileName);
-            
-            // Verzeichnis erstellen falls nicht vorhanden
-            Directory.CreateDirectory("inventory");
-            
-            var jsonOptions = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
-            
-            var jsonData = JsonSerializer.Serialize(hardwareInfo, jsonOptions);
-            await File.WriteAllTextAsync(filePath, jsonData);
-            
-            _logger.LogInformation("Hardware-Inventar gespeichert: {FilePath}", filePath);
+            // var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            // var fileName = $"hardware_inventory_{timestamp}.json";
+            // var filePath = Path.Combine("inventory", fileName);
+            //
+            // // Verzeichnis erstellen falls nicht vorhanden
+            // Directory.CreateDirectory("inventory");
+            //
+            // var jsonOptions = new JsonSerializerOptions
+            // {
+            //     WriteIndented = true,
+            //     PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            // };
+            //
+            // var jsonData = JsonSerializer.Serialize(hardwareInfo, jsonOptions);
+            // await File.WriteAllTextAsync(filePath, jsonData);
+            //
+            await _statusService.WriteHardwareInventory(hardwareInfo);
+            _logger.LogInformation("Hardware-Inventar gespeichert.");
             
             // Kurzzusammenfassung loggen
             LogHardwareSummary(hardwareInfo);
