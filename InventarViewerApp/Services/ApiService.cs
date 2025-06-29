@@ -35,27 +35,27 @@ namespace InventarViewerApp.Services
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
         }
 
-        public async Task<List<HardwareInventory>> GetHardwareInventoryAsync()
+        public async Task<HardwareInventory> GetHardwareInventoryAsync()
         {
             var request = new RestRequest("api/inventar/hardware", Method.Get);
             var response = await _client.ExecuteAsync(request);
             
             if (response.IsSuccessful)
             {
-                return JsonSerializer.Deserialize<List<HardwareInventory>>(response.Content, _jsonOptions);
+                return JsonSerializer.Deserialize<HardwareInventory>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
         }
 
-        public async Task<List<SoftwareInventory>> GetSoftwareInventoryAsync()
+        public async Task<SoftwareInventory> GetSoftwareInventoryAsync()
         {
             var request = new RestRequest("api/inventar/software", Method.Get);
             var response = await _client.ExecuteAsync(request);
             
             if (response.IsSuccessful)
             {
-                return JsonSerializer.Deserialize<List<SoftwareInventory>>(response.Content, _jsonOptions);
+                return JsonSerializer.Deserialize<SoftwareInventory>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
