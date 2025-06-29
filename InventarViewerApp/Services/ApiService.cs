@@ -1,4 +1,5 @@
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using RestSharp;
 using InventarViewerApp.Models;
 using InventarViewerApp.Models.Hardware;
@@ -9,10 +10,16 @@ namespace InventarViewerApp.Services
     public class ApiService
     {
         private readonly RestClient _client;
+        private readonly JsonSerializerOptions _jsonOptions;
 
         public ApiService(string baseUrl)
         {
             _client = new RestClient(baseUrl);
+            _jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
+            };
         }
 
         public async Task<object> GetServiceStatusAsync()
@@ -22,7 +29,7 @@ namespace InventarViewerApp.Services
             
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<object>(response.Content);
+                return JsonSerializer.Deserialize<object>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
@@ -35,7 +42,7 @@ namespace InventarViewerApp.Services
             
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<List<HardwareInventory>>(response.Content);
+                return JsonSerializer.Deserialize<List<HardwareInventory>>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
@@ -48,7 +55,7 @@ namespace InventarViewerApp.Services
             
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<List<SoftwareInventory>>(response.Content);
+                return JsonSerializer.Deserialize<List<SoftwareInventory>>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
@@ -61,7 +68,7 @@ namespace InventarViewerApp.Services
             
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<object>(response.Content);
+                return JsonSerializer.Deserialize<object>(response.Content, _jsonOptions);
             }
             
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
