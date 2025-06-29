@@ -1,98 +1,242 @@
 using Dapper;
-using Microsoft.Data.Sqlite;
-using InventarViewerApp.Models;
 using InventarViewerApp.Models.Hardware;
 using InventarViewerApp.Models.Software;
+using Microsoft.Data.Sqlite;
 
-namespace InventarViewerApp.Services
+namespace InventarViewerApp.Services;
+
+public class DatabaseService
 {
-    public class DatabaseService
+    private readonly string _connectionString;
+
+    public DatabaseService(string connectionString)
     {
-        private readonly string _connectionString;
+        _connectionString = connectionString;
+    }
 
-        public DatabaseService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+    public void InitializeDatabase()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        connection.Open();
 
-        public void InitializeDatabase()
+        var createTablesQuery = @"
+            CREATE TABLE IF NOT EXISTS Machines (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Name TEXT NOT NULL UNIQUE,
+                OperatingSystem TEXT,
+                LastSeen DATETIME,
+                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+            );
+
+            CREATE TABLE IF NOT EXISTS HardwareInventories (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                MachineId INTEGER NOT NULL,
+                ComputerName TEXT,
+                ComputerModel TEXT,
+                ComputerManufacturer TEXT,
+                Architecture TEXT,
+                ProcessorName TEXT,
+                ProcessorCores INTEGER,
+                ProcessorLogicalCores INTEGER,
+                ProcessorFrequency REAL,
+                TotalMemoryGB REAL,
+                AvailableMemoryGB REAL,
+                MemoryUsagePercent REAL,
+                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (MachineId) REFERENCES Machines(Id)
+            );
+
+            CREATE TABLE IF NOT EXISTS SoftwareInventories (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                MachineId INTEGER NOT NULL,
+                ProcessesJson TEXT,
+                InstalledSoftwareJson TEXT,
+                ServicesJson TEXT,
+                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (MachineId) REFERENCES Machines(Id)
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_machines_name ON Machines(Name);
+            CREATE INDEX IF NOT EXISTS idx_hardware_machine_created ON HardwareInventories(MachineId, CreatedAt);
+            CREATE INDEX IF NOT EXISTS idx_software_machine_created ON SoftwareInventories(MachineId, CreatedAt);
+        ";
+
+        connection.Execute(createTablesQuery);
+    }
+
+    public async Task<int> SaveOrUpdateMachineAsync(Machine machine)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string selectQuery = "SELECT Id FROM Machines WHERE Name = @Name";
+        var existingMachineId = await connection.QuerySingleOrDefaultAsync<int?>(selectQuery, new { machine.Name });
+
+        if (existingMachineId.HasValue)
         {
-            using (var connection = new SqliteConnection(_connectionString))
+            const string updateQuery = @"
+                UPDATE Machines 
+                SET OperatingSystem = @OperatingSystem, 
+                    LastSeen = @LastSeen 
+                WHERE Id = @Id";
+
+            await connection.ExecuteAsync(updateQuery, new
             {
-                connection.Open();
-                
-                connection.Execute(@"
-                    CREATE TABLE IF NOT EXISTS HardwareInventory (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        MachineName TEXT,
-                        Processor TEXT,
-                        Memory TEXT,
-                        DiskSpace TEXT,
-                        NetworkInfo TEXT,
-                        Timestamp TEXT
-                    );
-                    
-                    CREATE TABLE IF NOT EXISTS SoftwareInventory (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        OperatingSystem TEXT,
-                        InstalledApplications TEXT,
-                        Updates TEXT,
-                        Timestamp TEXT
-                    );
-                ");
-            }
-        }
+                machine.OperatingSystem,
+                machine.LastSeen,
+                Id = existingMachineId.Value
+            });
 
-        public async Task SaveHardwareInventoryAsync(HardwareInventory hardware)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-                
-                await connection.ExecuteAsync(@"
-                    INSERT INTO HardwareInventory (MachineName, Processor, Memory, DiskSpace, NetworkInfo, Timestamp)
-                    VALUES (@MachineName, @Processor, @Memory, @DiskSpace, @NetworkInfo, @Timestamp)",
-                    hardware);
-            }
+            return existingMachineId.Value;
         }
-
-        public async Task SaveSoftwareInventoryAsync(SoftwareInventory software)
+        else
         {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-                
-                await connection.ExecuteAsync(@"
-                    INSERT INTO SoftwareInventory (OperatingSystem, InstalledApplications, Updates, Timestamp)
-                    VALUES (@OperatingSystem, @InstalledApplications, @Updates, @Timestamp)",
-                    software);
-            }
-        }
+            const string insertQuery = @"
+                INSERT INTO Machines (Name, OperatingSystem, LastSeen, CreatedAt)
+                VALUES (@Name, @OperatingSystem, @LastSeen, @CreatedAt);
+                SELECT last_insert_rowid();";
 
-        public async Task<List<HardwareInventory>> GetHardwareInventoryAsync()
-        {
-            using (var connection = new SqliteConnection(_connectionString))
+            var machineId = await connection.QuerySingleAsync<int>(insertQuery, new
             {
-                await connection.OpenAsync();
-                
-                var result = await connection.QueryAsync<HardwareInventory>(
-                    "SELECT * FROM HardwareInventory ORDER BY Timestamp DESC");
-                
-                return result.AsList();
-            }
-        }
+                machine.Name,
+                machine.OperatingSystem,
+                machine.LastSeen,
+                CreatedAt = DateTime.UtcNow
+            });
 
-        public async Task<List<SoftwareInventory>> GetSoftwareInventoryAsync()
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-                
-                var result = await connection.QueryAsync<SoftwareInventory>(
-                    "SELECT * FROM SoftwareInventory ORDER BY Timestamp DESC");
-                
-                return result.AsList();
-            }
+            return machineId;
         }
     }
+
+    public async Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string insertQuery = @"
+            INSERT INTO HardwareInventories 
+            (MachineId, ComputerName, ComputerModel, ComputerManufacturer, Architecture,
+             ProcessorName, ProcessorCores, ProcessorLogicalCores, ProcessorFrequency,
+             TotalMemoryGB, AvailableMemoryGB, MemoryUsagePercent, CreatedAt)
+            VALUES 
+            (@MachineId, @ComputerName, @ComputerModel, @ComputerManufacturer, @Architecture,
+             @ProcessorName, @ProcessorCores, @ProcessorLogicalCores, @ProcessorFrequency,
+             @TotalMemoryGB, @AvailableMemoryGB, @MemoryUsagePercent, @CreatedAt)";
+
+        await connection.ExecuteAsync(insertQuery, new
+        {
+            MachineId = machineId,
+            hardware.System.MachineName,
+            hardware.System.UserName,
+            hardware.System.Architecture,
+            hardware.Cpu.ProcessorName,
+            hardware.Cpu.ProcessorCount,
+            hardware.Memory.TotalPhysicalMemory,
+            hardware.Memory.AvailablePhysicalMemory,
+            hardware.Memory.MemoryUsagePercentage,
+            CreatedAt = DateTime.UtcNow
+        });
+    }
+
+    public async Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string insertQuery = @"
+            INSERT INTO SoftwareInventories 
+            (MachineId, ProcessesJson, InstalledSoftwareJson, ServicesJson, CreatedAt)
+            VALUES 
+            (@MachineId, @ProcessesJson, @InstalledSoftwareJson, @ServicesJson, @CreatedAt)";
+
+        await connection.ExecuteAsync(insertQuery, new
+        {
+            MachineId = machineId,
+            ProcessesJson = System.Text.Json.JsonSerializer.Serialize(software.RunningProcesses),
+            InstalledSoftwareJson = System.Text.Json.JsonSerializer.Serialize(software.InstalledSoftware),
+            ServicesJson = System.Text.Json.JsonSerializer.Serialize(software.WindowsServices),
+            CreatedAt = DateTime.UtcNow
+        });
+    }
+
+    public async Task<List<Machine>> GetMachinesAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT * FROM Machines ORDER BY Name";
+        var machines = await connection.QueryAsync<Machine>(query);
+        return machines.ToList();
+    }
+
+    public async Task<Machine?> GetMachineByNameAsync(string machineName)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT * FROM Machines WHERE Name = @MachineName";
+        return await connection.QuerySingleOrDefaultAsync<Machine>(query, new { MachineName = machineName });
+    }
+
+    public async Task<HardwareInventory?> GetLatestHardwareInventoryAsync(int machineId)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = @"
+            SELECT * FROM HardwareInventories 
+            WHERE MachineId = @MachineId 
+            ORDER BY CreatedAt DESC 
+            LIMIT 1";
+
+        return await connection.QuerySingleOrDefaultAsync<HardwareInventory>(query, new { MachineId = machineId });
+    }
+
+    public async Task<SoftwareInventory?> GetLatestSoftwareInventoryAsync(int machineId)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = @"
+            SELECT * FROM SoftwareInventories 
+            WHERE MachineId = @MachineId 
+            ORDER BY CreatedAt DESC 
+            LIMIT 1";
+
+        var result = await connection.QuerySingleOrDefaultAsync<dynamic>(query, new { MachineId = machineId });
+
+        if (result == null)
+            return null;
+
+        return new SoftwareInventory
+        {
+            RunningProcesses = System.Text.Json.JsonSerializer.Deserialize<List<ProcessInfo>>(result.ProcessesJson), // ?? new(),
+            InstalledSoftware = System.Text.Json.JsonSerializer.Deserialize<List<SoftwareInfo>>(result.InstalledSoftwareJson), // ?? new(),
+            WindowsServices = System.Text.Json.JsonSerializer.Deserialize<List<ServiceInfo>>(result.ServicesJson) //?? new()
+        };
+    }
+
+    public async Task CleanupOldRecordsAsync(int daysToKeep = 30)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        var cutoffDate = DateTime.UtcNow.AddDays(-daysToKeep);
+
+        const string deleteHardwareQuery = "DELETE FROM HardwareInventories WHERE CreatedAt < @CutoffDate";
+        const string deleteSoftwareQuery = "DELETE FROM SoftwareInventories WHERE CreatedAt < @CutoffDate";
+
+        await connection.ExecuteAsync(deleteHardwareQuery, new { CutoffDate = cutoffDate });
+        await connection.ExecuteAsync(deleteSoftwareQuery, new { CutoffDate = cutoffDate });
+    }
+}
+
+// Machine-Modell für die Datenbank
+public class Machine
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string? OperatingSystem { get; set; }
+    public DateTime? LastSeen { get; set; }
+    public DateTime CreatedAt { get; set; }
 }
