@@ -1,0 +1,16 @@
+using InventarViewerApp.Models.Software;
+using InventarWorkerService.Models.Service;
+
+namespace InventarViewerApp.Models.Hardware;
+
+public record HardwareInventory
+{
+    public DateTime CollectionTime { get; set; } = DateTime.Now;
+    public SystemInfo System { get; set; } = new();
+    public CpuInfo Cpu { get; set; } = new();
+    public MemoryInfo Memory { get; set; } = new();
+    public List<DiskInfo> Disks { get; set; } = new();
+    public List<NetworkInfo> NetworkInterfaces { get; set; } = new();
+    public OsInfo OperatingSystem { get; set; } = new();
+    public SoftwareInventory Software { get; set; } = new(); // Neu hinzugefügt
+}
