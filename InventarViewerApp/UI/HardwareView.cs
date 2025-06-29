@@ -78,7 +78,7 @@ namespace InventarViewerApp.UI
                     for (int i = 0; i < hardwareData.Count; i++)
                     {
                         var hw = hardwareData[i];
-                        items[i] = $"{hw.MachineName} - {hw.Processor} - {hw.Memory}";
+                        items[i] = $"{hw.System.MachineName} - {hw.Cpu.ProcessorName} - {hw.Memory.TotalPhysicalMemory}";
                     }
                     
                     _listView.SetSource(items);
@@ -104,7 +104,8 @@ namespace InventarViewerApp.UI
                 
                 foreach (var hw in hardwareData)
                 {
-                    await _dbService.SaveHardwareInventoryAsync(hw);
+                    Machine? machine = await _dbService.GetMachineByNameAsync(hw.System.MachineName);
+                    await _dbService.SaveHardwareInventoryAsync(machine.Id, hw);
                 }
                 
                 Application.MainLoop.Invoke(() => {
