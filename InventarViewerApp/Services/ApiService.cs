@@ -1,6 +1,8 @@
 using Newtonsoft.Json;
 using RestSharp;
 using InventarViewerApp.Models;
+using InventarViewerApp.Models.Hardware;
+using InventarViewerApp.Models.Software;
 
 namespace InventarViewerApp.Services
 {
