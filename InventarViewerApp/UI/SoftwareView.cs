@@ -78,7 +78,7 @@ namespace InventarViewerApp.UI
                     for (int i = 0; i < softwareData.Count; i++)
                     {
                         var sw = softwareData[i];
-                        items[i] = $"{sw.OperatingSystem} - {sw.Updates}";
+                        items[i] = $"{sw.InstalledSoftware}";
                     }
                     
                     _listView.SetSource(items);
@@ -101,10 +101,12 @@ namespace InventarViewerApp.UI
                 Application.MainLoop.Invoke(() => _statusLabel.Text = "Speichere in Datenbank...");
                 
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
-                
-                foreach (var sw in softwareData)
+                var hardwareData = await _apiService.GetHardwareInventoryAsync();
+                hardwareData = hardwareData.Where(hw => hw.System.MachineName == Environment.MachineName).ToList();
+                foreach (var hw in hardwareData)
                 {
-                    await _dbService.SaveSoftwareInventoryAsync(sw);
+                    Machine? machine = await _dbService.GetMachineByNameAsync(hw.System.MachineName);
+                    await _dbService.SaveSoftwareInventoryAsync(machine.Id, hw.Software);
                 }
                 
                 Application.MainLoop.Invoke(() => {
