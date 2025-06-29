@@ -73,14 +73,7 @@ namespace InventarViewerApp.UI
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
                 
                 Application.MainLoop.Invoke(() => {
-                    var items = new string[hardwareData.Count];
-                    
-                    for (int i = 0; i < hardwareData.Count; i++)
-                    {
-                        var hw = hardwareData[i];
-                        items[i] = $"{hw.System.MachineName} - {hw.Cpu.ProcessorName} - {hw.Memory.TotalPhysicalMemory}";
-                    }
-                    
+                    var items = new string[] { $"{hardwareData.System.MachineName} - {hardwareData.Cpu.ProcessorName} - {hardwareData.Memory.TotalPhysicalMemory}" };
                     _listView.SetSource(items);
                     _statusLabel.Text = $"Hardware Daten geladen: {DateTime.Now}";
                 });
@@ -102,15 +95,12 @@ namespace InventarViewerApp.UI
                 
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
                 
-                foreach (var hw in hardwareData)
-                {
-                    Machine? machine = await _dbService.GetMachineByNameAsync(hw.System.MachineName);
-                    await _dbService.SaveHardwareInventoryAsync(machine.Id, hw);
-                }
-                
+                    Machine? machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                    await _dbService.SaveHardwareInventoryAsync(machine.Id, hardwareData);
+
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
-                    MessageBox.Query("Erfolg", $"{hardwareData.Count} Hardware-Einträge in Datenbank gespeichert", "OK");
+                    MessageBox.Query("Erfolg", $"Ermittelte Hardware in Datenbank gespeichert", "OK");
                 });
             }
             catch (Exception ex)
