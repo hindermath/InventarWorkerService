@@ -72,15 +72,10 @@ namespace InventarViewerApp.UI
                 
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
                 
-                Application.MainLoop.Invoke(() => {
-                    var items = new string[softwareData.Count];
-                    
-                    for (int i = 0; i < softwareData.Count; i++)
-                    {
-                        var sw = softwareData[i];
-                        items[i] = $"{sw.OperatingSystem} - {sw.Updates}";
-                    }
-                    
+                Application.MainLoop.Invoke(() =>
+                {
+                    var items = new string[] { $"{softwareData.InstalledSoftware}" };
+
                     _listView.SetSource(items);
                     _statusLabel.Text = $"Software Daten geladen: {DateTime.Now}";
                 });
@@ -101,15 +96,14 @@ namespace InventarViewerApp.UI
                 Application.MainLoop.Invoke(() => _statusLabel.Text = "Speichere in Datenbank...");
                 
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
-                
-                foreach (var sw in softwareData)
-                {
-                    await _dbService.SaveSoftwareInventoryAsync(sw);
-                }
-                
+                var hardwareData = await _apiService.GetHardwareInventoryAsync();
+
+                Machine? machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                await _dbService.SaveSoftwareInventoryAsync(machine.Id, hardwareData.Software);
+
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
-                    MessageBox.Query("Erfolg", $"{softwareData.Count} Software-Einträge in Datenbank gespeichert", "OK");
+                    MessageBox.Query("Erfolg", $"Software in Datenbank gespeichert", "OK");
                 });
             }
             catch (Exception ex)
