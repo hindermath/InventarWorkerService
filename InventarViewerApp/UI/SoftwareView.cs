@@ -74,9 +74,12 @@ namespace InventarViewerApp.UI
                 
                 Application.MainLoop.Invoke(() =>
                 {
-                    var items = new string[] { $"{softwareData.InstalledSoftware}" };
-
-                    _listView.SetSource(items);
+                    List<string> swItems = new List<string>();
+                    foreach (var item in softwareData.InstalledSoftware)
+                    {
+                        swItems.Add($"Name: {item.Name}, Version {item.Version}, Hersteller: {item.Publisher}");
+                    }
+                    _listView.SetSource(swItems);
                     _statusLabel.Text = $"Software Daten geladen: {DateTime.Now}";
                 });
             }
