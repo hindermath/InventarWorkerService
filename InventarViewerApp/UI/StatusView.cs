@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Terminal.Gui;
 using InventarViewerApp.Services;
+using InventarViewerApp.Models.Database;
 
 namespace InventarViewerApp.UI
 {
@@ -82,7 +83,7 @@ namespace InventarViewerApp.UI
                     
                     // JsonDocument in Dictionary deserialisieren für einfacheren Zugriff
                     var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
-                    
+
                     machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
                         ? statusData["machineName"].GetString()
                         : Environment.MachineName;
