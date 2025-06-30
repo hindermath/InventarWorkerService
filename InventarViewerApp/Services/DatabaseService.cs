@@ -38,8 +38,6 @@ public class DatabaseService
                 Architecture TEXT,
                 ProcessorName TEXT,
                 ProcessorCores INTEGER,
-                ProcessorLogicalCores INTEGER,
-                ProcessorFrequency REAL,
                 TotalMemoryGB REAL,
                 AvailableMemoryGB REAL,
                 MemoryUsagePercent REAL,
@@ -117,24 +115,25 @@ public class DatabaseService
         const string insertQuery = @"
             INSERT INTO HardwareInventories 
             (MachineId, ComputerName, ComputerModel, ComputerManufacturer, Architecture,
-             ProcessorName, ProcessorCores, ProcessorLogicalCores, ProcessorFrequency,
+             ProcessorName, ProcessorCores,
              TotalMemoryGB, AvailableMemoryGB, MemoryUsagePercent, CreatedAt)
             VALUES 
             (@MachineId, @ComputerName, @ComputerModel, @ComputerManufacturer, @Architecture,
-             @ProcessorName, @ProcessorCores, @ProcessorLogicalCores, @ProcessorFrequency,
+             @ProcessorName, @ProcessorCores,
              @TotalMemoryGB, @AvailableMemoryGB, @MemoryUsagePercent, @CreatedAt)";
 
         await connection.ExecuteAsync(insertQuery, new
         {
             MachineId = machineId,
-            hardware.System.MachineName,
-            hardware.System.UserName,
+            ComputerName = hardware.System.MachineName,
+            ComputerModel = hardware.System.Platform,
+            ComputerManufacturer = hardware.System.UserName,
             hardware.System.Architecture,
             hardware.Cpu.ProcessorName,
-            hardware.Cpu.ProcessorCount,
-            hardware.Memory.TotalPhysicalMemory,
-            hardware.Memory.AvailablePhysicalMemory,
-            hardware.Memory.MemoryUsagePercentage,
+            ProcessorCores = hardware.Cpu.ProcessorCount,
+            TotalMemoryGB = hardware.Memory.TotalPhysicalMemory,
+            AvailableMemoryGB = hardware.Memory.AvailablePhysicalMemory,
+            MemoryUsagePercent = hardware.Memory.MemoryUsagePercentage,
             CreatedAt = DateTime.UtcNow
         });
     }
