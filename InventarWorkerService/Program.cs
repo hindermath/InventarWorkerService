@@ -8,6 +8,15 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Windows Service Support hinzufügen
+builder.Services.AddWindowsService(options =>
+{
+    options.ServiceName = "InventarWorkerService";
+});
+
+// Systemd Support für Linux/Unix hinzufügen
+builder.Services.AddSystemd();
+
 // Services registrieren
 builder.Services.AddSingleton<HardwareInventoryService>();
 builder.Services.AddSingleton<SoftwareInventoryService>();
