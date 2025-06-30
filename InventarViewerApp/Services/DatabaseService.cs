@@ -1,6 +1,7 @@
 using Dapper;
 using InventarViewerApp.Models.Hardware;
 using InventarViewerApp.Models.Software;
+using InventarViewerApp.Models.Database;
 using Microsoft.Data.Sqlite;
 
 namespace InventarViewerApp.Services;
@@ -232,11 +233,12 @@ public class DatabaseService
 }
 
 // Machine-Modell für die Datenbank
-public class Machine
+// Namespace: InventarViewerApp.Models.Database
+/*public class Machine
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string? OperatingSystem { get; set; }
     public DateTime? LastSeen { get; set; }
     public DateTime CreatedAt { get; set; }
-}
+}*/
