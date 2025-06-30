@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Terminal.Gui;
 using InventarViewerApp.Services;
 
@@ -7,6 +9,7 @@ namespace InventarViewerApp.UI
     {
         private readonly ApiService _apiService;
         private readonly DatabaseService _databaseService;
+        private readonly JsonSerializerOptions _jsonOptions;
         private Label _statusLabel;
         private Label _contentLabel;
         private Button _refreshButton;
@@ -15,6 +18,13 @@ namespace InventarViewerApp.UI
         {
             _apiService = apiService;
             _databaseService = databaseService;
+
+            _jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
+            };
+
             
             InitializeUI();
         }
@@ -62,8 +72,28 @@ namespace InventarViewerApp.UI
                 
                 var status = await _apiService.GetServiceStatusAsync();
                 
+                // JSON-String deserialisieren, um Maschinennamen zu extrahieren
+                string machineName;
+                try
+                {
+                    // status zu string konvertieren und als JsonDocument deserialisieren
+                    var statusString = status.ToString();
+                    var statusDocument = JsonDocument.Parse(statusString);
+                    
+                    // JsonDocument in Dictionary deserialisieren für einfacheren Zugriff
+                    var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
+                    
+                    machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
+                        ? statusData["machineName"].GetString()
+                        : Environment.MachineName;
+                }
+                catch
+                {
+                    // Fallback auf lokalen Maschinennamen falls JSON-Deserialisierung fehlschlägt
+                    machineName = Environment.MachineName;
+                }
+                
                 // Maschinen-Information in die Datenbank speichern
-                var machineName = Environment.MachineName;
                 var machine = new Machine
                 {
                     Name = machineName,
