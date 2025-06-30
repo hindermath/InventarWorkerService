@@ -1,4 +1,4 @@
-# C#/.NET Core für Windows Services und Linux Daemons
+# C#/.NET Core für ServiceW füe indows, macOS und Linux
 ## 🖥️ Windows Services mit .NET:
 Du kannst die Worker Service-Projektvorlage verwenden (dotnet new worker).
 Durch Registrierung mit `UseWindowsService()` im HostBuilder kann der Dienst als Windows-Dienst installiert werden.
@@ -121,73 +121,84 @@ dotnet publish -c Release -r osx-x64 --self-contained false    # Für macOS
 Beispiele für die .service-Datei für Linux, eine .plist für macOS für den Autostart und das Ganze als Windows Service zu registrieren.
 Hier sind praktische Schritt-für-Schritt-Anleitung für alle drei Plattformen:
 
-### 🐧 Linux systemd .service-Datei
+### 🐧 Linux/Ubuntu systemd .service-Datei
 Erstelle die Datei:
 ```bash
-sudo nano /etc/systemd/system/myworker.service
+sudo nano /etc/systemd/system/inventarworkerservice.service
 ```
 Inhalt der Datei:
 ```ini
 [Unit]
-Description=Mein .NET Worker
+Description=Inventar Worker Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/dotnet /pfad/zu/MyWorkerService.dll
-WorkingDirectory=/pfad/zu
-Restart=always
-RestartSec=10
+Type=notify
+ExecStart=/pfad/zu/ihrer/app/InventarWorkerService
+Restart=on-failure
+RestartSec=5
 KillSignal=SIGINT
-SyslogIdentifier=myworker
-User=deinbenutzername
-Environment=DOTNET_ENVIRONMENT=Production
+SyslogIdentifier=inventarworkerservice
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://localhost:5000
 
 [Install]
 WantedBy=multi-user.target
 ```
 Dienst aktivieren und starten:
 ```bash
-sudo systemctl daemon-reexec
-sudo systemctl enable myworker
-sudo systemctl start myworker
-```
+# Service aktivieren und starten
+sudo systemctl enable inventarworkerservice.service
+sudo systemctl start inventarworkerservice.service
 
+# Status prüfen
+sudo systemctl status inventarworkerservice.service
+
+# Service stoppen
+sudo systemctl stop inventarworkerservice.service```
+```
 ### 🍏 macOS LaunchAgent .plist-Datei
 Datei erstellen unter:
 ```bash
-nano ~/Library/LaunchAgents/com.example.myworker.plist
+nano ~/Library/LaunchAgents/com.inventarworkerservice.plist
 ```
 Inhalt:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
-"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.example.myworker</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/dotnet</string>
-        <string>/Pfad/zu/MyWorkerService.dll</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>WorkingDirectory</key>
-    <string>/Pfad/zu</string>
-    <key>StandardOutPath</key>
-    <string>/tmp/myworker.log</string>
-    <key>StandardErrorPath</key>
-    <string>/tmp/myworker.err</string>
-</dict>
+   <dict>
+      <key>Label</key>
+      <string>com.inventarworkerservice</string>
+      <key>ProgramArguments</key>
+      <array>
+         <string>/pfad/zu/ihrer/app/InventarWorkerService</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>KeepAlive</key>
+      <true/>
+      <key>StandardOutPath</key>
+      <string>/var/log/inventarworkerservice.log</string>
+      <key>StandardErrorPath</key>
+      <string>/var/log/inventarworkerservice.error.log</string>
+   </dict>
 </plist>
 ```
 Agent aktivieren:
 ```bash
-launchctl load ~/Library/LaunchAgents/com.example.myworker.plist
-```
+# Service laden
+sudo launchctl load /Library/LaunchDaemons/com.inventarworkerservice.plist
+
+# Service starten
+sudo launchctl start com.inventarworkerservice
+
+# Service stoppen
+sudo launchctl stop com.inventarworkerservice
+
+# Service entladen
+sudo launchctl unload /Library/LaunchDaemons/com.inventarworkerservice.plist```
 
 ### 🪟 Windows Service registrieren
 Veröffentlichen:
@@ -195,7 +206,8 @@ Veröffentlichen:
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
 
-Installieren mit sc.exe:
+### Windows Service installieren
+#### Installieren mit sc.exe:
 ```cmd
 sc create "MyWorkerService" binPath= "C:\Pfad\zu\dotnet.exe C:\Pfad\zu\MyWorkerService.dll"
 ```
@@ -210,6 +222,57 @@ Starten:
 ```cmd
 net start MyWorkerService
 ```
+#### Service installieren
+```powershell
+sc create "InventarWorkerService" binpath="C:\Pfad\zu\Ihrer\App\InventarWorkerService.exe" start=auto
+```
+Service starten
+```powershell
+sc start "InventarWorkerService"
+```
+Service stoppen
+```powershell
+sc stop "InventarWorkerService"
+```
+Service deinstallieren
+```powershell
+sc delete "InventarWorkerService"
+```
+
+### FreeBSD (rc.d)
+Erstellen Sie ein rc.d-Skript `/usr/local/etc/rc.d/inventarworkerservice`:
+
+```bash
+#!/bin/sh
+
+# PROVIDE: inventarworkerservice
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="inventarworkerservice"
+rcvar="inventarworkerservice_enable"
+
+command="/pfad/zu/ihrer/app/InventarWorkerService"
+pidfile="/var/run/inventarworkerservice.pid"
+
+load_rc_config $name
+run_rc_command "$1"
+```
+Service in `/etc/rc.conf` aktivieren:
+```bash
+# In /etc/rc.conf hinzufügen
+inventarworkerservice_enable="YES"
+
+# Service starten
+service inventarworkerservice start
+
+# Service stoppen  
+service inventarworkerservice stop
+```
+Mit diesen Änderungen kann Ihre Anwendung als nativer Service auf allen genannten Betriebssystemen ausgeführt werden.
+
 
 ## Eine kompakte Beispielstruktur für dein plattformübergreifendes Worker-Service-Projekt inklusive Konfigs und Setup-Skripten für Windows, Linux und macOS.
 
