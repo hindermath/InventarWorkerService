@@ -6,13 +6,15 @@ namespace InventarViewerApp.UI
     public class StatusView : FrameView
     {
         private readonly ApiService _apiService;
+        private readonly DatabaseService _databaseService;
         private Label _statusLabel;
         private Label _contentLabel;
         private Button _refreshButton;
 
-        public StatusView(ApiService apiService) : base("Service Status")
+        public StatusView(ApiService apiService, DatabaseService databaseService) : base("Service Status")
         {
             _apiService = apiService;
+            _databaseService = databaseService;
             
             InitializeUI();
         }
@@ -60,8 +62,19 @@ namespace InventarViewerApp.UI
                 
                 var status = await _apiService.GetServiceStatusAsync();
                 
+                // Maschinen-Information in die Datenbank speichern
+                var machineName = Environment.MachineName;
+                var machine = new Machine
+                {
+                    Name = machineName,
+                    OperatingSystem = Environment.OSVersion.ToString(),
+                    LastSeen = DateTime.UtcNow
+                };
+                
+                var machineId = await _databaseService.SaveOrUpdateMachineAsync(machine);
+                
                 Application.MainLoop.Invoke(() => {
-                    _contentLabel.Text = $"Service: {status}\n\nAbgefragt: {DateTime.Now}";
+                    _contentLabel.Text = $"Service: {status}\nMaschine: {machineName} (ID: {machineId})\n\nAbgefragt: {DateTime.Now}";
                     _statusLabel.Text = $"Status abgefragt: {DateTime.Now}";
                 });
             }
