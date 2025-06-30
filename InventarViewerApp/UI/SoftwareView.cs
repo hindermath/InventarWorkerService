@@ -1,3 +1,4 @@
+using InventarViewerApp.Models.Database;
 using Terminal.Gui;
 using InventarViewerApp.Services;
 
