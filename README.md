@@ -272,7 +272,19 @@ service inventarworkerservice start
 service inventarworkerservice stop
 ```
 Mit diesen Änderungen kann Ihre Anwendung als nativer Service auf allen genannten Betriebssystemen ausgeführt werden.
+## Verwendung der CtrlWorkerServiceApp
+Die `CtrlWorkerServiceApp` ist eine einfache Konsolenanwendung, die den Worker Service startet und verwaltet. Sie können sie verwenden, um den Service zu starten, zu stoppen und den Status abzufragen.
+### Beispiel für die Verwendung
+```bash
+# Service starten
+CtrlWorkerServiceApp start
 
+# Service stoppen
+CtrlWorkerServiceApp stop
+
+# Hilfe anzeigen
+CtrlWorkerServiceApp --help
+```
 
 ## Eine kompakte Beispielstruktur für dein plattformübergreifendes Worker-Service-Projekt inklusive Konfigs und Setup-Skripten für Windows, Linux und macOS.
 
