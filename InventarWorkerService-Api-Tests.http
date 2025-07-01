@@ -1,4 +1,4 @@
-### REST API Tests für Inventar Service
+### REST API Tests für InventarWorkerService
 
 ### 1. Service Status prüfen
 GET http://localhost:5000/api/inventar/status
