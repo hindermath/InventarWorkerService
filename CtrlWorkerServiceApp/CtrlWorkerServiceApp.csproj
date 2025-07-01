@@ -9,6 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="System.ServiceProcess.ServiceController" Version="9.0.6" />
+      <PackageReference Include="Terminal.Gui" Version="1.19.0" />
+      <PackageReference Include="Terminal.Gui.Elmish" Version="2.2.1140" />
     </ItemGroup>
 
 </Project>
