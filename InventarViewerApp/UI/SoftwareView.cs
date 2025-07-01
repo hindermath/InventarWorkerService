@@ -102,8 +102,8 @@ namespace InventarViewerApp.UI
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
 
-                Machine? machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
-                await _dbService.SaveSoftwareInventoryAsync(machine.Id, hardwareData.Software);
+                var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                await _dbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
 
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
