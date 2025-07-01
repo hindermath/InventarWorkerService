@@ -51,6 +51,9 @@ public class DatabaseService
                 ProcessesJson TEXT,
                 InstalledSoftwareJson TEXT,
                 ServicesJson TEXT,
+                EnvironmentJson TEXT,
+                StartupProgramsJson TEXT,
+                RuntimeJson TEXT,
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (MachineId) REFERENCES Machines(Id)
             );
@@ -145,9 +148,9 @@ public class DatabaseService
 
         const string insertQuery = @"
             INSERT INTO SoftwareInventories 
-            (MachineId, ProcessesJson, InstalledSoftwareJson, ServicesJson, CreatedAt)
+            (MachineId, ProcessesJson, InstalledSoftwareJson, ServicesJson, EnvironmentJson, StartupProgramsJson, RuntimeJson, CreatedAt)
             VALUES 
-            (@MachineId, @ProcessesJson, @InstalledSoftwareJson, @ServicesJson, @CreatedAt)";
+            (@MachineId, @ProcessesJson, @InstalledSoftwareJson, @ServicesJson, @EnvironmentJson, @StartupProgramsJson, @RuntimeJson, @CreatedAt)";
 
         await connection.ExecuteAsync(insertQuery, new
         {
@@ -155,6 +158,9 @@ public class DatabaseService
             ProcessesJson = System.Text.Json.JsonSerializer.Serialize(software.RunningProcesses),
             InstalledSoftwareJson = System.Text.Json.JsonSerializer.Serialize(software.InstalledSoftware),
             ServicesJson = System.Text.Json.JsonSerializer.Serialize(software.WindowsServices),
+            EnvironmentJson = System.Text.Json.JsonSerializer.Serialize(software.EnvironmentVariables),
+            StartupProgramsJson = System.Text.Json.JsonSerializer.Serialize(software.StartupPrograms),
+            RuntimeJson = System.Text.Json.JsonSerializer.Serialize(software.Runtime),
             CreatedAt = DateTime.UtcNow
         });
     }
