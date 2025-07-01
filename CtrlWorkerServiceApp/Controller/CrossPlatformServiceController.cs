@@ -26,6 +26,10 @@ public class CrossPlatformServiceController
         {
             StartMacOSService();
         }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+        {
+            StartFreeBSDService();
+        }
         else
         {
             throw new PlatformNotSupportedException("Plattform wird nicht unterstützt");
@@ -45,6 +49,10 @@ public class CrossPlatformServiceController
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             StopMacOSService();
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+        {
+            StopFreeBSDService();
         }
     }
     
@@ -84,6 +92,16 @@ public class CrossPlatformServiceController
     private void StopMacOSService()
     {
         ExecuteCommand("launchctl", $"stop {_serviceName}");
+    }
+    
+    private void StartFreeBSDService()
+    {
+        ExecuteCommand("service", $"{_serviceName} start");
+    }
+    
+    private void StopFreeBSDService()
+    {
+        ExecuteCommand("service", $"{_serviceName} stop");
     }
     
     private void ExecuteCommand(string fileName, string arguments)
