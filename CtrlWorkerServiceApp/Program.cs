@@ -98,7 +98,7 @@ class Program
                 statusLabel.Text = "Service wird gestartet...";
                 Application.Refresh();
                 
-                var controller = new CrossPlatformServiceController("mein-service");
+                var controller = new CrossPlatformServiceController("InventarWorkerService");
                 controller.StartService();
                 
                 statusLabel.Text = "Service gestartet!";
@@ -119,7 +119,7 @@ class Program
                 statusLabel.Text = "Service wird gestoppt...";
                 Application.Refresh();
                 
-                var controller = new CrossPlatformServiceController("mein-service");
+                var controller = new CrossPlatformServiceController("InventarWorkerService");
                 controller.StopService();
                 
                 statusLabel.Text = "Service gestoppt!";
@@ -150,7 +150,7 @@ class Program
 
     static void ExecuteCommand(string[] args)
     {
-        var controller = new CrossPlatformServiceController("mein-service");
+        var controller = new CrossPlatformServiceController("InventarWorkerService");
         
         try
         {
