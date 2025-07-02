@@ -173,20 +173,85 @@ Inhalt:
       <string>com.inventarworkerservice</string>
       <key>ProgramArguments</key>
       <array>
-         <string>/pfad/zu/ihrer/app/InventarWorkerService</string>
+<string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/InventarWorkerService</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>KeepAlive</key>
       <true/>
+      <!-- Arbeitsverzeichnis -->
+      <key>WorkingDirectory</key>
+      <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/</string>
+    
+      <!-- Umgebungsvariablen -->
+      <key>EnvironmentVariables</key>
+      <dict>
+         <key>ASPNETCORE_ENVIRONMENT</key>
+         <string>Development</string>
+         <key>ASPNETCORE_URLS</key>
+         <string>http://localhost:5000;https://localhost:5001</string>
+
+         <!-- Detailliertes Logging aktivieren -->
+         <key>ASPNETCORE_LOGGING__LOGLEVEL__DEFAULT</key>
+         <string>Debug</string>
+         
+         <key>ASPNETCORE_LOGGING__LOGLEVEL__MICROSOFT</key>
+         <string>Information</string>
+         
+         <key>ASPNETCORE_LOGGING__LOGLEVEL__MICROSOFT.HOSTING.LIFETIME</key>
+         <string>Information</string>
+         
+         <!-- Console-Logging aktivieren -->
+         <key>ASPNETCORE_LOGGING__CONSOLE__INCLUDESCOPES</key>
+         <string>true</string>
+         
+         <!-- Swagger in allen Umgebungen aktivieren -->
+         <key>ASPNETCORE_ENABLE_SWAGGER</key>
+         <string>true</string>
+         
+         <!-- .NET Core Debug-Features -->
+         <key>DOTNET_ENVIRONMENT</key>
+         <string>Development</string>
+         
+         <!-- Zusätzliche Debug-Optionen -->
+         <key>DOTNET_PRINT_TELEMETRY_MESSAGE</key>
+         <string>false</string>
+         
+         <!-- Detaillierte Exception-Seiten -->
+         <key>ASPNETCORE_DETAILEDERRORS</key>
+         <string>true</string>
+         
+         <!-- Host-spezifische Debugging-URLs -->
+         <key>ASPNETCORE_HOSTINGSTARTUPASSEMBLIES</key>
+         <string></string>
+
+      </dict>
+
       <key>StandardOutPath</key>
-      <string>/var/log/inventarworkerservice.log</string>
+      <string>/Users/thorstenhindermann/Library/Logs/inventarworkerservice.log</string>
       <key>StandardErrorPath</key>
-      <string>/var/log/inventarworkerservice.error.log</string>
+      <string>/Users/thorstenhindermann/Library/Logs/inventarworkerservice.error.log</string>
+
+      <!-- Benutzer (nur für LaunchDaemons) -->
+      <key>UserName</key>
+      <string>thorstenhindermann</string>
+
+      <!-- Netzwerk-Abhängigkeiten -->
+      <key>LaunchOnlyOnce</key>
+      <false/>
    </dict>
 </plist>
 ```
-Agent aktivieren:
+Wenn die Datei erstellt ist, kannst du den Daemon aktivieren und starten üer die Einstellngen, da sich der Agendt dort gleich regisztriert und aufgelistet wird. Dieser wird in der Standardeinstellung bem Anmelden gleich mit gestartet.
+Erreichbar unter Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & Erweiterungen.
+![alt text](image-1.png)
+
+Über den Schalter rechts vom Namen kann der Agendt aktiviert oder deaktiviert werden. Aktuell im Bild ist dieser deaktiviert. Dies kann vom Nutzer selbst gesteuert werden.
+![alt text](image.png)
+
+#### Aktivieren des macOS Daemons
+Agent aktivieren von der Kommandozeile:
+!Achtung: Hier musss man sich mit der man-Page des `launchctl`-Befehls vertraut machen, da es hier Unterschiede gibt.
 ```bash
 # Service laden
 sudo launchctl load ~/Library/LaunchDaemons/com.inventarworkerservice.plist
@@ -200,6 +265,7 @@ sudo launchctl stop com.inventarworkerservice
 # Service entladen
 sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist```
 ```
+
 
 ### Windows Service
 ### 🪟 Windows Service  installieren und registrieren
