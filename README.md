@@ -243,10 +243,12 @@ Inhalt:
 </plist>
 ```
 Wenn die Datei erstellt ist, kannst du den Daemon aktivieren und starten üer die Einstellngen, da sich der Agendt dort gleich regisztriert und aufgelistet wird. Dieser wird in der Standardeinstellung bem Anmelden gleich mit gestartet.
-Erreichbar unter Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & Erweiterungen.
+Erreichbar unter `Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & Erweiterungen`.
+
 ![alt text](image-1.png)
 
 Über den Schalter rechts vom Namen kann der Agendt aktiviert oder deaktiviert werden. Aktuell im Bild ist dieser deaktiviert. Dies kann vom Nutzer selbst gesteuert werden.
+
 ![alt text](image.png)
 
 #### Aktivieren des macOS Daemons
