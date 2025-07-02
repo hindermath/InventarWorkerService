@@ -189,7 +189,7 @@ Inhalt:
 Agent aktivieren:
 ```bash
 # Service laden
-sudo launchctl load /Library/LaunchDaemons/com.inventarworkerservice.plist
+sudo launchctl load ~/Library/LaunchDaemons/com.inventarworkerservice.plist
 
 # Service starten
 sudo launchctl start com.inventarworkerservice
@@ -198,15 +198,15 @@ sudo launchctl start com.inventarworkerservice
 sudo launchctl stop com.inventarworkerservice
 
 # Service entladen
-sudo launchctl unload /Library/LaunchDaemons/com.inventarworkerservice.plist```
+sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist```
+```
 
-### 🪟 Windows Service registrieren
+### Windows Service
+### 🪟 Windows Service  installieren und registrieren
 Veröffentlichen:
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
-
-### Windows Service installieren
 #### Installieren mit sc.exe:
 ```cmd
 sc create "MyWorkerService" binPath= "C:\Pfad\zu\dotnet.exe C:\Pfad\zu\MyWorkerService.dll"
