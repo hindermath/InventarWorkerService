@@ -1,6 +1,7 @@
 using Dapper;
 using InventarViewerApp.Models.Hardware;
 using InventarViewerApp.Models.Software;
+using InventarViewerApp.Models.Database;
 using Microsoft.Data.Sqlite;
 
 namespace InventarViewerApp.Services;
@@ -37,8 +38,6 @@ public class DatabaseService
                 Architecture TEXT,
                 ProcessorName TEXT,
                 ProcessorCores INTEGER,
-                ProcessorLogicalCores INTEGER,
-                ProcessorFrequency REAL,
                 TotalMemoryGB REAL,
                 AvailableMemoryGB REAL,
                 MemoryUsagePercent REAL,
@@ -52,6 +51,9 @@ public class DatabaseService
                 ProcessesJson TEXT,
                 InstalledSoftwareJson TEXT,
                 ServicesJson TEXT,
+                EnvironmentJson TEXT,
+                StartupProgramsJson TEXT,
+                RuntimeJson TEXT,
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (MachineId) REFERENCES Machines(Id)
             );
@@ -116,24 +118,25 @@ public class DatabaseService
         const string insertQuery = @"
             INSERT INTO HardwareInventories 
             (MachineId, ComputerName, ComputerModel, ComputerManufacturer, Architecture,
-             ProcessorName, ProcessorCores, ProcessorLogicalCores, ProcessorFrequency,
+             ProcessorName, ProcessorCores,
              TotalMemoryGB, AvailableMemoryGB, MemoryUsagePercent, CreatedAt)
             VALUES 
             (@MachineId, @ComputerName, @ComputerModel, @ComputerManufacturer, @Architecture,
-             @ProcessorName, @ProcessorCores, @ProcessorLogicalCores, @ProcessorFrequency,
+             @ProcessorName, @ProcessorCores,
              @TotalMemoryGB, @AvailableMemoryGB, @MemoryUsagePercent, @CreatedAt)";
 
         await connection.ExecuteAsync(insertQuery, new
         {
             MachineId = machineId,
-            hardware.System.MachineName,
-            hardware.System.UserName,
+            ComputerName = hardware.System.MachineName,
+            ComputerModel = hardware.System.Platform,
+            ComputerManufacturer = hardware.System.UserName,
             hardware.System.Architecture,
             hardware.Cpu.ProcessorName,
-            hardware.Cpu.ProcessorCount,
-            hardware.Memory.TotalPhysicalMemory,
-            hardware.Memory.AvailablePhysicalMemory,
-            hardware.Memory.MemoryUsagePercentage,
+            ProcessorCores = hardware.Cpu.ProcessorCount,
+            TotalMemoryGB = hardware.Memory.TotalPhysicalMemory,
+            AvailableMemoryGB = hardware.Memory.AvailablePhysicalMemory,
+            MemoryUsagePercent = hardware.Memory.MemoryUsagePercentage,
             CreatedAt = DateTime.UtcNow
         });
     }
@@ -145,9 +148,9 @@ public class DatabaseService
 
         const string insertQuery = @"
             INSERT INTO SoftwareInventories 
-            (MachineId, ProcessesJson, InstalledSoftwareJson, ServicesJson, CreatedAt)
+            (MachineId, ProcessesJson, InstalledSoftwareJson, ServicesJson, EnvironmentJson, StartupProgramsJson, RuntimeJson, CreatedAt)
             VALUES 
-            (@MachineId, @ProcessesJson, @InstalledSoftwareJson, @ServicesJson, @CreatedAt)";
+            (@MachineId, @ProcessesJson, @InstalledSoftwareJson, @ServicesJson, @EnvironmentJson, @StartupProgramsJson, @RuntimeJson, @CreatedAt)";
 
         await connection.ExecuteAsync(insertQuery, new
         {
@@ -155,6 +158,9 @@ public class DatabaseService
             ProcessesJson = System.Text.Json.JsonSerializer.Serialize(software.RunningProcesses),
             InstalledSoftwareJson = System.Text.Json.JsonSerializer.Serialize(software.InstalledSoftware),
             ServicesJson = System.Text.Json.JsonSerializer.Serialize(software.WindowsServices),
+            EnvironmentJson = System.Text.Json.JsonSerializer.Serialize(software.EnvironmentVariables),
+            StartupProgramsJson = System.Text.Json.JsonSerializer.Serialize(software.StartupPrograms),
+            RuntimeJson = System.Text.Json.JsonSerializer.Serialize(software.Runtime),
             CreatedAt = DateTime.UtcNow
         });
     }
@@ -232,11 +238,12 @@ public class DatabaseService
 }
 
 // Machine-Modell für die Datenbank
-public class Machine
+// Namespace: InventarViewerApp.Models.Database
+/*public class Machine
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string? OperatingSystem { get; set; }
     public DateTime? LastSeen { get; set; }
     public DateTime CreatedAt { get; set; }
-}
+}*/

@@ -73,8 +73,28 @@ namespace InventarViewerApp.UI
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
                 
                 Application.MainLoop.Invoke(() => {
-                    var items = new string[] { $"{hardwareData.System.MachineName} - {hardwareData.Cpu.ProcessorName} - {hardwareData.Memory.TotalPhysicalMemory}" };
-                    _listView.SetSource(items);
+                    List<string> hwItems = new List<string>();
+                    hwItems.Add($"System:");
+                    hwItems.Add($"Name: {hardwareData.System.MachineName}, Arch: {hardwareData.System.Architecture}, Domain: {hardwareData.System.Domain}");
+                    hwItems.Add("Operating System:");
+                    hwItems.Add($"Arch: {hardwareData.OperatingSystem.Architecture}, Version: {hardwareData.OperatingSystem.Version}, Servicepack: ({hardwareData.OperatingSystem.ServicePack})");
+                    hwItems.Add($"Desc: {hardwareData.OperatingSystem.Description}, Platform: {hardwareData.OperatingSystem.Platform}, 64 Bit: {hardwareData.OperatingSystem.Is64Bit}");
+                    hwItems.Add("CPU:");
+                    hwItems.Add($"Arch: {hardwareData.Cpu.Architecture}, Procesors: {hardwareData.Cpu.ProcessorCount}");
+                    hwItems.Add("Memory:");
+                    hwItems.Add($"Memory: {hardwareData.Memory.TotalPhysicalMemory / (1024 * 1024)} MB");
+                    hwItems.Add($"Disk:");
+                    foreach (var disk in hardwareData.Disks)
+                    {
+                        hwItems.Add($"  {disk.DriveName} - {disk.TotalSize / (1024 * 1024 * 1024)} GB");
+                    }
+                    hwItems.Add($"Network:");
+                    foreach (var nic in hardwareData.NetworkInterfaces)
+                    {
+                        hwItems.Add($"  {nic.Name} - {nic.IpAddresses} ({nic.MacAddress})");
+                    }
+
+                    _listView.SetSource(hwItems);
                     _statusLabel.Text = $"Hardware Daten geladen: {DateTime.Now}";
                 });
             }
@@ -95,8 +115,8 @@ namespace InventarViewerApp.UI
                 
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
                 
-                    Machine? machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
-                    await _dbService.SaveHardwareInventoryAsync(machine.Id, hardwareData);
+                var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                await _dbService.SaveHardwareInventoryAsync(machine.Id, hardwareData);
 
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";

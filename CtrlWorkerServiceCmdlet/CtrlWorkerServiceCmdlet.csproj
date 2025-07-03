@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.ServiceProcess.ServiceController" Version="9.0.6" />
+      <ProjectReference Include="..\CtrlWorkerServiceApp\CtrlWorkerServiceApp.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Management.Automation" Version="7.5.2" />
       <PackageReference Include="Terminal.Gui" Version="1.19.0" />
-      <PackageReference Include="Terminal.Gui.Elmish" Version="2.2.1140" />
     </ItemGroup>
 
 </Project>

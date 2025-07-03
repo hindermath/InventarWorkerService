@@ -1,3 +1,4 @@
+using InventarViewerApp.Models.Database;
 using Terminal.Gui;
 using InventarViewerApp.Services;
 
@@ -74,9 +75,12 @@ namespace InventarViewerApp.UI
                 
                 Application.MainLoop.Invoke(() =>
                 {
-                    var items = new string[] { $"{softwareData.InstalledSoftware}" };
-
-                    _listView.SetSource(items);
+                    List<string> swItems = new List<string>();
+                    foreach (var item in softwareData.InstalledSoftware)
+                    {
+                        swItems.Add($"Name: {item.Name}, Version {item.Version}, Hersteller: {item.Publisher}");
+                    }
+                    _listView.SetSource(swItems);
                     _statusLabel.Text = $"Software Daten geladen: {DateTime.Now}";
                 });
             }
@@ -98,8 +102,8 @@ namespace InventarViewerApp.UI
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
 
-                Machine? machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
-                await _dbService.SaveSoftwareInventoryAsync(machine.Id, hardwareData.Software);
+                var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                await _dbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
 
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
