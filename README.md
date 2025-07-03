@@ -1,63 +1,4 @@
 # InventarWorkerService mit .NET9/C# für Service für Windows, macOS und Linux
-## 🖥️ Windows Services mit .NET:
-Du kannst die Worker Service-Projektvorlage verwenden (dotnet new worker).
-Durch Registrierung mit `UseWindowsService()` im HostBuilder kann der Dienst als Windows-Dienst installiert werden.
-Mithilfe von sc create oder PowerShell kannst du den Service auf deinem System einrichten.
-
-## 🐧 Linux Daemons:
-
-Auf Linux nutzt du ebenfalls den Worker Service.
-Statt über Windows-Dienste läuft der Prozess hier als systemd-Service.
-Du erstellst dazu eine .service-Datei und platzierst sie unter `/etc/systemd/system/`.
-
-### Beispiel für systemd-Datei:
-```ini
-[Unit]
-Description=Mein .NET Worker
-[Service]
-ExecStart=/usr/bin/dotnet /pfad/zu/meinerApp.dll
-Restart=always
-User=meinuser
-[Install]
-WantedBy=multi-user.target
-```
-Einmal eingerichtet, kannst du sie mit sudo systemctl start|stop|enable meineApp steuern.
-Das Coole ist: Du schreibst deine Anwendung einmal in C#, und durch das plattformunabhängige Hosting-Modell von .NET läuft sie auf beiden Systemen stabil und performant. Wenn du willst, zeige ich dir gerne, wie du das mit einem kleinen Worker-Projekt praktisch umsetzt.
-
-
-Mit C# und .NET Core (bzw. dem modernen .NET ab Version 5+) kannst du nicht nur Windows Services und Linux Daemons, sondern auch macOS Daemons bauen. Das Ganze läuft über das flexible Hosting-Modell von .NET, das plattformübergreifend funktioniert.
-
-🛠️ Was ist möglich?
-Windows Services: Mit UseWindowsService() kannst du deine App als Dienst registrieren. Installation per sc.exe oder PowerShell.
-
-Linux Daemons: Über systemd und .service-Dateien steuerbar.
-
-## macOS Daemons: 
-macOS nutzt sogenannte launchd agents/daemons (launchctl), und du kannst deine App mithilfe einer .plist-Datei einbinden.
-
-### 🧾 Beispiel: LaunchAgent .plist für macOS
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.example.dotnetapp</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/dotnet</string>
-        <string>/Pfad/zu/deinerApp.dll</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-</dict>
-</plist>
-```
-Diese Datei speicherst du z.B. unter `~/Library/LaunchAgents/com.example.dotnetapp.plist` und aktivierst sie via launchctl load.
-Das Beste daran: Dein Code bleibt praktisch gleich — der Host und die Konfiguration passen sich der jeweiligen Plattform an. Falls du magst, kann ich dir gern ein Beispielprojekt mit Worker-Template zeigen, das unter allen drei Systemen sauber läuft. Lust? 😄1
 
 ## Generelles Beispielprojekt
 Gerne! Hier ist ein kleines Beispiel für ein plattformübergreifendes .NET Worker Service-Projekt, das unter Windows als Service, unter Linux als systemd-Daemon und unter macOS als launchd-Daemon laufen kann.
@@ -267,43 +208,72 @@ sudo launchctl stop com.inventarworkerservice
 # Service entladen
 sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist```
 ```
-
-
 ### Windows Service
-### 🪟 Windows Service  installieren und registrieren
+### 🪟 Windows Service installieren und registrieren
 Veröffentlichen:
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
 #### Installieren mit sc.exe:
+Das Terminal, die PowerShell oder Kommandozeile als Administrator öffnen und den Service mit `sc.exe` registrieren.
 ```cmd
-sc create "MyWorkerService" binPath= "C:\Pfad\zu\dotnet.exe C:\Pfad\zu\MyWorkerService.dll"
+sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe"
 ```
+Die erfolgreiche Installation wird mit `[SC] CreateService SUCCESS` oder `[SC] CreateService ERFOLG` bestätigt.
+
+Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+![img_1.png](img_1.png)
+
 Alternativ via PowerShell mit New-Service:
 ```powershell
-New-Service -Name "MyWorkerService" `
-            -BinaryPathName "C:\Pfad\zu\dotnet.exe C:\Pfad\zu\MyWorkerService.dll" `
--DisplayName "My Worker Service" `
--StartupType Automatic
+New-Service -Name "InventarWorkerService" `
+            -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe" `
+            -DisplayName "InventarWorkerService" `
+            -StartupType Automatic
 ```
 Starten:
 ```cmd
-net start MyWorkerService
+net start InventarWorkerService
 ```
-#### Service installieren
-```powershell
-sc create "InventarWorkerService" binpath="C:\Pfad\zu\Ihrer\App\InventarWorkerService.exe" start=auto
+Der erfolgreiche Start wird mit der folgenden Meldung quittiert:
+```cmd
+SERVICE_NAME: InventarWorkerService
+        TYPE               : 10  WIN32_OWN_PROCESS
+        STATE              : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x7d0
+        PID                : 48224
+        FLAGS              :
 ```
-Service starten
-```powershell
-sc start "InventarWorkerService"
-```
+Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+![img_2.png](img_2.png)
+Außerdem kann in der Ansicht der Dienst auch von diesem Dienstprogramm gestartet werden.
+![img_4.png](img_4.png)
+
 Service stoppen
-```powershell
+```cmd
 sc stop "InventarWorkerService"
 ```
+Der erfolgreiche Start wird mit der folgenden Meldung quittiert:
+```cmd
+SERVICE_NAME: InventarWorkerService
+        TYPE               : 10  WIN32_OWN_PROCESS
+        STATE              : 3  STOP_PENDING
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+```
+Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+![img_3.png](img_3.png)
+Außerdem kann in der Ansicht der Dienst auch von diesem Dienstprogramm gestoppt oder neu gestartet werden.
+![img_5.png](img_5.png)
 Service deinstallieren
-```powershell
+```cmd
 sc delete "InventarWorkerService"
 ```
 
@@ -340,6 +310,7 @@ service inventarworkerservice start
 service inventarworkerservice stop
 ```
 Mit diesen Änderungen kann Ihre Anwendung als nativer Service auf allen genannten Betriebssystemen ausgeführt werden.
+
 ## Verwendung der CtrlWorkerServiceApp
 Die `CtrlWorkerServiceApp` ist eine einfache Konsolenanwendung, die den Worker Service startet und verwaltet. Sie können sie verwenden, um den Service zu starten, zu stoppen und den Status abzufragen.
 ### Beispiel für die Verwendung
