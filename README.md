@@ -206,7 +206,7 @@ sudo launchctl start com.inventarworkerservice
 sudo launchctl stop com.inventarworkerservice
 
 # Service entladen
-sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist```
+sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist
 ```
 ### Windows Service
 ### 🪟 Windows Service installieren und registrieren
@@ -215,25 +215,29 @@ Veröffentlichen:
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
 #### Installieren mit sc.exe:
-Das Terminal, die PowerShell oder Kommandozeile als Administrator öffnen und den Service mit `sc.exe` registrieren.
+Das Terminal, die PowerShell oder Kommandozeile als Administratorbzw. mit Administrator-Rechten öffnen und den Service mit `sc.exe` registrieren.
 ```cmd
 sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe"
 ```
 Die erfolgreiche Installation wird mit `[SC] CreateService SUCCESS` oder `[SC] CreateService ERFOLG` bestätigt.
 
 Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+
 ![img_1.png](img_1.png)
 
 Alternativ via PowerShell mit New-Service:
 ```powershell
 New-Service -Name "InventarWorkerService" `
             -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe" `
-            -DisplayName "InventarWorkerService" `
-            -StartupType Automatic
+            -DisplayName "InventarWorkerService"
 ```
+Die erfolgreiche Installation wird der folgenden Meldung bestätigt:
+
+![img_6.png](img_6.png)
+
 Starten:
 ```cmd
-net start InventarWorkerService
+sc start InventarWorkerService
 ```
 Der erfolgreiche Start wird mit der folgenden Meldung quittiert:
 ```cmd
@@ -248,9 +252,16 @@ SERVICE_NAME: InventarWorkerService
         PID                : 48224
         FLAGS              :
 ```
+Oder
+```powershell
+Start-Service -Name "InventarWorkerService"
+```
 Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+
 ![img_2.png](img_2.png)
+
 Außerdem kann in der Ansicht der Dienst auch von diesem Dienstprogramm gestartet werden.
+
 ![img_4.png](img_4.png)
 
 Service stoppen
@@ -268,10 +279,20 @@ SERVICE_NAME: InventarWorkerService
         CHECKPOINT         : 0x0
         WAIT_HINT          : 0x0
 ```
+
+Oder
+
+```powershell
+Stop-Service -Name "InventarWorkerService"
+```
 Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar wie im Bild dargestellt:
+
 ![img_3.png](img_3.png)
+
 Außerdem kann in der Ansicht der Dienst auch von diesem Dienstprogramm gestoppt oder neu gestartet werden.
+
 ![img_5.png](img_5.png)
+
 Service deinstallieren
 ```cmd
 sc delete "InventarWorkerService"
