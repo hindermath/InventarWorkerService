@@ -80,7 +80,7 @@ Restart=on-failure
 RestartSec=5
 KillSignal=SIGINT
 SyslogIdentifier=inventarworkerservice
-User=www-data
+User=<aktueller_benutzername>
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=ASPNETCORE_URLS=http://localhost:5000
 
@@ -97,7 +97,7 @@ sudo systemctl start inventarworkerservice.service
 sudo systemctl status inventarworkerservice.service
 
 # Service stoppen
-sudo systemctl stop inventarworkerservice.service```
+sudo systemctl stop inventarworkerservice.service
 ```
 ### 🍏 macOS LaunchAgent .plist-Datei
 Datei erstellen unter:
