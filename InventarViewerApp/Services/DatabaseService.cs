@@ -61,6 +61,28 @@ public class DatabaseService
             CREATE INDEX IF NOT EXISTS idx_machines_name ON Machines(Name);
             CREATE INDEX IF NOT EXISTS idx_hardware_machine_created ON HardwareInventories(MachineId, CreatedAt);
             CREATE INDEX IF NOT EXISTS idx_software_machine_created ON SoftwareInventories(MachineId, CreatedAt);
+
+            -- This SQL script creates a view named `hardwareinventory` that aggregates hardware information 
+            -- from the `Machines` and `HardwareInventories` tables.
+            -- It includes machine ID, name, architecture, processor cores, total memory, 
+            -- available memory, and memory usage percentage.
+            CREATE VIEW IF NOT EXISTS hardwareinventory AS
+            SELECT
+                m.ID AS MachineID,
+                m.Name AS MachineName,
+                h.Architecture,
+                h.ProcessorCores,
+                ROUND(h.TotalMemoryGB / 1024 /1024 /1024,2) AS TotalMemoryGB,
+                Round(h.AvailableMemoryGB / 1024 / 1024 / 1024,2) AS AvailableMemoryGB,
+                ROUND(h.MemoryUsagePercent,2) AS MemoryUsagePercent
+            FROM 
+                Machines m
+            INNER JOIN 
+                    HardwareInventories h ON m.ID = h.MachineID
+            GROUP BY 
+                m.Name
+            ORDER BY 
+                m.Name ASC;
         ";
 
         connection.Execute(createTablesQuery);
