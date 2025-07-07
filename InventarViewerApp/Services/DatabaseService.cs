@@ -20,7 +20,7 @@ public class DatabaseService
         using var connection = new SqliteConnection(_connectionString);
         connection.Open();
 
-        var createTablesQuery = @"
+        var createTablesAndViewsQuery = @"
             CREATE TABLE IF NOT EXISTS Machines (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Name TEXT NOT NULL UNIQUE,
@@ -85,7 +85,7 @@ public class DatabaseService
                 m.Name ASC;
         ";
 
-        connection.Execute(createTablesQuery);
+        connection.Execute(createTablesAndViewsQuery);
     }
 
     public async Task<int> SaveOrUpdateMachineAsync(Machine machine)
@@ -258,14 +258,3 @@ public class DatabaseService
         await connection.ExecuteAsync(deleteSoftwareQuery, new { CutoffDate = cutoffDate });
     }
 }
-
-// Machine-Modell für die Datenbank
-// Namespace: InventarViewerApp.Models.Database
-/*public class Machine
-{
-    public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string? OperatingSystem { get; set; }
-    public DateTime? LastSeen { get; set; }
-    public DateTime CreatedAt { get; set; }
-}*/
