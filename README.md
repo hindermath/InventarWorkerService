@@ -196,17 +196,19 @@ Erreichbar unter `Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & E
 Agent aktivieren von der Kommandozeile:
 !Achtung: Hier musss man sich mit der man-Page des `launchctl`-Befehls vertraut machen, da es hier Unterschiede gibt.
 ```bash
-# Service laden
-sudo launchctl load ~/Library/LaunchDaemons/com.inventarworkerservice.plist
+# Ins Home-Verzeichnis wechseln
+cd ~
 
-# Service starten
-sudo launchctl start com.inventarworkerservice
+# Service laden und starten
+launchctl load Library/LaunchDaemons/com.inventarworkerservice.plist
 
-# Service stoppen
-sudo launchctl stop com.inventarworkerservice
+# Erfolg prüfen
+launchctl list | grep inventarworkerservice
+# Beispielausgabe:
+16498	0	com.inventarworkerservice
 
-# Service entladen
-sudo launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist
+# Service stoppen und entladen
+launchctl unload Library/LaunchDaemons/com.inventarworkerservice.plist
 ```
 ### Windows Service
 ### 🪟 Windows Service installieren und registrieren
