@@ -194,13 +194,12 @@ Erreichbar unter `Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & E
 
 #### Aktivieren des macOS Daemons
 Agent aktivieren von der Kommandozeile:
-!Achtung: Hier musss man sich mit der man-Page des `launchctl`-Befehls vertraut machen, da es hier Unterschiede gibt.
 ```bash
-# Ins Home-Verzeichnis wechseln
+# Optional: In das Home-Verzeichnis wechseln
 cd ~
 
 # Service laden und starten
-launchctl load Library/LaunchDaemons/com.inventarworkerservice.plist
+launchctl load ~/Library/LaunchDaemons/com.inventarworkerservice.plist
 
 # Erfolg prüfen
 launchctl list | grep inventarworkerservice
@@ -208,7 +207,11 @@ launchctl list | grep inventarworkerservice
 16498	0	com.inventarworkerservice
 
 # Service stoppen und entladen
-launchctl unload Library/LaunchDaemons/com.inventarworkerservice.plist
+launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist
+# Erfolg prüfen
+launchctl list | grep inventarworkerservice
+# Beispielausgabe:
+<keine Ausgabe>
 ```
 ### Windows Service
 ### 🪟 Windows Service installieren und registrieren
