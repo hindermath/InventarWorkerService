@@ -86,12 +86,12 @@ public class CrossPlatformServiceController
     
     private void StartMacOSService()
     {
-        ExecuteCommand("launchctl", $"start com.{_serviceName.ToLower()}");
+        ExecuteCommand("launchctl", $"load {Environment.GetEnvironmentVariable("HOME")}/Library/LaunchAgents/com.{_serviceName.ToLower()}.plist");
     }
     
     private void StopMacOSService()
     {
-        ExecuteCommand("launchctl", $"stop com.{_serviceName.ToLower()}");
+        ExecuteCommand("launchctl", $"unload {Environment.GetEnvironmentVariable("HOME")}/Library/LaunchAgents/com.{_serviceName.ToLower()}.plist");
     }
     
     private void StartFreeBSDService()
