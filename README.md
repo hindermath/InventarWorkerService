@@ -192,29 +192,32 @@ Erreichbar unter `Systemeinstellungen > Allgemeinstellungen > Anmeldeobjekte & E
 
 ![alt text](image.png)
 
-#### Aktivieren des macOS Daemons
-Agent aktivieren von der Kommandozeile:
+#### Aktivieren des macOS Daemons über Kommandozeile:
+Der Dienst kann wie folgt über die Kommandozeile aktiviert werden. Das ist aber keine permanente Aktivierung, sondern nur für die aktuell angemeldete Sitzung.
+##### Optional: In das Home-Verzeichnis wechseln
 ```bash
-# Optional: In das Home-Verzeichnis wechseln
 cd ~
-
-# Service laden und starten
+```
+##### Service laden und starten
+```bash
 launchctl load ~/Library/LaunchDaemons/com.inventarworkerservice.plist
 
 # Erfolg prüfen
 launchctl list | grep inventarworkerservice
 # Beispielausgabe:
 16498	0	com.inventarworkerservice
-
-# Service stoppen und entladen
+```
+##### Service stoppen und entladen
+```bash
 launchctl unload ~/Library/LaunchDaemons/com.inventarworkerservice.plist
+
 # Erfolg prüfen
 launchctl list | grep inventarworkerservice
 # Beispielausgabe:
 <keine Ausgabe>
 ```
 ### Windows Service
-### 🪟 Windows Service installieren und registrieren
+#### 🪟 Windows Service installieren und registrieren
 Veröffentlichen:
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained false
