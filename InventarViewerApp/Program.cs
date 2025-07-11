@@ -1,4 +1,5 @@
-﻿using Terminal.Gui;
+﻿using System.Reflection;
+using Terminal.Gui;
 using InventarViewerApp.Services;
 using InventarViewerApp.UI;
 
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace InventarViewerApp;
 
@@ -46,8 +48,57 @@ class Program
         // Services konfigurieren
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        // Erweiterte Swagger-Konfiguration
+        builder.Services.AddSwaggerGen(options =>
+        {
+            options.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "Inventar API",
+                Version = "v1",
+                Description = "Eine API zur Verwaltung von Inventardaten",
+                Contact = new OpenApiContact
+                {
+                    Name = "Support Team",
+                    Email = "support@beispiel.com"
+                }
+            });
 
+            // XML-Kommentare für detaillierte Dokumentation
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            if (File.Exists(xmlPath))
+            {
+                options.IncludeXmlComments(xmlPath);
+            }
+
+            // Beispiel für Authorization (falls benötigt)
+            /*
+            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "JWT Authorization header using the Bearer scheme",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer"
+            });
+
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    new string[] {}
+                }
+            });
+            */
+        });
+        
         // DatabaseService registrieren
         var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
         builder.Services.AddSingleton<DatabaseService>(provider => 
@@ -73,12 +124,19 @@ class Program
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
-                options.RoutePrefix = string.Empty; // Swagger UI unter der Root-URL verfügbar machen
+                options.RoutePrefix = "swagger"; // Swagger UI unter /swagger verfügbar
+                options.DocExpansion(DocExpansion.None); // Alle Endpunkte initial eingeklappt
+                options.DisplayRequestDuration(); // Zeigt Antwortzeiten an
+                options.EnableDeepLinking(); // Ermöglicht Deep-Links zu spezifischen Endpunkten
+                options.EnableFilter(); // Aktiviert Suchfilter
+                options.ShowExtensions(); // Zeigt Vendor-Extensions
+                options.EnableValidator(); // Aktiviert Validator
             });
         }
 
         app.UseCors();
         app.UseRouting();
+        app.MapOpenApi();
         app.MapControllers();
 
         // Datenbank initialisieren
