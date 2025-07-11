@@ -133,21 +133,16 @@ class Program
                 options.EnableValidator(); // Aktiviert Validator
             });
         }
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
-        app.UseCors();
+        app.UseCors("AllowAll");
         app.UseRouting();
-        app.MapOpenApi();
+        app.UseAuthorization();
         app.MapControllers();
-
-        // Datenbank initialisieren
-        using (var scope = app.Services.CreateScope())
-        {
-            var dbService = scope.ServiceProvider.GetRequiredService<DatabaseService>();
-            dbService.InitializeDatabase();
-        }
-
-        Console.WriteLine("Inventar API läuft auf http://localhost:5000");
-        Console.WriteLine("Swagger UI verfügbar unter http://localhost:5000/swagger");
+        
+        //Console.WriteLine("Inventar API läuft auf http://localhost:5000");
+        //Console.WriteLine("Swagger UI verfügbar unter http://localhost:5000/swagger");
         
         await app.RunAsync();
     }
