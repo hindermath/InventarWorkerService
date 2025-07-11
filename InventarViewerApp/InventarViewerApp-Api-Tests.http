@@ -1,0 +1,25 @@
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines
+
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/hardware-overview
+
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/AirvonThorsten/hardware
+
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/THORSTENSDEVBOX/software
+
+###
+
+### GET request to example server
+GET http://localhost:5000/swagger/index.html
+Accept: text/html
+
+###
