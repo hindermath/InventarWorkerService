@@ -19,7 +19,13 @@ GET http://localhost:5000/api/inventar/machines/THORSTENSDEVBOX/software
 ###
 
 ### GET request to example server
-GET http://localhost:5000/swagger/index.html
-Accept: text/html
+GET http://localhost:5000/v1/swagger.json
+Accept: application/json
+
+###
+
+### GET request to example server
+GET http://localhost:5000/openapi/v1.json
+Accept: application/json
 
 ###
