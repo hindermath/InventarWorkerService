@@ -46,16 +46,7 @@ class Program
         // Services konfigurieren
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(
-            options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "Inventar API",
-                    Version = "v1",
-                    Description = "API zum Verwalten von Hardware- und Software-Inventar"
-                });
-            });
+        builder.Services.AddSwaggerGen();
 
         // DatabaseService registrieren
         var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
@@ -79,7 +70,11 @@ class Program
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+                options.RoutePrefix = string.Empty; // Swagger UI unter der Root-URL verfügbar machen
+            });
         }
 
         app.UseCors();
