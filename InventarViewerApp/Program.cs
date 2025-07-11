@@ -141,15 +141,25 @@ class Program
             });
         }
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+            options.RoutePrefix = "swagger"; // Swagger UI unter /swagger verfügbar
+            options.DocExpansion(DocExpansion.None); // Alle Endpunkte initial eingeklappt
+            options.DisplayRequestDuration(); // Zeigt Antwortzeiten an
+            options.EnableDeepLinking(); // Ermöglicht Deep-Links zu spezifischen Endpunkten
+            options.EnableFilter(); // Aktiviert Suchfilter
+            options.ShowExtensions(); // Zeigt Vendor-Extensions
+            options.EnableValidator(); // Aktiviert Validator
+        });
 
         app.UseCors("AllowAll");
         app.UseRouting();
         app.UseAuthorization();
         app.MapControllers();
         
-        //Console.WriteLine("Inventar API läuft auf http://localhost:5000");
-        //Console.WriteLine("Swagger UI verfügbar unter http://localhost:5000/swagger");
+        Console.WriteLine("Inventar API läuft auf http://localhost:5000");
+        Console.WriteLine("Swagger UI verfügbar unter http://localhost:5000/swagger");
         
         await app.RunAsync();
     }
