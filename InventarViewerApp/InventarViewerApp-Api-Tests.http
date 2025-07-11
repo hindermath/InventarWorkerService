@@ -9,23 +9,17 @@ GET http://localhost:5000/api/inventar/hardware-overview
 ###
 
 ### GET request to example server
-GET http://localhost:5000/api/inventar/machines/AirvonThorsten/hardware
+GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/hardware
 
 ###
 
 ### GET request to example server
-GET http://localhost:5000/api/inventar/machines/THORSTENSDEVBOX/software
+GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
 
 ###
 
 ### GET request to example server
-GET http://localhost:5000/v1/swagger.json
-Accept: application/json
-
-###
-
-### GET request to example server
-GET http://localhost:5000/openapi/v1.json
+GET http://localhost:5000/swagger/index.html
 Accept: application/json
 
 ###
