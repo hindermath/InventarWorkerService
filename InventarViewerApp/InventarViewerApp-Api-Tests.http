@@ -20,6 +20,12 @@ GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
 
 ### GET request to example server
 GET http://localhost:5000/swagger/index.html
+Accept: text/html
+
+###
+
+### GET request to example server
+GET http://localhost:5000/swagger/v1/swagger.json
 Accept: application/json
 
 ###
