@@ -117,6 +117,13 @@ class Program
 
         var app = builder.Build();
 
+        // Datenbank initialisieren
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbService = scope.ServiceProvider.GetRequiredService<DatabaseService>();
+            dbService.InitializeDatabase();
+        }
+
         // Pipeline konfigurieren
         if (app.Environment.IsDevelopment())
         {
