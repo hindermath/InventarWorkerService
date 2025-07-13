@@ -10,7 +10,7 @@ namespace InventarViewerApp.API;
 
 public static class WebApi
 {
-    public static async Task StartWebApiAsync(string[] args)
+    public static async Task WebApiAsync(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
