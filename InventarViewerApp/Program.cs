@@ -12,7 +12,7 @@ class Program
         // Prüfen ob Web API Modus gewünscht ist
         if (args.Length > 0 && args[0] == "--api")
         {
-            await StartWebApiAsync(args);
+            await WebApiAsync(args);
             return;
         }
 
