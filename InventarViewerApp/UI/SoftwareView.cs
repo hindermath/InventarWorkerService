@@ -1,6 +1,6 @@
 using InventarViewerApp.Models.Database;
-using Terminal.Gui;
 using InventarViewerApp.Services;
+using Terminal.Gui;
 
 namespace InventarViewerApp.UI
 {

@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using InventarViewerApp.Services;
 using InventarViewerApp.Models.Database;
+using InventarViewerApp.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventarViewerApp.Controllers;
 

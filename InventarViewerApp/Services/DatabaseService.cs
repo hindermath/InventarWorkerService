@@ -1,7 +1,7 @@
 using Dapper;
+using InventarViewerApp.Models.Database;
 using InventarViewerApp.Models.Hardware;
 using InventarViewerApp.Models.Software;
-using InventarViewerApp.Models.Database;
 using Microsoft.Data.Sqlite;
 
 namespace InventarViewerApp.Services;
