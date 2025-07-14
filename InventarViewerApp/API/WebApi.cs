@@ -6,9 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace InventarViewerApp.API;
+namespace InventarViewerApp;
 
-public static class WebApi
+partial class WebApi
 {
     public static async Task WebApiAsync(string[] args)
     {
