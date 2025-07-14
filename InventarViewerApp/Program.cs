@@ -1,4 +1,6 @@
-﻿namespace InventarViewerApp;
+﻿using static InventarViewerApp.WebApi;
+
+namespace InventarViewerApp;
 
 partial class Program
 {
@@ -7,7 +9,7 @@ partial class Program
         // Prüfen ob Web API Modus gewünscht ist
         if (args.Length > 0 && args[0] == "--api")
         {
-            await WebApi.WebApiAsync(args);
+            await WebApiAsync(args);
             return;
         }
 
