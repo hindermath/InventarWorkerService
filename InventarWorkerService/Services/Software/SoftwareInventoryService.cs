@@ -1,9 +1,8 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
-using Microsoft.Win32;
-using InventarWorkerService.Models;
 using InventarWorkerService.Models.Software;
+using Microsoft.Win32;
 
 namespace InventarWorkerService.Services.Software;
 
