@@ -6,7 +6,7 @@ namespace InventarViewerApp;
 
 partial class Program
 {
-    private static void StartTerminalGuiApplication(ApiService apiService, DatabaseService dbService)
+    private static void TuiApp(ApiService apiService, DatabaseService dbService)
     {
         // Terminal.GUI initialisieren
         Application.Init();
