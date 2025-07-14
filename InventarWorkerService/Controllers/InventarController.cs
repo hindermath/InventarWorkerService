@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using InventarWorkerService.Services.Hardware;
 using InventarWorkerService.Services.Software;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventarWorkerService.Controllers;
 
