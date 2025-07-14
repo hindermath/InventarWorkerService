@@ -15,6 +15,6 @@ partial class Program
         var (apiService, dbService) = InitializeServices();
         
         // Terminal.GUI Anwendung starten
-        StartTerminalGuiApplication(apiService, dbService);
+        TuiApp(apiService, dbService);
     }
 }
