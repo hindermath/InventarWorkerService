@@ -237,7 +237,8 @@ Alternativ via PowerShell mit New-Service:
 ```powershell
 New-Service -Name "InventarWorkerService" `
             -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe" `
-            -DisplayName "InventarWorkerService"
+            -DisplayName "InventarWorkerService" `
+            -StartupType Manual
 ```
 Die erfolgreiche Installation wird der folgenden Meldung bestätigt:
 
