@@ -206,7 +206,7 @@ public class DatabaseService
         return await connection.QuerySingleOrDefaultAsync<Machine>(query, new { MachineName = machineName });
     }
 
-    public async Task<HardwareInventory?> GetLatestHardwareInventoryAsync(int machineId)
+    public async Task<HardwareInventories?> GetLatestHardwareInventoryAsync(int machineId)
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -217,10 +217,10 @@ public class DatabaseService
             ORDER BY CreatedAt DESC 
             LIMIT 1";
 
-        return await connection.QuerySingleOrDefaultAsync<HardwareInventory>(query, new { MachineId = machineId });
+        return await connection.QuerySingleOrDefaultAsync<HardwareInventories>(query, new { MachineId = machineId });
     }
 
-    public async Task<SoftwareInventory?> GetLatestSoftwareInventoryAsync(int machineId)
+    public async Task<SoftwareInventories?> GetLatestSoftwareInventoryAsync(int machineId)
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -231,16 +231,24 @@ public class DatabaseService
             ORDER BY CreatedAt DESC 
             LIMIT 1";
 
-        var result = await connection.QuerySingleOrDefaultAsync<dynamic>(query, new { MachineId = machineId });
+        //return await connection.QuerySingleOrDefaultAsync<SoftwareInventories>(query, new { MachineId = machineId });
+        
+        var result = await connection.QuerySingleOrDefaultAsync<SoftwareInventories>(query, new { MachineId = machineId });
 
         if (result == null)
             return null;
 
-        return new SoftwareInventory
+        return new SoftwareInventories
         {
-            RunningProcesses = System.Text.Json.JsonSerializer.Deserialize<List<ProcessInfo>>(result.ProcessesJson), // ?? new(),
-            InstalledSoftware = System.Text.Json.JsonSerializer.Deserialize<List<SoftwareInfo>>(result.InstalledSoftwareJson), // ?? new(),
-            WindowsServices = System.Text.Json.JsonSerializer.Deserialize<List<ServiceInfo>>(result.ServicesJson) //?? new()
+            Id = result.Id,
+            MachineId = result.MachineId,
+            ProcessesJson = result.ProcessesJson, //System.Text.Json.JsonSerializer.Deserialize<List<ProcessInfo>>(result.ProcessesJson),
+            InstalledSoftwareJson = result.InstalledSoftwareJson, //System.Text.Json.JsonSerializer.Deserialize<List<SoftwareInfo>>(result.InstalledSoftwareJson),
+            ServicesJson = result.ServicesJson, //System.Text.Json.JsonSerializer.Deserialize<List<ServiceInfo>>(result.ServicesJson)
+            EnvironmentJson = result.EnvironmentJson, //System.Text.Json.JsonSerializer.Deserialize<List<EnvironmentVariable>>(result.EnvironmentJson),
+            StartupProgramsJson = result.StartupProgramsJson, //System.Text.Json.JsonSerializer.Deserialize<List<StartupProgram>>(result.StartupProgramsJson),
+            RuntimeJson = result.RuntimeJson, //System.Text.Json.JsonSerializer.Deserialize<RuntimeInfo>(result.RuntimeJson),
+            CreatedAt = result.CreatedAt
         };
     }
 
