@@ -1,6 +1,6 @@
 namespace InventarViewerApp.Models.Database;
 
-public record SoftwareInventoryRecord(
+public record SoftwareInventories(
     int Id,
     int MachineId,
     string? ProcessesJson,
