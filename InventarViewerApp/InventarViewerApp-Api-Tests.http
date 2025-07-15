@@ -4,7 +4,7 @@ GET http://localhost:5000/api/inventar/machines
 ###
 
 ### GET request to example server
-GET http://localhost:5000/api/inventar/hardware-overview
+GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F
 
 ###
 
@@ -15,6 +15,11 @@ GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/hardware
 
 ### GET request to example server
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
+
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/hardware-overview
 
 ###
 
