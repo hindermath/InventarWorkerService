@@ -1,6 +1,6 @@
 namespace InventarViewerApp.Models.Database;
 
-public record HardwareInventoryRecord(
+public record HardwareInventories(
     int Id,
     int MachineId,
     string? ComputerName,
