@@ -8,6 +8,8 @@
 ## Alternative: Wenn das NuGet-Paket nicht global verfügbar ist
 ```powershell
 # Paket-Pfad explizit laden
-$terminalGuiPath = "$env:HOME/.nuget/packages/terminal.gui/1.19.0/lib/Terminal.Gui.dll"
+$terminalGuiPath = "$env:HOME/.nuget/packages/terminal.gui/1.19.0/lib/net8.0/Terminal.Gui.dll"
+$nStackPath = "$env:HOME/.nuget/packages/nstack.core/1.1.1/lib/netstandard2.0/NStack.dll"
 Add-Type -Path $terminalGuiPath
+Add-Type -Path $nStackPath
 ```
