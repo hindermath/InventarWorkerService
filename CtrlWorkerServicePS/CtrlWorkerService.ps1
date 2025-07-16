@@ -87,8 +87,6 @@ function Stop-WorkerService {
 
 # Terminal.Gui PowerShell Script für Service Controller
 
-# Lade das Terminal.Gui Assembly
-Add-Type -AssemblyName "Terminal.Gui"
 
 # Funktion zur Service-Steuerung (vereinfacht)
 function Start-ServiceControl {
@@ -117,6 +115,11 @@ function Start-TerminalGui {
     param(
         [string]$ServiceName = "mein-service"
     )
+    # Lade das Terminal.Gui Assembly
+    $terminalGuiPath = "$env:HOME/.nuget/packages/terminal.gui/1.19.0/lib/net8.0/Terminal.Gui.dll"
+    $nStackPath = "$env:HOME/.nuget/packages/nstack.core/1.1.1/lib/netstandard2.0/NStack.dll"
+    Add-Type -Path $terminalGuiPath
+    Add-Type -Path $nStackPath
 
     try {
         # Terminal.Gui initialisieren
@@ -285,4 +288,4 @@ function Invoke-WorkerServiceControl {
 }
 
 # Beispielaufruf
-# Invoke-WorkerServiceControl -Tui
+Invoke-WorkerServiceControl -Tui
