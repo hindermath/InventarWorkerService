@@ -109,6 +109,83 @@ public class DatabaseService
             WHERE rn = 1
             ORDER BY CreatedAt DESC;
 
+            -- Statistics view for ComputerModel distribution
+            CREATE VIEW IF NOT EXISTS ComputerModelStatisticsView AS
+            SELECT
+                ComputerModel,
+                COUNT(*) as AnzahlMaschinen,
+                COUNT(DISTINCT MachineId) as EinzigartigeMaschinen,
+                ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz,
+                MIN(CreatedAt) as ErsteErfassung,
+                MAX(CreatedAt) as LetzteErfassung
+            FROM LatestHardwareInventoriesView
+            WHERE ComputerModel IS NOT NULL
+              AND ComputerModel != ''
+            GROUP BY ComputerModel
+            ORDER BY AnzahlMaschinen DESC;
+
+            -- Statistics view for architecture distribution
+            CREATE VIEW IF NOT EXISTS ArchitectureStatisticsView AS
+            SELECT
+                Architecture,
+                COUNT(*) as AnzahlMaschinen,
+                COUNT(DISTINCT MachineId) as EinzigartigeMaschinen,
+                ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz,
+                AVG(ProcessorCores) as DurchschnittlicheKerne,
+                ROUND(AVG(TotalMemoryGB / 1024 /1024 /1024),2) as DurchschnittlicherSpeicherGB,
+                MIN(CreatedAt) as ErsteErfassung,
+                MAX(CreatedAt) as LetzteErfassung
+            FROM LatestHardwareInventoriesView
+            WHERE Architecture IS NOT NULL
+              AND Architecture != ''
+            GROUP BY Architecture
+            ORDER BY AnzahlMaschinen DESC;
+
+            -- Combined statistics view for ComputerModel and Architecture
+            CREATE VIEW IF NOT EXISTS ModelArchitectureStatisticsView AS
+            SELECT
+                ComputerModel,
+                Architecture,
+                COUNT(*) as AnzahlMaschinen,
+                COUNT(DISTINCT MachineId) as EinzigartigeMaschinen,
+                ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz,
+                ROUND(AVG(ProcessorCores),0) as DurchschnittlicheKerne,
+                ROUND(AVG(TotalMemoryGB / 1024 / 1024 / 1024),2) as DurchschnittlicherSpeicherGB,
+                MIN(CreatedAt) as ErsteErfassung,
+                MAX(CreatedAt) as LetzteErfassung
+            FROM LatestHardwareInventoriesView
+            WHERE ComputerModel IS NOT NULL
+              AND ComputerModel != ''
+              AND Architecture IS NOT NULL
+              AND Architecture != ''
+            GROUP BY ComputerModel, Architecture
+            ORDER BY AnzahlMaschinen DESC;
+
+            -- Advanced Hardware Statistics View
+            CREATE VIEW IF NOT EXISTS HardwareStatisticsOverview AS
+            SELECT
+                'ComputerModel' as Kategorie,
+                ComputerModel as Wert,
+                COUNT(*) as Anzahl,
+                ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz
+            FROM LatestHardwareInventoriesView
+            WHERE ComputerModel IS NOT NULL AND ComputerModel != ''
+            GROUP BY ComputerModel
+
+            UNION ALL
+
+            SELECT
+                'Architecture' as Kategorie,
+                Architecture as Wert,
+                COUNT(*) as Anzahl,
+                ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz
+            FROM LatestHardwareInventoriesView
+            WHERE Architecture IS NOT NULL AND Architecture != ''
+            GROUP BY Architecture
+
+            ORDER BY Kategorie, Anzahl DESC;
+
+
         ";
 
         connection.Execute(createTablesAndViewsQuery);
