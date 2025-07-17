@@ -110,6 +110,9 @@ public class DatabaseService
             ORDER BY CreatedAt DESC;
 
             -- Statistics view for ComputerModel distribution
+            -- This SQL script creates a view that aggregates statistics for each ComputerModel
+            -- including the count of machines, unique machines, percentage of total machines,
+            -- and the first and last recorded timestamps.
             CREATE VIEW IF NOT EXISTS ComputerModelStatisticsView AS
             SELECT
                 ComputerModel,
@@ -125,6 +128,9 @@ public class DatabaseService
             ORDER BY AnzahlMaschinen DESC;
 
             -- Statistics view for architecture distribution
+            -- This SQL script creates a view that aggregates statistics for each architecture
+            -- including the count of machines, unique machines, percentage of total machines,
+            
             CREATE VIEW IF NOT EXISTS ArchitectureStatisticsView AS
             SELECT
                 Architecture,
@@ -142,6 +148,10 @@ public class DatabaseService
             ORDER BY AnzahlMaschinen DESC;
 
             -- Combined statistics view for ComputerModel and Architecture
+            -- This SQL script creates a view that aggregates statistics for each combination 
+            -- of ComputerModel and Architecture,
+            -- including the count of machines, unique machines, percentage of total machines,
+            -- average processor cores, average total memory in GB, and the first and last recorded timestamps.
             CREATE VIEW IF NOT EXISTS ModelArchitectureStatisticsView AS
             SELECT
                 ComputerModel,
@@ -149,7 +159,7 @@ public class DatabaseService
                 COUNT(*) as AnzahlMaschinen,
                 COUNT(DISTINCT MachineId) as EinzigartigeMaschinen,
                 ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM LatestHardwareInventoriesView), 2) as Prozentsatz,
-                ROUND(AVG(ProcessorCores),0) as DurchschnittlicheKerne,
+                ROUND(AVG(ProcessorCores), 0) as DurchschnittlicheKerne,
                 ROUND(AVG(TotalMemoryGB / 1024 / 1024 / 1024),2) as DurchschnittlicherSpeicherGB,
                 MIN(CreatedAt) as ErsteErfassung,
                 MAX(CreatedAt) as LetzteErfassung
@@ -162,6 +172,9 @@ public class DatabaseService
             ORDER BY AnzahlMaschinen DESC;
 
             -- Advanced Hardware Statistics View
+            -- This SQL script creates a view that provides an overview of hardware statistics
+            -- including the count of machines, unique machines, percentage of total machines,
+            -- and the first and last recorded timestamps for ComputerModel and Architecture.
             CREATE VIEW IF NOT EXISTS HardwareStatisticsOverview AS
             SELECT
                 'ComputerModel' as Kategorie,
@@ -184,8 +197,6 @@ public class DatabaseService
             GROUP BY Architecture
 
             ORDER BY Kategorie, Anzahl DESC;
-
-
         ";
 
         connection.Execute(createTablesAndViewsQuery);
