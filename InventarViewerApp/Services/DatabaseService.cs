@@ -66,7 +66,7 @@ public class DatabaseService
             -- from the `Machines` and `HardwareInventories` tables.
             -- It includes machine ID, name, architecture, processor cores, total memory, 
             -- available memory, and memory usage percentage.
-            CREATE VIEW IF NOT EXISTS hardwareinventory AS
+            CREATE VIEW IF NOT EXISTS HardwareInventoryView AS
             SELECT
                 m.ID AS MachineID,
                 m.Name AS MachineName,
@@ -83,6 +83,32 @@ public class DatabaseService
                 m.Name
             ORDER BY 
                 m.Name ASC;
+
+            -- This SQL script retrieves the latest software and hardware inventory records for each machine.
+            -- It uses a common table expression (CTE) to find the latest records based on the CreatedAt timestamp.
+            -- The script also creates a view for the latest software inventories.
+            CREATE VIEW IF NOT EXISTS main.LatestSoftwareInventoriesView AS
+            SELECT si.*
+            FROM main.SoftwareInventories si
+                     INNER JOIN (
+                SELECT MachineId, MAX(CreatedAt) as MaxCreatedAt
+                FROM main.SoftwareInventories
+                GROUP BY MachineId
+            ) latest ON si.MachineId = latest.MachineId AND si.CreatedAt = latest.MaxCreatedAt
+            ORDER BY si.CreatedAt DESC;
+
+            -- This SQL script retrieves the latest hardware inventory records for each machine.
+            -- It uses a common table expression (CTE) to find the latest records based on the CreatedAt timestamp.
+            -- It also creates a view for the latest hardware inventories.
+            CREATE VIEW IF NOT EXISTS LatestHardwareInventoriesView AS
+            SELECT * FROM (
+                              SELECT *,
+                                     ROW_NUMBER() OVER (PARTITION BY MachineId ORDER BY CreatedAt DESC) as rn
+                              FROM main.HardwareInventories
+                          ) ranked
+            WHERE rn = 1
+            ORDER BY CreatedAt DESC;
+
         ";
 
         connection.Execute(createTablesAndViewsQuery);
