@@ -20,7 +20,8 @@ public class DatabaseService
         using var connection = new SqliteConnection(_connectionString);
         connection.Open();
 
-        var createTablesAndViewsQuery = @"
+        var createTablesAndViewsQuery = 
+            """
             CREATE TABLE IF NOT EXISTS Machines (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Name TEXT NOT NULL UNIQUE,
@@ -28,7 +29,7 @@ public class DatabaseService
                 LastSeen DATETIME,
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
             );
-
+            -- Ensure the Machines table is created with appropriate fields
             CREATE TABLE IF NOT EXISTS HardwareInventories (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 MachineId INTEGER NOT NULL,
@@ -44,7 +45,7 @@ public class DatabaseService
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (MachineId) REFERENCES Machines(Id)
             );
-
+            -- Ensure the SoftwareInventories table is created with appropriate fields
             CREATE TABLE IF NOT EXISTS SoftwareInventories (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 MachineId INTEGER NOT NULL,
@@ -57,7 +58,7 @@ public class DatabaseService
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (MachineId) REFERENCES Machines(Id)
             );
-
+            -- Create indexes to improve query performance
             CREATE INDEX IF NOT EXISTS idx_machines_name ON Machines(Name);
             CREATE INDEX IF NOT EXISTS idx_hardware_machine_created ON HardwareInventories(MachineId, CreatedAt);
             CREATE INDEX IF NOT EXISTS idx_software_machine_created ON SoftwareInventories(MachineId, CreatedAt);
@@ -197,7 +198,7 @@ public class DatabaseService
             GROUP BY Architecture
 
             ORDER BY Kategorie, Anzahl DESC;
-        ";
+            """;
 
         connection.Execute(createTablesAndViewsQuery);
     }
