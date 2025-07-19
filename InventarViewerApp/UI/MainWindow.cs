@@ -7,12 +7,14 @@ namespace InventarViewerApp.UI
     {
         private readonly ApiService _apiService;
         private readonly DatabaseService _dbService;
+        private readonly MongoDbService _mongoDbService;
         private TabView _tabView;
 
-        public MainWindow(ApiService apiService, DatabaseService dbService) : base("Main Window")
+        public MainWindow(ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService) : base("Main Window")
         {
             _apiService = apiService;
             _dbService = dbService;
+            _mongoDbService = mongoDbService;
             
             InitializeUI();
         }
@@ -31,7 +33,7 @@ namespace InventarViewerApp.UI
             // Füge Tabs hinzu
             _tabView.AddTab(new TabView.Tab("Status", new StatusView(_apiService, _dbService)), true);
             _tabView.AddTab(new TabView.Tab("Hardware", new HardwareView(_apiService, _dbService)), false);
-            _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService)),false);
+            _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService, _mongoDbService)),false);
             
             Add(_tabView);
             
