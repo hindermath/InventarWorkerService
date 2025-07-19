@@ -6,7 +6,7 @@ namespace InventarViewerApp;
 
 partial class Program
 {
-    private static void TuiApp(ApiService apiService, DatabaseService dbService)
+    private static void TuiApp(ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService)
     {
         // Terminal.GUI initialisieren
         Application.Init();
@@ -14,7 +14,7 @@ partial class Program
         try
         {
             // Hauptfenster erstellen
-            var mainWindow = new MainWindow(apiService, dbService);
+            var mainWindow = new MainWindow(apiService, dbService, mongoDbService);
             
             // Hauptfenster zur Anwendung hinzufügen
             Application.Top.Add(mainWindow);
