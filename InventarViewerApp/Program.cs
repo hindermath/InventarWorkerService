@@ -14,9 +14,9 @@ partial class Program
         }
 
         // Services initialisieren
-        var (apiService, dbService) = InitializeServices();
+        var (apiService, dbService, mongoDbService) = InitializeServices();
         
         // Terminal.GUI Anwendung starten
-        TuiApp(apiService, dbService);
+        TuiApp(apiService, dbService, mongoDbService);
     }
 }
