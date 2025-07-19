@@ -1,4 +1,3 @@
-using InventarViewerApp.Models.Database;
 using InventarViewerApp.Services;
 using Terminal.Gui;
 
@@ -8,15 +7,17 @@ namespace InventarViewerApp.UI
     {
         private readonly ApiService _apiService;
         private readonly DatabaseService _dbService;
+        private readonly MongoDbService _mongoDbService;
         private ListView _listView;
         private Label _statusLabel;
         private Button _refreshButton;
         private Button _saveButton;
 
-        public SoftwareView(ApiService apiService, DatabaseService dbService) : base("Software Inventar")
+        public SoftwareView(ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService) : base("Software Inventar")
         {
             _apiService = apiService;
             _dbService = dbService;
+            _mongoDbService = mongoDbService;
             
             InitializeUI();
         }
@@ -104,6 +105,7 @@ namespace InventarViewerApp.UI
 
                 var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
                 await _dbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
+                await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
 
                 Application.MainLoop.Invoke(() => {
                     _statusLabel.Text = $"In Datenbank gespeichert: {DateTime.Now}";
