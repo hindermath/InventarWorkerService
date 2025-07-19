@@ -4,7 +4,7 @@ namespace InventarViewerApp;
 
 partial class Program
 {
-    private static (ApiService apiService, DatabaseService dbService) InitializeServices()
+    private static (ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService) InitializeServices()
     {
         // API Service initialisieren
         var apiService = new ApiService("http://localhost:5000");
@@ -16,6 +16,12 @@ partial class Program
         // Datenbankschema erstellen wenn nötig
         dbService.InitializeDatabase();
         
-        return (apiService, dbService);
+        // MongoDB Service initialisieren
+        var mongoDbService = new MongoDbService("mongodb://localhost:27017");
+        
+        // MongoDB Datenbank initialisieren
+        mongoDbService.InitializeMongoDatabase();
+        
+        return (apiService, dbService, mongoDbService);
     }
 }
