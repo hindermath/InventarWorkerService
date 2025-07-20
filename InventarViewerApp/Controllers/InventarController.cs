@@ -28,7 +28,41 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen", error = ex.Message });
         }
     }
+    
+    [HttpGet("machines/{id:int}")]
+    public async Task<ActionResult<Machine>>GetMachine(int id)
+    {
+        try
+        {
+            var machine = await _databaseService.GetMachineByIdAsync(id);
+            if (machine == null)
+                return NotFound(new { message = "Maschine nicht gefunden" });
 
+            return Ok(machine);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
+        }
+    }
+    
+    [HttpGet("machines/{id:int}/name")]
+    public async Task<ActionResult<string>> GetMachineNameByIdAsync(int id)
+    {
+        try
+        {
+            var machine = await _databaseService.GetMachineByIdAsync(id);
+            if (machine == null)
+                return NotFound(new { message = "Maschine nicht gefunden" });
+
+            return Ok(machine.Name);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Fehler beim Abrufen des Maschinen-Namens", error = ex.Message });
+        }
+    }
+    
     [HttpGet("machines/{machineName}")]
     public async Task<ActionResult<Machine>> GetMachine(string machineName)
     {
@@ -45,7 +79,41 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
         }
     }
+    
+    [HttpGet("machines/{machineName}/id")]
+    public async Task<ActionResult<int>> GetMachineIdByNameAsync(string machineName)
+    {
+        try
+        {
+            var machine = await _databaseService.GetMachineByNameAsync(machineName);
+            if (machine == null)
+                return NotFound(new { message = "Maschine nicht gefunden" });
 
+            return Ok(machine.Id);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen-ID", error = ex.Message });
+        }
+    }
+    
+    [HttpGet("machines/{machineId:int}/hardware")]
+    public async Task<ActionResult>GetHardwareInventory(int machineId) 
+    {
+        try
+        {
+            var hardware = await _databaseService.GetLatestHardwareInventoryAsync(machineId);
+            if (hardware == null)
+                return NotFound(new { message = "Keine Hardware-Inventar-Daten gefunden" });
+
+            return Ok(hardware);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Daten", error = ex.Message });
+        }
+    }
+    
     [HttpGet("machines/{machineName}/hardware")]
     public async Task<ActionResult> GetHardwareInventory(string machineName)
     {
@@ -64,6 +132,23 @@ public class InventarController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Daten", error = ex.Message });
+        }
+    }
+
+    [HttpGet("machines/{machineId:int}/software")]
+    public async Task<ActionResult> GetSoftwareInventory(int machineId)
+    {
+        try
+        {
+            var software = await _databaseService.GetLatestSoftwareInventoryAsync(machineId);
+            if (software == null)
+                return NotFound(new { message = "Keine Software-Inventar-Daten gefunden" });
+
+            return Ok(software);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Fehler beim Abrufen der Software-Daten", error = ex.Message });
         }
     }
 
