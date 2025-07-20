@@ -311,6 +311,15 @@ public class DatabaseService
         var machines = await connection.QueryAsync<Machine>(query);
         return machines.ToList();
     }
+    
+    public async Task<Machine?> GetMachineByIdAsync(int id)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT * FROM Machines WHERE Id = @Id";
+        return await connection.QuerySingleOrDefaultAsync<Machine>(query, new { Id = id });
+    }
 
     public async Task<Machine?> GetMachineByNameAsync(string machineName)
     {
@@ -334,7 +343,7 @@ public class DatabaseService
 
         return await connection.QuerySingleOrDefaultAsync<HardwareInventories>(query, new { MachineId = machineId });
     }
-
+    
     public async Task<SoftwareInventories?> GetLatestSoftwareInventoryAsync(int machineId)
     {
         using var connection = new SqliteConnection(_connectionString);
