@@ -1,26 +1,51 @@
 ### GET request to example server
 GET http://localhost:5000/api/inventar/machines
+Accept: application/json
+###
 
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/1
+Accept: application/json
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/1/name
+Accept: text/plain
 ###
 
 ### GET request to example server
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F
+Accept: application/json
+###
 
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/id
+Accept: text/plain
+###
+
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/1/hardware
+Accept: application/json
 ###
 
 ### GET request to example server
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/hardware
+Accept: application/json
+###
 
+### GET request to example server
+GET http://localhost:5000/api/inventar/machines/1/software
+Accept: application/json
 ###
 
 ### GET request to example server
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
-
+Accept: application/json
 ###
 
 ### GET request to example server
 GET http://localhost:5000/api/inventar/hardware-overview
-
+Accept: application/json
 ###
 
 ### GET request to example server
