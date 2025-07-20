@@ -27,4 +27,23 @@ public class MongoDbService
         await collection.InsertOneAsync(software.ToBsonDocument());
     }
 
+    // Verwendung der MongoDB Builder
+    public async Task<List<BsonDocument>> FindSoftwareByNameAsync(int machineId, string softwareName)
+    {
+        var collection = _mongoDatabase.GetCollection<BsonDocument>($"{machineId}");
+        
+        // Filter Builder verwenden
+        var filter = Builders<BsonDocument>.Filter.Eq("InstalledSoftware.Name", softwareName);
+        
+        // Projection Builder verwenden
+        var projection = Builders<BsonDocument>.Projection
+            .Include("InstalledSoftware.Name")
+            .Include("InstalledSoftware.Version")
+            .Exclude("_id");
+        
+        return await collection.Find(filter)
+            .Project(projection)
+            .ToListAsync();
+    }
+
 }
