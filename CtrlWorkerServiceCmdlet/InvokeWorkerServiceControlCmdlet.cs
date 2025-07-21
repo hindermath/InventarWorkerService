@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Management.Automation;
-using CtrlWorkerServiceApp.Controller;
+using CtrlWorkerCommon.Controller;
 using Terminal.Gui;
 
 namespace CtrlWorkerServiceCmdlet

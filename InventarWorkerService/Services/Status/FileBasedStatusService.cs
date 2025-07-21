@@ -1,8 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using InventarWorkerService.Models;
-using InventarWorkerService.Models.Hardware;
-using InventarWorkerService.Models.Service;
+using InventarWorkerCommon.Models.Hardware;
+using InventarWorkerCommon.Models.Service;
 
 namespace InventarWorkerService.Services.Status;
 

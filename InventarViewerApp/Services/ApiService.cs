@@ -1,8 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using InventarViewerApp.Models;
-using InventarViewerApp.Models.Hardware;
-using InventarViewerApp.Models.Software;
+using InventarWorkerCommon.Models.Hardware;
+using InventarWorkerCommon.Models.Software;
 using RestSharp;
 
 namespace InventarViewerApp.Services

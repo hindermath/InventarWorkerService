@@ -1,7 +1,5 @@
-using System.Text.Json;
-using InventarWorkerService.Models;
-using InventarWorkerService.Models.Hardware;
-using InventarWorkerService.Models.Service;
+using InventarWorkerCommon.Models.Hardware;
+using InventarWorkerCommon.Models.Service;
 using InventarWorkerService.Services.Hardware;
 using InventarWorkerService.Services.Software;
 using InventarWorkerService.Services.Status;

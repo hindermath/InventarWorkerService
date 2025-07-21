@@ -1,4 +1,4 @@
-using InventarViewerApp.Models.Software;
+using InventarWorkerCommon.Models.Software;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

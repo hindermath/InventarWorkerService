@@ -1,4 +1,4 @@
-﻿using CtrlWorkerServiceApp.Controller;
+﻿using CtrlWorkerCommon.Controller;
 using Terminal.Gui;
 
 namespace CtrlWorkerServiceApp;

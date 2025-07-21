@@ -1,9 +1,8 @@
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
-using InventarWorkerService.Models;
-using InventarWorkerService.Models.Hardware;
-using InventarWorkerService.Models.Service;
+using InventarWorkerCommon.Models.Hardware;
+using InventarWorkerCommon.Models.Service;
 
 namespace InventarWorkerService.Services.Hardware;
 

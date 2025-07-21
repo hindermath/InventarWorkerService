@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarViewerApp", "Invent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtrlWorkerServiceCmdlet", "CtrlWorkerServiceCmdlet\CtrlWorkerServiceCmdlet.csproj", "{4B1BC005-F2CA-4F20-A935-5B969AD06FF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarWorkerCommon", "InventarWorkerCommon\InventarWorkerCommon.csproj", "{A258084B-10CF-42D6-9FD0-22EF315E8942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtrlWorkerCommon", "CtrlWorkerCommon\CtrlWorkerCommon.csproj", "{3159BF57-97B7-44BA-A53C-E014CB61ACD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{4B1BC005-F2CA-4F20-A935-5B969AD06FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B1BC005-F2CA-4F20-A935-5B969AD06FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B1BC005-F2CA-4F20-A935-5B969AD06FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A258084B-10CF-42D6-9FD0-22EF315E8942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A258084B-10CF-42D6-9FD0-22EF315E8942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A258084B-10CF-42D6-9FD0-22EF315E8942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A258084B-10CF-42D6-9FD0-22EF315E8942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3159BF57-97B7-44BA-A53C-E014CB61ACD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3159BF57-97B7-44BA-A53C-E014CB61ACD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3159BF57-97B7-44BA-A53C-E014CB61ACD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3159BF57-97B7-44BA-A53C-E014CB61ACD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
