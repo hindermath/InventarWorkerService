@@ -85,6 +85,27 @@ function Stop-WorkerService {
     }
 }
 
+function Show-WorkerServiceHelp {
+    Write-Host "Service Controller PowerShell Script - Hilfe" -ForegroundColor Cyan
+    Write-Host "=============================================" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "Verwendung:"
+    Write-Host "  Invoke-WorkerServiceControl -Start [-ServiceName <Name>]"
+    Write-Host "  Invoke-WorkerServiceControl -Stop [-ServiceName <Name>]"
+    Write-Host "  Invoke-WorkerServiceControl -Tui [-ServiceName <Name>]"
+    Write-Host ""
+    Write-Host "Parameter:"
+    Write-Host "  -Start         Startet den angegebenen Service"
+    Write-Host "  -Stop          Stoppt den angegebenen Service"
+    Write-Host "  -Tui           Startet die Terminal-Benutzeroberfläche"
+    Write-Host "  -ServiceName   Name des Services (Standard: 'mein-service')"
+    Write-Host ""
+    Write-Host "Beispiele:"
+    Write-Host "  Invoke-WorkerServiceControl -Start"
+    Write-Host "  Invoke-WorkerServiceControl -Stop -ServiceName 'custom-service'"
+    Write-Host "  Invoke-WorkerServiceControl -Tui"
+}
+
 # Terminal.Gui PowerShell Script für Service Controller
 
 
@@ -248,7 +269,7 @@ function Start-TerminalGui {
 }
 
 # Hauptfunktion
-function Invoke-WorkerServiceControl {
+function Invoke-WorkerServiceControl2 {
     param(
         [switch]$Start,
         [switch]$Stop,
@@ -288,4 +309,4 @@ function Invoke-WorkerServiceControl {
 }
 
 # Beispielaufruf
-Invoke-WorkerServiceControl -Tui
+Invoke-WorkerServiceControl
