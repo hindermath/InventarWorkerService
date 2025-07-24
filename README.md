@@ -223,7 +223,7 @@ Veröffentlichen:
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
 #### Installieren mit sc.exe:
-Das Terminal, die PowerShell oder Kommandozeile als Administratorbzw. mit Administrator-Rechten öffnen und den Service mit `sc.exe` registrieren.
+Das Terminal, die PowerShell oder Kommandozeile als _**Administrator bzw. mit Administrator-Rechten**_ öffnen und den Service mit `sc.exe` registrieren.
 ```cmd
 sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe"
 ```
