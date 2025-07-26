@@ -181,9 +181,9 @@ function Start-TerminalGui
 					$statusLabel.Text = "Service wird gestartet..."
 					[Terminal.Gui.Application]::Refresh()
 					
-					#Start-WorkerService -ServiceName $ServiceName
-					[CtrlWorkerCommon.Controller.CrossPlatformServiceController]::CrossPlatformServiceController($ServiceName)
-					[CtrlWorkerCommon.Controller.CrossPlatformServiceController]::StartService()
+					# ✅ Korrekt - Erstelle eine Instanz und rufe die Methode auf
+					$serviceController = [CtrlWorkerCommon.Controller.CrossPlatformServiceController]::new($ServiceName)
+					$serviceController.StartService()
 					
 					$statusLabel.Text = "Service gestartet!"
 					[Terminal.Gui.MessageBox]::Query("Erfolg",
