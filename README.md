@@ -951,5 +951,106 @@ Write-Host "⚠️ PDF-Export nur unter Windows mit Microsoft Word möglich."
 * Das Skript erzeugt eine Markdown-Datei, optional eine HTML-Datei, und wenn möglich eine PDF-Datei.
 * Du kannst es als Dokumentiere-SQLite.ps1 speichern und direkt ausführen.
 
+## Vergleich vom SQLite Cmdlet Provider und PSSQLite
+### ✦ Ja, das PSSQLite Modul ist ein populärer und plattformübergreifender
+PowerShell-Provider, der mit SQLite-Datenbanken funktioniert. Es läuft unter
+Windows, macOS und Linux.
+Sie können es direkt aus der PowerShell Gallery installieren.
+Installation:
+Install-Module -Name PSSQLite
+Beispiel für die Verwendung:
+```powershell
+# Modul importieren
+Import-Module PSSQLite
+
+# Eine Abfrage gegen eine Datenbankdatei ausführen (wird erstellt, wenn
+sie nicht existiert)
+Invoke-SqliteQuery -DataSource 'C
+:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
+bin\Debug\net9.0\mydatabase.db' -Query 'CREATE TABLE IF NOT EXISTS users
+(id INTEGER PRIMARY KEY, name TEXT);'
+Invoke-SqliteQuery -DataSource 'C
+:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
+bin\Debug\net9.0\mydatabase.db' -Query 'INSERT INTO users (name) VALUES (
+"John Doe"), ("Jane Doe");'
+
+# Daten abfragen und anzeigen
+Invoke-SqliteQuery -DataSource 'C
+:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
+bin\Debug\net9.0\mydatabase.db' -Query 'SELECT * FROM users;'
+```
+Eine andere Möglichkeit ist die direkte Verwendung der .NET-Bibliothek
+Microsoft.Data.Sqlite, die ebenfalls plattformübergreifend ist, aber die
+Verwendung erfordert, dass Sie die .NET-Klassen direkt in PowerShell aufrufen,
+anstatt Cmdlets zu verwenden. Für die meisten Anwendungsfälle ist das
+PSSQLite-Modul jedoch einfacher zu handhaben.
+
+### ✦ SQLitePS ist, ähnlich wie das zuvor erwähnte PSSQLite, ein PowerShell-Modul zur
+Interaktion mit SQLite-Datenbanken.
+Der Hauptunterschied und das zentrale Merkmal von SQLitePS ist, dass es einen
+PowerShell Provider implementiert.
+#### Was bedeutet "PowerShell Provider"?
+Ein PowerShell Provider ermöglicht es Ihnen, auf eine Datenquelle zuzugreifen und
+sie zu verwalten, als wäre sie ein Dateisystem-Laufwerk (wie C:). Anstatt nur
+Befehle zum Abfragen der Datenbank zu haben, können Sie mit SQLitePS ein
+SQLite-Datenbankfile als "Laufwerk" einbinden und dann mit
+Standard-PowerShell-Befehlen wie cd, dir (oder Get-ChildItem), Get-Item usw. darin
+navigieren.
+#### Im Wesentlichen können Sie:
+ 1. Ein "Laufwerk" erstellen: Sie mappen eine SQLite-Datei auf einen
+    Laufwerksbuchstaben (z.B. DB:).
+ 2. Navigieren: Mit cd DB: wechseln Sie in die Datenbank.
+ 3. Objekte auflisten: Mit dir können Sie die Tabellen, Views und andere Objekte in
+    der Datenbank auflisten.
+ 4. Struktur ansehen: Sie können weiter in Tabellen "hineinnavigieren" (cd MyTable),
+    um Spalten und Indizes zu sehen.
+
+### Vergleich: SQLitePS vs. PSSQLite
+| SQLitePCmdlet Provider | PSSQLite Cmdlet |
+|------------------------|-----------------|
+| Provider-basiert | Cmdlet-basiert: Fokus auf das Au... |
+| cd, dir, Get-Item | Invoke-SqliteQuery, `Open-Sqlite... |
+| "Ich möchte sehen, was in di... | "Ich muss dieses SQL-Skript ausf... |
+| Läuft ebenfalls plattformübe... | Läuft plattformübergreifend und ... |
+
+### Beispiel für SQLitePS
+```powershell
+# Installation und Import
+Install-Module -Name SQLitePS
+Import-Module SQLitePS
+
+# Erstelle ein neues PSDrive, das auf deine Datenbankdatei zeigt
+New-PSDrive -Name "MyDB" -PSProvider "SQLite" -Root "C:\Users\t
+hinder\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debu
+g\net9.0\mydatabase.db"
+
+# Wechsle in das neue Laufwerk
+cd MyDB:
+
+# Liste die Tabellen in der Datenbank auf
+dir
+
+# Wechsle in den "tables" Container
+cd tables
+
+# Liste wieder die Tabellen auf
+dir
+
+# Wechsle in eine spezifische Tabelle, um ihre Spalten zu sehen
+cd users
+
+# Liste die Spalten der "users" Tabelle auf
+dir
+```
+
+### Fazit
+SQLitePS bietet einen sehr "PowerShell-idiomatischen" Weg, um mit SQLite zu
+arbeiten, der sich stark an der Dateisystem-Metapher orientiert. Es ist grossartig
+für Administratoren, die eine Datenbank schnell und interaktiv untersuchen wollen.
+
+Für reine Datenabfragen in Skripten wird oft PSSQLite bevorzugt, da der
+Invoke-SqliteQuery-Befehl sehr direkt und einfach zu verwenden ist. Beide Module
+sind jedoch leistungsfähig und haben ihre Berechtigung.
+
 
 ### 📦 Fertig!
