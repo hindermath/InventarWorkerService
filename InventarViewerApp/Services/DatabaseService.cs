@@ -6,6 +6,9 @@ using Microsoft.Data.Sqlite;
 
 namespace InventarViewerApp.Services;
 
+/// <summary>
+/// Provides services to interact with the application's SQLite database.
+/// </summary>
 public class DatabaseService
 {
     private readonly string _connectionString;
@@ -15,6 +18,12 @@ public class DatabaseService
         _connectionString = connectionString;
     }
 
+    /// <summary>
+    /// Initializes the application's database by setting up required structures
+    /// and ensuring that all necessary configurations are applied.
+    /// This method should be called during the application's startup process
+    /// to prepare the database for use.
+    /// </summary>
     public void InitializeDatabase()
     {
         using var connection = new SqliteConnection(_connectionString);
