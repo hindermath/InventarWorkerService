@@ -25,6 +25,12 @@ public class Worker : BackgroundService
         _softwareInventoryService = softwareInventoryService;
     }
 
+    /// <summary>
+    /// Continuously executes the worker's main logic for processing inventory tasks
+    /// and updates the status service with the current execution state.
+    /// </summary>
+    /// <param name="stoppingToken">A cancellation token that signals the worker to stop.</param>
+    /// <returns>A Task representing the asynchronous execution of the worker's main loop.</returns>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _statusService.WriteStatus(new ServiceStatus
@@ -65,7 +71,7 @@ public class Worker : BackgroundService
                 _logger.LogInformation(message);
                 _statusService.WriteLog(message);
                 
-                await Task.Delay(30000, stoppingToken); // Alle 30 Sekunden
+                await Task.Delay(30000, stoppingToken);
             }
             catch (Exception ex)
             {
@@ -79,7 +85,7 @@ public class Worker : BackgroundService
                     LastError = ex.Message
                 });
                 
-                await Task.Delay(5000, stoppingToken); // Bei Fehlern kürzere Pause
+                await Task.Delay(5000, stoppingToken);
             }
         }
 
