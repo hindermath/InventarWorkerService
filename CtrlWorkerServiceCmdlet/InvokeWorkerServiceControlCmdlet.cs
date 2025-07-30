@@ -5,6 +5,15 @@ using Terminal.Gui;
 
 namespace CtrlWorkerServiceCmdlet
 {
+    /// <summary>
+    /// Cmdlet to provide control actions for a Worker Service.
+    /// Allows starting, stopping, or launching a terminal user interface (TUI) for the service.
+    /// </summary>
+    /// <remarks>
+    /// The cmdlet supports multiple parameter sets for different operations.
+    /// By default, it acts on a service with the name 'mein-service', but this can be overridden using the ServiceName parameter.
+    /// Errors encountered during the process are captured and written using the WriteError method.
+    /// </remarks>
     [Cmdlet(VerbsLifecycle.Invoke, "WorkerServiceControl")]
     [OutputType(typeof(string))]
     public class InvokeWorkerServiceControlCmdlet : PSCmdlet
