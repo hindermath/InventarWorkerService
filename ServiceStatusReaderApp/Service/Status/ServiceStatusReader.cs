@@ -19,6 +19,14 @@ public class ServiceStatusReader
         };
     }
 
+    /// <summary>
+    /// Reads the current service status from the specified status file.
+    /// </summary>
+    /// <returns>
+    /// An instance of <see cref="InventarWorkerCommon.Models.Service.ServiceStatus"/>
+    /// containing the current status information, or null if the status file does not exist
+    /// or if an error occurs during the reading process.
+    /// </returns>
     public InventarWorkerCommon.Models.Service.ServiceStatus? ReadStatus()
     {
         try
