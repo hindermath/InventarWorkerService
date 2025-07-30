@@ -11,7 +11,19 @@ public class CrossPlatformServiceController
     {
         _serviceName = serviceName;
     }
-    
+
+    /// <summary>
+    /// Starts the service for the specified operating system.
+    /// </summary>
+    /// <remarks>
+    /// This method checks the operating system at runtime and attempts to
+    /// start the service using platform-specific logic. Supported platforms include
+    /// Windows, Linux, macOS, and FreeBSD. If the current operating system is not
+    /// supported, a <see cref="PlatformNotSupportedException"/> will be thrown.
+    /// </remarks>
+    /// <exception cref="PlatformNotSupportedException">
+    /// Thrown when the method is executed on an unsupported platform.
+    /// </exception>
     public void StartService()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -73,7 +85,20 @@ public class CrossPlatformServiceController
             service.Stop();
         }
     }
-    
+
+    /// <summary>
+    /// Starts the service for the Linux operating system.
+    /// </summary>
+    /// <remarks>
+    /// This method executes the Linux system command to start the service
+    /// associated with the specified service name. It utilizes the `systemctl`
+    /// command to initiate the service. The service name is converted to lowercase
+    /// to ensure compatibility with Linux's case-sensitive file and service naming system.
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the execution of the `systemctl` command fails, or if an error occurs
+    /// during the command execution process.
+    /// </exception>
     private void StartLinuxService()
     {
         ExecuteCommand("systemctl", $"start {_serviceName.ToLower()}.service");
@@ -103,7 +128,15 @@ public class CrossPlatformServiceController
     {
         ExecuteCommand("service", $"{_serviceName.ToLower()} stop");
     }
-    
+
+    /// <summary>
+    /// Executes a system command with the specified filename and arguments.
+    /// </summary>
+    /// <param name="fileName">The name of the executable file or command to run.</param>
+    /// <param name="arguments">The arguments to pass to the command.</param>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the command execution fails or if the process exits with a non-zero code.
+    /// </exception>
     private void ExecuteCommand(string fileName, string arguments)
     {
         try
