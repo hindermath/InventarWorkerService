@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InventarViewerApp.Controllers;
 
+/// <summary>
+/// Controller that provides endpoints related to inventory management, focusing on machines
+/// and their associated hardware and software details.
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class InventarController : ControllerBase
@@ -15,6 +19,13 @@ public class InventarController : ControllerBase
         _databaseService = databaseService;
     }
 
+    /// <summary>
+    /// Retrieves a list of all machines from the database, including their details such as ID,
+    /// name, operating system, and timestamps for creation or last seen activity.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult{T}"/> containing a list of <see cref="Machine"/> objects,
+    /// or an error response in case of a failure.</returns>
     [HttpGet("machines")]
     public async Task<ActionResult<List<Machine>>> GetMachines()
     {
@@ -28,9 +39,16 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves a specific machine by its unique numeric identifier from the database.
+    /// </summary>
+    /// <param name="id">The unique identifier of the machine to retrieve.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult{T}"/> containing the <see cref="Machine"/> object if found,
+    /// or an error response if the machine does not exist or an unexpected error occurs.</returns>
     [HttpGet("machines/{id:int}")]
-    public async Task<ActionResult<Machine>>GetMachine(int id)
+    public async Task<ActionResult<Machine>> GetMachine(int id)
     {
         try
         {
