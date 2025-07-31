@@ -1,61 +1,59 @@
-### GET request to example server
+### GET: Retrieve all machines (example server)
 GET http://localhost:5000/api/inventar/machines
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve the name of a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/name
 Accept: text/plain
 ###
 
-### GET request to example server
+### GET: Retrieve a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve the ID of a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/id
 Accept: text/plain
 ###
 
-### GET request to example server
+### GET: Retrieve hardware details for a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/hardware
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve hardware details for a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/hardware
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve software details for a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/software
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve software details for a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve hardware overview (example server)
 GET http://localhost:5000/api/inventar/hardware-overview
 Accept: application/json
 ###
 
-### GET request to example server
+### GET: Retrieve Swagger UI page (example server)
 GET http://localhost:5000/swagger/index.html
 Accept: text/html
-
 ###
 
-### GET request to example server
+### GET: Retrieve Swagger JSON specification (example server)
 GET http://localhost:5000/swagger/v1/swagger.json
 Accept: application/json
-
 ###
