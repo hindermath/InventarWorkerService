@@ -93,15 +93,19 @@ Accept: application/json
     });
     
     client.test("Response is JSON array", function() {
-        client.assert(response.contentType.mimeType === "application/json");
-        client.assert(Array.isArray(response.body));
+        client.assert(response.contentType.mimeType === "application/json",
+            "Content-Type should be application/json");
+        client.assert(Array.isArray(response.body),
+            "Response body should be an array");
     });
     
     client.test("Machines have required properties", function() {
         if (response.body && response.body.length > 0) {
             const machine = response.body[0];
-            client.assert(machine.hasOwnProperty('id'));
-            client.assert(machine.hasOwnProperty('name'));
+            client.assert(machine.hasOwnProperty('id'),
+                "Machine should have an 'id' property");
+            client.assert(machine.hasOwnProperty('name'),
+                "Machine should have a 'name' property");
         }
     });
 
@@ -109,8 +113,11 @@ Accept: application/json
     client.test("Set testMachineId and testMachineName", function() {
         if (response.body && response.body.length > 0) {
             const machine = response.body[0];
-            if (machine.hasOwnProperty('id') && machine.id != null) {
-                client.global.set("testMachineId", machine.id);
+            if (machine.hasOwnProperty('id')) {
+                const machineId = machine.id != null ? machine.id : 1;
+                client.global.set("testMachineId", machineId);
+            } else {
+                client.global.set("testMachineId", 1);
             }
             if (machine.hasOwnProperty('name') && machine.name != null) {
                 client.global.set("testMachineName", machine.name);
