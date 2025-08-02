@@ -52,3 +52,74 @@ Accept: text/html
 GET http://localhost:5000/swagger/v1/swagger.json
 Accept: application/json
 ###
+
+### Configuration
+@baseUrl = http://localhost:5000
+@apiPath = /api/inventar
+
+###
+# SETUP: Get test data
+###
+GET {{baseUrl}}{{apiPath}}/machines
+Accept: application/json
+
+> {%
+    if (response.body && response.body.length > 0) {
+        client.global.set("testMachineId", response.body[0].id);
+        client.global.set("testMachineName", response.body[0].name);
+    }
+%}
+
+### GET: Retrieve a machine by ID (example server)
+GET {{baseUrl}}{{apiPath}}/machines/{{testMachineId}}
+Accept: application/json
+
+> {%
+    client.test("Machine found successfully", function() {
+        client.assert(response.status === 200,
+            "Response status should be 200 OK");
+        client.assert(response.body.id == client.global.get("testMachineId"),
+            "Machine ID should match the test data");
+        client.assert(response.contentType.mimeType === "application/json",
+            "Content-Type should be application/json");
+    });
+%}
+###
+
+## GET: Try to retrieve non-existent machine
+GET {{baseUrl}}{{apiPath}}/machines/99999
+Accept: application/json
+
+> {%
+    client.test("Non-existent machine returns 404", function() {
+        client.assert(response.status === 404,
+            "Response status should be 404 Not Found");
+        client.assert(response.body.message === "Maschine nicht gefunden",
+            "Error message should indicate machine not found");
+        client.assert(response.contentType.mimeType === "application/json",
+            "Content-Type should be application/json");
+    });
+%}
+
+### GET: Retrieve all machines
+GET {{baseUrl}}{{apiPath}}/machines
+Accept: application/json
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+
+    client.test("Response is JSON array", function() {
+        client.assert(response.contentType.mimeType === "application/json");
+        client.assert(Array.isArray(response.body));
+    });
+
+    client.test("Machines have required properties", function() {
+        if (response.body.length > 0) {
+            const machine = response.body[0];
+            client.assert(machine.hasOwnProperty('id'));
+            client.assert(machine.hasOwnProperty('name'));
+        }
+    });
+%}
