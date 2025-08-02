@@ -1,69 +1,88 @@
 ### GET: Retrieve all machines (example server)
 GET http://localhost:5000/api/inventar/machines
 Accept: application/json
-###
+
 
 ### GET: Retrieve a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1
 Accept: application/json
-###
+
 
 ### GET: Retrieve the name of a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/name
 Accept: text/plain
-###
+
 
 ### GET: Retrieve a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F
 Accept: application/json
-###
+
 
 ### GET: Retrieve the ID of a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/id
 Accept: text/plain
-###
+
 
 ### GET: Retrieve hardware details for a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/hardware
 Accept: application/json
-###
+
 
 ### GET: Retrieve hardware details for a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/hardware
 Accept: application/json
-###
+
 
 ### GET: Retrieve software details for a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/software
 Accept: application/json
-###
+
 
 ### GET: Retrieve software details for a machine by name (example server)
 GET http://localhost:5000/api/inventar/machines/LAPTOP-64643G0F/software
 Accept: application/json
-###
+
 
 ### GET: Retrieve hardware overview (example server)
 GET http://localhost:5000/api/inventar/hardware-overview
 Accept: application/json
-###
+
 
 ### GET: Retrieve Swagger UI page (example server)
 GET http://localhost:5000/swagger/index.html
 Accept: text/html
-###
+
 
 ### GET: Retrieve Swagger JSON specification (example server)
 GET http://localhost:5000/swagger/v1/swagger.json
 Accept: application/json
-###
 
-### Configuration
+### InventarViewerApp API Tests Configuration
+# This section sets up the configuration for the InventarViewerApp API tests.
+# Configuration for InventarViewerApp API Tests
+# This section sets up the base URL and API path for the tests.
+# It defines the server address and the specific endpoint for the Inventar API.
+# The base URL is used to construct the full API endpoint for each request.
+# The API path is appended to the base URL to form the complete request URL.
+# This configuration is essential for ensuring that the tests can communicate with the correct server.
+# It allows for easy modification of the server address or API path without changing individual test cases.
+# The base URL and API path are defined as global variables for use in the test cases.
+# This setup is crucial for maintaining a consistent testing environment.
+# It ensures that all tests are executed against the same API endpoint.
+# The configuration is designed to be flexible and easily adjustable for different environments.
+###
 @baseUrl = http://localhost:5000
 @apiPath = /api/inventar
 
-###
-# SETUP: Get test data
+### GET: Retrieve all machines for test data(example server)
+# SETUP test data
+# This section retrieves a list of machines to use as test data for subsequent requests.
+# It stores the first machine's ID and name in global variables for later use.
+# This allows tests to dynamically reference existing machines without hardcoding values.
+# The retrieved machine data is essential for validating the API's functionality.
+# It ensures that the tests operate on real data, improving reliability and accuracy.
+# The test data retrieval is performed before executing the main test cases.
+# This setup step is crucial for ensuring that the tests have valid input to work with.
 ###
 GET {{baseUrl}}{{apiPath}}/machines
 Accept: application/json
@@ -76,6 +95,16 @@ Accept: application/json
 %}
 
 ### GET: Retrieve a machine by ID (example server)
+# This test retrieves a specific machine by its ID.
+# It checks that the response status is 200 OK and that the machine ID matches the test data.
+# It also verifies that the response is in JSON format.
+# This test is useful for validating the API's ability to retrieve machine details by ID.
+# It ensures that the API correctly returns the expected machine data when queried by ID.
+# It can be used to verify that the API does not return incorrect or unexpected data.
+# This test serves as a basic functionality check for the machine retrieval endpoint.
+# It helps ensure that the API behaves as expected when accessing machine details.
+# It is important for maintaining the integrity of the API and providing accurate information to users.
+###
 GET {{baseUrl}}{{apiPath}}/machines/{{testMachineId}}
 Accept: application/json
 
@@ -89,9 +118,17 @@ Accept: application/json
             "Content-Type should be application/json");
     });
 %}
-###
 
-## GET: Try to retrieve non-existent machine
+### GET: Attempt to retrieve a non-existent machine by ID
+# This test checks the API's response when trying to access a machine that does not exist.
+# It should return a 404 Not Found status with an appropriate error message.
+# This test is useful for validating error handling in the API.
+# It ensures that the API correctly identifies when a requested resource is not available.
+# It can be used to verify that the API does not expose sensitive information about non-existent resources.
+# This test serves as a negative test case to ensure robustness of the API.
+# It helps ensure that the API behaves predictably when faced with invalid requests.
+# It is important for maintaining the integrity of the API and providing clear feedback to users.
+###
 GET {{baseUrl}}{{apiPath}}/machines/99999
 Accept: application/json
 
@@ -107,6 +144,13 @@ Accept: application/json
 %}
 
 ### GET: Retrieve all machines
+# This test retrieves a list of all machines in the inventory.
+# It checks that the response is a JSON array and that each machine has the required properties.
+# It also verifies that the request was successful and the response is in the expected format.
+# This test is useful for validating the overall machine inventory retrieval functionality.
+# It can be used to ensure that the API correctly lists all machines and their basic details.
+# It serves as a foundational test for the machine inventory endpoint.
+###
 GET {{baseUrl}}{{apiPath}}/machines
 Accept: application/json
 
