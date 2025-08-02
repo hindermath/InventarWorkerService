@@ -3,6 +3,11 @@ GET http://localhost:5000/api/inventar/machines
 Accept: application/json
 ###
 
+### GET: Retrieve a machine by ID (example server)
+GET http://localhost:5000/api/inventar/machines/1
+Accept: application/json
+###
+
 ### GET: Retrieve the name of a machine by ID (example server)
 GET http://localhost:5000/api/inventar/machines/1/name
 Accept: text/plain
