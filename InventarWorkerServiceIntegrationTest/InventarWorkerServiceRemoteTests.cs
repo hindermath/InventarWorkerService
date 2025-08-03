@@ -7,7 +7,7 @@ namespace InventarWorkerServiceIntegrationTests;
 [TestClass]
 public class InventarWorkerServiceRemoteTests : PageTest
 {
-    private const string RemoteUrl = "http://192.168.1.100:5000";
+    private const string RemoteUrl = "http://192.168.2.169:5000";
     private IAPIRequestContext? _remoteApiContext;
     private readonly JsonSerializerOptions _jsonOptions;
 
