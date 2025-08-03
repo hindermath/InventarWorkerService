@@ -3,10 +3,38 @@ using System.Runtime.InteropServices;
 
 namespace CtrlWorkerCommon.Controller;
 
+/// <summary>
+/// Provides cross-platform service control functionality, allowing
+/// services to be started and stopped on supported operating systems.
+/// </summary>
+/// <remarks>
+/// This class includes platform-specific implementations for managing
+/// services on Windows, Linux, macOS, and FreeBSD. It evaluates the
+/// runtime environment to execute the appropriate logic. An exception
+/// will be thrown if executed on an unsupported platform.
+/// </remarks>
 public class CrossPlatformServiceController
 {
+    /// <summary>
+    /// Represents the name of the service to be controlled by the
+    /// CrossPlatformServiceController. This variable holds the identifier
+    /// used to start, stop, or manage the service across different operating systems.
+    /// </summary>
+    /// <remarks>
+    /// The value of this variable is assigned during the initialization of the
+    /// CrossPlatformServiceController and is used in service control operations
+    /// such as starting or stopping the service on Windows, Linux, macOS, or FreeBSD.
+    /// </remarks>
     private readonly string _serviceName;
-    
+
+    /// <summary>
+    /// Provides functionality to manage and control services across multiple operating systems.
+    /// </summary>
+    /// <remarks>
+    /// This class is designed to handle service lifecycle operations such as starting and stopping services
+    /// on various platforms. It abstracts platform-specific service management logic, enabling the caller
+    /// to interact with services in a cross-platform manner.
+    /// </remarks>
     public CrossPlatformServiceController(string serviceName)
     {
         _serviceName = serviceName;
@@ -47,7 +75,15 @@ public class CrossPlatformServiceController
             throw new PlatformNotSupportedException("Plattform wird nicht unterstützt");
         }
     }
-    
+
+    /// <summary>
+    /// Stops the currently managed service on the platform it is running on.
+    /// </summary>
+    /// <remarks>
+    /// This method determines the operating system and executes the appropriate logic to stop the service.
+    /// It supports Windows, Linux, macOS, and FreeBSD platforms. Internally, platform-specific stop operations
+    /// are delegated to corresponding methods.
+    /// </remarks>
     public void StopService()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
