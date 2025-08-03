@@ -1,5 +1,4 @@
 using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CtrlWorkerCommon.Controller;
 
 namespace CtrlWorkerCommonTest;
@@ -25,7 +24,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
     [TestMethod]
     public void StartService_OnWindows_CallsWindowsSpecificLogic()
     {
-        // Dieser Test läuft nur auf Windows
+        // This test only runs on Windows.
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             Assert.Inconclusive("Test läuft nur auf Windows");
@@ -40,7 +39,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
-            // Andere Exceptions sind akzeptabel (Service existiert möglicherweise nicht)
+            // Other exceptions are acceptable (the service might not exist).
             Assert.IsTrue(true);
         }
     }
@@ -48,7 +47,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
     [TestMethod]
     public void StartService_OnLinux_CallsLinuxSpecificLogic()
     {
-        // Dieser Test läuft nur auf Linux
+        // This test runs only on Linux.
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
             Assert.Inconclusive("Test läuft nur auf Linux");
@@ -63,7 +62,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
-            // Andere Exceptions sind akzeptabel
+            // Other exceptions are acceptable.
             Assert.IsTrue(true);
         }
     }
@@ -71,7 +70,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
     [TestMethod]
     public void StartService_OnMacOS_CallsMacOSSpecificLogic()
     {
-        // Dieser Test läuft nur auf macOS
+        // This test only runs on macOS
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             Assert.Inconclusive("Test läuft nur auf macOS");
@@ -86,7 +85,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
-            // Andere Exceptions sind akzeptabel
+            // Other exceptions are acceptable.
             Assert.IsTrue(true);
         }
     }
