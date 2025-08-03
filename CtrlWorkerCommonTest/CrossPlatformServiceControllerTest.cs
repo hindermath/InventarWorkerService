@@ -1,5 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CtrlWorkerCommon.Controller;
 
 namespace CtrlWorkerCommonTest;
@@ -17,21 +16,21 @@ public sealed class CrossPlatformServiceControllerTest
         [TestInitialize]
         public void TestInitialize()
         {
-            // Setup vor jedem Test
+            // Arrange: Setup before each test
             _controller = new CrossPlatformServiceController(TestServiceName);
         }
 
         [TestCleanup]
         public void TestCleanup()
         {
-            // Cleanup nach jedem Test
+            // Cleanup after each test
             _controller = null;
         }
 
         [TestMethod]
         public void Constructor_WithValidServiceName_SetsServiceNameCorrectly()
         {
-            // Arrange & Act
+            // Act
             var controller = new CrossPlatformServiceController("MyTestService");
             
             // Assert
@@ -42,7 +41,7 @@ public sealed class CrossPlatformServiceControllerTest
         [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_WithNullServiceName_ThrowsArgumentNullException()
         {
-            // Arrange, Act & Assert
+            // Act
             var controller = new CrossPlatformServiceController(null);
         }
 
@@ -50,7 +49,7 @@ public sealed class CrossPlatformServiceControllerTest
         [ExpectedException(typeof(ArgumentException))]
         public void Constructor_WithEmptyServiceName_ThrowsArgumentException()
         {
-            // Arrange, Act & Assert
+            // Act
             var controller = new CrossPlatformServiceController(string.Empty);
         }
 
@@ -69,7 +68,7 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StartService();
-                    // Test erfolgreich wenn keine PlatformNotSupportedException geworfen wird
+                    // Test successful if no PlatformNotSupportedException is thrown.
                     Assert.IsTrue(true);
                 }
                 catch (PlatformNotSupportedException)
@@ -78,7 +77,7 @@ public sealed class CrossPlatformServiceControllerTest
                 }
                 catch
                 {
-                    // Andere Exceptions sind für diesen Test akzeptabel (z.B. Service existiert nicht)
+                    // Other exceptions are acceptable for this test (e.g., service does not exist).
                     Assert.IsTrue(true);
                 }
             }
@@ -99,7 +98,7 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StopService();
-                    // Test erfolgreich wenn keine PlatformNotSupportedException geworfen wird
+                    // Test successful if no PlatformNotSupportedException is thrown.
                     Assert.IsTrue(true);
                 }
                 catch (PlatformNotSupportedException)
@@ -108,7 +107,7 @@ public sealed class CrossPlatformServiceControllerTest
                 }
                 catch
                 {
-                    // Andere Exceptions sind für diesen Test akzeptabel (z.B. Service existiert nicht)
+                    // Other exceptions are acceptable for this test (e.g., service does not exist).
                     Assert.IsTrue(true);
                 }
             }
@@ -144,17 +143,17 @@ public sealed class CrossPlatformServiceControllerTest
             try
             {
                 controller.StartService();
-                controller.StartService(); // Zweiter Aufruf sollte nicht fehlschlagen
+                controller.StartService(); // The second call should not fail.
                 Assert.IsTrue(true);
             }
             catch (PlatformNotSupportedException)
             {
-                // Auf nicht unterstützten Plattformen erwartet
+                // On unsupported platforms expected
                 Assert.IsTrue(true);
             }
             catch
             {
-                // Andere Exceptions sind akzeptabel für diesen Test
+                // Other exceptions are acceptable for this test.
                 Assert.IsTrue(true);
             }
         }
@@ -169,17 +168,17 @@ public sealed class CrossPlatformServiceControllerTest
             try
             {
                 controller.StopService();
-                controller.StopService(); // Zweiter Aufruf sollte nicht fehlschlagen
+                controller.StopService(); // The second call should not fail.
                 Assert.IsTrue(true);
             }
             catch (PlatformNotSupportedException)
             {
-                // Auf nicht unterstützten Plattformen erwartet
+                // On unsupported platforms expected
                 Assert.IsTrue(true);
             }
             catch
             {
-                // Andere Exceptions sind akzeptabel für diesen Test
+                // Other exceptions are acceptable for this test.
                 Assert.IsTrue(true);
             }
         }
@@ -199,12 +198,12 @@ public sealed class CrossPlatformServiceControllerTest
             }
             catch (PlatformNotSupportedException)
             {
-                // Auf nicht unterstützten Plattformen erwartet
+                // On unsupported platforms, expected.
                 Assert.IsTrue(true);
             }
             catch
             {
-                // Andere Exceptions sind akzeptabel für diesen Test
+                // Other exceptions are acceptable for this test.
                 Assert.IsTrue(true);
             }
         }
