@@ -470,6 +470,32 @@ public class DatabaseService
     }
 
     /// <summary>
+    /// Checks if there are existing hardware inventory records in the database.
+    /// </summary>
+    /// <returns>True if there is at least one hardware inventory record in the database; otherwise, false.</returns>
+    public async Task<bool> HasHardwareInventoryRecordsAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        
+        const string query = "SELECT EXISTS(SELECT 1 FROM HardwareInventories)";
+        return await connection.QuerySingleAsync<bool>(query);
+    }
+
+    /// <summary>
+    /// Checks whether there are any records in the SoftwareInventories table of the database.
+    /// </summary>
+    /// <returns>Returns a boolean indicating if software inventory records exist.</returns>
+    public async Task<bool> HasSoftwareInventoryRecordsAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        
+        const string query = "SELECT EXISTS(SELECT 1 FROM SoftwareInventories)";
+        return await connection.QuerySingleAsync<bool>(query);
+    }
+
+    /// <summary>
     /// Retrieves the total count of machines stored in the database.
     /// </summary>
     /// <returns>The number of machines as an integer.</returns>
@@ -479,6 +505,32 @@ public class DatabaseService
         await connection.OpenAsync();
 
         const string query = "SELECT COUNT(*) FROM Machines";
+        return await connection.QuerySingleAsync<int>(query);
+    }
+
+    /// <summary>
+    /// Retrieves the total count of hardware inventory records stored in the database.
+    /// </summary>
+    /// <returns>An integer representing the total count of hardware inventory records.</returns>
+    public async Task<int> GetHardwareInventoryCountAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        
+        const string query = "SELECT COUNT(*) FROM HardwareInventories";
+        return await connection.QuerySingleAsync<int>(query);
+    }
+
+    /// <summary>
+    /// Retrieves the total count of software inventory records stored in the database.
+    /// </summary>
+    /// <returns>The total number of software inventory records as an integer.</returns>
+    public async Task<int> GetSoftwareInventoryCountAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+        
+        const string query = "SELECT COUNT(*) FROM SoftwareInventories";
         return await connection.QuerySingleAsync<int>(query);
     }
 }
