@@ -1,3 +1,6 @@
+using System.Globalization;
+using CsvHelper;
+using CsvHelper.Configuration;
 using Dapper;
 using InventarViewerApp.Models.Database;
 using InventarWorkerCommon.Models.Hardware;
@@ -532,5 +535,86 @@ public class DatabaseService
         
         const string query = "SELECT COUNT(*) FROM SoftwareInventories";
         return await connection.QuerySingleAsync<int>(query);
+    }
+    
+    public async Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
+    {
+        if (!File.Exists(csvFilePath))
+        {
+            throw new FileNotFoundException($"CSV-Datei wurde nicht gefunden: {csvFilePath}");
+        }
+
+        var importedCount = 0;
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        using var transaction = connection.BeginTransaction();
+        try
+        {
+            using var reader = new StreamReader(csvFilePath);
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+            // CSV-Header registrieren (optional, falls die Spalten unterschiedlich benannt sind)
+            csv.Context.RegisterClassMap<MachineMap>();
+        
+            var machines = csv.GetRecords<MachineFromCsv>().ToList();
+
+            foreach (var machine in machines)
+            {
+                // Prüfen, ob die Maschine bereits existiert
+                const string selectQuery = "SELECT Id FROM Machines WHERE Name = @Name";
+                var existingMachineId = await connection.QuerySingleOrDefaultAsync<int?>(
+                    selectQuery, 
+                    new { machine.Name }, 
+                    transaction);
+
+                if (!existingMachineId.HasValue)
+                {
+                    const string insertQuery = @"
+                    INSERT INTO Machines (Name, OperatingSystem, LastSeen, CreatedAt)
+                    VALUES (@Name, @OperatingSystem, @LastSeen, @CreatedAt)";
+
+                    await connection.ExecuteAsync(insertQuery, new
+                    {
+                        machine.Name,
+                        machine.OperatingSystem,
+                        LastSeen = machine.LastSeen ?? DateTime.UtcNow,
+                        CreatedAt = DateTime.UtcNow
+                    }, transaction);
+
+                    importedCount++;
+                }
+            }
+
+            transaction.Commit();
+            return importedCount;
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
+        }
+    }
+    /// <summary>
+    /// Modell für Machine-Daten aus CSV-Import
+    /// </summary>
+    public class MachineFromCsv
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? OperatingSystem { get; set; }
+        public DateTime? LastSeen { get; set; }
+    }
+
+    /// <summary>
+    /// CSV-Mapping für Machine-Import
+    /// </summary>
+    public class MachineMap : ClassMap<MachineFromCsv>
+    {
+        public MachineMap()
+        {
+            Map(m => m.Name).Name("Name", "MachineName", "Computer");
+            Map(m => m.OperatingSystem).Name("OperatingSystem", "OS", "Platform");
+            Map(m => m.LastSeen).Name("LastSeen", "LastActivity", "LastOnline").Optional();
+        }
     }
 }
