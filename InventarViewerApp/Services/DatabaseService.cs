@@ -13,6 +13,10 @@ public class DatabaseService
 {
     private readonly string _connectionString;
 
+    /// <summary>
+    /// Handles interactions with the SQLite database, providing methods for initialization,
+    /// data storage, retrieval, and maintenance operations.
+    /// </summary>
     public DatabaseService(string connectionString)
     {
         _connectionString = connectionString;
@@ -212,6 +216,11 @@ public class DatabaseService
         connection.Execute(createTablesAndViewsQuery);
     }
 
+    /// <summary>
+    /// Saves a new machine to the database or updates an existing machine's details if it already exists.
+    /// </summary>
+    /// <param name="machine">The machine object containing the properties to be inserted or updated in the database.</param>
+    /// <returns>The ID of the saved or updated machine record.</returns>
     public async Task<int> SaveOrUpdateMachineAsync(Machine machine)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -256,6 +265,12 @@ public class DatabaseService
         }
     }
 
+    /// <summary>
+    /// Saves the hardware inventory information for a specified machine to the database.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine this hardware inventory belongs to.</param>
+    /// <param name="hardware">The hardware inventory data containing system, CPU, and memory information.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public async Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -287,6 +302,12 @@ public class DatabaseService
         });
     }
 
+    /// <summary>
+    /// Saves the software inventory data for a specific machine to the SQLite database.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine for which the software inventory is being saved.</param>
+    /// <param name="software">The software inventory object containing details about installed software, running processes, services, startup programs, environment variables, and runtime information.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -311,6 +332,11 @@ public class DatabaseService
         });
     }
 
+    /// <summary>
+    /// Retrieves a list of all machines from the SQLite database, ordered by their name.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// a list of <see cref="Machine"/> objects representing the machines retrieved from the database.</returns>
     public async Task<List<Machine>> GetMachinesAsync()
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -320,7 +346,15 @@ public class DatabaseService
         var machines = await connection.QueryAsync<Machine>(query);
         return machines.ToList();
     }
-    
+
+    /// <summary>
+    /// Retrieves a machine from the database using its unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the machine to be retrieved.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the machine
+    /// if found, or null if no machine matches the provided identifier.
+    /// </returns>
     public async Task<Machine?> GetMachineByIdAsync(int id)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -330,6 +364,14 @@ public class DatabaseService
         return await connection.QuerySingleOrDefaultAsync<Machine>(query, new { Id = id });
     }
 
+    /// <summary>
+    /// Retrieves a machine record from the database based on the provided machine name.
+    /// </summary>
+    /// <param name="machineName">The name of the machine to search for in the database.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the <see cref="Machine"/>
+    /// object if a match is found, or <c>null</c> if no matching machine is found.
+    /// </returns>
     public async Task<Machine?> GetMachineByNameAsync(string machineName)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -339,6 +381,11 @@ public class DatabaseService
         return await connection.QuerySingleOrDefaultAsync<Machine>(query, new { MachineName = machineName });
     }
 
+    /// <summary>
+    /// Retrieves the latest hardware inventory record for a specific machine from the database.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine whose hardware inventory is being retrieved.</param>
+    /// <returns>A <see cref="HardwareInventories"/> object containing the latest hardware inventory information, or null if no record is found.</returns>
     public async Task<HardwareInventories?> GetLatestHardwareInventoryAsync(int machineId)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -352,7 +399,12 @@ public class DatabaseService
 
         return await connection.QuerySingleOrDefaultAsync<HardwareInventories>(query, new { MachineId = machineId });
     }
-    
+
+    /// <summary>
+    /// Retrieves the latest software inventory record for a given machine ID from the database.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine for which the latest software inventory is to be retrieved.</param>
+    /// <returns>A <see cref="SoftwareInventories"/> object representing the latest software inventory of the specified machine, or null if no record exists.</returns>
     public async Task<SoftwareInventories?> GetLatestSoftwareInventoryAsync(int machineId)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -385,6 +437,11 @@ public class DatabaseService
         };
     }
 
+    /// <summary>
+    /// Removes old records from the hardware and software inventories based on the specified retention period.
+    /// </summary>
+    /// <param name="daysToKeep">The number of days for which to retain records. Records older than this period will be deleted. Defaults to 30.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public async Task CleanupOldRecordsAsync(int daysToKeep = 30)
     {
         using var connection = new SqliteConnection(_connectionString);
@@ -397,5 +454,31 @@ public class DatabaseService
 
         await connection.ExecuteAsync(deleteHardwareQuery, new { CutoffDate = cutoffDate });
         await connection.ExecuteAsync(deleteSoftwareQuery, new { CutoffDate = cutoffDate });
+    }
+
+    /// <summary>
+    /// Checks if there are any machine records in the database.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation. The task result contains true if machine records exist, otherwise false.</returns>
+    public async Task<bool> HasMachineRecordsAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT EXISTS(SELECT 1 FROM Machines)";
+        return await connection.QuerySingleAsync<bool>(query);
+    }
+
+    /// <summary>
+    /// Retrieves the total count of machines stored in the database.
+    /// </summary>
+    /// <returns>The number of machines as an integer.</returns>
+    public async Task<int> GetMachineCountAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT COUNT(*) FROM Machines";
+        return await connection.QuerySingleAsync<int>(query);
     }
 }
