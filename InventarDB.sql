@@ -231,7 +231,7 @@ ORDER BY name;
 -- Execute the ALTER TABLE commands only if the respective column is missing.
 
 -- LastHarvested (DATETIME)
-ALTER TABLE Machines ADD COLUMN LastHarvested DATETIME;;
+ALTER TABLE Machines ADD COLUMN LastHarvested DATETIME;
 
 -- For LastHarvested column
 SELECT CASE
