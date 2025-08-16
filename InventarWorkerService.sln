@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarWorkerCommonTest", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventarWorkerServiceIntegrationTest", "InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTest.csproj", "{6720630E-084B-48C8-9D8D-5A9BFB86A509}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarvesterWorkerService", "HarvesterWorkerService\HarvesterWorkerService.csproj", "{97E4AF71-767B-4215-91D8-BFBB547B7E9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{6720630E-084B-48C8-9D8D-5A9BFB86A509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6720630E-084B-48C8-9D8D-5A9BFB86A509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6720630E-084B-48C8-9D8D-5A9BFB86A509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E4AF71-767B-4215-91D8-BFBB547B7E9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E4AF71-767B-4215-91D8-BFBB547B7E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E4AF71-767B-4215-91D8-BFBB547B7E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E4AF71-767B-4215-91D8-BFBB547B7E9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
