@@ -46,6 +46,7 @@ public class DatabaseService
                 CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
             );
             -- Ensure the Machines table is created with appropriate fields
+            -- Ensure the HardwareInventories table is created with appropriate fields
             CREATE TABLE IF NOT EXISTS HardwareInventories (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 MachineId INTEGER NOT NULL,
