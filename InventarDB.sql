@@ -8,13 +8,21 @@
 -- CreatedAt: The timestamp when the machine was first seen by the inventory system.
 CREATE TABLE IF NOT EXISTS main.Machines
 (
+    -- Initial properties/fields for the machine dataset
     Id              INTEGER
         primary key autoincrement,
     Name            TEXT not null
         unique,
     OperatingSystem TEXT,
     LastSeen        DATETIME,
-    CreatedAt       DATETIME default CURRENT_TIMESTAMP
+    CreatedAt       DATETIME default CURRENT_TIMESTAMP,
+    -- Extended properties/fields for the harvester service
+    IPv4 TEXT,
+    IPv6 TEXT,
+    FQDN TEXT,
+    Disabled INTEGER NOT NULL DEFAULT 0,
+    Deprovisioned INTEGER NOT NULL DEFAULT 0,
+    LastHarvested DATETIME
 );
 -- This SQL script creates an index on the Name column of the Machines table.
 CREATE INDEX main.idx_machines_name
