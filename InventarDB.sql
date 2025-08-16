@@ -20,6 +20,9 @@ CREATE TABLE IF NOT EXISTS main.Machines
 CREATE INDEX main.idx_machines_name
     ON main.Machines (Name);
 
+-- Query to retrieve all machines
+SELECT * FROM Machines;
+
 -- This SQL script creates the HardwareInventories table.
 -- The table contains information about the hardware of the machines that are managed by the inventory system.
 -- The table has the following columns:
@@ -47,6 +50,9 @@ CREATE TABLE IF NOT EXISTS main.SoftwareInventories
 -- This SQL script creates an index on the MachineId and CreatedAt columns of the SoftwareInventories table.
 CREATE INDEX main.idx_software_machine_created
     ON main.SoftwareInventories (MachineId, CreatedAt);
+
+-- Query to retrieve all software inventories
+SELECT * FROM SoftwareInventories;
 
 -- This SQL script creates the HardwareInventories table.
 -- The table contains information about the hardware of the machines that are managed by the inventory system.
@@ -78,6 +84,9 @@ CREATE TABLE IF NOT EXISTS main.HardwareInventories
 -- This SQL script creates an index on the MachineId and CreatedAt columns of the HardwareInventories table.
 CREATE INDEX main.idx_hardware_machine_created
     ON main.HardwareInventories (MachineId, CreatedAt);
+
+-- Query to retrieve all hardware inventories
+SELECT * FROM HardwareInventories;
 
 -- This SQL script retrieves the latest software and hardware inventory records for each machine.
 -- It uses a common table expression (CTE) to find the latest records based on the CreatedAt timestamp.
