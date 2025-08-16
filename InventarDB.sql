@@ -230,6 +230,20 @@ ORDER BY name;
 -- Note: SQLite does not support "IF NOT EXISTS" for columns.
 -- Execute the ALTER TABLE commands only if the respective column is missing.
 
+-- LastHarvested (DATETIME)
+ALTER TABLE Machines ADD COLUMN LastHarvested DATETIME;;
+
+-- For LastHarvested column
+SELECT CASE
+           WHEN NOT EXISTS (
+               SELECT 1
+               FROM pragma_table_info('Machines')
+               WHERE name = 'LastHarvested'
+           )
+               THEN 'ALTER TABLE Machines ADD COLUMN LastHarvested DATETIME;'
+           ELSE ''
+           END AS SqlToExecute;
+
 -- IPv4 (Textual IPv4 address)
 ALTER TABLE Machines ADD COLUMN IPv4 TEXT;
 
