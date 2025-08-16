@@ -283,7 +283,7 @@ SELECT CASE
                WHERE name = 'Disabled'
            )
                THEN 'ALTER TABLE Machines ADD COLUMN Disabled INTEGER NOT NULL DEFAULT 0;'
-           ELSE NULL
+           ELSE ''
            END AS SqlToExecute;
 
 -- Deprovisioned (Boolean flag as INTEGER 0/1; use the specified format)
@@ -297,5 +297,5 @@ SELECT CASE
                WHERE name = 'Deprovisioned'
            )
                THEN 'ALTER TABLE Machines ADD COLUMN Deprovisioned INTEGER NOT NULL DEFAULT 0;'
-           ELSE NULL
+           ELSE ''
            END AS SqlToExecute;
