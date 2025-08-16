@@ -244,6 +244,19 @@ SELECT CASE
            ELSE ''
            END AS SqlToExecute;
 
+-- IPv6 (Textual IPv6 address)
+ALTER TABLE Machines ADD COLUMN IPv6 TEXT;
+
+-- For IPv6 column
+SELECT CASE
+           WHEN NOT EXISTS (
+               SELECT 1
+               FROM pragma_table_info('Machines')
+               WHERE name = 'IPv6'
+           )
+               THEN 'ALTER TABLE Machines ADD COLUMN IPv6 TEXT;'
+           ELSE ''
+           END AS SqlToExecute;
 
 -- FQDN (Fully Qualified Domain Name)
 ALTER TABLE Machines ADD COLUMN FQDN TEXT;
