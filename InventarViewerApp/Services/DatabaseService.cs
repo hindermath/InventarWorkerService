@@ -43,7 +43,13 @@ public class DatabaseService
                 Name TEXT NOT NULL UNIQUE,
                 OperatingSystem TEXT,
                 LastSeen DATETIME,
-                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+                CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+                IPv4 TEXT,
+                IPv6 TEXT,
+                FQDN TEXT,
+                Disabled INTEGER NOT NULL DEFAULT 0,
+                Deprovisioned INTEGER NOT NULL DEFAULT 0,
+                LastHarvested DATETIME
             );
             -- Ensure the Machines table is created with appropriate fields
             -- Ensure the HardwareInventories table is created with appropriate fields
