@@ -330,3 +330,46 @@ SELECT CASE
                THEN 'ALTER TABLE Machines ADD COLUMN Deprovisioned INTEGER NOT NULL DEFAULT 0;'
            ELSE ''
            END AS SqlToExecute;
+
+-- View to retrieve all active machines (not disabled or deprovisioned)
+-- This view selects all machines that are currently active, meaning they are not disabled or deprovisioned.
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+-- The view can be used to quickly access the list of active machines without having to filter the Machines table each time.
+-- The view is created only if it does not already exist.
+-- This allows for efficient querying of active machines in the inventory system.
+-- The view can be used to monitor the status of machines and ensure that only active machines are considered in reports and analyses.
+-- The view can be queried like a regular table, making it easy to integrate into existing queries and reports.
+-- The view is particularly useful for inventory management, monitoring.
+CREATE VIEW IF NOT EXISTS AllActiveMachinesView AS
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested 
+FROM Machines
+WHERE DISABLED = 0 AND DEPROVISIONED = 0;
+
+-- View to retrieve all disabled machines (not deprovisioned)
+-- This view selects all machines that are currently disabled, meaning they are not deprovisioned.
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+-- The view can be used to quickly access the list of disabled machines without having to filter the Machines table each time.
+-- The view is created only if it does not already exist.
+-- This allows for efficient querying of disabled machines in the inventory system.
+-- The view can be used to monitor the status of machines and ensure that only disabled machines are considered in reports and analyses.
+-- The view can be queried like a regular table, making it easy to integrate into existing queries and reports.
+-- The view is particularly useful for inventory management, monitoring.
+CREATE VIEW IF NOT EXISTS AllDisabledMachinesView AS
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE DISABLED = 1 AND DEPROVISIONED = 0;
+
+-- View to retrieve all deprovisioned machines (disabled)
+-- This view selects all machines that are currently deprovisioned, meaning they are disabled and marked as deprovisioned.
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+-- The view can be used to quickly access the list of deprovisioned machines without having to filter the Machines table each time.
+-- The view is created only if it does not already exist.
+-- This allows for efficient querying of deprovisioned machines in the inventory system.
+-- The view can be used to monitor the status of machines and ensure that only deprovisioned machines are considered in reports and analyses.
+-- The view can be queried like a regular table, making it easy to integrate into existing queries and reports.
+-- The view is particularly useful for inventory management, monitoring, and auditing purposes.
+-- It helps in identifying machines that have been deprovisioned.
+CREATE VIEW IF NOT EXISTS AllDeprovisionedMachinesView AS
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE DISABLED = 1 AND DEPROVISIONED = 1;
