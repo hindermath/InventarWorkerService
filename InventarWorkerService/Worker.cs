@@ -9,7 +9,7 @@ namespace InventarWorkerService;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
-    private readonly FileBasedStatusService _statusService;
+    private readonly ServiceStatusWriter _statusWriter;
     private readonly HardwareInventoryService _hardwareInventoryService;
     private readonly SoftwareInventoryService _softwareInventoryService;
     private int _processedItems = 0;
@@ -20,7 +20,7 @@ public class Worker : BackgroundService
                   SoftwareInventoryService softwareInventoryService)
     {
         _logger = logger;
-        _statusService = new FileBasedStatusService();
+        _statusWriter = new ServiceStatusWriter();
         _hardwareInventoryService = hardwareInventoryService;
         _softwareInventoryService = softwareInventoryService;
     }
@@ -33,7 +33,7 @@ public class Worker : BackgroundService
     /// <returns>A Task representing the asynchronous execution of the worker's main loop.</returns>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _statusService.WriteStatus(new ServiceStatus
+        _statusWriter.WriteStatus(new ServiceStatus
         {
             State = "Starting",
             StartTime = _startTime,
@@ -50,7 +50,7 @@ public class Worker : BackgroundService
                 _processedItems++;
                 
                 // Status aktualisieren
-                _statusService.WriteStatus(new ServiceStatus
+                _statusWriter.WriteStatus(new ServiceStatus
                 {
                     State = "Running",
                     StartTime = _startTime,
@@ -59,7 +59,7 @@ public class Worker : BackgroundService
                 });
                 
                 // Statistiken aktualisieren
-                _statusService.WriteStatistics(new ServiceStatistics
+                _statusWriter.WriteStatistics(new ServiceStatistics
                 {
                     TotalProcessedItems = _processedItems,
                     AverageProcessingTime = CalculateAverageProcessingTime(),
@@ -69,15 +69,15 @@ public class Worker : BackgroundService
                 
                 var message = $"Inventarisierung abgeschlossen: {_processedItems} Durchläufe";
                 _logger.LogInformation(message);
-                _statusService.WriteLog(message);
+                _statusWriter.WriteLog(message);
                 
                 await Task.Delay(30000, stoppingToken);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Fehler in Worker");
-                _statusService.WriteLog($"ERROR: {ex.Message}");
-                _statusService.WriteStatus(new ServiceStatus
+                _statusWriter.WriteLog($"ERROR: {ex.Message}");
+                _statusWriter.WriteStatus(new ServiceStatus
                 {
                     State = "Error",
                     StartTime = _startTime,
@@ -89,7 +89,7 @@ public class Worker : BackgroundService
             }
         }
 
-        _statusService.WriteStatus(new ServiceStatus
+        _statusWriter.WriteStatus(new ServiceStatus
         {
             State = "Stopped",
             StartTime = _startTime,
@@ -132,7 +132,7 @@ public class Worker : BackgroundService
     {
         try
         {
-            await _statusService.WriteHardwareInventory(hardwareInfo);
+            await _statusWriter.WriteHardwareInventory(hardwareInfo);
             _logger.LogInformation("Inventar gespeichert.");
             
             // Kurzzusammenfassung loggen
