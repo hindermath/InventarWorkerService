@@ -1,6 +1,8 @@
-﻿using ServiceStatusReaderApp.ServiceStatus;
+﻿using ServiceStatusReaderApp.Service.Status;
 
-class Program
+namespace ServiceStatusReaderApp;
+
+static class Program
 {
     static async Task Main(string[] args)
     {
@@ -8,11 +10,11 @@ class Program
         
         Console.WriteLine("=== InventarWorkerService Status ===\n");
         
-        // Service-Status prüfen
+        // Check Service Status
         var isRunning = reader.IsServiceRunning();
         Console.WriteLine($"Service läuft: {(isRunning ? "JA" : "NEIN")}");
         
-        // Detaillierter Status
+        // Detailed Status
         var status = reader.ReadStatus();
         if (status != null)
         {
@@ -28,7 +30,7 @@ class Program
         
         Console.WriteLine();
         
-        // Statistiken
+        // Statistics
         var stats = reader.ReadStatistics();
         if (stats != null)
         {
@@ -52,7 +54,7 @@ class Program
             }
         }
         
-        // Kontinuierliche Überwachung
+        // Continuous monitoring
         if (args.Contains("--monitor"))
         {
             Console.WriteLine("\n=== Kontinuierliche Überwachung (Strg+C zum Beenden) ===");
