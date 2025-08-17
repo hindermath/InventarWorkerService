@@ -4,6 +4,9 @@ using InventarWorkerCommon.Models.Service;
 
 namespace ServiceStatusReaderApp.Service.Status;
 
+/// <summary>
+/// Provides methods to read and interpret the status, statistics, and logs of a service.
+/// </summary>
 public class ServiceStatusReader
 {
     private readonly string _statusDirectory;
@@ -20,14 +23,15 @@ public class ServiceStatusReader
     }
 
     /// <summary>
-    /// Reads the current service status from the specified status file.
+    /// Reads the current service status from a predefined status file.
+    /// If the status file does not exist or an error occurs during reading,
+    /// the method returns null.
     /// </summary>
     /// <returns>
-    /// An instance of <see cref="InventarWorkerCommon.Models.Service.ServiceStatus"/>
-    /// containing the current status information, or null if the status file does not exist
-    /// or if an error occurs during the reading process.
+    /// An instance of <see cref="ServiceStatus"/> representing the current service status,
+    /// or null if the status file is missing or could not be read.
     /// </returns>
-    public InventarWorkerCommon.Models.Service.ServiceStatus? ReadStatus()
+    public ServiceStatus? ReadStatus()
     {
         try
         {
@@ -35,7 +39,7 @@ public class ServiceStatusReader
             if (!File.Exists(statusFile)) return null;
             
             var json = File.ReadAllText(statusFile);
-            return JsonSerializer.Deserialize<InventarWorkerCommon.Models.Service.ServiceStatus>(json, _jsonOptions);
+            return JsonSerializer.Deserialize<ServiceStatus>(json, _jsonOptions);
         }
         catch (Exception ex)
         {
@@ -44,6 +48,14 @@ public class ServiceStatusReader
         }
     }
 
+    /// <summary>
+    /// Reads the service's statistical data from a predefined statistics file.
+    /// If the file does not exist or an error occurs during reading, the method returns null.
+    /// </summary>
+    /// <returns>
+    /// An instance of <see cref="ServiceStatistics"/> containing the statistical information,
+    /// or null if the statistics file is missing or could not be read.
+    /// </returns>
     public ServiceStatistics? ReadStatistics()
     {
         try
@@ -61,6 +73,13 @@ public class ServiceStatusReader
         }
     }
 
+    /// <summary>
+    /// Reads the most recent log entries from the service log file.
+    /// If the log file does not exist or an error occurs during reading,
+    /// the method returns an empty list.
+    /// </summary>
+    /// <param name="maxLines">The maximum number of recent log lines to read. Defaults to 50.</param>
+    /// <returns>A list of strings containing the most recent log entries, or an empty list if the log file is missing or an error occurs.</returns>
     public List<string> ReadRecentLogs(int maxLines = 50)
     {
         try
@@ -78,6 +97,12 @@ public class ServiceStatusReader
         }
     }
 
+    /// <summary>
+    /// Determines whether the service is currently running by checking the state and the recency of the last activity.
+    /// </summary>
+    /// <returns>
+    /// True if the service is in a running state and the last activity occurred within the past 30 seconds; otherwise, false.
+    /// </returns>
     public bool IsServiceRunning()
     {
         var status = ReadStatus();
