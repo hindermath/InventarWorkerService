@@ -10,14 +10,14 @@ public class AdvancedServiceMonitor
     /// <summary>
     /// Starts monitoring a designated directory for changes to JSON files.
     /// When a change is detected, the method logs the file name of the modified file and displays the current service status.
-    /// The directory being monitored is determined by the path provided by the <see cref="ServicePaths.GetStatusDirectory" /> method.
+    /// The directory being monitored is determined by the path provided by the <see cref="ServicePaths.GetServiceStatusDirectory" /> method.
     /// File changes are tracked based on the last write time. When a change occurs, the service status is read using
     /// the <see cref="ServiceStatusReader" /> and logged to the console.
     /// This method blocks execution until a key is pressed, after which it disposes of the monitoring resources and exits.
     /// </summary>
     public void WatchForChanges()
     {
-        var watcher = new FileSystemWatcher(ServicePaths.GetStatusDirectory())
+        var watcher = new FileSystemWatcher(ServicePaths.GetServiceStatusDirectory())
         {
             Filter = "*.json",
             NotifyFilter = NotifyFilters.LastWrite
