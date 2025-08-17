@@ -5,13 +5,8 @@ namespace ServiceStatusReaderApp.Service.Monitor;
 
 public class AdvancedServiceMonitor
 {
-    private readonly ServiceStatusReader _reader;
-    
-    public AdvancedServiceMonitor()
-    {
-        _reader = new ServiceStatusReader();
-    }
-    
+    private readonly ServiceStatusReader _reader = new();
+
     public void WatchForChanges()
     {
         var watcher = new FileSystemWatcher(ServicePaths.GetStatusDirectory())
@@ -20,7 +15,7 @@ public class AdvancedServiceMonitor
             NotifyFilter = NotifyFilters.LastWrite
         };
         
-        watcher.Changed += (sender, e) =>
+        watcher.Changed += (_, e) =>
         {
             Console.WriteLine($"Status-Datei geändert: {e.Name}");
             DisplayCurrentStatus();
