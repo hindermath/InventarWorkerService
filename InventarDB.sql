@@ -9,27 +9,25 @@
 CREATE TABLE IF NOT EXISTS main.Machines
 (
     -- Initial properties/fields for the machine dataset
-    Id              INTEGER
-        primary key autoincrement,
-    Name            TEXT not null
-        unique,
+    Id              INTEGER PRIMARY KEY AUTOINCREMENT ,
+    Name            TEXT NOT NULL UNIQUE,
     OperatingSystem TEXT,
     LastSeen        DATETIME,
-    CreatedAt       DATETIME default CURRENT_TIMESTAMP,
+    CreatedAt       DATETIME DEFAULT CURRENT_TIMESTAMP,
     -- Extended properties/fields for the harvester service
-    IPv4 TEXT,
-    IPv6 TEXT,
-    FQDN TEXT,
-    Disabled INTEGER NOT NULL DEFAULT 0,
-    Deprovisioned INTEGER NOT NULL DEFAULT 0,
-    LastHarvested DATETIME
+    IPv4            TEXT,
+    IPv6            TEXT,
+    FQDN            TEXT,
+    Disabled        INTEGER NOT NULL DEFAULT 0,
+    Deprovisioned   INTEGER NOT NULL DEFAULT 0,
+    LastHarvested   DATETIME
 );
 -- This SQL script creates an index on the Name column of the Machines table.
 CREATE INDEX main.idx_machines_name
     ON main.Machines (Name);
 
 -- Query to retrieve all machines
-SELECT * FROM Machines;
+SELECT * FROM main.Machines;
 
 -- This SQL script creates the HardwareInventories table.
 -- The table contains information about the hardware of the machines that are managed by the inventory system.
@@ -43,24 +41,23 @@ SELECT * FROM Machines;
 -- CreatedAt: The timestamp when the hardware inventory record was created.
 CREATE TABLE IF NOT EXISTS main.SoftwareInventories
 (
-    Id                    INTEGER
-        primary key autoincrement,
-    MachineId             INTEGER not null
-        references main.Machines,
+    Id                    INTEGER PRIMARY KEY AUTOINCREMENT,
+    MachineId             INTEGER NOT NULL,
     ProcessesJson         TEXT,
     InstalledSoftwareJson TEXT,
     ServicesJson          TEXT,
     EnvironmentJson       TEXT,
     StartupProgramsJson   TEXT,
     RuntimeJson           TEXT,
-    CreatedAt             DATETIME default CURRENT_TIMESTAMP
+    CreatedAt             DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (MachineId) REFERENCES Machines(Id)
 );
 -- This SQL script creates an index on the MachineId and CreatedAt columns of the SoftwareInventories table.
 CREATE INDEX main.idx_software_machine_created
     ON main.SoftwareInventories (MachineId, CreatedAt);
 
 -- Query to retrieve all software inventories
-SELECT * FROM SoftwareInventories;
+SELECT * FROM main.SoftwareInventories;
 
 -- This SQL script creates the HardwareInventories table.
 -- The table contains information about the hardware of the machines that are managed by the inventory system.
@@ -74,10 +71,8 @@ SELECT * FROM SoftwareInventories;
 -- CreatedAt: The timestamp when the hardware inventory record was created.
 CREATE TABLE IF NOT EXISTS main.HardwareInventories
 (
-    Id                   INTEGER
-        primary key autoincrement,
-    MachineId            INTEGER not null
-        references main.Machines,
+    Id                   INTEGER PRIMARY KEY AUTOINCREMENT,
+    MachineId            INTEGER NOT NULL,
     ComputerName         TEXT,
     ComputerModel        TEXT,
     ComputerManufacturer TEXT,
@@ -87,14 +82,15 @@ CREATE TABLE IF NOT EXISTS main.HardwareInventories
     TotalMemoryGB        REAL,
     AvailableMemoryGB    REAL,
     MemoryUsagePercent   REAL,
-    CreatedAt            DATETIME default CURRENT_TIMESTAMP
+    CreatedAt            DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (MachineId) REFERENCES Machines(Id)
 );
 -- This SQL script creates an index on the MachineId and CreatedAt columns of the HardwareInventories table.
 CREATE INDEX main.idx_hardware_machine_created
     ON main.HardwareInventories (MachineId, CreatedAt);
 
 -- Query to retrieve all hardware inventories
-SELECT * FROM HardwareInventories;
+SELECT * FROM main.HardwareInventories;
 
 -- This SQL script retrieves the latest software and hardware inventory records for each machine.
 -- It uses a common table expression (CTE) to find the latest records based on the CreatedAt timestamp.
