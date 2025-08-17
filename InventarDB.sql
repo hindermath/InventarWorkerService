@@ -345,6 +345,14 @@ SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarves
 FROM Machines
 WHERE DISABLED = 0 AND DEPROVISIONED = 0;
 
+-- Query to retrieve a specific machine by Id (active)
+-- This query selects a specific machine by its Id, ensuring that the machine is active (not disabled or deprovisioned).
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE Id = @MachineId AND DISABLED = 0 AND DEPROVISIONED = 0;
+
+
 -- View to retrieve all disabled machines (not deprovisioned)
 -- This view selects all machines that are currently disabled, meaning they are not deprovisioned.
 -- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
@@ -358,6 +366,14 @@ CREATE VIEW IF NOT EXISTS AllDisabledMachinesView AS
 SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
 FROM Machines
 WHERE DISABLED = 1 AND DEPROVISIONED = 0;
+
+-- Query to retrieve a specific machine by Id (disabled)
+-- This query selects a specific machine by its Id, ensuring that the machine is disabled (not deprovisioned).
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE Id = @MachineId AND DISABLED = 1 AND DEPROVISIONED = 0;
+
 
 -- View to retrieve all deprovisioned machines (disabled)
 -- This view selects all machines that are currently deprovisioned, meaning they are disabled and marked as deprovisioned.
@@ -373,3 +389,10 @@ CREATE VIEW IF NOT EXISTS AllDeprovisionedMachinesView AS
 SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
 FROM Machines
 WHERE DISABLED = 1 AND DEPROVISIONED = 1;
+
+-- Query to retrieve a specific machine by Id (deprovisioned)
+-- This query selects a specific machine by its Id, ensuring that the machine is deprovisioned (disabled).
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE Id = @MachineId AND DISABLED = 1 AND DEPROVISIONED = 1;
