@@ -1,5 +1,5 @@
 using ServiceStatusReaderApp.Service.Path;
-using ServiceStatusReaderApp.ServiceStatus;
+using ServiceStatusReaderApp.Service.Status;
 
 namespace ServiceStatusReaderApp.Service.Monitor;
 
