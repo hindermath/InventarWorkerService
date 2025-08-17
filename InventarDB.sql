@@ -393,7 +393,7 @@ SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarves
 FROM Machines
 WHERE Id = @MachineId AND DISABLED = 1 AND DEPROVISIONED = 1;
 
--- Query to retrieve all hardware and software inventories for all machine.
+-- Query to retrieve all hardware and software inventories for all machines.
 -- The format of the @CutOffDate parameter is 'YYYY-MM-DD'.
 -- The query includes the Id, MachineId, and CreatedAt columns.
 SELECT Id, MachineId, CreatedAt FROM HardwareInventories WHERE CreatedAt < @CutOffDate;
@@ -404,7 +404,7 @@ SELECT Id, MachineId, CreatedAt FROM HardwareInventories WHERE CreatedAt < @CutO
 -- The query includes the Id, MachineId, and CreatedAt columns.
 SELECT Id, MachineId, CreatedAt FROM HardwareInventories WHERE MachineId = @MachineId AND CreatedAt < @CutOffDate;
 
--- Query to retrieve all software inventories for all machine.
+-- Query to retrieve all software inventories for all machines.
 -- The format of the @CutOffDate parameter is 'YYYY-MM-DD'.
 -- The query includes the Id, MachineId, and CreatedAt columns.
 SELECT Id, MachineId, CreatedAt FROM SoftwareInventories WHERE CreatedAt < @CutOffDate;
