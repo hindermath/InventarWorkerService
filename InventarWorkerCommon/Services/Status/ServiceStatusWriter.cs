@@ -5,12 +5,12 @@ using InventarWorkerCommon.Models.Service;
 
 namespace InventarWorkerService.Services.Status;
 
-public class FileBasedStatusService
+public class ServiceStatusWriter
 {
     private readonly string _statusDirectory;
     private readonly JsonSerializerOptions _jsonOptions;
 
-    public FileBasedStatusService(string statusDirectory = "/tmp/inventar-service")
+    public ServiceStatusWriter(string statusDirectory = "/tmp/inventar-service")
     {
         _statusDirectory = statusDirectory;
         _jsonOptions = new JsonSerializerOptions 
