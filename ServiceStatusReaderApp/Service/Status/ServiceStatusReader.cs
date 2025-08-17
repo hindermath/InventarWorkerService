@@ -2,7 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using InventarWorkerCommon.Models.Service;
 
-namespace ServiceStatusReaderApp.ServiceStatus;
+namespace ServiceStatusReaderApp.Service.Status;
 
 public class ServiceStatusReader
 {
@@ -31,7 +31,7 @@ public class ServiceStatusReader
     {
         try
         {
-            var statusFile = Path.Combine(_statusDirectory, "status.json");
+            var statusFile = System.IO.Path.Combine(_statusDirectory, "status.json");
             if (!File.Exists(statusFile)) return null;
             
             var json = File.ReadAllText(statusFile);
@@ -48,7 +48,7 @@ public class ServiceStatusReader
     {
         try
         {
-            var statsFile = Path.Combine(_statusDirectory, "statistics.json");
+            var statsFile = System.IO.Path.Combine(_statusDirectory, "statistics.json");
             if (!File.Exists(statsFile)) return null;
             
             var json = File.ReadAllText(statsFile);
@@ -65,7 +65,7 @@ public class ServiceStatusReader
     {
         try
         {
-            var logFile = Path.Combine(_statusDirectory, "service.log");
+            var logFile = System.IO.Path.Combine(_statusDirectory, "service.log");
             if (!File.Exists(logFile)) return new List<string>();
             
             var lines = File.ReadAllLines(logFile);
