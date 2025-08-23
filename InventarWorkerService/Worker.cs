@@ -44,12 +44,12 @@ public class Worker : BackgroundService
         {
             try
             {
-                // Hardware- und Software-Inventarisierung durchführen
+                // Conduct hardware and software inventory.
                 await ProcessInventoryItems();
                 
                 _processedItems++;
                 
-                // Status aktualisieren
+                // Update status
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
                     State = "Running",
@@ -58,7 +58,7 @@ public class Worker : BackgroundService
                     LastActivity = DateTime.Now
                 });
                 
-                // Statistiken aktualisieren
+                // Update statistics
                 _statusWriter.WriteStatistics(new ServiceStatistics
                 {
                     TotalProcessedItems = _processedItems,
@@ -104,7 +104,7 @@ public class Worker : BackgroundService
         
         try
         {
-            // Parallel sammeln für bessere Performance
+            // Collect in parallel for better performance
             var hardwareTask = _hardwareInventoryService.CollectHardwareInfoAsync();
             var softwareTask = _softwareInventoryService.CollectSoftwareInventoryAsync();
             
@@ -113,10 +113,10 @@ public class Worker : BackgroundService
             var hardwareInfo = await hardwareTask;
             var softwareInventory = await softwareTask;
             
-            // Software-Inventar zu Hardware-Info hinzufügen
+            // Add software inventory to hardware information
             hardwareInfo.Software = softwareInventory;
             
-            // Inventar speichern
+            // Save inventory
             await SaveInventory(hardwareInfo);
             
             _logger.LogInformation("Inventarisierung erfolgreich abgeschlossen");
@@ -135,7 +135,7 @@ public class Worker : BackgroundService
             await _statusWriter.WriteHardwareInventory(hardwareInfo);
             _logger.LogInformation("Inventar gespeichert.");
             
-            // Kurzzusammenfassung loggen
+            // Log short summary
             LogInventorySummary(hardwareInfo);
         }
         catch (Exception ex)
