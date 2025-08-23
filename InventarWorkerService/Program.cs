@@ -8,34 +8,34 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Windows Service Support hinzufügen
+// Add Windows Service Support
 builder.Services.AddWindowsService(options =>
 {
     options.ServiceName = "InventarWorkerService";
 });
 
-// Systemd Support für Linux/Unix hinzufügen
+// Add Systemd support for Linux/Unix
 builder.Services.AddSystemd();
 
-// Services registrieren
+// Register services
 builder.Services.AddSingleton<HardwareInventoryService>();
 builder.Services.AddSingleton<SoftwareInventoryService>();
 builder.Services.AddHostedService<Worker>();
 
-// REST API Services hinzufügen
+// Add REST API Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
-    // JSON-Serialisierung konfigurieren
+    // Configure JSON serialization
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     options.JsonSerializerOptions.WriteIndented = true;
     options.JsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals;
 });
 
-// CORS konfigurieren (optional)
+// Configure CORS (optional)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -48,7 +48,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Development Environment konfigurieren
+// Configure Development Environment
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
