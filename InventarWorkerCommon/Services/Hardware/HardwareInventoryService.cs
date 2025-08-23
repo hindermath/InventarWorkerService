@@ -5,7 +5,7 @@ using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using Microsoft.Extensions.Logging;
 
-namespace InventarWorkerService.Services.Hardware;
+namespace InventarWorkerCommon.Services.Hardware;
 
 public class HardwareInventoryService
 {

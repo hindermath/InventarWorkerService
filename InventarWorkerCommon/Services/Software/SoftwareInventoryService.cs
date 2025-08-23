@@ -5,7 +5,7 @@ using InventarWorkerCommon.Models.Software;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
 
-namespace InventarWorkerService.Services.Software;
+namespace InventarWorkerCommon.Services.Software;
 
 public class SoftwareInventoryService
 {

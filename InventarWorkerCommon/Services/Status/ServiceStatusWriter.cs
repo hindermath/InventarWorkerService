@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 
-namespace InventarWorkerService.Services.Status;
+namespace InventarWorkerCommon.Services.Status;
 
 public class ServiceStatusWriter
 {

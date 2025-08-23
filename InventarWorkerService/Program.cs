@@ -1,8 +1,8 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using InventarWorkerCommon.Services.Hardware;
+using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
-using InventarWorkerService.Services.Hardware;
-using InventarWorkerService.Services.Software;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 

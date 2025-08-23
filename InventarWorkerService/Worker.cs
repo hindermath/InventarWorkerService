@@ -1,8 +1,8 @@
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
-using InventarWorkerService.Services.Hardware;
-using InventarWorkerService.Services.Software;
-using InventarWorkerService.Services.Status;
+using InventarWorkerCommon.Services.Hardware;
+using InventarWorkerCommon.Services.Software;
+using InventarWorkerCommon.Services.Status;
 
 namespace InventarWorkerService;
 
