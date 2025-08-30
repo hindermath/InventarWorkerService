@@ -1,4 +1,5 @@
 ﻿using static InventarViewerApp.WebApi;
+using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace InventarViewerApp;
 
