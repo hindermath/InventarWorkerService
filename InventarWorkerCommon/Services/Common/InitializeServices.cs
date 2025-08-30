@@ -1,11 +1,11 @@
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
 
-namespace InventarViewerApp;
+namespace InventarWorkerCommon.Services.Common;
 
-partial class Program
+public class Initialize
 {
-    private static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) InitializeServices()
+    public static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) InitializeServices()
     {
         // API Service initialisieren
         var apiService = new ApiService("http://localhost:5000");
