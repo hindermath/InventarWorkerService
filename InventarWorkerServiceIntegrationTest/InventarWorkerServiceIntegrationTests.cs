@@ -1,7 +1,7 @@
-﻿using Microsoft.Playwright;
-using Microsoft.Playwright.MSTest;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
+using Microsoft.Playwright;
+using Microsoft.Playwright.MSTest;
 
 namespace InventarWorkerServiceIntegrationTests;
 

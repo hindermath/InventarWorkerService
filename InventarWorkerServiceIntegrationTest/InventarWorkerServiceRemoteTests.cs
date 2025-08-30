@@ -1,6 +1,6 @@
+using System.Text.Json;
 using Microsoft.Playwright;
 using Microsoft.Playwright.MSTest;
-using System.Text.Json;
 
 namespace InventarWorkerServiceIntegrationTests;
 
