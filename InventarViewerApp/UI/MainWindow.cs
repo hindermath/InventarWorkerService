@@ -7,11 +7,11 @@ namespace InventarViewerApp.UI
     public class MainWindow : Window
     {
         private readonly ApiService _apiService;
-        private readonly DatabaseService _dbService;
+        private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
         private TabView _tabView;
 
-        public MainWindow(ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService) : base("Main Window")
+        public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) : base("Main Window")
         {
             _apiService = apiService;
             _dbService = dbService;
