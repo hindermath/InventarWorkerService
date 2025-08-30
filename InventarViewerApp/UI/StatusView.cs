@@ -1,7 +1,8 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using InventarViewerApp.Models.Database;
-using InventarViewerApp.Services;
+using InventarWorkerCommon.Models.Database;
+using InventarWorkerCommon.Services.Api;
+using InventarWorkerCommon.Services.Database;
 using Terminal.Gui;
 
 namespace InventarViewerApp.UI
