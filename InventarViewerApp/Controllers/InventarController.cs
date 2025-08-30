@@ -1,4 +1,4 @@
-using InventarWorkerCommon.Models.Database;
+using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Mvc;
 
