@@ -12,7 +12,7 @@ namespace InventarWorkerCommon.Services.Database;
 /// <summary>
 /// Provides services to interact with the application's SQLite database.
 /// </summary>
-public class DatabaseService
+public class SqliteDbService
 {
     private readonly string _connectionString;
 
@@ -20,7 +20,7 @@ public class DatabaseService
     /// Handles interactions with the SQLite database, providing methods for initialization,
     /// data storage, retrieval, and maintenance operations.
     /// </summary>
-    public DatabaseService(string connectionString)
+    public SqliteDbService(string connectionString)
     {
         _connectionString = connectionString;
     }
