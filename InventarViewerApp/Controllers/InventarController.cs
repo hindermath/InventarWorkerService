@@ -12,11 +12,11 @@ namespace InventarViewerApp.Controllers;
 [Route("api/[controller]")]
 public class InventarController : ControllerBase
 {
-    private readonly DatabaseService _databaseService;
+    private readonly SqliteDbService _sqliteDbService;
 
-    public InventarController(DatabaseService databaseService)
+    public InventarController(SqliteDbService sqliteDbService)
     {
-        _databaseService = databaseService;
+        _sqliteDbService = sqliteDbService;
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machines = await _databaseService.GetMachinesAsync();
+            var machines = await _sqliteDbService.GetMachinesAsync();
             return Ok(machines);
         }
         catch (Exception ex)
@@ -52,7 +52,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByIdAsync(id);
+            var machine = await _sqliteDbService.GetMachineByIdAsync(id);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
@@ -69,7 +69,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByIdAsync(id);
+            var machine = await _sqliteDbService.GetMachineByIdAsync(id);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
@@ -86,7 +86,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByNameAsync(machineName);
+            var machine = await _sqliteDbService.GetMachineByNameAsync(machineName);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
@@ -103,7 +103,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByNameAsync(machineName);
+            var machine = await _sqliteDbService.GetMachineByNameAsync(machineName);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
@@ -120,7 +120,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var hardware = await _databaseService.GetLatestHardwareInventoryAsync(machineId);
+            var hardware = await _sqliteDbService.GetLatestHardwareInventoryAsync(machineId);
             if (hardware == null)
                 return NotFound(new { message = "Keine Hardware-Inventar-Daten gefunden" });
 
@@ -137,11 +137,11 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByNameAsync(machineName);
+            var machine = await _sqliteDbService.GetMachineByNameAsync(machineName);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
-            var hardware = await _databaseService.GetLatestHardwareInventoryAsync(machine.Id);
+            var hardware = await _sqliteDbService.GetLatestHardwareInventoryAsync(machine.Id);
             if (hardware == null)
                 return NotFound(new { message = "Keine Hardware-Inventar-Daten gefunden" });
 
@@ -158,7 +158,7 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var software = await _databaseService.GetLatestSoftwareInventoryAsync(machineId);
+            var software = await _sqliteDbService.GetLatestSoftwareInventoryAsync(machineId);
             if (software == null)
                 return NotFound(new { message = "Keine Software-Inventar-Daten gefunden" });
 
@@ -175,11 +175,11 @@ public class InventarController : ControllerBase
     {
         try
         {
-            var machine = await _databaseService.GetMachineByNameAsync(machineName);
+            var machine = await _sqliteDbService.GetMachineByNameAsync(machineName);
             if (machine == null)
                 return NotFound(new { message = "Maschine nicht gefunden" });
 
-            var software = await _databaseService.GetLatestSoftwareInventoryAsync(machine.Id);
+            var software = await _sqliteDbService.GetLatestSoftwareInventoryAsync(machine.Id);
             if (software == null)
                 return NotFound(new { message = "Keine Software-Inventar-Daten gefunden" });
 
@@ -197,12 +197,12 @@ public class InventarController : ControllerBase
         try
         {
             // Nutzen Sie die vorhandene hardwareinventory View
-            var machines = await _databaseService.GetMachinesAsync();
+            var machines = await _sqliteDbService.GetMachinesAsync();
             var result = new List<object>();
 
             foreach (var machine in machines)
             {
-                var hardware = await _databaseService.GetLatestHardwareInventoryAsync(machine.Id);
+                var hardware = await _sqliteDbService.GetLatestHardwareInventoryAsync(machine.Id);
                 if (hardware != null)
                 {
                     result.Add(new
