@@ -1,4 +1,4 @@
-namespace InventarWorkerCommon.Models.Database;
+namespace InventarWorkerCommon.Models.SqlDatabase;
 
 public record HardwareInventories
 {
