@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using InventarWorkerCommon.Models.Database;
+using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
 using Terminal.Gui;
