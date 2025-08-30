@@ -2,7 +2,7 @@ using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Dapper;
-using InventarViewerApp.Models.Database;
+using InventarWorkerCommon.Models.Database;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using Microsoft.Data.Sqlite;
