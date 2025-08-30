@@ -68,10 +68,10 @@ partial class WebApi
             */
         });
         
-        // DatabaseService registrieren
+        // SqliteDbService registrieren
         var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
-        builder.Services.AddSingleton<DatabaseService>(provider => 
-            new DatabaseService($"Data Source={dbPath}"));
+        builder.Services.AddSingleton<SqliteDbService>(provider => 
+            new SqliteDbService($"Data Source={dbPath}"));
 
         // CORS
         builder.Services.AddCors(options =>
@@ -89,7 +89,7 @@ partial class WebApi
         // Datenbank initialisieren
         using (var scope = app.Services.CreateScope())
         {
-            var dbService = scope.ServiceProvider.GetRequiredService<DatabaseService>();
+            var dbService = scope.ServiceProvider.GetRequiredService<SqliteDbService>();
             dbService.InitializeDatabase();
         }
 
