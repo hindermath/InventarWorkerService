@@ -7,7 +7,7 @@ using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using Microsoft.Data.Sqlite;
 
-namespace InventarViewerApp.Services;
+namespace InventarWorkerCommon.Services.Database;
 
 /// <summary>
 /// Provides services to interact with the application's SQLite database.
