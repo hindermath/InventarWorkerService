@@ -10,16 +10,16 @@ namespace InventarViewerApp.UI
     public class StatusView : FrameView
     {
         private readonly ApiService _apiService;
-        private readonly DatabaseService _databaseService;
+        private readonly SqliteDbService _sqliteDbService;
         private readonly JsonSerializerOptions _jsonOptions;
         private Label _statusLabel;
         private Label _contentLabel;
         private Button _refreshButton;
 
-        public StatusView(ApiService apiService, DatabaseService databaseService) : base("Service Status")
+        public StatusView(ApiService apiService, SqliteDbService sqliteDbService) : base("Service Status")
         {
             _apiService = apiService;
-            _databaseService = databaseService;
+            _sqliteDbService = sqliteDbService;
 
             _jsonOptions = new JsonSerializerOptions
             {
@@ -103,7 +103,7 @@ namespace InventarViewerApp.UI
                     LastSeen = DateTime.UtcNow
                 };
                 
-                var machineId = await _databaseService.SaveOrUpdateMachineAsync(machine);
+                var machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
                 
                 Application.MainLoop.Invoke(() => {
                     _contentLabel.Text = $"Service: {status}\nMaschine: {machineName} (ID: {machineId})\n\nAbgefragt: {DateTime.Now}";
