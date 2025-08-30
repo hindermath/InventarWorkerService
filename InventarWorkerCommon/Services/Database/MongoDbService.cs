@@ -2,7 +2,7 @@ using InventarWorkerCommon.Models.Software;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace InventarViewerApp.Services;
+namespace InventarWorkerCommon.Services.Database;
 
 public class MongoDbService
 {
