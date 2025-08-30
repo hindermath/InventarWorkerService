@@ -7,7 +7,7 @@ namespace InventarViewerApp;
 
 partial class Program
 {
-    private static void TuiApp(ApiService apiService, DatabaseService dbService, MongoDbService mongoDbService)
+    private static void TuiApp(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService)
     {
         // Terminal.GUI initialisieren
         Application.Init();
