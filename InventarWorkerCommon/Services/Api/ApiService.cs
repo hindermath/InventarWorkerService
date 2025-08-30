@@ -4,7 +4,7 @@ using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using RestSharp;
 
-namespace InventarViewerApp.Services
+namespace InventarWorkerCommon.Services.Api
 {
     public class ApiService
     {
