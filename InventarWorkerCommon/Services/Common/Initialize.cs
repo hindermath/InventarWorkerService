@@ -3,9 +3,9 @@ using InventarWorkerCommon.Services.Database;
 
 namespace InventarWorkerCommon.Services.Common;
 
-public class Initialize
+public static class Initialize
 {
-    public static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) InitializeServices()
+    public static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) Services()
     {
         // API Service initialisieren
         var apiService = new ApiService("http://localhost:5000");
