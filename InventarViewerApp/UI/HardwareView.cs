@@ -7,13 +7,13 @@ namespace InventarViewerApp.UI
     public class HardwareView : FrameView
     {
         private readonly ApiService _apiService;
-        private readonly DatabaseService _dbService;
+        private readonly SqliteDbService _dbService;
         private ListView _listView;
         private Label _statusLabel;
         private Button _refreshButton;
         private Button _saveButton;
 
-        public HardwareView(ApiService apiService, DatabaseService dbService) : base("Hardware Inventar")
+        public HardwareView(ApiService apiService, SqliteDbService dbService) : base("Hardware Inventar")
         {
             _apiService = apiService;
             _dbService = dbService;
