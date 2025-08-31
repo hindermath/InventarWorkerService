@@ -1,3 +1,4 @@
+using InventarWorkerCommon.Helpers.Calculate;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Hardware;
@@ -62,7 +63,8 @@ public class Worker : BackgroundService
                 _statusWriter.WriteStatistics(new ServiceStatistics
                 {
                     TotalProcessedItems = _processedItems,
-                    AverageProcessingTime = CalculateAverageProcessingTime(),
+                    AverageProcessingTime = AverageProcessingTime.CalculateAverageProcessingTime(_processedItems,
+                        _startTime),
                     Uptime = DateTime.Now - _startTime,
                     MemoryUsage = GC.GetTotalMemory(false)
                 });
@@ -161,11 +163,5 @@ public class Worker : BackgroundService
             """;
         
         _logger.LogInformation(summary);
-    }
-
-    private double CalculateAverageProcessingTime()
-    {
-        var totalTime = DateTime.Now - _startTime;
-        return _processedItems > 0 ? totalTime.TotalMilliseconds / _processedItems : 0;
     }
 }
