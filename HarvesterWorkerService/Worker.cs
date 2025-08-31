@@ -2,6 +2,7 @@ using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
+using InventarWorkerCommon.Helpers.Calculate;
 
 namespace HarvesterWorkerService;
 
@@ -51,7 +52,8 @@ public class Worker : BackgroundService
                 _statusWriter.WriteStatistics(new ServiceStatistics
                 {
                     TotalProcessedItems = _processedItems,
-                    AverageProcessingTime = 0,
+                    AverageProcessingTime = AverageProcessingTime.CalculateAverageProcessingTime(_processedItems,
+                        _startTime),
                     Uptime = DateTime.Now - _startTime,
                     MemoryUsage = GC.GetTotalMemory(false)
                 });
