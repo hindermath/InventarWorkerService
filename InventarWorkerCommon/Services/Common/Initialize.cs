@@ -5,22 +5,22 @@ namespace InventarWorkerCommon.Services.Common;
 
 public static class Initialize
 {
-    public static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) Services()
+    public static (ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) Services(string mongoDbFqdn = "localhost")
     {
-        // API Service initialisieren
+        // Initialize API service
         var apiService = new ApiService("http://localhost:5000");
         
-        // Database Service initialisieren
+        // Initialize database service
         var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         
-        // Datenbankschema erstellen wenn nötig
+        // Create a database schema if necessary
         dbService.InitializeDatabase();
         
-        // MongoDB Service initialisieren
-        var mongoDbService = new MongoDbService("mongodb://localhost:27017");
+        // Initialize MongoDB Service
+        var mongoDbService = new MongoDbService($"mongodb://{mongoDbFqdn}:27017");
         
-        // MongoDB Datenbank initialisieren
+        // Initialize MongoDB database
         mongoDbService.InitializeMongoDatabase();
         
         return (apiService, dbService, mongoDbService);
