@@ -26,7 +26,13 @@ public static class Initialize
         var apiService = new ApiService($"http://{clientApiFqdn}:{clientApiPort}");
         
         // Initialize database service
-        var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        //var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        var baseDirectory = OperatingSystem.IsWindows()
+            ?
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
+            :
+            OperatingSystem.IsMacOS() ? "/Users/Shared" : "/usr/share";
+        var dbPath = Path.Combine(baseDirectory, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         
         // Create a database schema if necessary
