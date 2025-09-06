@@ -9,7 +9,7 @@ namespace HarvesterWorkerService;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
-    private readonly ServiceStatusWriter _statusWriter = new("/tmp/harvester-service");
+    private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
     private readonly HardwareInventoryService _hardwareInventoryService;
     private readonly SoftwareInventoryService _softwareInventoryService; 
     private int _processedItems = 0;
