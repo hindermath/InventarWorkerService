@@ -1,5 +1,6 @@
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
+using InventarWorkerCommon.Services.Paths;
 
 namespace InventarWorkerCommon.Services.Common;
 
@@ -27,12 +28,8 @@ public static class Initialize
         
         // Initialize database service
         //var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
-        var baseDirectory = OperatingSystem.IsWindows()
-            ?
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
-            :
-            OperatingSystem.IsMacOS() ? "/Users/Shared" : "/usr/share";
-        var dbPath = Path.Combine(baseDirectory, "inventar.db");
+        var basePath = BasePath.GetBasePath();
+        var dbPath = Path.Combine(basePath, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         
         // Create a database schema if necessary
