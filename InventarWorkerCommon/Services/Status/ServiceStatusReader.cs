@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using InventarWorkerCommon.Models.Service;
+using InventarWorkerCommon.Services.Paths;
 
 namespace ServiceStatusReaderApp.Service.Status;
 
@@ -12,9 +13,17 @@ public class ServiceStatusReader
     private readonly string _statusDirectory;
     private readonly JsonSerializerOptions _jsonOptions;
 
-    public ServiceStatusReader(string statusDirectory = "/tmp/inventar-service")
+    /// <summary>
+    /// Provides methods to read and interpret the status, statistics, and logs of a service.
+    /// </summary>
+    /// <remarks>
+    /// This class allows checking the service status, retrieving detailed service statistics,
+    /// fetching recent log entries, and confirming if the service is currently active.
+    /// </remarks>
+    public ServiceStatusReader(string statusDirectory = "inventar-service")
     {
-        _statusDirectory = statusDirectory;
+        if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)))
+            _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
         _jsonOptions = new JsonSerializerOptions 
         { 
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
