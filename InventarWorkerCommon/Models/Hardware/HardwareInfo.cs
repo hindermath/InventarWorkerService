@@ -3,6 +3,9 @@ using InventarWorkerCommon.Models.Software;
 
 namespace InventarWorkerCommon.Models.Hardware;
 
+/// <summary>
+/// Aggregates system, CPU, memory, disks, network, OS and software inventory data.
+/// </summary>
 public record HardwareInfo
 {
     public DateTime CollectionTime { get; set; } = DateTime.Now;
