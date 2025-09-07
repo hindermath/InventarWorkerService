@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>dotnet-InventarWorkerService-b03191d6-338a-4ea4-bdb5-041422b73e38</UserSecretsId>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>1591</NoWarn>
+        <DocumentationFile>bin/$(Configuration)/$(TargetFramework)/InventarWorkerService.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
