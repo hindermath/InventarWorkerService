@@ -1,5 +1,8 @@
 namespace InventarWorkerCommon.Models.Hardware;
 
+/// <summary>
+/// Provides memory usage and capacity details of the system.
+/// </summary>
 public record MemoryInfo
 {
     public long TotalPhysicalMemory { get; set; }
