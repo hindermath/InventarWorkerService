@@ -6,6 +6,10 @@ using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
 
 namespace HarvesterWorkerService;
 
+/// <summary>
+/// Background worker that periodically writes service status and statistics, and logs activity
+/// for the HarvesterWorkerService.
+/// </summary>
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
@@ -15,6 +19,12 @@ public class Worker : BackgroundService
     private int _processedItems = 0;
     private DateTime _startTime = DateTime.Now;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Worker"/> class.
+    /// </summary>
+    /// <param name="logger">The logger used to write diagnostic information.</param>
+    /// <param name="hardwareInventoryService">Service that provides hardware inventory processing.</param>
+    /// <param name="softwareInventoryService">Service that provides software inventory processing.</param>
     public Worker(ILogger<Worker> logger,
         HardwareInventoryService hardwareInventoryService,
         SoftwareInventoryService softwareInventoryService)
@@ -24,6 +34,11 @@ public class Worker : BackgroundService
         _softwareInventoryService = softwareInventoryService;
     }
 
+    /// <summary>
+    /// Executes the background loop until cancellation is requested, periodically
+    /// updating the service status and writing statistics/logs.
+    /// </summary>
+    /// <param name="stoppingToken">Token that signals when the service should stop.</param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         // Write initial status
