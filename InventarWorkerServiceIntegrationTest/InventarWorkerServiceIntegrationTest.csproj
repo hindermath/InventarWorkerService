@@ -6,6 +6,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>InventarWorkerServiceIntegrationTests</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>1591</NoWarn>
+        <DocumentationFile>bin/$(Configuration)/$(TargetFramework)/InventarWorkerServiceIntegrationTest.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

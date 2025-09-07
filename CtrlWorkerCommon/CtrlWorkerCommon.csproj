@@ -4,6 +4,9 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>1591</NoWarn>
+        <DocumentationFile>bin/$(Configuration)/$(TargetFramework)/CtrlWorkerCommon.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

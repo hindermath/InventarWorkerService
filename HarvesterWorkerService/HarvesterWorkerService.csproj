@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>dotnet-HarvesterWorkerService-26d415d3-a5ba-44bf-97b0-16a28f268377</UserSecretsId>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>1591</NoWarn>
+        <DocumentationFile>bin/$(Configuration)/$(TargetFramework)/HarvesterWorkerService.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

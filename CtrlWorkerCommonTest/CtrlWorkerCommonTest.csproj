@@ -5,6 +5,9 @@
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>1591</NoWarn>
+        <DocumentationFile>bin/$(Configuration)/$(TargetFramework)/CtrlWorkerCommonTest.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
