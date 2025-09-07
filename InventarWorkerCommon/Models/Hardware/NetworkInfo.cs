@@ -1,5 +1,8 @@
 namespace InventarWorkerCommon.Models.Hardware;
 
+/// <summary>
+/// Represents network interface details including addressing and throughput counters.
+/// </summary>
 public record NetworkInfo
 {
     public string Name { get; set; } = string.Empty;
