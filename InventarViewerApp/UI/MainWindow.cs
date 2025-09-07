@@ -4,6 +4,9 @@ using Terminal.Gui;
 
 namespace InventarViewerApp.UI
 {
+    /// <summary>
+    /// The main application window that hosts tabs for status, hardware and software views.
+    /// </summary>
     public class MainWindow : Window
     {
         private readonly ApiService _apiService;
@@ -11,6 +14,12 @@ namespace InventarViewerApp.UI
         private readonly MongoDbService _mongoDbService;
         private TabView _tabView;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
+        /// <param name="apiService">API service used by child views.</param>
+        /// <param name="dbService">SQLite DB service used by child views.</param>
+        /// <param name="mongoDbService">MongoDB service used by child views.</param>
         public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) : base("Main Window")
         {
             _apiService = apiService;
