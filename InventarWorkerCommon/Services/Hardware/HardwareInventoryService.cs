@@ -7,12 +7,19 @@ using Microsoft.Extensions.Logging;
 
 namespace InventarWorkerCommon.Services.Hardware;
 
+/// <summary>
+/// Collects hardware-related information from the current system.
+/// </summary>
 public class HardwareInventoryService
 {
     private readonly ILogger<HardwareInventoryService> _logger;
     private readonly PerformanceCounter? _cpuCounter;
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
+    /// <summary>
+    /// Initializes a new instance of HardwareInventoryService with the provided logger.
+    /// </summary>
+    /// <param name="logger">The logger used for diagnostic output.</param>
     public HardwareInventoryService(ILogger<HardwareInventoryService> logger)
     {
         _logger = logger;
@@ -32,6 +39,10 @@ public class HardwareInventoryService
         }
     }
 
+    /// <summary>
+    /// Collects and aggregates hardware information asynchronously.
+    /// </summary>
+    /// <returns>A populated HardwareInfo instance.</returns>
     public async Task<HardwareInfo> CollectHardwareInfoAsync()
     {
         _logger.LogInformation("Sammle Hardware-Informationen...");
@@ -513,12 +524,19 @@ public class HardwareInventoryService
         }
     }
 
+    /// <summary>
+    /// Releases unmanaged resources held by performance counters.
+    /// </summary>
     public void Dispose()
     {
         _cpuCounter?.Dispose();
         _memoryAvailableCounter?.Dispose();
     }
 
+    /// <summary>
+    /// High-level method to get hardware information with logging and error handling.
+    /// </summary>
+    /// <returns>The collected hardware info object or null if an error occurred.</returns>
     public async Task<object?> GetHardwareInfoAsync()
     {
         try
