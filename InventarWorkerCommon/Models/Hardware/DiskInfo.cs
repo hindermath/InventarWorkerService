@@ -1,5 +1,8 @@
 namespace InventarWorkerCommon.Models.Hardware;
 
+/// <summary>
+/// Represents disk information including capacity, file system and usage.
+/// </summary>
 public record DiskInfo
 {
     public string DriveName { get; set; } = string.Empty;
