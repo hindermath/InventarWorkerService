@@ -7,6 +7,10 @@ using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
 
 namespace InventarWorkerService;
 
+/// <summary>
+/// Background worker that periodically collects hardware and software inventory data
+/// and writes status, statistics, and logs for the InventarWorkerService.
+/// </summary>
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
@@ -16,6 +20,12 @@ public class Worker : BackgroundService
     private int _processedItems = 0;
     private DateTime _startTime = DateTime.Now;
 
+    /// <summary>
+    /// Initializes a new instance of the Worker.
+    /// </summary>
+    /// <param name="logger">Logger used for operational messages and error reporting.</param>
+    /// <param name="hardwareInventoryService">Service to collect hardware information.</param>
+    /// <param name="softwareInventoryService">Service to collect software information.</param>
     public Worker(ILogger<Worker> logger, 
                   HardwareInventoryService hardwareInventoryService,
                   SoftwareInventoryService softwareInventoryService)
