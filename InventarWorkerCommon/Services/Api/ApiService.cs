@@ -6,11 +6,18 @@ using RestSharp;
 
 namespace InventarWorkerCommon.Services.Api
 {
+    /// <summary>
+    /// Provides methods to call backend inventory API endpoints and deserialize results.
+    /// </summary>
     public class ApiService
     {
         private readonly RestClient _client;
         private readonly JsonSerializerOptions _jsonOptions;
 
+        /// <summary>
+        /// Initializes a new instance of the ApiService with the specified base URL.
+        /// </summary>
+        /// <param name="baseUrl">The base URL of the backend API.</param>
         public ApiService(string baseUrl)
         {
             _client = new RestClient(baseUrl);
@@ -21,6 +28,11 @@ namespace InventarWorkerCommon.Services.Api
             };
         }
 
+        /// <summary>
+        /// Retrieves the current service status from the backend API.
+        /// </summary>
+        /// <returns>An object graph representing the service status JSON payload.</returns>
+        /// <exception cref="Exception">Thrown when the API request fails.</exception>
         public async Task<object> GetServiceStatusAsync()
         {
             var request = new RestRequest("api/inventar/status", Method.Get);
@@ -34,6 +46,11 @@ namespace InventarWorkerCommon.Services.Api
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
         }
 
+        /// <summary>
+        /// Retrieves hardware inventory information from the backend API.
+        /// </summary>
+        /// <returns>A deserialized HardwareInventory instance.</returns>
+        /// <exception cref="Exception">Thrown when the API request fails.</exception>
         public async Task<HardwareInventory> GetHardwareInventoryAsync()
         {
             var request = new RestRequest("api/inventar/hardware", Method.Get);
@@ -47,6 +64,11 @@ namespace InventarWorkerCommon.Services.Api
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
         }
 
+        /// <summary>
+        /// Retrieves software inventory information from the backend API.
+        /// </summary>
+        /// <returns>A deserialized SoftwareInventory instance.</returns>
+        /// <exception cref="Exception">Thrown when the API request fails.</exception>
         public async Task<SoftwareInventory> GetSoftwareInventoryAsync()
         {
             var request = new RestRequest("api/inventar/software", Method.Get);
@@ -60,6 +82,11 @@ namespace InventarWorkerCommon.Services.Api
             throw new Exception($"API-Fehler: {response.ErrorMessage}");
         }
 
+        /// <summary>
+        /// Retrieves the full inventory from the backend API.
+        /// </summary>
+        /// <returns>An object representing the combined inventory JSON payload.</returns>
+        /// <exception cref="Exception">Thrown when the API request fails.</exception>
         public async Task<object> GetFullInventoryAsync()
         {
             var request = new RestRequest("api/inventar/full", Method.Get);
