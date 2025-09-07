@@ -25,7 +25,16 @@ builder.Services.AddHostedService<Worker>();
 // Add REST API Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // Include XML comments in Swagger for public code elements
+    var xmlFile = "InventarWorkerService.xml";
+    var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (System.IO.File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+    }
+});
 
 builder.Services.Configure<JsonOptions>(options =>
 {
