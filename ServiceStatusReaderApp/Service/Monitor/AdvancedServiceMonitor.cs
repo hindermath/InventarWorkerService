@@ -3,6 +3,10 @@ using ServiceStatusReaderApp.Service.Status;
 
 namespace ServiceStatusReaderApp.Service.Monitor;
 
+/// <summary>
+/// Provides advanced monitoring capabilities for the service status files.
+/// Observes the service status directory for JSON changes and outputs status updates to the console.
+/// </summary>
 public class AdvancedServiceMonitor
 {
     private readonly ServiceStatusReader _reader = new();
