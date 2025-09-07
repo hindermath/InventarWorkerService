@@ -3,8 +3,24 @@ using Terminal.Gui;
 
 namespace CtrlWorkerServiceApp;
 
-class Program
+/// <summary>
+/// Entry point and command-line/Terminal UI host for controlling the InventarWorkerService.
+/// Provides a simple CLI (start/stop/help) and an optional Terminal.Gui based TUI.
+/// </summary>
+internal class Program
 {
+    /// <summary>
+    /// Application entry point. Parses command-line arguments and executes the corresponding action.
+    /// </summary>
+    /// <param name="args">
+    /// Command-line arguments. Supported values:
+    /// <list type="bullet">
+    /// <item><description><c>start</c> – starts the service.</description></item>
+    /// <item><description><c>stop</c> – stops the service.</description></item>
+    /// <item><description><c>--tui</c> – launches the Terminal UI.</description></item>
+    /// <item><description><c>--help</c> – prints help.</description></item>
+    /// </list>
+    /// </param>
     static void Main(string[] args)
     {
         if (args.Length == 0)
@@ -29,6 +45,9 @@ class Program
         }
     }
 
+    /// <summary>
+    /// Launches the Terminal.Gui based text user interface to start/stop the service interactively.
+    /// </summary>
     static void StartTui()
     {
         Application.Init();
@@ -148,6 +167,10 @@ class Program
         Application.Shutdown();
     }
 
+    /// <summary>
+    /// Executes the non-interactive command to start or stop the service or show help.
+    /// </summary>
+    /// <param name="args">Command-line arguments beginning with the command name (e.g., "start", "stop", "--help").</param>
     static void ExecuteCommand(string[] args)
     {
         var controller = new CrossPlatformServiceController("InventarWorkerService");
