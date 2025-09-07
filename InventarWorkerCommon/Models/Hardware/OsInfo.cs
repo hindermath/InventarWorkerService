@@ -1,5 +1,8 @@
 namespace InventarWorkerCommon.Models.Hardware;
 
+/// <summary>
+/// Provides operating system information such as version, architecture and description.
+/// </summary>
 public record OsInfo
 {
     public string Platform { get; set; } = string.Empty;
