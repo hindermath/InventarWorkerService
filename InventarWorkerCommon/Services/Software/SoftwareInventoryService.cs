@@ -7,15 +7,27 @@ using Microsoft.Win32;
 
 namespace InventarWorkerCommon.Services.Software;
 
+/// <summary>
+/// Collects software-related inventory information from the current system.
+/// </summary>
 public class SoftwareInventoryService
 {
     private readonly ILogger<SoftwareInventoryService> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of SoftwareInventoryService with the provided logger.
+    /// </summary>
+    /// <param name="logger">The logger used for diagnostic output.</param>
     public SoftwareInventoryService(ILogger<SoftwareInventoryService> logger)
     {
         _logger = logger;
     }
 
+    /// <summary>
+    /// Collects the installed software, running processes, services, startup entries,
+    /// environment variables, and runtime info asynchronously.
+    /// </summary>
+    /// <returns>A populated SoftwareInventory instance.</returns>
     public async Task<SoftwareInventory> CollectSoftwareInventoryAsync()
     {
         _logger.LogInformation("Sammle Software-Inventar...");
@@ -777,6 +789,10 @@ public class SoftwareInventoryService
 
     #endregion
 
+    /// <summary>
+    /// High-level method to collect software information with logging and error handling.
+    /// </summary>
+    /// <returns>The collected software inventory or null if an error occurred.</returns>
     public async Task<object?> GetSoftwareInfoAsync()
     {
         try
