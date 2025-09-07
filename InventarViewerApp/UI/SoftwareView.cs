@@ -4,6 +4,9 @@ using Terminal.Gui;
 
 namespace InventarViewerApp.UI
 {
+    /// <summary>
+    /// A Terminal.Gui view that displays and manages the software inventory for the current machine.
+    /// </summary>
     public class SoftwareView : FrameView
     {
         private readonly ApiService _apiService;
@@ -14,6 +17,12 @@ namespace InventarViewerApp.UI
         private Button _refreshButton;
         private Button _saveButton;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SoftwareView"/> class.
+        /// </summary>
+        /// <param name="apiService">Service used to retrieve inventory data from the backend API.</param>
+        /// <param name="dbService">Service used to persist data to the local SQLite database.</param>
+        /// <param name="mongoDbService">Service used to persist data to MongoDB.</param>
         public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) : base("Software Inventar")
         {
             _apiService = apiService;
@@ -67,6 +76,10 @@ namespace InventarViewerApp.UI
             Task.Run(async () => await RefreshData());
         }
 
+        /// <summary>
+        /// Refreshes the software inventory by calling the API and updating the view content.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous refresh operation.</returns>
         public async Task RefreshData()
         {
             try
