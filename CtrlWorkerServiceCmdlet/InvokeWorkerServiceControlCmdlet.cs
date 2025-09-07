@@ -18,6 +18,13 @@ namespace CtrlWorkerServiceCmdlet
     [OutputType(typeof(string))]
     public class InvokeWorkerServiceControlCmdlet : PSCmdlet
     {
+        /// <summary>
+        /// Startet den konfigurierten Worker Service.
+        /// </summary>
+        /// <remarks>
+        /// Verwenden Sie diesen Schalter, um den Dienst zu starten. Kombinieren Sie optional mit <c>-ServiceName</c>,
+        /// um einen anderen Dienstnamen anzugeben, und mit <c>-Verbose</c> für detaillierte Ausgaben.
+        /// </remarks>
         [Parameter(
             Mandatory = false,
             Position = 0,
@@ -25,6 +32,13 @@ namespace CtrlWorkerServiceCmdlet
             HelpMessage = "Startet den Worker Service")]
         public SwitchParameter Start { get; set; }
 
+        /// <summary>
+        /// Stoppt den konfigurierten Worker Service.
+        /// </summary>
+        /// <remarks>
+        /// Verwenden Sie diesen Schalter, um den Dienst zu stoppen. Kombinieren Sie optional mit <c>-ServiceName</c>,
+        /// um einen anderen Dienstnamen anzugeben, und mit <c>-Verbose</c> für detaillierte Ausgaben.
+        /// </remarks>
         [Parameter(
             Mandatory = false,
             Position = 0,
@@ -32,6 +46,12 @@ namespace CtrlWorkerServiceCmdlet
             HelpMessage = "Stoppt den Worker Service")]
         public SwitchParameter Stop { get; set; }
 
+        /// <summary>
+        /// Öffnet eine Terminal-Benutzeroberfläche (TUI) zur Steuerung des Dienstes.
+        /// </summary>
+        /// <remarks>
+        /// Die TUI ermöglicht das Starten und Stoppen des Dienstes über eine einfache Benutzeroberfläche.
+        /// </remarks>
         [Parameter(
             Mandatory = false,
             Position = 0,
@@ -39,6 +59,13 @@ namespace CtrlWorkerServiceCmdlet
             HelpMessage = "Startet die Terminal-Benutzeroberfläche")]
         public SwitchParameter Tui { get; set; }
 
+        /// <summary>
+        /// Name des zu steuernden Dienstes.
+        /// </summary>
+        /// <value>Standardwert ist <c>"mein-service"</c>.</value>
+        /// <remarks>
+        /// Wenn kein Name angegeben wird, wird der Standardname verwendet. Der Wert darf nicht leer sein.
+        /// </remarks>
         [Parameter(
             Mandatory = false,
             HelpMessage = "Name des Services (Standard: 'mein-service')")]
@@ -46,6 +73,13 @@ namespace CtrlWorkerServiceCmdlet
         public string ServiceName { get; set; } = "mein-service";
 
 
+        /// <summary>
+        /// Verarbeitet den Cmdlet-Aufruf und führt die angeforderte Aktion entsprechend dem Parametersatz aus.
+        /// </summary>
+        /// <remarks>
+        /// Unterstützte Aktionen sind <c>-Start</c>, <c>-Stop</c> und <c>-Tui</c>. Wenn keiner der Schalter gesetzt ist,
+        /// wird eine Hilfeausgabe angezeigt. Ausnahmen werden als Fehlerereignisse gemeldet.
+        /// </remarks>
         protected override void ProcessRecord()
         {
             try
