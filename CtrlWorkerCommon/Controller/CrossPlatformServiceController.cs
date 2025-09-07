@@ -28,13 +28,9 @@ public class CrossPlatformServiceController
     private readonly string _serviceName;
 
     /// <summary>
-    /// Provides functionality to manage and control services across multiple operating systems.
+    /// Initializes a new instance of the CrossPlatformServiceController for the specified service.
     /// </summary>
-    /// <remarks>
-    /// This class is designed to handle service lifecycle operations such as starting and stopping services
-    /// on various platforms. It abstracts platform-specific service management logic, enabling the caller
-    /// to interact with services in a cross-platform manner.
-    /// </remarks>
+    /// <param name="serviceName">The OS service name to manage (e.g., Windows service name, systemd unit on Linux).</param>
     public CrossPlatformServiceController(string serviceName)
     {
         _serviceName = serviceName;
