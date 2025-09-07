@@ -10,6 +10,11 @@ namespace InventarViewerApp;
 
 partial class WebApi
 {
+    /// <summary>
+    /// Starts the minimal Web API host that exposes the viewer's database via controllers and Swagger UI.
+    /// </summary>
+    /// <param name="args">Command-line arguments passed to the host.</param>
+    /// <returns>A task representing the lifetime of the web host.</returns>
     public static async Task WebApiAsync(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);

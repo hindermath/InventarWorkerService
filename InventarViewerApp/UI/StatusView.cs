@@ -7,6 +7,9 @@ using Terminal.Gui;
 
 namespace InventarViewerApp.UI
 {
+    /// <summary>
+    /// A Terminal.Gui view that shows the service status and persists the machine entry.
+    /// </summary>
     public class StatusView : FrameView
     {
         private readonly ApiService _apiService;
@@ -16,6 +19,11 @@ namespace InventarViewerApp.UI
         private Label _contentLabel;
         private Button _refreshButton;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatusView"/> class.
+        /// </summary>
+        /// <param name="apiService">Service used to retrieve the service status from the backend.</param>
+        /// <param name="sqliteDbService">Service used to persist the current machine in the local database.</param>
         public StatusView(ApiService apiService, SqliteDbService sqliteDbService) : base("Service Status")
         {
             _apiService = apiService;
@@ -66,6 +74,10 @@ namespace InventarViewerApp.UI
             Task.Run(async () => await RefreshData());
         }
 
+        /// <summary>
+        /// Refreshes the status information from the API and updates the view; also ensures the machine entry exists in the database.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous refresh operation.</returns>
         public async Task RefreshData()
         {
             try

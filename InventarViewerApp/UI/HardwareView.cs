@@ -4,6 +4,9 @@ using Terminal.Gui;
 
 namespace InventarViewerApp.UI
 {
+    /// <summary>
+    /// A Terminal.Gui view that displays and persists hardware inventory data.
+    /// </summary>
     public class HardwareView : FrameView
     {
         private readonly ApiService _apiService;
@@ -13,6 +16,11 @@ namespace InventarViewerApp.UI
         private Button _refreshButton;
         private Button _saveButton;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HardwareView"/> class.
+        /// </summary>
+        /// <param name="apiService">Service used to retrieve hardware inventory from the backend.</param>
+        /// <param name="dbService">Service used to save data to the local SQLite database.</param>
         public HardwareView(ApiService apiService, SqliteDbService dbService) : base("Hardware Inventar")
         {
             _apiService = apiService;
@@ -65,6 +73,10 @@ namespace InventarViewerApp.UI
             Task.Run(async () => await RefreshData());
         }
 
+        /// <summary>
+        /// Refreshes the hardware inventory by calling the API and updating the view content.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous refresh operation.</returns>
         public async Task RefreshData()
         {
             try
