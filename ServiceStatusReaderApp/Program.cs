@@ -2,8 +2,17 @@
 
 namespace ServiceStatusReaderApp;
 
+/// <summary>
+/// Entry point for the ServiceStatusReaderApp console application.
+/// Reads and displays the status, statistics, and recent logs of the InventarWorkerService.
+/// </summary>
 static class Program
 {
+    /// <summary>
+    /// Application entry point. Reads and prints current service status and statistics.
+    /// Use the --monitor argument to continuously watch and print updates.
+    /// </summary>
+    /// <param name="args">Command line arguments. Specify --monitor to enable continuous monitoring.</param>
     static async Task Main(string[] args)
     {
         var reader = new ServiceStatusReader();
