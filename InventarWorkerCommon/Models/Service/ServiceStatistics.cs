@@ -1,5 +1,8 @@
 namespace InventarWorkerCommon.Models.Service;
 
+/// <summary>
+/// Represents statistical information related to the service's operations.
+/// </summary>
 public record ServiceStatistics
 {
     public int TotalProcessedItems { get; init; }
