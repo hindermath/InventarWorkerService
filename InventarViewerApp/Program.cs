@@ -7,17 +7,17 @@ partial class Program
 {
     static async Task Main(string[] args)
     {
-        // Prüfen ob Web API Modus gewünscht ist
+        // Check if Web API mode is desired
         if (args.Length > 0 && args[0] == "--api")
         {
             await WebApiAsync(args);
             return;
         }
 
-        // Services initialisieren
+        // Initialize services
         var (apiService, dbService, mongoDbService) = Services();
         
-        // Terminal.GUI Anwendung starten
+        // Start Terminal.GUI Application
         TuiApp(apiService, dbService, mongoDbService);
     }
 }
