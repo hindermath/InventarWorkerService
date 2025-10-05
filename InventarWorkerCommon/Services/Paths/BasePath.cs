@@ -21,6 +21,6 @@ public class BasePath
             ?
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
             :
-            OperatingSystem.IsMacOS() ? "/Users/Shared" : "/usr/share";
+            OperatingSystem.IsMacOS() ? "/Users/Shared" : "/var/tmp";
     }
 }
