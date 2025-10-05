@@ -13,7 +13,7 @@ public class BasePath
     /// Returns the base directory path as a string.
     /// For Windows, it is the common application data directory.
     /// For MacOS, it is the shared users directory.
-    /// For other operating systems, it defaults to '/usr/share'.
+    /// For other operating systems, it defaults to '/var/tmp'.
     /// </returns>
     public static string GetBasePath()
     {
