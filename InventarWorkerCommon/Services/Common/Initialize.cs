@@ -32,13 +32,11 @@ public static class Initialize
         var basePath = GetDbBasePath(); //BasePath.GetBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
-        
         // Create a database schema if necessary
         dbService.InitializeDatabase();
         
         // Initialize MongoDB Service
         var mongoDbService = new MongoDbService($"mongodb://{mongoDbFqdn}:{mongoDbPort}");
-        
         // Initialize MongoDB database
         mongoDbService.InitializeMongoDatabase();
         
