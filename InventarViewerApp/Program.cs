@@ -1,4 +1,5 @@
-﻿using static InventarViewerApp.API.WebApi;
+﻿using InventarWorkerCommon.Services.Common;
+using static InventarViewerApp.API.WebApi;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace InventarViewerApp;
@@ -15,8 +16,14 @@ partial class Program
         }
 
         // Initialize services
-        var (apiService, dbService, mongoDbService) = Services();
-        
+        //var (apiService, dbService, mongoDbService) = Services();
+
+        // Services use...
+        // Automatic Disposal by 'using' Statement
+        using var serviceContainer = Initialize.Services();
+        var apiService = serviceContainer.ApiService;
+        var dbService = serviceContainer.DbService;
+        var mongoDbService = serviceContainer.MongoDbService;
         // Start Terminal.GUI Application
         TuiApp(apiService, dbService, mongoDbService);
     }
