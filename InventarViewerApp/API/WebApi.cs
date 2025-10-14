@@ -1,11 +1,11 @@
 using System.Reflection;
+using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using InventarWorkerCommon.Services.Common;
 
 namespace InventarViewerApp;
 
