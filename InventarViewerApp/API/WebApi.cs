@@ -75,7 +75,7 @@ partial class WebApi
         });
         
         // SqliteDbService registrieren
-        var dbPath = Initialize.GetDbBasePath(); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        var dbPath = Path.Combine(Initialize.GetDbBasePath(), "inventar.db"); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
         builder.Services.AddSingleton<SqliteDbService>(provider => 
             new SqliteDbService($"Data Source={dbPath}"));
 
