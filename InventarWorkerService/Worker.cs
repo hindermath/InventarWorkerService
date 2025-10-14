@@ -49,7 +49,7 @@ public class Worker : BackgroundService
             State = "Starting",
             StartTime = _startTime,
             ProcessedItems = 0
-        });
+        }, ServiceStatusOutputFormat.All);
 
         while (!stoppingToken.IsCancellationRequested)
         {
