@@ -28,13 +28,14 @@ partial class WebApi
         {
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Inventar API",
+                Title = "Inventory Rectrieving API",
                 Version = "v1",
-                Description = "Eine API zur Verwaltung von Inventardaten",
+                Description = "An API to retrieve inventory data",
                 Contact = new OpenApiContact
                 {
-                    Name = "Support Team",
-                    Email = "support@beispiel.com"
+                    Name = "InventarWorkerService Support Team",
+                    Email = "support@tmyttmaap.info",
+                    Url = new Uri("http://tmyttmaap.info")
                 }
             });
 
@@ -133,8 +134,8 @@ partial class WebApi
         app.UseAuthorization();
         app.MapControllers();
         
-        Console.WriteLine("Inventar API läuft auf http://localhost:5000");
-        Console.WriteLine("Swagger UI verfügbar unter http://localhost:5000/swagger");
+        Console.WriteLine("Inventory API runs on http://localhost:5000");
+        Console.WriteLine("Swagger UI available at http://localhost:5000/swagger");
         
         await app.RunAsync();
     }
