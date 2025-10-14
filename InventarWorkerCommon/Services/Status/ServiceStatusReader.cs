@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Paths;
 
-namespace ServiceStatusReaderApp.Service.Status;
+namespace InventarWorkerCommon.Services.Status;
 
 /// <summary>
 /// Provides methods to read and interpret the status, statistics, and logs of a service.
