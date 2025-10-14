@@ -1,4 +1,4 @@
-﻿using ServiceStatusReaderApp.Service.Status;
+﻿using InventarWorkerCommon.Services.Status;
 
 namespace ServiceStatusReaderApp;
 
