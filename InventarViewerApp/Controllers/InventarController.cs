@@ -63,7 +63,14 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves the name of a machine identified by its unique ID from the database.
+    /// </summary>
+    /// <param name="id">The unique identifier of the machine whose name is to be retrieved.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult{T}"/> containing the name of the machine as a string,
+    /// or an error response if the machine is not found or in case of a failure.</returns>
     [HttpGet("machines/{id:int}/name")]
     public async Task<ActionResult<string>> GetMachineNameByIdAsync(int id)
     {
@@ -80,7 +87,15 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen des Maschinen-Namens", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves information about a specific machine based on its name, including details such as
+    /// operating system, creation time, and other metadata.
+    /// </summary>
+    /// <param name="machineName">The name of the machine to retrieve information for.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains an
+    /// <see cref="ActionResult{T}"/> containing a <see cref="Machine"/> object if found, or an error
+    /// response in case the machine is not found or an internal error occurs.</returns>
     [HttpGet("machines/{machineName}")]
     public async Task<ActionResult<Machine>> GetMachine(string machineName)
     {
@@ -97,7 +112,14 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves the ID of a machine by its name from the database.
+    /// </summary>
+    /// <param name="machineName">The name of the machine for which the ID is being retrieved.</param>
+    /// <returns>A task representing the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult{T}"/> with the machine's ID if found, or an error response
+    /// if the machine is not found or an error occurs.</returns>
     [HttpGet("machines/{machineName}/id")]
     public async Task<ActionResult<int>> GetMachineIdByNameAsync(string machineName)
     {
@@ -114,9 +136,15 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen-ID", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves the latest hardware inventory for a specific machine identified by its ID.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine for which the hardware inventory is requested.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult"/> containing the latest hardware inventory details, or an error response if no data is found or a failure occurs.</returns>
     [HttpGet("machines/{machineId:int}/hardware")]
-    public async Task<ActionResult>GetHardwareInventory(int machineId) 
+    public async Task<ActionResult> GetHardwareInventory(int machineId)
     {
         try
         {
@@ -131,7 +159,15 @@ public class InventarController : ControllerBase
             return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Daten", error = ex.Message });
         }
     }
-    
+
+    /// <summary>
+    /// Retrieves the hardware inventory details of a specific machine identified by its name,
+    /// including the most recent hardware specifications and configurations.
+    /// </summary>
+    /// <param name="machineName">The name of the machine for which the hardware inventory data is to be fetched.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains an
+    /// <see cref="ActionResult"/> with the hardware inventory details of the machine, or an error response
+    /// in case the machine or its inventory data is not found.</returns>
     [HttpGet("machines/{machineName}/hardware")]
     public async Task<ActionResult> GetHardwareInventory(string machineName)
     {
@@ -153,6 +189,13 @@ public class InventarController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retrieves the latest software inventory for a specific machine from the database,
+    /// including details about the installed software.
+    /// </summary>
+    /// <param name="machineId">The unique identifier of the machine for which the software inventory is being retrieved.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains an <see cref="ActionResult"/>
+    /// with the software inventory details or an appropriate error response if the data cannot be retrieved.</returns>
     [HttpGet("machines/{machineId:int}/software")]
     public async Task<ActionResult> GetSoftwareInventory(int machineId)
     {
@@ -170,6 +213,13 @@ public class InventarController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retrieves the latest software inventory details for a machine identified by its name.
+    /// </summary>
+    /// <param name="machineName">The name of the machine for which the software inventory is to be fetched.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains an <see cref="ActionResult"/>
+    /// with the software inventory data if available, or an appropriate error response in case of a failure.
+    /// </returns>
     [HttpGet("machines/{machineName}/software")]
     public async Task<ActionResult> GetSoftwareInventory(string machineName)
     {
@@ -191,6 +241,13 @@ public class InventarController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retrieves a detailed hardware overview for all machines, including their IDs, names,
+    /// operating systems, last seen timestamps, and the most recent hardware inventory data.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// an <see cref="ActionResult"/> with a list of objects, where each object represents a machine
+    /// and its associated hardware overview, or an error response in case of a failure.</returns>
     [HttpGet("hardware-overview")]
     public async Task<ActionResult> GetHardwareOverview()
     {
