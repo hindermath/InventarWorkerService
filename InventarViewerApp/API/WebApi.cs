@@ -7,9 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace InventarViewerApp;
+namespace InventarViewerApp.API;
 
-partial class WebApi
+class WebApi
 {
     /// <summary>
     /// Starts the minimal Web API host that exposes the viewer's database via controllers and Swagger UI.
