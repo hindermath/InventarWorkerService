@@ -1,5 +1,4 @@
-﻿using InventarWorkerCommon.Services.Common;
-using static InventarViewerApp.API.WebApi;
+﻿using static InventarViewerApp.API.WebApi;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace InventarViewerApp;
@@ -20,7 +19,7 @@ partial class Program
 
         // Services use...
         // Automatic Disposal by 'using' Statement
-        using var serviceContainer = Initialize.Services();
+        using var serviceContainer = Services();
         var apiService = serviceContainer.ApiService;
         var dbService = serviceContainer.DbService;
         var mongoDbService = serviceContainer.MongoDbService;
