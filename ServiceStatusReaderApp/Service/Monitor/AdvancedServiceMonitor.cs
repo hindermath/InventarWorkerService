@@ -1,5 +1,5 @@
 using InventarWorkerCommon.Services.Paths;
-using ServiceStatusReaderApp.Service.Status;
+using InventarWorkerCommon.Services.Status;
 
 namespace ServiceStatusReaderApp.Service.Monitor;
 
