@@ -29,7 +29,7 @@ public static class Initialize
         var apiService = new ApiService($"http://{clientApiFqdn}:{clientApiPort}");
         
         // Initialize database service
-        var basePath = BasePath.GetBasePath();
+        var basePath = GetDbBasePath(); //BasePath.GetBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         
@@ -43,5 +43,24 @@ public static class Initialize
         mongoDbService.InitializeMongoDatabase();
         
         return (apiService, dbService, mongoDbService);
+    }
+
+    /// <summary>
+    /// Retrieves the base path for the database file. If the service status path does not exist, it creates
+    /// the required path and returns its full name.
+    /// If the service status path already exists, it retrieves and returns the existing path.
+    /// </summary>
+    /// <returns>The base path for the database file as a string.</returns>
+    public static string GetDbBasePath()
+    {
+        if (ServicePath.ExistsServiceStatusPath(ServicePath.GetServiceStatusPath()) is false)
+        {
+            var directory = ServicePath.CreateServiceStatusPath(ServicePath.GetServiceStatusPath());
+            return directory.FullName;
+        }
+        else
+        {
+            return ServicePath.GetServiceStatusPath();
+        }
     }
 }
