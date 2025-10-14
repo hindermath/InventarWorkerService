@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using InventarWorkerCommon.Services.Common;
 
 namespace InventarViewerApp;
 
@@ -74,7 +75,7 @@ partial class WebApi
         });
         
         // SqliteDbService registrieren
-        var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        var dbPath = Initialize.GetDbBasePath(); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
         builder.Services.AddSingleton<SqliteDbService>(provider => 
             new SqliteDbService($"Data Source={dbPath}"));
 
