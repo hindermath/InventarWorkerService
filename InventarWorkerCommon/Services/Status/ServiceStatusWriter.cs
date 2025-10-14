@@ -1,8 +1,13 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml;
+using System.Xml.Serialization;
+using YamlDotNet.Serialization;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Paths;
+using IniParser;
+using IniParser.Model;
 
 namespace InventarWorkerCommon.Services.Status;
 
@@ -44,13 +49,175 @@ public class ServiceStatusWriter
     }
 
     /// <summary>
-    /// Saves the current state and operational information of the service to a status file
-    /// in JSON format within the designated status directory.
+    /// Writes the current status of the service to the specified output format, allowing for the status
+    /// to be serialized and stored or transmitted in a structured format like JSON, INI, XML, YAML, or
+    /// all supported formats.
     /// </summary>
-    /// <param name="status">An instance of <c>ServiceStatus</c> containing the current details
-    /// about the service's state, such as operational status, processed items,
-    /// and timestamps.</param>
-    public void WriteStatus(ServiceStatus status)
+    /// <param name="status">An instance of <c>ServiceStatus</c> containing the current state and details
+    /// of the service.</param>
+    /// <param name="serviceStatusOutputFormat">The format in which the service status should be output.
+    /// Defaults to JSON if not specified.</param>
+    public void WriteStatus(ServiceStatus status,
+        ServiceStatusOutputFormat serviceStatusOutputFormat = ServiceStatusOutputFormat.Json)
+    {
+        switch (serviceStatusOutputFormat)
+        {
+            case ServiceStatusOutputFormat.Json:
+                WriteStatusJson(status);
+                break;
+            case ServiceStatusOutputFormat.Ini:
+                WriteStatusIni(status);
+                break;
+            case ServiceStatusOutputFormat.Xml:
+                WriteStatusXml(status);
+                break;
+            case ServiceStatusOutputFormat.Yaml:
+                WriteStatusYaml(status);
+                break;
+            case ServiceStatusOutputFormat.All:
+                WriteStatusJson(status);
+                WriteStatusIni(status);
+                WriteStatusXml(status);
+                WriteStatusYaml(status);
+                break;
+            default:
+                WriteStatusJson(status);
+                break;
+        }
+    }
+
+    private void WriteStatusYaml(ServiceStatus status)
+    {
+        var statusFile = Path.Combine(_statusDirectory, "status.yaml");
+        
+        var serializer = new SerializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.CamelCaseNamingConvention.Instance)
+            .Build();
+        
+        var yaml = serializer.Serialize(status);
+        File.WriteAllText(statusFile, yaml);
+    }
+
+    private void WriteStatusXml(ServiceStatus status)
+    {
+        var statusFile = Path.Combine(_statusDirectory, "status.xml");
+        
+        var xmlSerializer = new XmlSerializer(typeof(ServiceStatus));
+        var xmlSettings = new XmlWriterSettings
+        {
+            Indent = true,
+            IndentChars = "  ",
+            NewLineChars = "\r\n",
+            NewLineHandling = NewLineHandling.Replace
+        };
+
+        using var writer = XmlWriter.Create(statusFile, xmlSettings);
+        xmlSerializer.Serialize(writer, status);
+    }
+
+    private void WriteStatusIni(ServiceStatus status)
+    {
+        var statusFile = Path.Combine(_statusDirectory, "status.ini");
+
+        var parser = new FileIniDataParser();
+        var iniData = new IniData();
+
+        // Hauptsektion für Service Status
+        iniData.Sections.AddSection("ServiceStatus");
+        var statusSection = iniData["ServiceStatus"];
+
+        // Grundlegende Eigenschaften mit Reflection
+        var properties = typeof(ServiceStatus).GetProperties();
+
+        foreach (var property in properties)
+        {
+            var value = property.GetValue(status);
+            if (value == null) continue;
+
+            var key = property.Name.ToLowerInvariant();
+
+            switch (value)
+            {
+                case DateTime dt:
+                    statusSection[key] = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                    break;
+                case bool b:
+                    statusSection[key] = b ? "true" : "false";
+                    break;
+                case string s:
+                    statusSection[key] = s;
+                    break;
+                case var simple when IsSimpleType(property.PropertyType):
+                    statusSection[key] = value.ToString();
+                    break;
+                default:
+                    // Komplexe Objekte als separate Sektion behandeln
+                    if (value != null)
+                    {
+                        AddComplexObjectSection(iniData, property.Name, value);
+                    }
+                    break;
+            }
+        }
+
+        parser.WriteFile(statusFile, iniData);
+    }
+
+    private static void AddComplexObjectSection(IniData iniData, string sectionName, object obj)
+    {
+        iniData.Sections.AddSection(sectionName);
+        var section = iniData[sectionName];
+
+        var properties = obj.GetType().GetProperties();
+
+        foreach (var property in properties)
+        {
+            var value = property.GetValue(obj);
+            if (value == null) continue;
+
+            var key = property.Name.ToLowerInvariant();
+
+            switch (value)
+            {
+                case DateTime dt:
+                    section[key] = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                    break;
+                case bool b:
+                    section[key] = b ? "true" : "false";
+                    break;
+                case double d:
+                    section[key] = d.ToString("F2");
+                    break;
+                case float f:
+                    section[key] = f.ToString("F2");
+                    break;
+                case decimal dec:
+                    section[key] = dec.ToString("F2");
+                    break;
+                default:
+                    section[key] = value.ToString();
+                    break;
+            }
+        }
+    }
+
+    private static bool IsSimpleType(Type type)
+    {
+        return type.IsPrimitive ||
+               type == typeof(string) ||
+               type == typeof(DateTime) ||
+               type == typeof(decimal) ||
+               type.IsEnum ||
+               (Nullable.GetUnderlyingType(type) != null && IsSimpleType(Nullable.GetUnderlyingType(type)));
+    }
+    /// <summary>
+    /// Serializes the provided service status to JSON format and writes it to a predefined "status.json" file
+    /// in the specified status directory. This method ensures the service status is stored persistently
+    /// for further analysis or diagnostics.
+    /// </summary>
+    /// <param name="status">The <c>ServiceStatus</c> object representing the current state of the service,
+    /// including details such as state, start time, last activity, processed items, and last error.</param>
+    private void WriteStatusJson(ServiceStatus status)
     {
         var statusFile = Path.Combine(_statusDirectory, "status.json");
         var json = JsonSerializer.Serialize(status, _jsonOptions);
