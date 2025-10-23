@@ -10,6 +10,11 @@ namespace HarvesterWorkerService;
 /// Background worker that periodically writes service status and statistics, and logs activity
 /// for the HarvesterWorkerService.
 /// </summary>
+/// <remarks>
+/// Documentation for Worker Services can be found here:
+/// EN: https://learn.microsoft.com/en-us/dotnet/core/extensions/workers
+/// DE: https://learn.microsoft.com/de-de/dotnet/core/extensions/workers
+/// </remarks>
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
@@ -51,8 +56,14 @@ public class Worker : BackgroundService
         
         while (!stoppingToken.IsCancellationRequested)
         {
+            // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen
+            // soll ein Array an IPv4, Maschinen-ID und Maschinenname zurückgeben
             try
             {
+                // der try-Zweig muss dann in die foreach umschlossen werden
+                // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
+                // api-service hard und software per REST API abfrage
+                // ermittelten Daten in SQL-DB und MongoDB speichern
                 _processedItems++;
                 
                 // Update status
@@ -77,6 +88,7 @@ public class Worker : BackgroundService
                 _logger.LogInformation(message);
                 _statusWriter.WriteLog(message);
                 await Task.Delay(30000, stoppingToken);
+                // Am Ende der foreach die Services und Service-Container disposen
             }
             catch (Exception ex)
             {
@@ -89,6 +101,7 @@ public class Worker : BackgroundService
                     ProcessedItems = _processedItems,
                     LastError = ex.Message
                 });
+                // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
                 await Task.Delay(5000, stoppingToken);
             }
         }
