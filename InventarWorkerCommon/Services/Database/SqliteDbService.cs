@@ -400,6 +400,12 @@ public class SqliteDbService
         return machines.ToList();
     }
 
+    /// <summary>
+    /// Retrieves a list of all active machines from the database. Active machines are those
+    /// that are not marked as disabled or deprovisioned. Results are ordered by the machine name.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation. The task result contains
+    /// a list of active machines.</returns>
     public async Task<List<Machine>> GetAllActiveMachinesAsync()
     {
         using var connection = new SqliteConnection(_connectionString);
