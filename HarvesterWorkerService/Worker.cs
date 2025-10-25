@@ -64,7 +64,7 @@ public class Worker : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var serviceContainer = Services();
-        _apiService = serviceContainer.ApiService;
+        // wird hier (noch9 nicht benötigt) _apiService = serviceContainer.ApiService;
         _sqliteDbService = serviceContainer.DbService;
         _mongoDbService = serviceContainer.MongoDbService;
 
@@ -114,7 +114,11 @@ public class Worker : BackgroundService
                     var message = $"Inventory completed: {_processedItems} Runs";
                     _logger.LogInformation(message);
                     _statusWriter.WriteLog(message);
+#if DEBUG
+                    await Task.Delay(100, stoppingToken);
+#else
                     await Task.Delay(30000, stoppingToken);
+#endif
                     // Am Ende der foreach die Services und Service-Container disposen
                 }
             }
