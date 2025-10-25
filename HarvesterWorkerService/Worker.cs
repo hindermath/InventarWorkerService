@@ -1,8 +1,13 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using InventarWorkerCommon.Models.Service;
+using InventarWorkerCommon.Services.Api;
+using InventarWorkerCommon.Services.Database;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
 using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
+using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace HarvesterWorkerService;
 
@@ -21,8 +26,13 @@ public class Worker : BackgroundService
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
     private readonly HardwareInventoryService _hardwareInventoryService;
     private readonly SoftwareInventoryService _softwareInventoryService; 
+    private readonly JsonSerializerOptions _jsonOptions;
     private int _processedItems = 0;
     private DateTime _startTime = DateTime.Now;
+    private ApiService _apiService;
+    private SqliteDbService _sqliteDbService;
+    private MongoDbService _mongoDbService;
+
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Worker"/> class.
@@ -37,6 +47,13 @@ public class Worker : BackgroundService
         _logger = logger;
         _hardwareInventoryService = hardwareInventoryService;
         _softwareInventoryService = softwareInventoryService;
+        
+        _jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
+        };
+
     }
 
     /// <summary>
@@ -46,6 +63,12 @@ public class Worker : BackgroundService
     /// <param name="stoppingToken">Token that signals when the service should stop.</param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        using var serviceContainer = Services();
+        _apiService = serviceContainer.ApiService;
+        _sqliteDbService = serviceContainer.DbService;
+        _mongoDbService = serviceContainer.MongoDbService;
+
+
         // Write initial status
         _statusWriter.WriteStatus(new ServiceStatus
         {
@@ -57,38 +80,43 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen
-            // soll ein Array an IPv4, Maschinen-ID und Maschinenname zurückgeben
+            var allActiveMachines = await _sqliteDbService.GetAllActiveMachinesAsync();
+
             try
             {
-                // der try-Zweig muss dann in die foreach umschlossen werden
-                // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
-                // api-service hard und software per REST API abfrage
-                // ermittelten Daten in SQL-DB und MongoDB speichern
-                _processedItems++;
-                
-                // Update status
-                _statusWriter.WriteStatus(new ServiceStatus
+                foreach (var machine in allActiveMachines)
                 {
-                    State = "Running HarvesterWorkerService",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastActivity = DateTime.Now
-                });
-                
-                _statusWriter.WriteStatistics(new ServiceStatistics
-                {
-                    TotalProcessedItems = _processedItems,
-                    AverageProcessingTime = CalculateAverageProcessingTime(_processedItems,
-                        _startTime),
-                    Uptime = DateTime.Now - _startTime,
-                    MemoryUsage = GC.GetTotalMemory(false)
-                });
 
-                var message = $"Inventory completed: {_processedItems} Runs";
-                _logger.LogInformation(message);
-                _statusWriter.WriteLog(message);
-                await Task.Delay(30000, stoppingToken);
-                // Am Ende der foreach die Services und Service-Container disposen
+                    // der try-Zweig muss dann in die foreach umschlossen werden
+                    // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
+                    // api-service hard und software per REST API abfrage
+                    // ermittelten Daten in SQL-DB und MongoDB speichern
+                    _processedItems++;
+
+                    // Update status
+                    _statusWriter.WriteStatus(new ServiceStatus
+                    {
+                        State = "Running HarvesterWorkerService",
+                        StartTime = _startTime,
+                        ProcessedItems = _processedItems,
+                        LastActivity = DateTime.Now
+                    });
+
+                    _statusWriter.WriteStatistics(new ServiceStatistics
+                    {
+                        TotalProcessedItems = _processedItems,
+                        AverageProcessingTime = CalculateAverageProcessingTime(_processedItems,
+                            _startTime),
+                        Uptime = DateTime.Now - _startTime,
+                        MemoryUsage = GC.GetTotalMemory(false)
+                    });
+
+                    var message = $"Inventory completed: {_processedItems} Runs";
+                    _logger.LogInformation(message);
+                    _statusWriter.WriteLog(message);
+                    await Task.Delay(30000, stoppingToken);
+                    // Am Ende der foreach die Services und Service-Container disposen
+                }
             }
             catch (Exception ex)
             {
