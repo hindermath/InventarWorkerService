@@ -400,6 +400,16 @@ public class SqliteDbService
         return machines.ToList();
     }
 
+    public async Task<List<Machine>> GetAllActiveMachinesAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT * FROM AllActiveMachinesView ORDER BY Name";
+        var machines = await connection.QueryAsync<Machine>(query);
+        return machines.ToList();
+    }
+
     /// <summary>
     /// Retrieves a machine from the database using its unique identifier.
     /// </summary>
