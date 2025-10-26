@@ -62,9 +62,9 @@ public static class ResolveMachine
     /// </summary>
     /// <param name="ipAddress">The IP address to resolve to a host.</param>
     /// <param name="timeout">The maximum time, in milliseconds, to wait for the host resolution process. Default is 5000ms.</param>
-    /// <returns>A <see cref="HostInfo"/> object containing host name, aliases, address list, or an error message if the resolution fails.</returns>
+    /// <returns>A <see cref="HostInformationResult"/> object containing host name, aliases, address list, or an error message if the resolution fails.</returns>
     /// <exception cref="ArgumentException">Thrown if the provided IP address is invalid or cannot be parsed.</exception>
-    public static async Task<HostInfo> ResolveIpToHostInfoAsync(string ipAddress, int timeout = 5000)
+    public static async Task<HostInformationResult> ResolveIpToHostInfoAsync(string ipAddress, int timeout = 5000)
     {
         try
         {
@@ -82,7 +82,7 @@ public static class ResolveMachine
 
             if (completedTask == task && task.IsCompletedSuccessfully)
             {
-                return new HostInfo
+                return new HostInformationResult
                 {
                     HostName = task.Result.HostName,
                     Aliases = task.Result.Aliases,
@@ -91,7 +91,7 @@ public static class ResolveMachine
             }
             else
             {
-                return new HostInfo
+                return new HostInformationResult
                 {
                     ErrorMessage = $"Resolving Machine IP {ipAddress} to host information timed out."
                 };
@@ -99,7 +99,7 @@ public static class ResolveMachine
         }
         catch (Exception ex)
         {
-            return new HostInfo
+            return new HostInformationResult
             {
                 ErrorMessage = ex.Message
             };
@@ -125,10 +125,102 @@ public static class ResolveMachine
             var hostEntry = await Dns.GetHostEntryAsync(ipAddr);
             return hostEntry.HostName;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Console.WriteLine($"DNS resolution failed for {ipAddress}: {ex.Message}");
             return null;
         }
+    }
+
+    /// <summary>
+    /// Resolves the specified fully qualified domain name (FQDN) to its corresponding IPv4 address.
+    /// </summary>
+    /// <param name="fqdn">The fully qualified domain name (FQDN) to resolve.</param>
+    /// <returns>The IPv4 address as a string if the resolution is successful; otherwise, null.</returns>
+    public static async Task<string?> ResolveFqdnToIpv4Async(string fqdn)
+    {
+        try
+        {
+            var addresses = await Dns.GetHostAddressesAsync(fqdn);
+            var ipv4Address = addresses.FirstOrDefault(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
+            return ipv4Address?.ToString();
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Resolves the given FQDN (Fully Qualified Domain Name) to its corresponding IPv6 address, if available.
+    /// </summary>
+    /// <param name="fqdn">The fully qualified domain name to resolve to an IPv6 address.</param>
+    /// <returns>A string representation of the resolved IPv6 address if successful; otherwise, returns null if the resolution fails or no IPv6 address is found.</returns>
+    public static async Task<string?> ResolveFqdnToIpv6Async(string fqdn)
+    {
+        try
+        {
+            var addresses = await Dns.GetHostAddressesAsync(fqdn);
+            var ipv6Address = addresses.FirstOrDefault(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6);
+            return ipv6Address?.ToString();
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Resolves a fully qualified domain name (FQDN) to detailed host information,
+    /// including IP addresses, host name, aliases, and error details if applicable.
+    /// </summary>
+    /// <param name="fqdn">The fully qualified domain name of the target host to resolve.</param>
+    /// <param name="preferIPv4">Indicates whether IPv4 addresses should be prioritized when resolving the FQDN. Default is true.</param>
+    /// <param name="timeout">The maximum time, in milliseconds, to wait for the resolution process. Default is 5000ms.</param>
+    /// <returns>A <see cref="HostInformationResult"/> object containing details about the host, such as IP addresses, aliases, host name, and any error message if an issue occurred.</returns>
+    public static async Task<HostInformationResult> ResolveFqdnToHostInfoAsync(string fqdn, bool preferIPv4 = true,
+        int timeout = 5000)
+    {
+        try
+        {
+            using var cts = new CancellationTokenSource(timeout);
+
+            //var hostEntry = await Dns.GetHostEntryAsync(fqdn);
+            var task = Dns.GetHostEntryAsync(fqdn);
+            var completedTask = await Task.WhenAny(task, Task.Delay(timeout, cts.Token));
+
+            if (completedTask == task && task.IsCompletedSuccessfully)
+            {
+                var ipv4Addresses = task.Result.AddressList
+                    .Where(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    .Select(addr => addr.ToString())
+                    .ToArray();
+
+                var ipv6Addresses = task.Result.AddressList
+                    .Where(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
+                    .Select(addr => addr.ToString())
+                    .ToArray();
+
+                return new HostInformationResult
+                {
+                    HostName = task.Result.HostName,
+                    AddressList = preferIPv4 ? ipv4Addresses : ipv6Addresses,
+                    Aliases = task.Result.Aliases,
+                    IPv4Addresses = ipv4Addresses,
+                    IPv6Addresses = ipv6Addresses
+                };
+
+            }
+        }
+        catch (Exception ex)
+        {
+            return new HostInformationResult
+            {
+                ErrorMessage = ex.Message
+            };
+        }
+        return new HostInformationResult
+        {
+            ErrorMessage = $"Resolving FQDN {fqdn} to host information timed out."
+        };
     }
 }
