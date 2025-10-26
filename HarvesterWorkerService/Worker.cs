@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using InventarWorkerCommon.Models.Network;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
@@ -87,7 +88,28 @@ public class Worker : BackgroundService
             {
                 foreach (var machine in allActiveMachines)
                 {
+                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(machine.FQDN, preferIPv4: true);
 
+                    // Falls wir nur einen FQDN haben, zu IP auflösen
+                    if (!string.IsNullOrEmpty(machine.FQDN))
+                    {
+                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(machine.FQDN, preferIPv4: true);
+                        if (hostInformationResult.IPv4Addresses != null)
+                        {
+                            _logger.LogInformation($"Resolved {machine.FQDN} to {hostInformationResult.IPv4Addresses}");
+                        }
+                    }
+
+                    // Fallback auf gespeicherte IPv4, falls vorhanden
+                    //targetIp ??= machine.IPv4;
+
+                    // if (string.IsNullOrEmpty(targetIp))
+                    // {
+                    //     _logger.LogWarning($"No valid IP address found for machine {machine.FQDN ?? "unknown"}");
+                    //     continue;
+                    // }
+
+                    // Ping-Test vor der Verbindung
                     if (await ResolveMachine.IsMachineReachableAsync(machine.IPv4) is false)
                     {
                         _logger.LogCritical($"Machine {machine.IPv4} is not reachable, skipping...");
