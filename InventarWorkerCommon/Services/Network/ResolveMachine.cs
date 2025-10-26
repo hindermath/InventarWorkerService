@@ -41,4 +41,17 @@ public static class ResolveMachine
             };
         }
     }
+
+    /// <summary>
+    /// Checks if the specified machine is reachable by sending a ping request
+    /// to its IP address within the specified timeout duration.
+    /// </summary>
+    /// <param name="ipAddress">The target IP address to check for connectivity.</param>
+    /// <param name="timeout">The maximum time, in milliseconds, to wait for the ping response. Default is 5000ms.</param>
+    /// <returns>A boolean value indicating whether the machine is reachable.</returns>
+    public static async Task<bool> IsMachineReachableAsync(string ipAddress, int timeout = 5000)
+    {
+        var result = await PingWithDetailsAsync(ipAddress, timeout);
+        return result.IsSuccess;
+    }
 }
