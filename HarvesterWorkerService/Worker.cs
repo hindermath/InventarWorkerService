@@ -88,13 +88,32 @@ public class Worker : BackgroundService
                 foreach (var machine in allActiveMachines)
                 {
 
-                    if (await ResolveMachine.IsMachineReachableAsync(machine.IPv4))
+                    if (await ResolveMachine.IsMachineReachableAsync(machine.IPv4) is false)
                     {
                         _logger.LogCritical($"Machine {machine.IPv4} is not reachable, skipping...");
                         continue;
                     }
+                    // Versuche FQDN aus IPv4 zu ermitteln, falls noch nicht vorhanden
+                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(machine.IPv4);
+                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(machine.IPv4) is false)
+                    {
+                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(machine.IPv4);
+                        if (string.IsNullOrEmpty(hostInfo.HostName) is false)
+                        {
+                            _logger.LogInformation($"Resolved {machine.IPv4} to {hostInfo.HostName}");
+                        }
+                        else
+                        {
+                            _logger.LogCritical($"Machine IP {machine.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        hostInfo.HostName = machine.FQDN;
+                    }
 
-                    using var workerServiceContainer = Services(clientApiFqdn: machine.IPv4);
+                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? machine.IPv4);
                     _apiService = workerServiceContainer.ApiService;
 
                     // der try-Zweig muss dann in die foreach umschlossen werden
