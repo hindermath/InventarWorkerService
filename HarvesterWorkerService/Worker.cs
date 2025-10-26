@@ -86,17 +86,17 @@ public class Worker : BackgroundService
 
             try
             {
-                foreach (var machine in allActiveMachines)
+                foreach (var activeMachine in allActiveMachines)
                 {
-                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(machine.FQDN, preferIPv4: true);
+                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachine.FQDN, preferIPv4: true);
 
                     // Falls wir nur einen FQDN haben, zu IP auflösen
-                    if (!string.IsNullOrEmpty(machine.FQDN))
+                    if (string.IsNullOrEmpty(activeMachine.FQDN) is false)
                     {
-                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(machine.FQDN, preferIPv4: true);
+                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachine.FQDN, preferIPv4: true);
                         if (hostInformationResult.IPv4Addresses != null)
                         {
-                            _logger.LogInformation($"Resolved {machine.FQDN} to {hostInformationResult.IPv4Addresses}");
+                            _logger.LogInformation($"Resolved {activeMachine.FQDN} to {hostInformationResult.IPv4Addresses}");
                         }
                     }
 
@@ -110,32 +110,32 @@ public class Worker : BackgroundService
                     // }
 
                     // Ping-Test vor der Verbindung
-                    if (await ResolveMachine.IsMachineReachableAsync(machine.IPv4) is false)
+                    if (await ResolveMachine.IsMachineReachableAsync(activeMachine.IPv4) is false)
                     {
-                        _logger.LogCritical($"Machine {machine.IPv4} is not reachable, skipping...");
+                        _logger.LogCritical($"Machine {activeMachine.IPv4} is not reachable, skipping...");
                         continue;
                     }
                     // Versuche FQDN aus IPv4 zu ermitteln, falls noch nicht vorhanden
-                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(machine.IPv4);
-                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(machine.IPv4) is false)
+                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachine.IPv4);
+                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(activeMachine.IPv4) is false)
                     {
-                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(machine.IPv4);
+                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(activeMachine.IPv4);
                         if (string.IsNullOrEmpty(hostInfo.HostName) is false)
                         {
-                            _logger.LogInformation($"Resolved {machine.IPv4} to {hostInfo.HostName}");
+                            _logger.LogInformation($"Resolved {activeMachine.IPv4} to {hostInfo.HostName}");
                         }
                         else
                         {
-                            _logger.LogCritical($"Machine IP {machine.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
+                            _logger.LogCritical($"Machine IP {activeMachine.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
                             continue;
                         }
                     }
                     else
                     {
-                        hostInfo.HostName = machine.FQDN;
+                        hostInfo.HostName = activeMachine.FQDN;
                     }
 
-                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? machine.IPv4);
+                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachine.IPv4);
                     _apiService = workerServiceContainer.ApiService;
 
                     // der try-Zweig muss dann in die foreach umschlossen werden
