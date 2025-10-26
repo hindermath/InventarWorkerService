@@ -5,7 +5,7 @@ namespace InventarWorkerCommon.Models.Network;
 /// and potential error messages when resolving host information. This class is commonly used
 /// for network-related tasks where host resolution is required.
 /// </summary>
-public record HostInfo()
+public record HostInformationResult()
 {
     /// <summary>
     /// Gets or sets the hostname of a network host.
@@ -37,6 +37,28 @@ public record HostInfo()
     /// The value is populated during host resolution and can be empty if no addresses are resolved or the resolution fails.
     /// </remarks>
     public string[] AddressList { get; set; } = Array.Empty<string>();
+
+    /// <summary>
+    /// Gets or sets the list of IPv4 addresses associated with the host.
+    /// </summary>
+    /// <remarks>
+    /// This property contains an array of IPv4 addresses resolved for the specified host.
+    /// It provides an easy way to retrieve all IPv4 addresses linked to the host's network identity.
+    /// The values in this list may be empty if no IPv4 addresses are resolved or the host does not
+    /// have IPv4 configurations.
+    /// </remarks>
+    public string[] IPv4Addresses { get; set; } = Array.Empty<string>();
+
+    /// <summary>
+    /// Gets or sets the list of IPv6 addresses associated with the host.
+    /// </summary>
+    /// <remarks>
+    /// This property contains an array of IP addresses in IPv6 format that are linked to the host.
+    /// It is useful when dealing with hosts that operate in an IPv6-enabled network environment.
+    /// The value is optional and can be empty if no IPv6 addresses are associated with the host or
+    /// if the information is unavailable.
+    /// </remarks>
+    public string[] IPv6Addresses { get; set; } = Array.Empty<string>();
 
     /// <summary>
     /// Gets or sets the error message indicating any issues that occurred during the resolution of host information.
