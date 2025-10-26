@@ -4,6 +4,7 @@ using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
 using InventarWorkerCommon.Services.Hardware;
+using InventarWorkerCommon.Services.Network;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
 using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
@@ -86,6 +87,15 @@ public class Worker : BackgroundService
             {
                 foreach (var machine in allActiveMachines)
                 {
+
+                    if (await ResolveMachine.IsMachineReachableAsync(machine.IPv4))
+                    {
+                        _logger.LogCritical($"Machine {machine.IPv4} is not reachable, skipping...");
+                        continue;
+                    }
+
+                    using var workerServiceContainer = Services(clientApiFqdn: machine.IPv4);
+                    _apiService = workerServiceContainer.ApiService;
 
                     // der try-Zweig muss dann in die foreach umschlossen werden
                     // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
