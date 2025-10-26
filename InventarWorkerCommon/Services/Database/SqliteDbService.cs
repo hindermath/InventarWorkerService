@@ -400,32 +400,47 @@ public class SqliteDbService
         return machines.ToList();
     }
 
-    public async Task<List<Machine>> GetAllActiveMachinesAsync()
+    /// <summary>
+    /// Retrieves a list of all active machines from the database, ordered by name,
+    /// using the "AllActiveMachinesView" database view.
+    /// </summary>
+    /// <returns>A list of <see cref="MachineState"/> objects representing all active machines.</returns>
+    public async Task<List<MachineState>> GetAllActiveMachinesAsync()
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
         const string query = "SELECT * FROM AllActiveMachinesView ORDER BY Name";
-        var machines = await connection.QueryAsync<Machine>(query);
+        var machines = await connection.QueryAsync<MachineState>(query);
         return machines.ToList();
     }
-    public async Task<List<Machine>> GetAllDeprovisionedMachinesAsync()
+
+    /// <summary>
+    /// Retrieves a list of all deprovisioned machines from the SQLite database.
+    /// </summary>
+    /// <returns>A list of <see cref="MachineState"/> representing deprovisioned machines.</returns>
+    public async Task<List<MachineState>> GetAllDeprovisionedMachinesAsync()
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
         const string query = "SELECT * FROM Machines AllDeprovisionedMachinesView ORDER BY Name";
-        var machines = await connection.QueryAsync<Machine>(query);
+        var machines = await connection.QueryAsync<MachineState>(query);
         return machines.ToList();
     }
 
-    public async Task<List<Machine>> GetAllDisabledMachinesAsync()
+    /// <summary>
+    /// Retrieves a list of all machines marked as disabled within the system,
+    /// including their identities, network details, and relevant status information.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation. The task result contains a list of disabled machines represented by <see cref="MachineState"/> objects.</returns>
+    public async Task<List<MachineState>> GetAllDisabledMachinesAsync()
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
         const string query = "SELECT * FROM Machines AllDisabledMachinesView ORDER BY Name";
-        var machines = await connection.QueryAsync<Machine>(query);
+        var machines = await connection.QueryAsync<MachineState>(query);
         return machines.ToList();
     }
 
