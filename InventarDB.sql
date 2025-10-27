@@ -341,6 +341,24 @@ SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarves
 FROM Machines
 WHERE DISABLED = 0 AND DEPROVISIONED = 0;
 
+-- View to retrieve all active machines with network information (not disabled or deprovisioned)
+-- This view selects all machines that are currently active, meaning they are not disabled or deprovisioned.
+-- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
+-- The view can be used to quickly access the list of active machines without having to filter the Machines table each time.
+-- The view is created only if it does not already exist.
+-- This allows for efficient querying of active machines in the inventory system.
+-- The view can be used to monitor the status of machines and ensure that only active machines are considered in reports and analyses.
+-- The view can be queried like a regular table, making it easy to integrate into existing queries and reports.
+-- The view is particularly useful for inventory management, monitoring.
+CREATE VIEW IF NOT EXISTS AllActiveMachinesWithNetworkInfoView AS
+SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
+FROM Machines
+WHERE DISABLED = 0 AND DEPROVISIONED = 0 AND (
+    (IPv4 IS NOT NULL AND IPv4 != '') OR
+    (IPv6 IS NOT NULL AND IPv6 != '') OR
+    (FQDN IS NOT NULL AND FQDN != '')
+    );
+
 -- Query to retrieve a specific machine by Id (active)
 -- This query selects a specific machine by its Id, ensuring that the machine is active (not disabled or deprovisioned).
 -- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
