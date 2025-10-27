@@ -81,8 +81,8 @@ public class Worker : BackgroundService
         
         while (!stoppingToken.IsCancellationRequested)
         {
-            // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen
-            var allActiveMachines = await _sqliteDbService.GetAllActiveMachinesAsync();
+            // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen mit Netzwerkinformationen
+            var allActiveMachines = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
 
             try
             {
