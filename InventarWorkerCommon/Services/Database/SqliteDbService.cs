@@ -434,6 +434,24 @@ public class SqliteDbService
     }
 
     /// <summary>
+    /// Retrieves a list of all active machines along with their associated network information
+    /// from the database. Active machines are those that are neither disabled nor deprovisioned.
+    /// </summary>
+    /// <returns>
+    /// A task representing the asynchronous operation, containing a list of
+    /// <see cref="MachineState"/> instances with network information.
+    /// </returns>
+    public async Task<List<MachineState>> GetAllActiveMachinesWithNetworkInfoAsync()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        await connection.OpenAsync();
+
+        const string query = "SELECT * FROM AllActiveMachinesWithNetworkInfoView ORDER BY Name";
+        var machines = await connection.QueryAsync<MachineState>(query);
+        return machines.ToList();
+    }
+
+    /// <summary>
     /// Retrieves a list of all deprovisioned machines from the SQLite database.
     /// </summary>
     /// <returns>A list of <see cref="MachineState"/> representing deprovisioned machines.</returns>
