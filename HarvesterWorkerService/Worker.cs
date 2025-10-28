@@ -8,7 +8,7 @@ using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Network;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
-using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
+using InventarWorkerCommon.Helpers.Calculate;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace HarvesterWorkerService;
@@ -26,6 +26,7 @@ public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
+    private readonly AverageProcessingTime _averageProcessingTime = new AverageProcessingTime();
     private readonly HardwareInventoryService _hardwareInventoryService;
     private readonly SoftwareInventoryService _softwareInventoryService; 
     private readonly JsonSerializerOptions _jsonOptions;
@@ -156,7 +157,7 @@ public class Worker : BackgroundService
                     _statusWriter.WriteStatistics(new ServiceStatistics
                     {
                         TotalProcessedItems = _processedItems,
-                        AverageProcessingTime = CalculateAverageProcessingTime(_processedItems,
+                        AverageProcessingTime = _averageProcessingTime.CalculateAverageProcessingTime(_processedItems,
                             _startTime),
                         Uptime = DateTime.Now - _startTime,
                         MemoryUsage = GC.GetTotalMemory(false)

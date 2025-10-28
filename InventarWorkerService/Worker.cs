@@ -3,7 +3,7 @@ using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
-using static InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime;
+using InventarWorkerCommon.Helpers.Calculate;
 
 namespace InventarWorkerService;
 
@@ -17,6 +17,7 @@ public class Worker : BackgroundService
     private readonly ServiceStatusWriter _statusWriter;
     private readonly HardwareInventoryService _hardwareInventoryService;
     private readonly SoftwareInventoryService _softwareInventoryService;
+    private readonly AverageProcessingTime _averageProcessingTime;
     private int _processedItems = 0;
     private DateTime _startTime = DateTime.Now;
 
@@ -32,6 +33,7 @@ public class Worker : BackgroundService
     {
         _logger = logger;
         _statusWriter = new ServiceStatusWriter();
+        _averageProcessingTime = new AverageProcessingTime();
         _hardwareInventoryService = hardwareInventoryService;
         _softwareInventoryService = softwareInventoryService;
     }
@@ -73,7 +75,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteStatistics(new ServiceStatistics
                 {
                     TotalProcessedItems = _processedItems,
-                    AverageProcessingTime = CalculateAverageProcessingTime(_processedItems,
+                    AverageProcessingTime = _averageProcessingTime.CalculateAverageProcessingTime(_processedItems,
                         _startTime),
                     Uptime = DateTime.Now - _startTime,
                     MemoryUsage = GC.GetTotalMemory(false)
