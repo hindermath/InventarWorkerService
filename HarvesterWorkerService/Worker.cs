@@ -83,21 +83,34 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen mit Netzwerkinformationen
-            var allActiveMachines = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
+            var allActiveMachinesWithNetworkInfo = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
 
             try
             {
-                foreach (var activeMachine in allActiveMachines)
+                foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
-                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachine.FQDN, preferIPv4: true);
+                    // hat Machine entweder eine IPv4, IPv6 oder einen FQDN?
+                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
+                    // Ja, dann geht es hier weiter
+                    // Hat FQDN, Dann ResolveFqdnToHostInfoAsync -> infos ggf. in entsprechende Variablen speichern
+                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN, preferIPv4: true);
+                    // In den Hostinformation sollten wir nun mindestens eine IPv4 haben, falls mehrere die erste aus der Liste nehmen
+                    // Alternative Liste foreach
+                    // ist diese/eine erreichbar?
+                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
+                    // Ja, dann geht es hier weiter
+                    //                     using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
+                    // _apiService = workerServiceContainer.ApiService;
+                    // und dann der Rest des Worker-try-Zweigs
+
 
                     // Falls wir nur einen FQDN haben, zu IP auflösen
-                    if (string.IsNullOrEmpty(activeMachine.FQDN) is false)
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
                     {
-                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachine.FQDN, preferIPv4: true);
+                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN, preferIPv4: true);
                         if (hostInformationResult.IPv4Addresses != null)
                         {
-                            _logger.LogInformation($"Resolved {activeMachine.FQDN} to {hostInformationResult.IPv4Addresses}");
+                            _logger.LogInformation($"Resolved {activeMachineWithNetworkInfo.FQDN} to {hostInformationResult.IPv4Addresses}");
                         }
                     }
 
@@ -111,32 +124,32 @@ public class Worker : BackgroundService
                     // }
 
                     // Ping-Test vor der Verbindung
-                    if (await ResolveMachine.IsMachineReachableAsync(activeMachine.IPv4) is false)
+                    if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4) is false)
                     {
-                        _logger.LogCritical($"Machine {activeMachine.IPv4} is not reachable, skipping...");
+                        _logger.LogCritical($"Machine {activeMachineWithNetworkInfo.IPv4} is not reachable, skipping...");
                         continue;
                     }
                     // Versuche FQDN aus IPv4 zu ermitteln, falls noch nicht vorhanden
-                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachine.IPv4);
-                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(activeMachine.IPv4) is false)
+                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
+                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
                     {
-                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(activeMachine.IPv4);
+                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(activeMachineWithNetworkInfo.IPv4);
                         if (string.IsNullOrEmpty(hostInfo.HostName) is false)
                         {
-                            _logger.LogInformation($"Resolved {activeMachine.IPv4} to {hostInfo.HostName}");
+                            _logger.LogInformation($"Resolved {activeMachineWithNetworkInfo.IPv4} to {hostInfo.HostName}");
                         }
                         else
                         {
-                            _logger.LogCritical($"Machine IP {activeMachine.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
+                            _logger.LogCritical($"Machine IP {activeMachineWithNetworkInfo.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
                             continue;
                         }
                     }
                     else
                     {
-                        hostInfo.HostName = activeMachine.FQDN;
+                        hostInfo.HostName = activeMachineWithNetworkInfo.FQDN;
                     }
 
-                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachine.IPv4);
+                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
                     _apiService = workerServiceContainer.ApiService;
 
                     // der try-Zweig muss dann in die foreach umschlossen werden
@@ -174,19 +187,25 @@ public class Worker : BackgroundService
                     // Am Ende der foreach die Services und Service-Container disposen
                 }
             }
-            catch (Exception ex)
+            // catch Network oder eigene Exception
+            // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
+            catch (Exception exception)
             {
-                _logger.LogError(ex, "Error in HarvesterWorkerService");
-                _statusWriter.WriteLog($"Error: {ex.Message}");
+                _logger.LogError(exception, "Error in HarvesterWorkerService");
+                _statusWriter.WriteLog($"Error: {exception.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
                     State = "Error HarvesterWorkerService",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
-                    LastError = ex.Message
+                    LastError = exception.Message
                 });
                 // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
-                await Task.Delay(5000, stoppingToken);
+                #if DEBUG
+                    await Task.Delay(100, stoppingToken);
+                #else
+                    await Task.Delay(5000, stoppingToken);
+                #endif
             }
         }
     }
