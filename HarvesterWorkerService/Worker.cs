@@ -9,6 +9,7 @@ using InventarWorkerCommon.Services.Network;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
 using InventarWorkerCommon.Helpers.Calculate;
+using InventarWorkerCommon.Helpers.Exceptions;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace HarvesterWorkerService;
@@ -90,10 +91,20 @@ public class Worker : BackgroundService
                 foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
                     // hat Machine entweder eine IPv4, IPv6 oder einen FQDN?
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) ||
+                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) ||
+                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN))
+                    {
+                        throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
+                            .Name);
+                    }
+
                     // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
                     // Ja, dann geht es hier weiter
                     // Hat FQDN, Dann ResolveFqdnToHostInfoAsync -> infos ggf. in entsprechende Variablen speichern
-                    HostInformationResult hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN, preferIPv4: true);
+                    HostInformationResult hostInformationResult =
+                        await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN,
+                            preferIPv4: true);
                     // In den Hostinformation sollten wir nun mindestens eine IPv4 haben, falls mehrere die erste aus der Liste nehmen
                     // Alternative Liste foreach
                     // ist diese/eine erreichbar?
@@ -107,10 +118,13 @@ public class Worker : BackgroundService
                     // Falls wir nur einen FQDN haben, zu IP auflösen
                     if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
                     {
-                        hostInformationResult = await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN, preferIPv4: true);
+                        hostInformationResult =
+                            await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN,
+                                preferIPv4: true);
                         if (hostInformationResult.IPv4Addresses != null)
                         {
-                            _logger.LogInformation($"Resolved {activeMachineWithNetworkInfo.FQDN} to {hostInformationResult.IPv4Addresses}");
+                            _logger.LogInformation(
+                                $"Resolved {activeMachineWithNetworkInfo.FQDN} to {hostInformationResult.IPv4Addresses}");
                         }
                     }
 
@@ -126,21 +140,27 @@ public class Worker : BackgroundService
                     // Ping-Test vor der Verbindung
                     if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4) is false)
                     {
-                        _logger.LogCritical($"Machine {activeMachineWithNetworkInfo.IPv4} is not reachable, skipping...");
+                        _logger.LogCritical(
+                            $"Machine {activeMachineWithNetworkInfo.IPv4} is not reachable, skipping...");
                         continue;
                     }
+
                     // Versuche FQDN aus IPv4 zu ermitteln, falls noch nicht vorhanden
                     var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
-                    if (string.IsNullOrEmpty(hostInfo.HostName) && string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
+                    if (string.IsNullOrEmpty(hostInfo.HostName) &&
+                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
                     {
-                        hostInfo.HostName = await ResolveMachine.ResolveIpToFqdnAsync(activeMachineWithNetworkInfo.IPv4);
+                        hostInfo.HostName =
+                            await ResolveMachine.ResolveIpToFqdnAsync(activeMachineWithNetworkInfo.IPv4);
                         if (string.IsNullOrEmpty(hostInfo.HostName) is false)
                         {
-                            _logger.LogInformation($"Resolved {activeMachineWithNetworkInfo.IPv4} to {hostInfo.HostName}");
+                            _logger.LogInformation(
+                                $"Resolved {activeMachineWithNetworkInfo.IPv4} to {hostInfo.HostName}");
                         }
                         else
                         {
-                            _logger.LogCritical($"Machine IP {activeMachineWithNetworkInfo.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
+                            _logger.LogCritical(
+                                $"Machine IP {activeMachineWithNetworkInfo.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
                             continue;
                         }
                     }
@@ -149,7 +169,8 @@ public class Worker : BackgroundService
                         hostInfo.HostName = activeMachineWithNetworkInfo.FQDN;
                     }
 
-                    using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
+                    using var workerServiceContainer =
+                        Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
                     _apiService = workerServiceContainer.ApiService;
 
                     // der try-Zweig muss dann in die foreach umschlossen werden
@@ -188,6 +209,21 @@ public class Worker : BackgroundService
                 }
             }
             // catch Network oder eigene Exception
+            catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
+            {
+                _logger.LogError(networkInformationMissingException, $"Machine {networkInformationMissingException.MachineName} has no IPv4, IPv6 or FQDN information");
+                _statusWriter.WriteLog($"Error: {networkInformationMissingException.Message}");
+                _statusWriter.WriteStatus(new ServiceStatus
+                {
+                    State = "Error HarvesterWorkerService",
+                    StartTime = _startTime,
+                    ProcessedItems = _processedItems,
+                    LastError = networkInformationMissingException.Message
+                });
+            }
+            catch (NetworkInformation.HostResolutionException hostResolutionException)
+            {
+            }
             // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
             catch (Exception exception)
             {
