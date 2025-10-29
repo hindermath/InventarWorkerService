@@ -1,5 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using InventarWorkerCommon.Helpers.Calculate;
+using InventarWorkerCommon.Helpers.Exceptions;
 using InventarWorkerCommon.Models.Network;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Services.Api;
@@ -8,8 +10,6 @@ using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Network;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
-using InventarWorkerCommon.Helpers.Calculate;
-using InventarWorkerCommon.Helpers.Exceptions;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
 namespace HarvesterWorkerService;
@@ -36,6 +36,7 @@ public class Worker : BackgroundService
     private ApiService _apiService;
     private SqliteDbService _sqliteDbService;
     private MongoDbService _mongoDbService;
+    private HostInformationResult _hostInformationResult;
 
 
     /// <summary>
@@ -88,95 +89,84 @@ public class Worker : BackgroundService
 
             try
             {
+                if (allActiveMachinesWithNetworkInfo is null)
+                {
+                    throw new ArgumentNullException(nameof(allActiveMachinesWithNetworkInfo));
+                }
+                else if (allActiveMachinesWithNetworkInfo.Count == 0)
+                {
+                    throw new InvalidOperationException("No active machines found with network information.");
+                }
+
                 foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
                     // hat Machine entweder eine IPv4, IPv6 oder einen FQDN?
                     // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
-                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) &&
-                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) &&
-                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN))
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
+                    {
+                        // try-catch
+                        _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
+                        // elseif IPv6 elsif FQDN else throw exception
+
+                        // if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4))
+                        // {
+                        //     _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
+                        // }
+                        // else
+                        // {
+                        //     throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
+                        // }
+                    }
+                    else
                     {
                         throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
                             .Name);
                     }
 
-                    // Ja, dann geht es hier weiter
-                    // Hat FQDN, Dann ResolveFqdnToHostInfoAsync -> infos ggf. in entsprechende Variablen speichern
-                    HostInformationResult hostInformationResult =
-                        await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN,
-                            preferIPv4: true);
-                    // In den Hostinformation sollten wir nun mindestens eine IPv4 haben, falls mehrere die erste aus der Liste nehmen
-                    // Alternative Liste foreach
-                    // ist diese/eine erreichbar?
-                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
-                    // Ja, dann geht es hier weiter
-                    //                     using var workerServiceContainer = Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
-                    // _apiService = workerServiceContainer.ApiService;
-                    // und dann der Rest des Worker-try-Zweigs
-
-
-                    // Falls wir nur einen FQDN haben, zu IP auflösen
-                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
                     {
-                        hostInformationResult =
-                            await ResolveMachine.ResolveFqdnToHostInfoAsync(activeMachineWithNetworkInfo.FQDN,
-                                preferIPv4: true);
-                        if (hostInformationResult.IPv4Addresses != null)
+                        if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4))
                         {
-                            _logger.LogInformation(
-                                $"Resolved {activeMachineWithNetworkInfo.FQDN} to {hostInformationResult.IPv4Addresses}");
-                        }
-                    }
-
-                    // Fallback auf gespeicherte IPv4, falls vorhanden
-                    //targetIp ??= machine.IPv4;
-
-                    // if (string.IsNullOrEmpty(targetIp))
-                    // {
-                    //     _logger.LogWarning($"No valid IP address found for machine {machine.FQDN ?? "unknown"}");
-                    //     continue;
-                    // }
-
-                    // Ping-Test vor der Verbindung
-                    if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4) is false)
-                    {
-                        _logger.LogCritical(
-                            $"Machine {activeMachineWithNetworkInfo.IPv4} is not reachable, skipping...");
-                        continue;
-                    }
-
-                    // Versuche FQDN aus IPv4 zu ermitteln, falls noch nicht vorhanden
-                    var hostInfo = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
-                    if (string.IsNullOrEmpty(hostInfo.HostName) &&
-                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
-                    {
-                        hostInfo.HostName =
-                            await ResolveMachine.ResolveIpToFqdnAsync(activeMachineWithNetworkInfo.IPv4);
-                        if (string.IsNullOrEmpty(hostInfo.HostName) is false)
-                        {
-                            _logger.LogInformation(
-                                $"Resolved {activeMachineWithNetworkInfo.IPv4} to {hostInfo.HostName}");
+                            _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
                         }
                         else
                         {
-                            _logger.LogCritical(
-                                $"Machine IP {activeMachineWithNetworkInfo.IPv4} or FQDN {hostInfo.HostName} is not reachable, skipping...");
-                            continue;
+                            throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
                         }
                     }
                     else
                     {
-                        hostInfo.HostName = activeMachineWithNetworkInfo.FQDN;
+                        throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
+                            .Name);
                     }
 
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
+                    {
+                        // FQDN2IP
+                        if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.FQDN))
+                        {
+                            var iPv4 = await ResolveMachine.ResolveFqdnToIpv4Async(activeMachineWithNetworkInfo.FQDN);
+                            _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(iPv4);
+                        }
+                        else
+                        {
+                            throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
+                        }
+                    }
+                    else
+                    {
+                        throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
+                            .Name);
+                    }
+
+                    // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
                     using var workerServiceContainer =
-                        Services(clientApiFqdn: hostInfo.HostName ?? activeMachineWithNetworkInfo.IPv4);
+                        Services(clientApiFqdn: _hostInformationResult.HostName ?? activeMachineWithNetworkInfo.IPv4);
                     _apiService = workerServiceContainer.ApiService;
 
-                    // der try-Zweig muss dann in die foreach umschlossen werden
-                    // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
                     // api-service hard und software per REST API abfrage
                     // ermittelten Daten in SQL-DB und MongoDB speichern
+
                     _processedItems++;
 
                     // Update status
@@ -211,7 +201,8 @@ public class Worker : BackgroundService
             // catch Network oder eigene Exception
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
             {
-                _logger.LogError(networkInformationMissingException, $"Machine {networkInformationMissingException.MachineName} has no IPv4, IPv6 or FQDN information");
+                _logger.LogError(networkInformationMissingException,
+                    $"Machine {networkInformationMissingException.MachineName} has no IPv4, IPv6 or FQDN information");
                 _statusWriter.WriteLog($"Error: {networkInformationMissingException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
@@ -223,6 +214,40 @@ public class Worker : BackgroundService
             }
             catch (NetworkInformation.HostResolutionException hostResolutionException)
             {
+                _logger.LogError(hostResolutionException,
+                    $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
+                _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
+                _statusWriter.WriteStatus(new ServiceStatus
+                {
+                    State = "Error HarvesterWorkerService",
+                    StartTime = _startTime,
+                    ProcessedItems = _processedItems,
+                    LastError = hostResolutionException.Message
+                });
+            }
+            catch (ArgumentNullException argumentNullException)
+            {
+                _logger.LogError(argumentNullException, "Error in HarvesterWorkerService");
+                _statusWriter.WriteLog($"Error: {argumentNullException.Message}");
+                _statusWriter.WriteStatus(new ServiceStatus
+                {
+                    State = "Error HarvesterWorkerService",
+                    StartTime = _startTime,
+                    ProcessedItems = _processedItems,
+                    LastError = argumentNullException.Message
+                });
+            }
+            catch (InvalidOperationException invalidOperationException)
+            {
+                _logger.LogError(invalidOperationException, "Error in HarvesterWorkerService");
+                _statusWriter.WriteLog($"Error: {invalidOperationException.Message}");
+                _statusWriter.WriteStatus(new ServiceStatus
+                {
+                    State = "Error HarvesterWorkerService",
+                    StartTime = _startTime,
+                    ProcessedItems = _processedItems,
+                    LastError = invalidOperationException.Message
+                });
             }
             // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
             catch (Exception exception)
