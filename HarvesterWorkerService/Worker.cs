@@ -81,7 +81,7 @@ public class Worker : BackgroundService
             ProcessedItems = 0
         });
         
-        while (!stoppingToken.IsCancellationRequested)
+        while (stoppingToken.IsCancellationRequested is false)
         {
             // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen mit Netzwerkinformationen
             var allActiveMachinesWithNetworkInfo = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
@@ -91,15 +91,15 @@ public class Worker : BackgroundService
                 foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
                     // hat Machine entweder eine IPv4, IPv6 oder einen FQDN?
-                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) ||
-                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) ||
+                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
+                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) &&
+                        string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) &&
                         string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN))
                     {
                         throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
                             .Name);
                     }
 
-                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
                     // Ja, dann geht es hier weiter
                     // Hat FQDN, Dann ResolveFqdnToHostInfoAsync -> infos ggf. in entsprechende Variablen speichern
                     HostInformationResult hostInformationResult =
