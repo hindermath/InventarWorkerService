@@ -61,32 +61,44 @@ public static class ResolveMachine
     /// and associated IP address list. Provides detailed error information in case of failure.
     /// </summary>
     /// <param name="ipAddress">The IP address to resolve to a host.</param>
+    /// <param name="preferIPv4">Indicates whether IPv4 addresses should be prioritized when resolving the FQDN. Default is true.</param>
     /// <param name="timeout">The maximum time, in milliseconds, to wait for the host resolution process. Default is 5000ms.</param>
     /// <returns>A <see cref="HostInformationResult"/> object containing host name, aliases, address list, or an error message if the resolution fails.</returns>
     /// <exception cref="ArgumentException">Thrown if the provided IP address is invalid or cannot be parsed.</exception>
-    public static async Task<HostInformationResult> ResolveIpToHostInfoAsync(string ipAddress, int timeout = 5000)
+    public static async Task<HostInformationResult> ResolveIpToHostInfoAsync(string ipAddress, bool preferIPv4 = true, int timeout = 5000)
     {
         try
         {
             using var cts = new CancellationTokenSource(timeout);
-            //var ipAddr = IPAddress.Parse(ipAddress);
             // Automatische Erkennung von IPv4 und IPv6
             if (!IPAddress.TryParse(ipAddress, out var ipAddr))
             {
                 throw new ArgumentException($"Invalid IP address format: {ipAddress}");
             }
 
-            //var hostEntry = await Dns.GetHostEntryAsync(ipAddr);
             var task = Dns.GetHostEntryAsync(ipAddr);
             var completedTask = await Task.WhenAny(task, Task.Delay(timeout, cts.Token));
 
             if (completedTask == task && task.IsCompletedSuccessfully)
             {
+                var ipv4Addresses = task.Result.AddressList
+                    .Where(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    .Select(addr => addr.ToString())
+                    .ToArray();
+
+                var ipv6Addresses = task.Result.AddressList
+                    .Where(addr => addr.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
+                    .Select(addr => addr.ToString())
+                    .ToArray();
+
+
                 return new HostInformationResult
                 {
                     HostName = task.Result.HostName,
+                    AddressList = preferIPv4 ? ipv4Addresses : ipv6Addresses,
                     Aliases = task.Result.Aliases,
-                    AddressList = task.Result.AddressList.Select(addr => addr.ToString()).ToArray()
+                    IPv4Addresses = ipv4Addresses,
+                    IPv6Addresses = ipv6Addresses
                 };
             }
             else
