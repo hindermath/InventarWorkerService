@@ -211,7 +211,7 @@ public class Worker : BackgroundService
                             .Name);
                     }
                     using var workerServiceContainer =
-                        Services(clientApiFqdn: _hostInformationResult.HostName ?? activeMachineWithNetworkInfo.IPv4);
+                        Services(clientApiFqdn: _hostInformationResult.HostName ?? _hostInformationResult.AddressList.First());
                     _apiService = workerServiceContainer.ApiService;
 
                     // api-service hard und software per REST API abfrage
