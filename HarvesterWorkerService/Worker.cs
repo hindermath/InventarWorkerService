@@ -100,66 +100,116 @@ public class Worker : BackgroundService
 
                 foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
-                    // hat Machine entweder eine IPv4, IPv6 oder einen FQDN?
-                    // Nein throw new Exception (irgendetwas mit Network, dass beim catch-Abfangen kann (oder eigene erstellen)
                     if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
                     {
-                        // try-catch
-                        _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
-                        // elseif IPv6 elsif FQDN else throw exception
-
-                        // if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4))
-                        // {
-                        //     _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
-                        // }
-                        // else
-                        // {
-                        //     throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
-                        // }
-                    }
-                    else
-                    {
-                        throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
-                            .Name);
-                    }
-
-                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
-                    {
-                        if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.IPv4))
+                        try
                         {
-                            _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
+                            _hostInformationResult =
+                                await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
                         }
-                        else
+                        catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
+                            _logger.LogError(hostResolutionException,
+                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
+                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = hostResolutionException.Message
+                            });
+
+                        }
+                        catch (Exception exception)
+                        {
+                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _statusWriter.WriteLog($"Error: {exception.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = exception.Message
+                            });
                         }
                     }
-                    else
+                    else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
                     {
-                        throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
-                            .Name);
-                    }
+                        try
+                        {
+                            _hostInformationResult =
+                                await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv6);
+                        }
+                        catch (NetworkInformation.HostResolutionException hostResolutionException)
+                        {
+                            _logger.LogError(hostResolutionException,
+                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
+                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = hostResolutionException.Message
+                            });
 
-                    if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
+
+                        }
+                        catch (Exception exception)
+                        {
+                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _statusWriter.WriteLog($"Error: {exception.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = exception.Message
+                            });
+                        }
+                    }
+                    else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
                     {
-                        // FQDN2IP
-                        if (await ResolveMachine.IsMachineReachableAsync(activeMachineWithNetworkInfo.FQDN))
+                        try
                         {
                             var iPv4 = await ResolveMachine.ResolveFqdnToIpv4Async(activeMachineWithNetworkInfo.FQDN);
                             _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(iPv4);
                         }
-                        else
+                        catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            throw new NetworkInformation.HostResolutionException(activeMachineWithNetworkInfo.IPv4);
+                            _logger.LogError(hostResolutionException,
+                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
+                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = hostResolutionException.Message
+                            });
+
+
                         }
+                        catch (Exception exception)
+                        {
+                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _statusWriter.WriteLog($"Error: {exception.Message}");
+                            _statusWriter.WriteStatus(new ServiceStatus
+                            {
+                                State = "Error HarvesterWorkerService",
+                                StartTime = _startTime,
+                                ProcessedItems = _processedItems,
+                                LastError = exception.Message
+                            });
+                        }
+
                     }
                     else
                     {
                         throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
                             .Name);
                     }
-
-                    // in der foreach dann jedesmal den Service-Container mit den spezifischen Parametern initialisieren
                     using var workerServiceContainer =
                         Services(clientApiFqdn: _hostInformationResult.HostName ?? activeMachineWithNetworkInfo.IPv4);
                     _apiService = workerServiceContainer.ApiService;
