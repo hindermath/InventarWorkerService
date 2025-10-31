@@ -4,6 +4,7 @@ using InventarWorkerCommon.Helpers.Calculate;
 using InventarWorkerCommon.Helpers.Exceptions;
 using InventarWorkerCommon.Models.Network;
 using InventarWorkerCommon.Models.Service;
+using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
 using InventarWorkerCommon.Services.Hardware;
@@ -211,11 +212,46 @@ public class Worker : BackgroundService
                             .Name);
                     }
                     using var workerServiceContainer =
-                        Services(clientApiFqdn: _hostInformationResult.HostName ?? _hostInformationResult.AddressList.First());
+                        Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
                     _apiService = workerServiceContainer.ApiService;
+
+                    // api-service status abfragen, ob überhaupt läuft
+                    var serviceStatus = await _apiService.GetServiceStatusAsync();
 
                     // api-service hard und software per REST API abfrage
                     // ermittelten Daten in SQL-DB und MongoDB speichern
+                    // JSON-String deserialisieren, um Maschinennamen zu extrahieren
+                    string machineName;
+                    try
+                    {
+                        // status zu string konvertieren und als JsonDocument deserialisieren
+                        var statusString = serviceStatus.ToString();
+                        var statusDocument = JsonDocument.Parse(statusString);
+
+                        // JsonDocument in Dictionary deserialisieren für einfacheren Zugriff
+                        var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
+
+                        machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
+                            ? statusData["machineName"].GetString()
+                            : Environment.MachineName;
+                    }
+                    catch
+                    {
+                        // Fallback auf lokalen Maschinennamen falls JSON-Deserialisierung fehlschlägt
+                        machineName = Environment.MachineName;
+                    }
+
+
+                    // Maschinen-Information in die Datenbank speichern
+                    var machine = new Machine
+                    {
+                        Name = machineName,
+                        OperatingSystem = Environment.OSVersion.ToString(),
+                        LastSeen = DateTime.UtcNow
+                    };
+
+                    var machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
+
 
                     _processedItems++;
 
