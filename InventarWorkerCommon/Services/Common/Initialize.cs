@@ -15,13 +15,13 @@ public static class Initialize
     /// SQLite database service, and MongoDB service.
     /// </summary>
     /// <param name="clientApiFqdn">The fully qualified domain name of the client API. The default is "localhost".</param>
-    /// <param name="clientApiPort">The port on which the client API is running. The default is "5000".</param>
+    /// <param name="clientApiPort">The port on which the client API is running. The default is "80".</param>
     /// <param name="mongoDbFqdn">The fully qualified domain name of the MongoDB server. The default is "localhost".</param>
     /// <param name="mongoDbPort">The port on which the MongoDB server is running. The default is "27017".</param>
     /// <returns>A disposable container with the initialized instances of services.</returns>
     public static ServiceContainer Services(
         string clientApiFqdn = "localhost",
-        string clientApiPort = "5000",
+        string clientApiPort = "80",
         string mongoDbFqdn = "localhost",
         string mongoDbPort = "27017")
     {
