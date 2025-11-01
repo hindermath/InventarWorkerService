@@ -2,6 +2,7 @@ using System.Reflection;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -19,6 +20,13 @@ class WebApi
     public static async Task WebApiAsync(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        // URLs aus der Konfiguration lesen
+        var urls = builder.Configuration["Url"];
+        if (!string.IsNullOrEmpty(urls))
+        {
+            builder.WebHost.UseUrls(urls);
+        }
 
         // Services konfigurieren
         builder.Services.AddControllers();
