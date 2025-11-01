@@ -78,7 +78,7 @@ public class Worker : BackgroundService
         // Write initial status
         _statusWriter.WriteStatus(new ServiceStatus
         {
-            State = "Starting HarvesterWorkerService",
+            State = "Starting",
             StartTime = _startTime,
             ProcessedItems = 0
         });
@@ -115,7 +115,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = hostResolutionException.Message
@@ -128,7 +128,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = exception.Message
@@ -149,7 +149,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = hostResolutionException.Message
@@ -163,7 +163,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = exception.Message
@@ -184,7 +184,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = hostResolutionException.Message
@@ -198,7 +198,7 @@ public class Worker : BackgroundService
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
-                                State = "Error HarvesterWorkerService",
+                                State = "Error",
                                 StartTime = _startTime,
                                 ProcessedItems = _processedItems,
                                 LastError = exception.Message
@@ -252,13 +252,21 @@ public class Worker : BackgroundService
 
                     var machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
 
+                    // api-service abfrage der Software
+                    var softwareData = await _apiService.GetSoftwareInventoryAsync();
+                    var hardwareData = await _apiService.GetHardwareInventoryAsync();
+
+                    machine = await _sqliteDbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                    await _sqliteDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
+                    await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
+                    await _sqliteDbService.SaveHardwareInventoryAsync(machine.Id, hardwareData);
 
                     _processedItems++;
 
                     // Update status
                     _statusWriter.WriteStatus(new ServiceStatus
                     {
-                        State = "Running HarvesterWorkerService",
+                        State = "Running",
                         StartTime = _startTime,
                         ProcessedItems = _processedItems,
                         LastActivity = DateTime.Now
@@ -292,7 +300,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog($"Error: {networkInformationMissingException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
-                    State = "Error HarvesterWorkerService",
+                    State = "Error",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
                     LastError = networkInformationMissingException.Message
@@ -305,7 +313,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
-                    State = "Error HarvesterWorkerService",
+                    State = "Error",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
                     LastError = hostResolutionException.Message
@@ -317,7 +325,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog($"Error: {argumentNullException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
-                    State = "Error HarvesterWorkerService",
+                    State = "Error",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
                     LastError = argumentNullException.Message
@@ -329,7 +337,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog($"Error: {invalidOperationException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
-                    State = "Error HarvesterWorkerService",
+                    State = "Error",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
                     LastError = invalidOperationException.Message
@@ -342,7 +350,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog($"Error: {exception.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
-                    State = "Error HarvesterWorkerService",
+                    State = "Error",
                     StartTime = _startTime,
                     ProcessedItems = _processedItems,
                     LastError = exception.Message
