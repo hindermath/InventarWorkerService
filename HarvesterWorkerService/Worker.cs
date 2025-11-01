@@ -253,13 +253,13 @@ public class Worker : BackgroundService
                     var machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
 
                     // api-service abfrage der Software
-                    var softwareData = await _apiService.GetSoftwareInventoryAsync();
-                    var hardwareData = await _apiService.GetHardwareInventoryAsync();
+                    var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
+                    var hardwareInventory = await _apiService.GetHardwareInventoryAsync();
 
-                    machine = await _sqliteDbService.GetMachineByNameAsync(hardwareData.System.MachineName);
-                    await _sqliteDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
-                    await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
-                    await _sqliteDbService.SaveHardwareInventoryAsync(machine.Id, hardwareData);
+                    machine = await _sqliteDbService.GetMachineByNameAsync(hardwareInventory.System.MachineName);
+                    await _sqliteDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
+                    await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
+                    await _sqliteDbService.SaveHardwareInventoryAsync(machine.Id, hardwareInventory);
 
                     _processedItems++;
 
