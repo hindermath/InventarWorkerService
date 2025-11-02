@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerService.Controllers
+  commentId: N:InventarWorkerService.Controllers
+  id: InventarWorkerService.Controllers
+  children:
+  - InventarWorkerService.Controllers.InventarController
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerService.Controllers
+  nameWithType: InventarWorkerService.Controllers
+  fullName: InventarWorkerService.Controllers
+  type: Namespace
+  assemblies:
+  - InventarWorkerService
+references:
+- uid: InventarWorkerService.Controllers.InventarController
+  commentId: T:InventarWorkerService.Controllers.InventarController
+  href: InventarWorkerService.Controllers.InventarController.html
+  name: InventarController
+  nameWithType: InventarController
+  fullName: InventarWorkerService.Controllers.InventarController

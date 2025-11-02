@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerCommon.Controller
+  commentId: N:CtrlWorkerCommon.Controller
+  id: CtrlWorkerCommon.Controller
+  children:
+  - CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  langs:
+  - csharp
+  - vb
+  name: CtrlWorkerCommon.Controller
+  nameWithType: CtrlWorkerCommon.Controller
+  fullName: CtrlWorkerCommon.Controller
+  type: Namespace
+  assemblies:
+  - CtrlWorkerCommon
+references:
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  commentId: T:CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  href: CtrlWorkerCommon.Controller.CrossPlatformServiceController.html
+  name: CrossPlatformServiceController
+  nameWithType: CrossPlatformServiceController
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController

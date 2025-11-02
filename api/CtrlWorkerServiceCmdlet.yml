@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerServiceCmdlet
+  commentId: N:CtrlWorkerServiceCmdlet
+  id: CtrlWorkerServiceCmdlet
+  children:
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: CtrlWorkerServiceCmdlet
+  nameWithType: CtrlWorkerServiceCmdlet
+  fullName: CtrlWorkerServiceCmdlet
+  type: Namespace
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+references:
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  commentId: T:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html
+  name: InvokeWorkerServiceControlCmdlet
+  nameWithType: InvokeWorkerServiceControlCmdlet
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet

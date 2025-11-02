@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Hardware
+  commentId: N:InventarWorkerCommon.Services.Hardware
+  id: InventarWorkerCommon.Services.Hardware
+  children:
+  - InventarWorkerCommon.Services.Hardware.HardwareInventoryService
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Hardware
+  nameWithType: InventarWorkerCommon.Services.Hardware
+  fullName: InventarWorkerCommon.Services.Hardware
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
+  commentId: T:InventarWorkerCommon.Services.Hardware.HardwareInventoryService
+  parent: InventarWorkerCommon.Services.Hardware
+  href: InventarWorkerCommon.Services.Hardware.HardwareInventoryService.html
+  name: HardwareInventoryService
+  nameWithType: HardwareInventoryService
+  fullName: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
+- uid: InventarWorkerCommon.Services.Hardware
+  commentId: N:InventarWorkerCommon.Services.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Hardware
+  nameWithType: InventarWorkerCommon.Services.Hardware
+  fullName: InventarWorkerCommon.Services.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Services.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Services.Hardware.html

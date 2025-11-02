@@ -1,0 +1,3338 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarViewerApp.UI.StatusView
+  commentId: T:InventarViewerApp.UI.StatusView
+  id: StatusView
+  parent: InventarViewerApp.UI
+  children:
+  - InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
+  - InventarViewerApp.UI.StatusView.RefreshData
+  langs:
+  - csharp
+  - vb
+  name: StatusView
+  nameWithType: StatusView
+  fullName: InventarViewerApp.UI.StatusView
+  type: Class
+  source:
+    remote:
+      path: InventarViewerApp/UI/StatusView.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StatusView
+    path: InventarViewerApp/UI/StatusView.cs
+    startLine: 12
+  assemblies:
+  - InventarViewerApp
+  namespace: InventarViewerApp.UI
+  summary: A Terminal.Gui view that shows the service status and persists the machine entry.
+  example: []
+  syntax:
+    content: 'public class StatusView : FrameView, IDisposable, ISupportInitializeNotification, ISupportInitialize'
+    content.vb: Public Class StatusView Inherits FrameView Implements IDisposable, ISupportInitializeNotification, ISupportInitialize
+  inheritance:
+  - System.Object
+  - Terminal.Gui.Responder
+  - Terminal.Gui.View
+  - Terminal.Gui.FrameView
+  implements:
+  - System.IDisposable
+  - System.ComponentModel.ISupportInitializeNotification
+  - System.ComponentModel.ISupportInitialize
+  inheritedMembers:
+  - Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+  - Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+  - Terminal.Gui.FrameView.RemoveAll
+  - Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+  - Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+  - Terminal.Gui.FrameView.OnCanFocusChanged
+  - Terminal.Gui.FrameView.Title
+  - Terminal.Gui.FrameView.Border
+  - Terminal.Gui.FrameView.Text
+  - Terminal.Gui.FrameView.TextAlignment
+  - Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size@)
+  - Terminal.Gui.View.SetMinWidthHeight
+  - Terminal.Gui.View.UpdateTextFormatterText
+  - Terminal.Gui.View.ProcessResizeView
+  - Terminal.Gui.View.SetNeedsDisplay
+  - Terminal.Gui.View.ClearLayoutNeeded
+  - Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+  - Terminal.Gui.View.SetChildNeedsDisplay
+  - Terminal.Gui.View.Add(Terminal.Gui.View[])
+  - Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+  - Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+  - Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+  - Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+  - Terminal.Gui.View.Clear
+  - Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+  - Terminal.Gui.View.ScreenToView(System.Int32,System.Int32)
+  - Terminal.Gui.View.ClipToBounds
+  - Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+  - Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect,System.Int32,System.Boolean)
+  - Terminal.Gui.View.DrawHotString(NStack.ustring,Terminal.Gui.Attribute,Terminal.Gui.Attribute)
+  - Terminal.Gui.View.DrawHotString(NStack.ustring,System.Boolean,Terminal.Gui.ColorScheme)
+  - Terminal.Gui.View.Move(System.Int32,System.Int32,System.Boolean)
+  - Terminal.Gui.View.PositionCursor
+  - Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+  - Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+  - Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+  - Terminal.Gui.View.AddRune(System.Int32,System.Int32,System.Rune)
+  - Terminal.Gui.View.ClearNeedsDisplay
+  - Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+  - Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+  - Terminal.Gui.View.SetFocus
+  - Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key,Terminal.Gui.Command[])
+  - Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key,Terminal.Gui.Key)
+  - Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+  - Terminal.Gui.View.ClearKeybindings
+  - Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+  - Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Command[])
+  - Terminal.Gui.View.AddCommand(Terminal.Gui.Command,System.Func{System.Nullable{System.Boolean}})
+  - Terminal.Gui.View.GetSupportedCommands
+  - Terminal.Gui.View.GetKeyFromCommand(Terminal.Gui.Command[])
+  - Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+  - Terminal.Gui.View.EnsureFocus
+  - Terminal.Gui.View.FocusFirst
+  - Terminal.Gui.View.FocusLast
+  - Terminal.Gui.View.FocusPrev
+  - Terminal.Gui.View.FocusNext
+  - Terminal.Gui.View.LayoutSubviews
+  - Terminal.Gui.View.ToString
+  - Terminal.Gui.View.GetAutoSize
+  - Terminal.Gui.View.GetHotKeySpecifierLength(System.Boolean)
+  - Terminal.Gui.View.GetTextFormatterBoundsSize
+  - Terminal.Gui.View.GetBoundsTextFormatterSize
+  - Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+  - Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+  - Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+  - Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+  - Terminal.Gui.View.OnEnabledChanged
+  - Terminal.Gui.View.OnVisibleChanged
+  - Terminal.Gui.View.Dispose(System.Boolean)
+  - Terminal.Gui.View.BeginInit
+  - Terminal.Gui.View.EndInit
+  - Terminal.Gui.View.SetWidth(System.Int32,System.Int32@)
+  - Terminal.Gui.View.SetHeight(System.Int32,System.Int32@)
+  - Terminal.Gui.View.GetCurrentWidth(System.Int32@)
+  - Terminal.Gui.View.GetCurrentHeight(System.Int32@)
+  - Terminal.Gui.View.GetNormalColor
+  - Terminal.Gui.View.GetFocusColor
+  - Terminal.Gui.View.GetHotNormalColor
+  - Terminal.Gui.View.GetTopSuperView
+  - Terminal.Gui.View.HotKey
+  - Terminal.Gui.View.HotKeySpecifier
+  - Terminal.Gui.View.Shortcut
+  - Terminal.Gui.View.ShortcutTag
+  - Terminal.Gui.View.ShortcutAction
+  - Terminal.Gui.View.Data
+  - Terminal.Gui.View.Driver
+  - Terminal.Gui.View.Subviews
+  - Terminal.Gui.View.TabIndexes
+  - Terminal.Gui.View.TabIndex
+  - Terminal.Gui.View.TabStop
+  - Terminal.Gui.View.CanFocus
+  - Terminal.Gui.View.Id
+  - Terminal.Gui.View.IsCurrentTop
+  - Terminal.Gui.View.WantMousePositionReports
+  - Terminal.Gui.View.WantContinuousButtonPressed
+  - Terminal.Gui.View.Frame
+  - Terminal.Gui.View.LayoutStyle
+  - Terminal.Gui.View.Bounds
+  - Terminal.Gui.View.X
+  - Terminal.Gui.View.Y
+  - Terminal.Gui.View.Width
+  - Terminal.Gui.View.Height
+  - Terminal.Gui.View.ForceValidatePosDim
+  - Terminal.Gui.View.TextFormatter
+  - Terminal.Gui.View.SuperView
+  - Terminal.Gui.View.HasFocus
+  - Terminal.Gui.View.Focused
+  - Terminal.Gui.View.MostFocused
+  - Terminal.Gui.View.ColorScheme
+  - Terminal.Gui.View.AutoSize
+  - Terminal.Gui.View.PreserveTrailingSpaces
+  - Terminal.Gui.View.VerticalTextAlignment
+  - Terminal.Gui.View.TextDirection
+  - Terminal.Gui.View.IsInitialized
+  - Terminal.Gui.View.IsAdded
+  - Terminal.Gui.View.Enabled
+  - Terminal.Gui.View.ClearOnVisibleFalse
+  - Terminal.Gui.View.Visible
+  - Terminal.Gui.View.IgnoreBorderPropertyOnRedraw
+  - Terminal.Gui.View.Added
+  - Terminal.Gui.View.Removed
+  - Terminal.Gui.View.Enter
+  - Terminal.Gui.View.Leave
+  - Terminal.Gui.View.MouseEnter
+  - Terminal.Gui.View.MouseLeave
+  - Terminal.Gui.View.MouseClick
+  - Terminal.Gui.View.CanFocusChanged
+  - Terminal.Gui.View.EnabledChanged
+  - Terminal.Gui.View.VisibleChanged
+  - Terminal.Gui.View.HotKeyChanged
+  - Terminal.Gui.View.DrawContent
+  - Terminal.Gui.View.DrawContentComplete
+  - Terminal.Gui.View.KeyPress
+  - Terminal.Gui.View.KeyDown
+  - Terminal.Gui.View.KeyUp
+  - Terminal.Gui.View.LayoutStarted
+  - Terminal.Gui.View.LayoutComplete
+  - Terminal.Gui.View.Initialized
+  - Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+  - Terminal.Gui.Responder.Dispose
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
+  commentId: M:InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
+  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)'
+  parent: InventarViewerApp.UI.StatusView
+  langs:
+  - csharp
+  - vb
+  name: StatusView(ApiService, SqliteDbService)
+  nameWithType: StatusView.StatusView(ApiService, SqliteDbService)
+  fullName: InventarViewerApp.UI.StatusView.StatusView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
+  type: Constructor
+  source:
+    remote:
+      path: InventarViewerApp/UI/StatusView.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarViewerApp/UI/StatusView.cs
+    startLine: 26
+  assemblies:
+  - InventarViewerApp
+  namespace: InventarViewerApp.UI
+  summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.StatusView" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public StatusView(ApiService apiService, SqliteDbService sqliteDbService)
+    parameters:
+    - id: apiService
+      type: InventarWorkerCommon.Services.Api.ApiService
+      description: Service used to retrieve the service status from the backend.
+    - id: sqliteDbService
+      type: InventarWorkerCommon.Services.Database.SqliteDbService
+      description: Service used to persist the current machine in the local database.
+    content.vb: Public Sub New(apiService As ApiService, sqliteDbService As SqliteDbService)
+  overload: InventarViewerApp.UI.StatusView.#ctor*
+  nameWithType.vb: StatusView.New(ApiService, SqliteDbService)
+  fullName.vb: InventarViewerApp.UI.StatusView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
+  name.vb: New(ApiService, SqliteDbService)
+- uid: InventarViewerApp.UI.StatusView.RefreshData
+  commentId: M:InventarViewerApp.UI.StatusView.RefreshData
+  id: RefreshData
+  parent: InventarViewerApp.UI.StatusView
+  langs:
+  - csharp
+  - vb
+  name: RefreshData()
+  nameWithType: StatusView.RefreshData()
+  fullName: InventarViewerApp.UI.StatusView.RefreshData()
+  type: Method
+  source:
+    remote:
+      path: InventarViewerApp/UI/StatusView.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: RefreshData
+    path: InventarViewerApp/UI/StatusView.cs
+    startLine: 80
+  assemblies:
+  - InventarViewerApp
+  namespace: InventarViewerApp.UI
+  summary: Refreshes the status information from the API and updates the view; also ensures the machine entry exists in the database.
+  example: []
+  syntax:
+    content: public Task RefreshData()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that represents the asynchronous refresh operation.
+    content.vb: Public Function RefreshData() As Task
+  overload: InventarViewerApp.UI.StatusView.RefreshData*
+references:
+- uid: InventarViewerApp.UI
+  commentId: N:InventarViewerApp.UI
+  href: InventarViewerApp.html
+  name: InventarViewerApp.UI
+  nameWithType: InventarViewerApp.UI
+  fullName: InventarViewerApp.UI
+  spec.csharp:
+  - uid: InventarViewerApp
+    name: InventarViewerApp
+    href: InventarViewerApp.html
+  - name: .
+  - uid: InventarViewerApp.UI
+    name: UI
+    href: InventarViewerApp.UI.html
+  spec.vb:
+  - uid: InventarViewerApp
+    name: InventarViewerApp
+    href: InventarViewerApp.html
+  - name: .
+  - uid: InventarViewerApp.UI
+    name: UI
+    href: InventarViewerApp.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Terminal.Gui.Responder
+  commentId: T:Terminal.Gui.Responder
+  parent: Terminal.Gui
+  isExternal: true
+  name: Responder
+  nameWithType: Responder
+  fullName: Terminal.Gui.Responder
+- uid: Terminal.Gui.View
+  commentId: T:Terminal.Gui.View
+  parent: Terminal.Gui
+  isExternal: true
+  name: View
+  nameWithType: View
+  fullName: Terminal.Gui.View
+- uid: Terminal.Gui.FrameView
+  commentId: T:Terminal.Gui.FrameView
+  parent: Terminal.Gui
+  isExternal: true
+  name: FrameView
+  nameWithType: FrameView
+  fullName: Terminal.Gui.FrameView
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.ComponentModel.ISupportInitializeNotification
+  commentId: T:System.ComponentModel.ISupportInitializeNotification
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitializenotification
+  name: ISupportInitializeNotification
+  nameWithType: ISupportInitializeNotification
+  fullName: System.ComponentModel.ISupportInitializeNotification
+- uid: System.ComponentModel.ISupportInitialize
+  commentId: T:System.ComponentModel.ISupportInitialize
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize
+  name: ISupportInitialize
+  nameWithType: ISupportInitialize
+  fullName: System.ComponentModel.ISupportInitialize
+- uid: Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Add(View)
+  nameWithType: FrameView.Add(View)
+  fullName: Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.Add(Terminal.Gui.View)
+    name: Add
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Remove(View)
+  nameWithType: FrameView.Remove(View)
+  fullName: Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.Remove(Terminal.Gui.View)
+    name: Remove
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.FrameView.RemoveAll
+  commentId: M:Terminal.Gui.FrameView.RemoveAll
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: RemoveAll()
+  nameWithType: FrameView.RemoveAll()
+  fullName: Terminal.Gui.FrameView.RemoveAll()
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.RemoveAll
+    name: RemoveAll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.RemoveAll
+    name: RemoveAll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Redraw(Rect)
+  nameWithType: FrameView.Redraw(Rect)
+  fullName: Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+    name: Redraw
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.Redraw(Terminal.Gui.Rect)
+    name: Redraw
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: OnEnter(View)
+  nameWithType: FrameView.OnEnter(View)
+  fullName: Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+    name: OnEnter
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.OnEnter(Terminal.Gui.View)
+    name: OnEnter
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.FrameView.OnCanFocusChanged
+  commentId: M:Terminal.Gui.FrameView.OnCanFocusChanged
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: OnCanFocusChanged()
+  nameWithType: FrameView.OnCanFocusChanged()
+  fullName: Terminal.Gui.FrameView.OnCanFocusChanged()
+  spec.csharp:
+  - uid: Terminal.Gui.FrameView.OnCanFocusChanged
+    name: OnCanFocusChanged
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.FrameView.OnCanFocusChanged
+    name: OnCanFocusChanged
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.FrameView.Title
+  commentId: P:Terminal.Gui.FrameView.Title
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Title
+  nameWithType: FrameView.Title
+  fullName: Terminal.Gui.FrameView.Title
+- uid: Terminal.Gui.FrameView.Border
+  commentId: P:Terminal.Gui.FrameView.Border
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Border
+  nameWithType: FrameView.Border
+  fullName: Terminal.Gui.FrameView.Border
+- uid: Terminal.Gui.FrameView.Text
+  commentId: P:Terminal.Gui.FrameView.Text
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: Text
+  nameWithType: FrameView.Text
+  fullName: Terminal.Gui.FrameView.Text
+- uid: Terminal.Gui.FrameView.TextAlignment
+  commentId: P:Terminal.Gui.FrameView.TextAlignment
+  parent: Terminal.Gui.FrameView
+  isExternal: true
+  name: TextAlignment
+  nameWithType: FrameView.TextAlignment
+  fullName: Terminal.Gui.FrameView.TextAlignment
+- uid: Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size@)
+  commentId: M:Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size@)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetMinWidthHeight(out Size)
+  nameWithType: View.GetMinWidthHeight(out Size)
+  fullName: Terminal.Gui.View.GetMinWidthHeight(out Terminal.Gui.Size)
+  nameWithType.vb: View.GetMinWidthHeight(Size)
+  fullName.vb: Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size)
+  name.vb: GetMinWidthHeight(Size)
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size@)
+    name: GetMinWidthHeight
+    isExternal: true
+  - name: (
+  - name: out
+  - name: " "
+  - uid: Terminal.Gui.Size
+    name: Size
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetMinWidthHeight(Terminal.Gui.Size@)
+    name: GetMinWidthHeight
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Size
+    name: Size
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.SetMinWidthHeight
+  commentId: M:Terminal.Gui.View.SetMinWidthHeight
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetMinWidthHeight()
+  nameWithType: View.SetMinWidthHeight()
+  fullName: Terminal.Gui.View.SetMinWidthHeight()
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetMinWidthHeight
+    name: SetMinWidthHeight
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetMinWidthHeight
+    name: SetMinWidthHeight
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.UpdateTextFormatterText
+  commentId: M:Terminal.Gui.View.UpdateTextFormatterText
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: UpdateTextFormatterText()
+  nameWithType: View.UpdateTextFormatterText()
+  fullName: Terminal.Gui.View.UpdateTextFormatterText()
+  spec.csharp:
+  - uid: Terminal.Gui.View.UpdateTextFormatterText
+    name: UpdateTextFormatterText
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.UpdateTextFormatterText
+    name: UpdateTextFormatterText
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.ProcessResizeView
+  commentId: M:Terminal.Gui.View.ProcessResizeView
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ProcessResizeView()
+  nameWithType: View.ProcessResizeView()
+  fullName: Terminal.Gui.View.ProcessResizeView()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ProcessResizeView
+    name: ProcessResizeView
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ProcessResizeView
+    name: ProcessResizeView
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.SetNeedsDisplay
+  commentId: M:Terminal.Gui.View.SetNeedsDisplay
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetNeedsDisplay()
+  nameWithType: View.SetNeedsDisplay()
+  fullName: Terminal.Gui.View.SetNeedsDisplay()
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetNeedsDisplay
+    name: SetNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetNeedsDisplay
+    name: SetNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.ClearLayoutNeeded
+  commentId: M:Terminal.Gui.View.ClearLayoutNeeded
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearLayoutNeeded()
+  nameWithType: View.ClearLayoutNeeded()
+  fullName: Terminal.Gui.View.ClearLayoutNeeded()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClearLayoutNeeded
+    name: ClearLayoutNeeded
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClearLayoutNeeded
+    name: ClearLayoutNeeded
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetNeedsDisplay(Rect)
+  nameWithType: View.SetNeedsDisplay(Rect)
+  fullName: Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+    name: SetNeedsDisplay
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetNeedsDisplay(Terminal.Gui.Rect)
+    name: SetNeedsDisplay
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.SetChildNeedsDisplay
+  commentId: M:Terminal.Gui.View.SetChildNeedsDisplay
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetChildNeedsDisplay()
+  nameWithType: View.SetChildNeedsDisplay()
+  fullName: Terminal.Gui.View.SetChildNeedsDisplay()
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetChildNeedsDisplay
+    name: SetChildNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetChildNeedsDisplay
+    name: SetChildNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.Add(Terminal.Gui.View[])
+  commentId: M:Terminal.Gui.View.Add(Terminal.Gui.View[])
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Add(params View[])
+  nameWithType: View.Add(params View[])
+  fullName: Terminal.Gui.View.Add(params Terminal.Gui.View[])
+  nameWithType.vb: View.Add(ParamArray View())
+  fullName.vb: Terminal.Gui.View.Add(ParamArray Terminal.Gui.View())
+  name.vb: Add(ParamArray View())
+  spec.csharp:
+  - uid: Terminal.Gui.View.Add(Terminal.Gui.View[])
+    name: Add
+    isExternal: true
+  - name: (
+  - name: params
+  - name: " "
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.Add(Terminal.Gui.View[])
+    name: Add
+    isExternal: true
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: BringSubviewToFront(View)
+  nameWithType: View.BringSubviewToFront(View)
+  fullName: Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+    name: BringSubviewToFront
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.BringSubviewToFront(Terminal.Gui.View)
+    name: BringSubviewToFront
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SendSubviewToBack(View)
+  nameWithType: View.SendSubviewToBack(View)
+  fullName: Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+    name: SendSubviewToBack
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SendSubviewToBack(Terminal.Gui.View)
+    name: SendSubviewToBack
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SendSubviewBackwards(View)
+  nameWithType: View.SendSubviewBackwards(View)
+  fullName: Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+    name: SendSubviewBackwards
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SendSubviewBackwards(Terminal.Gui.View)
+    name: SendSubviewBackwards
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: BringSubviewForward(View)
+  nameWithType: View.BringSubviewForward(View)
+  fullName: Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+    name: BringSubviewForward
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.BringSubviewForward(Terminal.Gui.View)
+    name: BringSubviewForward
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.Clear
+  commentId: M:Terminal.Gui.View.Clear
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Clear()
+  nameWithType: View.Clear()
+  fullName: Terminal.Gui.View.Clear()
+  spec.csharp:
+  - uid: Terminal.Gui.View.Clear
+    name: Clear
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.Clear
+    name: Clear
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Clear(Rect)
+  nameWithType: View.Clear(Rect)
+  fullName: Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+    name: Clear
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.Clear(Terminal.Gui.Rect)
+    name: Clear
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ScreenToView(System.Int32,System.Int32)
+  commentId: M:Terminal.Gui.View.ScreenToView(System.Int32,System.Int32)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: ScreenToView(int, int)
+  nameWithType: View.ScreenToView(int, int)
+  fullName: Terminal.Gui.View.ScreenToView(int, int)
+  nameWithType.vb: View.ScreenToView(Integer, Integer)
+  fullName.vb: Terminal.Gui.View.ScreenToView(Integer, Integer)
+  name.vb: ScreenToView(Integer, Integer)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ScreenToView(System.Int32,System.Int32)
+    name: ScreenToView
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ScreenToView(System.Int32,System.Int32)
+    name: ScreenToView
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Terminal.Gui.View.ClipToBounds
+  commentId: M:Terminal.Gui.View.ClipToBounds
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClipToBounds()
+  nameWithType: View.ClipToBounds()
+  fullName: Terminal.Gui.View.ClipToBounds()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClipToBounds
+    name: ClipToBounds
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClipToBounds
+    name: ClipToBounds
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetClip(Rect)
+  nameWithType: View.SetClip(Rect)
+  fullName: Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+    name: SetClip
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetClip(Terminal.Gui.Rect)
+    name: SetClip
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect,System.Int32,System.Boolean)
+  commentId: M:Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect,System.Int32,System.Boolean)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: DrawFrame(Rect, int, bool)
+  nameWithType: View.DrawFrame(Rect, int, bool)
+  fullName: Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect, int, bool)
+  nameWithType.vb: View.DrawFrame(Rect, Integer, Boolean)
+  fullName.vb: Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect, Integer, Boolean)
+  name.vb: DrawFrame(Rect, Integer, Boolean)
+  spec.csharp:
+  - uid: Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect,System.Int32,System.Boolean)
+    name: DrawFrame
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.DrawFrame(Terminal.Gui.Rect,System.Int32,System.Boolean)
+    name: DrawFrame
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Terminal.Gui.View.DrawHotString(NStack.ustring,Terminal.Gui.Attribute,Terminal.Gui.Attribute)
+  commentId: M:Terminal.Gui.View.DrawHotString(NStack.ustring,Terminal.Gui.Attribute,Terminal.Gui.Attribute)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: DrawHotString(ustring, Attribute, Attribute)
+  nameWithType: View.DrawHotString(ustring, Attribute, Attribute)
+  fullName: Terminal.Gui.View.DrawHotString(NStack.ustring, Terminal.Gui.Attribute, Terminal.Gui.Attribute)
+  spec.csharp:
+  - uid: Terminal.Gui.View.DrawHotString(NStack.ustring,Terminal.Gui.Attribute,Terminal.Gui.Attribute)
+    name: DrawHotString
+    isExternal: true
+  - name: (
+  - uid: NStack.ustring
+    name: ustring
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Attribute
+    name: Attribute
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Attribute
+    name: Attribute
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.DrawHotString(NStack.ustring,Terminal.Gui.Attribute,Terminal.Gui.Attribute)
+    name: DrawHotString
+    isExternal: true
+  - name: (
+  - uid: NStack.ustring
+    name: ustring
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Attribute
+    name: Attribute
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Attribute
+    name: Attribute
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.DrawHotString(NStack.ustring,System.Boolean,Terminal.Gui.ColorScheme)
+  commentId: M:Terminal.Gui.View.DrawHotString(NStack.ustring,System.Boolean,Terminal.Gui.ColorScheme)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: DrawHotString(ustring, bool, ColorScheme)
+  nameWithType: View.DrawHotString(ustring, bool, ColorScheme)
+  fullName: Terminal.Gui.View.DrawHotString(NStack.ustring, bool, Terminal.Gui.ColorScheme)
+  nameWithType.vb: View.DrawHotString(ustring, Boolean, ColorScheme)
+  fullName.vb: Terminal.Gui.View.DrawHotString(NStack.ustring, Boolean, Terminal.Gui.ColorScheme)
+  name.vb: DrawHotString(ustring, Boolean, ColorScheme)
+  spec.csharp:
+  - uid: Terminal.Gui.View.DrawHotString(NStack.ustring,System.Boolean,Terminal.Gui.ColorScheme)
+    name: DrawHotString
+    isExternal: true
+  - name: (
+  - uid: NStack.ustring
+    name: ustring
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.ColorScheme
+    name: ColorScheme
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.DrawHotString(NStack.ustring,System.Boolean,Terminal.Gui.ColorScheme)
+    name: DrawHotString
+    isExternal: true
+  - name: (
+  - uid: NStack.ustring
+    name: ustring
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.ColorScheme
+    name: ColorScheme
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.Move(System.Int32,System.Int32,System.Boolean)
+  commentId: M:Terminal.Gui.View.Move(System.Int32,System.Int32,System.Boolean)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: Move(int, int, bool)
+  nameWithType: View.Move(int, int, bool)
+  fullName: Terminal.Gui.View.Move(int, int, bool)
+  nameWithType.vb: View.Move(Integer, Integer, Boolean)
+  fullName.vb: Terminal.Gui.View.Move(Integer, Integer, Boolean)
+  name.vb: Move(Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: Terminal.Gui.View.Move(System.Int32,System.Int32,System.Boolean)
+    name: Move
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.Move(System.Int32,System.Int32,System.Boolean)
+    name: Move
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Terminal.Gui.View.PositionCursor
+  commentId: M:Terminal.Gui.View.PositionCursor
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: PositionCursor()
+  nameWithType: View.PositionCursor()
+  fullName: Terminal.Gui.View.PositionCursor()
+  spec.csharp:
+  - uid: Terminal.Gui.View.PositionCursor
+    name: PositionCursor
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.PositionCursor
+    name: PositionCursor
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnAdded(View)
+  nameWithType: View.OnAdded(View)
+  fullName: Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+    name: OnAdded
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnAdded(Terminal.Gui.View)
+    name: OnAdded
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnRemoved(View)
+  nameWithType: View.OnRemoved(View)
+  fullName: Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+    name: OnRemoved
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnRemoved(Terminal.Gui.View)
+    name: OnRemoved
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+  commentId: M:Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnLeave(View)
+  nameWithType: View.OnLeave(View)
+  fullName: Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+    name: OnLeave
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnLeave(Terminal.Gui.View)
+    name: OnLeave
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View
+    name: View
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.AddRune(System.Int32,System.Int32,System.Rune)
+  commentId: M:Terminal.Gui.View.AddRune(System.Int32,System.Int32,System.Rune)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: AddRune(int, int, Rune)
+  nameWithType: View.AddRune(int, int, Rune)
+  fullName: Terminal.Gui.View.AddRune(int, int, System.Rune)
+  nameWithType.vb: View.AddRune(Integer, Integer, Rune)
+  fullName.vb: Terminal.Gui.View.AddRune(Integer, Integer, System.Rune)
+  name.vb: AddRune(Integer, Integer, Rune)
+  spec.csharp:
+  - uid: Terminal.Gui.View.AddRune(System.Int32,System.Int32,System.Rune)
+    name: AddRune
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Rune
+    name: Rune
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.AddRune(System.Int32,System.Int32,System.Rune)
+    name: AddRune
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Rune
+    name: Rune
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ClearNeedsDisplay
+  commentId: M:Terminal.Gui.View.ClearNeedsDisplay
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearNeedsDisplay()
+  nameWithType: View.ClearNeedsDisplay()
+  fullName: Terminal.Gui.View.ClearNeedsDisplay()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClearNeedsDisplay
+    name: ClearNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClearNeedsDisplay
+    name: ClearNeedsDisplay
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnDrawContent(Rect)
+  nameWithType: View.OnDrawContent(Rect)
+  fullName: Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+    name: OnDrawContent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnDrawContent(Terminal.Gui.Rect)
+    name: OnDrawContent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+  commentId: M:Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnDrawContentComplete(Rect)
+  nameWithType: View.OnDrawContentComplete(Rect)
+  fullName: Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+    name: OnDrawContentComplete
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnDrawContentComplete(Terminal.Gui.Rect)
+    name: OnDrawContentComplete
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Rect
+    name: Rect
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.SetFocus
+  commentId: M:Terminal.Gui.View.SetFocus
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SetFocus()
+  nameWithType: View.SetFocus()
+  fullName: Terminal.Gui.View.SetFocus()
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetFocus
+    name: SetFocus
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetFocus
+    name: SetFocus
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ProcessKey(KeyEvent)
+  nameWithType: View.ProcessKey(KeyEvent)
+  fullName: Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+    name: ProcessKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ProcessKey(Terminal.Gui.KeyEvent)
+    name: ProcessKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: InvokeKeybindings(KeyEvent)
+  nameWithType: View.InvokeKeybindings(KeyEvent)
+  fullName: Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+    name: InvokeKeybindings
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.InvokeKeybindings(Terminal.Gui.KeyEvent)
+    name: InvokeKeybindings
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key,Terminal.Gui.Command[])
+  commentId: M:Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key,Terminal.Gui.Command[])
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: AddKeyBinding(Key, params Command[])
+  nameWithType: View.AddKeyBinding(Key, params Command[])
+  fullName: Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key, params Terminal.Gui.Command[])
+  nameWithType.vb: View.AddKeyBinding(Key, ParamArray Command())
+  fullName.vb: Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key, ParamArray Terminal.Gui.Command())
+  name.vb: AddKeyBinding(Key, ParamArray Command())
+  spec.csharp:
+  - uid: Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key,Terminal.Gui.Command[])
+    name: AddKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.AddKeyBinding(Terminal.Gui.Key,Terminal.Gui.Command[])
+    name: AddKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key,Terminal.Gui.Key)
+  commentId: M:Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key,Terminal.Gui.Key)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ReplaceKeyBinding(Key, Key)
+  nameWithType: View.ReplaceKeyBinding(Key, Key)
+  fullName: Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key, Terminal.Gui.Key)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key,Terminal.Gui.Key)
+    name: ReplaceKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ReplaceKeyBinding(Terminal.Gui.Key,Terminal.Gui.Key)
+    name: ReplaceKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+  commentId: M:Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ContainsKeyBinding(Key)
+  nameWithType: View.ContainsKeyBinding(Key)
+  fullName: Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+    name: ContainsKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ContainsKeyBinding(Terminal.Gui.Key)
+    name: ContainsKeyBinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ClearKeybindings
+  commentId: M:Terminal.Gui.View.ClearKeybindings
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearKeybindings()
+  nameWithType: View.ClearKeybindings()
+  fullName: Terminal.Gui.View.ClearKeybindings()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClearKeybindings
+    name: ClearKeybindings
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClearKeybindings
+    name: ClearKeybindings
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+  commentId: M:Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearKeybinding(Key)
+  nameWithType: View.ClearKeybinding(Key)
+  fullName: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+    name: ClearKeybinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Key)
+    name: ClearKeybinding
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Key
+    name: Key
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Command[])
+  commentId: M:Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Command[])
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearKeybinding(params Command[])
+  nameWithType: View.ClearKeybinding(params Command[])
+  fullName: Terminal.Gui.View.ClearKeybinding(params Terminal.Gui.Command[])
+  nameWithType.vb: View.ClearKeybinding(ParamArray Command())
+  fullName.vb: Terminal.Gui.View.ClearKeybinding(ParamArray Terminal.Gui.Command())
+  name.vb: ClearKeybinding(ParamArray Command())
+  spec.csharp:
+  - uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Command[])
+    name: ClearKeybinding
+    isExternal: true
+  - name: (
+  - name: params
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ClearKeybinding(Terminal.Gui.Command[])
+    name: ClearKeybinding
+    isExternal: true
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: Terminal.Gui.View.AddCommand(Terminal.Gui.Command,System.Func{System.Nullable{System.Boolean}})
+  commentId: M:Terminal.Gui.View.AddCommand(Terminal.Gui.Command,System.Func{System.Nullable{System.Boolean}})
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: AddCommand(Command, Func<bool?>)
+  nameWithType: View.AddCommand(Command, Func<bool?>)
+  fullName: Terminal.Gui.View.AddCommand(Terminal.Gui.Command, System.Func<bool?>)
+  nameWithType.vb: View.AddCommand(Command, Func(Of Boolean?))
+  fullName.vb: Terminal.Gui.View.AddCommand(Terminal.Gui.Command, System.Func(Of Boolean?))
+  name.vb: AddCommand(Command, Func(Of Boolean?))
+  spec.csharp:
+  - uid: Terminal.Gui.View.AddCommand(Terminal.Gui.Command,System.Func{System.Nullable{System.Boolean}})
+    name: AddCommand
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.AddCommand(Terminal.Gui.Command,System.Func{System.Nullable{System.Boolean}})
+    name: AddCommand
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  - name: )
+  - name: )
+- uid: Terminal.Gui.View.GetSupportedCommands
+  commentId: M:Terminal.Gui.View.GetSupportedCommands
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetSupportedCommands()
+  nameWithType: View.GetSupportedCommands()
+  fullName: Terminal.Gui.View.GetSupportedCommands()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetSupportedCommands
+    name: GetSupportedCommands
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetSupportedCommands
+    name: GetSupportedCommands
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetKeyFromCommand(Terminal.Gui.Command[])
+  commentId: M:Terminal.Gui.View.GetKeyFromCommand(Terminal.Gui.Command[])
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetKeyFromCommand(params Command[])
+  nameWithType: View.GetKeyFromCommand(params Command[])
+  fullName: Terminal.Gui.View.GetKeyFromCommand(params Terminal.Gui.Command[])
+  nameWithType.vb: View.GetKeyFromCommand(ParamArray Command())
+  fullName.vb: Terminal.Gui.View.GetKeyFromCommand(ParamArray Terminal.Gui.Command())
+  name.vb: GetKeyFromCommand(ParamArray Command())
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetKeyFromCommand(Terminal.Gui.Command[])
+    name: GetKeyFromCommand
+    isExternal: true
+  - name: (
+  - name: params
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetKeyFromCommand(Terminal.Gui.Command[])
+    name: GetKeyFromCommand
+    isExternal: true
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: Terminal.Gui.Command
+    name: Command
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+- uid: Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ProcessHotKey(KeyEvent)
+  nameWithType: View.ProcessHotKey(KeyEvent)
+  fullName: Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+    name: ProcessHotKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ProcessHotKey(Terminal.Gui.KeyEvent)
+    name: ProcessHotKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ProcessColdKey(KeyEvent)
+  nameWithType: View.ProcessColdKey(KeyEvent)
+  fullName: Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+    name: ProcessColdKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ProcessColdKey(Terminal.Gui.KeyEvent)
+    name: ProcessColdKey
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnKeyDown(KeyEvent)
+  nameWithType: View.OnKeyDown(KeyEvent)
+  fullName: Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+    name: OnKeyDown
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnKeyDown(Terminal.Gui.KeyEvent)
+    name: OnKeyDown
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+  commentId: M:Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnKeyUp(KeyEvent)
+  nameWithType: View.OnKeyUp(KeyEvent)
+  fullName: Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+    name: OnKeyUp
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnKeyUp(Terminal.Gui.KeyEvent)
+    name: OnKeyUp
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.KeyEvent
+    name: KeyEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.EnsureFocus
+  commentId: M:Terminal.Gui.View.EnsureFocus
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: EnsureFocus()
+  nameWithType: View.EnsureFocus()
+  fullName: Terminal.Gui.View.EnsureFocus()
+  spec.csharp:
+  - uid: Terminal.Gui.View.EnsureFocus
+    name: EnsureFocus
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.EnsureFocus
+    name: EnsureFocus
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.FocusFirst
+  commentId: M:Terminal.Gui.View.FocusFirst
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: FocusFirst()
+  nameWithType: View.FocusFirst()
+  fullName: Terminal.Gui.View.FocusFirst()
+  spec.csharp:
+  - uid: Terminal.Gui.View.FocusFirst
+    name: FocusFirst
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.FocusFirst
+    name: FocusFirst
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.FocusLast
+  commentId: M:Terminal.Gui.View.FocusLast
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: FocusLast()
+  nameWithType: View.FocusLast()
+  fullName: Terminal.Gui.View.FocusLast()
+  spec.csharp:
+  - uid: Terminal.Gui.View.FocusLast
+    name: FocusLast
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.FocusLast
+    name: FocusLast
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.FocusPrev
+  commentId: M:Terminal.Gui.View.FocusPrev
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: FocusPrev()
+  nameWithType: View.FocusPrev()
+  fullName: Terminal.Gui.View.FocusPrev()
+  spec.csharp:
+  - uid: Terminal.Gui.View.FocusPrev
+    name: FocusPrev
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.FocusPrev
+    name: FocusPrev
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.FocusNext
+  commentId: M:Terminal.Gui.View.FocusNext
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: FocusNext()
+  nameWithType: View.FocusNext()
+  fullName: Terminal.Gui.View.FocusNext()
+  spec.csharp:
+  - uid: Terminal.Gui.View.FocusNext
+    name: FocusNext
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.FocusNext
+    name: FocusNext
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.LayoutSubviews
+  commentId: M:Terminal.Gui.View.LayoutSubviews
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: LayoutSubviews()
+  nameWithType: View.LayoutSubviews()
+  fullName: Terminal.Gui.View.LayoutSubviews()
+  spec.csharp:
+  - uid: Terminal.Gui.View.LayoutSubviews
+    name: LayoutSubviews
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.LayoutSubviews
+    name: LayoutSubviews
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.ToString
+  commentId: M:Terminal.Gui.View.ToString
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ToString()
+  nameWithType: View.ToString()
+  fullName: Terminal.Gui.View.ToString()
+  spec.csharp:
+  - uid: Terminal.Gui.View.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetAutoSize
+  commentId: M:Terminal.Gui.View.GetAutoSize
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetAutoSize()
+  nameWithType: View.GetAutoSize()
+  fullName: Terminal.Gui.View.GetAutoSize()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetAutoSize
+    name: GetAutoSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetAutoSize
+    name: GetAutoSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetHotKeySpecifierLength(System.Boolean)
+  commentId: M:Terminal.Gui.View.GetHotKeySpecifierLength(System.Boolean)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: GetHotKeySpecifierLength(bool)
+  nameWithType: View.GetHotKeySpecifierLength(bool)
+  fullName: Terminal.Gui.View.GetHotKeySpecifierLength(bool)
+  nameWithType.vb: View.GetHotKeySpecifierLength(Boolean)
+  fullName.vb: Terminal.Gui.View.GetHotKeySpecifierLength(Boolean)
+  name.vb: GetHotKeySpecifierLength(Boolean)
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetHotKeySpecifierLength(System.Boolean)
+    name: GetHotKeySpecifierLength
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetHotKeySpecifierLength(System.Boolean)
+    name: GetHotKeySpecifierLength
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Terminal.Gui.View.GetTextFormatterBoundsSize
+  commentId: M:Terminal.Gui.View.GetTextFormatterBoundsSize
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetTextFormatterBoundsSize()
+  nameWithType: View.GetTextFormatterBoundsSize()
+  fullName: Terminal.Gui.View.GetTextFormatterBoundsSize()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetTextFormatterBoundsSize
+    name: GetTextFormatterBoundsSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetTextFormatterBoundsSize
+    name: GetTextFormatterBoundsSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetBoundsTextFormatterSize
+  commentId: M:Terminal.Gui.View.GetBoundsTextFormatterSize
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetBoundsTextFormatterSize()
+  nameWithType: View.GetBoundsTextFormatterSize()
+  fullName: Terminal.Gui.View.GetBoundsTextFormatterSize()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetBoundsTextFormatterSize
+    name: GetBoundsTextFormatterSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetBoundsTextFormatterSize
+    name: GetBoundsTextFormatterSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+  commentId: M:Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnMouseEnter(MouseEvent)
+  nameWithType: View.OnMouseEnter(MouseEvent)
+  fullName: Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+    name: OnMouseEnter
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnMouseEnter(Terminal.Gui.MouseEvent)
+    name: OnMouseEnter
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+  commentId: M:Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnMouseLeave(MouseEvent)
+  nameWithType: View.OnMouseLeave(MouseEvent)
+  fullName: Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+    name: OnMouseLeave
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnMouseLeave(Terminal.Gui.MouseEvent)
+    name: OnMouseLeave
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+  commentId: M:Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnMouseEvent(MouseEvent)
+  nameWithType: View.OnMouseEvent(MouseEvent)
+  fullName: Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+    name: OnMouseEvent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnMouseEvent(Terminal.Gui.MouseEvent)
+    name: OnMouseEvent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+  commentId: M:Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnMouseClick(MouseEventArgs)
+  nameWithType: View.OnMouseClick(View.MouseEventArgs)
+  fullName: Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+    name: OnMouseClick
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View.MouseEventArgs
+    name: MouseEventArgs
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnMouseClick(Terminal.Gui.View.MouseEventArgs)
+    name: OnMouseClick
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.View.MouseEventArgs
+    name: MouseEventArgs
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.View.OnEnabledChanged
+  commentId: M:Terminal.Gui.View.OnEnabledChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnEnabledChanged()
+  nameWithType: View.OnEnabledChanged()
+  fullName: Terminal.Gui.View.OnEnabledChanged()
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnEnabledChanged
+    name: OnEnabledChanged
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnEnabledChanged
+    name: OnEnabledChanged
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.OnVisibleChanged
+  commentId: M:Terminal.Gui.View.OnVisibleChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: OnVisibleChanged()
+  nameWithType: View.OnVisibleChanged()
+  fullName: Terminal.Gui.View.OnVisibleChanged()
+  spec.csharp:
+  - uid: Terminal.Gui.View.OnVisibleChanged
+    name: OnVisibleChanged
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.OnVisibleChanged
+    name: OnVisibleChanged
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.Dispose(System.Boolean)
+  commentId: M:Terminal.Gui.View.Dispose(System.Boolean)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Dispose(bool)
+  nameWithType: View.Dispose(bool)
+  fullName: Terminal.Gui.View.Dispose(bool)
+  nameWithType.vb: View.Dispose(Boolean)
+  fullName.vb: Terminal.Gui.View.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+  spec.csharp:
+  - uid: Terminal.Gui.View.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Terminal.Gui.View.BeginInit
+  commentId: M:Terminal.Gui.View.BeginInit
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: BeginInit()
+  nameWithType: View.BeginInit()
+  fullName: Terminal.Gui.View.BeginInit()
+  spec.csharp:
+  - uid: Terminal.Gui.View.BeginInit
+    name: BeginInit
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.BeginInit
+    name: BeginInit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.EndInit
+  commentId: M:Terminal.Gui.View.EndInit
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: EndInit()
+  nameWithType: View.EndInit()
+  fullName: Terminal.Gui.View.EndInit()
+  spec.csharp:
+  - uid: Terminal.Gui.View.EndInit
+    name: EndInit
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.EndInit
+    name: EndInit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.SetWidth(System.Int32,System.Int32@)
+  commentId: M:Terminal.Gui.View.SetWidth(System.Int32,System.Int32@)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: SetWidth(int, out int)
+  nameWithType: View.SetWidth(int, out int)
+  fullName: Terminal.Gui.View.SetWidth(int, out int)
+  nameWithType.vb: View.SetWidth(Integer, Integer)
+  fullName.vb: Terminal.Gui.View.SetWidth(Integer, Integer)
+  name.vb: SetWidth(Integer, Integer)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetWidth(System.Int32,System.Int32@)
+    name: SetWidth
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetWidth(System.Int32,System.Int32@)
+    name: SetWidth
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Terminal.Gui.View.SetHeight(System.Int32,System.Int32@)
+  commentId: M:Terminal.Gui.View.SetHeight(System.Int32,System.Int32@)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: SetHeight(int, out int)
+  nameWithType: View.SetHeight(int, out int)
+  fullName: Terminal.Gui.View.SetHeight(int, out int)
+  nameWithType.vb: View.SetHeight(Integer, Integer)
+  fullName.vb: Terminal.Gui.View.SetHeight(Integer, Integer)
+  name.vb: SetHeight(Integer, Integer)
+  spec.csharp:
+  - uid: Terminal.Gui.View.SetHeight(System.Int32,System.Int32@)
+    name: SetHeight
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.SetHeight(System.Int32,System.Int32@)
+    name: SetHeight
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Terminal.Gui.View.GetCurrentWidth(System.Int32@)
+  commentId: M:Terminal.Gui.View.GetCurrentWidth(System.Int32@)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: GetCurrentWidth(out int)
+  nameWithType: View.GetCurrentWidth(out int)
+  fullName: Terminal.Gui.View.GetCurrentWidth(out int)
+  nameWithType.vb: View.GetCurrentWidth(Integer)
+  fullName.vb: Terminal.Gui.View.GetCurrentWidth(Integer)
+  name.vb: GetCurrentWidth(Integer)
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetCurrentWidth(System.Int32@)
+    name: GetCurrentWidth
+    isExternal: true
+  - name: (
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetCurrentWidth(System.Int32@)
+    name: GetCurrentWidth
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Terminal.Gui.View.GetCurrentHeight(System.Int32@)
+  commentId: M:Terminal.Gui.View.GetCurrentHeight(System.Int32@)
+  parent: Terminal.Gui.View
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: GetCurrentHeight(out int)
+  nameWithType: View.GetCurrentHeight(out int)
+  fullName: Terminal.Gui.View.GetCurrentHeight(out int)
+  nameWithType.vb: View.GetCurrentHeight(Integer)
+  fullName.vb: Terminal.Gui.View.GetCurrentHeight(Integer)
+  name.vb: GetCurrentHeight(Integer)
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetCurrentHeight(System.Int32@)
+    name: GetCurrentHeight
+    isExternal: true
+  - name: (
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetCurrentHeight(System.Int32@)
+    name: GetCurrentHeight
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Terminal.Gui.View.GetNormalColor
+  commentId: M:Terminal.Gui.View.GetNormalColor
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetNormalColor()
+  nameWithType: View.GetNormalColor()
+  fullName: Terminal.Gui.View.GetNormalColor()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetNormalColor
+    name: GetNormalColor
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetNormalColor
+    name: GetNormalColor
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetFocusColor
+  commentId: M:Terminal.Gui.View.GetFocusColor
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetFocusColor()
+  nameWithType: View.GetFocusColor()
+  fullName: Terminal.Gui.View.GetFocusColor()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetFocusColor
+    name: GetFocusColor
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetFocusColor
+    name: GetFocusColor
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetHotNormalColor
+  commentId: M:Terminal.Gui.View.GetHotNormalColor
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetHotNormalColor()
+  nameWithType: View.GetHotNormalColor()
+  fullName: Terminal.Gui.View.GetHotNormalColor()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetHotNormalColor
+    name: GetHotNormalColor
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetHotNormalColor
+    name: GetHotNormalColor
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.GetTopSuperView
+  commentId: M:Terminal.Gui.View.GetTopSuperView
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: GetTopSuperView()
+  nameWithType: View.GetTopSuperView()
+  fullName: Terminal.Gui.View.GetTopSuperView()
+  spec.csharp:
+  - uid: Terminal.Gui.View.GetTopSuperView
+    name: GetTopSuperView
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.View.GetTopSuperView
+    name: GetTopSuperView
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Terminal.Gui.View.HotKey
+  commentId: P:Terminal.Gui.View.HotKey
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: HotKey
+  nameWithType: View.HotKey
+  fullName: Terminal.Gui.View.HotKey
+- uid: Terminal.Gui.View.HotKeySpecifier
+  commentId: P:Terminal.Gui.View.HotKeySpecifier
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: HotKeySpecifier
+  nameWithType: View.HotKeySpecifier
+  fullName: Terminal.Gui.View.HotKeySpecifier
+- uid: Terminal.Gui.View.Shortcut
+  commentId: P:Terminal.Gui.View.Shortcut
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Shortcut
+  nameWithType: View.Shortcut
+  fullName: Terminal.Gui.View.Shortcut
+- uid: Terminal.Gui.View.ShortcutTag
+  commentId: P:Terminal.Gui.View.ShortcutTag
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ShortcutTag
+  nameWithType: View.ShortcutTag
+  fullName: Terminal.Gui.View.ShortcutTag
+- uid: Terminal.Gui.View.ShortcutAction
+  commentId: P:Terminal.Gui.View.ShortcutAction
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ShortcutAction
+  nameWithType: View.ShortcutAction
+  fullName: Terminal.Gui.View.ShortcutAction
+- uid: Terminal.Gui.View.Data
+  commentId: P:Terminal.Gui.View.Data
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Data
+  nameWithType: View.Data
+  fullName: Terminal.Gui.View.Data
+- uid: Terminal.Gui.View.Driver
+  commentId: P:Terminal.Gui.View.Driver
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Driver
+  nameWithType: View.Driver
+  fullName: Terminal.Gui.View.Driver
+- uid: Terminal.Gui.View.Subviews
+  commentId: P:Terminal.Gui.View.Subviews
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Subviews
+  nameWithType: View.Subviews
+  fullName: Terminal.Gui.View.Subviews
+- uid: Terminal.Gui.View.TabIndexes
+  commentId: P:Terminal.Gui.View.TabIndexes
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: TabIndexes
+  nameWithType: View.TabIndexes
+  fullName: Terminal.Gui.View.TabIndexes
+- uid: Terminal.Gui.View.TabIndex
+  commentId: P:Terminal.Gui.View.TabIndex
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: TabIndex
+  nameWithType: View.TabIndex
+  fullName: Terminal.Gui.View.TabIndex
+- uid: Terminal.Gui.View.TabStop
+  commentId: P:Terminal.Gui.View.TabStop
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: TabStop
+  nameWithType: View.TabStop
+  fullName: Terminal.Gui.View.TabStop
+- uid: Terminal.Gui.View.CanFocus
+  commentId: P:Terminal.Gui.View.CanFocus
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: CanFocus
+  nameWithType: View.CanFocus
+  fullName: Terminal.Gui.View.CanFocus
+- uid: Terminal.Gui.View.Id
+  commentId: P:Terminal.Gui.View.Id
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Id
+  nameWithType: View.Id
+  fullName: Terminal.Gui.View.Id
+- uid: Terminal.Gui.View.IsCurrentTop
+  commentId: P:Terminal.Gui.View.IsCurrentTop
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: IsCurrentTop
+  nameWithType: View.IsCurrentTop
+  fullName: Terminal.Gui.View.IsCurrentTop
+- uid: Terminal.Gui.View.WantMousePositionReports
+  commentId: P:Terminal.Gui.View.WantMousePositionReports
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: WantMousePositionReports
+  nameWithType: View.WantMousePositionReports
+  fullName: Terminal.Gui.View.WantMousePositionReports
+- uid: Terminal.Gui.View.WantContinuousButtonPressed
+  commentId: P:Terminal.Gui.View.WantContinuousButtonPressed
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: WantContinuousButtonPressed
+  nameWithType: View.WantContinuousButtonPressed
+  fullName: Terminal.Gui.View.WantContinuousButtonPressed
+- uid: Terminal.Gui.View.Frame
+  commentId: P:Terminal.Gui.View.Frame
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Frame
+  nameWithType: View.Frame
+  fullName: Terminal.Gui.View.Frame
+- uid: Terminal.Gui.View.LayoutStyle
+  commentId: P:Terminal.Gui.View.LayoutStyle
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: LayoutStyle
+  nameWithType: View.LayoutStyle
+  fullName: Terminal.Gui.View.LayoutStyle
+- uid: Terminal.Gui.View.Bounds
+  commentId: P:Terminal.Gui.View.Bounds
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Bounds
+  nameWithType: View.Bounds
+  fullName: Terminal.Gui.View.Bounds
+- uid: Terminal.Gui.View.X
+  commentId: P:Terminal.Gui.View.X
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: X
+  nameWithType: View.X
+  fullName: Terminal.Gui.View.X
+- uid: Terminal.Gui.View.Y
+  commentId: P:Terminal.Gui.View.Y
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Y
+  nameWithType: View.Y
+  fullName: Terminal.Gui.View.Y
+- uid: Terminal.Gui.View.Width
+  commentId: P:Terminal.Gui.View.Width
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Width
+  nameWithType: View.Width
+  fullName: Terminal.Gui.View.Width
+- uid: Terminal.Gui.View.Height
+  commentId: P:Terminal.Gui.View.Height
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Height
+  nameWithType: View.Height
+  fullName: Terminal.Gui.View.Height
+- uid: Terminal.Gui.View.ForceValidatePosDim
+  commentId: P:Terminal.Gui.View.ForceValidatePosDim
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ForceValidatePosDim
+  nameWithType: View.ForceValidatePosDim
+  fullName: Terminal.Gui.View.ForceValidatePosDim
+- uid: Terminal.Gui.View.TextFormatter
+  commentId: P:Terminal.Gui.View.TextFormatter
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: TextFormatter
+  nameWithType: View.TextFormatter
+  fullName: Terminal.Gui.View.TextFormatter
+- uid: Terminal.Gui.View.SuperView
+  commentId: P:Terminal.Gui.View.SuperView
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: SuperView
+  nameWithType: View.SuperView
+  fullName: Terminal.Gui.View.SuperView
+- uid: Terminal.Gui.View.HasFocus
+  commentId: P:Terminal.Gui.View.HasFocus
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: HasFocus
+  nameWithType: View.HasFocus
+  fullName: Terminal.Gui.View.HasFocus
+- uid: Terminal.Gui.View.Focused
+  commentId: P:Terminal.Gui.View.Focused
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Focused
+  nameWithType: View.Focused
+  fullName: Terminal.Gui.View.Focused
+- uid: Terminal.Gui.View.MostFocused
+  commentId: P:Terminal.Gui.View.MostFocused
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: MostFocused
+  nameWithType: View.MostFocused
+  fullName: Terminal.Gui.View.MostFocused
+- uid: Terminal.Gui.View.ColorScheme
+  commentId: P:Terminal.Gui.View.ColorScheme
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ColorScheme
+  nameWithType: View.ColorScheme
+  fullName: Terminal.Gui.View.ColorScheme
+- uid: Terminal.Gui.View.AutoSize
+  commentId: P:Terminal.Gui.View.AutoSize
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: AutoSize
+  nameWithType: View.AutoSize
+  fullName: Terminal.Gui.View.AutoSize
+- uid: Terminal.Gui.View.PreserveTrailingSpaces
+  commentId: P:Terminal.Gui.View.PreserveTrailingSpaces
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: PreserveTrailingSpaces
+  nameWithType: View.PreserveTrailingSpaces
+  fullName: Terminal.Gui.View.PreserveTrailingSpaces
+- uid: Terminal.Gui.View.VerticalTextAlignment
+  commentId: P:Terminal.Gui.View.VerticalTextAlignment
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: VerticalTextAlignment
+  nameWithType: View.VerticalTextAlignment
+  fullName: Terminal.Gui.View.VerticalTextAlignment
+- uid: Terminal.Gui.View.TextDirection
+  commentId: P:Terminal.Gui.View.TextDirection
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: TextDirection
+  nameWithType: View.TextDirection
+  fullName: Terminal.Gui.View.TextDirection
+- uid: Terminal.Gui.View.IsInitialized
+  commentId: P:Terminal.Gui.View.IsInitialized
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: IsInitialized
+  nameWithType: View.IsInitialized
+  fullName: Terminal.Gui.View.IsInitialized
+- uid: Terminal.Gui.View.IsAdded
+  commentId: P:Terminal.Gui.View.IsAdded
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: IsAdded
+  nameWithType: View.IsAdded
+  fullName: Terminal.Gui.View.IsAdded
+- uid: Terminal.Gui.View.Enabled
+  commentId: P:Terminal.Gui.View.Enabled
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Enabled
+  nameWithType: View.Enabled
+  fullName: Terminal.Gui.View.Enabled
+- uid: Terminal.Gui.View.ClearOnVisibleFalse
+  commentId: P:Terminal.Gui.View.ClearOnVisibleFalse
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: ClearOnVisibleFalse
+  nameWithType: View.ClearOnVisibleFalse
+  fullName: Terminal.Gui.View.ClearOnVisibleFalse
+- uid: Terminal.Gui.View.Visible
+  commentId: P:Terminal.Gui.View.Visible
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Visible
+  nameWithType: View.Visible
+  fullName: Terminal.Gui.View.Visible
+- uid: Terminal.Gui.View.IgnoreBorderPropertyOnRedraw
+  commentId: P:Terminal.Gui.View.IgnoreBorderPropertyOnRedraw
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: IgnoreBorderPropertyOnRedraw
+  nameWithType: View.IgnoreBorderPropertyOnRedraw
+  fullName: Terminal.Gui.View.IgnoreBorderPropertyOnRedraw
+- uid: Terminal.Gui.View.Added
+  commentId: E:Terminal.Gui.View.Added
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Added
+  nameWithType: View.Added
+  fullName: Terminal.Gui.View.Added
+- uid: Terminal.Gui.View.Removed
+  commentId: E:Terminal.Gui.View.Removed
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Removed
+  nameWithType: View.Removed
+  fullName: Terminal.Gui.View.Removed
+- uid: Terminal.Gui.View.Enter
+  commentId: E:Terminal.Gui.View.Enter
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Enter
+  nameWithType: View.Enter
+  fullName: Terminal.Gui.View.Enter
+- uid: Terminal.Gui.View.Leave
+  commentId: E:Terminal.Gui.View.Leave
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Leave
+  nameWithType: View.Leave
+  fullName: Terminal.Gui.View.Leave
+- uid: Terminal.Gui.View.MouseEnter
+  commentId: E:Terminal.Gui.View.MouseEnter
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: MouseEnter
+  nameWithType: View.MouseEnter
+  fullName: Terminal.Gui.View.MouseEnter
+- uid: Terminal.Gui.View.MouseLeave
+  commentId: E:Terminal.Gui.View.MouseLeave
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: MouseLeave
+  nameWithType: View.MouseLeave
+  fullName: Terminal.Gui.View.MouseLeave
+- uid: Terminal.Gui.View.MouseClick
+  commentId: E:Terminal.Gui.View.MouseClick
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: MouseClick
+  nameWithType: View.MouseClick
+  fullName: Terminal.Gui.View.MouseClick
+- uid: Terminal.Gui.View.CanFocusChanged
+  commentId: E:Terminal.Gui.View.CanFocusChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: CanFocusChanged
+  nameWithType: View.CanFocusChanged
+  fullName: Terminal.Gui.View.CanFocusChanged
+- uid: Terminal.Gui.View.EnabledChanged
+  commentId: E:Terminal.Gui.View.EnabledChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: EnabledChanged
+  nameWithType: View.EnabledChanged
+  fullName: Terminal.Gui.View.EnabledChanged
+- uid: Terminal.Gui.View.VisibleChanged
+  commentId: E:Terminal.Gui.View.VisibleChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: VisibleChanged
+  nameWithType: View.VisibleChanged
+  fullName: Terminal.Gui.View.VisibleChanged
+- uid: Terminal.Gui.View.HotKeyChanged
+  commentId: E:Terminal.Gui.View.HotKeyChanged
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: HotKeyChanged
+  nameWithType: View.HotKeyChanged
+  fullName: Terminal.Gui.View.HotKeyChanged
+- uid: Terminal.Gui.View.DrawContent
+  commentId: E:Terminal.Gui.View.DrawContent
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: DrawContent
+  nameWithType: View.DrawContent
+  fullName: Terminal.Gui.View.DrawContent
+- uid: Terminal.Gui.View.DrawContentComplete
+  commentId: E:Terminal.Gui.View.DrawContentComplete
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: DrawContentComplete
+  nameWithType: View.DrawContentComplete
+  fullName: Terminal.Gui.View.DrawContentComplete
+- uid: Terminal.Gui.View.KeyPress
+  commentId: E:Terminal.Gui.View.KeyPress
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: KeyPress
+  nameWithType: View.KeyPress
+  fullName: Terminal.Gui.View.KeyPress
+- uid: Terminal.Gui.View.KeyDown
+  commentId: E:Terminal.Gui.View.KeyDown
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: KeyDown
+  nameWithType: View.KeyDown
+  fullName: Terminal.Gui.View.KeyDown
+- uid: Terminal.Gui.View.KeyUp
+  commentId: E:Terminal.Gui.View.KeyUp
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: KeyUp
+  nameWithType: View.KeyUp
+  fullName: Terminal.Gui.View.KeyUp
+- uid: Terminal.Gui.View.LayoutStarted
+  commentId: E:Terminal.Gui.View.LayoutStarted
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: LayoutStarted
+  nameWithType: View.LayoutStarted
+  fullName: Terminal.Gui.View.LayoutStarted
+- uid: Terminal.Gui.View.LayoutComplete
+  commentId: E:Terminal.Gui.View.LayoutComplete
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: LayoutComplete
+  nameWithType: View.LayoutComplete
+  fullName: Terminal.Gui.View.LayoutComplete
+- uid: Terminal.Gui.View.Initialized
+  commentId: E:Terminal.Gui.View.Initialized
+  parent: Terminal.Gui.View
+  isExternal: true
+  name: Initialized
+  nameWithType: View.Initialized
+  fullName: Terminal.Gui.View.Initialized
+- uid: Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+  commentId: M:Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+  parent: Terminal.Gui.Responder
+  isExternal: true
+  name: MouseEvent(MouseEvent)
+  nameWithType: Responder.MouseEvent(MouseEvent)
+  fullName: Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+  spec.csharp:
+  - uid: Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+    name: MouseEvent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.Responder.MouseEvent(Terminal.Gui.MouseEvent)
+    name: MouseEvent
+    isExternal: true
+  - name: (
+  - uid: Terminal.Gui.MouseEvent
+    name: MouseEvent
+    isExternal: true
+  - name: )
+- uid: Terminal.Gui.Responder.Dispose
+  commentId: M:Terminal.Gui.Responder.Dispose
+  parent: Terminal.Gui.Responder
+  isExternal: true
+  name: Dispose()
+  nameWithType: Responder.Dispose()
+  fullName: Terminal.Gui.Responder.Dispose()
+  spec.csharp:
+  - uid: Terminal.Gui.Responder.Dispose
+    name: Dispose
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Terminal.Gui.Responder.Dispose
+    name: Dispose
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Terminal.Gui
+  commentId: N:Terminal.Gui
+  isExternal: true
+  name: Terminal.Gui
+  nameWithType: Terminal.Gui
+  fullName: Terminal.Gui
+  spec.csharp:
+  - uid: Terminal
+    name: Terminal
+    isExternal: true
+  - name: .
+  - uid: Terminal.Gui
+    name: Gui
+    isExternal: true
+  spec.vb:
+  - uid: Terminal
+    name: Terminal
+    isExternal: true
+  - name: .
+  - uid: Terminal.Gui
+    name: Gui
+    isExternal: true
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+- uid: InventarViewerApp.UI.StatusView
+  commentId: T:InventarViewerApp.UI.StatusView
+  href: InventarViewerApp.UI.StatusView.html
+  name: StatusView
+  nameWithType: StatusView
+  fullName: InventarViewerApp.UI.StatusView
+- uid: InventarViewerApp.UI.StatusView.#ctor*
+  commentId: Overload:InventarViewerApp.UI.StatusView.#ctor
+  href: InventarViewerApp.UI.StatusView.html#InventarViewerApp_UI_StatusView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_
+  name: StatusView
+  nameWithType: StatusView.StatusView
+  fullName: InventarViewerApp.UI.StatusView.StatusView
+  nameWithType.vb: StatusView.New
+  fullName.vb: InventarViewerApp.UI.StatusView.New
+  name.vb: New
+- uid: InventarWorkerCommon.Services.Api.ApiService
+  commentId: T:InventarWorkerCommon.Services.Api.ApiService
+  parent: InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.Services.Api.ApiService.html
+  name: ApiService
+  nameWithType: ApiService
+  fullName: InventarWorkerCommon.Services.Api.ApiService
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  name: SqliteDbService
+  nameWithType: SqliteDbService
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+- uid: InventarWorkerCommon.Services.Api
+  commentId: N:InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Api
+  nameWithType: InventarWorkerCommon.Services.Api
+  fullName: InventarWorkerCommon.Services.Api
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+- uid: InventarViewerApp.UI.StatusView.RefreshData*
+  commentId: Overload:InventarViewerApp.UI.StatusView.RefreshData
+  href: InventarViewerApp.UI.StatusView.html#InventarViewerApp_UI_StatusView_RefreshData
+  name: RefreshData
+  nameWithType: StatusView.RefreshData
+  fullName: InventarViewerApp.UI.StatusView.RefreshData
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

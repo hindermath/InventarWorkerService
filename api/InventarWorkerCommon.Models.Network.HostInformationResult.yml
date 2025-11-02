@@ -1,0 +1,781 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult
+  commentId: T:InventarWorkerCommon.Models.Network.HostInformationResult
+  id: HostInformationResult
+  parent: InventarWorkerCommon.Models.Network
+  children:
+  - InventarWorkerCommon.Models.Network.HostInformationResult.#ctor
+  - InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+  - InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+  - InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+  - InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+  - InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+  - InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+  - InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+  langs:
+  - csharp
+  - vb
+  name: HostInformationResult
+  nameWithType: HostInformationResult
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HostInformationResult
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Represents information about a host, including its name, associated aliases, address list,
+
+    and potential error messages when resolving host information. This class is commonly used
+
+    for network-related tasks where host resolution is required.
+  example: []
+  syntax:
+    content: 'public record HostInformationResult : IEquatable<HostInformationResult>'
+    content.vb: Public Class HostInformationResult Implements IEquatable(Of HostInformationResult)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.Network.HostInformationResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.#ctor
+  commentId: M:InventarWorkerCommon.Models.Network.HostInformationResult.#ctor
+  id: '#ctor'
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: HostInformationResult()
+  nameWithType: HostInformationResult.HostInformationResult()
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.HostInformationResult()
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Represents information about a host, including its name, associated aliases, address list,
+
+    and potential error messages when resolving host information. This class is commonly used
+
+    for network-related tasks where host resolution is required.
+  example: []
+  syntax:
+    content: public HostInformationResult()
+    content.vb: Public Sub New()
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.#ctor*
+  nameWithType.vb: HostInformationResult.New()
+  fullName.vb: InventarWorkerCommon.Models.Network.HostInformationResult.New()
+  name.vb: New()
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+  id: HostName
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: HostName
+  nameWithType: HostInformationResult.HostName
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HostName
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 17
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the hostname of a network host.
+  remarks: >-
+    This property represents the resolved hostname of a machine or network device.
+
+    It can be used to identify the host within a network environment, typically in conjunction with an IPv4 or IPv6 address.
+
+    The value is optional and may be null if the hostname resolution fails or if the hostname is not determined.
+  example: []
+  syntax:
+    content: public string? HostName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property HostName As String
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.HostName*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+  id: Aliases
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: Aliases
+  nameWithType: HostInformationResult.Aliases
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Aliases
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 28
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the collection of aliases associated with the host.
+  remarks: >-
+    This property represents alternative names or aliases for the host as resolved during a DNS lookup.
+
+    Alias names are typically provided by the DNS server and can include alternative hostnames used
+
+    to refer to the same host or machine within a network environment. The collection may be empty if no aliases are resolved
+
+    or if the DNS server does not provide alias information.
+  example: []
+  syntax:
+    content: public string[] Aliases { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property Aliases As String()
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.Aliases*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+  id: AddressList
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: AddressList
+  nameWithType: HostInformationResult.AddressList
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: AddressList
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 38
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the list of IP addresses associated with a network host.
+  remarks: >-
+    This property contains an array of IP addresses representing the resolved addresses for a specific host.
+
+    It may include both IPv4 and IPv6 addresses, depending on the network configuration and resolution process.
+
+    The value is populated during host resolution and can be empty if no addresses are resolved or the resolution fails.
+  example: []
+  syntax:
+    content: public string[] AddressList { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property AddressList As String()
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.AddressList*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+  id: IPv4Addresses
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: IPv4Addresses
+  nameWithType: HostInformationResult.IPv4Addresses
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IPv4Addresses
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 49
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the list of IPv4 addresses associated with the host.
+  remarks: >-
+    This property contains an array of IPv4 addresses resolved for the specified host.
+
+    It provides an easy way to retrieve all IPv4 addresses linked to the host's network identity.
+
+    The values in this list may be empty if no IPv4 addresses are resolved or the host does not
+
+    have IPv4 configurations.
+  example: []
+  syntax:
+    content: public string[] IPv4Addresses { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property IPv4Addresses As String()
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+  id: IPv6Addresses
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: IPv6Addresses
+  nameWithType: HostInformationResult.IPv6Addresses
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IPv6Addresses
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 60
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the list of IPv6 addresses associated with the host.
+  remarks: >-
+    This property contains an array of IP addresses in IPv6 format that are linked to the host.
+
+    It is useful when dealing with hosts that operate in an IPv6-enabled network environment.
+
+    The value is optional and can be empty if no IPv6 addresses are associated with the host or
+
+    if the information is unavailable.
+  example: []
+  syntax:
+    content: public string[] IPv6Addresses { get; set; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Property IPv6Addresses As String()
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+  id: ErrorMessage
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: HostInformationResult.ErrorMessage
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ErrorMessage
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 70
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Gets or sets the error message indicating any issues that occurred during the resolution of host information.
+  remarks: >-
+    This property holds a textual description of errors encountered while trying to resolve host information.
+
+    It can be used to identify problems such as timeouts, invalid inputs, or resolution failures.
+
+    The value is null or empty if no errors occurred during the resolution process.
+  example: []
+  syntax:
+    content: public string? ErrorMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorMessage As String
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage*
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+  commentId: P:InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+  id: IsSuccess
+  parent: InventarWorkerCommon.Models.Network.HostInformationResult
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess
+  nameWithType: HostInformationResult.IsSuccess
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IsSuccess
+    path: InventarWorkerCommon/Models/Network/HostInformationResult.cs
+    startLine: 80
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: Indicates whether the host information was successfully resolved.
+  remarks: >-
+    This property returns true if the host resolution was successful, meaning the host name
+
+    is not null or empty, and there is no associated error message. A false value indicates
+
+    that either the host name could not be resolved or an error occurred during the resolution process.
+  example: []
+  syntax:
+    content: public bool IsSuccess { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSuccess As Boolean
+  overload: InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess*
+references:
+- uid: InventarWorkerCommon.Models.Network
+  commentId: N:InventarWorkerCommon.Models.Network
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Network
+  nameWithType: InventarWorkerCommon.Models.Network
+  fullName: InventarWorkerCommon.Models.Network
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Network
+    name: Network
+    href: InventarWorkerCommon.Models.Network.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Network
+    name: Network
+    href: InventarWorkerCommon.Models.Network.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.Network.HostInformationResult}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Network.HostInformationResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<HostInformationResult>
+  nameWithType: IEquatable<HostInformationResult>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.Network.HostInformationResult>
+  nameWithType.vb: IEquatable(Of HostInformationResult)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Network.HostInformationResult)
+  name.vb: IEquatable(Of HostInformationResult)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Network.HostInformationResult
+    name: HostInformationResult
+    href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Network.HostInformationResult
+    name: HostInformationResult
+    href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.#ctor*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.#ctor
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult__ctor
+  name: HostInformationResult
+  nameWithType: HostInformationResult.HostInformationResult
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.HostInformationResult
+  nameWithType.vb: HostInformationResult.New
+  fullName.vb: InventarWorkerCommon.Models.Network.HostInformationResult.New
+  name.vb: New
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.HostName*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_HostName
+  name: HostName
+  nameWithType: HostInformationResult.HostName
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.HostName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.Aliases*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_Aliases
+  name: Aliases
+  nameWithType: HostInformationResult.Aliases
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.Aliases
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.AddressList*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_AddressList
+  name: AddressList
+  nameWithType: HostInformationResult.AddressList
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.AddressList
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_IPv4Addresses
+  name: IPv4Addresses
+  nameWithType: HostInformationResult.IPv4Addresses
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IPv4Addresses
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_IPv6Addresses
+  name: IPv6Addresses
+  nameWithType: HostInformationResult.IPv6Addresses
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IPv6Addresses
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_ErrorMessage
+  name: ErrorMessage
+  nameWithType: HostInformationResult.ErrorMessage
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.ErrorMessage
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess*
+  commentId: Overload:InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html#InventarWorkerCommon_Models_Network_HostInformationResult_IsSuccess
+  name: IsSuccess
+  nameWithType: HostInformationResult.IsSuccess
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult.IsSuccess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

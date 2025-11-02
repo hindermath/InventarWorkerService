@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerService
+  commentId: N:InventarWorkerService
+  id: InventarWorkerService
+  children:
+  - InventarWorkerService.Worker
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerService
+  nameWithType: InventarWorkerService
+  fullName: InventarWorkerService
+  type: Namespace
+  assemblies:
+  - InventarWorkerService
+references:
+- uid: InventarWorkerService.Worker
+  commentId: T:InventarWorkerService.Worker
+  href: InventarWorkerService.Worker.html
+  name: Worker
+  nameWithType: Worker
+  fullName: InventarWorkerService.Worker

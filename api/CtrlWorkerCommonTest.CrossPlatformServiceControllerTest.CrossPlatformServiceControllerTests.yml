@@ -1,0 +1,826 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  commentId: T:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  id: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  parent: CtrlWorkerCommonTest
+  children:
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+  langs:
+  - csharp
+  - vb
+  name: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  type: Class
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CrossPlatformServiceControllerTests
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 8
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestClass]
+
+      public class CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+    content.vb: >-
+      <TestClass>
+
+      Public Class CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+  id: TestInitialize
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: TestInitialize()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TestInitialize
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 15
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestInitialize]
+
+      public void TestInitialize()
+    content.vb: >-
+      <TestInitialize>
+
+      Public Sub TestInitialize()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+  id: TestCleanup
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: TestCleanup()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TestCleanup
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 22
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestCleanup]
+
+      public void TestCleanup()
+    content.vb: >-
+      <TestCleanup>
+
+      Public Sub TestCleanup()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  id: Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_WithValidServiceName_SetsServiceNameCorrectly()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Constructor_WithValidServiceName_SetsServiceNameCorrectly
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 29
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void Constructor_WithValidServiceName_SetsServiceNameCorrectly()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub Constructor_WithValidServiceName_SetsServiceNameCorrectly()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+  id: Constructor_WithNullServiceName_ThrowsArgumentNullException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_WithNullServiceName_ThrowsArgumentNullException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Constructor_WithNullServiceName_ThrowsArgumentNullException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 39
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      [ExpectedException(typeof(ArgumentNullException))]
+
+      public void Constructor_WithNullServiceName_ThrowsArgumentNullException()
+    content.vb: >-
+      <TestMethod>
+
+      <ExpectedException(GetType(ArgumentNullException))>
+
+      Public Sub Constructor_WithNullServiceName_ThrowsArgumentNullException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.ArgumentNullException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+  id: Constructor_WithEmptyServiceName_ThrowsArgumentException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: Constructor_WithEmptyServiceName_ThrowsArgumentException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Constructor_WithEmptyServiceName_ThrowsArgumentException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 47
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      [ExpectedException(typeof(ArgumentException))]
+
+      public void Constructor_WithEmptyServiceName_ThrowsArgumentException()
+    content.vb: >-
+      <TestMethod>
+
+      <ExpectedException(GetType(ArgumentException))>
+
+      Public Sub Constructor_WithEmptyServiceName_ThrowsArgumentException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.ArgumentException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  id: StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 55
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  id: StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 85
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+  id: StartService_WithInvalidServiceName_ThrowsException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StartService_WithInvalidServiceName_ThrowsException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartService_WithInvalidServiceName_ThrowsException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 115
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StartService_WithInvalidServiceName_ThrowsException()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StartService_WithInvalidServiceName_ThrowsException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+  id: StopService_WithInvalidServiceName_ThrowsException
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StopService_WithInvalidServiceName_ThrowsException()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StopService_WithInvalidServiceName_ThrowsException
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 125
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StopService_WithInvalidServiceName_ThrowsException()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StopService_WithInvalidServiceName_ThrowsException()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+  id: StartService_CalledMultipleTimes_DoesNotThrow
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StartService_CalledMultipleTimes_DoesNotThrow()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartService_CalledMultipleTimes_DoesNotThrow
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 135
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StartService_CalledMultipleTimes_DoesNotThrow()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StartService_CalledMultipleTimes_DoesNotThrow()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+  id: StopService_CalledMultipleTimes_DoesNotThrow
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StopService_CalledMultipleTimes_DoesNotThrow()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StopService_CalledMultipleTimes_DoesNotThrow
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 160
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StopService_CalledMultipleTimes_DoesNotThrow()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StopService_CalledMultipleTimes_DoesNotThrow()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow
+  commentId: M:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow
+  id: StartAndStopService_InSequence_DoesNotThrow
+  parent: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: StartAndStopService_InSequence_DoesNotThrow()
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow()
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartAndStopService_InSequence_DoesNotThrow
+    path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
+    startLine: 185
+  assemblies:
+  - CtrlWorkerCommonTest
+  namespace: CtrlWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod]
+
+      public void StartAndStopService_InSequence_DoesNotThrow()
+    content.vb: >-
+      <TestMethod>
+
+      Public Sub StartAndStopService_InSequence_DoesNotThrow()
+  overload: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
+references:
+- uid: CtrlWorkerCommonTest
+  commentId: N:CtrlWorkerCommonTest
+  href: CtrlWorkerCommonTest.html
+  name: CtrlWorkerCommonTest
+  nameWithType: CtrlWorkerCommonTest
+  fullName: CtrlWorkerCommonTest
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_TestInitialize
+  name: TestInitialize
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestInitialize
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_TestCleanup
+  name: TestCleanup
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.TestCleanup
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  name: Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithValidServiceName_SetsServiceNameCorrectly
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_Constructor_WithNullServiceName_ThrowsArgumentNullException
+  name: Constructor_WithNullServiceName_ThrowsArgumentNullException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithNullServiceName_ThrowsArgumentNullException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_Constructor_WithEmptyServiceName_ThrowsArgumentException
+  name: Constructor_WithEmptyServiceName_ThrowsArgumentException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.Constructor_WithEmptyServiceName_ThrowsArgumentException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  name: StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  name: StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StartService_WithInvalidServiceName_ThrowsException
+  name: StartService_WithInvalidServiceName_ThrowsException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_WithInvalidServiceName_ThrowsException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StopService_WithInvalidServiceName_ThrowsException
+  name: StopService_WithInvalidServiceName_ThrowsException
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_WithInvalidServiceName_ThrowsException
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StartService_CalledMultipleTimes_DoesNotThrow
+  name: StartService_CalledMultipleTimes_DoesNotThrow
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartService_CalledMultipleTimes_DoesNotThrow
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StopService_CalledMultipleTimes_DoesNotThrow
+  name: StopService_CalledMultipleTimes_DoesNotThrow
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StopService_CalledMultipleTimes_DoesNotThrow
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow*
+  commentId: Overload:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html#CtrlWorkerCommonTest_CrossPlatformServiceControllerTest_CrossPlatformServiceControllerTests_StartAndStopService_InSequence_DoesNotThrow
+  name: StartAndStopService_InSequence_DoesNotThrow
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.StartAndStopService_InSequence_DoesNotThrow

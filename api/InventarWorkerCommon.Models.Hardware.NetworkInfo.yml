@@ -1,0 +1,817 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.NetworkInfo
+  id: NetworkInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  children:
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+  langs:
+  - csharp
+  - vb
+  name: NetworkInfo
+  nameWithType: NetworkInfo
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: NetworkInfo
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  summary: Represents network interface details including addressing and throughput counters.
+  example: []
+  syntax:
+    content: 'public record NetworkInfo : IEquatable<NetworkInfo>'
+    content.vb: Public Class NetworkInfo Implements IEquatable(Of NetworkInfo)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.Hardware.NetworkInfo}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+  id: Name
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: NetworkInfo.Name
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Name
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.Name*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+  id: Description
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: NetworkInfo.Description
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Description
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.Description*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+  id: NetworkInterfaceType
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: NetworkInterfaceType
+  nameWithType: NetworkInfo.NetworkInterfaceType
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: NetworkInterfaceType
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public string NetworkInterfaceType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NetworkInterfaceType As String
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+  id: OperationalStatus
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: OperationalStatus
+  nameWithType: NetworkInfo.OperationalStatus
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: OperationalStatus
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public string OperationalStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OperationalStatus As String
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+  id: Speed
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: Speed
+  nameWithType: NetworkInfo.Speed
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Speed
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 11
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long Speed { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Speed As Long
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+  id: IpAddresses
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: IpAddresses
+  nameWithType: NetworkInfo.IpAddresses
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IpAddresses
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 12
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public List<string> IpAddresses { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property IpAddresses As List(Of String)
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+  id: MacAddress
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: MacAddress
+  nameWithType: NetworkInfo.MacAddress
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MacAddress
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 13
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public string MacAddress { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MacAddress As String
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+  id: BytesSent
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: BytesSent
+  nameWithType: NetworkInfo.BytesSent
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: BytesSent
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 14
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long BytesSent { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property BytesSent As Long
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent*
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived
+  commentId: P:InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived
+  id: BytesReceived
+  parent: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  langs:
+  - csharp
+  - vb
+  name: BytesReceived
+  nameWithType: NetworkInfo.BytesReceived
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: BytesReceived
+    path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long BytesReceived { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property BytesReceived As Long
+  overload: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived*
+references:
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.Hardware.NetworkInfo}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Hardware.NetworkInfo}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<NetworkInfo>
+  nameWithType: IEquatable<NetworkInfo>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.Hardware.NetworkInfo>
+  nameWithType.vb: IEquatable(Of NetworkInfo)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Hardware.NetworkInfo)
+  name.vb: IEquatable(Of NetworkInfo)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Hardware.NetworkInfo
+    name: NetworkInfo
+    href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Hardware.NetworkInfo
+    name: NetworkInfo
+    href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Name*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_Name
+  name: Name
+  nameWithType: NetworkInfo.Name
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Description*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_Description
+  name: Description
+  nameWithType: NetworkInfo.Description
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Description
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_NetworkInterfaceType
+  name: NetworkInterfaceType
+  nameWithType: NetworkInfo.NetworkInterfaceType
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.NetworkInterfaceType
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_OperationalStatus
+  name: OperationalStatus
+  nameWithType: NetworkInfo.OperationalStatus
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.OperationalStatus
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_Speed
+  name: Speed
+  nameWithType: NetworkInfo.Speed
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.Speed
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_IpAddresses
+  name: IpAddresses
+  nameWithType: NetworkInfo.IpAddresses
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.IpAddresses
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_MacAddress
+  name: MacAddress
+  nameWithType: NetworkInfo.MacAddress
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.MacAddress
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_BytesSent
+  name: BytesSent
+  nameWithType: NetworkInfo.BytesSent
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesSent
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html#InventarWorkerCommon_Models_Hardware_NetworkInfo_BytesReceived
+  name: BytesReceived
+  nameWithType: NetworkInfo.BytesReceived
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo.BytesReceived

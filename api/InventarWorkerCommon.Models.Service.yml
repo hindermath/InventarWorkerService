@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Service
+  commentId: N:InventarWorkerCommon.Models.Service
+  id: InventarWorkerCommon.Models.Service
+  children:
+  - InventarWorkerCommon.Models.Service.ServiceStatistics
+  - InventarWorkerCommon.Models.Service.ServiceStatus
+  - InventarWorkerCommon.Models.Service.SystemInfo
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.Service
+  nameWithType: InventarWorkerCommon.Models.Service
+  fullName: InventarWorkerCommon.Models.Service
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.Service.ServiceStatistics
+  commentId: T:InventarWorkerCommon.Models.Service.ServiceStatistics
+  parent: InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.Models.Service.ServiceStatistics.html
+  name: ServiceStatistics
+  nameWithType: ServiceStatistics
+  fullName: InventarWorkerCommon.Models.Service.ServiceStatistics
+- uid: InventarWorkerCommon.Models.Service.ServiceStatus
+  commentId: T:InventarWorkerCommon.Models.Service.ServiceStatus
+  parent: InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.Models.Service.ServiceStatus.html
+  name: ServiceStatus
+  nameWithType: ServiceStatus
+  fullName: InventarWorkerCommon.Models.Service.ServiceStatus
+- uid: InventarWorkerCommon.Models.Service.SystemInfo
+  commentId: T:InventarWorkerCommon.Models.Service.SystemInfo
+  parent: InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.Models.Service.SystemInfo.html
+  name: SystemInfo
+  nameWithType: SystemInfo
+  fullName: InventarWorkerCommon.Models.Service.SystemInfo
+- uid: InventarWorkerCommon.Models.Service
+  commentId: N:InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Service
+  nameWithType: InventarWorkerCommon.Models.Service
+  fullName: InventarWorkerCommon.Models.Service
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Service
+    name: Service
+    href: InventarWorkerCommon.Models.Service.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Service
+    name: Service
+    href: InventarWorkerCommon.Models.Service.html

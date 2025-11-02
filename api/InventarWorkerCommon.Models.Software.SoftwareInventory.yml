@@ -1,0 +1,775 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory
+  commentId: T:InventarWorkerCommon.Models.Software.SoftwareInventory
+  id: SoftwareInventory
+  parent: InventarWorkerCommon.Models.Software
+  children:
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+  - InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInventory
+  nameWithType: SoftwareInventory
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInventory
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 2
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public class SoftwareInventory
+    content.vb: Public Class SoftwareInventory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+  id: CollectionTime
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: CollectionTime
+  nameWithType: SoftwareInventory.CollectionTime
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CollectionTime
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 4
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public DateTime CollectionTime { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CollectionTime As Date
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+  id: InstalledSoftware
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: InstalledSoftware
+  nameWithType: SoftwareInventory.InstalledSoftware
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InstalledSoftware
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<SoftwareInfo> InstalledSoftware { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.SoftwareInfo}
+    content.vb: Public Property InstalledSoftware As List(Of SoftwareInfo)
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+  id: RunningProcesses
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: RunningProcesses
+  nameWithType: SoftwareInventory.RunningProcesses
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: RunningProcesses
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 6
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<ProcessInfo> RunningProcesses { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ProcessInfo}
+    content.vb: Public Property RunningProcesses As List(Of ProcessInfo)
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+  id: WindowsServices
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: WindowsServices
+  nameWithType: SoftwareInventory.WindowsServices
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WindowsServices
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<ServiceInfo> WindowsServices { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ServiceInfo}
+    content.vb: Public Property WindowsServices As List(Of ServiceInfo)
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+  id: StartupPrograms
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: StartupPrograms
+  nameWithType: SoftwareInventory.StartupPrograms
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartupPrograms
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<string> StartupPrograms { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property StartupPrograms As List(Of String)
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+  id: EnvironmentVariables
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentVariables
+  nameWithType: SoftwareInventory.EnvironmentVariables
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: EnvironmentVariables
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<string> EnvironmentVariables { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property EnvironmentVariables As List(Of String)
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables*
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+  commentId: P:InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+  id: Runtime
+  parent: InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: Runtime
+  nameWithType: SoftwareInventory.Runtime
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Runtime
+    path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public RuntimeInfo Runtime { get; set; }
+    parameters: []
+    return:
+      type: InventarWorkerCommon.Models.Software.RuntimeInfo
+    content.vb: Public Property Runtime As RuntimeInfo
+  overload: InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime*
+references:
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_CollectionTime
+  name: CollectionTime
+  nameWithType: SoftwareInventory.CollectionTime
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.CollectionTime
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_InstalledSoftware
+  name: InstalledSoftware
+  nameWithType: SoftwareInventory.InstalledSoftware
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.InstalledSoftware
+- uid: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.SoftwareInfo}
+  commentId: T:System.Collections.Generic.List{InventarWorkerCommon.Models.Software.SoftwareInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<SoftwareInfo>
+  nameWithType: List<SoftwareInfo>
+  fullName: System.Collections.Generic.List<InventarWorkerCommon.Models.Software.SoftwareInfo>
+  nameWithType.vb: List(Of SoftwareInfo)
+  fullName.vb: System.Collections.Generic.List(Of InventarWorkerCommon.Models.Software.SoftwareInfo)
+  name.vb: List(Of SoftwareInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Software.SoftwareInfo
+    name: SoftwareInfo
+    href: InventarWorkerCommon.Models.Software.SoftwareInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Software.SoftwareInfo
+    name: SoftwareInfo
+    href: InventarWorkerCommon.Models.Software.SoftwareInfo.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_RunningProcesses
+  name: RunningProcesses
+  nameWithType: SoftwareInventory.RunningProcesses
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.RunningProcesses
+- uid: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ProcessInfo}
+  commentId: T:System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ProcessInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ProcessInfo>
+  nameWithType: List<ProcessInfo>
+  fullName: System.Collections.Generic.List<InventarWorkerCommon.Models.Software.ProcessInfo>
+  nameWithType.vb: List(Of ProcessInfo)
+  fullName.vb: System.Collections.Generic.List(Of InventarWorkerCommon.Models.Software.ProcessInfo)
+  name.vb: List(Of ProcessInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Software.ProcessInfo
+    name: ProcessInfo
+    href: InventarWorkerCommon.Models.Software.ProcessInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Software.ProcessInfo
+    name: ProcessInfo
+    href: InventarWorkerCommon.Models.Software.ProcessInfo.html
+  - name: )
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_WindowsServices
+  name: WindowsServices
+  nameWithType: SoftwareInventory.WindowsServices
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.WindowsServices
+- uid: System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ServiceInfo}
+  commentId: T:System.Collections.Generic.List{InventarWorkerCommon.Models.Software.ServiceInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ServiceInfo>
+  nameWithType: List<ServiceInfo>
+  fullName: System.Collections.Generic.List<InventarWorkerCommon.Models.Software.ServiceInfo>
+  nameWithType.vb: List(Of ServiceInfo)
+  fullName.vb: System.Collections.Generic.List(Of InventarWorkerCommon.Models.Software.ServiceInfo)
+  name.vb: List(Of ServiceInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Software.ServiceInfo
+    name: ServiceInfo
+    href: InventarWorkerCommon.Models.Software.ServiceInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Software.ServiceInfo
+    name: ServiceInfo
+    href: InventarWorkerCommon.Models.Software.ServiceInfo.html
+  - name: )
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_StartupPrograms
+  name: StartupPrograms
+  nameWithType: SoftwareInventory.StartupPrograms
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.StartupPrograms
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_EnvironmentVariables
+  name: EnvironmentVariables
+  nameWithType: SoftwareInventory.EnvironmentVariables
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.EnvironmentVariables
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime*
+  commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html#InventarWorkerCommon_Models_Software_SoftwareInventory_Runtime
+  name: Runtime
+  nameWithType: SoftwareInventory.Runtime
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory.Runtime
+- uid: InventarWorkerCommon.Models.Software.RuntimeInfo
+  commentId: T:InventarWorkerCommon.Models.Software.RuntimeInfo
+  parent: InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.Models.Software.RuntimeInfo.html
+  name: RuntimeInfo
+  nameWithType: RuntimeInfo
+  fullName: InventarWorkerCommon.Models.Software.RuntimeInfo

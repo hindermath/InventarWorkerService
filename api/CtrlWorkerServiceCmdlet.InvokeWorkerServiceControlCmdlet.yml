@@ -1,0 +1,2100 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  commentId: T:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  id: InvokeWorkerServiceControlCmdlet
+  parent: CtrlWorkerServiceCmdlet
+  children:
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+  - CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+  langs:
+  - csharp
+  - vb
+  name: InvokeWorkerServiceControlCmdlet
+  nameWithType: InvokeWorkerServiceControlCmdlet
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  type: Class
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InvokeWorkerServiceControlCmdlet
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 16
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: >-
+    Cmdlet to provide control actions for a Worker Service.
+
+    Allows starting, stopping, or launching a terminal user interface (TUI) for the service.
+  remarks: >-
+    The cmdlet supports multiple parameter sets for different operations.
+
+    By default, it acts on a service with the name 'mein-service', but this can be overridden using the ServiceName parameter.
+
+    Errors encountered during the process are captured and written using the WriteError method.
+  example: []
+  syntax:
+    content: >-
+      [Cmdlet("Invoke", "WorkerServiceControl")]
+
+      [OutputType(new Type[] { typeof(string) })]
+
+      public class InvokeWorkerServiceControlCmdlet : PSCmdlet
+    content.vb: >-
+      <Cmdlet("Invoke", "WorkerServiceControl")>
+
+      <OutputType(New Type() { GetType(String) })>
+
+      Public Class InvokeWorkerServiceControlCmdlet Inherits PSCmdlet
+  inheritance:
+  - System.Object
+  - System.Management.Automation.Internal.InternalCommand
+  - System.Management.Automation.Cmdlet
+  - System.Management.Automation.PSCmdlet
+  inheritedMembers:
+  - System.Management.Automation.PSCmdlet.CurrentProviderLocation(System.String)
+  - System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(System.String)
+  - System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(System.String,System.Management.Automation.ProviderInfo@)
+  - System.Management.Automation.PSCmdlet.GetVariableValue(System.String)
+  - System.Management.Automation.PSCmdlet.GetVariableValue(System.String,System.Object)
+  - System.Management.Automation.PSCmdlet.Host
+  - System.Management.Automation.PSCmdlet.SessionState
+  - System.Management.Automation.PSCmdlet.Events
+  - System.Management.Automation.PSCmdlet.JobRepository
+  - System.Management.Automation.PSCmdlet.JobManager
+  - System.Management.Automation.PSCmdlet.InvokeProvider
+  - System.Management.Automation.PSCmdlet.ParameterSetName
+  - System.Management.Automation.PSCmdlet.MyInvocation
+  - System.Management.Automation.PSCmdlet.PagingParameters
+  - System.Management.Automation.PSCmdlet.InvokeCommand
+  - System.Management.Automation.Cmdlet.GetResourceString(System.String,System.String)
+  - System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+  - System.Management.Automation.Cmdlet.WriteObject(System.Object)
+  - System.Management.Automation.Cmdlet.WriteObject(System.Object,System.Boolean)
+  - System.Management.Automation.Cmdlet.WriteVerbose(System.String)
+  - System.Management.Automation.Cmdlet.WriteWarning(System.String)
+  - System.Management.Automation.Cmdlet.WriteCommandDetail(System.String)
+  - System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+  - System.Management.Automation.Cmdlet.WriteDebug(System.String)
+  - System.Management.Automation.Cmdlet.WriteInformation(System.Object,System.String[])
+  - System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+  - System.Management.Automation.Cmdlet.ShouldProcess(System.String)
+  - System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String)
+  - System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String)
+  - System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String,System.Management.Automation.ShouldProcessReason@)
+  - System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String)
+  - System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean@,System.Boolean@)
+  - System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean,System.Boolean@,System.Boolean@)
+  - System.Management.Automation.Cmdlet.Invoke
+  - System.Management.Automation.Cmdlet.Invoke``1
+  - System.Management.Automation.Cmdlet.TransactionAvailable
+  - System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+  - System.Management.Automation.Cmdlet.BeginProcessing
+  - System.Management.Automation.Cmdlet.EndProcessing
+  - System.Management.Automation.Cmdlet.StopProcessing
+  - System.Management.Automation.Cmdlet.CommonParameters
+  - System.Management.Automation.Cmdlet.OptionalCommonParameters
+  - System.Management.Automation.Cmdlet.Stopping
+  - System.Management.Automation.Cmdlet.CommandRuntime
+  - System.Management.Automation.Cmdlet.CurrentPSTransaction
+  - System.Management.Automation.Internal.InternalCommand.CommandOrigin
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.Management.Automation.CmdletAttribute
+    ctor: System.Management.Automation.CmdletAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Invoke
+    - type: System.String
+      value: WorkerServiceControl
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+  commentId: P:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+  id: Start
+  parent: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: InvokeWorkerServiceControlCmdlet.Start
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+  type: Property
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Start
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 27
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: Startet den konfigurierten Worker Service.
+  remarks: >-
+    Verwenden Sie diesen Schalter, um den Dienst zu starten. Kombinieren Sie optional mit <code>-ServiceName</code>,
+
+    um einen anderen Dienstnamen anzugeben, und mit <code>-Verbose</code> für detaillierte Ausgaben.
+  example: []
+  syntax:
+    content: >-
+      [Parameter(Mandatory = false, Position = 0, ParameterSetName = "Start", HelpMessage = "Startet den Worker Service")]
+
+      public SwitchParameter Start { get; set; }
+    parameters: []
+    return:
+      type: System.Management.Automation.SwitchParameter
+    content.vb: >-
+      <Parameter(Mandatory:=False, Position:=0, ParameterSetName:="Start", HelpMessage:="Startet den Worker Service")>
+
+      Public Property Start As SwitchParameter
+  overload: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start*
+  attributes:
+  - type: System.Management.Automation.ParameterAttribute
+    ctor: System.Management.Automation.ParameterAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Mandatory
+      type: System.Boolean
+      value: false
+    - name: Position
+      type: System.Int32
+      value: 0
+    - name: ParameterSetName
+      type: System.String
+      value: Start
+    - name: HelpMessage
+      type: System.String
+      value: Startet den Worker Service
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+  commentId: P:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+  id: Stop
+  parent: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: Stop
+  nameWithType: InvokeWorkerServiceControlCmdlet.Stop
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+  type: Property
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Stop
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 41
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: Stoppt den konfigurierten Worker Service.
+  remarks: >-
+    Verwenden Sie diesen Schalter, um den Dienst zu stoppen. Kombinieren Sie optional mit <code>-ServiceName</code>,
+
+    um einen anderen Dienstnamen anzugeben, und mit <code>-Verbose</code> für detaillierte Ausgaben.
+  example: []
+  syntax:
+    content: >-
+      [Parameter(Mandatory = false, Position = 0, ParameterSetName = "Stop", HelpMessage = "Stoppt den Worker Service")]
+
+      public SwitchParameter Stop { get; set; }
+    parameters: []
+    return:
+      type: System.Management.Automation.SwitchParameter
+    content.vb: >-
+      <Parameter(Mandatory:=False, Position:=0, ParameterSetName:="Stop", HelpMessage:="Stoppt den Worker Service")>
+
+      Public Property [Stop] As SwitchParameter
+  overload: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop*
+  attributes:
+  - type: System.Management.Automation.ParameterAttribute
+    ctor: System.Management.Automation.ParameterAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Mandatory
+      type: System.Boolean
+      value: false
+    - name: Position
+      type: System.Int32
+      value: 0
+    - name: ParameterSetName
+      type: System.String
+      value: Stop
+    - name: HelpMessage
+      type: System.String
+      value: Stoppt den Worker Service
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+  commentId: P:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+  id: Tui
+  parent: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: Tui
+  nameWithType: InvokeWorkerServiceControlCmdlet.Tui
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+  type: Property
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Tui
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 54
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: Öffnet eine Terminal-Benutzeroberfläche (TUI) zur Steuerung des Dienstes.
+  remarks: Die TUI ermöglicht das Starten und Stoppen des Dienstes über eine einfache Benutzeroberfläche.
+  example: []
+  syntax:
+    content: >-
+      [Parameter(Mandatory = false, Position = 0, ParameterSetName = "TUI", HelpMessage = "Startet die Terminal-Benutzeroberfläche")]
+
+      public SwitchParameter Tui { get; set; }
+    parameters: []
+    return:
+      type: System.Management.Automation.SwitchParameter
+    content.vb: >-
+      <Parameter(Mandatory:=False, Position:=0, ParameterSetName:="TUI", HelpMessage:="Startet die Terminal-Benutzeroberfläche")>
+
+      Public Property Tui As SwitchParameter
+  overload: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui*
+  attributes:
+  - type: System.Management.Automation.ParameterAttribute
+    ctor: System.Management.Automation.ParameterAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Mandatory
+      type: System.Boolean
+      value: false
+    - name: Position
+      type: System.Int32
+      value: 0
+    - name: ParameterSetName
+      type: System.String
+      value: TUI
+    - name: HelpMessage
+      type: System.String
+      value: Startet die Terminal-Benutzeroberfläche
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+  commentId: P:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+  id: ServiceName
+  parent: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: ServiceName
+  nameWithType: InvokeWorkerServiceControlCmdlet.ServiceName
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+  type: Property
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceName
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 68
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: Name des zu steuernden Dienstes.
+  remarks: Wenn kein Name angegeben wird, wird der Standardname verwendet. Der Wert darf nicht leer sein.
+  example: []
+  syntax:
+    content: >-
+      [Parameter(Mandatory = false, HelpMessage = "Name des Services (Standard: 'mein-service')")]
+
+      [ValidateNotNullOrEmpty]
+
+      public string ServiceName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: Standardwert ist <code>"mein-service"</code>.
+    content.vb: >-
+      <Parameter(Mandatory:=False, HelpMessage:="Name des Services (Standard: 'mein-service')")>
+
+      <ValidateNotNullOrEmpty>
+
+      Public Property ServiceName As String
+  overload: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName*
+  attributes:
+  - type: System.Management.Automation.ParameterAttribute
+    ctor: System.Management.Automation.ParameterAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Mandatory
+      type: System.Boolean
+      value: false
+    - name: HelpMessage
+      type: System.String
+      value: "Name des Services (Standard: 'mein-service')"
+  - type: System.Management.Automation.ValidateNotNullOrEmptyAttribute
+    ctor: System.Management.Automation.ValidateNotNullOrEmptyAttribute.#ctor
+    arguments: []
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord
+  commentId: M:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord
+  id: ProcessRecord
+  parent: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+  langs:
+  - csharp
+  - vb
+  name: ProcessRecord()
+  nameWithType: InvokeWorkerServiceControlCmdlet.ProcessRecord()
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ProcessRecord
+    path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
+    startLine: 82
+  assemblies:
+  - CtrlWorkerServiceCmdlet
+  namespace: CtrlWorkerServiceCmdlet
+  summary: Verarbeitet den Cmdlet-Aufruf und führt die angeforderte Aktion entsprechend dem Parametersatz aus.
+  remarks: >-
+    Unterstützte Aktionen sind <code>-Start</code>, <code>-Stop</code> und <code>-Tui</code>. Wenn keiner der Schalter gesetzt ist,
+
+    wird eine Hilfeausgabe angezeigt. Ausnahmen werden als Fehlerereignisse gemeldet.
+  example: []
+  syntax:
+    content: protected override void ProcessRecord()
+    content.vb: Protected Overrides Sub ProcessRecord()
+  overridden: System.Management.Automation.Cmdlet.ProcessRecord
+  overload: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord*
+references:
+- uid: CtrlWorkerServiceCmdlet
+  commentId: N:CtrlWorkerServiceCmdlet
+  href: CtrlWorkerServiceCmdlet.html
+  name: CtrlWorkerServiceCmdlet
+  nameWithType: CtrlWorkerServiceCmdlet
+  fullName: CtrlWorkerServiceCmdlet
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Management.Automation.Internal.InternalCommand
+  commentId: T:System.Management.Automation.Internal.InternalCommand
+  parent: System.Management.Automation.Internal
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.internal.internalcommand
+  name: InternalCommand
+  nameWithType: InternalCommand
+  fullName: System.Management.Automation.Internal.InternalCommand
+- uid: System.Management.Automation.Cmdlet
+  commentId: T:System.Management.Automation.Cmdlet
+  parent: System.Management.Automation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet
+  name: Cmdlet
+  nameWithType: Cmdlet
+  fullName: System.Management.Automation.Cmdlet
+- uid: System.Management.Automation.PSCmdlet
+  commentId: T:System.Management.Automation.PSCmdlet
+  parent: System.Management.Automation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet
+  name: PSCmdlet
+  nameWithType: PSCmdlet
+  fullName: System.Management.Automation.PSCmdlet
+- uid: System.Management.Automation.PSCmdlet.CurrentProviderLocation(System.String)
+  commentId: M:System.Management.Automation.PSCmdlet.CurrentProviderLocation(System.String)
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.currentproviderlocation
+  name: CurrentProviderLocation(string)
+  nameWithType: PSCmdlet.CurrentProviderLocation(string)
+  fullName: System.Management.Automation.PSCmdlet.CurrentProviderLocation(string)
+  nameWithType.vb: PSCmdlet.CurrentProviderLocation(String)
+  fullName.vb: System.Management.Automation.PSCmdlet.CurrentProviderLocation(String)
+  name.vb: CurrentProviderLocation(String)
+  spec.csharp:
+  - uid: System.Management.Automation.PSCmdlet.CurrentProviderLocation(System.String)
+    name: CurrentProviderLocation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.currentproviderlocation
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.PSCmdlet.CurrentProviderLocation(System.String)
+    name: CurrentProviderLocation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.currentproviderlocation
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(System.String)
+  commentId: M:System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(System.String)
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getunresolvedproviderpathfrompspath
+  name: GetUnresolvedProviderPathFromPSPath(string)
+  nameWithType: PSCmdlet.GetUnresolvedProviderPathFromPSPath(string)
+  fullName: System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(string)
+  nameWithType.vb: PSCmdlet.GetUnresolvedProviderPathFromPSPath(String)
+  fullName.vb: System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(String)
+  name.vb: GetUnresolvedProviderPathFromPSPath(String)
+  spec.csharp:
+  - uid: System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(System.String)
+    name: GetUnresolvedProviderPathFromPSPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getunresolvedproviderpathfrompspath
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.PSCmdlet.GetUnresolvedProviderPathFromPSPath(System.String)
+    name: GetUnresolvedProviderPathFromPSPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getunresolvedproviderpathfrompspath
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(System.String,System.Management.Automation.ProviderInfo@)
+  commentId: M:System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(System.String,System.Management.Automation.ProviderInfo@)
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getresolvedproviderpathfrompspath
+  name: GetResolvedProviderPathFromPSPath(string, out ProviderInfo)
+  nameWithType: PSCmdlet.GetResolvedProviderPathFromPSPath(string, out ProviderInfo)
+  fullName: System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(string, out System.Management.Automation.ProviderInfo)
+  nameWithType.vb: PSCmdlet.GetResolvedProviderPathFromPSPath(String, ProviderInfo)
+  fullName.vb: System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(String, System.Management.Automation.ProviderInfo)
+  name.vb: GetResolvedProviderPathFromPSPath(String, ProviderInfo)
+  spec.csharp:
+  - uid: System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(System.String,System.Management.Automation.ProviderInfo@)
+    name: GetResolvedProviderPathFromPSPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getresolvedproviderpathfrompspath
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Management.Automation.ProviderInfo
+    name: ProviderInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.providerinfo
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.PSCmdlet.GetResolvedProviderPathFromPSPath(System.String,System.Management.Automation.ProviderInfo@)
+    name: GetResolvedProviderPathFromPSPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getresolvedproviderpathfrompspath
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Management.Automation.ProviderInfo
+    name: ProviderInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.providerinfo
+  - name: )
+- uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String)
+  commentId: M:System.Management.Automation.PSCmdlet.GetVariableValue(System.String)
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string)
+  name: GetVariableValue(string)
+  nameWithType: PSCmdlet.GetVariableValue(string)
+  fullName: System.Management.Automation.PSCmdlet.GetVariableValue(string)
+  nameWithType.vb: PSCmdlet.GetVariableValue(String)
+  fullName.vb: System.Management.Automation.PSCmdlet.GetVariableValue(String)
+  name.vb: GetVariableValue(String)
+  spec.csharp:
+  - uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String)
+    name: GetVariableValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String)
+    name: GetVariableValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String,System.Object)
+  commentId: M:System.Management.Automation.PSCmdlet.GetVariableValue(System.String,System.Object)
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string-system-object)
+  name: GetVariableValue(string, object)
+  nameWithType: PSCmdlet.GetVariableValue(string, object)
+  fullName: System.Management.Automation.PSCmdlet.GetVariableValue(string, object)
+  nameWithType.vb: PSCmdlet.GetVariableValue(String, Object)
+  fullName.vb: System.Management.Automation.PSCmdlet.GetVariableValue(String, Object)
+  name.vb: GetVariableValue(String, Object)
+  spec.csharp:
+  - uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String,System.Object)
+    name: GetVariableValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string-system-object)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.PSCmdlet.GetVariableValue(System.String,System.Object)
+    name: GetVariableValue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.getvariablevalue#system-management-automation-pscmdlet-getvariablevalue(system-string-system-object)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Management.Automation.PSCmdlet.Host
+  commentId: P:System.Management.Automation.PSCmdlet.Host
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.host
+  name: Host
+  nameWithType: PSCmdlet.Host
+  fullName: System.Management.Automation.PSCmdlet.Host
+- uid: System.Management.Automation.PSCmdlet.SessionState
+  commentId: P:System.Management.Automation.PSCmdlet.SessionState
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.sessionstate
+  name: SessionState
+  nameWithType: PSCmdlet.SessionState
+  fullName: System.Management.Automation.PSCmdlet.SessionState
+- uid: System.Management.Automation.PSCmdlet.Events
+  commentId: P:System.Management.Automation.PSCmdlet.Events
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.events
+  name: Events
+  nameWithType: PSCmdlet.Events
+  fullName: System.Management.Automation.PSCmdlet.Events
+- uid: System.Management.Automation.PSCmdlet.JobRepository
+  commentId: P:System.Management.Automation.PSCmdlet.JobRepository
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.jobrepository
+  name: JobRepository
+  nameWithType: PSCmdlet.JobRepository
+  fullName: System.Management.Automation.PSCmdlet.JobRepository
+- uid: System.Management.Automation.PSCmdlet.JobManager
+  commentId: P:System.Management.Automation.PSCmdlet.JobManager
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.jobmanager
+  name: JobManager
+  nameWithType: PSCmdlet.JobManager
+  fullName: System.Management.Automation.PSCmdlet.JobManager
+- uid: System.Management.Automation.PSCmdlet.InvokeProvider
+  commentId: P:System.Management.Automation.PSCmdlet.InvokeProvider
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.invokeprovider
+  name: InvokeProvider
+  nameWithType: PSCmdlet.InvokeProvider
+  fullName: System.Management.Automation.PSCmdlet.InvokeProvider
+- uid: System.Management.Automation.PSCmdlet.ParameterSetName
+  commentId: P:System.Management.Automation.PSCmdlet.ParameterSetName
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.parametersetname
+  name: ParameterSetName
+  nameWithType: PSCmdlet.ParameterSetName
+  fullName: System.Management.Automation.PSCmdlet.ParameterSetName
+- uid: System.Management.Automation.PSCmdlet.MyInvocation
+  commentId: P:System.Management.Automation.PSCmdlet.MyInvocation
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.myinvocation
+  name: MyInvocation
+  nameWithType: PSCmdlet.MyInvocation
+  fullName: System.Management.Automation.PSCmdlet.MyInvocation
+- uid: System.Management.Automation.PSCmdlet.PagingParameters
+  commentId: P:System.Management.Automation.PSCmdlet.PagingParameters
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.pagingparameters
+  name: PagingParameters
+  nameWithType: PSCmdlet.PagingParameters
+  fullName: System.Management.Automation.PSCmdlet.PagingParameters
+- uid: System.Management.Automation.PSCmdlet.InvokeCommand
+  commentId: P:System.Management.Automation.PSCmdlet.InvokeCommand
+  parent: System.Management.Automation.PSCmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.pscmdlet.invokecommand
+  name: InvokeCommand
+  nameWithType: PSCmdlet.InvokeCommand
+  fullName: System.Management.Automation.PSCmdlet.InvokeCommand
+- uid: System.Management.Automation.Cmdlet.GetResourceString(System.String,System.String)
+  commentId: M:System.Management.Automation.Cmdlet.GetResourceString(System.String,System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.getresourcestring
+  name: GetResourceString(string, string)
+  nameWithType: Cmdlet.GetResourceString(string, string)
+  fullName: System.Management.Automation.Cmdlet.GetResourceString(string, string)
+  nameWithType.vb: Cmdlet.GetResourceString(String, String)
+  fullName.vb: System.Management.Automation.Cmdlet.GetResourceString(String, String)
+  name.vb: GetResourceString(String, String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.GetResourceString(System.String,System.String)
+    name: GetResourceString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.getresourcestring
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.GetResourceString(System.String,System.String)
+    name: GetResourceString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.getresourcestring
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+  commentId: M:System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeerror
+  name: WriteError(ErrorRecord)
+  nameWithType: Cmdlet.WriteError(ErrorRecord)
+  fullName: System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+    name: WriteError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeerror
+  - name: (
+  - uid: System.Management.Automation.ErrorRecord
+    name: ErrorRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.errorrecord
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteError(System.Management.Automation.ErrorRecord)
+    name: WriteError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeerror
+  - name: (
+  - uid: System.Management.Automation.ErrorRecord
+    name: ErrorRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.errorrecord
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteObject(System.Object)
+  commentId: M:System.Management.Automation.Cmdlet.WriteObject(System.Object)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object)
+  name: WriteObject(object)
+  nameWithType: Cmdlet.WriteObject(object)
+  fullName: System.Management.Automation.Cmdlet.WriteObject(object)
+  nameWithType.vb: Cmdlet.WriteObject(Object)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteObject(Object)
+  name.vb: WriteObject(Object)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteObject(System.Object)
+    name: WriteObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteObject(System.Object)
+    name: WriteObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteObject(System.Object,System.Boolean)
+  commentId: M:System.Management.Automation.Cmdlet.WriteObject(System.Object,System.Boolean)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object-system-boolean)
+  name: WriteObject(object, bool)
+  nameWithType: Cmdlet.WriteObject(object, bool)
+  fullName: System.Management.Automation.Cmdlet.WriteObject(object, bool)
+  nameWithType.vb: Cmdlet.WriteObject(Object, Boolean)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteObject(Object, Boolean)
+  name.vb: WriteObject(Object, Boolean)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteObject(System.Object,System.Boolean)
+    name: WriteObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object-system-boolean)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteObject(System.Object,System.Boolean)
+    name: WriteObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeobject#system-management-automation-cmdlet-writeobject(system-object-system-boolean)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteVerbose(System.String)
+  commentId: M:System.Management.Automation.Cmdlet.WriteVerbose(System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeverbose
+  name: WriteVerbose(string)
+  nameWithType: Cmdlet.WriteVerbose(string)
+  fullName: System.Management.Automation.Cmdlet.WriteVerbose(string)
+  nameWithType.vb: Cmdlet.WriteVerbose(String)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteVerbose(String)
+  name.vb: WriteVerbose(String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteVerbose(System.String)
+    name: WriteVerbose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeverbose
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteVerbose(System.String)
+    name: WriteVerbose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeverbose
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteWarning(System.String)
+  commentId: M:System.Management.Automation.Cmdlet.WriteWarning(System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writewarning
+  name: WriteWarning(string)
+  nameWithType: Cmdlet.WriteWarning(string)
+  fullName: System.Management.Automation.Cmdlet.WriteWarning(string)
+  nameWithType.vb: Cmdlet.WriteWarning(String)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteWarning(String)
+  name.vb: WriteWarning(String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteWarning(System.String)
+    name: WriteWarning
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writewarning
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteWarning(System.String)
+    name: WriteWarning
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writewarning
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteCommandDetail(System.String)
+  commentId: M:System.Management.Automation.Cmdlet.WriteCommandDetail(System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writecommanddetail
+  name: WriteCommandDetail(string)
+  nameWithType: Cmdlet.WriteCommandDetail(string)
+  fullName: System.Management.Automation.Cmdlet.WriteCommandDetail(string)
+  nameWithType.vb: Cmdlet.WriteCommandDetail(String)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteCommandDetail(String)
+  name.vb: WriteCommandDetail(String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteCommandDetail(System.String)
+    name: WriteCommandDetail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writecommanddetail
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteCommandDetail(System.String)
+    name: WriteCommandDetail
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writecommanddetail
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+  commentId: M:System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeprogress
+  name: WriteProgress(ProgressRecord)
+  nameWithType: Cmdlet.WriteProgress(ProgressRecord)
+  fullName: System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+    name: WriteProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeprogress
+  - name: (
+  - uid: System.Management.Automation.ProgressRecord
+    name: ProgressRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.progressrecord
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteProgress(System.Management.Automation.ProgressRecord)
+    name: WriteProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeprogress
+  - name: (
+  - uid: System.Management.Automation.ProgressRecord
+    name: ProgressRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.progressrecord
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteDebug(System.String)
+  commentId: M:System.Management.Automation.Cmdlet.WriteDebug(System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writedebug
+  name: WriteDebug(string)
+  nameWithType: Cmdlet.WriteDebug(string)
+  fullName: System.Management.Automation.Cmdlet.WriteDebug(string)
+  nameWithType.vb: Cmdlet.WriteDebug(String)
+  fullName.vb: System.Management.Automation.Cmdlet.WriteDebug(String)
+  name.vb: WriteDebug(String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteDebug(System.String)
+    name: WriteDebug
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writedebug
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteDebug(System.String)
+    name: WriteDebug
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writedebug
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteInformation(System.Object,System.String[])
+  commentId: M:System.Management.Automation.Cmdlet.WriteInformation(System.Object,System.String[])
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-object-system-string())
+  name: WriteInformation(object, string[])
+  nameWithType: Cmdlet.WriteInformation(object, string[])
+  fullName: System.Management.Automation.Cmdlet.WriteInformation(object, string[])
+  nameWithType.vb: Cmdlet.WriteInformation(Object, String())
+  fullName.vb: System.Management.Automation.Cmdlet.WriteInformation(Object, String())
+  name.vb: WriteInformation(Object, String())
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteInformation(System.Object,System.String[])
+    name: WriteInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-object-system-string())
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteInformation(System.Object,System.String[])
+    name: WriteInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-object-system-string())
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+  commentId: M:System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-management-automation-informationrecord)
+  name: WriteInformation(InformationRecord)
+  nameWithType: Cmdlet.WriteInformation(InformationRecord)
+  fullName: System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+    name: WriteInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-management-automation-informationrecord)
+  - name: (
+  - uid: System.Management.Automation.InformationRecord
+    name: InformationRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.informationrecord
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.WriteInformation(System.Management.Automation.InformationRecord)
+    name: WriteInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.writeinformation#system-management-automation-cmdlet-writeinformation(system-management-automation-informationrecord)
+  - name: (
+  - uid: System.Management.Automation.InformationRecord
+    name: InformationRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.informationrecord
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldProcess(System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string)
+  name: ShouldProcess(string)
+  nameWithType: Cmdlet.ShouldProcess(string)
+  fullName: System.Management.Automation.Cmdlet.ShouldProcess(string)
+  nameWithType.vb: Cmdlet.ShouldProcess(String)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldProcess(String)
+  name.vb: ShouldProcess(String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string)
+  name: ShouldProcess(string, string)
+  nameWithType: Cmdlet.ShouldProcess(string, string)
+  fullName: System.Management.Automation.Cmdlet.ShouldProcess(string, string)
+  nameWithType.vb: Cmdlet.ShouldProcess(String, String)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldProcess(String, String)
+  name.vb: ShouldProcess(String, String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string)
+  name: ShouldProcess(string, string, string)
+  nameWithType: Cmdlet.ShouldProcess(string, string, string)
+  fullName: System.Management.Automation.Cmdlet.ShouldProcess(string, string, string)
+  nameWithType.vb: Cmdlet.ShouldProcess(String, String, String)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldProcess(String, String, String)
+  name.vb: ShouldProcess(String, String, String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String,System.Management.Automation.ShouldProcessReason@)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String,System.Management.Automation.ShouldProcessReason@)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string-system-management-automation-shouldprocessreason@)
+  name: ShouldProcess(string, string, string, out ShouldProcessReason)
+  nameWithType: Cmdlet.ShouldProcess(string, string, string, out ShouldProcessReason)
+  fullName: System.Management.Automation.Cmdlet.ShouldProcess(string, string, string, out System.Management.Automation.ShouldProcessReason)
+  nameWithType.vb: Cmdlet.ShouldProcess(String, String, String, ShouldProcessReason)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldProcess(String, String, String, System.Management.Automation.ShouldProcessReason)
+  name.vb: ShouldProcess(String, String, String, ShouldProcessReason)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String,System.Management.Automation.ShouldProcessReason@)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string-system-management-automation-shouldprocessreason@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Management.Automation.ShouldProcessReason
+    name: ShouldProcessReason
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.shouldprocessreason
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldProcess(System.String,System.String,System.String,System.Management.Automation.ShouldProcessReason@)
+    name: ShouldProcess
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldprocess#system-management-automation-cmdlet-shouldprocess(system-string-system-string-system-string-system-management-automation-shouldprocessreason@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Management.Automation.ShouldProcessReason
+    name: ShouldProcessReason
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.shouldprocessreason
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string)
+  name: ShouldContinue(string, string)
+  nameWithType: Cmdlet.ShouldContinue(string, string)
+  fullName: System.Management.Automation.Cmdlet.ShouldContinue(string, string)
+  nameWithType.vb: Cmdlet.ShouldContinue(String, String)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldContinue(String, String)
+  name.vb: ShouldContinue(String, String)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean@,System.Boolean@)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean@,System.Boolean@)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean@-system-boolean@)
+  name: ShouldContinue(string, string, ref bool, ref bool)
+  nameWithType: Cmdlet.ShouldContinue(string, string, ref bool, ref bool)
+  fullName: System.Management.Automation.Cmdlet.ShouldContinue(string, string, ref bool, ref bool)
+  nameWithType.vb: Cmdlet.ShouldContinue(String, String, Boolean, Boolean)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldContinue(String, String, Boolean, Boolean)
+  name.vb: ShouldContinue(String, String, Boolean, Boolean)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean@,System.Boolean@)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean@-system-boolean@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean@,System.Boolean@)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean@-system-boolean@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean,System.Boolean@,System.Boolean@)
+  commentId: M:System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean,System.Boolean@,System.Boolean@)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean-system-boolean@-system-boolean@)
+  name: ShouldContinue(string, string, bool, ref bool, ref bool)
+  nameWithType: Cmdlet.ShouldContinue(string, string, bool, ref bool, ref bool)
+  fullName: System.Management.Automation.Cmdlet.ShouldContinue(string, string, bool, ref bool, ref bool)
+  nameWithType.vb: Cmdlet.ShouldContinue(String, String, Boolean, Boolean, Boolean)
+  fullName.vb: System.Management.Automation.Cmdlet.ShouldContinue(String, String, Boolean, Boolean, Boolean)
+  name.vb: ShouldContinue(String, String, Boolean, Boolean, Boolean)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean,System.Boolean@,System.Boolean@)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean-system-boolean@-system-boolean@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ShouldContinue(System.String,System.String,System.Boolean,System.Boolean@,System.Boolean@)
+    name: ShouldContinue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.shouldcontinue#system-management-automation-cmdlet-shouldcontinue(system-string-system-string-system-boolean-system-boolean@-system-boolean@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Management.Automation.Cmdlet.Invoke
+  commentId: M:System.Management.Automation.Cmdlet.Invoke
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke
+  name: Invoke()
+  nameWithType: Cmdlet.Invoke()
+  fullName: System.Management.Automation.Cmdlet.Invoke()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.Invoke
+    name: Invoke
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.Invoke
+    name: Invoke
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.Invoke``1
+  commentId: M:System.Management.Automation.Cmdlet.Invoke``1
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke-1
+  name: Invoke<T>()
+  nameWithType: Cmdlet.Invoke<T>()
+  fullName: System.Management.Automation.Cmdlet.Invoke<T>()
+  nameWithType.vb: Cmdlet.Invoke(Of T)()
+  fullName.vb: System.Management.Automation.Cmdlet.Invoke(Of T)()
+  name.vb: Invoke(Of T)()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.Invoke``1
+    name: Invoke
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.Invoke``1
+    name: Invoke
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.invoke#system-management-automation-cmdlet-invoke-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.TransactionAvailable
+  commentId: M:System.Management.Automation.Cmdlet.TransactionAvailable
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.transactionavailable
+  name: TransactionAvailable()
+  nameWithType: Cmdlet.TransactionAvailable()
+  fullName: System.Management.Automation.Cmdlet.TransactionAvailable()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.TransactionAvailable
+    name: TransactionAvailable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.transactionavailable
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.TransactionAvailable
+    name: TransactionAvailable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.transactionavailable
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+  commentId: M:System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.throwterminatingerror
+  name: ThrowTerminatingError(ErrorRecord)
+  nameWithType: Cmdlet.ThrowTerminatingError(ErrorRecord)
+  fullName: System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+    name: ThrowTerminatingError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.throwterminatingerror
+  - name: (
+  - uid: System.Management.Automation.ErrorRecord
+    name: ErrorRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.errorrecord
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ThrowTerminatingError(System.Management.Automation.ErrorRecord)
+    name: ThrowTerminatingError
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.throwterminatingerror
+  - name: (
+  - uid: System.Management.Automation.ErrorRecord
+    name: ErrorRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.errorrecord
+  - name: )
+- uid: System.Management.Automation.Cmdlet.BeginProcessing
+  commentId: M:System.Management.Automation.Cmdlet.BeginProcessing
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.beginprocessing
+  name: BeginProcessing()
+  nameWithType: Cmdlet.BeginProcessing()
+  fullName: System.Management.Automation.Cmdlet.BeginProcessing()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.BeginProcessing
+    name: BeginProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.beginprocessing
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.BeginProcessing
+    name: BeginProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.beginprocessing
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.EndProcessing
+  commentId: M:System.Management.Automation.Cmdlet.EndProcessing
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.endprocessing
+  name: EndProcessing()
+  nameWithType: Cmdlet.EndProcessing()
+  fullName: System.Management.Automation.Cmdlet.EndProcessing()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.EndProcessing
+    name: EndProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.endprocessing
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.EndProcessing
+    name: EndProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.endprocessing
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.StopProcessing
+  commentId: M:System.Management.Automation.Cmdlet.StopProcessing
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.stopprocessing
+  name: StopProcessing()
+  nameWithType: Cmdlet.StopProcessing()
+  fullName: System.Management.Automation.Cmdlet.StopProcessing()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.StopProcessing
+    name: StopProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.stopprocessing
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.StopProcessing
+    name: StopProcessing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.stopprocessing
+  - name: (
+  - name: )
+- uid: System.Management.Automation.Cmdlet.CommonParameters
+  commentId: P:System.Management.Automation.Cmdlet.CommonParameters
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.commonparameters
+  name: CommonParameters
+  nameWithType: Cmdlet.CommonParameters
+  fullName: System.Management.Automation.Cmdlet.CommonParameters
+- uid: System.Management.Automation.Cmdlet.OptionalCommonParameters
+  commentId: P:System.Management.Automation.Cmdlet.OptionalCommonParameters
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.optionalcommonparameters
+  name: OptionalCommonParameters
+  nameWithType: Cmdlet.OptionalCommonParameters
+  fullName: System.Management.Automation.Cmdlet.OptionalCommonParameters
+- uid: System.Management.Automation.Cmdlet.Stopping
+  commentId: P:System.Management.Automation.Cmdlet.Stopping
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.stopping
+  name: Stopping
+  nameWithType: Cmdlet.Stopping
+  fullName: System.Management.Automation.Cmdlet.Stopping
+- uid: System.Management.Automation.Cmdlet.CommandRuntime
+  commentId: P:System.Management.Automation.Cmdlet.CommandRuntime
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.commandruntime
+  name: CommandRuntime
+  nameWithType: Cmdlet.CommandRuntime
+  fullName: System.Management.Automation.Cmdlet.CommandRuntime
+- uid: System.Management.Automation.Cmdlet.CurrentPSTransaction
+  commentId: P:System.Management.Automation.Cmdlet.CurrentPSTransaction
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.currentpstransaction
+  name: CurrentPSTransaction
+  nameWithType: Cmdlet.CurrentPSTransaction
+  fullName: System.Management.Automation.Cmdlet.CurrentPSTransaction
+- uid: System.Management.Automation.Internal.InternalCommand.CommandOrigin
+  commentId: P:System.Management.Automation.Internal.InternalCommand.CommandOrigin
+  parent: System.Management.Automation.Internal.InternalCommand
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.internal.internalcommand.commandorigin
+  name: CommandOrigin
+  nameWithType: InternalCommand.CommandOrigin
+  fullName: System.Management.Automation.Internal.InternalCommand.CommandOrigin
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Management.Automation.Internal
+  commentId: N:System.Management.Automation.Internal
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Management.Automation.Internal
+  nameWithType: System.Management.Automation.Internal
+  fullName: System.Management.Automation.Internal
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Management
+    name: Management
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management
+  - name: .
+  - uid: System.Management.Automation
+    name: Automation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation
+  - name: .
+  - uid: System.Management.Automation.Internal
+    name: Internal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.internal
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Management
+    name: Management
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management
+  - name: .
+  - uid: System.Management.Automation
+    name: Automation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation
+  - name: .
+  - uid: System.Management.Automation.Internal
+    name: Internal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.internal
+- uid: System.Management.Automation
+  commentId: N:System.Management.Automation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Management.Automation
+  nameWithType: System.Management.Automation
+  fullName: System.Management.Automation
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Management
+    name: Management
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management
+  - name: .
+  - uid: System.Management.Automation
+    name: Automation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Management
+    name: Management
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management
+  - name: .
+  - uid: System.Management.Automation
+    name: Automation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start*
+  commentId: Overload:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html#CtrlWorkerServiceCmdlet_InvokeWorkerServiceControlCmdlet_Start
+  name: Start
+  nameWithType: InvokeWorkerServiceControlCmdlet.Start
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Start
+- uid: System.Management.Automation.SwitchParameter
+  commentId: T:System.Management.Automation.SwitchParameter
+  parent: System.Management.Automation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.switchparameter
+  name: SwitchParameter
+  nameWithType: SwitchParameter
+  fullName: System.Management.Automation.SwitchParameter
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop*
+  commentId: Overload:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html#CtrlWorkerServiceCmdlet_InvokeWorkerServiceControlCmdlet_Stop
+  name: Stop
+  nameWithType: InvokeWorkerServiceControlCmdlet.Stop
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Stop
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui*
+  commentId: Overload:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html#CtrlWorkerServiceCmdlet_InvokeWorkerServiceControlCmdlet_Tui
+  name: Tui
+  nameWithType: InvokeWorkerServiceControlCmdlet.Tui
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.Tui
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName*
+  commentId: Overload:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html#CtrlWorkerServiceCmdlet_InvokeWorkerServiceControlCmdlet_ServiceName
+  name: ServiceName
+  nameWithType: InvokeWorkerServiceControlCmdlet.ServiceName
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ServiceName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Management.Automation.Cmdlet.ProcessRecord
+  commentId: M:System.Management.Automation.Cmdlet.ProcessRecord
+  parent: System.Management.Automation.Cmdlet
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.processrecord
+  name: ProcessRecord()
+  nameWithType: Cmdlet.ProcessRecord()
+  fullName: System.Management.Automation.Cmdlet.ProcessRecord()
+  spec.csharp:
+  - uid: System.Management.Automation.Cmdlet.ProcessRecord
+    name: ProcessRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.processrecord
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Management.Automation.Cmdlet.ProcessRecord
+    name: ProcessRecord
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.management.automation.cmdlet.processrecord
+  - name: (
+  - name: )
+- uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord*
+  commentId: Overload:CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord
+  href: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.html#CtrlWorkerServiceCmdlet_InvokeWorkerServiceControlCmdlet_ProcessRecord
+  name: ProcessRecord
+  nameWithType: InvokeWorkerServiceControlCmdlet.ProcessRecord
+  fullName: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet.ProcessRecord

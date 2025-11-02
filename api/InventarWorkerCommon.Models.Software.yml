@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  id: InventarWorkerCommon.Models.Software
+  children:
+  - InventarWorkerCommon.Models.Software.ProcessInfo
+  - InventarWorkerCommon.Models.Software.RuntimeInfo
+  - InventarWorkerCommon.Models.Software.ServiceInfo
+  - InventarWorkerCommon.Models.Software.SoftwareInfo
+  - InventarWorkerCommon.Models.Software.SoftwareInventory
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.Software.ProcessInfo
+  commentId: T:InventarWorkerCommon.Models.Software.ProcessInfo
+  href: InventarWorkerCommon.Models.Software.ProcessInfo.html
+  name: ProcessInfo
+  nameWithType: ProcessInfo
+  fullName: InventarWorkerCommon.Models.Software.ProcessInfo
+- uid: InventarWorkerCommon.Models.Software.RuntimeInfo
+  commentId: T:InventarWorkerCommon.Models.Software.RuntimeInfo
+  parent: InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.Models.Software.RuntimeInfo.html
+  name: RuntimeInfo
+  nameWithType: RuntimeInfo
+  fullName: InventarWorkerCommon.Models.Software.RuntimeInfo
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo
+  commentId: T:InventarWorkerCommon.Models.Software.ServiceInfo
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html
+  name: ServiceInfo
+  nameWithType: ServiceInfo
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo
+- uid: InventarWorkerCommon.Models.Software.SoftwareInfo
+  commentId: T:InventarWorkerCommon.Models.Software.SoftwareInfo
+  href: InventarWorkerCommon.Models.Software.SoftwareInfo.html
+  name: SoftwareInfo
+  nameWithType: SoftwareInfo
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInfo
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory
+  commentId: T:InventarWorkerCommon.Models.Software.SoftwareInventory
+  parent: InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html
+  name: SoftwareInventory
+  nameWithType: SoftwareInventory
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html

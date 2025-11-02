@@ -1,0 +1,918 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine
+  commentId: T:InventarWorkerCommon.Services.Network.ResolveMachine
+  id: ResolveMachine
+  parent: InventarWorkerCommon.Services.Network
+  children:
+  - InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync(System.String,System.Int32)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync(System.String,System.Int32)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async(System.String)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async(System.String)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync(System.String)
+  - InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ResolveMachine
+  nameWithType: ResolveMachine
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveMachine
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: >-
+    Provides functionalities to resolve network machines including
+
+    sending ping requests and retrieving detailed results.
+  example: []
+  syntax:
+    content: public static class ResolveMachine
+    content.vb: Public Module ResolveMachine
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync(System.String,System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync(System.String,System.Int32)
+  id: PingWithDetailsAsync(System.String,System.Int32)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: PingWithDetailsAsync(string, int)
+  nameWithType: ResolveMachine.PingWithDetailsAsync(string, int)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync(string, int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: PingWithDetailsAsync
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 19
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: >-
+    Sends a ping request to the specified IP address with the specified timeout
+
+    and returns detailed information about the ping result.
+  example: []
+  syntax:
+    content: public static Task<PingResult> PingWithDetailsAsync(string ipAddress, int timeout = 5000)
+    parameters:
+    - id: ipAddress
+      type: System.String
+      description: The target IP address to which the ping request is sent.
+    - id: timeout
+      type: System.Int32
+      description: The maximum time, in milliseconds, to wait for the ping response. Default is 5000ms.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.PingResult}
+      description: A <xref href="InventarWorkerCommon.Models.Network.PingResult" data-throw-if-not-resolved="false"></xref> containing details about the ping operation, such as success status, round-trip time, and error message if applicable.
+    content.vb: Public Shared Function PingWithDetailsAsync(ipAddress As String, timeout As Integer = 5000) As Task(Of PingResult)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync*
+  nameWithType.vb: ResolveMachine.PingWithDetailsAsync(String, Integer)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync(String, Integer)
+  name.vb: PingWithDetailsAsync(String, Integer)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync(System.String,System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync(System.String,System.Int32)
+  id: IsMachineReachableAsync(System.String,System.Int32)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: IsMachineReachableAsync(string, int)
+  nameWithType: ResolveMachine.IsMachineReachableAsync(string, int)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync(string, int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IsMachineReachableAsync
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 52
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: >-
+    Checks if the specified machine is reachable by sending a ping request
+
+    to its IP address within the specified timeout duration.
+  example: []
+  syntax:
+    content: public static Task<bool> IsMachineReachableAsync(string ipAddress, int timeout = 5000)
+    parameters:
+    - id: ipAddress
+      type: System.String
+      description: The target IP address to check for connectivity.
+    - id: timeout
+      type: System.Int32
+      description: The maximum time, in milliseconds, to wait for the ping response. Default is 5000ms.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A boolean value indicating whether the machine is reachable.
+    content.vb: Public Shared Function IsMachineReachableAsync(ipAddress As String, timeout As Integer = 5000) As Task(Of Boolean)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync*
+  nameWithType.vb: ResolveMachine.IsMachineReachableAsync(String, Integer)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync(String, Integer)
+  name.vb: IsMachineReachableAsync(String, Integer)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  id: ResolveIpToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: ResolveIpToHostInfoAsync(string, bool, int)
+  nameWithType: ResolveMachine.ResolveIpToHostInfoAsync(string, bool, int)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync(string, bool, int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveIpToHostInfoAsync
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 67
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: >-
+    Resolves the given IP address to its host information, including host name, aliases,
+
+    and associated IP address list. Provides detailed error information in case of failure.
+  example: []
+  syntax:
+    content: public static Task<HostInformationResult> ResolveIpToHostInfoAsync(string ipAddress, bool preferIPv4 = true, int timeout = 5000)
+    parameters:
+    - id: ipAddress
+      type: System.String
+      description: The IP address to resolve to a host.
+    - id: preferIPv4
+      type: System.Boolean
+      description: Indicates whether IPv4 addresses should be prioritized when resolving the FQDN. Default is true.
+    - id: timeout
+      type: System.Int32
+      description: The maximum time, in milliseconds, to wait for the host resolution process. Default is 5000ms.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.HostInformationResult}
+      description: A <xref href="InventarWorkerCommon.Models.Network.HostInformationResult" data-throw-if-not-resolved="false"></xref> object containing host name, aliases, address list, or an error message if the resolution fails.
+    content.vb: Public Shared Function ResolveIpToHostInfoAsync(ipAddress As String, preferIPv4 As Boolean = True, timeout As Integer = 5000) As Task(Of HostInformationResult)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if the provided IP address is invalid or cannot be parsed.
+  nameWithType.vb: ResolveMachine.ResolveIpToHostInfoAsync(String, Boolean, Integer)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync(String, Boolean, Integer)
+  name.vb: ResolveIpToHostInfoAsync(String, Boolean, Integer)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync(System.String)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync(System.String)
+  id: ResolveIpToFqdnAsync(System.String)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: ResolveIpToFqdnAsync(string)
+  nameWithType: ResolveMachine.ResolveIpToFqdnAsync(string)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveIpToFqdnAsync
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 126
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: Resolves the specified IP address to its corresponding Fully Qualified Domain Name (FQDN).
+  example: []
+  syntax:
+    content: public static Task<string?> ResolveIpToFqdnAsync(string ipAddress)
+    parameters:
+    - id: ipAddress
+      type: System.String
+      description: The IP address to resolve into an FQDN. Can be an IPv4 or IPv6 address.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: A string representing the FQDN of the specified IP address, or null if the resolution fails.
+    content.vb: Public Shared Function ResolveIpToFqdnAsync(ipAddress As String) As Task(Of String)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when the provided IP address is in an invalid format.
+  nameWithType.vb: ResolveMachine.ResolveIpToFqdnAsync(String)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync(String)
+  name.vb: ResolveIpToFqdnAsync(String)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async(System.String)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async(System.String)
+  id: ResolveFqdnToIpv4Async(System.String)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: ResolveFqdnToIpv4Async(string)
+  nameWithType: ResolveMachine.ResolveFqdnToIpv4Async(string)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveFqdnToIpv4Async
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 150
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: Resolves the specified fully qualified domain name (FQDN) to its corresponding IPv4 address.
+  example: []
+  syntax:
+    content: public static Task<string?> ResolveFqdnToIpv4Async(string fqdn)
+    parameters:
+    - id: fqdn
+      type: System.String
+      description: The fully qualified domain name (FQDN) to resolve.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The IPv4 address as a string if the resolution is successful; otherwise, null.
+    content.vb: Public Shared Function ResolveFqdnToIpv4Async(fqdn As String) As Task(Of String)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async*
+  nameWithType.vb: ResolveMachine.ResolveFqdnToIpv4Async(String)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async(String)
+  name.vb: ResolveFqdnToIpv4Async(String)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async(System.String)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async(System.String)
+  id: ResolveFqdnToIpv6Async(System.String)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: ResolveFqdnToIpv6Async(string)
+  nameWithType: ResolveMachine.ResolveFqdnToIpv6Async(string)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveFqdnToIpv6Async
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 169
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: Resolves the given FQDN (Fully Qualified Domain Name) to its corresponding IPv6 address, if available.
+  example: []
+  syntax:
+    content: public static Task<string?> ResolveFqdnToIpv6Async(string fqdn)
+    parameters:
+    - id: fqdn
+      type: System.String
+      description: The fully qualified domain name to resolve to an IPv6 address.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: A string representation of the resolved IPv6 address if successful; otherwise, returns null if the resolution fails or no IPv6 address is found.
+    content.vb: Public Shared Function ResolveFqdnToIpv6Async(fqdn As String) As Task(Of String)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async*
+  nameWithType.vb: ResolveMachine.ResolveFqdnToIpv6Async(String)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async(String)
+  name.vb: ResolveFqdnToIpv6Async(String)
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  id: ResolveFqdnToHostInfoAsync(System.String,System.Boolean,System.Int32)
+  parent: InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: ResolveFqdnToHostInfoAsync(string, bool, int)
+  nameWithType: ResolveMachine.ResolveFqdnToHostInfoAsync(string, bool, int)
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync(string, bool, int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ResolveFqdnToHostInfoAsync
+    path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
+    startLine: 191
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Network
+  summary: >-
+    Resolves a fully qualified domain name (FQDN) to detailed host information,
+
+    including IP addresses, host name, aliases, and error details if applicable.
+  example: []
+  syntax:
+    content: public static Task<HostInformationResult> ResolveFqdnToHostInfoAsync(string fqdn, bool preferIPv4 = true, int timeout = 5000)
+    parameters:
+    - id: fqdn
+      type: System.String
+      description: The fully qualified domain name of the target host to resolve.
+    - id: preferIPv4
+      type: System.Boolean
+      description: Indicates whether IPv4 addresses should be prioritized when resolving the FQDN. Default is true.
+    - id: timeout
+      type: System.Int32
+      description: The maximum time, in milliseconds, to wait for the resolution process. Default is 5000ms.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.HostInformationResult}
+      description: A <xref href="InventarWorkerCommon.Models.Network.HostInformationResult" data-throw-if-not-resolved="false"></xref> object containing details about the host, such as IP addresses, aliases, host name, and any error message if an issue occurred.
+    content.vb: Public Shared Function ResolveFqdnToHostInfoAsync(fqdn As String, preferIPv4 As Boolean = True, timeout As Integer = 5000) As Task(Of HostInformationResult)
+  overload: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync*
+  nameWithType.vb: ResolveMachine.ResolveFqdnToHostInfoAsync(String, Boolean, Integer)
+  fullName.vb: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync(String, Boolean, Integer)
+  name.vb: ResolveFqdnToHostInfoAsync(String, Boolean, Integer)
+references:
+- uid: InventarWorkerCommon.Services.Network
+  commentId: N:InventarWorkerCommon.Services.Network
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Network
+  nameWithType: InventarWorkerCommon.Services.Network
+  fullName: InventarWorkerCommon.Services.Network
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Network
+    name: Network
+    href: InventarWorkerCommon.Services.Network.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Network
+    name: Network
+    href: InventarWorkerCommon.Services.Network.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Models.Network.PingResult
+  commentId: T:InventarWorkerCommon.Models.Network.PingResult
+  href: InventarWorkerCommon.Models.Network.PingResult.html
+  name: PingResult
+  nameWithType: PingResult
+  fullName: InventarWorkerCommon.Models.Network.PingResult
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_PingWithDetailsAsync_System_String_System_Int32_
+  name: PingWithDetailsAsync
+  nameWithType: ResolveMachine.PingWithDetailsAsync
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.PingWithDetailsAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.PingResult}
+  commentId: T:System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.PingResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PingResult>
+  nameWithType: Task<PingResult>
+  fullName: System.Threading.Tasks.Task<InventarWorkerCommon.Models.Network.PingResult>
+  nameWithType.vb: Task(Of PingResult)
+  fullName.vb: System.Threading.Tasks.Task(Of InventarWorkerCommon.Models.Network.PingResult)
+  name.vb: Task(Of PingResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Network.PingResult
+    name: PingResult
+    href: InventarWorkerCommon.Models.Network.PingResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Network.PingResult
+    name: PingResult
+    href: InventarWorkerCommon.Models.Network.PingResult.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_IsMachineReachableAsync_System_String_System_Int32_
+  name: IsMachineReachableAsync
+  nameWithType: ResolveMachine.IsMachineReachableAsync
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.IsMachineReachableAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult
+  commentId: T:InventarWorkerCommon.Models.Network.HostInformationResult
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  name: HostInformationResult
+  nameWithType: HostInformationResult
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_ResolveIpToHostInfoAsync_System_String_System_Boolean_System_Int32_
+  name: ResolveIpToHostInfoAsync
+  nameWithType: ResolveMachine.ResolveIpToHostInfoAsync
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToHostInfoAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.HostInformationResult}
+  commentId: T:System.Threading.Tasks.Task{InventarWorkerCommon.Models.Network.HostInformationResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<HostInformationResult>
+  nameWithType: Task<HostInformationResult>
+  fullName: System.Threading.Tasks.Task<InventarWorkerCommon.Models.Network.HostInformationResult>
+  nameWithType.vb: Task(Of HostInformationResult)
+  fullName.vb: System.Threading.Tasks.Task(Of InventarWorkerCommon.Models.Network.HostInformationResult)
+  name.vb: Task(Of HostInformationResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Network.HostInformationResult
+    name: HostInformationResult
+    href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Network.HostInformationResult
+    name: HostInformationResult
+    href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  - name: )
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_ResolveIpToFqdnAsync_System_String_
+  name: ResolveIpToFqdnAsync
+  nameWithType: ResolveMachine.ResolveIpToFqdnAsync
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveIpToFqdnAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_ResolveFqdnToIpv4Async_System_String_
+  name: ResolveFqdnToIpv4Async
+  nameWithType: ResolveMachine.ResolveFqdnToIpv4Async
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv4Async
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_ResolveFqdnToIpv6Async_System_String_
+  name: ResolveFqdnToIpv6Async
+  nameWithType: ResolveMachine.ResolveFqdnToIpv6Async
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToIpv6Async
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html#InventarWorkerCommon_Services_Network_ResolveMachine_ResolveFqdnToHostInfoAsync_System_String_System_Boolean_System_Int32_
+  name: ResolveFqdnToHostInfoAsync
+  nameWithType: ResolveMachine.ResolveFqdnToHostInfoAsync
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine.ResolveFqdnToHostInfoAsync

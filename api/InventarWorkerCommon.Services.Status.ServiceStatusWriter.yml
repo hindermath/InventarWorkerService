@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  id: ServiceStatusWriter
+  parent: InventarWorkerCommon.Services.Status
+  children:
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor(System.String)
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory(InventarWorkerCommon.Models.Hardware.HardwareInfo)
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog(System.String)
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics(InventarWorkerCommon.Models.Hardware.PerformanceMetrics)
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics(InventarWorkerCommon.Models.Service.ServiceStatistics)
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus(InventarWorkerCommon.Models.Service.ServiceStatus,InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat)
+  langs:
+  - csharp
+  - vb
+  name: ServiceStatusWriter
+  nameWithType: ServiceStatusWriter
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceStatusWriter
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 17
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    The ServiceStatusWriter class is responsible for managing and writing the status, logs, statistics,
+
+    performance metrics, and hardware inventory data of a service to files in a specified directory.
+  example: []
+  syntax:
+    content: public class ServiceStatusWriter
+    content.vb: Public Class ServiceStatusWriter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: ServiceStatusWriter(string)
+  nameWithType: ServiceStatusWriter.ServiceStatusWriter(string)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.ServiceStatusWriter(string)
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 28
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    The <code>ServiceStatusWriter</code> class provides mechanisms for managing, serializing, and writing
+
+    service-related data such as status, logs, statistics, performance metrics, and hardware inventory
+
+    to a specified directory. This ensures that the service's state and activities are persistently
+
+    stored for tracking, diagnostics, and operational insights.
+  example: []
+  syntax:
+    content: public ServiceStatusWriter(string statusDirectory = "inventar-service")
+    parameters:
+    - id: statusDirectory
+      type: System.String
+    content.vb: Public Sub New(statusDirectory As String = "inventar-service")
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor*
+  nameWithType.vb: ServiceStatusWriter.New(String)
+  fullName.vb: InventarWorkerCommon.Services.Status.ServiceStatusWriter.New(String)
+  name.vb: New(String)
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus(InventarWorkerCommon.Models.Service.ServiceStatus,InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus(InventarWorkerCommon.Models.Service.ServiceStatus,InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat)
+  id: WriteStatus(InventarWorkerCommon.Models.Service.ServiceStatus,InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat)
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteStatus(ServiceStatus, ServiceStatusOutputFormat)
+  nameWithType: ServiceStatusWriter.WriteStatus(ServiceStatus, ServiceStatusOutputFormat)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus(InventarWorkerCommon.Models.Service.ServiceStatus, InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteStatus
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 59
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    Writes the current status of the service to the specified output format, allowing for the status
+
+    to be serialized and stored or transmitted in a structured format like JSON, INI, XML, YAML, or
+
+    all supported formats.
+  example: []
+  syntax:
+    content: public void WriteStatus(ServiceStatus status, ServiceStatusOutputFormat serviceStatusOutputFormat = ServiceStatusOutputFormat.Json)
+    parameters:
+    - id: status
+      type: InventarWorkerCommon.Models.Service.ServiceStatus
+      description: >-
+        An instance of <code>ServiceStatus</code> containing the current state and details
+            of the service.
+    - id: serviceStatusOutputFormat
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+      description: >-
+        The format in which the service status should be output.
+            Defaults to JSON if not specified.
+    content.vb: Public Sub WriteStatus(status As ServiceStatus, serviceStatusOutputFormat As ServiceStatusOutputFormat = ServiceStatusOutputFormat.Json)
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus*
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog(System.String)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog(System.String)
+  id: WriteLog(System.String)
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteLog(string)
+  nameWithType: ServiceStatusWriter.WriteLog(string)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteLog
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 230
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Appends a log entry to the service log file, containing a timestamp and the specified message.
+  example: []
+  syntax:
+    content: public void WriteLog(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to be recorded in the service log.
+    content.vb: Public Sub WriteLog(message As String)
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog*
+  nameWithType.vb: ServiceStatusWriter.WriteLog(String)
+  fullName.vb: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog(String)
+  name.vb: WriteLog(String)
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics(InventarWorkerCommon.Models.Service.ServiceStatistics)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics(InventarWorkerCommon.Models.Service.ServiceStatistics)
+  id: WriteStatistics(InventarWorkerCommon.Models.Service.ServiceStatistics)
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteStatistics(ServiceStatistics)
+  nameWithType: ServiceStatusWriter.WriteStatistics(ServiceStatistics)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics(InventarWorkerCommon.Models.Service.ServiceStatistics)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteStatistics
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 245
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    The <code>WriteStatistics</code> method serializes and writes service statistics data,
+
+    such as processing metrics and operational insights, to a predefined JSON file
+
+    in the service's designated directory. This ensures that statistical information
+
+    is properly stored and accessible for analysis.
+  example: []
+  syntax:
+    content: public void WriteStatistics(ServiceStatistics stats)
+    parameters:
+    - id: stats
+      type: InventarWorkerCommon.Models.Service.ServiceStatistics
+      description: >-
+        An instance of the <code>ServiceStatistics</code> class containing
+            statistical data related to the service's operations.
+    content.vb: Public Sub WriteStatistics(stats As ServiceStatistics)
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics*
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics(InventarWorkerCommon.Models.Hardware.PerformanceMetrics)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics(InventarWorkerCommon.Models.Hardware.PerformanceMetrics)
+  id: WritePerformanceMetrics(InventarWorkerCommon.Models.Hardware.PerformanceMetrics)
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: WritePerformanceMetrics(PerformanceMetrics)
+  nameWithType: ServiceStatusWriter.WritePerformanceMetrics(PerformanceMetrics)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics(InventarWorkerCommon.Models.Hardware.PerformanceMetrics)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WritePerformanceMetrics
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 260
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    Writes performance metrics data to a JSON file within the service's status directory.
+
+    This method serializes the provided <code>PerformanceMetrics</code> object to ensure
+
+    that detailed metrics such as CPU usage, memory usage, thread count, and a timestamp are
+
+    persistently stored for monitoring and diagnostics purposes.
+  example: []
+  syntax:
+    content: public void WritePerformanceMetrics(PerformanceMetrics metrics)
+    parameters:
+    - id: metrics
+      type: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+      description: >-
+        An instance of <code>PerformanceMetrics</code> containing information
+            about CPU usage, memory usage, thread count, and the timestamp at which the metrics were captured.
+    content.vb: Public Sub WritePerformanceMetrics(metrics As PerformanceMetrics)
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics*
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory(InventarWorkerCommon.Models.Hardware.HardwareInfo)
+  commentId: M:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory(InventarWorkerCommon.Models.Hardware.HardwareInfo)
+  id: WriteHardwareInventory(InventarWorkerCommon.Models.Hardware.HardwareInfo)
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteHardwareInventory(HardwareInfo)
+  nameWithType: ServiceStatusWriter.WriteHardwareInventory(HardwareInfo)
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory(InventarWorkerCommon.Models.Hardware.HardwareInfo)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteHardwareInventory
+    path: InventarWorkerCommon/Services/Status/ServiceStatusWriter.cs
+    startLine: 278
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: >-
+    Saves the hardware inventory information to a JSON file in the specified service status directory.
+
+    The file name is timestamped to ensure uniqueness and retain a historical record of hardware data.
+  example: []
+  syntax:
+    content: public Task WriteHardwareInventory(HardwareInfo hardwareInfo)
+    parameters:
+    - id: hardwareInfo
+      type: InventarWorkerCommon.Models.Hardware.HardwareInfo
+      description: >-
+        An instance of <code>HardwareInfo</code> containing details about the system's hardware,
+
+        including CPU, memory, disks, network interfaces, operating system, and installed software.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <code>Task</code> representing the asynchronous save operation.
+    content.vb: Public Function WriteHardwareInventory(hardwareInfo As HardwareInfo) As Task
+  overload: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory*
+references:
+- uid: InventarWorkerCommon.Services.Status
+  commentId: N:InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Status
+  nameWithType: InventarWorkerCommon.Services.Status
+  fullName: InventarWorkerCommon.Services.Status
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.#ctor
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter__ctor_System_String_
+  name: ServiceStatusWriter
+  nameWithType: ServiceStatusWriter.ServiceStatusWriter
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.ServiceStatusWriter
+  nameWithType.vb: ServiceStatusWriter.New
+  fullName.vb: InventarWorkerCommon.Services.Status.ServiceStatusWriter.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter_WriteStatus_InventarWorkerCommon_Models_Service_ServiceStatus_InventarWorkerCommon_Services_Status_ServiceStatusOutputFormat_
+  name: WriteStatus
+  nameWithType: ServiceStatusWriter.WriteStatus
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatus
+- uid: InventarWorkerCommon.Models.Service.ServiceStatus
+  commentId: T:InventarWorkerCommon.Models.Service.ServiceStatus
+  parent: InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.Models.Service.ServiceStatus.html
+  name: ServiceStatus
+  nameWithType: ServiceStatus
+  fullName: InventarWorkerCommon.Models.Service.ServiceStatus
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  parent: InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.html
+  name: ServiceStatusOutputFormat
+  nameWithType: ServiceStatusOutputFormat
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Models.Service
+  commentId: N:InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Service
+  nameWithType: InventarWorkerCommon.Models.Service
+  fullName: InventarWorkerCommon.Models.Service
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Service
+    name: Service
+    href: InventarWorkerCommon.Models.Service.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Service
+    name: Service
+    href: InventarWorkerCommon.Models.Service.html
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter_WriteLog_System_String_
+  name: WriteLog
+  nameWithType: ServiceStatusWriter.WriteLog
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteLog
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter_WriteStatistics_InventarWorkerCommon_Models_Service_ServiceStatistics_
+  name: WriteStatistics
+  nameWithType: ServiceStatusWriter.WriteStatistics
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteStatistics
+- uid: InventarWorkerCommon.Models.Service.ServiceStatistics
+  commentId: T:InventarWorkerCommon.Models.Service.ServiceStatistics
+  parent: InventarWorkerCommon.Models.Service
+  href: InventarWorkerCommon.Models.Service.ServiceStatistics.html
+  name: ServiceStatistics
+  nameWithType: ServiceStatistics
+  fullName: InventarWorkerCommon.Models.Service.ServiceStatistics
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter_WritePerformanceMetrics_InventarWorkerCommon_Models_Hardware_PerformanceMetrics_
+  name: WritePerformanceMetrics
+  nameWithType: ServiceStatusWriter.WritePerformanceMetrics
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WritePerformanceMetrics
+- uid: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+  commentId: T:InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.PerformanceMetrics.html
+  name: PerformanceMetrics
+  nameWithType: PerformanceMetrics
+  fullName: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory*
+  commentId: Overload:InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html#InventarWorkerCommon_Services_Status_ServiceStatusWriter_WriteHardwareInventory_InventarWorkerCommon_Models_Hardware_HardwareInfo_
+  name: WriteHardwareInventory
+  nameWithType: ServiceStatusWriter.WriteHardwareInventory
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter.WriteHardwareInventory
+- uid: InventarWorkerCommon.Models.Hardware.HardwareInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.HardwareInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.HardwareInfo.html
+  name: HardwareInfo
+  nameWithType: HardwareInfo
+  fullName: InventarWorkerCommon.Models.Hardware.HardwareInfo
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

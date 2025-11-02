@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Status
+  commentId: N:InventarWorkerCommon.Services.Status
+  id: InventarWorkerCommon.Services.Status
+  children:
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  - InventarWorkerCommon.Services.Status.ServiceStatusReader
+  - InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Status
+  nameWithType: InventarWorkerCommon.Services.Status
+  fullName: InventarWorkerCommon.Services.Status
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  parent: InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.html
+  name: ServiceStatusOutputFormat
+  nameWithType: ServiceStatusOutputFormat
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusReader
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusReader
+  href: InventarWorkerCommon.Services.Status.ServiceStatusReader.html
+  name: ServiceStatusReader
+  nameWithType: ServiceStatusReader
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusReader
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusWriter
+  href: InventarWorkerCommon.Services.Status.ServiceStatusWriter.html
+  name: ServiceStatusWriter
+  nameWithType: ServiceStatusWriter
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+- uid: InventarWorkerCommon.Services.Status
+  commentId: N:InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Status
+  nameWithType: InventarWorkerCommon.Services.Status
+  fullName: InventarWorkerCommon.Services.Status
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html

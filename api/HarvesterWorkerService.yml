@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: HarvesterWorkerService
+  commentId: N:HarvesterWorkerService
+  id: HarvesterWorkerService
+  children:
+  - HarvesterWorkerService.Program
+  - HarvesterWorkerService.Worker
+  langs:
+  - csharp
+  - vb
+  name: HarvesterWorkerService
+  nameWithType: HarvesterWorkerService
+  fullName: HarvesterWorkerService
+  type: Namespace
+  assemblies:
+  - HarvesterWorkerService
+references:
+- uid: HarvesterWorkerService.Program
+  commentId: T:HarvesterWorkerService.Program
+  href: HarvesterWorkerService.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: HarvesterWorkerService.Program
+- uid: HarvesterWorkerService.Worker
+  commentId: T:HarvesterWorkerService.Worker
+  href: HarvesterWorkerService.Worker.html
+  name: Worker
+  nameWithType: Worker
+  fullName: HarvesterWorkerService.Worker

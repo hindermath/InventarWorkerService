@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommonTest
+  commentId: N:InventarWorkerCommonTest
+  id: InventarWorkerCommonTest
+  children:
+  - InventarWorkerCommonTest.CpuInfoTests
+  - InventarWorkerCommonTest.OsInfoTests
+  - InventarWorkerCommonTest.ServiceStatisticsTests
+  - InventarWorkerCommonTest.SoftwareInfoTests
+  - InventarWorkerCommonTest.SystemInfoTests
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommonTest
+  nameWithType: InventarWorkerCommonTest
+  fullName: InventarWorkerCommonTest
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommonTest
+references:
+- uid: InventarWorkerCommonTest.CpuInfoTests
+  commentId: T:InventarWorkerCommonTest.CpuInfoTests
+  href: InventarWorkerCommonTest.CpuInfoTests.html
+  name: CpuInfoTests
+  nameWithType: CpuInfoTests
+  fullName: InventarWorkerCommonTest.CpuInfoTests
+- uid: InventarWorkerCommonTest.OsInfoTests
+  commentId: T:InventarWorkerCommonTest.OsInfoTests
+  href: InventarWorkerCommonTest.OsInfoTests.html
+  name: OsInfoTests
+  nameWithType: OsInfoTests
+  fullName: InventarWorkerCommonTest.OsInfoTests
+- uid: InventarWorkerCommonTest.ServiceStatisticsTests
+  commentId: T:InventarWorkerCommonTest.ServiceStatisticsTests
+  href: InventarWorkerCommonTest.ServiceStatisticsTests.html
+  name: ServiceStatisticsTests
+  nameWithType: ServiceStatisticsTests
+  fullName: InventarWorkerCommonTest.ServiceStatisticsTests
+- uid: InventarWorkerCommonTest.SystemInfoTests
+  commentId: T:InventarWorkerCommonTest.SystemInfoTests
+  href: InventarWorkerCommonTest.SystemInfoTests.html
+  name: SystemInfoTests
+  nameWithType: SystemInfoTests
+  fullName: InventarWorkerCommonTest.SystemInfoTests
+- uid: InventarWorkerCommonTest.SoftwareInfoTests
+  commentId: T:InventarWorkerCommonTest.SoftwareInfoTests
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html
+  name: SoftwareInfoTests
+  nameWithType: SoftwareInfoTests
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests

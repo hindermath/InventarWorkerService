@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Helpers.Exceptions
+  commentId: N:InventarWorkerCommon.Helpers.Exceptions
+  id: InventarWorkerCommon.Helpers.Exceptions
+  children:
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Helpers.Exceptions
+  nameWithType: InventarWorkerCommon.Helpers.Exceptions
+  fullName: InventarWorkerCommon.Helpers.Exceptions
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  name: NetworkInformation
+  nameWithType: NetworkInformation
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  name: NetworkInformation.NetworkInformationMissingException
+  nameWithType: NetworkInformation.NetworkInformationMissingException
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  spec.csharp:
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+    name: NetworkInformation
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  - name: .
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+    name: NetworkInformationMissingException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.html
+  spec.vb:
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+    name: NetworkInformation
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  - name: .
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+    name: NetworkInformationMissingException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.html
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  name: NetworkInformation.HostResolutionException
+  nameWithType: NetworkInformation.HostResolutionException
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  spec.csharp:
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+    name: NetworkInformation
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  - name: .
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+    name: HostResolutionException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException.html
+  spec.vb:
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+    name: NetworkInformation
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
+  - name: .
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+    name: HostResolutionException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException.html

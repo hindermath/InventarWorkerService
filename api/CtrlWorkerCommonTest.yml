@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerCommonTest
+  commentId: N:CtrlWorkerCommonTest
+  id: CtrlWorkerCommonTest
+  children:
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+  - CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  langs:
+  - csharp
+  - vb
+  name: CtrlWorkerCommonTest
+  nameWithType: CtrlWorkerCommonTest
+  fullName: CtrlWorkerCommonTest
+  type: Namespace
+  assemblies:
+  - CtrlWorkerCommonTest
+references:
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest
+  commentId: T:CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest.html
+  name: CrossPlatformServiceControllerPlatformSpecificTest
+  nameWithType: CrossPlatformServiceControllerPlatformSpecificTest
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+  commentId: T:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.html
+  name: CrossPlatformServiceControllerTest
+  nameWithType: CrossPlatformServiceControllerTest
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+- uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  commentId: T:CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.html
+  name: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  nameWithType: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  fullName: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+  spec.csharp:
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+    name: CrossPlatformServiceControllerTest
+    href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.html
+  - name: .
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+    name: CrossPlatformServiceControllerTests
+    href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html
+  spec.vb:
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+    name: CrossPlatformServiceControllerTest
+    href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.html
+  - name: .
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+    name: CrossPlatformServiceControllerTests
+    href: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests.html

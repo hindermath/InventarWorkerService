@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarViewerApp.UI
+  commentId: N:InventarViewerApp.UI
+  id: InventarViewerApp.UI
+  children:
+  - InventarViewerApp.UI.HardwareView
+  - InventarViewerApp.UI.MainWindow
+  - InventarViewerApp.UI.SoftwareView
+  - InventarViewerApp.UI.StatusView
+  langs:
+  - csharp
+  - vb
+  name: InventarViewerApp.UI
+  nameWithType: InventarViewerApp.UI
+  fullName: InventarViewerApp.UI
+  type: Namespace
+  assemblies:
+  - InventarViewerApp
+references:
+- uid: InventarViewerApp.UI.HardwareView
+  commentId: T:InventarViewerApp.UI.HardwareView
+  href: InventarViewerApp.UI.HardwareView.html
+  name: HardwareView
+  nameWithType: HardwareView
+  fullName: InventarViewerApp.UI.HardwareView
+- uid: InventarViewerApp.UI.MainWindow
+  commentId: T:InventarViewerApp.UI.MainWindow
+  href: InventarViewerApp.UI.MainWindow.html
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: InventarViewerApp.UI.MainWindow
+- uid: InventarViewerApp.UI.SoftwareView
+  commentId: T:InventarViewerApp.UI.SoftwareView
+  href: InventarViewerApp.UI.SoftwareView.html
+  name: SoftwareView
+  nameWithType: SoftwareView
+  fullName: InventarViewerApp.UI.SoftwareView
+- uid: InventarViewerApp.UI.StatusView
+  commentId: T:InventarViewerApp.UI.StatusView
+  href: InventarViewerApp.UI.StatusView.html
+  name: StatusView
+  nameWithType: StatusView
+  fullName: InventarViewerApp.UI.StatusView

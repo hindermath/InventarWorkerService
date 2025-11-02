@@ -1,0 +1,851 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo
+  commentId: T:InventarWorkerCommon.Models.Software.ServiceInfo
+  id: ServiceInfo
+  parent: InventarWorkerCommon.Models.Software
+  children:
+  - InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+  - InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue
+  - InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+  - InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+  - InventarWorkerCommon.Models.Software.ServiceInfo.Description
+  - InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+  - InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+  - InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+  - InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+  - InventarWorkerCommon.Models.Software.ServiceInfo.Status
+  langs:
+  - csharp
+  - vb
+  name: ServiceInfo
+  nameWithType: ServiceInfo
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceInfo
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 2
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: 'public record ServiceInfo : IEquatable<ServiceInfo>'
+    content.vb: Public Class ServiceInfo Implements IEquatable(Of ServiceInfo)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.Software.ServiceInfo}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+  id: ServiceName
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: ServiceName
+  nameWithType: ServiceInfo.ServiceName
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceName
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 4
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string ServiceName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServiceName As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+  id: DisplayName
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: ServiceInfo.DisplayName
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: DisplayName
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Status
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.Status
+  id: Status
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: ServiceInfo.Status
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Status
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Status
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 6
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Status As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.Status*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+  id: StartType
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: StartType
+  nameWithType: ServiceInfo.StartType
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartType
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string StartType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StartType As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.StartType*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+  id: ServiceAccount
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: ServiceAccount
+  nameWithType: ServiceInfo.ServiceAccount
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceAccount
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string ServiceAccount { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ServiceAccount As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+  id: BinaryPath
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: BinaryPath
+  nameWithType: ServiceInfo.BinaryPath
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: BinaryPath
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string BinaryPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BinaryPath As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Description
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.Description
+  id: Description
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: ServiceInfo.Description
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Description
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Description
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.Description*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+  id: Dependencies
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: Dependencies
+  nameWithType: ServiceInfo.Dependencies
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Dependencies
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 11
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public List<string> Dependencies { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property Dependencies As List(Of String)
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+  id: CanStop
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: CanStop
+  nameWithType: ServiceInfo.CanStop
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CanStop
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 12
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public bool CanStop { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CanStop As Boolean
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.CanStop*
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue
+  commentId: P:InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue
+  id: CanPauseAndContinue
+  parent: InventarWorkerCommon.Models.Software.ServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: CanPauseAndContinue
+  nameWithType: ServiceInfo.CanPauseAndContinue
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CanPauseAndContinue
+    path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
+    startLine: 13
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Software
+  syntax:
+    content: public bool CanPauseAndContinue { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CanPauseAndContinue As Boolean
+  overload: InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue*
+references:
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.Software.ServiceInfo}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Software.ServiceInfo}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ServiceInfo>
+  nameWithType: IEquatable<ServiceInfo>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.Software.ServiceInfo>
+  nameWithType.vb: IEquatable(Of ServiceInfo)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Software.ServiceInfo)
+  name.vb: IEquatable(Of ServiceInfo)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Software.ServiceInfo
+    name: ServiceInfo
+    href: InventarWorkerCommon.Models.Software.ServiceInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Software.ServiceInfo
+    name: ServiceInfo
+    href: InventarWorkerCommon.Models.Software.ServiceInfo.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_ServiceName
+  name: ServiceName
+  nameWithType: ServiceInfo.ServiceName
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_DisplayName
+  name: DisplayName
+  nameWithType: ServiceInfo.DisplayName
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.DisplayName
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Status*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.Status
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_Status
+  name: Status
+  nameWithType: ServiceInfo.Status
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Status
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.StartType*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_StartType
+  name: StartType
+  nameWithType: ServiceInfo.StartType
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.StartType
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_ServiceAccount
+  name: ServiceAccount
+  nameWithType: ServiceInfo.ServiceAccount
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.ServiceAccount
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_BinaryPath
+  name: BinaryPath
+  nameWithType: ServiceInfo.BinaryPath
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.BinaryPath
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Description*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.Description
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_Description
+  name: Description
+  nameWithType: ServiceInfo.Description
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Description
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_Dependencies
+  name: Dependencies
+  nameWithType: ServiceInfo.Dependencies
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.Dependencies
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.CanStop*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_CanStop
+  name: CanStop
+  nameWithType: ServiceInfo.CanStop
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.CanStop
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue*
+  commentId: Overload:InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue
+  href: InventarWorkerCommon.Models.Software.ServiceInfo.html#InventarWorkerCommon_Models_Software_ServiceInfo_CanPauseAndContinue
+  name: CanPauseAndContinue
+  nameWithType: ServiceInfo.CanPauseAndContinue
+  fullName: InventarWorkerCommon.Models.Software.ServiceInfo.CanPauseAndContinue

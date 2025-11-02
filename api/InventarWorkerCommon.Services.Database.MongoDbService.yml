@@ -1,0 +1,662 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Database.MongoDbService
+  commentId: T:InventarWorkerCommon.Services.Database.MongoDbService
+  id: MongoDbService
+  parent: InventarWorkerCommon.Services.Database
+  children:
+  - InventarWorkerCommon.Services.Database.MongoDbService.#ctor(System.String)
+  - InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
+  - InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+  - InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  langs:
+  - csharp
+  - vb
+  name: MongoDbService
+  nameWithType: MongoDbService
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbService
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Provides basic MongoDB operations for persisting and querying software inventory documents.
+  example: []
+  syntax:
+    content: public class MongoDbService
+    content.vb: Public Class MongoDbService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: MongoDbService(string)
+  nameWithType: MongoDbService.MongoDbService(string)
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.MongoDbService(string)
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 19
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Initializes a new instance of MongoDbService with the given connection string.
+  example: []
+  syntax:
+    content: public MongoDbService(string connectionString)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: The MongoDB connection string.
+    content.vb: Public Sub New(connectionString As String)
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.#ctor*
+  nameWithType.vb: MongoDbService.New(String)
+  fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.New(String)
+  name.vb: New(String)
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+  id: InitializeMongoDatabase
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: InitializeMongoDatabase()
+  nameWithType: MongoDbService.InitializeMongoDatabase()
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InitializeMongoDatabase
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 28
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Initializes the MongoDB database used by this service.
+  example: []
+  syntax:
+    content: public void InitializeMongoDatabase()
+    content.vb: Public Sub InitializeMongoDatabase()
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase*
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  id: SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: SaveSoftwareInventoryAsync(int, SoftwareInventory)
+  nameWithType: MongoDbService.SaveSoftwareInventoryAsync(int, SoftwareInventory)
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(int, InventarWorkerCommon.Models.Software.SoftwareInventory)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SaveSoftwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 38
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Saves a software inventory document for the specified machine ID.
+  example: []
+  syntax:
+    content: public Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The target machine ID used as the collection name.
+    - id: software
+      type: InventarWorkerCommon.Models.Software.SoftwareInventory
+      description: The software inventory to persist.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SaveSoftwareInventoryAsync(machineId As Integer, software As SoftwareInventory) As Task
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync*
+  nameWithType.vb: MongoDbService.SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
+  fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(Integer, InventarWorkerCommon.Models.Software.SoftwareInventory)
+  name.vb: SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
+  id: FindSoftwareByNameAsync(System.Int32,System.String)
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: FindSoftwareByNameAsync(int, string)
+  nameWithType: MongoDbService.FindSoftwareByNameAsync(int, string)
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(int, string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: FindSoftwareByNameAsync
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 50
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Finds software entries by name for the specified machine ID.
+  example: []
+  syntax:
+    content: public Task<List<BsonDocument>> FindSoftwareByNameAsync(int machineId, string softwareName)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The machine ID collection to query.
+    - id: softwareName
+      type: System.String
+      description: The software name to match.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{MongoDB.Bson.BsonDocument}}
+      description: A list of BSON documents containing matching software entries.
+    content.vb: Public Function FindSoftwareByNameAsync(machineId As Integer, softwareName As String) As Task(Of List(Of BsonDocument))
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync*
+  nameWithType.vb: MongoDbService.FindSoftwareByNameAsync(Integer, String)
+  fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(Integer, String)
+  name.vb: FindSoftwareByNameAsync(Integer, String)
+references:
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.#ctor*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.#ctor
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService__ctor_System_String_
+  name: MongoDbService
+  nameWithType: MongoDbService.MongoDbService
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.MongoDbService
+  nameWithType.vb: MongoDbService.New
+  fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_InitializeMongoDatabase
+  name: InitializeMongoDatabase
+  nameWithType: MongoDbService.InitializeMongoDatabase
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_SaveSoftwareInventoryAsync_System_Int32_InventarWorkerCommon_Models_Software_SoftwareInventory_
+  name: SaveSoftwareInventoryAsync
+  nameWithType: MongoDbService.SaveSoftwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory
+  commentId: T:InventarWorkerCommon.Models.Software.SoftwareInventory
+  parent: InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html
+  name: SoftwareInventory
+  nameWithType: SoftwareInventory
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_FindSoftwareByNameAsync_System_Int32_System_String_
+  name: FindSoftwareByNameAsync
+  nameWithType: MongoDbService.FindSoftwareByNameAsync
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{MongoDB.Bson.BsonDocument}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{MongoDB.Bson.BsonDocument}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<BsonDocument>>
+  nameWithType: Task<List<BsonDocument>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<MongoDB.Bson.BsonDocument>>
+  nameWithType.vb: Task(Of List(Of BsonDocument))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of MongoDB.Bson.BsonDocument))
+  name.vb: Task(Of List(Of BsonDocument))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: MongoDB.Bson.BsonDocument
+    name: BsonDocument
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: MongoDB.Bson.BsonDocument
+    name: BsonDocument
+    isExternal: true
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )

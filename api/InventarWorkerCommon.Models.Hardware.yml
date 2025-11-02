@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  id: InventarWorkerCommon.Models.Hardware
+  children:
+  - InventarWorkerCommon.Models.Hardware.CpuInfo
+  - InventarWorkerCommon.Models.Hardware.DiskInfo
+  - InventarWorkerCommon.Models.Hardware.HardwareInfo
+  - InventarWorkerCommon.Models.Hardware.HardwareInventory
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo
+  - InventarWorkerCommon.Models.Hardware.NetworkInfo
+  - InventarWorkerCommon.Models.Hardware.OsInfo
+  - InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.Hardware.CpuInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.CpuInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.CpuInfo.html
+  name: CpuInfo
+  nameWithType: CpuInfo
+  fullName: InventarWorkerCommon.Models.Hardware.CpuInfo
+- uid: InventarWorkerCommon.Models.Hardware.DiskInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.DiskInfo
+  href: InventarWorkerCommon.Models.Hardware.DiskInfo.html
+  name: DiskInfo
+  nameWithType: DiskInfo
+  fullName: InventarWorkerCommon.Models.Hardware.DiskInfo
+- uid: InventarWorkerCommon.Models.Hardware.HardwareInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.HardwareInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.HardwareInfo.html
+  name: HardwareInfo
+  nameWithType: HardwareInfo
+  fullName: InventarWorkerCommon.Models.Hardware.HardwareInfo
+- uid: InventarWorkerCommon.Models.Hardware.HardwareInventory
+  commentId: T:InventarWorkerCommon.Models.Hardware.HardwareInventory
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.HardwareInventory.html
+  name: HardwareInventory
+  nameWithType: HardwareInventory
+  fullName: InventarWorkerCommon.Models.Hardware.HardwareInventory
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.MemoryInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html
+  name: MemoryInfo
+  nameWithType: MemoryInfo
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo
+- uid: InventarWorkerCommon.Models.Hardware.NetworkInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.NetworkInfo
+  href: InventarWorkerCommon.Models.Hardware.NetworkInfo.html
+  name: NetworkInfo
+  nameWithType: NetworkInfo
+  fullName: InventarWorkerCommon.Models.Hardware.NetworkInfo
+- uid: InventarWorkerCommon.Models.Hardware.OsInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.OsInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.OsInfo.html
+  name: OsInfo
+  nameWithType: OsInfo
+  fullName: InventarWorkerCommon.Models.Hardware.OsInfo
+- uid: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+  commentId: T:InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.PerformanceMetrics.html
+  name: PerformanceMetrics
+  nameWithType: PerformanceMetrics
+  fullName: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html

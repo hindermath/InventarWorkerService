@@ -1,0 +1,462 @@
+### YamlMime:ManagedReference
+items:
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  commentId: T:CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  id: CrossPlatformServiceController
+  parent: CtrlWorkerCommon.Controller
+  children:
+  - CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor(System.String)
+  - CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService
+  - CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService
+  langs:
+  - csharp
+  - vb
+  name: CrossPlatformServiceController
+  nameWithType: CrossPlatformServiceController
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  type: Class
+  source:
+    remote:
+      path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CrossPlatformServiceController
+    path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+    startLine: 15
+  assemblies:
+  - CtrlWorkerCommon
+  namespace: CtrlWorkerCommon.Controller
+  summary: >-
+    Provides cross-platform service control functionality, allowing
+
+    services to be started and stopped on supported operating systems.
+  remarks: >-
+    This class includes platform-specific implementations for managing
+
+    services on Windows, Linux, macOS, and FreeBSD. It evaluates the
+
+    runtime environment to execute the appropriate logic. An exception
+
+    will be thrown if executed on an unsupported platform.
+  example: []
+  syntax:
+    content: public class CrossPlatformServiceController
+    content.vb: Public Class CrossPlatformServiceController
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor(System.String)
+  commentId: M:CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  langs:
+  - csharp
+  - vb
+  name: CrossPlatformServiceController(string)
+  nameWithType: CrossPlatformServiceController.CrossPlatformServiceController(string)
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.CrossPlatformServiceController(string)
+  type: Constructor
+  source:
+    remote:
+      path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+    startLine: 33
+  assemblies:
+  - CtrlWorkerCommon
+  namespace: CtrlWorkerCommon.Controller
+  summary: Initializes a new instance of the CrossPlatformServiceController for the specified service.
+  example: []
+  syntax:
+    content: public CrossPlatformServiceController(string serviceName)
+    parameters:
+    - id: serviceName
+      type: System.String
+      description: The OS service name to manage (e.g., Windows service name, systemd unit on Linux).
+    content.vb: Public Sub New(serviceName As String)
+  overload: CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor*
+  nameWithType.vb: CrossPlatformServiceController.New(String)
+  fullName.vb: CtrlWorkerCommon.Controller.CrossPlatformServiceController.New(String)
+  name.vb: New(String)
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService
+  commentId: M:CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService
+  id: StartService
+  parent: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  langs:
+  - csharp
+  - vb
+  name: StartService()
+  nameWithType: CrossPlatformServiceController.StartService()
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StartService
+    path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+    startLine: 50
+  assemblies:
+  - CtrlWorkerCommon
+  namespace: CtrlWorkerCommon.Controller
+  summary: Starts the service for the specified operating system.
+  remarks: >-
+    This method checks the operating system at runtime and attempts to
+
+    start the service using platform-specific logic. Supported platforms include
+
+    Windows, Linux, macOS, and FreeBSD. If the current operating system is not
+
+    supported, a <xref href="System.PlatformNotSupportedException" data-throw-if-not-resolved="false"></xref> will be thrown.
+  example: []
+  syntax:
+    content: public void StartService()
+    content.vb: Public Sub StartService()
+  overload: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService*
+  exceptions:
+  - type: System.PlatformNotSupportedException
+    commentId: T:System.PlatformNotSupportedException
+    description: Thrown when the method is executed on an unsupported platform.
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService
+  commentId: M:CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService
+  id: StopService
+  parent: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+  langs:
+  - csharp
+  - vb
+  name: StopService()
+  nameWithType: CrossPlatformServiceController.StopService()
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService()
+  type: Method
+  source:
+    remote:
+      path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: StopService
+    path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
+    startLine: 82
+  assemblies:
+  - CtrlWorkerCommon
+  namespace: CtrlWorkerCommon.Controller
+  summary: Stops the currently managed service on the platform it is running on.
+  remarks: >-
+    This method determines the operating system and executes the appropriate logic to stop the service.
+
+    It supports Windows, Linux, macOS, and FreeBSD platforms. Internally, platform-specific stop operations
+
+    are delegated to corresponding methods.
+  example: []
+  syntax:
+    content: public void StopService()
+    content.vb: Public Sub StopService()
+  overload: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService*
+references:
+- uid: CtrlWorkerCommon.Controller
+  commentId: N:CtrlWorkerCommon.Controller
+  href: CtrlWorkerCommon.html
+  name: CtrlWorkerCommon.Controller
+  nameWithType: CtrlWorkerCommon.Controller
+  fullName: CtrlWorkerCommon.Controller
+  spec.csharp:
+  - uid: CtrlWorkerCommon
+    name: CtrlWorkerCommon
+    href: CtrlWorkerCommon.html
+  - name: .
+  - uid: CtrlWorkerCommon.Controller
+    name: Controller
+    href: CtrlWorkerCommon.Controller.html
+  spec.vb:
+  - uid: CtrlWorkerCommon
+    name: CtrlWorkerCommon
+    href: CtrlWorkerCommon.html
+  - name: .
+  - uid: CtrlWorkerCommon.Controller
+    name: Controller
+    href: CtrlWorkerCommon.Controller.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor*
+  commentId: Overload:CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor
+  href: CtrlWorkerCommon.Controller.CrossPlatformServiceController.html#CtrlWorkerCommon_Controller_CrossPlatformServiceController__ctor_System_String_
+  name: CrossPlatformServiceController
+  nameWithType: CrossPlatformServiceController.CrossPlatformServiceController
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.CrossPlatformServiceController
+  nameWithType.vb: CrossPlatformServiceController.New
+  fullName.vb: CtrlWorkerCommon.Controller.CrossPlatformServiceController.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.PlatformNotSupportedException
+  commentId: T:System.PlatformNotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.platformnotsupportedexception
+  name: PlatformNotSupportedException
+  nameWithType: PlatformNotSupportedException
+  fullName: System.PlatformNotSupportedException
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService*
+  commentId: Overload:CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService
+  href: CtrlWorkerCommon.Controller.CrossPlatformServiceController.html#CtrlWorkerCommon_Controller_CrossPlatformServiceController_StartService
+  name: StartService
+  nameWithType: CrossPlatformServiceController.StartService
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StartService
+- uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService*
+  commentId: Overload:CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService
+  href: CtrlWorkerCommon.Controller.CrossPlatformServiceController.html#CtrlWorkerCommon_Controller_CrossPlatformServiceController_StopService
+  name: StopService
+  nameWithType: CrossPlatformServiceController.StopService
+  fullName: CtrlWorkerCommon.Controller.CrossPlatformServiceController.StopService

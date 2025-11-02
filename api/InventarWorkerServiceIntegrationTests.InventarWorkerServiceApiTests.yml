@@ -1,0 +1,1662 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  commentId: T:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  id: InventarWorkerServiceApiTests
+  parent: InventarWorkerServiceIntegrationTests
+  children:
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerServiceApiTests
+  nameWithType: InventarWorkerServiceApiTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InventarWorkerServiceApiTests
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestClass]
+
+      public class InventarWorkerServiceApiTests : PageTest
+    content.vb: >-
+      <TestClass>
+
+      Public Class InventarWorkerServiceApiTests Inherits PageTest
+  inheritance:
+  - System.Object
+  - Microsoft.Playwright.MSTest.WorkerAwareTest
+  - Microsoft.Playwright.MSTest.PlaywrightTest
+  - Microsoft.Playwright.MSTest.BrowserTest
+  - Microsoft.Playwright.MSTest.ContextTest
+  - Microsoft.Playwright.MSTest.PageTest
+  inheritedMembers:
+  - Microsoft.Playwright.MSTest.PageTest.PageSetup
+  - Microsoft.Playwright.MSTest.PageTest.Page
+  - Microsoft.Playwright.MSTest.ContextTest.ContextSetup
+  - Microsoft.Playwright.MSTest.ContextTest.ContextOptions
+  - Microsoft.Playwright.MSTest.ContextTest.Context
+  - Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+  - Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
+  - Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
+  - Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
+  - Microsoft.Playwright.MSTest.BrowserTest.Browser
+  - Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
+  - Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
+  - Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+  - Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+  - Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+  - Microsoft.Playwright.MSTest.PlaywrightTest.BrowserName
+  - Microsoft.Playwright.MSTest.PlaywrightTest.Playwright
+  - Microsoft.Playwright.MSTest.PlaywrightTest.BrowserType
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{{T}}})
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.TestContext
+  - Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerIndex
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
+  id: '#ctor'
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerServiceApiTests()
+  nameWithType: InventarWorkerServiceApiTests.InventarWorkerServiceApiTests()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.InventarWorkerServiceApiTests()
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: public InventarWorkerServiceApiTests()
+    content.vb: Public Sub New()
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor*
+  nameWithType.vb: InventarWorkerServiceApiTests.New()
+  fullName.vb: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.New()
+  name.vb: New()
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+  id: Setup
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: InventarWorkerServiceApiTests.Setup()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Setup
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 24
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestInitialize]
+
+      public Task Setup()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestInitialize>
+
+      Public Function Setup() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
+  id: Cleanup
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Cleanup()
+  nameWithType: InventarWorkerServiceApiTests.Cleanup()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Cleanup
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 34
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestCleanup]
+
+      public Task Cleanup()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestCleanup>
+
+      Public Function Cleanup() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus
+  id: Test_ServiceStatus
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_ServiceStatus()
+  nameWithType: InventarWorkerServiceApiTests.Test_ServiceStatus()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_ServiceStatus
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 40
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 41)]
+
+      [Description("Service Status prüfen")]
+
+      public Task Test_ServiceStatus()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 41)>
+
+      <Description("Service Status prüfen")>
+
+      Public Function Test_ServiceStatus() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 41
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Service Status prüfen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar
+  id: Test_HardwareInventar
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_HardwareInventar()
+  nameWithType: InventarWorkerServiceApiTests.Test_HardwareInventar()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_HardwareInventar
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 71
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 72)]
+
+      [Description("Hardware Inventar abrufen")]
+
+      public Task Test_HardwareInventar()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 72)>
+
+      <Description("Hardware Inventar abrufen")>
+
+      Public Function Test_HardwareInventar() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 72
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Hardware Inventar abrufen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar
+  id: Test_SoftwareInventar
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_SoftwareInventar()
+  nameWithType: InventarWorkerServiceApiTests.Test_SoftwareInventar()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_SoftwareInventar
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 102
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 103)]
+
+      [Description("Software Inventar abrufen")]
+
+      public Task Test_SoftwareInventar()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 103)>
+
+      <Description("Software Inventar abrufen")>
+
+      Public Function Test_SoftwareInventar() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 103
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Software Inventar abrufen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar
+  id: Test_KomplettesInventar
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_KomplettesInventar()
+  nameWithType: InventarWorkerServiceApiTests.Test_KomplettesInventar()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_KomplettesInventar
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 133
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 134)]
+
+      [Description("Komplettes Inventar abrufen")]
+
+      public Task Test_KomplettesInventar()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 134)>
+
+      <Description("Komplettes Inventar abrufen")>
+
+      Public Function Test_KomplettesInventar() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 134
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Komplettes Inventar abrufen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP
+  id: Test_LocalhostIP
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_LocalhostIP()
+  nameWithType: InventarWorkerServiceApiTests.Test_LocalhostIP()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_LocalhostIP
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 164
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 165)]
+
+      [Description("Test mit 127.0.0.1")]
+
+      public Task Test_LocalhostIP()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 165)>
+
+      <Description("Test mit 127.0.0.1")>
+
+      Public Function Test_LocalhostIP() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 165
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Test mit 127.0.0.1
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
+  id: Test_CustomHeaders
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_CustomHeaders()
+  nameWithType: InventarWorkerServiceApiTests.Test_CustomHeaders()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_CustomHeaders
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 209
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 210)]
+
+      [Description("Test mit Custom Headers")]
+
+      public Task Test_CustomHeaders()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 210)>
+
+      <Description("Test mit Custom Headers")>
+
+      Public Function Test_CustomHeaders() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 210
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Test mit Custom Headers
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+  id: Test_SwaggerDokumentation
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_SwaggerDokumentation()
+  nameWithType: InventarWorkerServiceApiTests.Test_SwaggerDokumentation()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_SwaggerDokumentation
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 245
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 246)]
+
+      [Description("Swagger Dokumentation testen")]
+
+      public Task Test_SwaggerDokumentation()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 246)>
+
+      <Description("Swagger Dokumentation testen")>
+
+      Public Function Test_SwaggerDokumentation() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 246
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Swagger Dokumentation testen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck
+  id: Test_Gesundheitscheck
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_Gesundheitscheck()
+  nameWithType: InventarWorkerServiceApiTests.Test_Gesundheitscheck()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_Gesundheitscheck
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 267
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 268)]
+
+      [Description("Gesundheitscheck testen")]
+
+      public Task Test_Gesundheitscheck()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 268)>
+
+      <Description("Gesundheitscheck testen")>
+
+      Public Function Test_Gesundheitscheck() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 268
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Gesundheitscheck testen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson
+  id: Test_SwaggerJson
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_SwaggerJson()
+  nameWithType: InventarWorkerServiceApiTests.Test_SwaggerJson()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_SwaggerJson
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 306
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 307)]
+
+      [Description("API Dokumentation JSON testen")]
+
+      public Task Test_SwaggerJson()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 307)>
+
+      <Description("API Dokumentation JSON testen")>
+
+      Public Function Test_SwaggerJson() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 307
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: API Dokumentation JSON testen
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests
+  id: Test_PerformanceMultipleRequests
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: Test_PerformanceMultipleRequests()
+  nameWithType: InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Test_PerformanceMultipleRequests
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 344
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 345)]
+
+      [Description("Performance Test - Mehrere parallele Anfragen")]
+
+      public Task Test_PerformanceMultipleRequests()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs", 345)>
+
+      <Description("Performance Test - Mehrere parallele Anfragen")>
+
+      Public Function Test_PerformanceMultipleRequests() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    - type: System.Int32
+      value: 345
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Performance Test - Mehrere parallele Anfragen
+references:
+- uid: InventarWorkerServiceIntegrationTests
+  commentId: N:InventarWorkerServiceIntegrationTests
+  href: InventarWorkerServiceIntegrationTests.html
+  name: InventarWorkerServiceIntegrationTests
+  nameWithType: InventarWorkerServiceIntegrationTests
+  fullName: InventarWorkerServiceIntegrationTests
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest
+  commentId: T:Microsoft.Playwright.MSTest.WorkerAwareTest
+  parent: Microsoft.Playwright.MSTest
+  isExternal: true
+  name: WorkerAwareTest
+  nameWithType: WorkerAwareTest
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest
+  commentId: T:Microsoft.Playwright.MSTest.PlaywrightTest
+  parent: Microsoft.Playwright.MSTest
+  isExternal: true
+  name: PlaywrightTest
+  nameWithType: PlaywrightTest
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest
+- uid: Microsoft.Playwright.MSTest.BrowserTest
+  commentId: T:Microsoft.Playwright.MSTest.BrowserTest
+  parent: Microsoft.Playwright.MSTest
+  isExternal: true
+  name: BrowserTest
+  nameWithType: BrowserTest
+  fullName: Microsoft.Playwright.MSTest.BrowserTest
+- uid: Microsoft.Playwright.MSTest.ContextTest
+  commentId: T:Microsoft.Playwright.MSTest.ContextTest
+  parent: Microsoft.Playwright.MSTest
+  isExternal: true
+  name: ContextTest
+  nameWithType: ContextTest
+  fullName: Microsoft.Playwright.MSTest.ContextTest
+- uid: Microsoft.Playwright.MSTest.PageTest
+  commentId: T:Microsoft.Playwright.MSTest.PageTest
+  parent: Microsoft.Playwright.MSTest
+  isExternal: true
+  name: PageTest
+  nameWithType: PageTest
+  fullName: Microsoft.Playwright.MSTest.PageTest
+- uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
+  commentId: M:Microsoft.Playwright.MSTest.PageTest.PageSetup
+  parent: Microsoft.Playwright.MSTest.PageTest
+  isExternal: true
+  name: PageSetup()
+  nameWithType: PageTest.PageSetup()
+  fullName: Microsoft.Playwright.MSTest.PageTest.PageSetup()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
+    name: PageSetup
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
+    name: PageSetup
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PageTest.Page
+  commentId: P:Microsoft.Playwright.MSTest.PageTest.Page
+  parent: Microsoft.Playwright.MSTest.PageTest
+  isExternal: true
+  name: Page
+  nameWithType: PageTest.Page
+  fullName: Microsoft.Playwright.MSTest.PageTest.Page
+- uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
+  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextSetup
+  parent: Microsoft.Playwright.MSTest.ContextTest
+  isExternal: true
+  name: ContextSetup()
+  nameWithType: ContextTest.ContextSetup()
+  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextSetup()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
+    name: ContextSetup
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
+    name: ContextSetup
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
+  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextOptions
+  parent: Microsoft.Playwright.MSTest.ContextTest
+  isExternal: true
+  name: ContextOptions()
+  nameWithType: ContextTest.ContextOptions()
+  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextOptions()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
+    name: ContextOptions
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
+    name: ContextOptions
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.ContextTest.Context
+  commentId: P:Microsoft.Playwright.MSTest.ContextTest.Context
+  parent: Microsoft.Playwright.MSTest.ContextTest
+  isExternal: true
+  name: Context
+  nameWithType: ContextTest.Context
+  fullName: Microsoft.Playwright.MSTest.ContextTest.Context
+- uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+  parent: Microsoft.Playwright.MSTest.BrowserTest
+  isExternal: true
+  name: NewContextAsync(BrowserNewContextOptions)
+  nameWithType: BrowserTest.NewContextAsync(BrowserNewContextOptions)
+  fullName: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+    name: NewContextAsync
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.BrowserNewContextOptions
+    name: BrowserNewContextOptions
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
+    name: NewContextAsync
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.BrowserNewContextOptions
+    name: BrowserNewContextOptions
+    isExternal: true
+  - name: )
+- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
+  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
+  parent: Microsoft.Playwright.MSTest.BrowserTest
+  isExternal: true
+  name: BrowserSetup()
+  nameWithType: BrowserTest.BrowserSetup()
+  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
+    name: BrowserSetup
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
+    name: BrowserSetup
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
+  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
+  parent: Microsoft.Playwright.MSTest.BrowserTest
+  isExternal: true
+  name: BrowserTearDown()
+  nameWithType: BrowserTest.BrowserTearDown()
+  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
+    name: BrowserTearDown
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
+    name: BrowserTearDown
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
+  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
+  parent: Microsoft.Playwright.MSTest.BrowserTest
+  isExternal: true
+  name: ConnectOptionsAsync()
+  nameWithType: BrowserTest.ConnectOptionsAsync()
+  fullName: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
+    name: ConnectOptionsAsync
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
+    name: ConnectOptionsAsync
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.BrowserTest.Browser
+  commentId: P:Microsoft.Playwright.MSTest.BrowserTest.Browser
+  parent: Microsoft.Playwright.MSTest.BrowserTest
+  isExternal: true
+  name: Browser
+  nameWithType: BrowserTest.Browser
+  fullName: Microsoft.Playwright.MSTest.BrowserTest.Browser
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
+  commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: PlaywrightSetup()
+  nameWithType: PlaywrightTest.PlaywrightSetup()
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
+    name: PlaywrightSetup
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
+    name: PlaywrightSetup
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
+  commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: SetDefaultExpectTimeout(float)
+  nameWithType: PlaywrightTest.SetDefaultExpectTimeout(float)
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(float)
+  nameWithType.vb: PlaywrightTest.SetDefaultExpectTimeout(Single)
+  fullName.vb: Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(Single)
+  name.vb: SetDefaultExpectTimeout(Single)
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
+    name: SetDefaultExpectTimeout
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
+    name: SetDefaultExpectTimeout
+    isExternal: true
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+  commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: Expect(ILocator)
+  nameWithType: PlaywrightTest.Expect(ILocator)
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.ILocator
+    name: ILocator
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.ILocator
+    name: ILocator
+    isExternal: true
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+  commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: Expect(IPage)
+  nameWithType: PlaywrightTest.Expect(IPage)
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.IPage
+    name: IPage
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IPage)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.IPage
+    name: IPage
+    isExternal: true
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+  commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: Expect(IAPIResponse)
+  nameWithType: PlaywrightTest.Expect(IAPIResponse)
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.IAPIResponse
+    name: IAPIResponse
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.IAPIResponse)
+    name: Expect
+    isExternal: true
+  - name: (
+  - uid: Microsoft.Playwright.IAPIResponse
+    name: IAPIResponse
+    isExternal: true
+  - name: )
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.BrowserName
+  commentId: P:Microsoft.Playwright.MSTest.PlaywrightTest.BrowserName
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: BrowserName
+  nameWithType: PlaywrightTest.BrowserName
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.BrowserName
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.Playwright
+  commentId: P:Microsoft.Playwright.MSTest.PlaywrightTest.Playwright
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: Playwright
+  nameWithType: PlaywrightTest.Playwright
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.Playwright
+- uid: Microsoft.Playwright.MSTest.PlaywrightTest.BrowserType
+  commentId: P:Microsoft.Playwright.MSTest.PlaywrightTest.BrowserType
+  parent: Microsoft.Playwright.MSTest.PlaywrightTest
+  isExternal: true
+  name: BrowserType
+  nameWithType: PlaywrightTest.BrowserType
+  fullName: Microsoft.Playwright.MSTest.PlaywrightTest.BrowserType
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{{T}}})
+  commentId: M:Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  definition: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: RegisterService<T>(string, Func<Task<T>>)
+  nameWithType: WorkerAwareTest.RegisterService<T>(string, Func<Task<T>>)
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService<T>(string, System.Func<System.Threading.Tasks.Task<T>>)
+  nameWithType.vb: WorkerAwareTest.RegisterService(Of T)(String, Func(Of Task(Of T)))
+  fullName.vb: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService(Of T)(String, System.Func(Of System.Threading.Tasks.Task(Of T)))
+  name.vb: RegisterService(Of T)(String, Func(Of Task(Of T)))
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+    name: RegisterService
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+    name: RegisterService
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: )
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup
+  commentId: M:Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  isExternal: true
+  name: WorkerSetup()
+  nameWithType: WorkerAwareTest.WorkerSetup()
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup
+    name: WorkerSetup
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerSetup
+    name: WorkerSetup
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown
+  commentId: M:Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  isExternal: true
+  name: WorkerTeardown()
+  nameWithType: WorkerAwareTest.WorkerTeardown()
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown
+    name: WorkerTeardown
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerTeardown
+    name: WorkerTeardown
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK
+  commentId: M:Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  isExternal: true
+  name: TestOK()
+  nameWithType: WorkerAwareTest.TestOK()
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK()
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK
+    name: TestOK
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.TestOK
+    name: TestOK
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.TestContext
+  commentId: P:Microsoft.Playwright.MSTest.WorkerAwareTest.TestContext
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  isExternal: true
+  name: TestContext
+  nameWithType: WorkerAwareTest.TestContext
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.TestContext
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerIndex
+  commentId: P:Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerIndex
+  parent: Microsoft.Playwright.MSTest.WorkerAwareTest
+  isExternal: true
+  name: WorkerIndex
+  nameWithType: WorkerAwareTest.WorkerIndex
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.WorkerIndex
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.Playwright.MSTest
+  commentId: N:Microsoft.Playwright.MSTest
+  isExternal: true
+  name: Microsoft.Playwright.MSTest
+  nameWithType: Microsoft.Playwright.MSTest
+  fullName: Microsoft.Playwright.MSTest
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Playwright
+    name: Playwright
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Playwright.MSTest
+    name: MSTest
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Playwright
+    name: Playwright
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Playwright.MSTest
+    name: MSTest
+    isExternal: true
+- uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+  commentId: M:Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: RegisterService<T>(string, Func<Task<T>>)
+  nameWithType: WorkerAwareTest.RegisterService<T>(string, Func<Task<T>>)
+  fullName: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService<T>(string, System.Func<System.Threading.Tasks.Task<T>>)
+  nameWithType.vb: WorkerAwareTest.RegisterService(Of T)(String, Func(Of Task(Of T)))
+  fullName.vb: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService(Of T)(String, System.Func(Of System.Threading.Tasks.Task(Of T)))
+  name.vb: RegisterService(Of T)(String, Func(Of Task(Of T)))
+  spec.csharp:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+    name: RegisterService
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Playwright.MSTest.WorkerAwareTest.RegisterService``1(System.String,System.Func{System.Threading.Tasks.Task{``0}})
+    name: RegisterService
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: )
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests__ctor
+  name: InventarWorkerServiceApiTests
+  nameWithType: InventarWorkerServiceApiTests.InventarWorkerServiceApiTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.InventarWorkerServiceApiTests
+  nameWithType.vb: InventarWorkerServiceApiTests.New
+  fullName.vb: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.New
+  name.vb: New
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Setup
+  name: Setup
+  nameWithType: InventarWorkerServiceApiTests.Setup
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Cleanup
+  name: Cleanup
+  nameWithType: InventarWorkerServiceApiTests.Cleanup
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_ServiceStatus
+  name: Test_ServiceStatus
+  nameWithType: InventarWorkerServiceApiTests.Test_ServiceStatus
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_HardwareInventar
+  name: Test_HardwareInventar
+  nameWithType: InventarWorkerServiceApiTests.Test_HardwareInventar
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_SoftwareInventar
+  name: Test_SoftwareInventar
+  nameWithType: InventarWorkerServiceApiTests.Test_SoftwareInventar
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_KomplettesInventar
+  name: Test_KomplettesInventar
+  nameWithType: InventarWorkerServiceApiTests.Test_KomplettesInventar
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_LocalhostIP
+  name: Test_LocalhostIP
+  nameWithType: InventarWorkerServiceApiTests.Test_LocalhostIP
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_CustomHeaders
+  name: Test_CustomHeaders
+  nameWithType: InventarWorkerServiceApiTests.Test_CustomHeaders
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_SwaggerDokumentation
+  name: Test_SwaggerDokumentation
+  nameWithType: InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_Gesundheitscheck
+  name: Test_Gesundheitscheck
+  nameWithType: InventarWorkerServiceApiTests.Test_Gesundheitscheck
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_SwaggerJson
+  name: Test_SwaggerJson
+  nameWithType: InventarWorkerServiceApiTests.Test_SwaggerJson
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Test_PerformanceMultipleRequests
+  name: Test_PerformanceMultipleRequests
+  nameWithType: InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests

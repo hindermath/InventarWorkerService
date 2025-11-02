@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  id: InventarWorkerCommon.Services.Database
+  children:
+  - InventarWorkerCommon.Services.Database.MongoDbService
+  - InventarWorkerCommon.Services.Database.SqliteDbService
+  - InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+  - InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Database.MongoDbService
+  commentId: T:InventarWorkerCommon.Services.Database.MongoDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html
+  name: MongoDbService
+  nameWithType: MongoDbService
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  name: SqliteDbService
+  nameWithType: SqliteDbService
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  name: SqliteDbService.MachineFromCsv
+  nameWithType: SqliteDbService.MachineFromCsv
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+  spec.csharp:
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
+    name: SqliteDbService
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+    name: MachineFromCsv
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv.html
+  spec.vb:
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
+    name: SqliteDbService
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+    name: MachineFromCsv
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv.html
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  name: SqliteDbService.MachineMap
+  nameWithType: SqliteDbService.MachineMap
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+  spec.csharp:
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
+    name: SqliteDbService
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+    name: MachineMap
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap.html
+  spec.vb:
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
+    name: SqliteDbService
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+    name: MachineMap
+    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap.html
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html

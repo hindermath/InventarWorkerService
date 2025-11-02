@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Helpers.Calculate
+  commentId: N:InventarWorkerCommon.Helpers.Calculate
+  id: InventarWorkerCommon.Helpers.Calculate
+  children:
+  - InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Helpers.Calculate
+  nameWithType: InventarWorkerCommon.Helpers.Calculate
+  fullName: InventarWorkerCommon.Helpers.Calculate
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+  commentId: T:InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+  href: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime.html
+  name: AverageProcessingTime
+  nameWithType: AverageProcessingTime
+  fullName: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime

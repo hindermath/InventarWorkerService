@@ -1,0 +1,429 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Common.Initialize
+  commentId: T:InventarWorkerCommon.Services.Common.Initialize
+  id: Initialize
+  parent: InventarWorkerCommon.Services.Common
+  children:
+  - InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
+  - InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: Initialize
+  nameWithType: Initialize
+  fullName: InventarWorkerCommon.Services.Common.Initialize
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Initialize
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: >-
+    Provides a static method to initialize and configure essential services used in the application.
+
+    This includes API service, SQLite database service, and MongoDB service.
+  example: []
+  syntax:
+    content: public static class Initialize
+    content.vb: Public Module Initialize
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
+  commentId: M:InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
+  id: Services(System.String,System.String,System.String,System.String)
+  parent: InventarWorkerCommon.Services.Common.Initialize
+  langs:
+  - csharp
+  - vb
+  name: Services(string, string, string, string)
+  nameWithType: Initialize.Services(string, string, string, string)
+  fullName: InventarWorkerCommon.Services.Common.Initialize.Services(string, string, string, string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Services
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 21
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: >-
+    Initializes and configures essential services required by the application, including API service,
+
+    SQLite database service, and MongoDB service.
+  example: []
+  syntax:
+    content: public static ServiceContainer Services(string clientApiFqdn = "localhost", string clientApiPort = "80", string mongoDbFqdn = "localhost", string mongoDbPort = "27017")
+    parameters:
+    - id: clientApiFqdn
+      type: System.String
+      description: The fully qualified domain name of the client API. The default is "localhost".
+    - id: clientApiPort
+      type: System.String
+      description: The port on which the client API is running. The default is "80".
+    - id: mongoDbFqdn
+      type: System.String
+      description: The fully qualified domain name of the MongoDB server. The default is "localhost".
+    - id: mongoDbPort
+      type: System.String
+      description: The port on which the MongoDB server is running. The default is "27017".
+    return:
+      type: InventarWorkerCommon.Services.Common.ServiceContainer
+      description: A disposable container with the initialized instances of services.
+    content.vb: Public Shared Function Services(clientApiFqdn As String = "localhost", clientApiPort As String = "80", mongoDbFqdn As String = "localhost", mongoDbPort As String = "27017") As ServiceContainer
+  overload: InventarWorkerCommon.Services.Common.Initialize.Services*
+  nameWithType.vb: Initialize.Services(String, String, String, String)
+  fullName.vb: InventarWorkerCommon.Services.Common.Initialize.Services(String, String, String, String)
+  name.vb: Services(String, String, String, String)
+- uid: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
+  commentId: M:InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
+  id: GetDbBasePath
+  parent: InventarWorkerCommon.Services.Common.Initialize
+  langs:
+  - csharp
+  - vb
+  name: GetDbBasePath()
+  nameWithType: Initialize.GetDbBasePath()
+  fullName: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetDbBasePath
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 51
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: >-
+    Retrieves the base path for the database file. If the service status path does not exist, it creates
+
+    the required path and returns its full name.
+
+    If the service status path already exists, it retrieves and returns the existing path.
+  example: []
+  syntax:
+    content: public static string GetDbBasePath()
+    return:
+      type: System.String
+      description: The base path for the database file as a string.
+    content.vb: Public Shared Function GetDbBasePath() As String
+  overload: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath*
+references:
+- uid: InventarWorkerCommon.Services.Common
+  commentId: N:InventarWorkerCommon.Services.Common
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Common
+  nameWithType: InventarWorkerCommon.Services.Common
+  fullName: InventarWorkerCommon.Services.Common
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Services.Common.Initialize.Services*
+  commentId: Overload:InventarWorkerCommon.Services.Common.Initialize.Services
+  href: InventarWorkerCommon.Services.Common.Initialize.html#InventarWorkerCommon_Services_Common_Initialize_Services_System_String_System_String_System_String_System_String_
+  name: Services
+  nameWithType: Initialize.Services
+  fullName: InventarWorkerCommon.Services.Common.Initialize.Services
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer
+  commentId: T:InventarWorkerCommon.Services.Common.ServiceContainer
+  parent: InventarWorkerCommon.Services.Common
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer
+- uid: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath*
+  commentId: Overload:InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
+  href: InventarWorkerCommon.Services.Common.Initialize.html#InventarWorkerCommon_Services_Common_Initialize_GetDbBasePath
+  name: GetDbBasePath
+  nameWithType: Initialize.GetDbBasePath
+  fullName: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath

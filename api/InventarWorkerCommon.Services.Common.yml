@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Common
+  commentId: N:InventarWorkerCommon.Services.Common
+  id: InventarWorkerCommon.Services.Common
+  children:
+  - InventarWorkerCommon.Services.Common.Initialize
+  - InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Common
+  nameWithType: InventarWorkerCommon.Services.Common
+  fullName: InventarWorkerCommon.Services.Common
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Common.Initialize
+  commentId: T:InventarWorkerCommon.Services.Common.Initialize
+  href: InventarWorkerCommon.Services.Common.Initialize.html
+  name: Initialize
+  nameWithType: Initialize
+  fullName: InventarWorkerCommon.Services.Common.Initialize
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer
+  commentId: T:InventarWorkerCommon.Services.Common.ServiceContainer
+  parent: InventarWorkerCommon.Services.Common
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer
+- uid: InventarWorkerCommon.Services.Common
+  commentId: N:InventarWorkerCommon.Services.Common
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Common
+  nameWithType: InventarWorkerCommon.Services.Common
+  fullName: InventarWorkerCommon.Services.Common
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html

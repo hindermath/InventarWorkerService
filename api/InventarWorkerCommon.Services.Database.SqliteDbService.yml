@@ -1,0 +1,1726 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService
+  id: SqliteDbService
+  parent: InventarWorkerCommon.Services.Database
+  children:
+  - InventarWorkerCommon.Services.Database.SqliteDbService.#ctor(System.String)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync(System.Int32)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync(System.Int32)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync(System.Int32)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync(System.Int32)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync(System.String)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync
+  - InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
+  - InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(System.String)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  langs:
+  - csharp
+  - vb
+  name: SqliteDbService
+  nameWithType: SqliteDbService
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SqliteDbService
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 14
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Provides services to interact with the application's SQLite database.
+  example: []
+  syntax:
+    content: public class SqliteDbService
+    content.vb: Public Class SqliteDbService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: SqliteDbService(string)
+  nameWithType: SqliteDbService.SqliteDbService(string)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SqliteDbService(string)
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 22
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Handles interactions with the SQLite database, providing methods for initialization,
+
+    data storage, retrieval, and maintenance operations.
+  example: []
+  syntax:
+    content: public SqliteDbService(string connectionString)
+    parameters:
+    - id: connectionString
+      type: System.String
+    content.vb: Public Sub New(connectionString As String)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.#ctor*
+  nameWithType.vb: SqliteDbService.New(String)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.New(String)
+  name.vb: New(String)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
+  id: InitializeDatabase
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: InitializeDatabase()
+  nameWithType: SqliteDbService.InitializeDatabase()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InitializeDatabase
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 33
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Initializes the application's database by setting up required structures
+
+    and ensuring that all necessary configurations are applied.
+
+    This method should be called during the application's startup process
+
+    to prepare the database for use.
+  example: []
+  syntax:
+    content: public void InitializeDatabase()
+    content.vb: Public Sub InitializeDatabase()
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  id: SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: SaveOrUpdateMachineAsync(Machine)
+  nameWithType: SqliteDbService.SaveOrUpdateMachineAsync(Machine)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SaveOrUpdateMachineAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 294
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Saves a new machine to the database or updates an existing machine's details if it already exists.
+  example: []
+  syntax:
+    content: public Task<int> SaveOrUpdateMachineAsync(Machine machine)
+    parameters:
+    - id: machine
+      type: InventarWorkerCommon.Models.SqlDatabase.Machine
+      description: The machine object containing the properties to be inserted or updated in the database.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The ID of the saved or updated machine record.
+    content.vb: Public Function SaveOrUpdateMachineAsync(machine As Machine) As Task(Of Integer)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  id: SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: SaveHardwareInventoryAsync(int, HardwareInventory)
+  nameWithType: SqliteDbService.SaveHardwareInventoryAsync(int, HardwareInventory)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(int, InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SaveHardwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 344
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Saves the hardware inventory information for a specified machine to the database.
+  example: []
+  syntax:
+    content: public Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The unique identifier of the machine this hardware inventory belongs to.
+    - id: hardware
+      type: InventarWorkerCommon.Models.Hardware.HardwareInventory
+      description: The hardware inventory data containing system, CPU, and memory information.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Public Function SaveHardwareInventoryAsync(machineId As Integer, hardware As HardwareInventory) As Task
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync*
+  nameWithType.vb: SqliteDbService.SaveHardwareInventoryAsync(Integer, HardwareInventory)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(Integer, InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  name.vb: SaveHardwareInventoryAsync(Integer, HardwareInventory)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  id: SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: SaveSoftwareInventoryAsync(int, SoftwareInventory)
+  nameWithType: SqliteDbService.SaveSoftwareInventoryAsync(int, SoftwareInventory)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(int, InventarWorkerCommon.Models.Software.SoftwareInventory)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SaveSoftwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 381
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Saves the software inventory data for a specific machine to the SQLite database.
+  example: []
+  syntax:
+    content: public Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The unique identifier of the machine for which the software inventory is being saved.
+    - id: software
+      type: InventarWorkerCommon.Models.Software.SoftwareInventory
+      description: The software inventory object containing details about installed software, running processes, services, startup programs, environment variables, and runtime information.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that represents the asynchronous operation.
+    content.vb: Public Function SaveSoftwareInventoryAsync(machineId As Integer, software As SoftwareInventory) As Task
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync*
+  nameWithType.vb: SqliteDbService.SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(Integer, InventarWorkerCommon.Models.Software.SoftwareInventory)
+  name.vb: SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync
+  id: GetMachinesAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetMachinesAsync()
+  nameWithType: SqliteDbService.GetMachinesAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetMachinesAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 410
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves a list of all machines from the SQLite database, ordered by their name.
+  example: []
+  syntax:
+    content: public Task<List<Machine>> GetMachinesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.Machine}}
+      description: >-
+        A task that represents the asynchronous operation. The task result contains
+            a list of <xref href="InventarWorkerCommon.Models.SqlDatabase.Machine" data-throw-if-not-resolved="false"></xref> objects representing the machines retrieved from the database.
+    content.vb: Public Function GetMachinesAsync() As Task(Of List(Of Machine))
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync
+  id: GetAllActiveMachinesAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetAllActiveMachinesAsync()
+  nameWithType: SqliteDbService.GetAllActiveMachinesAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetAllActiveMachinesAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 425
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Retrieves a list of all active machines from the database, ordered by name,
+
+    using the "AllActiveMachinesView" database view.
+  example: []
+  syntax:
+    content: public Task<List<MachineState>> GetAllActiveMachinesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+      description: A list of <xref href="InventarWorkerCommon.Models.SqlDatabase.MachineState" data-throw-if-not-resolved="false"></xref> objects representing all active machines.
+    content.vb: Public Function GetAllActiveMachinesAsync() As Task(Of List(Of MachineState))
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+  id: GetAllActiveMachinesWithNetworkInfoAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetAllActiveMachinesWithNetworkInfoAsync()
+  nameWithType: SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetAllActiveMachinesWithNetworkInfoAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 443
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Retrieves a list of all active machines along with their associated network information
+
+    from the database. Active machines are those that are neither disabled nor deprovisioned.
+  example: []
+  syntax:
+    content: public Task<List<MachineState>> GetAllActiveMachinesWithNetworkInfoAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+      description: >-
+        A task representing the asynchronous operation, containing a list of
+
+        <xref href="InventarWorkerCommon.Models.SqlDatabase.MachineState" data-throw-if-not-resolved="false"></xref> instances with network information.
+    content.vb: Public Function GetAllActiveMachinesWithNetworkInfoAsync() As Task(Of List(Of MachineState))
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync
+  id: GetAllDeprovisionedMachinesAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetAllDeprovisionedMachinesAsync()
+  nameWithType: SqliteDbService.GetAllDeprovisionedMachinesAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetAllDeprovisionedMachinesAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 457
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves a list of all deprovisioned machines from the SQLite database.
+  example: []
+  syntax:
+    content: public Task<List<MachineState>> GetAllDeprovisionedMachinesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+      description: A list of <xref href="InventarWorkerCommon.Models.SqlDatabase.MachineState" data-throw-if-not-resolved="false"></xref> representing deprovisioned machines.
+    content.vb: Public Function GetAllDeprovisionedMachinesAsync() As Task(Of List(Of MachineState))
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync
+  id: GetAllDisabledMachinesAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetAllDisabledMachinesAsync()
+  nameWithType: SqliteDbService.GetAllDisabledMachinesAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetAllDisabledMachinesAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 472
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Retrieves a list of all machines marked as disabled within the system,
+
+    including their identities, network details, and relevant status information.
+  example: []
+  syntax:
+    content: public Task<List<MachineState>> GetAllDisabledMachinesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+      description: A task representing the asynchronous operation. The task result contains a list of disabled machines represented by <xref href="InventarWorkerCommon.Models.SqlDatabase.MachineState" data-throw-if-not-resolved="false"></xref> objects.
+    content.vb: Public Function GetAllDisabledMachinesAsync() As Task(Of List(Of MachineState))
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync(System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync(System.Int32)
+  id: GetMachineByIdAsync(System.Int32)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetMachineByIdAsync(int)
+  nameWithType: SqliteDbService.GetMachineByIdAsync(int)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync(int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetMachineByIdAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 490
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves a machine from the database using its unique identifier.
+  example: []
+  syntax:
+    content: public Task<Machine?> GetMachineByIdAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The unique identifier of the machine to be retrieved.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.Machine}
+      description: >-
+        A task that represents the asynchronous operation. The task result contains the machine
+
+        if found, or null if no machine matches the provided identifier.
+    content.vb: Public Function GetMachineByIdAsync(id As Integer) As Task(Of Machine)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync*
+  nameWithType.vb: SqliteDbService.GetMachineByIdAsync(Integer)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync(Integer)
+  name.vb: GetMachineByIdAsync(Integer)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync(System.String)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync(System.String)
+  id: GetMachineByNameAsync(System.String)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetMachineByNameAsync(string)
+  nameWithType: SqliteDbService.GetMachineByNameAsync(string)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetMachineByNameAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 507
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves a machine record from the database based on the provided machine name.
+  example: []
+  syntax:
+    content: public Task<Machine?> GetMachineByNameAsync(string machineName)
+    parameters:
+    - id: machineName
+      type: System.String
+      description: The name of the machine to search for in the database.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.Machine}
+      description: >-
+        A task that represents the asynchronous operation. The task result contains the <xref href="InventarWorkerCommon.Models.SqlDatabase.Machine" data-throw-if-not-resolved="false"></xref>
+
+        object if a match is found, or <code>null</code> if no matching machine is found.
+    content.vb: Public Function GetMachineByNameAsync(machineName As String) As Task(Of Machine)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync*
+  nameWithType.vb: SqliteDbService.GetMachineByNameAsync(String)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync(String)
+  name.vb: GetMachineByNameAsync(String)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync(System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync(System.Int32)
+  id: GetLatestHardwareInventoryAsync(System.Int32)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetLatestHardwareInventoryAsync(int)
+  nameWithType: SqliteDbService.GetLatestHardwareInventoryAsync(int)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync(int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetLatestHardwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 521
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves the latest hardware inventory record for a specific machine from the database.
+  example: []
+  syntax:
+    content: public Task<HardwareInventories?> GetLatestHardwareInventoryAsync(int machineId)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The unique identifier of the machine whose hardware inventory is being retrieved.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+      description: A <xref href="InventarWorkerCommon.Models.SqlDatabase.HardwareInventories" data-throw-if-not-resolved="false"></xref> object containing the latest hardware inventory information, or null if no record is found.
+    content.vb: Public Function GetLatestHardwareInventoryAsync(machineId As Integer) As Task(Of HardwareInventories)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync*
+  nameWithType.vb: SqliteDbService.GetLatestHardwareInventoryAsync(Integer)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync(Integer)
+  name.vb: GetLatestHardwareInventoryAsync(Integer)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync(System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync(System.Int32)
+  id: GetLatestSoftwareInventoryAsync(System.Int32)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetLatestSoftwareInventoryAsync(int)
+  nameWithType: SqliteDbService.GetLatestSoftwareInventoryAsync(int)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync(int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetLatestSoftwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 540
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves the latest software inventory record for a given machine ID from the database.
+  example: []
+  syntax:
+    content: public Task<SoftwareInventories?> GetLatestSoftwareInventoryAsync(int machineId)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The unique identifier of the machine for which the latest software inventory is to be retrieved.
+    return:
+      type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories}
+      description: A <xref href="InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories" data-throw-if-not-resolved="false"></xref> object representing the latest software inventory of the specified machine, or null if no record exists.
+    content.vb: Public Function GetLatestSoftwareInventoryAsync(machineId As Integer) As Task(Of SoftwareInventories)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync*
+  nameWithType.vb: SqliteDbService.GetLatestSoftwareInventoryAsync(Integer)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync(Integer)
+  name.vb: GetLatestSoftwareInventoryAsync(Integer)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync(System.Int32)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync(System.Int32)
+  id: CleanupOldRecordsAsync(System.Int32)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: CleanupOldRecordsAsync(int)
+  nameWithType: SqliteDbService.CleanupOldRecordsAsync(int)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CleanupOldRecordsAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 577
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Removes old records from the hardware and software inventories based on the specified retention period.
+  example: []
+  syntax:
+    content: public Task CleanupOldRecordsAsync(int daysToKeep = 30)
+    parameters:
+    - id: daysToKeep
+      type: System.Int32
+      description: The number of days for which to retain records. Records older than this period will be deleted. Defaults to 30.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Public Function CleanupOldRecordsAsync(daysToKeep As Integer = 30) As Task
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync*
+  nameWithType.vb: SqliteDbService.CleanupOldRecordsAsync(Integer)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync(Integer)
+  name.vb: CleanupOldRecordsAsync(Integer)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync
+  id: HasMachineRecordsAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: HasMachineRecordsAsync()
+  nameWithType: SqliteDbService.HasMachineRecordsAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HasMachineRecordsAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 595
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Checks if there are any machine records in the database.
+  example: []
+  syntax:
+    content: public Task<bool> HasMachineRecordsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A task that represents the asynchronous operation. The task result contains true if machine records exist, otherwise false.
+    content.vb: Public Function HasMachineRecordsAsync() As Task(Of Boolean)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync
+  id: HasHardwareInventoryRecordsAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: HasHardwareInventoryRecordsAsync()
+  nameWithType: SqliteDbService.HasHardwareInventoryRecordsAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HasHardwareInventoryRecordsAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 608
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Checks if there are existing hardware inventory records in the database.
+  example: []
+  syntax:
+    content: public Task<bool> HasHardwareInventoryRecordsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if there is at least one hardware inventory record in the database; otherwise, false.
+    content.vb: Public Function HasHardwareInventoryRecordsAsync() As Task(Of Boolean)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync
+  id: HasSoftwareInventoryRecordsAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: HasSoftwareInventoryRecordsAsync()
+  nameWithType: SqliteDbService.HasSoftwareInventoryRecordsAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HasSoftwareInventoryRecordsAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 621
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Checks whether there are any records in the SoftwareInventories table of the database.
+  example: []
+  syntax:
+    content: public Task<bool> HasSoftwareInventoryRecordsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Returns a boolean indicating if software inventory records exist.
+    content.vb: Public Function HasSoftwareInventoryRecordsAsync() As Task(Of Boolean)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync
+  id: GetMachineCountAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetMachineCountAsync()
+  nameWithType: SqliteDbService.GetMachineCountAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetMachineCountAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 634
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves the total count of machines stored in the database.
+  example: []
+  syntax:
+    content: public Task<int> GetMachineCountAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of machines as an integer.
+    content.vb: Public Function GetMachineCountAsync() As Task(Of Integer)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync
+  id: GetHardwareInventoryCountAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetHardwareInventoryCountAsync()
+  nameWithType: SqliteDbService.GetHardwareInventoryCountAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetHardwareInventoryCountAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 647
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves the total count of hardware inventory records stored in the database.
+  example: []
+  syntax:
+    content: public Task<int> GetHardwareInventoryCountAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: An integer representing the total count of hardware inventory records.
+    content.vb: Public Function GetHardwareInventoryCountAsync() As Task(Of Integer)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+  id: GetSoftwareInventoryCountAsync
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: GetSoftwareInventoryCountAsync()
+  nameWithType: SqliteDbService.GetSoftwareInventoryCountAsync()
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: GetSoftwareInventoryCountAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 660
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Retrieves the total count of software inventory records stored in the database.
+  example: []
+  syntax:
+    content: public Task<int> GetSoftwareInventoryCountAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total number of software inventory records as an integer.
+    content.vb: Public Function GetSoftwareInventoryCountAsync() As Task(Of Integer)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync*
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(System.String)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(System.String)
+  id: InitializeMachinesFromCsvAsync(System.String)
+  parent: InventarWorkerCommon.Services.Database.SqliteDbService
+  langs:
+  - csharp
+  - vb
+  name: InitializeMachinesFromCsvAsync(string)
+  nameWithType: SqliteDbService.InitializeMachinesFromCsvAsync(string)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(string)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InitializeMachinesFromCsvAsync
+    path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
+    startLine: 669
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  syntax:
+    content: public Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
+    parameters:
+    - id: csvFilePath
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function InitializeMachinesFromCsvAsync(csvFilePath As String) As Task(Of Integer)
+  overload: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync*
+  nameWithType.vb: SqliteDbService.InitializeMachinesFromCsvAsync(String)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(String)
+  name.vb: InitializeMachinesFromCsvAsync(String)
+references:
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.#ctor*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.#ctor
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService__ctor_System_String_
+  name: SqliteDbService
+  nameWithType: SqliteDbService.SqliteDbService
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SqliteDbService
+  nameWithType.vb: SqliteDbService.New
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_InitializeDatabase
+  name: InitializeDatabase
+  nameWithType: SqliteDbService.InitializeDatabase
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_SaveOrUpdateMachineAsync_InventarWorkerCommon_Models_SqlDatabase_Machine_
+  name: SaveOrUpdateMachineAsync
+  nameWithType: SqliteDbService.SaveOrUpdateMachineAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync
+- uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.Machine
+  parent: InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  name: Machine
+  nameWithType: Machine
+  fullName: InventarWorkerCommon.Models.SqlDatabase.Machine
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  commentId: N:InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.SqlDatabase
+  nameWithType: InventarWorkerCommon.Models.SqlDatabase
+  fullName: InventarWorkerCommon.Models.SqlDatabase
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_SaveHardwareInventoryAsync_System_Int32_InventarWorkerCommon_Models_Hardware_HardwareInventory_
+  name: SaveHardwareInventoryAsync
+  nameWithType: SqliteDbService.SaveHardwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: InventarWorkerCommon.Models.Hardware.HardwareInventory
+  commentId: T:InventarWorkerCommon.Models.Hardware.HardwareInventory
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.HardwareInventory.html
+  name: HardwareInventory
+  nameWithType: HardwareInventory
+  fullName: InventarWorkerCommon.Models.Hardware.HardwareInventory
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_SaveSoftwareInventoryAsync_System_Int32_InventarWorkerCommon_Models_Software_SoftwareInventory_
+  name: SaveSoftwareInventoryAsync
+  nameWithType: SqliteDbService.SaveSoftwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync
+- uid: InventarWorkerCommon.Models.Software.SoftwareInventory
+  commentId: T:InventarWorkerCommon.Models.Software.SoftwareInventory
+  parent: InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.Models.Software.SoftwareInventory.html
+  name: SoftwareInventory
+  nameWithType: SoftwareInventory
+  fullName: InventarWorkerCommon.Models.Software.SoftwareInventory
+- uid: InventarWorkerCommon.Models.Software
+  commentId: N:InventarWorkerCommon.Models.Software
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Software
+  nameWithType: InventarWorkerCommon.Models.Software
+  fullName: InventarWorkerCommon.Models.Software
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Software
+    name: Software
+    href: InventarWorkerCommon.Models.Software.html
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetMachinesAsync
+  name: GetMachinesAsync
+  nameWithType: SqliteDbService.GetMachinesAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachinesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.Machine}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.Machine}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<Machine>>
+  nameWithType: Task<List<Machine>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<InventarWorkerCommon.Models.SqlDatabase.Machine>>
+  nameWithType.vb: Task(Of List(Of Machine))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of InventarWorkerCommon.Models.SqlDatabase.Machine))
+  name.vb: Task(Of List(Of Machine))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+    name: Machine
+    href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+    name: Machine
+    href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  - name: )
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.MachineState
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  name: MachineState
+  nameWithType: MachineState
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetAllActiveMachinesAsync
+  name: GetAllActiveMachinesAsync
+  nameWithType: SqliteDbService.GetAllActiveMachinesAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{InventarWorkerCommon.Models.SqlDatabase.MachineState}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<MachineState>>
+  nameWithType: Task<List<MachineState>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<InventarWorkerCommon.Models.SqlDatabase.MachineState>>
+  nameWithType.vb: Task(Of List(Of MachineState))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of InventarWorkerCommon.Models.SqlDatabase.MachineState))
+  name.vb: Task(Of List(Of MachineState))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+    name: MachineState
+    href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+    name: MachineState
+    href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  - name: )
+  - name: )
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetAllActiveMachinesWithNetworkInfoAsync
+  name: GetAllActiveMachinesWithNetworkInfoAsync
+  nameWithType: SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetAllDeprovisionedMachinesAsync
+  name: GetAllDeprovisionedMachinesAsync
+  nameWithType: SqliteDbService.GetAllDeprovisionedMachinesAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDeprovisionedMachinesAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetAllDisabledMachinesAsync
+  name: GetAllDisabledMachinesAsync
+  nameWithType: SqliteDbService.GetAllDisabledMachinesAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetAllDisabledMachinesAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetMachineByIdAsync_System_Int32_
+  name: GetMachineByIdAsync
+  nameWithType: SqliteDbService.GetMachineByIdAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByIdAsync
+- uid: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.Machine}
+  commentId: T:System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.Machine}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Machine>
+  nameWithType: Task<Machine>
+  fullName: System.Threading.Tasks.Task<InventarWorkerCommon.Models.SqlDatabase.Machine>
+  nameWithType.vb: Task(Of Machine)
+  fullName.vb: System.Threading.Tasks.Task(Of InventarWorkerCommon.Models.SqlDatabase.Machine)
+  name.vb: Task(Of Machine)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+    name: Machine
+    href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+    name: Machine
+    href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  - name: )
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetMachineByNameAsync_System_String_
+  name: GetMachineByNameAsync
+  nameWithType: SqliteDbService.GetMachineByNameAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineByNameAsync
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  name: HardwareInventories
+  nameWithType: HardwareInventories
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetLatestHardwareInventoryAsync_System_Int32_
+  name: GetLatestHardwareInventoryAsync
+  nameWithType: SqliteDbService.GetLatestHardwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestHardwareInventoryAsync
+- uid: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+  commentId: T:System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<HardwareInventories>
+  nameWithType: Task<HardwareInventories>
+  fullName: System.Threading.Tasks.Task<InventarWorkerCommon.Models.SqlDatabase.HardwareInventories>
+  nameWithType.vb: Task(Of HardwareInventories)
+  fullName.vb: System.Threading.Tasks.Task(Of InventarWorkerCommon.Models.SqlDatabase.HardwareInventories)
+  name.vb: Task(Of HardwareInventories)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+    name: HardwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+    name: HardwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+  href: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories.html
+  name: SoftwareInventories
+  nameWithType: SoftwareInventories
+  fullName: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetLatestSoftwareInventoryAsync_System_Int32_
+  name: GetLatestSoftwareInventoryAsync
+  nameWithType: SqliteDbService.GetLatestSoftwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetLatestSoftwareInventoryAsync
+- uid: System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories}
+  commentId: T:System.Threading.Tasks.Task{InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SoftwareInventories>
+  nameWithType: Task<SoftwareInventories>
+  fullName: System.Threading.Tasks.Task<InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories>
+  nameWithType.vb: Task(Of SoftwareInventories)
+  fullName.vb: System.Threading.Tasks.Task(Of InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories)
+  name.vb: Task(Of SoftwareInventories)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+    name: SoftwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+    name: SoftwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories.html
+  - name: )
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_CleanupOldRecordsAsync_System_Int32_
+  name: CleanupOldRecordsAsync
+  nameWithType: SqliteDbService.CleanupOldRecordsAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.CleanupOldRecordsAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_HasMachineRecordsAsync
+  name: HasMachineRecordsAsync
+  nameWithType: SqliteDbService.HasMachineRecordsAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasMachineRecordsAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_HasHardwareInventoryRecordsAsync
+  name: HasHardwareInventoryRecordsAsync
+  nameWithType: SqliteDbService.HasHardwareInventoryRecordsAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasHardwareInventoryRecordsAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_HasSoftwareInventoryRecordsAsync
+  name: HasSoftwareInventoryRecordsAsync
+  nameWithType: SqliteDbService.HasSoftwareInventoryRecordsAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.HasSoftwareInventoryRecordsAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetMachineCountAsync
+  name: GetMachineCountAsync
+  nameWithType: SqliteDbService.GetMachineCountAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetMachineCountAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetHardwareInventoryCountAsync
+  name: GetHardwareInventoryCountAsync
+  nameWithType: SqliteDbService.GetHardwareInventoryCountAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetHardwareInventoryCountAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_GetSoftwareInventoryCountAsync
+  name: GetSoftwareInventoryCountAsync
+  nameWithType: SqliteDbService.GetSoftwareInventoryCountAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_InitializeMachinesFromCsvAsync_System_String_
+  name: InitializeMachinesFromCsvAsync
+  nameWithType: SqliteDbService.InitializeMachinesFromCsvAsync
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync

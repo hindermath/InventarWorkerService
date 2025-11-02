@@ -1,0 +1,706 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer
+  commentId: T:InventarWorkerCommon.Services.Common.ServiceContainer
+  id: ServiceContainer
+  parent: InventarWorkerCommon.Services.Common
+  children:
+  - InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+  - InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+  - InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
+  - InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
+  - InventarWorkerCommon.Services.Common.ServiceContainer.Finalize
+  - InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceContainer
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 68
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Container for disposable services implementing the Microsoft Dispose Pattern.
+  example: []
+  syntax:
+    content: 'public sealed class ServiceContainer : IDisposable, IAsyncDisposable'
+    content.vb: Public NotInheritable Class ServiceContainer Implements IDisposable, IAsyncDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+  commentId: P:InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+  id: ApiService
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: ApiService
+  nameWithType: ServiceContainer.ApiService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ApiService
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 75
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Gets the API service instance.
+  example: []
+  syntax:
+    content: public ApiService ApiService { get; }
+    parameters: []
+    return:
+      type: InventarWorkerCommon.Services.Api.ApiService
+    content.vb: Public ReadOnly Property ApiService As ApiService
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.ApiService*
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+  commentId: P:InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+  id: DbService
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: DbService
+  nameWithType: ServiceContainer.DbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: DbService
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 80
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Gets the SQLite database service instance.
+  example: []
+  syntax:
+    content: public SqliteDbService DbService { get; }
+    parameters: []
+    return:
+      type: InventarWorkerCommon.Services.Database.SqliteDbService
+    content.vb: Public ReadOnly Property DbService As SqliteDbService
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.DbService*
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  commentId: P:InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  id: MongoDbService
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: MongoDbService
+  nameWithType: ServiceContainer.MongoDbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbService
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 85
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Gets the MongoDB service instance.
+  example: []
+  syntax:
+    content: public MongoDbService MongoDbService { get; }
+    parameters: []
+    return:
+      type: InventarWorkerCommon.Services.Database.MongoDbService
+    content.vb: Public ReadOnly Property MongoDbService As MongoDbService
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService*
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
+  commentId: M:InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
+  id: Dispose
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ServiceContainer.Dispose()
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Dispose
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 103
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Releases all resources used by the ServiceContainer.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
+  commentId: M:InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
+  id: DisposeAsync
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync()
+  nameWithType: ServiceContainer.DisposeAsync()
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: DisposeAsync
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 113
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Asynchronously releases all resources used by the ServiceContainer.
+  example: []
+  syntax:
+    content: public ValueTask DisposeAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask
+      description: A task that represents the asynchronous dispose operation.
+    content.vb: Public Function DisposeAsync() As ValueTask
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync*
+  implements:
+  - System.IAsyncDisposable.DisposeAsync
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.Finalize
+  commentId: M:InventarWorkerCommon.Services.Common.ServiceContainer.Finalize
+  id: Finalize
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: ~ServiceContainer()
+  nameWithType: ServiceContainer.~ServiceContainer()
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.~ServiceContainer()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Finalize
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 229
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: Finalizer to ensure resources are released even if Dispose is not called.
+  example: []
+  syntax:
+    content: protected ~ServiceContainer()
+    content.vb: 'Protected '
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+references:
+- uid: InventarWorkerCommon.Services.Common
+  commentId: N:InventarWorkerCommon.Services.Common
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Common
+  nameWithType: InventarWorkerCommon.Services.Common
+  fullName: InventarWorkerCommon.Services.Common
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Common
+    name: Common
+    href: InventarWorkerCommon.Services.Common.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.ApiService*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_ApiService
+  name: ApiService
+  nameWithType: ServiceContainer.ApiService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.ApiService
+- uid: InventarWorkerCommon.Services.Api.ApiService
+  commentId: T:InventarWorkerCommon.Services.Api.ApiService
+  parent: InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.Services.Api.ApiService.html
+  name: ApiService
+  nameWithType: ApiService
+  fullName: InventarWorkerCommon.Services.Api.ApiService
+- uid: InventarWorkerCommon.Services.Api
+  commentId: N:InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Api
+  nameWithType: InventarWorkerCommon.Services.Api
+  fullName: InventarWorkerCommon.Services.Api
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.DbService*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_DbService
+  name: DbService
+  nameWithType: ServiceContainer.DbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.DbService
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService
+  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
+  name: SqliteDbService
+  nameWithType: SqliteDbService
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+- uid: InventarWorkerCommon.Services.Database
+  commentId: N:InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Database
+  nameWithType: InventarWorkerCommon.Services.Database
+  fullName: InventarWorkerCommon.Services.Database
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Database
+    name: Database
+    href: InventarWorkerCommon.Services.Database.html
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_MongoDbService
+  name: MongoDbService
+  nameWithType: ServiceContainer.MongoDbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+- uid: InventarWorkerCommon.Services.Database.MongoDbService
+  commentId: T:InventarWorkerCommon.Services.Database.MongoDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html
+  name: MongoDbService
+  nameWithType: MongoDbService
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_Dispose
+  name: Dispose
+  nameWithType: ServiceContainer.Dispose
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_DisposeAsync
+  name: DisposeAsync
+  nameWithType: ServiceContainer.DisposeAsync
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.Finalize*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.Finalize
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_Finalize
+  name: ~ServiceContainer
+  nameWithType: ServiceContainer.~ServiceContainer
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.~ServiceContainer
+  spec.csharp:
+  - name: "~"
+  - uid: InventarWorkerCommon.Services.Common.ServiceContainer.Finalize*
+    name: ServiceContainer
+    href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_Finalize

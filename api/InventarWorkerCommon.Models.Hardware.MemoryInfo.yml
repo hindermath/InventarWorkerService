@@ -1,0 +1,573 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  commentId: T:InventarWorkerCommon.Models.Hardware.MemoryInfo
+  id: MemoryInfo
+  parent: InventarWorkerCommon.Models.Hardware
+  children:
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+  - InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+  langs:
+  - csharp
+  - vb
+  name: MemoryInfo
+  nameWithType: MemoryInfo
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MemoryInfo
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  summary: Provides memory usage and capacity details of the system.
+  example: []
+  syntax:
+    content: 'public record MemoryInfo : IEquatable<MemoryInfo>'
+    content.vb: Public Class MemoryInfo Implements IEquatable(Of MemoryInfo)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.Hardware.MemoryInfo}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+  commentId: P:InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+  id: TotalPhysicalMemory
+  parent: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  langs:
+  - csharp
+  - vb
+  name: TotalPhysicalMemory
+  nameWithType: MemoryInfo.TotalPhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TotalPhysicalMemory
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long TotalPhysicalMemory { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property TotalPhysicalMemory As Long
+  overload: InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory*
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+  commentId: P:InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+  id: AvailablePhysicalMemory
+  parent: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  langs:
+  - csharp
+  - vb
+  name: AvailablePhysicalMemory
+  nameWithType: MemoryInfo.AvailablePhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: AvailablePhysicalMemory
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long AvailablePhysicalMemory { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property AvailablePhysicalMemory As Long
+  overload: InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory*
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+  commentId: P:InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+  id: UsedPhysicalMemory
+  parent: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  langs:
+  - csharp
+  - vb
+  name: UsedPhysicalMemory
+  nameWithType: MemoryInfo.UsedPhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: UsedPhysicalMemory
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long UsedPhysicalMemory { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property UsedPhysicalMemory As Long
+  overload: InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory*
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+  commentId: P:InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+  id: MemoryUsagePercentage
+  parent: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  langs:
+  - csharp
+  - vb
+  name: MemoryUsagePercentage
+  nameWithType: MemoryInfo.MemoryUsagePercentage
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MemoryUsagePercentage
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public double MemoryUsagePercentage { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MemoryUsagePercentage As Double
+  overload: InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage*
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage
+  commentId: P:InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage
+  id: ManagedMemoryUsage
+  parent: InventarWorkerCommon.Models.Hardware.MemoryInfo
+  langs:
+  - csharp
+  - vb
+  name: ManagedMemoryUsage
+  nameWithType: MemoryInfo.ManagedMemoryUsage
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ManagedMemoryUsage
+    path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
+    startLine: 11
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Hardware
+  syntax:
+    content: public long ManagedMemoryUsage { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property ManagedMemoryUsage As Long
+  overload: InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage*
+references:
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.Hardware.MemoryInfo}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Hardware.MemoryInfo}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<MemoryInfo>
+  nameWithType: IEquatable<MemoryInfo>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.Hardware.MemoryInfo>
+  nameWithType.vb: IEquatable(Of MemoryInfo)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Hardware.MemoryInfo)
+  name.vb: IEquatable(Of MemoryInfo)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Hardware.MemoryInfo
+    name: MemoryInfo
+    href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Hardware.MemoryInfo
+    name: MemoryInfo
+    href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html#InventarWorkerCommon_Models_Hardware_MemoryInfo_TotalPhysicalMemory
+  name: TotalPhysicalMemory
+  nameWithType: MemoryInfo.TotalPhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.TotalPhysicalMemory
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html#InventarWorkerCommon_Models_Hardware_MemoryInfo_AvailablePhysicalMemory
+  name: AvailablePhysicalMemory
+  nameWithType: MemoryInfo.AvailablePhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.AvailablePhysicalMemory
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html#InventarWorkerCommon_Models_Hardware_MemoryInfo_UsedPhysicalMemory
+  name: UsedPhysicalMemory
+  nameWithType: MemoryInfo.UsedPhysicalMemory
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.UsedPhysicalMemory
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html#InventarWorkerCommon_Models_Hardware_MemoryInfo_MemoryUsagePercentage
+  name: MemoryUsagePercentage
+  nameWithType: MemoryInfo.MemoryUsagePercentage
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.MemoryUsagePercentage
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage*
+  commentId: Overload:InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage
+  href: InventarWorkerCommon.Models.Hardware.MemoryInfo.html#InventarWorkerCommon_Models_Hardware_MemoryInfo_ManagedMemoryUsage
+  name: ManagedMemoryUsage
+  nameWithType: MemoryInfo.ManagedMemoryUsage
+  fullName: InventarWorkerCommon.Models.Hardware.MemoryInfo.ManagedMemoryUsage

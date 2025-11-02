@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Paths
+  commentId: N:InventarWorkerCommon.Services.Paths
+  id: InventarWorkerCommon.Services.Paths
+  children:
+  - InventarWorkerCommon.Services.Paths.BasePath
+  - InventarWorkerCommon.Services.Paths.ServicePath
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Paths
+  nameWithType: InventarWorkerCommon.Services.Paths
+  fullName: InventarWorkerCommon.Services.Paths
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Paths.BasePath
+  commentId: T:InventarWorkerCommon.Services.Paths.BasePath
+  href: InventarWorkerCommon.Services.Paths.BasePath.html
+  name: BasePath
+  nameWithType: BasePath
+  fullName: InventarWorkerCommon.Services.Paths.BasePath
+- uid: InventarWorkerCommon.Services.Paths.ServicePath
+  commentId: T:InventarWorkerCommon.Services.Paths.ServicePath
+  href: InventarWorkerCommon.Services.Paths.ServicePath.html
+  name: ServicePath
+  nameWithType: ServicePath
+  fullName: InventarWorkerCommon.Services.Paths.ServicePath

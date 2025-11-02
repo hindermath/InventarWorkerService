@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Network
+  commentId: N:InventarWorkerCommon.Models.Network
+  id: InventarWorkerCommon.Models.Network
+  children:
+  - InventarWorkerCommon.Models.Network.HostInformationResult
+  - InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.Network
+  nameWithType: InventarWorkerCommon.Models.Network
+  fullName: InventarWorkerCommon.Models.Network
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.Network.HostInformationResult
+  commentId: T:InventarWorkerCommon.Models.Network.HostInformationResult
+  href: InventarWorkerCommon.Models.Network.HostInformationResult.html
+  name: HostInformationResult
+  nameWithType: HostInformationResult
+  fullName: InventarWorkerCommon.Models.Network.HostInformationResult
+- uid: InventarWorkerCommon.Models.Network.PingResult
+  commentId: T:InventarWorkerCommon.Models.Network.PingResult
+  href: InventarWorkerCommon.Models.Network.PingResult.html
+  name: PingResult
+  nameWithType: PingResult
+  fullName: InventarWorkerCommon.Models.Network.PingResult

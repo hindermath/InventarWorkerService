@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceStatusReaderApp.Service.Monitor
+  commentId: N:ServiceStatusReaderApp.Service.Monitor
+  id: ServiceStatusReaderApp.Service.Monitor
+  children:
+  - ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor
+  langs:
+  - csharp
+  - vb
+  name: ServiceStatusReaderApp.Service.Monitor
+  nameWithType: ServiceStatusReaderApp.Service.Monitor
+  fullName: ServiceStatusReaderApp.Service.Monitor
+  type: Namespace
+  assemblies:
+  - ServiceStatusReaderApp
+references:
+- uid: ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor
+  commentId: T:ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor
+  href: ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor.html
+  name: AdvancedServiceMonitor
+  nameWithType: AdvancedServiceMonitor
+  fullName: ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor

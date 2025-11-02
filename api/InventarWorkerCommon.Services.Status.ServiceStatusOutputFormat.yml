@@ -1,0 +1,213 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  id: ServiceStatusOutputFormat
+  parent: InventarWorkerCommon.Services.Status
+  children:
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.All
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Ini
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Json
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Xml
+  - InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Yaml
+  langs:
+  - csharp
+  - vb
+  name: ServiceStatusOutputFormat
+  nameWithType: ServiceStatusOutputFormat
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  type: Enum
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ServiceStatusOutputFormat
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Specifies the output format for service status data.
+  example: []
+  syntax:
+    content: public enum ServiceStatusOutputFormat
+    content.vb: Public Enum ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Json
+  commentId: F:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Json
+  id: Json
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  langs:
+  - csharp
+  - vb
+  name: Json
+  nameWithType: ServiceStatusOutputFormat.Json
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Json
+  type: Field
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Json
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Specifies that the service status data should be formatted as JSON.
+  example: []
+  syntax:
+    content: Json = 0
+    return:
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Ini
+  commentId: F:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Ini
+  id: Ini
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  langs:
+  - csharp
+  - vb
+  name: Ini
+  nameWithType: ServiceStatusOutputFormat.Ini
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Ini
+  type: Field
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Ini
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Indicates that the service status data should be formatted as INI.
+  example: []
+  syntax:
+    content: Ini = 1
+    return:
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Xml
+  commentId: F:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Xml
+  id: Xml
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  langs:
+  - csharp
+  - vb
+  name: Xml
+  nameWithType: ServiceStatusOutputFormat.Xml
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Xml
+  type: Field
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Xml
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 20
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Specifies that the service status data should be formatted as XML.
+  example: []
+  syntax:
+    content: Xml = 2
+    return:
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Yaml
+  commentId: F:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Yaml
+  id: Yaml
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  langs:
+  - csharp
+  - vb
+  name: Yaml
+  nameWithType: ServiceStatusOutputFormat.Yaml
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.Yaml
+  type: Field
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Yaml
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 25
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Specifies that the service status data should be formatted as YAML.
+  example: []
+  syntax:
+    content: Yaml = 3
+    return:
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.All
+  commentId: F:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.All
+  id: All
+  parent: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: ServiceStatusOutputFormat.All
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.All
+  type: Field
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: All
+    path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
+    startLine: 30
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Status
+  summary: Specifies that the service status data should include all available formats.
+  example: []
+  syntax:
+    content: All = 4
+    return:
+      type: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+references:
+- uid: InventarWorkerCommon.Services.Status
+  commentId: N:InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Status
+  nameWithType: InventarWorkerCommon.Services.Status
+  fullName: InventarWorkerCommon.Services.Status
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Status
+    name: Status
+    href: InventarWorkerCommon.Services.Status.html
+- uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  commentId: T:InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+  parent: InventarWorkerCommon.Services.Status
+  href: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat.html
+  name: ServiceStatusOutputFormat
+  nameWithType: ServiceStatusOutputFormat
+  fullName: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat

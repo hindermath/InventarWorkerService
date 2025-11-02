@@ -1,0 +1,670 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Network.PingResult
+  commentId: T:InventarWorkerCommon.Models.Network.PingResult
+  id: PingResult
+  parent: InventarWorkerCommon.Models.Network
+  children:
+  - InventarWorkerCommon.Models.Network.PingResult.Address
+  - InventarWorkerCommon.Models.Network.PingResult.ErrorMessage
+  - InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+  - InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+  - InventarWorkerCommon.Models.Network.PingResult.Status
+  langs:
+  - csharp
+  - vb
+  name: PingResult
+  nameWithType: PingResult
+  fullName: InventarWorkerCommon.Models.Network.PingResult
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: PingResult
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Represents the result of a ping operation, providing information such as
+
+    success status, round-trip time, target address, and error details (if any).
+  example: []
+  syntax:
+    content: 'public record PingResult : IEquatable<PingResult>'
+    content.vb: Public Class PingResult Implements IEquatable(Of PingResult)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.Network.PingResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+  commentId: P:InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+  id: IsSuccess
+  parent: InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess
+  nameWithType: PingResult.IsSuccess
+  fullName: InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IsSuccess
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Indicates whether the ping operation was successful.
+
+    This property is set to true if the ping response was received with a status
+
+    of <xref href="System.Net.NetworkInformation.IPStatus.Success" data-throw-if-not-resolved="false"></xref>; otherwise, it is set to false.
+  example: []
+  syntax:
+    content: public bool IsSuccess { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSuccess As Boolean
+  overload: InventarWorkerCommon.Models.Network.PingResult.IsSuccess*
+- uid: InventarWorkerCommon.Models.Network.PingResult.Status
+  commentId: P:InventarWorkerCommon.Models.Network.PingResult.Status
+  id: Status
+  parent: InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: PingResult.Status
+  fullName: InventarWorkerCommon.Models.Network.PingResult.Status
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Status
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 21
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Represents the status of the ping operation as defined by the <xref href="System.Net.NetworkInformation.IPStatus" data-throw-if-not-resolved="false"></xref> enumeration.
+
+    This property indicates the result of the ping attempt, such as success, timeout, or various errors.
+  example: []
+  syntax:
+    content: public IPStatus Status { get; set; }
+    parameters: []
+    return:
+      type: System.Net.NetworkInformation.IPStatus
+    content.vb: Public Property Status As IPStatus
+  overload: InventarWorkerCommon.Models.Network.PingResult.Status*
+- uid: InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+  commentId: P:InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+  id: RoundTripTime
+  parent: InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: RoundTripTime
+  nameWithType: PingResult.RoundTripTime
+  fullName: InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: RoundTripTime
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 28
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Gets or sets the round-trip time, in milliseconds, for a ping request and response.
+
+    This property represents the duration it takes for the packet to travel to the target
+
+    address and back to the sender. A value of 0 indicates that the time was not measured.
+  example: []
+  syntax:
+    content: public long RoundTripTime { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property RoundTripTime As Long
+  overload: InventarWorkerCommon.Models.Network.PingResult.RoundTripTime*
+- uid: InventarWorkerCommon.Models.Network.PingResult.Address
+  commentId: P:InventarWorkerCommon.Models.Network.PingResult.Address
+  id: Address
+  parent: InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: Address
+  nameWithType: PingResult.Address
+  fullName: InventarWorkerCommon.Models.Network.PingResult.Address
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Address
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 34
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Represents the target address that the ping operation was sent to.
+
+    This property may include the resolved IP address or null if the address is unavailable.
+  example: []
+  syntax:
+    content: public string? Address { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Address As String
+  overload: InventarWorkerCommon.Models.Network.PingResult.Address*
+- uid: InventarWorkerCommon.Models.Network.PingResult.ErrorMessage
+  commentId: P:InventarWorkerCommon.Models.Network.PingResult.ErrorMessage
+  id: ErrorMessage
+  parent: InventarWorkerCommon.Models.Network.PingResult
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: PingResult.ErrorMessage
+  fullName: InventarWorkerCommon.Models.Network.PingResult.ErrorMessage
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Network/PingResult.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ErrorMessage
+    path: InventarWorkerCommon/Models/Network/PingResult.cs
+    startLine: 41
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Network
+  summary: >-
+    Provides detailed error information when the ping operation fails.
+
+    This property is populated with a descriptive error message if an exception occurs,
+
+    or if the operation does not succeed for other reasons.
+  example: []
+  syntax:
+    content: public string? ErrorMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorMessage As String
+  overload: InventarWorkerCommon.Models.Network.PingResult.ErrorMessage*
+references:
+- uid: InventarWorkerCommon.Models.Network
+  commentId: N:InventarWorkerCommon.Models.Network
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Network
+  nameWithType: InventarWorkerCommon.Models.Network
+  fullName: InventarWorkerCommon.Models.Network
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Network
+    name: Network
+    href: InventarWorkerCommon.Models.Network.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Network
+    name: Network
+    href: InventarWorkerCommon.Models.Network.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.Network.PingResult}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Network.PingResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PingResult>
+  nameWithType: IEquatable<PingResult>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.Network.PingResult>
+  nameWithType.vb: IEquatable(Of PingResult)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Network.PingResult)
+  name.vb: IEquatable(Of PingResult)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.Network.PingResult
+    name: PingResult
+    href: InventarWorkerCommon.Models.Network.PingResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.Network.PingResult
+    name: PingResult
+    href: InventarWorkerCommon.Models.Network.PingResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Net.NetworkInformation.IPStatus.Success
+  commentId: F:System.Net.NetworkInformation.IPStatus.Success
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.networkinformation.ipstatus#system-net-networkinformation-ipstatus-success
+  name: Success
+  nameWithType: IPStatus.Success
+  fullName: System.Net.NetworkInformation.IPStatus.Success
+- uid: InventarWorkerCommon.Models.Network.PingResult.IsSuccess*
+  commentId: Overload:InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+  href: InventarWorkerCommon.Models.Network.PingResult.html#InventarWorkerCommon_Models_Network_PingResult_IsSuccess
+  name: IsSuccess
+  nameWithType: PingResult.IsSuccess
+  fullName: InventarWorkerCommon.Models.Network.PingResult.IsSuccess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Net.NetworkInformation.IPStatus
+  commentId: T:System.Net.NetworkInformation.IPStatus
+  parent: System.Net.NetworkInformation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.networkinformation.ipstatus
+  name: IPStatus
+  nameWithType: IPStatus
+  fullName: System.Net.NetworkInformation.IPStatus
+- uid: InventarWorkerCommon.Models.Network.PingResult.Status*
+  commentId: Overload:InventarWorkerCommon.Models.Network.PingResult.Status
+  href: InventarWorkerCommon.Models.Network.PingResult.html#InventarWorkerCommon_Models_Network_PingResult_Status
+  name: Status
+  nameWithType: PingResult.Status
+  fullName: InventarWorkerCommon.Models.Network.PingResult.Status
+- uid: System.Net.NetworkInformation
+  commentId: N:System.Net.NetworkInformation
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.NetworkInformation
+  nameWithType: System.Net.NetworkInformation
+  fullName: System.Net.NetworkInformation
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.NetworkInformation
+    name: NetworkInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.networkinformation
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.NetworkInformation
+    name: NetworkInformation
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.networkinformation
+- uid: InventarWorkerCommon.Models.Network.PingResult.RoundTripTime*
+  commentId: Overload:InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+  href: InventarWorkerCommon.Models.Network.PingResult.html#InventarWorkerCommon_Models_Network_PingResult_RoundTripTime
+  name: RoundTripTime
+  nameWithType: PingResult.RoundTripTime
+  fullName: InventarWorkerCommon.Models.Network.PingResult.RoundTripTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: InventarWorkerCommon.Models.Network.PingResult.Address*
+  commentId: Overload:InventarWorkerCommon.Models.Network.PingResult.Address
+  href: InventarWorkerCommon.Models.Network.PingResult.html#InventarWorkerCommon_Models_Network_PingResult_Address
+  name: Address
+  nameWithType: PingResult.Address
+  fullName: InventarWorkerCommon.Models.Network.PingResult.Address
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Network.PingResult.ErrorMessage*
+  commentId: Overload:InventarWorkerCommon.Models.Network.PingResult.ErrorMessage
+  href: InventarWorkerCommon.Models.Network.PingResult.html#InventarWorkerCommon_Models_Network_PingResult_ErrorMessage
+  name: ErrorMessage
+  nameWithType: PingResult.ErrorMessage
+  fullName: InventarWorkerCommon.Models.Network.PingResult.ErrorMessage

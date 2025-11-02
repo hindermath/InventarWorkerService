@@ -1,0 +1,908 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  id: HardwareInventories
+  parent: InventarWorkerCommon.Models.SqlDatabase
+  children:
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+  langs:
+  - csharp
+  - vb
+  name: HardwareInventories
+  nameWithType: HardwareInventories
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: HardwareInventories
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 2
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: 'public record HardwareInventories : IEquatable<HardwareInventories>'
+    content.vb: Public Class HardwareInventories Implements IEquatable(Of HardwareInventories)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+  id: Id
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: HardwareInventories.Id
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Id
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 4
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+  id: MachineId
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: MachineId
+  nameWithType: HardwareInventories.MachineId
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MachineId
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public int MachineId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MachineId As Integer
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+  id: ComputerName
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: ComputerName
+  nameWithType: HardwareInventories.ComputerName
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ComputerName
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 6
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public string? ComputerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ComputerName As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+  id: ComputerModel
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: ComputerModel
+  nameWithType: HardwareInventories.ComputerModel
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ComputerModel
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 7
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public string? ComputerModel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ComputerModel As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+  id: ComputerManufacturer
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: ComputerManufacturer
+  nameWithType: HardwareInventories.ComputerManufacturer
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ComputerManufacturer
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 8
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public string? ComputerManufacturer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ComputerManufacturer As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+  id: Architecture
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: Architecture
+  nameWithType: HardwareInventories.Architecture
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Architecture
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 9
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public string? Architecture { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Architecture As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+  id: ProcessorName
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: ProcessorName
+  nameWithType: HardwareInventories.ProcessorName
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ProcessorName
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public string? ProcessorName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProcessorName As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+  id: ProcessorCores
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: ProcessorCores
+  nameWithType: HardwareInventories.ProcessorCores
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ProcessorCores
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 11
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public int? ProcessorCores { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property ProcessorCores As Integer?
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+  id: TotalMemoryGB
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: TotalMemoryGB
+  nameWithType: HardwareInventories.TotalMemoryGB
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TotalMemoryGB
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 12
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public double? TotalMemoryGB { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property TotalMemoryGB As Double?
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+  id: AvailableMemoryGB
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: AvailableMemoryGB
+  nameWithType: HardwareInventories.AvailableMemoryGB
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: AvailableMemoryGB
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 13
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public double? AvailableMemoryGB { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property AvailableMemoryGB As Double?
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+  id: MemoryUsagePercent
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: MemoryUsagePercent
+  nameWithType: HardwareInventories.MemoryUsagePercent
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MemoryUsagePercent
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 14
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public double? MemoryUsagePercent { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property MemoryUsagePercent As Double?
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent*
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+  id: CreatedAt
+  parent: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: HardwareInventories.CreatedAt
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: CreatedAt
+    path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt*
+references:
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  commentId: N:InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.SqlDatabase
+  nameWithType: InventarWorkerCommon.Models.SqlDatabase
+  fullName: InventarWorkerCommon.Models.SqlDatabase
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.HardwareInventories}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<HardwareInventories>
+  nameWithType: IEquatable<HardwareInventories>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.SqlDatabase.HardwareInventories>
+  nameWithType.vb: IEquatable(Of HardwareInventories)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.SqlDatabase.HardwareInventories)
+  name.vb: IEquatable(Of HardwareInventories)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+    name: HardwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+    name: HardwareInventories
+    href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_Id
+  name: Id
+  nameWithType: HardwareInventories.Id
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_MachineId
+  name: MachineId
+  nameWithType: HardwareInventories.MachineId
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MachineId
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_ComputerName
+  name: ComputerName
+  nameWithType: HardwareInventories.ComputerName
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_ComputerModel
+  name: ComputerModel
+  nameWithType: HardwareInventories.ComputerModel
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerModel
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_ComputerManufacturer
+  name: ComputerManufacturer
+  nameWithType: HardwareInventories.ComputerManufacturer
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ComputerManufacturer
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_Architecture
+  name: Architecture
+  nameWithType: HardwareInventories.Architecture
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.Architecture
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_ProcessorName
+  name: ProcessorName
+  nameWithType: HardwareInventories.ProcessorName
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorName
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_ProcessorCores
+  name: ProcessorCores
+  nameWithType: HardwareInventories.ProcessorCores
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.ProcessorCores
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_TotalMemoryGB
+  name: TotalMemoryGB
+  nameWithType: HardwareInventories.TotalMemoryGB
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.TotalMemoryGB
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_AvailableMemoryGB
+  name: AvailableMemoryGB
+  nameWithType: HardwareInventories.AvailableMemoryGB
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.AvailableMemoryGB
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_MemoryUsagePercent
+  name: MemoryUsagePercent
+  nameWithType: HardwareInventories.MemoryUsagePercent
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.MemoryUsagePercent
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html#InventarWorkerCommon_Models_SqlDatabase_HardwareInventories_CreatedAt
+  name: CreatedAt
+  nameWithType: HardwareInventories.CreatedAt
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.CreatedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

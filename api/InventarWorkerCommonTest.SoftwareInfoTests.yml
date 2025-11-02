@@ -1,0 +1,756 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommonTest.SoftwareInfoTests
+  commentId: T:InventarWorkerCommonTest.SoftwareInfoTests
+  id: SoftwareInfoTests
+  parent: InventarWorkerCommonTest
+  children:
+  - InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup
+  - InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  - InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+  - InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  - InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
+  - InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+  - InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+  - InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup
+  - InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfoTests
+  nameWithType: SoftwareInfoTests
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfoTests
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 353
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestClass]
+
+      public class SoftwareInfoTests
+    content.vb: >-
+      <TestClass>
+
+      Public Class SoftwareInfoTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize
+  id: TestInitialize
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: TestInitialize()
+  nameWithType: SoftwareInfoTests.TestInitialize()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TestInitialize
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 358
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestInitialize]
+
+      public void TestInitialize()
+    content.vb: >-
+      <TestInitialize>
+
+      Public Sub TestInitialize()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup
+  id: TestCleanup
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: TestCleanup()
+  nameWithType: SoftwareInfoTests.TestCleanup()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: TestCleanup
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 365
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestCleanup]
+
+      public void TestCleanup()
+    content.vb: >-
+      <TestCleanup>
+
+      Public Sub TestCleanup()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  id: ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: ClassInitialize(TestContext)
+  nameWithType: SoftwareInfoTests.ClassInitialize(TestContext)
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ClassInitialize
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 372
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [ClassInitialize]
+
+      public static void ClassInitialize(TestContext context)
+    parameters:
+    - id: context
+      type: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+    content.vb: >-
+      <ClassInitialize>
+
+      Public Shared Sub ClassInitialize(context As TestContext)
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup
+  id: ClassCleanup
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: ClassCleanup()
+  nameWithType: SoftwareInfoTests.ClassCleanup()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ClassCleanup
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 379
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [ClassCleanup]
+
+      public static void ClassCleanup()
+    content.vb: >-
+      <ClassCleanup>
+
+      Public Shared Sub ClassCleanup()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+  id: SoftwareInfo_DefaultValues_ShouldBeCorrect
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfo_DefaultValues_ShouldBeCorrect()
+  nameWithType: SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfo_DefaultValues_ShouldBeCorrect
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 386
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 387)]
+
+      public void SoftwareInfo_DefaultValues_ShouldBeCorrect()
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 387)>
+
+      Public Sub SoftwareInfo_DefaultValues_ShouldBeCorrect()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    - type: System.Int32
+      value: 387
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+  id: SoftwareInfo_SetAllProperties_ShouldRetainValues
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfo_SetAllProperties_ShouldRetainValues()
+  nameWithType: SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfo_SetAllProperties_ShouldRetainValues
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 405
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 406)]
+
+      public void SoftwareInfo_SetAllProperties_ShouldRetainValues()
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 406)>
+
+      Public Sub SoftwareInfo_SetAllProperties_ShouldRetainValues()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    - type: System.Int32
+      value: 406
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  id: SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfo_NullableProperties_ShouldHandleNullValues()
+  nameWithType: SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfo_NullableProperties_ShouldHandleNullValues
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 437
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 438)]
+
+      public void SoftwareInfo_NullableProperties_ShouldHandleNullValues()
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 438)>
+
+      Public Sub SoftwareInfo_NullableProperties_ShouldHandleNullValues()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    - type: System.Int32
+      value: 438
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+  id: SoftwareInfo_SystemComponentFlag_ShouldToggle
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfo_SystemComponentFlag_ShouldToggle()
+  nameWithType: SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfo_SystemComponentFlag_ShouldToggle
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 454
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 455)]
+
+      public void SoftwareInfo_SystemComponentFlag_ShouldToggle()
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 455)>
+
+      Public Sub SoftwareInfo_SystemComponentFlag_ShouldToggle()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    - type: System.Int32
+      value: 455
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
+  commentId: M:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
+  id: SoftwareInfo_RecordEquality_ShouldWork
+  parent: InventarWorkerCommonTest.SoftwareInfoTests
+  langs:
+  - csharp
+  - vb
+  name: SoftwareInfo_RecordEquality_ShouldWork()
+  nameWithType: SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork()
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SoftwareInfo_RecordEquality_ShouldWork
+    path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    startLine: 466
+  assemblies:
+  - InventarWorkerCommonTest
+  namespace: InventarWorkerCommonTest
+  syntax:
+    content: >-
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 467)]
+
+      public void SoftwareInfo_RecordEquality_ShouldWork()
+    content.vb: >-
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 467)>
+
+      Public Sub SoftwareInfo_RecordEquality_ShouldWork()
+  overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
+    arguments:
+    - type: System.String
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+    - type: System.Int32
+      value: 467
+references:
+- uid: InventarWorkerCommonTest
+  commentId: N:InventarWorkerCommonTest
+  href: InventarWorkerCommonTest.html
+  name: InventarWorkerCommonTest
+  nameWithType: InventarWorkerCommonTest
+  fullName: InventarWorkerCommonTest
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_TestInitialize
+  name: TestInitialize
+  nameWithType: SoftwareInfoTests.TestInitialize
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.TestInitialize
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_TestCleanup
+  name: TestCleanup
+  nameWithType: SoftwareInfoTests.TestCleanup
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.TestCleanup
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_ClassInitialize_Microsoft_VisualStudio_TestTools_UnitTesting_TestContext_
+  name: ClassInitialize
+  nameWithType: SoftwareInfoTests.ClassInitialize
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.ClassInitialize
+- uid: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+  commentId: T:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+  parent: Microsoft.VisualStudio.TestTools.UnitTesting
+  isExternal: true
+  name: TestContext
+  nameWithType: TestContext
+  fullName: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+- uid: Microsoft.VisualStudio.TestTools.UnitTesting
+  commentId: N:Microsoft.VisualStudio.TestTools.UnitTesting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.VisualStudio.TestTools.UnitTesting
+  nameWithType: Microsoft.VisualStudio.TestTools.UnitTesting
+  fullName: Microsoft.VisualStudio.TestTools.UnitTesting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.VisualStudio
+    name: VisualStudio
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools
+    name: TestTools
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools.UnitTesting
+    name: UnitTesting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.VisualStudio
+    name: VisualStudio
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools
+    name: TestTools
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools.UnitTesting
+    name: UnitTesting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_ClassCleanup
+  name: ClassCleanup
+  nameWithType: SoftwareInfoTests.ClassCleanup
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.ClassCleanup
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_SoftwareInfo_DefaultValues_ShouldBeCorrect
+  name: SoftwareInfo_DefaultValues_ShouldBeCorrect
+  nameWithType: SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_SoftwareInfo_SetAllProperties_ShouldRetainValues
+  name: SoftwareInfo_SetAllProperties_ShouldRetainValues
+  nameWithType: SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  name: SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  nameWithType: SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_SoftwareInfo_SystemComponentFlag_ShouldToggle
+  name: SoftwareInfo_SystemComponentFlag_ShouldToggle
+  nameWithType: SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
+- uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork*
+  commentId: Overload:InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
+  href: InventarWorkerCommonTest.SoftwareInfoTests.html#InventarWorkerCommonTest_SoftwareInfoTests_SoftwareInfo_RecordEquality_ShouldWork
+  name: SoftwareInfo_RecordEquality_ShouldWork
+  nameWithType: SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
+  fullName: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork

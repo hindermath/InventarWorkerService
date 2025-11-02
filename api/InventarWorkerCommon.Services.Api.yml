@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Api
+  commentId: N:InventarWorkerCommon.Services.Api
+  id: InventarWorkerCommon.Services.Api
+  children:
+  - InventarWorkerCommon.Services.Api.ApiService
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Api
+  nameWithType: InventarWorkerCommon.Services.Api
+  fullName: InventarWorkerCommon.Services.Api
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Api.ApiService
+  commentId: T:InventarWorkerCommon.Services.Api.ApiService
+  parent: InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.Services.Api.ApiService.html
+  name: ApiService
+  nameWithType: ApiService
+  fullName: InventarWorkerCommon.Services.Api.ApiService
+- uid: InventarWorkerCommon.Services.Api
+  commentId: N:InventarWorkerCommon.Services.Api
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Services.Api
+  nameWithType: InventarWorkerCommon.Services.Api
+  fullName: InventarWorkerCommon.Services.Api
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Services
+    name: Services
+    href: InventarWorkerCommon.Services.html
+  - name: .
+  - uid: InventarWorkerCommon.Services.Api
+    name: Api
+    href: InventarWorkerCommon.Services.Api.html

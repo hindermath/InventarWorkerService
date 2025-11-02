@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarViewerApp.Controllers
+  commentId: N:InventarViewerApp.Controllers
+  id: InventarViewerApp.Controllers
+  children:
+  - InventarViewerApp.Controllers.InventarController
+  langs:
+  - csharp
+  - vb
+  name: InventarViewerApp.Controllers
+  nameWithType: InventarViewerApp.Controllers
+  fullName: InventarViewerApp.Controllers
+  type: Namespace
+  assemblies:
+  - InventarViewerApp
+references:
+- uid: InventarViewerApp.Controllers.InventarController
+  commentId: T:InventarViewerApp.Controllers.InventarController
+  href: InventarViewerApp.Controllers.InventarController.html
+  name: InventarController
+  nameWithType: InventarController
+  fullName: InventarViewerApp.Controllers.InventarController

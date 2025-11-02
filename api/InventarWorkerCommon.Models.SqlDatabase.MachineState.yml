@@ -1,0 +1,844 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.MachineState
+  id: MachineState
+  parent: InventarWorkerCommon.Models.SqlDatabase
+  children:
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+  langs:
+  - csharp
+  - vb
+  name: MachineState
+  nameWithType: MachineState
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MachineState
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 6
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: >-
+    Represents the state of a machine within the system. This includes general details about
+
+    the machine's identity, network configuration, and operational status.
+  example: []
+  syntax:
+    content: 'public record MachineState : IEquatable<MachineState>'
+    content.vb: Public Class MachineState Implements IEquatable(Of MachineState)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.MachineState}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor
+  commentId: M:InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor
+  id: '#ctor'
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: MachineState()
+  nameWithType: MachineState.MachineState()
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.MachineState()
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 6
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: >-
+    Represents the state of a machine within the system. This includes general details about
+
+    the machine's identity, network configuration, and operational status.
+  example: []
+  syntax:
+    content: public MachineState()
+    content.vb: Public Sub New()
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor*
+  nameWithType.vb: MachineState.New()
+  fullName.vb: InventarWorkerCommon.Models.SqlDatabase.MachineState.New()
+  name.vb: New()
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+  id: Id
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: MachineState.Id
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Id
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 12
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the unique identifier for the machine.
+  example: []
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.Id*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+  id: Name
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: MachineState.Name
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Name
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 17
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the name of the machine.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.Name*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+  id: LastSeen
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: LastSeen
+  nameWithType: MachineState.LastSeen
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: LastSeen
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 22
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the date and time when the machine was last seen or contacted.
+  example: []
+  syntax:
+    content: public DateTime? LastSeen { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastSeen As Date?
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+  id: IPv4
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: IPv4
+  nameWithType: MachineState.IPv4
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IPv4
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 28
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the IPv4 address associated with the machine.
+  example: []
+  syntax:
+    content: public string? IPv4 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property IPv4 As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+  id: IPv6
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: IPv6
+  nameWithType: MachineState.IPv6
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: IPv6
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 33
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the IPv6 address of the machine.
+  example: []
+  syntax:
+    content: public string? IPv6 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property IPv6 As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+  id: FQDN
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: FQDN
+  nameWithType: MachineState.FQDN
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: FQDN
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 38
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the fully qualified domain name (FQDN) of the machine.
+  example: []
+  syntax:
+    content: public string? FQDN { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FQDN As String
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+  id: Disabled
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: MachineState.Disabled
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Disabled
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 43
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a value indicating whether the machine is disabled.
+  example: []
+  syntax:
+    content: public bool Disabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Disabled As Boolean
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+  id: Deprovisioned
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: Deprovisioned
+  nameWithType: MachineState.Deprovisioned
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Deprovisioned
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 48
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a value indicating whether the machine has been deprovisioned.
+  example: []
+  syntax:
+    content: public bool Deprovisioned { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Deprovisioned As Boolean
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned*
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested
+  commentId: P:InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested
+  id: LastHarvested
+  parent: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  langs:
+  - csharp
+  - vb
+  name: LastHarvested
+  nameWithType: MachineState.LastHarvested
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: LastHarvested
+    path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
+    startLine: 53
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the date and time when the machine was last harvested by the harvester service.
+  example: []
+  syntax:
+    content: public DateTime? LastHarvested { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastHarvested As Date?
+  overload: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested*
+references:
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  commentId: N:InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.SqlDatabase
+  nameWithType: InventarWorkerCommon.Models.SqlDatabase
+  fullName: InventarWorkerCommon.Models.SqlDatabase
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.MachineState}
+  commentId: T:System.IEquatable{InventarWorkerCommon.Models.SqlDatabase.MachineState}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<MachineState>
+  nameWithType: IEquatable<MachineState>
+  fullName: System.IEquatable<InventarWorkerCommon.Models.SqlDatabase.MachineState>
+  nameWithType.vb: IEquatable(Of MachineState)
+  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.SqlDatabase.MachineState)
+  name.vb: IEquatable(Of MachineState)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+    name: MachineState
+    href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+    name: MachineState
+    href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.#ctor
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState__ctor
+  name: MachineState
+  nameWithType: MachineState.MachineState
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.MachineState
+  nameWithType.vb: MachineState.New
+  fullName.vb: InventarWorkerCommon.Models.SqlDatabase.MachineState.New
+  name.vb: New
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Id*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_Id
+  name: Id
+  nameWithType: MachineState.Id
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Name*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_Name
+  name: Name
+  nameWithType: MachineState.Name
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_LastSeen
+  name: LastSeen
+  nameWithType: MachineState.LastSeen
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastSeen
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_IPv4
+  name: IPv4
+  nameWithType: MachineState.IPv4
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv4
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_IPv6
+  name: IPv6
+  nameWithType: MachineState.IPv6
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.IPv6
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_FQDN
+  name: FQDN
+  nameWithType: MachineState.FQDN
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.FQDN
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_Disabled
+  name: Disabled
+  nameWithType: MachineState.Disabled
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Disabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_Deprovisioned
+  name: Deprovisioned
+  nameWithType: MachineState.Deprovisioned
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.Deprovisioned
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested*
+  commentId: Overload:InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html#InventarWorkerCommon_Models_SqlDatabase_MachineState_LastHarvested
+  name: LastHarvested
+  nameWithType: MachineState.LastHarvested
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState.LastHarvested

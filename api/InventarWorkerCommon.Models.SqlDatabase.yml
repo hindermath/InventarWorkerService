@@ -1,0 +1,75 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  commentId: N:InventarWorkerCommon.Models.SqlDatabase
+  id: InventarWorkerCommon.Models.SqlDatabase
+  children:
+  - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  - InventarWorkerCommon.Models.SqlDatabase.Machine
+  - InventarWorkerCommon.Models.SqlDatabase.MachineState
+  - InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.SqlDatabase
+  nameWithType: InventarWorkerCommon.Models.SqlDatabase
+  fullName: InventarWorkerCommon.Models.SqlDatabase
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+  href: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories.html
+  name: HardwareInventories
+  nameWithType: HardwareInventories
+  fullName: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+- uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.Machine
+  parent: InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.Models.SqlDatabase.Machine.html
+  name: Machine
+  nameWithType: Machine
+  fullName: InventarWorkerCommon.Models.SqlDatabase.Machine
+- uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.MachineState
+  href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
+  name: MachineState
+  nameWithType: MachineState
+  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineState
+- uid: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+  commentId: T:InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+  href: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories.html
+  name: SoftwareInventories
+  nameWithType: SoftwareInventories
+  fullName: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  commentId: N:InventarWorkerCommon.Models.SqlDatabase
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.SqlDatabase
+  nameWithType: InventarWorkerCommon.Models.SqlDatabase
+  fullName: InventarWorkerCommon.Models.SqlDatabase
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.SqlDatabase
+    name: SqlDatabase
+    href: InventarWorkerCommon.Models.SqlDatabase.html

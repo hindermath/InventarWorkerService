@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerServiceIntegrationTests
+  commentId: N:InventarWorkerServiceIntegrationTests
+  id: InventarWorkerServiceIntegrationTests
+  children:
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerServiceIntegrationTests
+  nameWithType: InventarWorkerServiceIntegrationTests
+  fullName: InventarWorkerServiceIntegrationTests
+  type: Namespace
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+references:
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  commentId: T:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html
+  name: InventarWorkerServiceApiTests
+  nameWithType: InventarWorkerServiceApiTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+  commentId: T:InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.html
+  name: InventarWorkerServiceRemoteTests
+  nameWithType: InventarWorkerServiceRemoteTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests

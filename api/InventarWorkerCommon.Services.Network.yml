@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Network
+  commentId: N:InventarWorkerCommon.Services.Network
+  id: InventarWorkerCommon.Services.Network
+  children:
+  - InventarWorkerCommon.Services.Network.ResolveMachine
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Network
+  nameWithType: InventarWorkerCommon.Services.Network
+  fullName: InventarWorkerCommon.Services.Network
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Network.ResolveMachine
+  commentId: T:InventarWorkerCommon.Services.Network.ResolveMachine
+  href: InventarWorkerCommon.Services.Network.ResolveMachine.html
+  name: ResolveMachine
+  nameWithType: ResolveMachine
+  fullName: InventarWorkerCommon.Services.Network.ResolveMachine
