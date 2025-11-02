@@ -1,0 +1,296 @@
+### YamlMime:TableOfContent
+items:
+- uid: CtrlWorkerCommon.Controller
+  name: CtrlWorkerCommon.Controller
+  type: Namespace
+  items:
+  - uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController
+    name: CrossPlatformServiceController
+    type: Class
+- uid: CtrlWorkerCommonTest
+  name: CtrlWorkerCommonTest
+  type: Namespace
+  items:
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerPlatformSpecificTest
+    name: CrossPlatformServiceControllerPlatformSpecificTest
+    type: Class
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest
+    name: CrossPlatformServiceControllerTest
+    type: Class
+  - uid: CtrlWorkerCommonTest.CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+    name: CrossPlatformServiceControllerTest.CrossPlatformServiceControllerTests
+    type: Class
+- uid: CtrlWorkerServiceCmdlet
+  name: CtrlWorkerServiceCmdlet
+  type: Namespace
+  items:
+  - uid: CtrlWorkerServiceCmdlet.InvokeWorkerServiceControlCmdlet
+    name: InvokeWorkerServiceControlCmdlet
+    type: Class
+- uid: HarvesterWorkerService
+  name: HarvesterWorkerService
+  type: Namespace
+  items:
+  - uid: HarvesterWorkerService.Program
+    name: Program
+    type: Class
+  - uid: HarvesterWorkerService.Worker
+    name: Worker
+    type: Class
+- uid: InventarViewerApp.Controllers
+  name: InventarViewerApp.Controllers
+  type: Namespace
+  items:
+  - uid: InventarViewerApp.Controllers.InventarController
+    name: InventarController
+    type: Class
+- uid: InventarViewerApp.UI
+  name: InventarViewerApp.UI
+  type: Namespace
+  items:
+  - uid: InventarViewerApp.UI.HardwareView
+    name: HardwareView
+    type: Class
+  - uid: InventarViewerApp.UI.MainWindow
+    name: MainWindow
+    type: Class
+  - uid: InventarViewerApp.UI.SoftwareView
+    name: SoftwareView
+    type: Class
+  - uid: InventarViewerApp.UI.StatusView
+    name: StatusView
+    type: Class
+- uid: InventarWorkerCommon.Helpers.Calculate
+  name: InventarWorkerCommon.Helpers.Calculate
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+    name: AverageProcessingTime
+    type: Class
+- uid: InventarWorkerCommon.Helpers.Exceptions
+  name: InventarWorkerCommon.Helpers.Exceptions
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
+    name: NetworkInformation
+    type: Class
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+    name: NetworkInformation.HostResolutionException
+    type: Class
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+    name: NetworkInformation.NetworkInformationMissingException
+    type: Class
+- uid: InventarWorkerCommon.Models.Hardware
+  name: InventarWorkerCommon.Models.Hardware
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.Hardware.CpuInfo
+    name: CpuInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.DiskInfo
+    name: DiskInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.HardwareInfo
+    name: HardwareInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.HardwareInventory
+    name: HardwareInventory
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.MemoryInfo
+    name: MemoryInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.NetworkInfo
+    name: NetworkInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.OsInfo
+    name: OsInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Hardware.PerformanceMetrics
+    name: PerformanceMetrics
+    type: Class
+- uid: InventarWorkerCommon.Models.Network
+  name: InventarWorkerCommon.Models.Network
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.Network.HostInformationResult
+    name: HostInformationResult
+    type: Class
+  - uid: InventarWorkerCommon.Models.Network.PingResult
+    name: PingResult
+    type: Class
+- uid: InventarWorkerCommon.Models.Service
+  name: InventarWorkerCommon.Models.Service
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.Service.ServiceStatistics
+    name: ServiceStatistics
+    type: Class
+  - uid: InventarWorkerCommon.Models.Service.ServiceStatus
+    name: ServiceStatus
+    type: Class
+  - uid: InventarWorkerCommon.Models.Service.SystemInfo
+    name: SystemInfo
+    type: Class
+- uid: InventarWorkerCommon.Models.Software
+  name: InventarWorkerCommon.Models.Software
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.Software.ProcessInfo
+    name: ProcessInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Software.RuntimeInfo
+    name: RuntimeInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Software.ServiceInfo
+    name: ServiceInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Software.SoftwareInfo
+    name: SoftwareInfo
+    type: Class
+  - uid: InventarWorkerCommon.Models.Software.SoftwareInventory
+    name: SoftwareInventory
+    type: Class
+- uid: InventarWorkerCommon.Models.SqlDatabase
+  name: InventarWorkerCommon.Models.SqlDatabase
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
+    name: HardwareInventories
+    type: Class
+  - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
+    name: Machine
+    type: Class
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
+    name: MachineState
+    type: Class
+  - uid: InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
+    name: SoftwareInventories
+    type: Class
+- uid: InventarWorkerCommon.Services.Api
+  name: InventarWorkerCommon.Services.Api
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Api.ApiService
+    name: ApiService
+    type: Class
+- uid: InventarWorkerCommon.Services.Common
+  name: InventarWorkerCommon.Services.Common
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Common.Initialize
+    name: Initialize
+    type: Class
+  - uid: InventarWorkerCommon.Services.Common.ServiceContainer
+    name: ServiceContainer
+    type: Class
+- uid: InventarWorkerCommon.Services.Database
+  name: InventarWorkerCommon.Services.Database
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Database.MongoDbService
+    name: MongoDbService
+    type: Class
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
+    name: SqliteDbService
+    type: Class
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
+    name: SqliteDbService.MachineFromCsv
+    type: Class
+  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
+    name: SqliteDbService.MachineMap
+    type: Class
+- uid: InventarWorkerCommon.Services.Hardware
+  name: InventarWorkerCommon.Services.Hardware
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
+    name: HardwareInventoryService
+    type: Class
+- uid: InventarWorkerCommon.Services.Network
+  name: InventarWorkerCommon.Services.Network
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Network.ResolveMachine
+    name: ResolveMachine
+    type: Class
+- uid: InventarWorkerCommon.Services.Paths
+  name: InventarWorkerCommon.Services.Paths
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Paths.BasePath
+    name: BasePath
+    type: Class
+  - uid: InventarWorkerCommon.Services.Paths.ServicePath
+    name: ServicePath
+    type: Class
+- uid: InventarWorkerCommon.Services.Software
+  name: InventarWorkerCommon.Services.Software
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Software.SoftwareInventoryService
+    name: SoftwareInventoryService
+    type: Class
+- uid: InventarWorkerCommon.Services.Status
+  name: InventarWorkerCommon.Services.Status
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Status.ServiceStatusOutputFormat
+    name: ServiceStatusOutputFormat
+    type: Enum
+  - uid: InventarWorkerCommon.Services.Status.ServiceStatusReader
+    name: ServiceStatusReader
+    type: Class
+  - uid: InventarWorkerCommon.Services.Status.ServiceStatusWriter
+    name: ServiceStatusWriter
+    type: Class
+- uid: InventarWorkerCommonTest
+  name: InventarWorkerCommonTest
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommonTest.CpuInfoTests
+    name: CpuInfoTests
+    type: Class
+  - uid: InventarWorkerCommonTest.OsInfoTests
+    name: OsInfoTests
+    type: Class
+  - uid: InventarWorkerCommonTest.ServiceStatisticsTests
+    name: ServiceStatisticsTests
+    type: Class
+  - uid: InventarWorkerCommonTest.SoftwareInfoTests
+    name: SoftwareInfoTests
+    type: Class
+  - uid: InventarWorkerCommonTest.SystemInfoTests
+    name: SystemInfoTests
+    type: Class
+- uid: InventarWorkerService
+  name: InventarWorkerService
+  type: Namespace
+  items:
+  - uid: InventarWorkerService.Worker
+    name: Worker
+    type: Class
+- uid: InventarWorkerService.Controllers
+  name: InventarWorkerService.Controllers
+  type: Namespace
+  items:
+  - uid: InventarWorkerService.Controllers.InventarController
+    name: InventarController
+    type: Class
+- uid: InventarWorkerServiceIntegrationTests
+  name: InventarWorkerServiceIntegrationTests
+  type: Namespace
+  items:
+  - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+    name: InventarWorkerServiceApiTests
+    type: Class
+  - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+    name: InventarWorkerServiceRemoteTests
+    type: Class
+- uid: ServiceStatusReaderApp.Service.Monitor
+  name: ServiceStatusReaderApp.Service.Monitor
+  type: Namespace
+  items:
+  - uid: ServiceStatusReaderApp.Service.Monitor.AdvancedServiceMonitor
+    name: AdvancedServiceMonitor
+    type: Class
+memberLayout: SamePage
