@@ -124,7 +124,7 @@ public class Worker : BackgroundService
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _logger.LogError(exception, "Error");
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
@@ -159,7 +159,7 @@ public class Worker : BackgroundService
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _logger.LogError(exception, "Error");
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
@@ -194,7 +194,7 @@ public class Worker : BackgroundService
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error in HarvesterWorkerService");
+                            _logger.LogError(exception, "Error");
                             _statusWriter.WriteLog($"Error: {exception.Message}");
                             _statusWriter.WriteStatus(new ServiceStatus
                             {
@@ -321,7 +321,7 @@ public class Worker : BackgroundService
             }
             catch (ArgumentNullException argumentNullException)
             {
-                _logger.LogError(argumentNullException, "Error in HarvesterWorkerService");
+                _logger.LogError(argumentNullException, "Error");
                 _statusWriter.WriteLog($"Error: {argumentNullException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
@@ -333,7 +333,7 @@ public class Worker : BackgroundService
             }
             catch (InvalidOperationException invalidOperationException)
             {
-                _logger.LogError(invalidOperationException, "Error in HarvesterWorkerService");
+                _logger.LogError(invalidOperationException, "Error");
                 _statusWriter.WriteLog($"Error: {invalidOperationException.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
@@ -346,7 +346,7 @@ public class Worker : BackgroundService
             // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
             catch (Exception exception)
             {
-                _logger.LogError(exception, "Error in HarvesterWorkerService");
+                _logger.LogError(exception, "Error");
                 _statusWriter.WriteLog($"Error: {exception.Message}");
                 _statusWriter.WriteStatus(new ServiceStatus
                 {
