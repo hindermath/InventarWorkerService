@@ -216,6 +216,7 @@ public class Worker : BackgroundService
                     _apiService = workerServiceContainer.ApiService;
 
                     // api-service status abfragen, ob überhaupt läuft
+                    // in eine tr-catch einkleiden, falls der serice nicht läuft
                     var serviceStatus = await _apiService.GetServiceStatusAsync();
 
                     // api-service hard und software per REST API abfrage
@@ -256,6 +257,7 @@ public class Worker : BackgroundService
                     var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
                     var hardwareInventory = await _apiService.GetHardwareInventoryAsync();
 
+                    // doppelt-gemoppelt zu oben -> notwendig?
                     machine = await _sqliteDbService.GetMachineByNameAsync(hardwareInventory.System.MachineName);
                     await _sqliteDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
                     await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
