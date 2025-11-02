@@ -33,6 +33,9 @@ public class Worker : BackgroundService
     private readonly SoftwareInventoryService _softwareInventoryService; 
     private readonly JsonSerializerOptions _jsonOptions;
     private int _processedItems = 0;
+    private string _machineName;
+    private object _serviceStatus;
+    private int _machineId;
     private DateTime _startTime = DateTime.Now;
     private ApiService _apiService;
     private SqliteDbService _sqliteDbService;
@@ -63,6 +66,44 @@ public class Worker : BackgroundService
     }
 
     /// <summary>
+    /// Handles and logs exceptions with appropriate error messages and status updates.
+    /// </summary>
+    /// <param name="exception">The exception to handle.</param>
+    /// <param name="stoppingToken">Cancellation token for the delay operation.</param>
+    private async Task HandleExceptionAsync(Exception exception, CancellationToken stoppingToken)
+    {
+        string errorMessage = exception switch
+        {
+            NetworkInformation.HostResolutionException hostEx => 
+                $"Machine {hostEx.HostIdentifier} could not be resolved",
+            NetworkInformation.NetworkInformationMissingException netEx => 
+                $"Machine {netEx.MachineName} has no IPv4, IPv6 or FQDN information",
+            ArgumentNullException argNullEx => $"Argument is null. {argNullEx.Message}",
+            ArgumentException argEx => $"Argument is invalid. {argEx.Message}",
+            NotSupportedException notSupEx => $"Operation not supported. {notSupEx.Message}",
+            JsonException jsonEx => $"JSON parsing error. {jsonEx.Message}",
+            InvalidOperationException invOpEx => $"Invalid operation, {invOpEx.Message}",
+            _ => $"Error, {exception.Message}"
+        };
+
+        _logger.LogError(exception, errorMessage);
+        _statusWriter.WriteLog($"Error: {exception.Message}");
+        _statusWriter.WriteStatus(new ServiceStatus
+        {
+            State = "Error",
+            StartTime = _startTime,
+            ProcessedItems = _processedItems,
+            LastError = exception.Message
+        });
+
+        #if DEBUG
+            await Task.Delay(100, stoppingToken);
+        #else
+            await Task.Delay(5000, stoppingToken);
+        #endif
+    }
+
+    /// <summary>
     /// Executes the background loop until cancellation is requested, periodically
     /// updating the service status and writing statistics/logs.
     /// </summary>
@@ -70,10 +111,9 @@ public class Worker : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var serviceContainer = Services();
-        // wird hier (noch9 nicht benötigt) _apiService = serviceContainer.ApiService;
+        // is not needed here (yet)! _apiService = serviceContainer.ApiService;
         _sqliteDbService = serviceContainer.DbService;
         _mongoDbService = serviceContainer.MongoDbService;
-
 
         // Write initial status
         _statusWriter.WriteStatus(new ServiceStatus
@@ -110,29 +150,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            _logger.LogError(hostResolutionException,
-                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
-                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = hostResolutionException.Message
-                            });
-
+                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error");
-                            _statusWriter.WriteLog($"Error: {exception.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = exception.Message
-                            });
+                            await HandleExceptionAsync(exception, stoppingToken);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
@@ -144,30 +166,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            _logger.LogError(hostResolutionException,
-                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
-                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = hostResolutionException.Message
-                            });
-
-
+                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error");
-                            _statusWriter.WriteLog($"Error: {exception.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = exception.Message
-                            });
+                            await HandleExceptionAsync(exception, stoppingToken);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
@@ -179,91 +182,97 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            _logger.LogError(hostResolutionException,
-                                $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
-                            _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = hostResolutionException.Message
-                            });
-
-
+                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
                         }
                         catch (Exception exception)
                         {
-                            _logger.LogError(exception, "Error");
-                            _statusWriter.WriteLog($"Error: {exception.Message}");
-                            _statusWriter.WriteStatus(new ServiceStatus
-                            {
-                                State = "Error",
-                                StartTime = _startTime,
-                                ProcessedItems = _processedItems,
-                                LastError = exception.Message
-                            });
+                            await HandleExceptionAsync(exception, stoppingToken);
                         }
-
                     }
                     else
                     {
                         throw new NetworkInformation.NetworkInformationMissingException(activeMachineWithNetworkInfo
                             .Name);
                     }
+
                     using var workerServiceContainer =
                         Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
                     _apiService = workerServiceContainer.ApiService;
-
-                    // api-service status abfragen, ob überhaupt läuft
-                    // in eine tr-catch einkleiden, falls der serice nicht läuft
-                    var serviceStatus = await _apiService.GetServiceStatusAsync();
-
-                    // api-service hard und software per REST API abfrage
-                    // ermittelten Daten in SQL-DB und MongoDB speichern
-                    // JSON-String deserialisieren, um Maschinennamen zu extrahieren
-                    string machineName;
                     try
                     {
-                        // status zu string konvertieren und als JsonDocument deserialisieren
-                        var statusString = serviceStatus.ToString();
-                        var statusDocument = JsonDocument.Parse(statusString);
+                        _serviceStatus = await _apiService.GetServiceStatusAsync();
+                    }
+                    catch (Exception exception)
+                    {
+                        await HandleExceptionAsync(exception, stoppingToken);
+                    }
 
-                        // JsonDocument in Dictionary deserialisieren für einfacheren Zugriff
-                        var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
+                    try
+                    {
+                        // convert status to string and deserialize as JsonDocument
+                        var serviceStatusString = _serviceStatus.ToString();
+                        var serviceStatusJsonDocument = JsonDocument.Parse(serviceStatusString);
 
-                        machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
-                            ? statusData["machineName"].GetString()
+                        // Deserialize JsonDocument into Dictionary for easier access
+                        var serviceStatusJsonData =
+                            JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(
+                                serviceStatusJsonDocument.RootElement.GetRawText(), _jsonOptions);
+
+                        _machineName = serviceStatusJsonData.ContainsKey("machineName") &&
+                                       serviceStatusJsonData["machineName"].ValueKind == JsonValueKind.String
+                            ? serviceStatusJsonData["machineName"].GetString()
                             : Environment.MachineName;
                     }
-                    catch
+                    catch (JsonException jsonException)
                     {
-                        // Fallback auf lokalen Maschinennamen falls JSON-Deserialisierung fehlschlägt
-                        machineName = Environment.MachineName;
+                        await HandleExceptionAsync(jsonException, stoppingToken);
+                    }
+                    catch (ArgumentNullException argumentNullException)
+                    {
+                        await HandleExceptionAsync(argumentNullException, stoppingToken);
+                    }
+                    catch (ArgumentException argumentException)
+                    {
+                        await HandleExceptionAsync(argumentException, stoppingToken);
+                    }
+                    catch (NotSupportedException notSupportedException)
+                    {
+                        await HandleExceptionAsync(notSupportedException, stoppingToken);
+                    }
+                    catch (InvalidOperationException invalidOperationException)
+                    {
+                        await HandleExceptionAsync(invalidOperationException, stoppingToken);
+                    }
+                    catch (Exception exception)
+                    {
+                        await HandleExceptionAsync(exception, stoppingToken);
                     }
 
-
-                    // Maschinen-Information in die Datenbank speichern
+                    // Store machine information in the database
                     var machine = new Machine
                     {
-                        Name = machineName,
+                        Name = _machineName,
                         OperatingSystem = Environment.OSVersion.ToString(),
-                        LastSeen = DateTime.UtcNow
+                        LastSeen = DateTime.UtcNow,
+                        IPv4 = _hostInformationResult.IPv4Addresses.FirstOrDefault(),
+                        IPv6 = _hostInformationResult.IPv6Addresses.FirstOrDefault(),
+                        FQDN = _hostInformationResult.HostName,
+                        LastHarvested = DateTime.UtcNow
                     };
+                    _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
 
-                    var machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
+                    if (_machineId > 0)
+                    {
+                        // api-service abfrage des Software und Hardware Inventars
+                        var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
+                        var hardwareInventory = await _apiService.GetHardwareInventoryAsync();
 
-                    // api-service abfrage der Software
-                    var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
-                    var hardwareInventory = await _apiService.GetHardwareInventoryAsync();
+                        await _sqliteDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
+                        await _mongoDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
+                        await _sqliteDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
 
-                    // doppelt-gemoppelt zu oben -> notwendig?
-                    machine = await _sqliteDbService.GetMachineByNameAsync(hardwareInventory.System.MachineName);
-                    await _sqliteDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
-                    await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareInventory);
-                    await _sqliteDbService.SaveHardwareInventoryAsync(machine.Id, hardwareInventory);
-
-                    _processedItems++;
+                        _processedItems++;
+                    }
 
                     // Update status
                     _statusWriter.WriteStatus(new ServiceStatus
@@ -274,6 +283,7 @@ public class Worker : BackgroundService
                         LastActivity = DateTime.Now
                     });
 
+                    // Write statistics
                     _statusWriter.WriteStatistics(new ServiceStatistics
                     {
                         TotalProcessedItems = _processedItems,
@@ -283,7 +293,7 @@ public class Worker : BackgroundService
                         MemoryUsage = GC.GetTotalMemory(false)
                     });
 
-                    var message = $"Inventory completed: {_processedItems} Runs";
+                    var message = $"Inventory completed successfully: {_processedItems} Runs";
                     _logger.LogInformation(message);
                     _statusWriter.WriteLog(message);
 #if DEBUG
@@ -291,78 +301,27 @@ public class Worker : BackgroundService
 #else
                     await Task.Delay(30000, stoppingToken);
 #endif
-                    // Am Ende der foreach die Services und Service-Container disposen
                 }
             }
-            // catch Network oder eigene Exception
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
             {
-                _logger.LogError(networkInformationMissingException,
-                    $"Machine {networkInformationMissingException.MachineName} has no IPv4, IPv6 or FQDN information");
-                _statusWriter.WriteLog($"Error: {networkInformationMissingException.Message}");
-                _statusWriter.WriteStatus(new ServiceStatus
-                {
-                    State = "Error",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastError = networkInformationMissingException.Message
-                });
+                await HandleExceptionAsync(networkInformationMissingException, stoppingToken);
             }
             catch (NetworkInformation.HostResolutionException hostResolutionException)
             {
-                _logger.LogError(hostResolutionException,
-                    $"Machine {hostResolutionException.HostIdentifier} could not be resolved");
-                _statusWriter.WriteLog($"Error: {hostResolutionException.Message}");
-                _statusWriter.WriteStatus(new ServiceStatus
-                {
-                    State = "Error",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastError = hostResolutionException.Message
-                });
+                await HandleExceptionAsync(hostResolutionException, stoppingToken);
             }
             catch (ArgumentNullException argumentNullException)
             {
-                _logger.LogError(argumentNullException, "Error");
-                _statusWriter.WriteLog($"Error: {argumentNullException.Message}");
-                _statusWriter.WriteStatus(new ServiceStatus
-                {
-                    State = "Error",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastError = argumentNullException.Message
-                });
+                await HandleExceptionAsync(argumentNullException, stoppingToken);
             }
             catch (InvalidOperationException invalidOperationException)
             {
-                _logger.LogError(invalidOperationException, "Error");
-                _statusWriter.WriteLog($"Error: {invalidOperationException.Message}");
-                _statusWriter.WriteStatus(new ServiceStatus
-                {
-                    State = "Error",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastError = invalidOperationException.Message
-                });
+                await HandleExceptionAsync(invalidOperationException, stoppingToken);
             }
-            // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
             catch (Exception exception)
             {
-                _logger.LogError(exception, "Error");
-                _statusWriter.WriteLog($"Error: {exception.Message}");
-                _statusWriter.WriteStatus(new ServiceStatus
-                {
-                    State = "Error",
-                    StartTime = _startTime,
-                    ProcessedItems = _processedItems,
-                    LastError = exception.Message
-                });
-                // bei Fehler ggf. hier auch die aktuellen Services und Service-Container disposen!
-                #if DEBUG
-                    await Task.Delay(100, stoppingToken);
-                #else
-                    await Task.Delay(5000, stoppingToken);
-                #endif
+                await HandleExceptionAsync(exception, stoppingToken);
             }
         }
     }
