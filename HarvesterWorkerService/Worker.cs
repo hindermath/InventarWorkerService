@@ -66,10 +66,11 @@ public class Worker : BackgroundService
     }
 
     /// <summary>
-    /// Handles and logs exceptions with appropriate error messages and status updates.
+    /// Handles the given exception by logging the error details and updating the service status.
     /// </summary>
-    /// <param name="exception">The exception to handle.</param>
-    /// <param name="stoppingToken">Cancellation token for the delay operation.</param>
+    /// <param name="exception">The exception to be handled.</param>
+    /// <param name="stoppingToken">The cancellation token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     private async Task HandleExceptionAsync(Exception exception, CancellationToken stoppingToken)
     {
         string errorMessage = exception switch
