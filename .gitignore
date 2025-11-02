@@ -4,8 +4,8 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 
-# Created by https://www.toptal.com/developers/gitignore/api/csharp,dotnetcore,rider,visualstudio,visualstudiocode,jetbrains,jetbrains+iml,jetbrains+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=csharp,dotnetcore,rider,visualstudio,visualstudiocode,jetbrains,jetbrains+iml,jetbrains+all
+# Created by https://www.toptal.com/developers/gitignore/api/rider,csharp,jetbrains,dotnetcore,visualstudio,jetbrains+all,jetbrains+iml,visualstudiocode,docfx
+# Edit at https://www.toptal.com/developers/gitignore?templates=rider,csharp,jetbrains,dotnetcore,visualstudio,jetbrains+all,jetbrains+iml,visualstudiocode,docfx
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -404,6 +404,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+### DocFx ###
+.cache
+/**/_site/
 
 ### DotnetCore ###
 # .NET Core build folders
@@ -885,4 +889,4 @@ modules.xml
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/csharp,dotnetcore,rider,visualstudio,visualstudiocode,jetbrains,jetbrains+iml,jetbrains+all
+# End of https://www.toptal.com/developers/gitignore/api/rider,csharp,jetbrains,dotnetcore,visualstudio,jetbrains+all,jetbrains+iml,visualstudiocode,docfx
