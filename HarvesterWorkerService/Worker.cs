@@ -126,7 +126,7 @@ public class Worker : BackgroundService
         
         while (stoppingToken.IsCancellationRequested is false)
         {
-            // Abfrage aus der DB von nicht-deaktivierten uns -deprovisionierten Maschinen mit Netzwerkinformationen
+            // Query from the DB of non-deactivated un-deprovisioned machines with network information
             var allActiveMachinesWithNetworkInfo = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
 
             try
@@ -223,6 +223,20 @@ public class Worker : BackgroundService
                                        serviceStatusJsonData["machineName"].ValueKind == JsonValueKind.String
                             ? serviceStatusJsonData["machineName"].GetString()
                             : Environment.MachineName;
+
+                        // Store machine information in the database
+                        var machine = new Machine
+                        {
+                            Name = _machineName,
+                            OperatingSystem = Environment.OSVersion.ToString(),
+                            LastSeen = DateTime.UtcNow,
+                            IPv4 = _hostInformationResult.IPv4Addresses.FirstOrDefault(),
+                            IPv6 = _hostInformationResult.IPv6Addresses.FirstOrDefault(),
+                            FQDN = _hostInformationResult.HostName,
+                            LastHarvested = DateTime.UtcNow
+                        };
+                        _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
+
                     }
                     catch (JsonException jsonException)
                     {
@@ -249,28 +263,16 @@ public class Worker : BackgroundService
                         await HandleExceptionAsync(exception, stoppingToken);
                     }
 
-                    // Store machine information in the database
-                    var machine = new Machine
-                    {
-                        Name = _machineName,
-                        OperatingSystem = Environment.OSVersion.ToString(),
-                        LastSeen = DateTime.UtcNow,
-                        IPv4 = _hostInformationResult.IPv4Addresses.FirstOrDefault(),
-                        IPv6 = _hostInformationResult.IPv6Addresses.FirstOrDefault(),
-                        FQDN = _hostInformationResult.HostName,
-                        LastHarvested = DateTime.UtcNow
-                    };
-                    _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
-
                     if (_machineId > 0)
                     {
-                        // api-service abfrage des Software und Hardware Inventars
+                        // Software and Hardware Inventory Query
                         var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
                         var hardwareInventory = await _apiService.GetHardwareInventoryAsync();
 
                         await _sqliteDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
-                        await _mongoDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
                         await _sqliteDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
+                        await _mongoDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
+                        await _mongoDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
 
                         _processedItems++;
                     }
