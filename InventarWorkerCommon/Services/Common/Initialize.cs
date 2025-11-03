@@ -37,8 +37,9 @@ public static class Initialize
 
         // Initialize MongoDB Service
         var mongoDbService = new MongoDbService($"mongodb://{mongoDbFqdn}:{mongoDbPort}");
-        // Initialize MongoDB database
-        mongoDbService.InitializeMongoDatabase();
+        // Initialize MongoDB hardware and softwaredatabases
+        mongoDbService.InitializeSoftwareMongoDatabase();
+        mongoDbService.InitializeHardwareMongoDatabase();
 
         return new ServiceContainer(apiService, dbService, mongoDbService);
     }
