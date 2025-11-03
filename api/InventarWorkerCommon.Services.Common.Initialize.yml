@@ -111,7 +111,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetDbBasePath
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 51
+    startLine: 52
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common

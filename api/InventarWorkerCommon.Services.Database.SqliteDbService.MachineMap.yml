@@ -20,7 +20,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineMap
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 740
+    startLine: 773
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -85,7 +85,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 742
+    startLine: 775
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database

@@ -25,7 +25,7 @@ items:
   - InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
   - InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(System.String)
   - InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
-  - InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  - InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine,System.Boolean)
   - InventarWorkerCommon.Services.Database.SqliteDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
   langs:
   - csharp
@@ -132,16 +132,16 @@ items:
     content: public void InitializeDatabase()
     content.vb: Public Sub InitializeDatabase()
   overload: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase*
-- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
-  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
-  id: SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+- uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine,System.Boolean)
+  commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine,System.Boolean)
+  id: SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine,System.Boolean)
   parent: InventarWorkerCommon.Services.Database.SqliteDbService
   langs:
   - csharp
   - vb
-  name: SaveOrUpdateMachineAsync(Machine)
-  nameWithType: SqliteDbService.SaveOrUpdateMachineAsync(Machine)
-  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine)
+  name: SaveOrUpdateMachineAsync(Machine, bool)
+  nameWithType: SqliteDbService.SaveOrUpdateMachineAsync(Machine, bool)
+  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine, bool)
   type: Method
   source:
     remote:
@@ -150,23 +150,34 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveOrUpdateMachineAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 294
+    startLine: 297
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
-  summary: Saves a new machine to the database or updates an existing machine's details if it already exists.
+  summary: >-
+    Asynchronously saves a new machine entry to the SQLite database or updates the
+
+    existing entry based on the machine's name. Additional fields are conditionally
+
+    updated based on the context of the request.
   example: []
   syntax:
-    content: public Task<int> SaveOrUpdateMachineAsync(Machine machine)
+    content: public Task<int> SaveOrUpdateMachineAsync(Machine machine, bool isHarvester = false)
     parameters:
     - id: machine
       type: InventarWorkerCommon.Models.SqlDatabase.Machine
-      description: The machine object containing the properties to be inserted or updated in the database.
+      description: The machine object containing the details to save or update.
+    - id: isHarvester
+      type: System.Boolean
+      description: Indicates whether additional fields should be updated. Default is false.
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: The ID of the saved or updated machine record.
-    content.vb: Public Function SaveOrUpdateMachineAsync(machine As Machine) As Task(Of Integer)
+      description: The unique identifier of the machine entry in the database.
+    content.vb: Public Function SaveOrUpdateMachineAsync(machine As Machine, isHarvester As Boolean = False) As Task(Of Integer)
   overload: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync*
+  nameWithType.vb: SqliteDbService.SaveOrUpdateMachineAsync(Machine, Boolean)
+  fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync(InventarWorkerCommon.Models.SqlDatabase.Machine, Boolean)
+  name.vb: SaveOrUpdateMachineAsync(Machine, Boolean)
 - uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
   commentId: M:InventarWorkerCommon.Services.Database.SqliteDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
   id: SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
@@ -185,7 +196,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 344
+    startLine: 377
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -226,7 +237,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 381
+    startLine: 414
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -267,7 +278,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 410
+    startLine: 443
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -300,7 +311,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 425
+    startLine: 458
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -334,7 +345,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesWithNetworkInfoAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 443
+    startLine: 476
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -371,7 +382,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDeprovisionedMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 457
+    startLine: 490
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -402,7 +413,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDisabledMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 472
+    startLine: 505
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -436,7 +447,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByIdAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 490
+    startLine: 523
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -477,7 +488,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByNameAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 507
+    startLine: 540
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -518,7 +529,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 521
+    startLine: 554
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -556,7 +567,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 540
+    startLine: 573
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -594,7 +605,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CleanupOldRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 577
+    startLine: 610
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -632,7 +643,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasMachineRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 595
+    startLine: 628
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -663,7 +674,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasHardwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 608
+    startLine: 641
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -694,7 +705,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasSoftwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 621
+    startLine: 654
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -725,7 +736,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 634
+    startLine: 667
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -756,7 +767,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 647
+    startLine: 680
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -787,7 +798,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 660
+    startLine: 693
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -818,7 +829,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeMachinesFromCsvAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 669
+    startLine: 702
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -1130,7 +1141,7 @@ references:
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeDatabase
 - uid: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync*
   commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync
-  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_SaveOrUpdateMachineAsync_InventarWorkerCommon_Models_SqlDatabase_Machine_
+  href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_SaveOrUpdateMachineAsync_InventarWorkerCommon_Models_SqlDatabase_Machine_System_Boolean_
   name: SaveOrUpdateMachineAsync
   nameWithType: SqliteDbService.SaveOrUpdateMachineAsync
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService.SaveOrUpdateMachineAsync
@@ -1141,6 +1152,17 @@ references:
   name: Machine
   nameWithType: Machine
   fullName: InventarWorkerCommon.Models.SqlDatabase.Machine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: System.Threading.Tasks.Task{System.Int32}
   commentId: T:System.Threading.Tasks.Task{System.Int32}
   parent: System.Threading.Tasks

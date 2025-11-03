@@ -25,7 +25,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceContainer
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -64,7 +64,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ApiService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 75
+    startLine: 76
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -95,7 +95,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -126,7 +126,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 85
+    startLine: 86
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -157,7 +157,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 103
+    startLine: 104
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -187,7 +187,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisposeAsync
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 113
+    startLine: 114
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -220,7 +220,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Finalize
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 229
+    startLine: 230
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common

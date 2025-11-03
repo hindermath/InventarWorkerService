@@ -7,7 +7,9 @@ items:
   children:
   - InventarWorkerCommon.Services.Database.MongoDbService.#ctor(System.String)
   - InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
-  - InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+  - InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase
+  - InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase
+  - InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
   - InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
   langs:
   - csharp
@@ -23,7 +25,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -60,7 +62,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-    startLine: 19
+    startLine: 22
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -77,34 +79,62 @@ items:
   nameWithType.vb: MongoDbService.New(String)
   fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.New(String)
   name.vb: New(String)
-- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
-  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
-  id: InitializeMongoDatabase
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase
+  id: InitializeSoftwareMongoDatabase
   parent: InventarWorkerCommon.Services.Database.MongoDbService
   langs:
   - csharp
   - vb
-  name: InitializeMongoDatabase()
-  nameWithType: MongoDbService.InitializeMongoDatabase()
-  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase()
+  name: InitializeSoftwareMongoDatabase()
+  nameWithType: MongoDbService.InitializeSoftwareMongoDatabase()
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase()
   type: Method
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
       branch: main
       repo: https://github.com/hindermath/InventarWorkerService.git
-    id: InitializeMongoDatabase
+    id: InitializeSoftwareMongoDatabase
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-    startLine: 28
+    startLine: 31
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
   summary: Initializes the MongoDB database used by this service.
   example: []
   syntax:
-    content: public void InitializeMongoDatabase()
-    content.vb: Public Sub InitializeMongoDatabase()
-  overload: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase*
+    content: public void InitializeSoftwareMongoDatabase()
+    content.vb: Public Sub InitializeSoftwareMongoDatabase()
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase*
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase
+  id: InitializeHardwareMongoDatabase
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: InitializeHardwareMongoDatabase()
+  nameWithType: MongoDbService.InitializeHardwareMongoDatabase()
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: InitializeHardwareMongoDatabase
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 39
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Initializes the MongoDB database for storing hardware inventory data.
+  example: []
+  syntax:
+    content: public void InitializeHardwareMongoDatabase()
+    content.vb: Public Sub InitializeHardwareMongoDatabase()
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase*
 - uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
   commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
   id: SaveSoftwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Software.SoftwareInventory)
@@ -123,7 +153,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-    startLine: 38
+    startLine: 49
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -145,6 +175,46 @@ items:
   nameWithType.vb: MongoDbService.SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
   fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync(Integer, InventarWorkerCommon.Models.Software.SoftwareInventory)
   name.vb: SaveSoftwareInventoryAsync(Integer, SoftwareInventory)
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  id: SaveHardwareInventoryAsync(System.Int32,InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  parent: InventarWorkerCommon.Services.Database.MongoDbService
+  langs:
+  - csharp
+  - vb
+  name: SaveHardwareInventoryAsync(int, HardwareInventory)
+  nameWithType: MongoDbService.SaveHardwareInventoryAsync(int, HardwareInventory)
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync(int, InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: SaveHardwareInventoryAsync
+    path: InventarWorkerCommon/Services/Database/MongoDbService.cs
+    startLine: 60
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Database
+  summary: Saves a hardware inventory document for the specified machine ID.
+  example: []
+  syntax:
+    content: public Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
+    parameters:
+    - id: machineId
+      type: System.Int32
+      description: The target machine ID used as the collection name.
+    - id: hardware
+      type: InventarWorkerCommon.Models.Hardware.HardwareInventory
+      description: The hardware inventory to persist.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SaveHardwareInventoryAsync(machineId As Integer, hardware As HardwareInventory) As Task
+  overload: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync*
+  nameWithType.vb: MongoDbService.SaveHardwareInventoryAsync(Integer, HardwareInventory)
+  fullName.vb: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync(Integer, InventarWorkerCommon.Models.Hardware.HardwareInventory)
+  name.vb: SaveHardwareInventoryAsync(Integer, HardwareInventory)
 - uid: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
   commentId: M:InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync(System.Int32,System.String)
   id: FindSoftwareByNameAsync(System.Int32,System.String)
@@ -163,7 +233,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FindSoftwareByNameAsync
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-    startLine: 50
+    startLine: 72
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -474,12 +544,18 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase*
-  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
-  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_InitializeMongoDatabase
-  name: InitializeMongoDatabase
-  nameWithType: MongoDbService.InitializeMongoDatabase
-  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeMongoDatabase
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_InitializeSoftwareMongoDatabase
+  name: InitializeSoftwareMongoDatabase
+  nameWithType: MongoDbService.InitializeSoftwareMongoDatabase
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeSoftwareMongoDatabase
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_InitializeHardwareMongoDatabase
+  name: InitializeHardwareMongoDatabase
+  nameWithType: MongoDbService.InitializeHardwareMongoDatabase
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.InitializeHardwareMongoDatabase
 - uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync*
   commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.SaveSoftwareInventoryAsync
   href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_SaveSoftwareInventoryAsync_System_Int32_InventarWorkerCommon_Models_Software_SoftwareInventory_
@@ -579,6 +655,49 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync*
+  commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync
+  href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_SaveHardwareInventoryAsync_System_Int32_InventarWorkerCommon_Models_Hardware_HardwareInventory_
+  name: SaveHardwareInventoryAsync
+  nameWithType: MongoDbService.SaveHardwareInventoryAsync
+  fullName: InventarWorkerCommon.Services.Database.MongoDbService.SaveHardwareInventoryAsync
+- uid: InventarWorkerCommon.Models.Hardware.HardwareInventory
+  commentId: T:InventarWorkerCommon.Models.Hardware.HardwareInventory
+  parent: InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.Models.Hardware.HardwareInventory.html
+  name: HardwareInventory
+  nameWithType: HardwareInventory
+  fullName: InventarWorkerCommon.Models.Hardware.HardwareInventory
+- uid: InventarWorkerCommon.Models.Hardware
+  commentId: N:InventarWorkerCommon.Models.Hardware
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Hardware
+  nameWithType: InventarWorkerCommon.Models.Hardware
+  fullName: InventarWorkerCommon.Models.Hardware
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Hardware
+    name: Hardware
+    href: InventarWorkerCommon.Models.Hardware.html
 - uid: InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync*
   commentId: Overload:InventarWorkerCommon.Services.Database.MongoDbService.FindSoftwareByNameAsync
   href: InventarWorkerCommon.Services.Database.MongoDbService.html#InventarWorkerCommon_Services_Database_MongoDbService_FindSoftwareByNameAsync_System_Int32_System_String_
