@@ -235,7 +235,7 @@ public class Worker : BackgroundService
                             FQDN = _hostInformationResult.HostName,
                             LastHarvested = DateTime.UtcNow
                         };
-                        _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine);
+                        _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine, isHarvester: true);
 
                     }
                     catch (JsonException jsonException)
