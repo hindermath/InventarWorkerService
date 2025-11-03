@@ -288,11 +288,13 @@ public class SqliteDbService
     }
 
     /// <summary>
-    /// Saves a new machine to the database or updates an existing machine's details if it already exists.
+    /// Asynchronously saves a new machine entry to the SQLite database or updates the
+    /// existing entry based on the machine's name. Additional fields are conditionally
+    /// updated based on the context of the request.
     /// </summary>
-    /// <param name="machine">The machine object containing the properties to be inserted or updated in the database.</param>
-    /// <param name="isHarvester"></param>
-    /// <returns>The ID of the saved or updated machine record.</returns>
+    /// <param name="machine">The machine object containing the details to save or update.</param>
+    /// <param name="isHarvester">Indicates whether additional fields should be updated. Default is false.</param>
+    /// <returns>The unique identifier of the machine entry in the database.</returns>
     public async Task<int> SaveOrUpdateMachineAsync(Machine machine, bool isHarvester = false)
     {
         using var connection = new SqliteConnection(_connectionString);
