@@ -1,3 +1,4 @@
+using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -11,7 +12,9 @@ public class MongoDbService
 {
     private readonly string _connectionString;
     private readonly IMongoClient _mongoClient;
-    private IMongoDatabase _mongoDatabase;
+    private IMongoDatabase _mongoSoftwareDatabase;
+    private IMongoDatabase _mongoHardwareDatabase;
+
 
     /// <summary>
     /// Initializes a new instance of MongoDbService with the given connection string.
@@ -26,9 +29,17 @@ public class MongoDbService
     /// <summary>
     /// Initializes the MongoDB database used by this service.
     /// </summary>
-    public void InitializeMongoDatabase()
+    public void InitializeSoftwareMongoDatabase()
     {
-        _mongoDatabase = _mongoClient.GetDatabase("Inventory");
+        _mongoSoftwareDatabase = _mongoClient.GetDatabase("SoftwareInventory");
+    }
+
+    /// <summary>
+    /// Initializes the MongoDB database for storing hardware inventory data.
+    /// </summary>
+    public void InitializeHardwareMongoDatabase()
+    {
+        _mongoHardwareDatabase = _mongoClient.GetDatabase("HardwareInventory");
     }
 
     /// <summary>
@@ -38,8 +49,19 @@ public class MongoDbService
     /// <param name="software">The software inventory to persist.</param>
     public async Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
     {
-        var collection = _mongoDatabase.GetCollection<BsonDocument>($"{machineId}");
+        var collection = _mongoSoftwareDatabase.GetCollection<BsonDocument>($"{machineId}");
         await collection.InsertOneAsync(software.ToBsonDocument());
+    }
+
+    /// <summary>
+    /// Saves a hardware inventory document for the specified machine ID.
+    /// </summary>
+    /// <param name="machineId">The target machine ID used as the collection name.</param>
+    /// <param name="hardware">The hardware inventory to persist.</param>
+    public async Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
+    {
+        var collection = _mongoHardwareDatabase.GetCollection<BsonDocument>($"{machineId}");
+        await collection.InsertOneAsync(hardware.ToBsonDocument());
     }
 
     /// <summary>
@@ -50,7 +72,7 @@ public class MongoDbService
     /// <returns>A list of BSON documents containing matching software entries.</returns>
     public async Task<List<BsonDocument>> FindSoftwareByNameAsync(int machineId, string softwareName)
     {
-        var collection = _mongoDatabase.GetCollection<BsonDocument>($"{machineId}");
+        var collection = _mongoSoftwareDatabase.GetCollection<BsonDocument>($"{machineId}");
         
         // Filter Builder verwenden
         var filter = Builders<BsonDocument>.Filter.Eq("InstalledSoftware.Name", softwareName);
