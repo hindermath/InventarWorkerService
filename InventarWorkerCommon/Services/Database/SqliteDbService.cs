@@ -291,8 +291,9 @@ public class SqliteDbService
     /// Saves a new machine to the database or updates an existing machine's details if it already exists.
     /// </summary>
     /// <param name="machine">The machine object containing the properties to be inserted or updated in the database.</param>
+    /// <param name="isHarvester"></param>
     /// <returns>The ID of the saved or updated machine record.</returns>
-    public async Task<int> SaveOrUpdateMachineAsync(Machine machine)
+    public async Task<int> SaveOrUpdateMachineAsync(Machine machine, bool isHarvester = false)
     {
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
@@ -302,20 +303,50 @@ public class SqliteDbService
 
         if (existingMachineId.HasValue)
         {
-            const string updateQuery = @"
-                UPDATE Machines 
-                SET OperatingSystem = @OperatingSystem, 
-                    LastSeen = @LastSeen 
-                WHERE Id = @Id";
-
-            await connection.ExecuteAsync(updateQuery, new
+            // When called by HarvesterWorkerService, more fields will be updated
+            if (isHarvester)
             {
-                machine.OperatingSystem,
-                machine.LastSeen,
-                Id = existingMachineId.Value
-            });
+                const string updateQuery = @"
+                    UPDATE Machines 
+                    SET OperatingSystem = @OperatingSystem, 
+                        LastSeen = @LastSeen,
+                        IPv4 = @IPv4,
+                        IPv6 = @IPv6,
+                        FQDN = @FQDN,
+                        LastHarvested = @LastHarvested
+                    WHERE Id = @Id";
 
-            return existingMachineId.Value;
+                await connection.ExecuteAsync(updateQuery, new
+                {
+                    machine.OperatingSystem,
+                    machine.LastSeen,
+                    machine.IPv4,
+                    machine.IPv6,
+                    machine.FQDN,
+                    machine.LastHarvested,
+                    Id = existingMachineId.Value
+                });
+
+                return existingMachineId.Value;
+
+            }
+            else
+            {
+                const string updateQuery = @"
+                    UPDATE Machines 
+                    SET OperatingSystem = @OperatingSystem, 
+                        LastSeen = @LastSeen 
+                    WHERE Id = @Id";
+
+                await connection.ExecuteAsync(updateQuery, new
+                {
+                    machine.OperatingSystem,
+                    machine.LastSeen,
+                    Id = existingMachineId.Value
+                });
+
+                return existingMachineId.Value;
+            }
         }
         else
         {
