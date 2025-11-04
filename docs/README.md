@@ -518,7 +518,7 @@ Von der _Solution_-Ansicht auf die _Files_-Ansicht wechseln.
 Nun die oberste Ebene anklicken und dann einen Mausklick mit der rechten Maustaste.
 Im Kontextmenü `Add` -> `File` klicken.
 
-![img_5.png](img_5.png)
+![img_5.png](../images/img_5.png)
 
 Die Datei im Dialog-Feld `.gitignore` benennen. Die Datei wird automatisch geöffnet. Die Frage zum Hinzufügen zum
 Repository mit `Yes` beantworten.
@@ -528,7 +528,7 @@ In einem Web-Browser die Webseite https://gitignore.io aufrufen.
 In das Eingabefeld den die folgenden Schlüsselworte eingeben wie in der folgenden Abbildung zu sehen
 und auf den Button `Create` klicken.
 
-![img_6.png](img_6.png)
+![img_6.png](../images/img_6.png)
 
 Dies ergibt den neuen URL https://www.toptal.com/developers/gitignore/api/csharp,dotnetcore,rider,visualstudio,visualstudiocode,jetbrains,jetbrains+all,jetbrains+iml
 und der Inhalt wird im Browser-Fenster angezeigt. Diesen markieren, kopieren und in die gerade angelegte Datei einfügen.
@@ -537,22 +537,22 @@ und der Inhalt wird im Browser-Fenster angezeigt. Diesen markieren, kopieren und
 Über den Menüpunkt `VCS` oder `Git` den Punkt `Enable Version Control Integration` auswählen und `Git` 
 als Versionskontrollsystem auswählen.
 
-![img.png](img.png)
+![img.png](../images/img.png)
 
-![img_1.png](img_1.png)
+![img_1.png](../images/img_1.png)
 
 Dann sind erst einmal alle Teilprojekte und die Solution rot markiert, da sie noch nicht im Repository sind.
 
-![img_2.png](img_2.png)
+![img_2.png](../images/img_2.png)
 
 ### 6.3 Solution und Projekte dem Repository hinzufügen
 Nach dieser Aktion re. Mausklick auf die Solution und `Git` -> `Add` auswählen.
 
-![img_3.png](img_3.png)
+![img_3.png](../images/img_3.png)
 
 Danach sind die Projekte und die Solution grün markiert, da sie jetzt im Repository sind.
 
-![img_4.png](img_4.png)
+![img_4.png](../images/img_4.png)
 
 
 ### 6.4 Ersten `Git Commit` durchführen
@@ -560,16 +560,16 @@ Jetzt können die Änderungen 0committet werden. Dazu in die `Commit`-Ansicht we
 Den in den Kasten vor dem obersten Knoten `Changes` klicken. Alles zu committen anstehenden Dateien werden markiert
 Eine Commit-Message eingeben und auf den Button `Commit` klicken.
 
-![img_7.png](img_7.png)
+![img_7.png](../images/img_7.png)
 
 ### 6.5 Ersten `Git Push` durchführen
 Dazu den Menüpunkt `Git` -> `Push` auswählen.
 
-![img_8.png](img_8.png)
+![img_8.png](../images/img_8.png)
 
 In dem Dialog `Define Remote`anklicken.
 
-![img_9.png](img_9.png)
+![img_9.png](../images/img_9.png)
 
 #### 6.5.1
 In einem Browser zu eurem Gitlab-Repo wechseln, das dem folgen URL-Format entspricht:
@@ -579,19 +579,19 @@ Oben rechts die Schaltfläche "Neues Projekt" anklicken. Die Kachel `Leeres Proj
 Das Projekt benennen durch eingeben eines Namens in dem Eingabefeld `Projektname`. Den Haken vor "Repository mit 
 einem README initialisieren" anklicken und somit abwählen. Jetzt auf `Projekt anlegen` klicken.
 
-![img_10.png](img_10.png)
+![img_10.png](../images/img_10.png)
 
 Auf die Schaltfläche `Code` klicken und den URL `Mit HTTPS klonen` kopieren.
 
-![img_11.png](img_11.png)
+![img_11.png](../images/img_11.png)
 
 Zurück in in der IDE `Rider` den gerade kopierten URL in das Eingabefeld `URL:` einfügen im Dialog `Define Remote` und abschließend auf `OK` klicken.
 
-![img_12.png](img_12.png)
+![img_12.png](../images/img_12.png)
 
 Abschließend auf `Push` klicken.
 
-![img_13.png](img_13.png)
+![img_13.png](../images/img_13.png)
 
 ### 6.6 Abschließende Information
 Ab diesem Zeitpunkt können nun alle geänderten oder neu hinzugefügten Dateien in das Repository aufgenommen werden.
