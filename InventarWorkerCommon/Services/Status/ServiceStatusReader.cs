@@ -87,9 +87,9 @@ public class ServiceStatusReader
     /// If the log file does not exist or an error occurs during reading,
     /// the method returns an empty list.
     /// </summary>
-    /// <param name="maxLines">The maximum number of recent log lines to read. Defaults to 50.</param>
+    /// <param name="maxLines">The maximum number of recent log lines to read. Defaults to 10.</param>
     /// <returns>A list of strings containing the most recent log entries, or an empty list if the log file is missing or an error occurs.</returns>
-    public List<string> ReadRecentLogs(int maxLines = 50)
+    public List<string> ReadRecentLogs(int maxLines = 10)
     {
         try
         {
