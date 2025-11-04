@@ -9,16 +9,32 @@ namespace ServiceStatusReaderApp;
 static class Program
 {
     /// <summary>
-    /// Application entry point. Reads and prints current service status and statistics.
-    /// Use the --monitor argument to continuously watch and print updates.
+    /// The entry point for the ServiceStatusReaderApp console application. This method initializes the program,
+    /// reads the status, statistics, and logs of the InventarWorkerService, and provides an optional monitoring feature.
     /// </summary>
-    /// <param name="args">Command line arguments. Specify --monitor to enable continuous monitoring.</param>
+    /// <param name="args">Array of command-line arguments passed to the application.
+    /// Includes flags like --help, --harvester, and --monitor which control the program's behavior.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     static async Task Main(string[] args)
     {
-        var reader = new ServiceStatusReader();
-        
-        Console.WriteLine("=== InventarWorkerService Status ===\n");
-        
+        if (args.Contains("--help"))
+        {
+            Usage();
+        }
+
+        ServiceStatusReader reader;
+
+        if (args.Contains("--harvester"))
+        {
+            reader = new ServiceStatusReader("harvester-service");
+            Console.WriteLine("=== HarvesterWorkerService Status ===\n");
+        }
+        else
+        {
+            reader = new ServiceStatusReader();
+            Console.WriteLine("=== InventarWorkerService Status ===\n");
+        }
+
         // Check Service Status
         var isRunning = reader.IsServiceRunning();
         Console.WriteLine($"Service läuft: {(isRunning ? "JA" : "NEIN")}");
@@ -78,5 +94,10 @@ static class Program
                 }
             }
         }
+    }
+
+    private static void Usage()
+    {
+        throw new NotImplementedException();
     }
 }
