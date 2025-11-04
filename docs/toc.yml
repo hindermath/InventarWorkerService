@@ -1,4 +1,26 @@
-- name: Introduction
-  href: introduction.md
-- name: Getting Started
-  href: getting-started.md
+- name: Einleitung
+  href: einleitung.md
+- name: Erste Schritte
+  href: erste-schritte.md
+- name: README
+  href: README.md
+- name: README1
+  href: README1.md
+- name: README2
+  href: README3.md
+- name: README3
+  href: README3.md
+- name: README4
+  href: README4.md
+- name: README5
+  href: README5.md
+- name: README6
+  href: README6.md
+- name: README7
+  href: README7.md
+- name: README8
+  href: README8.md
+- name: 1AzubiBarCamp
+  href: 1AzubiBarCamp.md
+
+
