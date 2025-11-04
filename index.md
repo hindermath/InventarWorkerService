@@ -2,10 +2,18 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+# InventarWorkerService Dokumentation
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+[!include[README](README.md)]
 
-## Quick Start Notes:
+## Weitere Informationen
 
-1. Add images to the *images* folder if the file is referencing an image.
+- [Projekt-Dokumentation](docs)
+- [API Dokumentation](api)
+
+
+
+## Schnellstart-Hinweise:
+
+1. Fügen Sie Bilder zum Ordner *images* hinzu, wenn die Datei auf ein Bild verweist.
+2. Beziehen Sie sich auf [Markdown](http://daringfireball.net/projects/markdown/), um zu erfahren, wie Sie markdown Dateien schreiben.
