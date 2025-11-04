@@ -187,15 +187,15 @@ items:
     the method returns an empty list.
   example: []
   syntax:
-    content: public List<string> ReadRecentLogs(int maxLines = 50)
+    content: public List<string> ReadRecentLogs(int maxLines = 10)
     parameters:
     - id: maxLines
       type: System.Int32
-      description: The maximum number of recent log lines to read. Defaults to 50.
+      description: The maximum number of recent log lines to read. Defaults to 10.
     return:
       type: System.Collections.Generic.List{System.String}
       description: A list of strings containing the most recent log entries, or an empty list if the log file is missing or an error occurs.
-    content.vb: Public Function ReadRecentLogs(maxLines As Integer = 50) As List(Of String)
+    content.vb: Public Function ReadRecentLogs(maxLines As Integer = 10) As List(Of String)
   overload: InventarWorkerCommon.Services.Status.ServiceStatusReader.ReadRecentLogs*
   nameWithType.vb: ServiceStatusReader.ReadRecentLogs(Integer)
   fullName.vb: InventarWorkerCommon.Services.Status.ServiceStatusReader.ReadRecentLogs(Integer)
