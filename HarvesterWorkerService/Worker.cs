@@ -69,9 +69,8 @@ public class Worker : BackgroundService
     /// Handles the given exception by logging the error details and updating the service status.
     /// </summary>
     /// <param name="exception">The exception to be handled.</param>
-    /// <param name="stoppingToken">The cancellation token to monitor for cancellation requests.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    private async Task HandleExceptionAsync(Exception exception, CancellationToken stoppingToken)
+    private async Task HandleExceptionAsync(Exception exception)
     {
         string errorMessage = exception switch
         {
@@ -96,12 +95,6 @@ public class Worker : BackgroundService
             ProcessedItems = _processedItems,
             LastError = exception.Message
         });
-
-        #if DEBUG
-            await Task.Delay(100, stoppingToken);
-        #else
-            await Task.Delay(5000, stoppingToken);
-        #endif
     }
 
     /// <summary>
@@ -151,11 +144,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
+                            await HandleExceptionAsync(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception, stoppingToken);
+                            await HandleExceptionAsync(exception);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
@@ -167,11 +160,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
+                            await HandleExceptionAsync(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception, stoppingToken);
+                            await HandleExceptionAsync(exception);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
@@ -183,11 +176,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostResolutionException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException, stoppingToken);
+                            await HandleExceptionAsync(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception, stoppingToken);
+                            await HandleExceptionAsync(exception);
                         }
                     }
                     else
@@ -205,7 +198,7 @@ public class Worker : BackgroundService
                     }
                     catch (Exception exception)
                     {
-                        await HandleExceptionAsync(exception, stoppingToken);
+                        await HandleExceptionAsync(exception);
                     }
 
                     try
@@ -240,27 +233,27 @@ public class Worker : BackgroundService
                     }
                     catch (JsonException jsonException)
                     {
-                        await HandleExceptionAsync(jsonException, stoppingToken);
+                        await HandleExceptionAsync(jsonException);
                     }
                     catch (ArgumentNullException argumentNullException)
                     {
-                        await HandleExceptionAsync(argumentNullException, stoppingToken);
+                        await HandleExceptionAsync(argumentNullException);
                     }
                     catch (ArgumentException argumentException)
                     {
-                        await HandleExceptionAsync(argumentException, stoppingToken);
+                        await HandleExceptionAsync(argumentException);
                     }
                     catch (NotSupportedException notSupportedException)
                     {
-                        await HandleExceptionAsync(notSupportedException, stoppingToken);
+                        await HandleExceptionAsync(notSupportedException);
                     }
                     catch (InvalidOperationException invalidOperationException)
                     {
-                        await HandleExceptionAsync(invalidOperationException, stoppingToken);
+                        await HandleExceptionAsync(invalidOperationException);
                     }
                     catch (Exception exception)
                     {
-                        await HandleExceptionAsync(exception, stoppingToken);
+                        await HandleExceptionAsync(exception);
                     }
 
                     if (_machineId > 0)
@@ -302,29 +295,29 @@ public class Worker : BackgroundService
 #if DEBUG
                     await Task.Delay(100, stoppingToken);
 #else
-                    await Task.Delay(30000, stoppingToken);
+                    await Task.Delay(86_400_000, stoppingToken); // 86400000ms = 24h
 #endif
                 }
             }
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
             {
-                await HandleExceptionAsync(networkInformationMissingException, stoppingToken);
+                await HandleExceptionAsync(networkInformationMissingException);
             }
             catch (NetworkInformation.HostResolutionException hostResolutionException)
             {
-                await HandleExceptionAsync(hostResolutionException, stoppingToken);
+                await HandleExceptionAsync(hostResolutionException);
             }
             catch (ArgumentNullException argumentNullException)
             {
-                await HandleExceptionAsync(argumentNullException, stoppingToken);
+                await HandleExceptionAsync(argumentNullException);
             }
             catch (InvalidOperationException invalidOperationException)
             {
-                await HandleExceptionAsync(invalidOperationException, stoppingToken);
+                await HandleExceptionAsync(invalidOperationException);
             }
             catch (Exception exception)
             {
-                await HandleExceptionAsync(exception, stoppingToken);
+                await HandleExceptionAsync(exception);
             }
         }
     }
