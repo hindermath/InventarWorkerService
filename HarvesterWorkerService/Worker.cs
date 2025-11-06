@@ -29,8 +29,8 @@ public class Worker : BackgroundService
     private readonly ILogger<Worker> _logger;
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
     private readonly AverageProcessingTime _averageProcessingTime = new AverageProcessingTime();
-    private readonly HardwareInventoryService _hardwareInventoryService;
-    private readonly SoftwareInventoryService _softwareInventoryService; 
+    //private readonly HardwareInventoryService _hardwareInventoryService;
+    //private readonly SoftwareInventoryService _softwareInventoryService;
     private readonly JsonSerializerOptions _jsonOptions;
     private int _processedItems = 0;
     private string _machineName;
@@ -49,13 +49,11 @@ public class Worker : BackgroundService
     /// <param name="logger">The logger used to write diagnostic information.</param>
     /// <param name="hardwareInventoryService">Service that provides hardware inventory processing.</param>
     /// <param name="softwareInventoryService">Service that provides software inventory processing.</param>
-    public Worker(ILogger<Worker> logger,
-        HardwareInventoryService hardwareInventoryService,
-        SoftwareInventoryService softwareInventoryService)
+    public Worker(ILogger<Worker> logger)
     {
         _logger = logger;
-        _hardwareInventoryService = hardwareInventoryService;
-        _softwareInventoryService = softwareInventoryService;
+        //_hardwareInventoryService = hardwareInventoryService;
+        //_softwareInventoryService = softwareInventoryService;
         
         _jsonOptions = new JsonSerializerOptions
         {
