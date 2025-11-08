@@ -68,7 +68,7 @@ static class Program
         
         Console.WriteLine();
         
-        // Letzte Logs
+        // Last Logs
         var logs = reader.ReadRecentLogs(10);
         if (logs.Any())
         {
@@ -96,6 +96,12 @@ static class Program
         }
     }
 
+    /// <summary>
+    /// Displays usage instructions for the ServiceStatusReaderApp executable. This method outlines supported
+    /// command-line arguments and their intended functionality, such as toggling worker modes or enabling
+    /// monitoring features.
+    /// </summary>
+    /// <exception cref="NotImplementedException">Thrown to indicate that this functionality has not been implemented yet.</exception>
     private static void Usage()
     {
         throw new NotImplementedException();
