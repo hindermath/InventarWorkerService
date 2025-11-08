@@ -5,6 +5,7 @@ using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,11 @@ builder.Services.AddSystemd();
 builder.Services.AddSingleton<HardwareInventoryService>();
 builder.Services.AddSingleton<SoftwareInventoryService>();
 builder.Services.AddHostedService<Worker>();
+
+// Add services to the container.
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
+
 
 // Add REST API Services
 builder.Services.AddControllers();
@@ -61,11 +67,44 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+        options.RoutePrefix = "swagger"; // Swagger UI available at /swagger
+        options.DocExpansion(DocExpansion.None); // All endpoints initially collapsed
+        options.DisplayRequestDuration(); // Displays response times
+        options.EnableDeepLinking(); // Enables deep links to specific endpoints
+        options.EnableFilter(); // Activates search filters
+        options.ShowExtensions(); // Shows Vendor Extensions
+        options.EnableValidator(); // Activate validator
+    });
+    app.MapOpenApi();
+    //app.UseMigrationsEndPoint();
+}
+else
+{
+    // app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // app.UseHsts();
 }
 
+// app.UseHttpsRedirection();
+// app.UseStaticFiles();
+// app.UseCookiePolicy();
+
+// app.UseRouting();
+// app.UseRateLimiter();
+// app.UseRequestLocalization();
 app.UseCors("AllowAll");
+
+// app.UseAuthentication();
 app.UseAuthorization();
+// app.UseSession();
+// app.UseResponseCompression();
+// app.UseResponseCaching();
+// app.MapRazorPages();
+// app.MapDefaultControllerRoute();
+
 app.MapControllers();
 
 app.Run();
