@@ -62,10 +62,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorCount
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the number of logical processors available on the machine.
+  example: []
   syntax:
     content: public int ProcessorCount { get; set; }
     parameters: []
@@ -91,10 +93,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorName
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the human-readable CPU name or model (for example, "Intel(R) Core(TM) i7").
+  example: []
   syntax:
     content: public string ProcessorName { get; set; }
     parameters: []
@@ -120,10 +124,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the CPU architecture, such as x86, x64, or ARM.
+  example: []
   syntax:
     content: public string Architecture { get; set; }
     parameters: []
@@ -149,10 +155,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CurrentUsage
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the current overall CPU usage in percent (0–100).
+  example: []
   syntax:
     content: public double CurrentUsage { get; set; }
     parameters: []

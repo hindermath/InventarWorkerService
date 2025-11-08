@@ -27,10 +27,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareInventory
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 5
+    startLine: 8
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Represents a comprehensive hardware and software inventory snapshot of a machine.
+  example: []
   syntax:
     content: 'public record HardwareInventory : IEquatable<HardwareInventory>'
     content.vb: Public Class HardwareInventory Implements IEquatable(Of HardwareInventory)
@@ -64,10 +66,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectionTime
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the timestamp when the inventory was collected.
+  example: []
   syntax:
     content: public DateTime CollectionTime { get; set; }
     parameters: []
@@ -93,10 +97,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: System
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 8
+    startLine: 18
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets general system information.
+  example: []
   syntax:
     content: public SystemInfo System { get; set; }
     parameters: []
@@ -122,10 +128,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cpu
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 9
+    startLine: 23
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets CPU details.
+  example: []
   syntax:
     content: public CpuInfo Cpu { get; set; }
     parameters: []
@@ -151,10 +159,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Memory
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 10
+    startLine: 28
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets memory capacity and usage information.
+  example: []
   syntax:
     content: public MemoryInfo Memory { get; set; }
     parameters: []
@@ -180,10 +190,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Disks
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 11
+    startLine: 33
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the collection of disks detected on the machine.
+  example: []
   syntax:
     content: public List<DiskInfo> Disks { get; set; }
     parameters: []
@@ -209,10 +221,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInterfaces
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 12
+    startLine: 38
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets network interface information for the machine.
+  example: []
   syntax:
     content: public List<NetworkInfo> NetworkInterfaces { get; set; }
     parameters: []
@@ -238,10 +252,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperatingSystem
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 13
+    startLine: 43
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets operating system details.
+  example: []
   syntax:
     content: public OsInfo OperatingSystem { get; set; }
     parameters: []
@@ -267,10 +283,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Software
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-    startLine: 14
+    startLine: 48
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the software inventory collected together with the hardware snapshot.
+  example: []
   syntax:
     content: public SoftwareInventory Software { get; set; }
     parameters: []

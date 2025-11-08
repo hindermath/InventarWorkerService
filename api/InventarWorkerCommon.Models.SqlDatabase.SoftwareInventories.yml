@@ -28,10 +28,15 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInventories
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: >-
+    Represents a software inventory record persisted in the SQL database. Complex collections
+
+    are stored as JSON blobs to simplify persistence and retrieval.
+  example: []
   syntax:
     content: 'public record SoftwareInventories : IEquatable<SoftwareInventories>'
     content.vb: Public Class SoftwareInventories Implements IEquatable(Of SoftwareInventories)
@@ -65,10 +70,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Id
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 4
+    startLine: 11
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the unique identifier of the software inventory record.
+  example: []
   syntax:
     content: public int Id { get; set; }
     parameters: []
@@ -94,10 +101,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineId
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 5
+    startLine: 16
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the foreign key referencing the related machine record.
+  example: []
   syntax:
     content: public int MachineId { get; set; }
     parameters: []
@@ -123,10 +132,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessesJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 6
+    startLine: 21
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of running processes captured during inventory.
+  example: []
   syntax:
     content: public string? ProcessesJson { get; set; }
     parameters: []
@@ -152,10 +163,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledSoftwareJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 7
+    startLine: 26
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of installed software.
+  example: []
   syntax:
     content: public string? InstalledSoftwareJson { get; set; }
     parameters: []
@@ -181,10 +194,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServicesJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 8
+    startLine: 31
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of Windows services and their states.
+  example: []
   syntax:
     content: public string? ServicesJson { get; set; }
     parameters: []
@@ -210,10 +225,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: EnvironmentJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 9
+    startLine: 36
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of selected environment variables.
+  example: []
   syntax:
     content: public string? EnvironmentJson { get; set; }
     parameters: []
@@ -239,10 +256,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartupProgramsJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 10
+    startLine: 41
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of configured startup programs.
+  example: []
   syntax:
     content: public string? StartupProgramsJson { get; set; }
     parameters: []
@@ -268,10 +287,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RuntimeJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 11
+    startLine: 46
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets a JSON representation of runtime details (for example, .NET/PowerShell versions).
+  example: []
   syntax:
     content: public string? RuntimeJson { get; set; }
     parameters: []
@@ -297,10 +318,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CreatedAt
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-    startLine: 12
+    startLine: 51
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the timestamp when the record was created.
+  example: []
   syntax:
     content: public DateTime CreatedAt { get; set; }
     parameters: []

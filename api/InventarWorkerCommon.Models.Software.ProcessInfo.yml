@@ -33,10 +33,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessInfo
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Represents information about a running or installed process on the system.
+  example: []
   syntax:
     content: 'public record ProcessInfo : IEquatable<ProcessInfo>'
     content.vb: Public Class ProcessInfo Implements IEquatable(Of ProcessInfo)
@@ -70,10 +72,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessName
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the process name (executable name without path).
+  example: []
   syntax:
     content: public string ProcessName { get; set; }
     parameters: []
@@ -99,10 +103,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessId
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the process identifier (PID).
+  example: []
   syntax:
     content: public int ProcessId { get; set; }
     parameters: []
@@ -128,10 +134,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MainWindowTitle
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the title of the process's main window, if any.
+  example: []
   syntax:
     content: public string MainWindowTitle { get; set; }
     parameters: []
@@ -157,10 +165,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartTime
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the time when the process was started.
+  example: []
   syntax:
     content: public DateTime StartTime { get; set; }
     parameters: []
@@ -186,10 +196,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WorkingSet
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 8
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the current working set (physical memory) used by the process, in bytes.
+  example: []
   syntax:
     content: public long WorkingSet { get; set; }
     parameters: []
@@ -215,10 +227,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: VirtualMemorySize
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 9
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the virtual memory size of the process, in bytes.
+  example: []
   syntax:
     content: public long VirtualMemorySize { get; set; }
     parameters: []
@@ -244,10 +258,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalProcessorTime
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 10
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the total processor time consumed by the process.
+  example: []
   syntax:
     content: public TimeSpan TotalProcessorTime { get; set; }
     parameters: []
@@ -273,10 +289,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileName
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 11
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the full path to the executable file for the process.
+  example: []
   syntax:
     content: public string FileName { get; set; }
     parameters: []
@@ -302,10 +320,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileVersion
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 12
+    startLine: 50
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the file version of the process executable.
+  example: []
   syntax:
     content: public string FileVersion { get; set; }
     parameters: []
@@ -331,10 +351,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProductVersion
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 13
+    startLine: 55
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the product version of the process executable.
+  example: []
   syntax:
     content: public string ProductVersion { get; set; }
     parameters: []
@@ -360,10 +382,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Company
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 14
+    startLine: 60
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the company name associated with the executable.
+  example: []
   syntax:
     content: public string Company { get; set; }
     parameters: []
@@ -389,10 +413,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 15
+    startLine: 65
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a descriptive text for the process or executable.
+  example: []
   syntax:
     content: public string Description { get; set; }
     parameters: []
@@ -418,10 +444,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsResponding
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 16
+    startLine: 70
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a value indicating whether the process is responding to user input.
+  example: []
   syntax:
     content: public bool IsResponding { get; set; }
     parameters: []
@@ -447,10 +475,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ThreadCount
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-    startLine: 17
+    startLine: 75
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the number of threads currently running in the process.
+  example: []
   syntax:
     content: public int ThreadCount { get; set; }
     parameters: []

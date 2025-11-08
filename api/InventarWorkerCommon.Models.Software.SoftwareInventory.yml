@@ -26,10 +26,17 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInventory
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 2
+    startLine: 7
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: >-
+    Represents a snapshot of software-related information on a machine, including
+
+    installed applications, running processes, services, startup programs, environment
+
+    variables, and runtime details.
+  example: []
   syntax:
     content: public class SoftwareInventory
     content.vb: Public Class SoftwareInventory
@@ -61,10 +68,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectionTime
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 4
+    startLine: 12
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the time when this software inventory was collected.
+  example: []
   syntax:
     content: public DateTime CollectionTime { get; set; }
     parameters: []
@@ -90,10 +99,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledSoftware
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 5
+    startLine: 17
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of installed software discovered on the machine.
+  example: []
   syntax:
     content: public List<SoftwareInfo> InstalledSoftware { get; set; }
     parameters: []
@@ -119,10 +130,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RunningProcesses
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 6
+    startLine: 22
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of processes that were running at collection time.
+  example: []
   syntax:
     content: public List<ProcessInfo> RunningProcesses { get; set; }
     parameters: []
@@ -148,10 +161,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WindowsServices
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 7
+    startLine: 27
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of Windows services and their states.
+  example: []
   syntax:
     content: public List<ServiceInfo> WindowsServices { get; set; }
     parameters: []
@@ -177,10 +192,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartupPrograms
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 8
+    startLine: 32
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of configured startup programs.
+  example: []
   syntax:
     content: public List<string> StartupPrograms { get; set; }
     parameters: []
@@ -206,10 +223,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: EnvironmentVariables
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 9
+    startLine: 37
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets selected environment variables captured during inventory.
+  example: []
   syntax:
     content: public List<string> EnvironmentVariables { get; set; }
     parameters: []
@@ -235,10 +254,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Runtime
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-    startLine: 10
+    startLine: 42
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets runtime details such as .NET and PowerShell versions.
+  example: []
   syntax:
     content: public RuntimeInfo Runtime { get; set; }
     parameters: []

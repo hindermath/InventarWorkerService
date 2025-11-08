@@ -66,10 +66,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectionTime
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 10
+    startLine: 13
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the timestamp when this hardware snapshot was collected.
+  example: []
   syntax:
     content: public DateTime CollectionTime { get; set; }
     parameters: []
@@ -95,10 +97,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: System
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 11
+    startLine: 18
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets general system information about the machine.
+  example: []
   syntax:
     content: public SystemInfo System { get; set; }
     parameters: []
@@ -124,10 +128,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cpu
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 12
+    startLine: 23
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets CPU-related information for the machine.
+  example: []
   syntax:
     content: public CpuInfo Cpu { get; set; }
     parameters: []
@@ -153,10 +159,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Memory
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 13
+    startLine: 28
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets memory information, including capacity and usage.
+  example: []
   syntax:
     content: public MemoryInfo Memory { get; set; }
     parameters: []
@@ -182,10 +190,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Disks
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 14
+    startLine: 33
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the list of physical or logical disks.
+  example: []
   syntax:
     content: public List<DiskInfo> Disks { get; set; }
     parameters: []
@@ -211,10 +221,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInterfaces
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 15
+    startLine: 38
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the collection of network interfaces and their details.
+  example: []
   syntax:
     content: public List<NetworkInfo> NetworkInterfaces { get; set; }
     parameters: []
@@ -240,10 +252,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperatingSystem
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 16
+    startLine: 43
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets operating system information.
+  example: []
   syntax:
     content: public OsInfo OperatingSystem { get; set; }
     parameters: []
@@ -269,10 +283,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Software
     path: InventarWorkerCommon/Models/Hardware/HardwareInfo.cs
-    startLine: 17
+    startLine: 48
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the software inventory captured for the machine.
+  example: []
   syntax:
     content: public SoftwareInventory Software { get; set; }
     parameters: []

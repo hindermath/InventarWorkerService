@@ -67,10 +67,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the interface name (for example, "eth0" or "Wi-Fi").
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -96,10 +98,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets a descriptive label provided by the OS for the interface.
+  example: []
   syntax:
     content: public string Description { get; set; }
     parameters: []
@@ -125,10 +129,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInterfaceType
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the interface type (for example, Ethernet, Wireless).
+  example: []
   syntax:
     content: public string NetworkInterfaceType { get; set; }
     parameters: []
@@ -154,10 +160,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperationalStatus
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the operational status (for example, Up, Down).
+  example: []
   syntax:
     content: public string OperationalStatus { get; set; }
     parameters: []
@@ -183,10 +191,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Speed
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 11
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the nominal interface speed in bits per second.
+  example: []
   syntax:
     content: public long Speed { get; set; }
     parameters: []
@@ -212,10 +222,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IpAddresses
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 12
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the list of IP addresses assigned to the interface.
+  example: []
   syntax:
     content: public List<string> IpAddresses { get; set; }
     parameters: []
@@ -241,10 +253,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MacAddress
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 13
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the MAC address of the interface.
+  example: []
   syntax:
     content: public string MacAddress { get; set; }
     parameters: []
@@ -270,10 +284,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BytesSent
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 14
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the total number of bytes sent via the interface.
+  example: []
   syntax:
     content: public long BytesSent { get; set; }
     parameters: []
@@ -299,10 +315,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BytesReceived
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-    startLine: 15
+    startLine: 50
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the total number of bytes received by the interface.
+  example: []
   syntax:
     content: public long BytesReceived { get; set; }
     parameters: []

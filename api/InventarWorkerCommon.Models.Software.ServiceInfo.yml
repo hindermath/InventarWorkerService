@@ -29,10 +29,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceInfo
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Represents information about a Windows service or service-like component.
+  example: []
   syntax:
     content: 'public record ServiceInfo : IEquatable<ServiceInfo>'
     content.vb: Public Class ServiceInfo Implements IEquatable(Of ServiceInfo)
@@ -66,10 +68,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceName
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the internal service name.
+  example: []
   syntax:
     content: public string ServiceName { get; set; }
     parameters: []
@@ -95,10 +99,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisplayName
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the user-friendly display name of the service.
+  example: []
   syntax:
     content: public string DisplayName { get; set; }
     parameters: []
@@ -124,10 +130,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Status
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the current status/state of the service (for example, Running, Stopped).
+  example: []
   syntax:
     content: public string Status { get; set; }
     parameters: []
@@ -153,10 +161,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartType
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the configured start type (for example, Automatic, Manual, Disabled).
+  example: []
   syntax:
     content: public string StartType { get; set; }
     parameters: []
@@ -182,10 +192,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceAccount
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 8
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the account under which the service runs.
+  example: []
   syntax:
     content: public string ServiceAccount { get; set; }
     parameters: []
@@ -211,10 +223,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BinaryPath
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 9
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the full path to the service executable or command.
+  example: []
   syntax:
     content: public string BinaryPath { get; set; }
     parameters: []
@@ -240,10 +254,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 10
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a textual description of the service.
+  example: []
   syntax:
     content: public string Description { get; set; }
     parameters: []
@@ -269,10 +285,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dependencies
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 11
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of other services this service depends on.
+  example: []
   syntax:
     content: public List<string> Dependencies { get; set; }
     parameters: []
@@ -298,10 +316,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CanStop
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 12
+    startLine: 50
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a value indicating whether the service supports Stop.
+  example: []
   syntax:
     content: public bool CanStop { get; set; }
     parameters: []
@@ -327,10 +347,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CanPauseAndContinue
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-    startLine: 13
+    startLine: 55
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a value indicating whether the service supports Pause and Continue.
+  example: []
   syntax:
     content: public bool CanPauseAndContinue { get; set; }
     parameters: []

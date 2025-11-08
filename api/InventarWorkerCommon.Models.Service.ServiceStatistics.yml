@@ -62,10 +62,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalProcessedItems
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the total count of items processed by the service during its current lifetime.
+  example: []
   syntax:
     content: public int TotalProcessedItems { get; init; }
     parameters: []
@@ -91,10 +93,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AverageProcessingTime
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the average processing time per item in milliseconds.
+  example: []
   syntax:
     content: public double AverageProcessingTime { get; init; }
     parameters: []
@@ -120,10 +124,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Uptime
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the duration for which the service has been running.
+  example: []
   syntax:
     content: public TimeSpan Uptime { get; init; }
     parameters: []
@@ -149,10 +155,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsage
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the current memory usage of the service process in bytes.
+  example: []
   syntax:
     content: public long MemoryUsage { get; init; }
     parameters: []

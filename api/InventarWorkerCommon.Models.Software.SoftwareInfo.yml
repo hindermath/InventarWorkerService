@@ -29,10 +29,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInfo
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Represents information about an installed software package or application.
+  example: []
   syntax:
     content: 'public record SoftwareInfo : IEquatable<SoftwareInfo>'
     content.vb: Public Class SoftwareInfo Implements IEquatable(Of SoftwareInfo)
@@ -66,10 +68,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the display name of the software.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -95,10 +99,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Version
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the version string of the software.
+  example: []
   syntax:
     content: public string Version { get; set; }
     parameters: []
@@ -124,10 +130,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Publisher
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the publisher or vendor of the software.
+  example: []
   syntax:
     content: public string Publisher { get; set; }
     parameters: []
@@ -153,10 +161,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstallDate
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the installation date, if known.
+  example: []
   syntax:
     content: public DateTime? InstallDate { get; set; }
     parameters: []
@@ -182,10 +192,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstallLocation
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 8
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the installation directory of the software.
+  example: []
   syntax:
     content: public string InstallLocation { get; set; }
     parameters: []
@@ -211,10 +223,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Size
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 9
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the approximate size of the installation in bytes, if available.
+  example: []
   syntax:
     content: public long? Size { get; set; }
     parameters: []
@@ -240,10 +254,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UninstallString
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 10
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the command used to uninstall the software.
+  example: []
   syntax:
     content: public string UninstallString { get; set; }
     parameters: []
@@ -269,10 +285,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisplayIcon
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 11
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a path to an icon associated with the software, if any.
+  example: []
   syntax:
     content: public string DisplayIcon { get; set; }
     parameters: []
@@ -298,10 +316,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsSystemComponent
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 12
+    startLine: 50
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets a value indicating whether this is a system component (typically hidden from normal listings).
+  example: []
   syntax:
     content: public bool IsSystemComponent { get; set; }
     parameters: []
@@ -327,10 +347,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-    startLine: 13
+    startLine: 55
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the software architecture (for example, x86, x64, arm64).
+  example: []
   syntax:
     content: public string Architecture { get; set; }
     parameters: []

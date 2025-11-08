@@ -63,10 +63,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: State
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the current state of the service (for example, Running, Stopped, Error).
+  example: []
   syntax:
     content: public string State { get; init; }
     parameters: []
@@ -92,10 +94,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartTime
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the time when the service was started.
+  example: []
   syntax:
     content: public DateTime StartTime { get; init; }
     parameters: []
@@ -121,10 +125,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastActivity
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the time of the last recorded activity by the service.
+  example: []
   syntax:
     content: public DateTime LastActivity { get; init; }
     parameters: []
@@ -150,10 +156,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessedItems
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the number of items processed by the service in the current run.
+  example: []
   syntax:
     content: public int ProcessedItems { get; init; }
     parameters: []
@@ -179,10 +187,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastError
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-    startLine: 11
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Service
+  summary: Gets the last error message logged by the service, if any.
+  example: []
   syntax:
     content: public string LastError { get; init; }
     parameters: []

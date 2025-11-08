@@ -66,10 +66,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DriveName
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the drive name or letter (for example, "C:").
+  example: []
   syntax:
     content: public string DriveName { get; set; }
     parameters: []
@@ -95,10 +97,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DriveType
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the type of the drive (for example, Fixed, Removable, Network).
+  example: []
   syntax:
     content: public string DriveType { get; set; }
     parameters: []
@@ -124,10 +128,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileSystem
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the file system used by the drive (for example, NTFS, ext4, APFS).
+  example: []
   syntax:
     content: public string FileSystem { get; set; }
     parameters: []
@@ -153,10 +159,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalSize
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the total capacity of the drive in bytes.
+  example: []
   syntax:
     content: public long TotalSize { get; set; }
     parameters: []
@@ -182,10 +190,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableSpace
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 11
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the available free space on the drive in bytes.
+  example: []
   syntax:
     content: public long AvailableSpace { get; set; }
     parameters: []
@@ -211,10 +221,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsedSpace
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 12
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the used space on the drive in bytes.
+  example: []
   syntax:
     content: public long UsedSpace { get; set; }
     parameters: []
@@ -240,10 +252,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsagePercentage
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 13
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the percentage of used space (0–100).
+  example: []
   syntax:
     content: public double UsagePercentage { get; set; }
     parameters: []
@@ -269,10 +283,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsReady
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-    startLine: 14
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets a value indicating whether the drive is ready and accessible.
+  example: []
   syntax:
     content: public bool IsReady { get; set; }
     parameters: []

@@ -31,10 +31,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareInventories
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Represents a hardware inventory record persisted in the SQL database.
+  example: []
   syntax:
     content: 'public record HardwareInventories : IEquatable<HardwareInventories>'
     content.vb: Public Class HardwareInventories Implements IEquatable(Of HardwareInventories)
@@ -68,10 +70,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Id
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the unique identifier of the hardware inventory record.
+  example: []
   syntax:
     content: public int Id { get; set; }
     parameters: []
@@ -97,10 +101,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineId
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the foreign key referencing the related machine record.
+  example: []
   syntax:
     content: public int MachineId { get; set; }
     parameters: []
@@ -126,10 +132,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerName
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the computer name reported during inventory collection.
+  example: []
   syntax:
     content: public string? ComputerName { get; set; }
     parameters: []
@@ -155,10 +163,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerModel
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the model name of the computer hardware, if available.
+  example: []
   syntax:
     content: public string? ComputerModel { get; set; }
     parameters: []
@@ -184,10 +194,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerManufacturer
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 8
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the manufacturer of the computer hardware, if available.
+  example: []
   syntax:
     content: public string? ComputerManufacturer { get; set; }
     parameters: []
@@ -213,10 +225,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 9
+    startLine: 35
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the system architecture (for example, x64, arm64), if available.
+  example: []
   syntax:
     content: public string? Architecture { get; set; }
     parameters: []
@@ -242,10 +256,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorName
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 10
+    startLine: 40
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the processor name or model.
+  example: []
   syntax:
     content: public string? ProcessorName { get; set; }
     parameters: []
@@ -271,10 +287,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorCores
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 11
+    startLine: 45
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the number of physical or logical processor cores, if known.
+  example: []
   syntax:
     content: public int? ProcessorCores { get; set; }
     parameters: []
@@ -300,10 +318,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalMemoryGB
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 12
+    startLine: 50
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the total physical memory in gigabytes, if known.
+  example: []
   syntax:
     content: public double? TotalMemoryGB { get; set; }
     parameters: []
@@ -329,10 +349,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableMemoryGB
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 13
+    startLine: 55
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the available physical memory in gigabytes, if known.
+  example: []
   syntax:
     content: public double? AvailableMemoryGB { get; set; }
     parameters: []
@@ -358,10 +380,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsagePercent
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 14
+    startLine: 60
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the percentage of memory in use (0–100), if known.
+  example: []
   syntax:
     content: public double? MemoryUsagePercent { get; set; }
     parameters: []
@@ -387,10 +411,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CreatedAt
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-    startLine: 15
+    startLine: 65
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
+  summary: Gets or sets the timestamp when the record was created.
+  example: []
   syntax:
     content: public DateTime CreatedAt { get; set; }
     parameters: []

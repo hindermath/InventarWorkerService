@@ -23,10 +23,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RuntimeInfo
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Represents information about runtime environments and tooling available on the system.
+  example: []
   syntax:
     content: 'public record RuntimeInfo : IEquatable<RuntimeInfo>'
     content.vb: Public Class RuntimeInfo Implements IEquatable(Of RuntimeInfo)
@@ -60,10 +62,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DotNetVersion
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the installed .NET runtime version.
+  example: []
   syntax:
     content: public string DotNetVersion { get; set; }
     parameters: []
@@ -89,10 +93,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledFrameworks
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of installed .NET frameworks/runtimes.
+  example: []
   syntax:
     content: public List<string> InstalledFrameworks { get; set; }
     parameters: []
@@ -118,10 +124,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PowerShellVersion
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the installed PowerShell version, if available.
+  example: []
   syntax:
     content: public string PowerShellVersion { get; set; }
     parameters: []
@@ -147,10 +155,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableModules
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Software
+  summary: Gets or sets the list of available PowerShell modules.
+  example: []
   syntax:
     content: public List<string> AvailableModules { get; set; }
     parameters: []

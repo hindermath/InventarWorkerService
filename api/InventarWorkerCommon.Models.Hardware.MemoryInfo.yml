@@ -63,10 +63,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalPhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the total amount of physical memory (RAM) installed, in bytes.
+  example: []
   syntax:
     content: public long TotalPhysicalMemory { get; set; }
     parameters: []
@@ -92,10 +94,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailablePhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the currently available physical memory, in bytes.
+  example: []
   syntax:
     content: public long AvailablePhysicalMemory { get; set; }
     parameters: []
@@ -121,10 +125,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsedPhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the currently used physical memory, in bytes.
+  example: []
   syntax:
     content: public long UsedPhysicalMemory { get; set; }
     parameters: []
@@ -150,10 +156,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsagePercentage
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-    startLine: 10
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the percentage of physical memory currently in use (0–100).
+  example: []
   syntax:
     content: public double MemoryUsagePercentage { get; set; }
     parameters: []
@@ -179,10 +187,12 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ManagedMemoryUsage
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-    startLine: 11
+    startLine: 30
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
+  summary: Gets or sets the managed memory currently used by the running .NET process, in bytes.
+  example: []
   syntax:
     content: public long ManagedMemoryUsage { get; set; }
     parameters: []
