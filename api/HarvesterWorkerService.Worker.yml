@@ -5,7 +5,7 @@ items:
   id: Worker
   parent: HarvesterWorkerService
   children:
-  - HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker},InventarWorkerCommon.Services.Hardware.HardwareInventoryService,InventarWorkerCommon.Services.Software.SoftwareInventoryService)
+  - HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker})
   - HarvesterWorkerService.Worker.ExecuteAsync(System.Threading.CancellationToken)
   langs:
   - csharp
@@ -57,16 +57,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker},InventarWorkerCommon.Services.Hardware.HardwareInventoryService,InventarWorkerCommon.Services.Software.SoftwareInventoryService)
-  commentId: M:HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker},InventarWorkerCommon.Services.Hardware.HardwareInventoryService,InventarWorkerCommon.Services.Software.SoftwareInventoryService)
-  id: '#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker},InventarWorkerCommon.Services.Hardware.HardwareInventoryService,InventarWorkerCommon.Services.Software.SoftwareInventoryService)'
+- uid: HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker})
+  commentId: M:HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker})'
   parent: HarvesterWorkerService.Worker
   langs:
   - csharp
   - vb
-  name: Worker(ILogger<Worker>, HardwareInventoryService, SoftwareInventoryService)
-  nameWithType: Worker.Worker(ILogger<Worker>, HardwareInventoryService, SoftwareInventoryService)
-  fullName: HarvesterWorkerService.Worker.Worker(Microsoft.Extensions.Logging.ILogger<HarvesterWorkerService.Worker>, InventarWorkerCommon.Services.Hardware.HardwareInventoryService, InventarWorkerCommon.Services.Software.SoftwareInventoryService)
+  name: Worker(ILogger<Worker>)
+  nameWithType: Worker.Worker(ILogger<Worker>)
+  fullName: HarvesterWorkerService.Worker.Worker(Microsoft.Extensions.Logging.ILogger<HarvesterWorkerService.Worker>)
   type: Constructor
   source:
     remote:
@@ -82,22 +82,16 @@ items:
   summary: Initializes a new instance of the <xref href="HarvesterWorkerService.Worker" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public Worker(ILogger<Worker> logger, HardwareInventoryService hardwareInventoryService, SoftwareInventoryService softwareInventoryService)
+    content: public Worker(ILogger<Worker> logger)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker}
       description: The logger used to write diagnostic information.
-    - id: hardwareInventoryService
-      type: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
-      description: Service that provides hardware inventory processing.
-    - id: softwareInventoryService
-      type: InventarWorkerCommon.Services.Software.SoftwareInventoryService
-      description: Service that provides software inventory processing.
-    content.vb: Public Sub New(logger As ILogger(Of Worker), hardwareInventoryService As HardwareInventoryService, softwareInventoryService As SoftwareInventoryService)
+    content.vb: Public Sub New(logger As ILogger(Of Worker))
   overload: HarvesterWorkerService.Worker.#ctor*
-  nameWithType.vb: Worker.New(ILogger(Of Worker), HardwareInventoryService, SoftwareInventoryService)
-  fullName.vb: HarvesterWorkerService.Worker.New(Microsoft.Extensions.Logging.ILogger(Of HarvesterWorkerService.Worker), InventarWorkerCommon.Services.Hardware.HardwareInventoryService, InventarWorkerCommon.Services.Software.SoftwareInventoryService)
-  name.vb: New(ILogger(Of Worker), HardwareInventoryService, SoftwareInventoryService)
+  nameWithType.vb: Worker.New(ILogger(Of Worker))
+  fullName.vb: HarvesterWorkerService.Worker.New(Microsoft.Extensions.Logging.ILogger(Of HarvesterWorkerService.Worker))
+  name.vb: New(ILogger(Of Worker))
 - uid: HarvesterWorkerService.Worker.ExecuteAsync(System.Threading.CancellationToken)
   commentId: M:HarvesterWorkerService.Worker.ExecuteAsync(System.Threading.CancellationToken)
   id: ExecuteAsync(System.Threading.CancellationToken)
@@ -116,7 +110,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ExecuteAsync
     path: HarvesterWorkerService/Worker.cs
-    startLine: 111
+    startLine: 102
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -539,7 +533,7 @@ references:
   fullName: HarvesterWorkerService.Worker
 - uid: HarvesterWorkerService.Worker.#ctor*
   commentId: Overload:HarvesterWorkerService.Worker.#ctor
-  href: HarvesterWorkerService.Worker.html#HarvesterWorkerService_Worker__ctor_Microsoft_Extensions_Logging_ILogger_HarvesterWorkerService_Worker__InventarWorkerCommon_Services_Hardware_HardwareInventoryService_InventarWorkerCommon_Services_Software_SoftwareInventoryService_
+  href: HarvesterWorkerService.Worker.html#HarvesterWorkerService_Worker__ctor_Microsoft_Extensions_Logging_ILogger_HarvesterWorkerService_Worker__
   name: Worker
   nameWithType: Worker.Worker
   fullName: HarvesterWorkerService.Worker.Worker
@@ -579,20 +573,6 @@ references:
     name: Worker
     href: HarvesterWorkerService.Worker.html
   - name: )
-- uid: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
-  commentId: T:InventarWorkerCommon.Services.Hardware.HardwareInventoryService
-  parent: InventarWorkerCommon.Services.Hardware
-  href: InventarWorkerCommon.Services.Hardware.HardwareInventoryService.html
-  name: HardwareInventoryService
-  nameWithType: HardwareInventoryService
-  fullName: InventarWorkerCommon.Services.Hardware.HardwareInventoryService
-- uid: InventarWorkerCommon.Services.Software.SoftwareInventoryService
-  commentId: T:InventarWorkerCommon.Services.Software.SoftwareInventoryService
-  parent: InventarWorkerCommon.Services.Software
-  href: InventarWorkerCommon.Services.Software.SoftwareInventoryService.html
-  name: SoftwareInventoryService
-  nameWithType: SoftwareInventoryService
-  fullName: InventarWorkerCommon.Services.Software.SoftwareInventoryService
 - uid: Microsoft.Extensions.Logging.ILogger`1
   commentId: T:Microsoft.Extensions.Logging.ILogger`1
   isExternal: true
@@ -658,66 +638,6 @@ references:
     name: Logging
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
-- uid: InventarWorkerCommon.Services.Hardware
-  commentId: N:InventarWorkerCommon.Services.Hardware
-  href: InventarWorkerCommon.html
-  name: InventarWorkerCommon.Services.Hardware
-  nameWithType: InventarWorkerCommon.Services.Hardware
-  fullName: InventarWorkerCommon.Services.Hardware
-  spec.csharp:
-  - uid: InventarWorkerCommon
-    name: InventarWorkerCommon
-    href: InventarWorkerCommon.html
-  - name: .
-  - uid: InventarWorkerCommon.Services
-    name: Services
-    href: InventarWorkerCommon.Services.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Hardware
-    name: Hardware
-    href: InventarWorkerCommon.Services.Hardware.html
-  spec.vb:
-  - uid: InventarWorkerCommon
-    name: InventarWorkerCommon
-    href: InventarWorkerCommon.html
-  - name: .
-  - uid: InventarWorkerCommon.Services
-    name: Services
-    href: InventarWorkerCommon.Services.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Hardware
-    name: Hardware
-    href: InventarWorkerCommon.Services.Hardware.html
-- uid: InventarWorkerCommon.Services.Software
-  commentId: N:InventarWorkerCommon.Services.Software
-  href: InventarWorkerCommon.html
-  name: InventarWorkerCommon.Services.Software
-  nameWithType: InventarWorkerCommon.Services.Software
-  fullName: InventarWorkerCommon.Services.Software
-  spec.csharp:
-  - uid: InventarWorkerCommon
-    name: InventarWorkerCommon
-    href: InventarWorkerCommon.html
-  - name: .
-  - uid: InventarWorkerCommon.Services
-    name: Services
-    href: InventarWorkerCommon.Services.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Software
-    name: Software
-    href: InventarWorkerCommon.Services.Software.html
-  spec.vb:
-  - uid: InventarWorkerCommon
-    name: InventarWorkerCommon
-    href: InventarWorkerCommon.html
-  - name: .
-  - uid: InventarWorkerCommon.Services
-    name: Services
-    href: InventarWorkerCommon.Services.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Software
-    name: Software
-    href: InventarWorkerCommon.Services.Software.html
 - uid: Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync(System.Threading.CancellationToken)
   commentId: M:Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync(System.Threading.CancellationToken)
   parent: Microsoft.Extensions.Hosting.BackgroundService

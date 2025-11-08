@@ -36,7 +36,7 @@
   "HarvesterWorkerService.Program": "HarvesterWorkerService.Program.yml",
   "HarvesterWorkerService.Program.Main(System.String[])": "HarvesterWorkerService.Program.yml",
   "HarvesterWorkerService.Worker": "HarvesterWorkerService.Worker.yml",
-  "HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker},InventarWorkerCommon.Services.Hardware.HardwareInventoryService,InventarWorkerCommon.Services.Software.SoftwareInventoryService)": "HarvesterWorkerService.Worker.yml",
+  "HarvesterWorkerService.Worker.#ctor(Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker})": "HarvesterWorkerService.Worker.yml",
   "HarvesterWorkerService.Worker.ExecuteAsync(System.Threading.CancellationToken)": "HarvesterWorkerService.Worker.yml",
   "InventarViewerApp.Controllers": "InventarViewerApp.Controllers.yml",
   "InventarViewerApp.Controllers.InventarController": "InventarViewerApp.Controllers.InventarController.yml",
