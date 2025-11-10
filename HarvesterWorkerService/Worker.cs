@@ -293,7 +293,11 @@ public class Worker : BackgroundService
 #if DEBUG
                     await Task.Delay(100, stoppingToken);
 #else
-                    await Task.Delay(86_400_000, stoppingToken); // 86400000ms = 24h
+                    // 86400000ms = 24h - Minus the milliseconds difference
+                    // of the time consumed for processing the machine table
+                    await Task.Delay(
+                        Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - _startTime).TotalMilliseconds))),
+                        stoppingToken);
 #endif
                 }
             }
