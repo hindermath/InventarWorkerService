@@ -117,6 +117,7 @@ public class Worker : BackgroundService
         
         while (stoppingToken.IsCancellationRequested is false)
         {
+            var startProcessingTime = DateTime.Now;
             // Query from the DB of non-deactivated un-deprovisioned machines with network information
             var allActiveMachinesWithNetworkInfo = await _sqliteDbService.GetAllActiveMachinesWithNetworkInfoAsync();
 
@@ -290,15 +291,6 @@ public class Worker : BackgroundService
                     var message = $"Inventory completed successfully: {_processedItems} Runs";
                     _logger.LogInformation(message);
                     _statusWriter.WriteLog(message);
-#if DEBUG
-                    await Task.Delay(100, stoppingToken);
-#else
-                    // 86400000ms = 24h - Minus the milliseconds difference
-                    // of the time consumed for processing the machine table
-                    await Task.Delay(
-                        Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - _startTime).TotalMilliseconds))),
-                        stoppingToken);
-#endif
                 }
             }
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
@@ -321,6 +313,24 @@ public class Worker : BackgroundService
             {
                 await HandleExceptionAsync(exception);
             }
+#if DEBUG
+            await Task.Delay(Convert.ToInt32((1_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
+#else
+            // 86400000ms = 24h - Minus the milliseconds difference
+            // of the time consumed for processing the machine table
+            await Task.Delay(
+                Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))),
+                stoppingToken);
+#endif
+
         }
+
+        _statusWriter.WriteStatus(new ServiceStatus
+        {
+            State = "Stopped",
+            StartTime = _startTime,
+            ProcessedItems = _processedItems,
+            LastActivity = DateTime.Now
+        });
     }
 }
