@@ -86,7 +86,7 @@ public class Worker : BackgroundService
                 _statusWriter.WriteLog(message);
                 
 #if DEBUG
-                    await Task.Delay(100, stoppingToken);
+                    await Task.Delay(30_000, stoppingToken);
 #else
                 // 86400000ms = 24h - Minus the milliseconds difference
                 // of the time consumed for processing the hard and software inventory
