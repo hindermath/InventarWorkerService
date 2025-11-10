@@ -53,8 +53,10 @@ public class Worker : BackgroundService
             ProcessedItems = 0
         }, ServiceStatusOutputFormat.All);
 
-        while (!stoppingToken.IsCancellationRequested)
+        while (stoppingToken.IsCancellationRequested is false)
         {
+            var startProcessingTime = DateTime.Now;
+
             try
             {
                 // Conduct hardware and software inventory.
@@ -85,16 +87,6 @@ public class Worker : BackgroundService
                 _logger.LogInformation(message);
                 _statusWriter.WriteLog(message);
                 
-#if DEBUG
-                    await Task.Delay(30_000, stoppingToken);
-#else
-                // 86400000ms = 24h - Minus the milliseconds difference
-                // of the time consumed for processing the hard and software inventory
-                // of machine the service is running on
-                await Task.Delay(
-                    Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - _startTime).TotalMilliseconds))),
-                    stoppingToken);
-#endif
             }
             catch (Exception ex)
             {
@@ -108,6 +100,17 @@ public class Worker : BackgroundService
                     LastError = ex.Message
                 });
             }
+#if DEBUG
+            await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
+#else
+            // 86400000ms = 24h - Minus the milliseconds difference
+            // of the time consumed for processing the hard and software inventory
+            // of machine the service is running on
+            await Task.Delay(
+                Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))),
+                stoppingToken);
+#endif
+
         }
 
         _statusWriter.WriteStatus(new ServiceStatus
