@@ -226,11 +226,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 387)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 387)]
 
       public void SoftwareInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 387)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 387)>
 
       Public Sub SoftwareInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_DefaultValues_ShouldBeCorrect*
@@ -239,7 +239,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 387
 - uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues
@@ -266,11 +266,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 406)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 406)]
 
       public void SoftwareInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 406)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 406)>
 
       Public Sub SoftwareInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SetAllProperties_ShouldRetainValues*
@@ -279,7 +279,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 406
 - uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues
@@ -306,11 +306,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 438)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 438)]
 
       public void SoftwareInfo_NullableProperties_ShouldHandleNullValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 438)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 438)>
 
       Public Sub SoftwareInfo_NullableProperties_ShouldHandleNullValues()
   overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_NullableProperties_ShouldHandleNullValues*
@@ -319,7 +319,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 438
 - uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle
@@ -346,11 +346,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 455)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 455)]
 
       public void SoftwareInfo_SystemComponentFlag_ShouldToggle()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 455)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 455)>
 
       Public Sub SoftwareInfo_SystemComponentFlag_ShouldToggle()
   overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_SystemComponentFlag_ShouldToggle*
@@ -359,7 +359,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 455
 - uid: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork
@@ -386,11 +386,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 467)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 467)]
 
       public void SoftwareInfo_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 467)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 467)>
 
       Public Sub SoftwareInfo_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.SoftwareInfoTests.SoftwareInfo_RecordEquality_ShouldWork*
@@ -399,7 +399,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 467
 references:

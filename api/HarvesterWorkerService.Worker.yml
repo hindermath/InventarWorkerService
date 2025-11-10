@@ -46,9 +46,9 @@ items:
   - Microsoft.Extensions.Hosting.IHostedService
   - System.IDisposable
   inheritedMembers:
+  - Microsoft.Extensions.Hosting.BackgroundService.Dispose
   - Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   - Microsoft.Extensions.Hosting.BackgroundService.StopAsync(System.Threading.CancellationToken)
-  - Microsoft.Extensions.Hosting.BackgroundService.Dispose
   - Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -172,6 +172,28 @@ references:
   name: IDisposable
   nameWithType: IDisposable
   fullName: System.IDisposable
+- uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+  commentId: M:Microsoft.Extensions.Hosting.BackgroundService.Dispose
+  parent: Microsoft.Extensions.Hosting.BackgroundService
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  name: Dispose()
+  nameWithType: BackgroundService.Dispose()
+  fullName: Microsoft.Extensions.Hosting.BackgroundService.Dispose()
+  spec.csharp:
+  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  - name: (
+  - name: )
 - uid: Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   commentId: M:Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   parent: Microsoft.Extensions.Hosting.BackgroundService
@@ -231,28 +253,6 @@ references:
     name: CancellationToken
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
-  - name: )
-- uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-  commentId: M:Microsoft.Extensions.Hosting.BackgroundService.Dispose
-  parent: Microsoft.Extensions.Hosting.BackgroundService
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  name: Dispose()
-  nameWithType: BackgroundService.Dispose()
-  fullName: Microsoft.Extensions.Hosting.BackgroundService.Dispose()
-  spec.csharp:
-  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-    name: Dispose
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-    name: Dispose
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  - name: (
   - name: )
 - uid: Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
   commentId: P:Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
