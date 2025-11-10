@@ -85,7 +85,16 @@ public class Worker : BackgroundService
                 _logger.LogInformation(message);
                 _statusWriter.WriteLog(message);
                 
-                await Task.Delay(30000, stoppingToken);
+#if DEBUG
+                    await Task.Delay(100, stoppingToken);
+#else
+                // 86400000ms = 24h - Minus the milliseconds difference
+                // of the time consumed for processing the hard and software inventory
+                // of machine the service is running on
+                await Task.Delay(
+                    Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - _startTime).TotalMilliseconds))),
+                    stoppingToken);
+#endif
             }
             catch (Exception ex)
             {
@@ -98,8 +107,6 @@ public class Worker : BackgroundService
                     ProcessedItems = _processedItems,
                     LastError = ex.Message
                 });
-                
-                await Task.Delay(5000, stoppingToken);
             }
         }
 
