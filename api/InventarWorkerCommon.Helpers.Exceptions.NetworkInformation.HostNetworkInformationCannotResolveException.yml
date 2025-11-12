@@ -1,39 +1,36 @@
 ### YamlMime:ManagedReference
 items:
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
-  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
-  id: NetworkInformation.NetworkInformationMissingException
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+  id: NetworkInformation.HostNetworkInformationCannotResolveException
   parent: InventarWorkerCommon.Helpers.Exceptions
   children:
-  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String)
-  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String,System.Exception)
-  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String)
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String,System.Exception)
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
   langs:
   - csharp
   - vb
-  name: NetworkInformation.NetworkInformationMissingException
-  nameWithType: NetworkInformation.NetworkInformationMissingException
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  name: NetworkInformation.HostNetworkInformationCannotResolveException
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   type: Class
   source:
     remote:
       path: InventarWorkerCommon/Helpers/Exceptions/NetworkInformation.cs
       branch: main
       repo: https://github.com/hindermath/InventarWorkerService.git
-    id: NetworkInformationMissingException
+    id: HostNetworkInformationCannotResolveException
     path: InventarWorkerCommon/Helpers/Exceptions/NetworkInformation.cs
-    startLine: 13
+    startLine: 47
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Helpers.Exceptions
-  summary: >-
-    Represents an exception that occurs when network information
-
-    such as IPv4, IPv6, or FQDN for a machine is missing or unavailable.
+  summary: Represents an exception that is thrown when a host's network information cannot be resolved.
   example: []
   syntax:
-    content: 'public class NetworkInformation.NetworkInformationMissingException : Exception, ISerializable'
-    content.vb: Public Class NetworkInformation.NetworkInformationMissingException Inherits Exception Implements ISerializable
+    content: 'public class NetworkInformation.HostNetworkInformationCannotResolveException : Exception, ISerializable'
+    content.vb: Public Class NetworkInformation.HostNetworkInformationCannotResolveException Inherits Exception Implements ISerializable
   inheritance:
   - System.Object
   - System.Exception
@@ -57,16 +54,16 @@ items:
   - System.Object.GetHashCode
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
-  commentId: P:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
+  commentId: P:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
   id: MachineName
-  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   langs:
   - csharp
   - vb
   name: MachineName
-  nameWithType: NetworkInformation.NetworkInformationMissingException.MachineName
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
   type: Property
   source:
     remote:
@@ -75,16 +72,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineName
     path: InventarWorkerCommon/Helpers/Exceptions/NetworkInformation.cs
-    startLine: 20
+    startLine: 53
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Helpers.Exceptions
   summary: >-
-    Gets the name of the machine associated with the exception.
+    Gets the name of the machine where the exception occurred or which is relevant to the exception context.
 
-    Represents the name of the machine for which network information
-
-    (such as IPv4, IPv6, or FQDN) is missing or unavailable.
+    Typically used to identify the machine for which network information could not be resolved or is unavailable.
   example: []
   syntax:
     content: public string? MachineName { get; }
@@ -92,17 +87,17 @@ items:
     return:
       type: System.String
     content.vb: Public ReadOnly Property MachineName As String
-  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName*
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String)
-  commentId: M:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String)
+  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName*
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String)
   id: '#ctor(System.String)'
-  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   langs:
   - csharp
   - vb
-  name: NetworkInformationMissingException(string?)
-  nameWithType: NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException(string?)
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException(string?)
+  name: HostNetworkInformationCannotResolveException(string?)
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException(string?)
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException(string?)
   type: Constructor
   source:
     remote:
@@ -111,38 +106,33 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Helpers/Exceptions/NetworkInformation.cs
-    startLine: 28
+    startLine: 59
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Helpers.Exceptions
-  summary: >-
-    Represents an exception that is thrown when network information
-
-    such as IPv4 address, IPv6 address, or Fully Qualified Domain Name (FQDN)
-
-    for a particular machine is missing or cannot be resolved.
+  summary: Represents an exception that is thrown when a host's network information cannot be resolved.
   example: []
   syntax:
-    content: public NetworkInformationMissingException(string? machineName)
+    content: public HostNetworkInformationCannotResolveException(string? machineName)
     parameters:
     - id: machineName
       type: System.String
-      description: The name of the machine for which network information is missing or unavailable.
+      description: The name of the machine where the exception occurred or which is relevant to the exception context.
     content.vb: Public Sub New(machineName As String)
-  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor*
-  nameWithType.vb: NetworkInformation.NetworkInformationMissingException.New(String)
-  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.New(String)
+  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor*
+  nameWithType.vb: NetworkInformation.HostNetworkInformationCannotResolveException.New(String)
+  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.New(String)
   name.vb: New(String)
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String,System.Exception)
-  commentId: M:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor(System.String,System.Exception)
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String,System.Exception)
+  commentId: M:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor(System.String,System.Exception)
   id: '#ctor(System.String,System.Exception)'
-  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
+  parent: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   langs:
   - csharp
   - vb
-  name: NetworkInformationMissingException(string?, Exception)
-  nameWithType: NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException(string?, Exception)
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException(string?, System.Exception)
+  name: HostNetworkInformationCannotResolveException(string?, Exception)
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException(string?, Exception)
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException(string?, System.Exception)
   type: Constructor
   source:
     remote:
@@ -151,30 +141,25 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Helpers/Exceptions/NetworkInformation.cs
-    startLine: 39
+    startLine: 68
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Helpers.Exceptions
-  summary: >-
-    Represents an exception that occurs when network information,
-
-    such as IPv4, IPv6, or Fully Qualified Domain Name (FQDN),
-
-    for a specific machine is missing or cannot be determined.
+  summary: Represents an exception that is thrown when a host's network information cannot be resolved.
   example: []
   syntax:
-    content: public NetworkInformationMissingException(string? machineName, Exception innerException)
+    content: public HostNetworkInformationCannotResolveException(string? machineName, Exception innerException)
     parameters:
     - id: machineName
       type: System.String
-      description: The name of the machine for which network information is missing or unavailable.
+      description: The name of the machine where the exception occurred or which is relevant to the exception context.
     - id: innerException
       type: System.Exception
       description: The inner exception that caused the current exception.
     content.vb: Public Sub New(machineName As String, innerException As Exception)
-  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor*
-  nameWithType.vb: NetworkInformation.NetworkInformationMissingException.New(String, Exception)
-  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.New(String, System.Exception)
+  overload: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor*
+  nameWithType.vb: NetworkInformation.HostNetworkInformationCannotResolveException.New(String, Exception)
+  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.New(String, System.Exception)
   name.vb: New(String, Exception)
 references:
 - uid: InventarWorkerCommon.Helpers.Exceptions
@@ -587,12 +572,12 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName*
-  commentId: Overload:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
-  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.html#InventarWorkerCommon_Helpers_Exceptions_NetworkInformation_NetworkInformationMissingException_MachineName
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName*
+  commentId: Overload:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
+  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.html#InventarWorkerCommon_Helpers_Exceptions_NetworkInformation_HostNetworkInformationCannotResolveException_MachineName
   name: MachineName
-  nameWithType: NetworkInformation.NetworkInformationMissingException.MachineName
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.MachineName
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.MachineName
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -604,12 +589,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor*
-  commentId: Overload:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.#ctor
-  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.html#InventarWorkerCommon_Helpers_Exceptions_NetworkInformation_NetworkInformationMissingException__ctor_System_String_
-  name: NetworkInformationMissingException
-  nameWithType: NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.NetworkInformationMissingException
-  nameWithType.vb: NetworkInformation.NetworkInformationMissingException.New
-  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.New
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor*
+  commentId: Overload:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.#ctor
+  href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.html#InventarWorkerCommon_Helpers_Exceptions_NetworkInformation_HostNetworkInformationCannotResolveException__ctor_System_String_
+  name: HostNetworkInformationCannotResolveException
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.HostNetworkInformationCannotResolveException
+  nameWithType.vb: NetworkInformation.HostNetworkInformationCannotResolveException.New
+  fullName.vb: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.New
   name.vb: New

@@ -74,8 +74,8 @@ items:
   - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
     name: NetworkInformation
     type: Class
-  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
-    name: NetworkInformation.HostResolutionException
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+    name: NetworkInformation.HostNetworkInformationCannotResolveException
     type: Class
   - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
     name: NetworkInformation.NetworkInformationMissingException

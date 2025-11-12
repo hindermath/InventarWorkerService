@@ -5,7 +5,7 @@ items:
   id: InventarWorkerCommon.Helpers.Exceptions
   children:
   - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
-  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   - InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
   langs:
   - csharp
@@ -45,25 +45,25 @@ references:
   - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException
     name: NetworkInformationMissingException
     href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.NetworkInformationMissingException.html
-- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
-  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+- uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+  commentId: T:InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
-  name: NetworkInformation.HostResolutionException
-  nameWithType: NetworkInformation.HostResolutionException
-  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
+  name: NetworkInformation.HostNetworkInformationCannotResolveException
+  nameWithType: NetworkInformation.HostNetworkInformationCannotResolveException
+  fullName: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
   spec.csharp:
   - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
     name: NetworkInformation
     href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
   - name: .
-  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
-    name: HostResolutionException
-    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException.html
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+    name: HostNetworkInformationCannotResolveException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.html
   spec.vb:
   - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation
     name: NetworkInformation
     href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.html
   - name: .
-  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException
-    name: HostResolutionException
-    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostResolutionException.html
+  - uid: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException
+    name: HostNetworkInformationCannotResolveException
+    href: InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.html

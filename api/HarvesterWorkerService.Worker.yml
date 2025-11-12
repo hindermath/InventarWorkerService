@@ -21,7 +21,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Worker
     path: HarvesterWorkerService/Worker.cs
-    startLine: 26
+    startLine: 24
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -46,9 +46,9 @@ items:
   - Microsoft.Extensions.Hosting.IHostedService
   - System.IDisposable
   inheritedMembers:
-  - Microsoft.Extensions.Hosting.BackgroundService.Dispose
   - Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   - Microsoft.Extensions.Hosting.BackgroundService.StopAsync(System.Threading.CancellationToken)
+  - Microsoft.Extensions.Hosting.BackgroundService.Dispose
   - Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -75,18 +75,20 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: HarvesterWorkerService/Worker.cs
-    startLine: 51
+    startLine: 45
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
-  summary: Initializes a new instance of the <xref href="HarvesterWorkerService.Worker" data-throw-if-not-resolved="false"></xref> class.
+  summary: >-
+    Represents a background worker responsible for handling periodic tasks within the HarvesterWorkerService,
+
+    such as writing service status, managing statistics, and logging activities.
   example: []
   syntax:
     content: public Worker(ILogger<Worker> logger)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger{HarvesterWorkerService.Worker}
-      description: The logger used to write diagnostic information.
     content.vb: Public Sub New(logger As ILogger(Of Worker))
   overload: HarvesterWorkerService.Worker.#ctor*
   nameWithType.vb: Worker.New(ILogger(Of Worker))
@@ -110,7 +112,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ExecuteAsync
     path: HarvesterWorkerService/Worker.cs
-    startLine: 102
+    startLine: 93
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -172,28 +174,6 @@ references:
   name: IDisposable
   nameWithType: IDisposable
   fullName: System.IDisposable
-- uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-  commentId: M:Microsoft.Extensions.Hosting.BackgroundService.Dispose
-  parent: Microsoft.Extensions.Hosting.BackgroundService
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  name: Dispose()
-  nameWithType: BackgroundService.Dispose()
-  fullName: Microsoft.Extensions.Hosting.BackgroundService.Dispose()
-  spec.csharp:
-  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-    name: Dispose
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
-    name: Dispose
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
-  - name: (
-  - name: )
 - uid: Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   commentId: M:Microsoft.Extensions.Hosting.BackgroundService.StartAsync(System.Threading.CancellationToken)
   parent: Microsoft.Extensions.Hosting.BackgroundService
@@ -253,6 +233,28 @@ references:
     name: CancellationToken
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+  commentId: M:Microsoft.Extensions.Hosting.BackgroundService.Dispose
+  parent: Microsoft.Extensions.Hosting.BackgroundService
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  name: Dispose()
+  nameWithType: BackgroundService.Dispose()
+  fullName: Microsoft.Extensions.Hosting.BackgroundService.Dispose()
+  spec.csharp:
+  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Extensions.Hosting.BackgroundService.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose
+  - name: (
   - name: )
 - uid: Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
   commentId: P:Microsoft.Extensions.Hosting.BackgroundService.ExecuteTask
@@ -525,12 +527,6 @@ references:
     name: Hosting
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting
-- uid: HarvesterWorkerService.Worker
-  commentId: T:HarvesterWorkerService.Worker
-  href: HarvesterWorkerService.Worker.html
-  name: Worker
-  nameWithType: Worker
-  fullName: HarvesterWorkerService.Worker
 - uid: HarvesterWorkerService.Worker.#ctor*
   commentId: Overload:HarvesterWorkerService.Worker.#ctor
   href: HarvesterWorkerService.Worker.html#HarvesterWorkerService_Worker__ctor_Microsoft_Extensions_Logging_ILogger_HarvesterWorkerService_Worker__
