@@ -28,8 +28,8 @@ public class Worker : BackgroundService
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
     private readonly AverageProcessingTime _averageProcessingTime = new();
     private readonly JsonSerializerOptions _jsonOptions;
-    private int _processedItems = 0;
-    private int _nonProcessedItems = 0;
+    private int _processedItems;
+    private int _nonProcessedItems;
     private string _machineName;
     private object _serviceStatus;
     private int _machineId;
