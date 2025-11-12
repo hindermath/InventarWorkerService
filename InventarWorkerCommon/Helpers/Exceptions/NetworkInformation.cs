@@ -5,38 +5,63 @@ namespace InventarWorkerCommon.Helpers.Exceptions;
 /// </summary>
 public class NetworkInformation
 {
+    private const string UnknownMachineName = @"""Unknown Machine Name""";
+
     /// <summary>
     /// Represents an exception that occurs when network information
     /// such as IPv4, IPv6, or FQDN for a machine is missing or unavailable.
     /// </summary>
     public class NetworkInformationMissingException : Exception
     {
+        /// <summary>
+        /// Gets the name of the machine associated with the exception.
+        /// Represents the name of the machine for which network information
+        /// (such as IPv4, IPv6, or FQDN) is missing or unavailable.
+        /// </summary>
         public string? MachineName { get; }
 
-        public NetworkInformationMissingException(string machineName)
-            : base($"Machine '{machineName}' has no IPv4, IPv6 or FQDN information")
-        {
-            MachineName = machineName;
-        }
+        /// <summary>
+        /// Represents an exception that is thrown when network information
+        /// related to a machine, such as IPv4, IPv6, or Fully Qualified Domain Name (FQDN),
+        /// is missing or unavailable.
+        /// </summary>
+        public NetworkInformationMissingException(string? machineName)
+            : base($"Machine {machineName ?? UnknownMachineName} has no IPv4, IPv6 or FQDN information!") =>
+            MachineName = machineName ?? UnknownMachineName;
+
+        /// <summary>
+        /// Represents an exception that occurs when network information,
+        /// such as IPv4, IPv6, or Fully Qualified Domain Name (FQDN),
+        /// for a specific machine is missing or cannot be determined.
+        /// </summary>
+        public NetworkInformationMissingException(string? machineName, Exception innerException)
+            : base($"Machine {machineName ?? UnknownMachineName} has no IPv4, IPv6 or FQDN information!", innerException) =>
+            MachineName = machineName  ?? UnknownMachineName;
     }
 
     /// <summary>
     /// Represents an exception that is thrown when a host's network information cannot be resolved.
     /// </summary>
-    public class HostResolutionException : Exception
+    public class HostNetworkInformationCannotResolveException : Exception
     {
-        public string? HostIdentifier { get; }
+        /// <summary>
+        /// Gets the name of the machine where the exception occurred or which is relevant to the exception context.
+        /// Typically used to identify the machine for which network information could not be resolved or is unavailable.
+        /// </summary>
+        public string? MachineName { get; }
 
-        public HostResolutionException(string hostIdentifier)
-            : base($"Could not resolve host information for '{hostIdentifier}'")
-        {
-            HostIdentifier = hostIdentifier;
-        }
+        /// <summary>
+        /// Represents an exception that is thrown when a host's network information cannot be resolved.
+        /// </summary>
+        public HostNetworkInformationCannotResolveException(string? machineName)
+            : base($"Could not resolve host's network information for {machineName ?? UnknownMachineName}!") =>
+            MachineName = machineName ?? UnknownMachineName;
 
-        public HostResolutionException(string hostIdentifier, Exception innerException)
-            : base($"Could not resolve host information for '{hostIdentifier}'", innerException)
-        {
-            HostIdentifier = hostIdentifier;
-        }
+        /// <summary>
+        /// Represents an exception that is thrown when a host's network information cannot be resolved.
+        /// </summary>
+        public HostNetworkInformationCannotResolveException(string? machineName, Exception innerException)
+            : base($"Could not resolve host's network information for {machineName ?? UnknownMachineName}!", innerException) =>
+            MachineName = machineName ?? UnknownMachineName;
     }
 }
