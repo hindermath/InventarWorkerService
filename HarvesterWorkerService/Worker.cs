@@ -7,9 +7,7 @@ using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
-using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Network;
-using InventarWorkerCommon.Services.Software;
 using InventarWorkerCommon.Services.Status;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
@@ -28,11 +26,10 @@ public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
-    private readonly AverageProcessingTime _averageProcessingTime = new AverageProcessingTime();
-    //private readonly HardwareInventoryService _hardwareInventoryService;
-    //private readonly SoftwareInventoryService _softwareInventoryService;
+    private readonly AverageProcessingTime _averageProcessingTime = new();
     private readonly JsonSerializerOptions _jsonOptions;
     private int _processedItems = 0;
+    private int _nonProcessedItems = 0;
     private string _machineName;
     private object _serviceStatus;
     private int _machineId;
@@ -42,25 +39,19 @@ public class Worker : BackgroundService
     private MongoDbService _mongoDbService;
     private HostInformationResult _hostInformationResult;
 
-
     /// <summary>
-    /// Initializes a new instance of the <see cref="Worker"/> class.
+    /// Represents a background worker responsible for handling periodic tasks within the HarvesterWorkerService,
+    /// such as writing service status, managing statistics, and logging activities.
     /// </summary>
-    /// <param name="logger">The logger used to write diagnostic information.</param>
-    /// <param name="hardwareInventoryService">Service that provides hardware inventory processing.</param>
-    /// <param name="softwareInventoryService">Service that provides software inventory processing.</param>
     public Worker(ILogger<Worker> logger)
     {
         _logger = logger;
-        //_hardwareInventoryService = hardwareInventoryService;
-        //_softwareInventoryService = softwareInventoryService;
-        
+
         _jsonOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
         };
-
     }
 
     /// <summary>
@@ -72,10 +63,10 @@ public class Worker : BackgroundService
     {
         string errorMessage = exception switch
         {
-            NetworkInformation.HostResolutionException hostEx => 
-                $"Machine {hostEx.HostIdentifier} could not be resolved",
+            NetworkInformation.HostNetworkInformationCannotResolveException hostEx =>
+                $"Machine {hostEx.MachineName} could not be resolved.",
             NetworkInformation.NetworkInformationMissingException netEx => 
-                $"Machine {netEx.MachineName} has no IPv4, IPv6 or FQDN information",
+                $"Machine {netEx.MachineName} has no IPv4, IPv6 or FQDN information.",
             ArgumentNullException argNullEx => $"Argument is null. {argNullEx.Message}",
             ArgumentException argEx => $"Argument is invalid. {argEx.Message}",
             NotSupportedException notSupEx => $"Operation not supported. {notSupEx.Message}",
@@ -141,7 +132,7 @@ public class Worker : BackgroundService
                             _hostInformationResult =
                                 await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv4);
                         }
-                        catch (NetworkInformation.HostResolutionException hostResolutionException)
+                        catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
                             await HandleExceptionAsync(hostResolutionException);
                         }
@@ -157,7 +148,7 @@ public class Worker : BackgroundService
                             _hostInformationResult =
                                 await ResolveMachine.ResolveIpToHostInfoAsync(activeMachineWithNetworkInfo.IPv6);
                         }
-                        catch (NetworkInformation.HostResolutionException hostResolutionException)
+                        catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
                             await HandleExceptionAsync(hostResolutionException);
                         }
@@ -173,7 +164,7 @@ public class Worker : BackgroundService
                             var iPv4 = await ResolveMachine.ResolveFqdnToIpv4Async(activeMachineWithNetworkInfo.FQDN);
                             _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(iPv4);
                         }
-                        catch (NetworkInformation.HostResolutionException hostResolutionException)
+                        catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
                             await HandleExceptionAsync(hostResolutionException);
                         }
@@ -188,20 +179,17 @@ public class Worker : BackgroundService
                             .Name);
                     }
 
-                    using var workerServiceContainer =
-                        Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
-                    _apiService = workerServiceContainer.ApiService;
                     try
                     {
+                        if (_hostInformationResult.IsSuccess is false)
+                        {
+                            throw new NetworkInformation.HostNetworkInformationCannotResolveException(_hostInformationResult.HostName);
+                        }
+                        using var workerServiceContainer =
+                            Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
+                        _apiService = workerServiceContainer.ApiService;
                         _serviceStatus = await _apiService.GetServiceStatusAsync();
-                    }
-                    catch (Exception exception)
-                    {
-                        await HandleExceptionAsync(exception);
-                    }
 
-                    try
-                    {
                         // convert status to string and deserialize as JsonDocument
                         var serviceStatusString = _serviceStatus.ToString();
                         var serviceStatusJsonDocument = JsonDocument.Parse(serviceStatusString);
@@ -267,37 +255,46 @@ public class Worker : BackgroundService
                         await _mongoDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
 
                         _processedItems++;
+
+                        // Update status
+                        _statusWriter.WriteStatus(new ServiceStatus
+                        {
+                            State = "Running",
+                            StartTime = _startTime,
+                            ProcessedItems = _processedItems,
+                            LastActivity = DateTime.Now
+                        });
+
+                        // Write statistics
+                        _statusWriter.WriteStatistics(new ServiceStatistics
+                        {
+                            TotalProcessedItems = _processedItems,
+                            AverageProcessingTime = _averageProcessingTime.CalculateAverageProcessingTime(_processedItems,
+                                _startTime),
+                            Uptime = DateTime.Now - _startTime,
+                            MemoryUsage = GC.GetTotalMemory(false)
+                        });
+
+                        var message = $"Collecting inventory completed successfully: {_processedItems} runs";
+                        _logger.LogInformation(message);
+                        _statusWriter.WriteLog(message);
+
                     }
-
-                    // Update status
-                    _statusWriter.WriteStatus(new ServiceStatus
+                    else
                     {
-                        State = "Running",
-                        StartTime = _startTime,
-                        ProcessedItems = _processedItems,
-                        LastActivity = DateTime.Now
-                    });
+                        _nonProcessedItems++;
 
-                    // Write statistics
-                    _statusWriter.WriteStatistics(new ServiceStatistics
-                    {
-                        TotalProcessedItems = _processedItems,
-                        AverageProcessingTime = _averageProcessingTime.CalculateAverageProcessingTime(_processedItems,
-                            _startTime),
-                        Uptime = DateTime.Now - _startTime,
-                        MemoryUsage = GC.GetTotalMemory(false)
-                    });
-
-                    var message = $"Inventory completed successfully: {_processedItems} Runs";
-                    _logger.LogInformation(message);
-                    _statusWriter.WriteLog(message);
+                        var message = $"Collecting inventory incomplete!!! {_nonProcessedItems} runs";
+                        _logger.LogError(message);
+                        _statusWriter.WriteLog(message);
+                    }
                 }
             }
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
             {
                 await HandleExceptionAsync(networkInformationMissingException);
             }
-            catch (NetworkInformation.HostResolutionException hostResolutionException)
+            catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
             {
                 await HandleExceptionAsync(hostResolutionException);
             }
@@ -314,7 +311,7 @@ public class Worker : BackgroundService
                 await HandleExceptionAsync(exception);
             }
 #if DEBUG
-            await Task.Delay(Convert.ToInt32((1_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
+            await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
 #else
             // 86400000ms = 24h - Minus the milliseconds difference
             // of the time consumed for processing the machine table
