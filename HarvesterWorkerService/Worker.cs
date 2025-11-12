@@ -28,12 +28,12 @@ public class Worker : BackgroundService
     private readonly ServiceStatusWriter _statusWriter = new("harvester-service");
     private readonly AverageProcessingTime _averageProcessingTime = new();
     private readonly JsonSerializerOptions _jsonOptions;
+    private readonly DateTime _startTime = DateTime.Now;
     private int _processedItems;
     private int _nonProcessedItems;
     private string _machineName;
     private object _serviceStatus;
     private int _machineId;
-    private DateTime _startTime = DateTime.Now;
     private ApiService _apiService;
     private SqliteDbService _sqliteDbService;
     private MongoDbService _mongoDbService;
@@ -93,7 +93,7 @@ public class Worker : BackgroundService
     /// <param name="stoppingToken">Token that signals when the service should stop.</param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var serviceContainer = Services();
+        await using var serviceContainer = Services();
         // is not needed here (yet)! _apiService = serviceContainer.ApiService;
         _sqliteDbService = serviceContainer.DbService;
         _mongoDbService = serviceContainer.MongoDbService;
@@ -185,7 +185,8 @@ public class Worker : BackgroundService
                         {
                             throw new NetworkInformation.HostNetworkInformationCannotResolveException(_hostInformationResult.HostName);
                         }
-                        using var workerServiceContainer =
+
+                        await using var workerServiceContainer =
                             Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
                         _apiService = workerServiceContainer.ApiService;
                         _serviceStatus = await _apiService.GetServiceStatusAsync();
@@ -313,7 +314,7 @@ public class Worker : BackgroundService
 #if DEBUG
             await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
 #else
-            // 86400000ms = 24h - Minus the milliseconds difference
+            // 86,400,000 ms = 24h - Minus the milliseconds difference
             // of the time consumed for processing the machine table
             await Task.Delay(
                 Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))),
