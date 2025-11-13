@@ -890,3 +890,5 @@ modules.xml
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/rider,csharp,jetbrains,dotnetcore,visualstudio,jetbrains+all,jetbrains+iml,visualstudiocode,docfx
+!/.idea/.idea.InventarWorkerService/.idea/queries/Query.sql
+!/.idea/.idea.InventarWorkerService/.idea/queries/Query.js
