@@ -29,8 +29,6 @@ public class Program
         builder.Services.AddSystemd();
         
         // Register services
-        //builder.Services.AddSingleton<HardwareInventoryService>();
-        //builder.Services.AddSingleton<SoftwareInventoryService>();
         builder.Services.AddHostedService<Worker>();
         
         // Configure JSON options if needed
