@@ -699,7 +699,13 @@ public class SqliteDbService
         const string query = "SELECT COUNT(*) FROM SoftwareInventories";
         return await connection.QuerySingleAsync<int>(query);
     }
-    
+
+    /// <summary>
+    /// Initializes machines in the database by importing data from a specified CSV file.
+    /// </summary>
+    /// <param name="csvFilePath">The file path of the CSV file containing machine data.</param>
+    /// <returns>The total number of machines successfully imported.</returns>
+    /// <exception cref="FileNotFoundException">Thrown when the specified CSV file does not exist.</exception>
     public async Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
     {
         if (!File.Exists(csvFilePath))
@@ -717,14 +723,14 @@ public class SqliteDbService
             using var reader = new StreamReader(csvFilePath);
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
-            // CSV-Header registrieren (optional, falls die Spalten unterschiedlich benannt sind)
+            // Register CSV header (optional, if the columns are named differently)
             csv.Context.RegisterClassMap<MachineMap>();
         
             var machines = csv.GetRecords<MachineFromCsv>().ToList();
 
             foreach (var machine in machines)
             {
-                // Prüfen, ob die Maschine bereits existiert
+                // Check if the machine already exists
                 const string selectQuery = "SELECT Id FROM Machines WHERE Name = @Name";
                 var existingMachineId = await connection.QuerySingleOrDefaultAsync<int?>(
                     selectQuery, 
@@ -763,8 +769,26 @@ public class SqliteDbService
     /// </summary>
     public class MachineFromCsv
     {
+        /// <summary>
+        /// Represents the name of the machine. This property is used to identify the machine
+        /// uniquely within the context of the application. It is a required field and
+        /// cannot be null or empty.
+        /// </summary>
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Represents the operating system installed on the machine. This property holds
+        /// information about the platform, which can be used for compatibility checks or
+        /// system categorization. It is an optional field and may be null if the information
+        /// is not available.
+        /// </summary>
         public string? OperatingSystem { get; set; }
+
+        /// <summary>
+        /// Represents the last recorded date and time a machine was active or reachable.
+        /// This property is used to track the machine's most recent activity and is
+        /// optional, allowing null values if the information is not available.
+        /// </summary>
         public DateTime? LastSeen { get; set; }
     }
 
@@ -773,6 +797,10 @@ public class SqliteDbService
     /// </summary>
     public class MachineMap : ClassMap<MachineFromCsv>
     {
+        /// <summary>
+        /// Defines the mapping configuration for CSV import of machine data, enabling fields such as
+        /// name, operating system, and last seen date to map to specific CSV column headers.
+        /// </summary>
         public MachineMap()
         {
             Map(m => m.Name).Name("Name", "MachineName", "Computer");
