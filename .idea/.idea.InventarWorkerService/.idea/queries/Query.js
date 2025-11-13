@@ -1,4 +1,6 @@
-// Select Inventory database
+/**
+ * Select an Inventory database
+ */
 db.getCollectionNames();
 
 db.getCollection('8').find();
@@ -9,7 +11,9 @@ db.getCollection('8').aggregate([
     { $project: { "InstalledSoftware": 1 } }
 ]);
 
-// Alternative: Regex-basierte Suche für Versionen
+/**
+ * Alternative: Regex-based search for versions
+ */
 db.getCollection('8').aggregate([
     { $unwind: "$InstalledSoftware" },
     {
