@@ -20,7 +20,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineMap
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 773
+    startLine: 797
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -85,10 +85,15 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 775
+    startLine: 803
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Defines the mapping configuration for CSV import of machine data, enabling fields such as
+
+    name, operating system, and last seen date to map to specific CSV column headers.
+  example: []
   syntax:
     content: public MachineMap()
     content.vb: Public Sub New()

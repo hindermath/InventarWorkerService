@@ -829,19 +829,27 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeMachinesFromCsvAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 702
+    startLine: 708
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
+  summary: Initializes machines in the database by importing data from a specified CSV file.
+  example: []
   syntax:
     content: public Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
     parameters:
     - id: csvFilePath
       type: System.String
+      description: The file path of the CSV file containing machine data.
     return:
       type: System.Threading.Tasks.Task{System.Int32}
+      description: The total number of machines successfully imported.
     content.vb: Public Function InitializeMachinesFromCsvAsync(csvFilePath As String) As Task(Of Integer)
   overload: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync*
+  exceptions:
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: Thrown when the specified CSV file does not exist.
   nameWithType.vb: SqliteDbService.InitializeMachinesFromCsvAsync(String)
   fullName.vb: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync(String)
   name.vb: InitializeMachinesFromCsvAsync(String)
@@ -1740,6 +1748,13 @@ references:
   name: GetSoftwareInventoryCountAsync
   nameWithType: SqliteDbService.GetSoftwareInventoryCountAsync
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService.GetSoftwareInventoryCountAsync
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception
+  name: FileNotFoundException
+  nameWithType: FileNotFoundException
+  fullName: System.IO.FileNotFoundException
 - uid: InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync*
   commentId: Overload:InventarWorkerCommon.Services.Database.SqliteDbService.InitializeMachinesFromCsvAsync
   href: InventarWorkerCommon.Services.Database.SqliteDbService.html#InventarWorkerCommon_Services_Database_SqliteDbService_InitializeMachinesFromCsvAsync_System_String_

@@ -22,7 +22,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineFromCsv
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 763
+    startLine: 769
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -59,10 +59,17 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 765
+    startLine: 776
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Represents the name of the machine. This property is used to identify the machine
+
+    uniquely within the context of the application. It is a required field and
+
+    cannot be null or empty.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -88,10 +95,19 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperatingSystem
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 766
+    startLine: 784
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Represents the operating system installed on the machine. This property holds
+
+    information about the platform, which can be used for compatibility checks or
+
+    system categorization. It is an optional field and may be null if the information
+
+    is not available.
+  example: []
   syntax:
     content: public string? OperatingSystem { get; set; }
     parameters: []
@@ -117,10 +133,17 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastSeen
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 767
+    startLine: 791
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
+  summary: >-
+    Represents the last recorded date and time a machine was active or reachable.
+
+    This property is used to track the machine's most recent activity and is
+
+    optional, allowing null values if the information is not available.
+  example: []
   syntax:
     content: public DateTime? LastSeen { get; set; }
     parameters: []
