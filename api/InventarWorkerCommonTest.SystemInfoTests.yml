@@ -224,11 +224,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 298)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 298)]
 
       public void SystemInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 298)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 298)>
 
       Public Sub SystemInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.SystemInfoTests.SystemInfo_DefaultValues_ShouldBeCorrect*
@@ -237,7 +237,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 298
 - uid: InventarWorkerCommonTest.SystemInfoTests.SystemInfo_SetAllProperties_ShouldRetainValues
@@ -264,11 +264,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 313)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 313)]
 
       public void SystemInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 313)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 313)>
 
       Public Sub SystemInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.SystemInfoTests.SystemInfo_SetAllProperties_ShouldRetainValues*
@@ -277,7 +277,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 313
 - uid: InventarWorkerCommonTest.SystemInfoTests.SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans
@@ -304,11 +304,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 337)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 337)]
 
       public void SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 337)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 337)>
 
       Public Sub SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans()
   overload: InventarWorkerCommonTest.SystemInfoTests.SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans*
@@ -317,7 +317,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 337
 references:

@@ -224,11 +224,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 40)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 40)]
 
       public void CpuInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 40)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 40)>
 
       Public Sub CpuInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_DefaultValues_ShouldBeCorrect*
@@ -237,7 +237,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 40
 - uid: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_SetAllProperties_ShouldRetainValues
@@ -264,11 +264,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 53)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 53)]
 
       public void CpuInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 53)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 53)>
 
       Public Sub CpuInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_SetAllProperties_ShouldRetainValues*
@@ -277,7 +277,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 53
 - uid: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_RecordEquality_ShouldWork
@@ -304,11 +304,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 72)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 72)]
 
       public void CpuInfo_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 72)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 72)>
 
       Public Sub CpuInfo_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_RecordEquality_ShouldWork*
@@ -317,7 +317,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 72
 references:

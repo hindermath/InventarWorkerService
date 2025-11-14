@@ -224,11 +224,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 207)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 207)]
 
       public void ServiceStatistics_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 207)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 207)>
 
       Public Sub ServiceStatistics_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.ServiceStatisticsTests.ServiceStatistics_DefaultValues_ShouldBeCorrect*
@@ -237,7 +237,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 207
 - uid: InventarWorkerCommonTest.ServiceStatisticsTests.ServiceStatistics_InitProperties_ShouldRetainValues
@@ -264,11 +264,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 220)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 220)]
 
       public void ServiceStatistics_InitProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 220)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 220)>
 
       Public Sub ServiceStatistics_InitProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.ServiceStatisticsTests.ServiceStatistics_InitProperties_ShouldRetainValues*
@@ -277,7 +277,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 220
 - uid: InventarWorkerCommonTest.ServiceStatisticsTests.ServiceStatistics_RecordEquality_ShouldWork
@@ -304,11 +304,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 240)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 240)]
 
       public void ServiceStatistics_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 240)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 240)>
 
       Public Sub ServiceStatistics_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.ServiceStatisticsTests.ServiceStatistics_RecordEquality_ShouldWork*
@@ -317,7 +317,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 240
 references:

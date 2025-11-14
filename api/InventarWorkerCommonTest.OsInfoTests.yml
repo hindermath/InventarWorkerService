@@ -224,11 +224,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 117)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 117)]
 
       public void OsInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 117)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 117)>
 
       Public Sub OsInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.OsInfoTests.OsInfo_DefaultValues_ShouldBeCorrect*
@@ -237,7 +237,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 117
 - uid: InventarWorkerCommonTest.OsInfoTests.OsInfo_SetAllProperties_ShouldRetainValues
@@ -264,11 +264,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 134)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 134)]
 
       public void OsInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 134)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 134)>
 
       Public Sub OsInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.OsInfoTests.OsInfo_SetAllProperties_ShouldRetainValues*
@@ -277,7 +277,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 134
 - uid: InventarWorkerCommonTest.OsInfoTests.OsInfo_BooleanProperty_ShouldToggle
@@ -304,11 +304,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 161)]
+      [TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 161)]
 
       public void OsInfo_BooleanProperty_ShouldToggle()
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 161)>
+      <TestMethod("/home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 161)>
 
       Public Sub OsInfo_BooleanProperty_ShouldToggle()
   overload: InventarWorkerCommonTest.OsInfoTests.OsInfo_BooleanProperty_ShouldToggle*
@@ -317,7 +317,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
+      value: /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 161
 references:
