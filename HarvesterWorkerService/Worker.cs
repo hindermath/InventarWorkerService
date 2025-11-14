@@ -94,7 +94,6 @@ public class Worker : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         await using var serviceContainer = Services();
-        // is not needed here (yet)! _apiService = serviceContainer.ApiService;
         _sqliteDbService = serviceContainer.DbService;
         _mongoDbService = serviceContainer.MongoDbService;
 
