@@ -59,7 +59,7 @@ public class Worker : BackgroundService
     /// </summary>
     /// <param name="exception">The exception to be handled.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    private async Task HandleExceptionAsync(Exception exception)
+    private void HandleException(Exception exception)
     {
         string errorMessage = exception switch
         {
@@ -133,11 +133,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException);
+                             HandleException(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception);
+                             HandleException(exception);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv6) is false)
@@ -149,11 +149,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException);
+                             HandleException(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception);
+                             HandleException(exception);
                         }
                     }
                     else if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.FQDN) is false)
@@ -165,11 +165,11 @@ public class Worker : BackgroundService
                         }
                         catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
                         {
-                            await HandleExceptionAsync(hostResolutionException);
+                             HandleException(hostResolutionException);
                         }
                         catch (Exception exception)
                         {
-                            await HandleExceptionAsync(exception);
+                             HandleException(exception);
                         }
                     }
                     else
@@ -220,27 +220,27 @@ public class Worker : BackgroundService
                     }
                     catch (JsonException jsonException)
                     {
-                        await HandleExceptionAsync(jsonException);
+                         HandleException(jsonException);
                     }
                     catch (ArgumentNullException argumentNullException)
                     {
-                        await HandleExceptionAsync(argumentNullException);
+                         HandleException(argumentNullException);
                     }
                     catch (ArgumentException argumentException)
                     {
-                        await HandleExceptionAsync(argumentException);
+                         HandleException(argumentException);
                     }
                     catch (NotSupportedException notSupportedException)
                     {
-                        await HandleExceptionAsync(notSupportedException);
+                         HandleException(notSupportedException);
                     }
                     catch (InvalidOperationException invalidOperationException)
                     {
-                        await HandleExceptionAsync(invalidOperationException);
+                         HandleException(invalidOperationException);
                     }
                     catch (Exception exception)
                     {
-                        await HandleExceptionAsync(exception);
+                         HandleException(exception);
                     }
 
                     if (_machineId > 0)
@@ -292,23 +292,23 @@ public class Worker : BackgroundService
             }
             catch (NetworkInformation.NetworkInformationMissingException networkInformationMissingException)
             {
-                await HandleExceptionAsync(networkInformationMissingException);
+                 HandleException(networkInformationMissingException);
             }
             catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
             {
-                await HandleExceptionAsync(hostResolutionException);
+                 HandleException(hostResolutionException);
             }
             catch (ArgumentNullException argumentNullException)
             {
-                await HandleExceptionAsync(argumentNullException);
+                 HandleException(argumentNullException);
             }
             catch (InvalidOperationException invalidOperationException)
             {
-                await HandleExceptionAsync(invalidOperationException);
+                 HandleException(invalidOperationException);
             }
             catch (Exception exception)
             {
-                await HandleExceptionAsync(exception);
+                 HandleException(exception);
             }
 #if DEBUG
             await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
