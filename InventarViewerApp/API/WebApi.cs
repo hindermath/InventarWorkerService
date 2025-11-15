@@ -41,9 +41,9 @@ class WebApi
         {
             options.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Inventory Rectrieving API",
+                Title = "Inventory Viewing API",
                 Version = "v1",
-                Description = "An API to retrieve inventory data",
+                Description = "An API to view inventory data",
                 Contact = new OpenApiContact
                 {
                     Name = "InventarWorkerService Support Team",
