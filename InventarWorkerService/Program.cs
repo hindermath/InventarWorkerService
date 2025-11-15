@@ -5,6 +5,7 @@ using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "InventarWorkerService API",
+        Version = "v1",
+        Description = "An API to retrieve and view inventory data",
+        Contact = new OpenApiContact
+        {
+            Name = "InventarWorkerService Support Team",
+            Email = "support@tmyttmaap.info",
+            Url = new Uri("http://tmyttmaap.info")
+        }
+    });
+
     // Include XML comments in Swagger for public code elements
     var xmlFile = "InventarWorkerService.xml";
     var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
