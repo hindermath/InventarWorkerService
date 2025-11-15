@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
+using Microsoft.OpenApi.MicrosoftExtensions;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace InventarViewerApp.API;
@@ -30,7 +31,7 @@ class WebApi
 
         // Add services to the container.
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services.AddOpenApi();
+        //builder.Services.AddOpenApi();
 
         // Configure Services
         builder.Services.AddControllers();
@@ -127,7 +128,7 @@ class WebApi
                 options.ShowExtensions(); // Shows Vendor Extensions
                 options.EnableValidator(); // Activate validator
             });
-            app.MapOpenApi();
+            //app.MapOpenApi();
         }
         else
         {
