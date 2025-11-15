@@ -12,9 +12,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Playwright.MSTest" Version="1.55.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
-        <PackageReference Include="MSTest" Version="4.0.1" />
+        <PackageReference Include="Microsoft.Playwright.MSTest" Version="1.56.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+        <PackageReference Include="MSTest" Version="4.0.2" />
     </ItemGroup>
 
     <ItemGroup>
