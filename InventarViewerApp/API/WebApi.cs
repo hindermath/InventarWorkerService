@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.MicrosoftExtensions;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace InventarViewerApp.API;
