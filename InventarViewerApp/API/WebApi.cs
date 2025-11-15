@@ -31,7 +31,7 @@ class WebApi
 
         // Add services to the container.
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        //builder.Services.AddOpenApi();
+        builder.Services.AddOpenApi();
 
         // Configure Services
         builder.Services.AddControllers();
@@ -119,7 +119,7 @@ class WebApi
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "InventarViewerApp API V1");
                 options.RoutePrefix = "swagger"; // Swagger UI available at /swagger
                 options.DocExpansion(DocExpansion.None); // All endpoints initially collapsed
                 options.DisplayRequestDuration(); // Displays response times
@@ -128,7 +128,7 @@ class WebApi
                 options.ShowExtensions(); // Shows Vendor Extensions
                 options.EnableValidator(); // Activate validator
             });
-            //app.MapOpenApi();
+            app.MapOpenApi();
         }
         else
         {
@@ -140,7 +140,7 @@ class WebApi
         app.UseSwagger();
         app.UseSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "InventarViewerApp API V1");
             options.RoutePrefix = "swagger"; // Swagger UI available at /swagger
             options.DocExpansion(DocExpansion.None); // All endpoints initially collapsed
             options.DisplayRequestDuration(); // Displays response times
