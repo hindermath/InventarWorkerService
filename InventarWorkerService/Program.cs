@@ -92,7 +92,7 @@ if (app.Environment.IsDevelopment())
         options.ShowExtensions(); // Shows Vendor Extensions
         options.EnableValidator(); // Activate validator
     });
-    app.MapOpenApi();
+    //app.MapOpenApi();
     //app.UseMigrationsEndPoint();
 }
 else
