@@ -25,7 +25,7 @@ builder.Services.AddHostedService<Worker>();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+//builder.Services.AddOpenApi();
 
 
 // Add REST API Services
@@ -78,7 +78,7 @@ if (app.Environment.IsDevelopment())
         options.ShowExtensions(); // Shows Vendor Extensions
         options.EnableValidator(); // Activate validator
     });
-    app.MapOpenApi();
+    //app.MapOpenApi();
     //app.UseMigrationsEndPoint();
 }
 else
