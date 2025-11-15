@@ -25,7 +25,7 @@ builder.Services.AddHostedService<Worker>();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-//builder.Services.AddOpenApi();
+builder.Services.AddOpenApi();
 
 
 // Add REST API Services
@@ -69,7 +69,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventar API V1");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "InventarWorkerService API V1");
         options.RoutePrefix = "swagger"; // Swagger UI available at /swagger
         options.DocExpansion(DocExpansion.None); // All endpoints initially collapsed
         options.DisplayRequestDuration(); // Displays response times
@@ -78,7 +78,7 @@ if (app.Environment.IsDevelopment())
         options.ShowExtensions(); // Shows Vendor Extensions
         options.EnableValidator(); // Activate validator
     });
-    //app.MapOpenApi();
+    app.MapOpenApi();
     //app.UseMigrationsEndPoint();
 }
 else
