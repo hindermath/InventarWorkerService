@@ -128,7 +128,7 @@ public static class ResolveMachine
     {
         try
         {
-            // Automatische Erkennung von IPv4 und IPv6
+            // Automatic detection of IPv4 and IPv6
             if (!IPAddress.TryParse(ipAddress, out var ipAddr))
             {
                 throw new ArgumentException($"Invalid IP address format: {ipAddress}");
