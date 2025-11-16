@@ -160,6 +160,12 @@ items:
   - uid: InventarWorkerCommon.Models.SqlDatabase.Machine
     name: Machine
     type: Class
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineFromCsv
+    name: MachineFromCsv
+    type: Class
+  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineMap
+    name: MachineMap
+    type: Class
   - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
     name: MachineState
     type: Class
@@ -192,12 +198,6 @@ items:
     type: Class
   - uid: InventarWorkerCommon.Services.Database.SqliteDbService
     name: SqliteDbService
-    type: Class
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-    name: SqliteDbService.MachineFromCsv
-    type: Class
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-    name: SqliteDbService.MachineMap
     type: Class
 - uid: InventarWorkerCommon.Services.Hardware
   name: InventarWorkerCommon.Services.Hardware

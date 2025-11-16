@@ -20,7 +20,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Program
     path: HarvesterWorkerService/Program.cs
-    startLine: 12
+    startLine: 10
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -30,8 +30,8 @@ items:
     Configures hosting, registers inventory services, and starts the background worker.
   example: []
   syntax:
-    content: public class Program
-    content.vb: Public Class Program
+    content: public static class Program
+    content.vb: Public Module Program
   inheritance:
   - System.Object
   inheritedMembers:
@@ -60,7 +60,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Main
     path: HarvesterWorkerService/Program.cs
-    startLine: 18
+    startLine: 16
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService

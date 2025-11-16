@@ -24,7 +24,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InventarWorkerServiceRemoteTests
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 6
+    startLine: 5
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Setup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 22
+    startLine: 21
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
@@ -165,7 +165,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cleanup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 33
+    startLine: 32
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
@@ -203,13 +203,13 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_RemoteServiceStatus
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 40)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 39)]
 
       [Description("Remote Service Status prüfen")]
 
@@ -217,7 +217,7 @@ items:
     return:
       type: System.Threading.Tasks.Task
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 40)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 39)>
 
       <Description("Remote Service Status prüfen")>
 
@@ -230,7 +230,7 @@ items:
     - type: System.String
       value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
     - type: System.Int32
-      value: 40
+      value: 39
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -254,13 +254,13 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_RemoteKomplettesInventar
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 77
+    startLine: 76
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 78)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 77)]
 
       [Description("Remote komplettes Inventar abrufen")]
 
@@ -268,7 +268,7 @@ items:
     return:
       type: System.Threading.Tasks.Task
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 78)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 77)>
 
       <Description("Remote komplettes Inventar abrufen")>
 
@@ -281,7 +281,7 @@ items:
     - type: System.String
       value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
     - type: System.Int32
-      value: 78
+      value: 77
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:

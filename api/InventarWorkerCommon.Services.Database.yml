@@ -6,8 +6,6 @@ items:
   children:
   - InventarWorkerCommon.Services.Database.MongoDbService
   - InventarWorkerCommon.Services.Database.SqliteDbService
-  - InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-  - InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
   langs:
   - csharp
   - vb
@@ -32,50 +30,6 @@ references:
   name: SqliteDbService
   nameWithType: SqliteDbService
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService
-- uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  name: SqliteDbService.MachineFromCsv
-  nameWithType: SqliteDbService.MachineFromCsv
-  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-  spec.csharp:
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
-    name: SqliteDbService
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-    name: MachineFromCsv
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv.html
-  spec.vb:
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
-    name: SqliteDbService
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv
-    name: MachineFromCsv
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineFromCsv.html
-- uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-  commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-  href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  name: SqliteDbService.MachineMap
-  nameWithType: SqliteDbService.MachineMap
-  fullName: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-  spec.csharp:
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
-    name: SqliteDbService
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-    name: MachineMap
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap.html
-  spec.vb:
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService
-    name: SqliteDbService
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.html
-  - name: .
-  - uid: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap
-    name: MachineMap
-    href: InventarWorkerCommon.Services.Database.SqliteDbService.MachineMap.html
 - uid: InventarWorkerCommon.Services.Database
   commentId: N:InventarWorkerCommon.Services.Database
   href: InventarWorkerCommon.html

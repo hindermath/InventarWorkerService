@@ -24,7 +24,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InvokeWorkerServiceControlCmdlet
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 16
+    startLine: 15
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
@@ -137,7 +137,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Start
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 27
+    startLine: 26
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
@@ -195,7 +195,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Stop
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 41
+    startLine: 40
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
@@ -253,7 +253,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Tui
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 54
+    startLine: 53
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
@@ -308,7 +308,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceName
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 68
+    startLine: 67
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
@@ -365,7 +365,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessRecord
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-    startLine: 82
+    startLine: 81
   assemblies:
   - CtrlWorkerServiceCmdlet
   namespace: CtrlWorkerServiceCmdlet
