@@ -60,15 +60,9 @@ namespace InventarViewerApp.UI
                             var openDialog = new OpenDialog("CSV-Datei auswählen", "Bitte eine CSV-Datei mit Maschinen auswählen")
                             {
                                 AllowsMultipleSelection = false,
-                                CanChooseDirectories = true,
-                                CanChooseFiles = true,
-                                CanCreateDirectories = false,
-                                AutoSize = true
+                                AllowedFileTypes = new[] { ".csv" },
                             };
 
-                            // Optional: auf CSV-Dateien einschränken (Filter ist nur Hinweis, keine harte Validierung)
-                            openDialog.AllowedFileTypes = new[] { ".csv" };
-                            openDialog.AllowsOtherFileTypes = false;
 
                             Application.Run(openDialog);
 
