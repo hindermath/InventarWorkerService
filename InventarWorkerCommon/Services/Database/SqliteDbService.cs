@@ -742,15 +742,20 @@ public class SqliteDbService
                 if (existingMachineId.HasValue is false)
                 {
                     const string insertQuery = @"
-                    INSERT INTO Machines (Name, OperatingSystem, LastSeen, CreatedAt)
-                    VALUES (@Name, @OperatingSystem, @LastSeen, @CreatedAt)";
+                    INSERT INTO Machines (Name, OperatingSystem, LastSeen, CreatedAt, IPv4, IPv6, FQDN, Disabled, Deprovisioned)
+                    VALUES (@Name, @OperatingSystem, @LastSeen, @CreatedAt, @IPv4, @IPv6, @FQDN, @Disabled, @Deprovisioned)";
 
                     await connection.ExecuteAsync(insertQuery, new
                     {
                         machine.Name,
                         machine.OperatingSystem,
                         LastSeen = machine.LastSeen ?? DateTime.UtcNow,
-                        CreatedAt = DateTime.UtcNow
+                        CreatedAt = DateTime.UtcNow,
+                        machine.IPv4,
+                        machine.IPv6,
+                        machine.FQDN,
+                        machine.Disabled,
+                        machine.Deprovisioned
                     }, transaction);
 
                     importedCount++;
