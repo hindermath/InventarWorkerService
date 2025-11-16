@@ -701,16 +701,18 @@ public class SqliteDbService
     }
 
     /// <summary>
-    /// Initializes machines in the database by importing data from a specified CSV file.
+    /// Imports machine data from a specified CSV file into the database. The method reads the CSV file,
+    /// parses the data into machine-specific records, and stores them in the database within a transaction.
     /// </summary>
-    /// <param name="csvFilePath">The file path of the CSV file containing machine data.</param>
-    /// <returns>The total number of machines successfully imported.</returns>
-    /// <exception cref="FileNotFoundException">Thrown when the specified CSV file does not exist.</exception>
+    /// <param name="csvFilePath">The file path to the CSV file containing machine data.</param>
+    /// <returns>The total number of machines successfully imported into the database.</returns>
+    /// <exception cref="FileNotFoundException">Thrown when the specified CSV file cannot be found.</exception>
+    /// <exception cref="Exception">Thrown when an error occurs during the import process, causing the transaction to roll back.</exception>
     public async Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
     {
         if (File.Exists(csvFilePath) is false)
         {
-            throw new FileNotFoundException($"CSV file would not be found: '{csvFilePath}'.");
+            throw new FileNotFoundException($"The specified CSV file does not exist {csvFilePath}.");
         }
 
         var importedCount = 0;
@@ -761,9 +763,7 @@ public class SqliteDbService
         catch
         {
             transaction.Rollback();
-
-            throw new TransactionAbortedException(
-                $"The database transaction for the CSV import has been aborted. File: '{csvFilePath}'.");
+            throw new Exception("Error occurred while importing machines from CSV file. Transaction rolled back.");
         }
     }
 }
