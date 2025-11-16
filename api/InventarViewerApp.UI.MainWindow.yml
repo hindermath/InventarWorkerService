@@ -20,7 +20,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MainWindow
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -247,7 +247,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
