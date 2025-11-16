@@ -12,12 +12,123 @@ namespace InventarViewerApp.API;
 
 class WebApi
 {
+    private static readonly object _syncRoot = new();
+    private static Task? _runningTask;
+    private static CancellationTokenSource? _cts;
+
     /// <summary>
-    /// Starts the minimal Web API host that exposes the viewer's database via controllers and Swagger UI.
+    /// Gets a value indicating whether the Web API is currently running.
+    /// This property checks the status of the underlying task managing the API lifetime
+    /// to determine if it is still active and has not been completed.
     /// </summary>
-    /// <param name="args">Command-line arguments passed to the host.</param>
-    /// <returns>A task representing the lifetime of the web host.</returns>
+    public static bool IsRunning
+    {
+        get
+        {
+            lock (_syncRoot)
+            {
+                return _runningTask is {IsCompleted: false};
+            }
+        }
+    }
+
+    /// <summary>
+    /// Starts, stops, or monitors the Web API host based on the specified command-line arguments.
+    /// Handles commands such as starting the Web API in a singleton pattern or stopping it gracefully.
+    /// </summary>
+    /// <param name="args">
+    /// An array of command-line arguments to configure the Web API host.
+    /// Supported commands include:
+    /// - "--start": Starts the Web API if it is not already running.
+    /// - "--stop": Stops the running Web API instance.
+    /// - "--api": Starts the Web API and waits until it is explicitly stopped.
+    /// Other arguments are passed as configuration overrides or runtime parameters.
+    /// </param>
+    /// <returns>
+    /// A task that represents the asynchronous operation of managing the Web API. The task completes
+    /// when the Web API is either started or stopped based on the provided command.
+    /// </returns>
     public static async Task WebApiAsync(string[] args)
+    {
+        var command = args.FirstOrDefault()?.ToLowerInvariant();
+
+        // STOP-Befehl
+        if (command == "--stop")
+        {
+            Task? taskToWait = null;
+            lock (_syncRoot)
+            {
+                if (_runningTask == null || _runningTask.IsCompleted)
+                {
+                    return; // nichts zu stoppen
+                }
+
+                _cts?.Cancel();
+                taskToWait = _runningTask;
+            }
+
+            try
+            {
+                if (taskToWait != null)
+                {
+                    await taskToWait;
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                // Erwartet beim Cancel
+            }
+
+            return;
+        }
+
+        // Standard: START / --api / --start
+        lock (_syncRoot)
+        {
+            // Läuft schon -> nichts Neues starten, bestehendes Task zurückgeben
+            if (_runningTask is {IsCompleted: false})
+            {
+                return; // Caller muss hier nicht zwingend auf das Task warten
+            }
+
+            _cts = new CancellationTokenSource();
+            var effectiveArgs = args
+                .Where(a => a is not "--start" and not "--stop")
+                .ToArray();
+
+            _runningTask = RunWebApiInternalAsync(effectiveArgs, _cts.Token);
+        }
+
+        // Im CLI-Modus (--api) sinnvoll: auf das Task warten
+        if (command == "--api")
+        {
+            try
+            {
+                await _runningTask!;
+            }
+            catch (OperationCanceledException)
+            {
+                // Normal beim Stop
+            }
+        }
+    }
+
+    /// <summary>
+    /// Executes the internal logic for starting and running the Web API host with the specified arguments and cancellation token.
+    /// </summary>
+    /// <param name="args">
+    /// Command-line arguments used to configure the Web API host. These arguments can include custom options
+    /// such as configuration overrides or other runtime parameters. Arguments like "--start" and "--stop" are filtered out before use.
+    /// </param>
+    /// <param name="ctsToken">
+    /// A CancellationToken to signal the termination of the Web API host. This token allows the operation to
+    /// be cancelled externally, ensuring graceful shutdown of the application.
+    /// </param>
+    /// <returns>
+    /// A task that represents the asynchronous operation of running the Web API host. The task completes
+    /// when the host is shut down explicitly or via the provided cancellation token.
+    /// </returns>
+    private static async Task? RunWebApiInternalAsync(string[] args, CancellationToken ctsToken)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -86,10 +197,12 @@ class WebApi
             });
             */
         });
-        
+
         // Register SqliteDbService
-        var dbPath = Path.Combine(Initialize.GetDbBasePath(), "inventar.db"); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
-        builder.Services.AddSingleton<SqliteDbService>(provider => 
+        var dbPath =
+            Path.Combine(Initialize.GetDbBasePath(),
+                "inventar.db"); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        builder.Services.AddSingleton<SqliteDbService>(provider =>
             new SqliteDbService($"Data Source={dbPath}"));
 
         // CORS
@@ -167,10 +280,10 @@ class WebApi
         // app.MapDefaultControllerRoute();
 
         app.MapControllers();
-        
+
         Console.WriteLine("Inventory API runs on http://localhost:80");
         Console.WriteLine("Swagger UI available at http://localhost:80/swagger");
-        
-        await app.RunAsync();
+
+        await app.RunAsync(ctsToken);
     }
 }
