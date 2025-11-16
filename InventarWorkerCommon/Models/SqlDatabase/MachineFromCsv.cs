@@ -75,10 +75,10 @@ public class MachineMap : ClassMap<MachineFromCsv>
         Map(m => m.Name).Name("Name", "MachineName", "Computer");
         Map(m => m.OperatingSystem).Name("OperatingSystem", "OS", "Platform").Optional();
         Map(m => m.LastSeen).Name("LastSeen", "LastActivity", "LastOnline").Optional();
-        Map(m => m.IPv4).Name("IPv4", "IPv4").Optional();
-        Map(m => m.IPv6).Name("IPv6", "IPv6").Optional();
-        Map(m => m.FQDN).Name("FQDN", "FQDN").Optional();
-        Map(m => m.Disabled).Name("Disabled", "Disabled");
-        Map(m => m.Deprovisioned).Name("Deprovisioned", "Deprovisioned");
+        Map(m => m.IPv4).Name("IPv4", "INET").Optional();
+        Map(m => m.IPv6).Name("IPv6", "INET6").Optional();
+        Map(m => m.FQDN).Name("FQDN", "DNS Name").Optional();
+        Map(m => m.Disabled).Name("Disabled", "Disable");
+        Map(m => m.Deprovisioned).Name("Deprovisioned", "Deprovision");
     }
 }
