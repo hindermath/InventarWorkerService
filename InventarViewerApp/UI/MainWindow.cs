@@ -1,5 +1,6 @@
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
+using InventarViewerApp.API;
 using Terminal.Gui;
 
 namespace InventarViewerApp.UI
@@ -103,7 +104,31 @@ namespace InventarViewerApp.UI
                     new MenuItem("_Beenden", "", () => Application.RequestStop())
                 }),
                 new MenuBarItem("_Optionen", new MenuItem[] {
-                    new MenuItem("_Option1", "", () => ShowAboutDialog())
+                    new MenuItem("_WebApi", "", async () =>
+                    {
+                        try
+                        {
+                            if (!WebApi.IsRunning)
+                            {
+                                // Start as Singleton
+                                await WebApi.WebApiAsync(new[] { "--start" });
+                                Application.MainLoop.Invoke(() =>
+                                    MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
+                            }
+                            else
+                            {
+                                // Stopping the current Singleton
+                                await WebApi.WebApiAsync(new[] { "--stop" });
+                                Application.MainLoop.Invoke(() =>
+                                    MessageBox.Query("WebApi", "WebApi wurde gestoppt.", "OK"));
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Application.MainLoop.Invoke(() =>
+                                MessageBox.ErrorQuery("Fehler", $"Fehler beim Umschalten der WebApi: {e.Message}", "OK"));
+                        }
+                    })
                 }),
                 new MenuBarItem("_Hilfe", new MenuItem[] {
                     new MenuItem("_Über", "", () => ShowAboutDialog())
