@@ -51,7 +51,65 @@ namespace InventarViewerApp.UI
             var menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_Datei", new MenuItem[] {
                     new MenuItem("_Aktualisieren", "", async () => await RefreshData()),
+                    null,
+                    new MenuItem("_Import Maschinen aus CSV-Datei...", "", async () =>
+                    {
+                        try
+                        {
+                            // Datei-Öffnen-Dialog für CSV-Dateien
+                            var openDialog = new OpenDialog("CSV-Datei auswählen", "Bitte eine CSV-Datei mit Maschinen auswählen")
+                            {
+                                AllowsMultipleSelection = false,
+                                CanChooseDirectories = true,
+                                CanChooseFiles = true,
+                                CanCreateDirectories = false,
+                                AutoSize = true
+                            };
+
+                            // Optional: auf CSV-Dateien einschränken (Filter ist nur Hinweis, keine harte Validierung)
+                            openDialog.AllowedFileTypes = new[] { ".csv" };
+                            openDialog.AllowsOtherFileTypes = false;
+
+                            Application.Run(openDialog);
+
+                            if (openDialog.Canceled)
+                            {
+                                Application.MainLoop.Invoke(() =>
+                                {
+                                    MessageBox.ErrorQuery("Fehler", "CSV-Dateiauswahl wurde abgebrochen.", "OK");
+                                });
+                                return;
+                            }
+
+                            var filePath = openDialog.FilePath?.ToString();
+
+                            if (string.IsNullOrWhiteSpace(filePath))
+                            {
+                                Application.MainLoop.Invoke(() =>
+                                {
+                                    MessageBox.ErrorQuery("Fehler", "Keine Datei ausgewählt.", "OK");
+                                });
+                                return;
+                            }
+
+                            var machinesCountFromCsv = await _dbService.InitializeMachinesFromCsvAsync(filePath);
+
+                            Application.MainLoop.Invoke(() => {
+                                MessageBox.Query("Import", $"Import erfolgreich: {machinesCountFromCsv} Maschinen wurden aus\n\"{filePath}\" importiert.", "OK");
+                            });
+                        }
+                        catch (Exception exception)
+                        {
+                            Application.MainLoop.Invoke(() => {
+                                MessageBox.ErrorQuery("Fehler", $"Fehler beim Importieren der Maschinen aus CSV-Datei: {exception.Message}", "OK");
+                            });
+                        }
+                    }),
+                    null,
                     new MenuItem("_Beenden", "", () => Application.RequestStop())
+                }),
+                new MenuBarItem("_Optionen", new MenuItem[] {
+                    new MenuItem("_Option1", "", () => ShowAboutDialog())
                 }),
                 new MenuBarItem("_Hilfe", new MenuItem[] {
                     new MenuItem("_Über", "", () => ShowAboutDialog())
