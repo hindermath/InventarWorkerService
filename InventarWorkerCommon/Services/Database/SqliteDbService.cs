@@ -708,9 +708,9 @@ public class SqliteDbService
     /// <exception cref="FileNotFoundException">Thrown when the specified CSV file does not exist.</exception>
     public async Task<int> InitializeMachinesFromCsvAsync(string csvFilePath)
     {
-        if (!File.Exists(csvFilePath))
+        if (File.Exists(csvFilePath) is false)
         {
-            throw new FileNotFoundException($"CSV-Datei wurde nicht gefunden: {csvFilePath}");
+            throw new FileNotFoundException($"CSV file would not be found: '{csvFilePath}'.");
         }
 
         var importedCount = 0;
@@ -737,7 +737,7 @@ public class SqliteDbService
                     new {machine.Name},
                     transaction);
 
-                if (!existingMachineId.HasValue)
+                if (existingMachineId.HasValue is false)
                 {
                     const string insertQuery = @"
                     INSERT INTO Machines (Name, OperatingSystem, LastSeen, CreatedAt)
