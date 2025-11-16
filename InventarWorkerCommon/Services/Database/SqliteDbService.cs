@@ -1,6 +1,6 @@
 using System.Globalization;
+using System.Transactions;
 using CsvHelper;
-using CsvHelper.Configuration;
 using Dapper;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
@@ -714,10 +714,10 @@ public class SqliteDbService
         }
 
         var importedCount = 0;
-        using var connection = new SqliteConnection(_connectionString);
+        await using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
-        using var transaction = connection.BeginTransaction();
+        await using var transaction = connection.BeginTransaction();
         try
         {
             using var reader = new StreamReader(csvFilePath);
@@ -725,7 +725,7 @@ public class SqliteDbService
 
             // Register CSV header (optional, if the columns are named differently)
             csv.Context.RegisterClassMap<MachineMap>();
-        
+
             var machines = csv.GetRecords<MachineFromCsv>().ToList();
 
             foreach (var machine in machines)
@@ -733,8 +733,8 @@ public class SqliteDbService
                 // Check if the machine already exists
                 const string selectQuery = "SELECT Id FROM Machines WHERE Name = @Name";
                 var existingMachineId = await connection.QuerySingleOrDefaultAsync<int?>(
-                    selectQuery, 
-                    new { machine.Name }, 
+                    selectQuery,
+                    new {machine.Name},
                     transaction);
 
                 if (!existingMachineId.HasValue)
@@ -761,7 +761,9 @@ public class SqliteDbService
         catch
         {
             transaction.Rollback();
-            throw;
+
+            throw new TransactionAbortedException(
+                $"The database transaction for the CSV import has been aborted. File: '{csvFilePath}'.");
         }
     }
 }
