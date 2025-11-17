@@ -209,7 +209,7 @@ items:
   namespace: InventarWorkerServiceIntegrationTests
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 39)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceRemoteTests.cs", 39)]
 
       [Description("Remote Service Status prüfen")]
 
@@ -217,7 +217,7 @@ items:
     return:
       type: System.Threading.Tasks.Task
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 39)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs", 39)>
 
       <Description("Remote Service Status prüfen")>
 
@@ -228,7 +228,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs
     - type: System.Int32
       value: 39
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
@@ -260,7 +260,7 @@ items:
   namespace: InventarWorkerServiceIntegrationTests
   syntax:
     content: >-
-      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 77)]
+      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceRemoteTests.cs", 77)]
 
       [Description("Remote komplettes Inventar abrufen")]
 
@@ -268,7 +268,7 @@ items:
     return:
       type: System.Threading.Tasks.Task
     content.vb: >-
-      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs", 77)>
+      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs", 77)>
 
       <Description("Remote komplettes Inventar abrufen")>
 
@@ -279,7 +279,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
+      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs
     - type: System.Int32
       value: 77
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
