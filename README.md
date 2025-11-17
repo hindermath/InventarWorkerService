@@ -1055,6 +1055,16 @@ sind jedoch leistungsfähig und haben ihre Berechtigung.
 
 ### 📦 Fertig!
 
+### QuickFixes
+Wenn unter Linux/Ubuntu mit normalen USer-Rechten der InventarWorkerService nicht gestartet werden kann, dann versuche
+```bash
+sudo setcap 'cap_net_bind_service=+ep' ./InventarWorkerService
+# Auflösen des SymLink
+readlink readlink -f /usr/bin/dotnet
+# Antwort
+/usr/lib/dotnet/dotnet
+sudo setcap 'cap_net_bind_service=+ep' /usr/lib/dotnet/dotnet
+```
 ### Projekt-Historie
 Projektstart: 26.06.2025 (Geburtstag und 1. Urlaubstag)
 Funktionsumfang abgeschlossen: 16.11.2025
