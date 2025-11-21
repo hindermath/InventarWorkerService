@@ -48,4 +48,15 @@
         </Content>
     </ItemGroup>
 
+    <!-- Dieser Block sorgt dafür, dass der _site Ordner beim Build kopiert wird -->
+    <Target Name="CopyDocumentationSite" AfterTargets="Build">
+        <ItemGroup>
+            <!-- Forward-Slashes funktionieren auf Windows, Linux und macOS -->
+            <DocSiteFiles Include="../_site/**/*.*" />        </ItemGroup>
+        <!-- Kopiert die Dateien und behält die Ordnerstruktur bei -->
+        <Copy SourceFiles="@(DocSiteFiles)"
+              DestinationFolder="$(TargetDir)_site\%(RecursiveDir)"
+              SkipUnchangedFiles="true" />
+    </Target>
+
 </Project>
