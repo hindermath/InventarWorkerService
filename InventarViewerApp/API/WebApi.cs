@@ -4,6 +4,7 @@ using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -153,7 +154,8 @@ class WebApi
             {
                 Title = "Inventory Viewing API",
                 Version = "v1",
-                Description = "An API to view inventory data",
+                // Markdown is supported here. <br/> ensures line break.
+                Description = "An API to view inventory data.<br />👉 **[Open complete documentation](/apidoc/index.html)**",
                 Contact = new OpenApiContact
                 {
                     Name = "InventarWorkerService Support Team",
@@ -196,6 +198,15 @@ class WebApi
                 }
             });
             */
+
+            xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+            if (System.IO.File.Exists(xmlPath))
+            {
+                options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+            }
+
+            // Filter registrieren, um ExternalDocs hinzuzufügen
+            options.DocumentFilter<ExternalDocsFilter>();
         });
 
         // Register SqliteDbService
@@ -217,6 +228,17 @@ class WebApi
         });
 
         var app = builder.Build();
+
+        // Make documentation from _site folder available under /apidoc
+        var docPath = Path.Combine(builder.Environment.ContentRootPath, "_site");
+        if (Directory.Exists(docPath))
+        {
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(docPath),
+                RequestPath = "/apidoc"
+            });
+        }
 
         // Initialize database
         using (var scope = app.Services.CreateScope())
@@ -285,5 +307,18 @@ class WebApi
         Console.WriteLine("Swagger UI available at http://localhost:80/swagger");
 
         await app.RunAsync(ctsToken);
+    }
+
+    // Add this class at the end of the file (outside of top-level statements)
+    internal class ExternalDocsFilter : Swashbuckle.AspNetCore.SwaggerGen.IDocumentFilter
+    {
+        public void Apply(OpenApiDocument swaggerDoc, Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext context)
+        {
+            swaggerDoc.ExternalDocs = new OpenApiExternalDocs
+            {
+                Description = "Complete Project Documentation",
+                Url = new Uri("/apidoc/index.html", UriKind.Relative)
+            };
+        }
     }
 }
