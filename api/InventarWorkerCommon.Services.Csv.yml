@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Csv
+  commentId: N:InventarWorkerCommon.Services.Csv
+  id: InventarWorkerCommon.Services.Csv
+  children:
+  - InventarWorkerCommon.Services.Csv.MachineMapFromCsv
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Csv
+  nameWithType: InventarWorkerCommon.Services.Csv
+  fullName: InventarWorkerCommon.Services.Csv
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Csv.MachineMapFromCsv
+  commentId: T:InventarWorkerCommon.Services.Csv.MachineMapFromCsv
+  href: InventarWorkerCommon.Services.Csv.MachineMapFromCsv.html
+  name: MachineMapFromCsv
+  nameWithType: MachineMapFromCsv
+  fullName: InventarWorkerCommon.Services.Csv.MachineMapFromCsv
