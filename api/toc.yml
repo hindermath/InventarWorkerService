@@ -163,9 +163,6 @@ items:
   - uid: InventarWorkerCommon.Models.SqlDatabase.MachineFromCsv
     name: MachineFromCsv
     type: Class
-  - uid: InventarWorkerCommon.Models.SqlDatabase.MachineMap
-    name: MachineMap
-    type: Class
   - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
     name: MachineState
     type: Class
@@ -188,6 +185,13 @@ items:
     type: Class
   - uid: InventarWorkerCommon.Services.Common.ServiceContainer
     name: ServiceContainer
+    type: Class
+- uid: InventarWorkerCommon.Services.Csv
+  name: InventarWorkerCommon.Services.Csv
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Csv.MachineMapFromCsv
+    name: MachineMapFromCsv
     type: Class
 - uid: InventarWorkerCommon.Services.Database
   name: InventarWorkerCommon.Services.Database

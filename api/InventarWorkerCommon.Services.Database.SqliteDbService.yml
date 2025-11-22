@@ -41,7 +41,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SqliteDbService
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -78,7 +78,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -115,7 +115,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeDatabase
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -150,7 +150,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveOrUpdateMachineAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 297
+    startLine: 298
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -196,7 +196,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 377
+    startLine: 378
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -237,7 +237,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 414
+    startLine: 415
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -278,7 +278,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 443
+    startLine: 444
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -311,7 +311,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 458
+    startLine: 459
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -345,7 +345,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesWithNetworkInfoAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 476
+    startLine: 477
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -382,7 +382,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDeprovisionedMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 490
+    startLine: 491
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -413,7 +413,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDisabledMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 505
+    startLine: 506
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -447,7 +447,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByIdAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 523
+    startLine: 524
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -488,7 +488,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByNameAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 540
+    startLine: 541
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -529,7 +529,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 554
+    startLine: 555
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -567,7 +567,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 573
+    startLine: 574
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -605,7 +605,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CleanupOldRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 610
+    startLine: 611
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -643,7 +643,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasMachineRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 628
+    startLine: 629
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -674,7 +674,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasHardwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 641
+    startLine: 642
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -705,7 +705,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasSoftwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 654
+    startLine: 655
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -736,7 +736,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 667
+    startLine: 668
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -767,7 +767,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 680
+    startLine: 681
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -798,7 +798,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 693
+    startLine: 694
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -829,7 +829,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeMachinesFromCsvAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-    startLine: 710
+    startLine: 711
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database

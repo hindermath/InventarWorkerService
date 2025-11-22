@@ -27,7 +27,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineFromCsv
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 6
+    startLine: 4
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -64,7 +64,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 13
+    startLine: 11
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -100,7 +100,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperatingSystem
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 21
+    startLine: 19
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -138,7 +138,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastSeen
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 28
+    startLine: 26
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -174,7 +174,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IPv4
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 34
+    startLine: 32
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -205,7 +205,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IPv6
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 39
+    startLine: 37
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -236,7 +236,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FQDN
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 44
+    startLine: 42
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -267,7 +267,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Disabled
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 49
+    startLine: 47
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase
@@ -298,7 +298,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Deprovisioned
     path: InventarWorkerCommon/Models/SqlDatabase/MachineFromCsv.cs
-    startLine: 54
+    startLine: 52
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.SqlDatabase

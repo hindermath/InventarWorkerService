@@ -7,7 +7,6 @@ items:
   - InventarWorkerCommon.Models.SqlDatabase.HardwareInventories
   - InventarWorkerCommon.Models.SqlDatabase.Machine
   - InventarWorkerCommon.Models.SqlDatabase.MachineFromCsv
-  - InventarWorkerCommon.Models.SqlDatabase.MachineMap
   - InventarWorkerCommon.Models.SqlDatabase.MachineState
   - InventarWorkerCommon.Models.SqlDatabase.SoftwareInventories
   langs:
@@ -39,12 +38,6 @@ references:
   name: MachineFromCsv
   nameWithType: MachineFromCsv
   fullName: InventarWorkerCommon.Models.SqlDatabase.MachineFromCsv
-- uid: InventarWorkerCommon.Models.SqlDatabase.MachineMap
-  commentId: T:InventarWorkerCommon.Models.SqlDatabase.MachineMap
-  href: InventarWorkerCommon.Models.SqlDatabase.MachineMap.html
-  name: MachineMap
-  nameWithType: MachineMap
-  fullName: InventarWorkerCommon.Models.SqlDatabase.MachineMap
 - uid: InventarWorkerCommon.Models.SqlDatabase.MachineState
   commentId: T:InventarWorkerCommon.Models.SqlDatabase.MachineState
   href: InventarWorkerCommon.Models.SqlDatabase.MachineState.html
