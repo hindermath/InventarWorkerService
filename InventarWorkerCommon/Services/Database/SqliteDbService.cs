@@ -5,6 +5,7 @@ using Dapper;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
+using InventarWorkerCommon.Services.Csv;
 using Microsoft.Data.Sqlite;
 
 namespace InventarWorkerCommon.Services.Database;
@@ -726,7 +727,7 @@ public class SqliteDbService
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
             // Register CSV header (optional, if the columns are named differently)
-            csv.Context.RegisterClassMap<MachineMap>();
+            csv.Context.RegisterClassMap<MachineMapFromCsv>();
 
             var machines = csv.GetRecords<MachineFromCsv>().ToList();
 
