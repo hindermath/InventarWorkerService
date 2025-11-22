@@ -1,6 +1,6 @@
+using InventarViewerApp.API;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
-using InventarViewerApp.API;
 using Terminal.Gui;
 
 namespace InventarViewerApp.UI
