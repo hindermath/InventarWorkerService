@@ -48,7 +48,7 @@ namespace InventarViewerApp.UI
             
             Add(_tabView);
             
-            // Menüleiste erstellen
+            // Create Menu Bar
             var menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_Datei", new MenuItem[] {
                     new MenuItem("_Aktualisieren", "", async () => await RefreshData()),
@@ -57,7 +57,7 @@ namespace InventarViewerApp.UI
                     {
                         try
                         {
-                            // Datei-Öffnen-Dialog für CSV-Dateien
+                            // File Open Dialog for CSV files
                             var openDialog = new OpenDialog("CSV-Datei auswählen", "Bitte eine CSV-Datei mit Maschinen auswählen")
                             {
                                 AllowsMultipleSelection = false,
@@ -128,7 +128,9 @@ namespace InventarViewerApp.UI
                             Application.MainLoop.Invoke(() =>
                                 MessageBox.ErrorQuery("Fehler", $"Fehler beim Umschalten der WebApi: {e.Message}", "OK"));
                         }
-                    })
+                    }),
+                    null,
+                    new MenuItem("_Einstellungen...", "", () => ShowSettingsDialog())
                 }),
                 new MenuBarItem("_Hilfe", new MenuItem[] {
                     new MenuItem("_Über", "", () => ShowAboutDialog())
@@ -172,5 +174,27 @@ namespace InventarViewerApp.UI
         {
             MessageBox.Query("Über", "Inventar Viewer\nVersion 1.0\n© 2025", "OK");
         }
+
+        private void ShowSettingsDialog()
+        {
+            // Hinweis: Hier sollten idealerweise die aktuellen Werte aus einer Konfiguration geladen werden.
+            // Der Einfachheit halber verwenden wir hier Defaults.
+            var dialog = new SettingsDialog();
+            Application.Run(dialog);
+
+            if (!dialog.Canceled)
+            {
+                var msg = $"Einstellungen gespeichert:\n" +
+                          $"API: {dialog.ClientApiFqdn}:{dialog.ClientApiPort}\n" +
+                          $"Mongo: {dialog.MongoDbFqdn}:{dialog.MongoDbPort}\n" +
+                          $"PgSQL: {dialog.PgSqlDbFqdn}:{dialog.PgSqlDbPort}/{dialog.PgSqlDbName}\n\n" +
+                          "Hinweis: Ein Neustart ist erforderlich, um Änderungen anzuwenden.";
+
+                MessageBox.Query("Einstellungen", msg, "OK");
+
+                // TODO: Werte in einer Konfigurationsdatei speichern, damit sie beim nächsten Start (in Program.cs) genutzt werden können.
+            }
+        }
+
     }
 }
