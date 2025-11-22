@@ -18,12 +18,17 @@ public static class Initialize
     /// <param name="clientApiPort">The port on which the client API is running. The default is "80".</param>
     /// <param name="mongoDbFqdn">The fully qualified domain name of the MongoDB server. The default is "localhost".</param>
     /// <param name="mongoDbPort">The port on which the MongoDB server is running. The default is "27017".</param>
+    /// <param name="pgSqlDbFqdn">The fully qualified domain name of the PostgreSQL database server. The default is "localhost".</param>
+    /// <param name="pgSqlDbPort">The port on which the PostgreSQL database server is running. The default is "5432".</param>
     /// <returns>A disposable container with the initialized instances of services.</returns>
     public static ServiceContainer Services(
         string clientApiFqdn = "localhost",
         string clientApiPort = "80",
         string mongoDbFqdn = "localhost",
-        string mongoDbPort = "27017")
+        string mongoDbPort = "27017",
+        string pgSqlDbFqdn = "localhost",
+        string pgSqlDbPort = "5432"
+        )
     {
         // Initialize API service
         var apiService = new ApiService($"http://{clientApiFqdn}:{clientApiPort}");
@@ -41,7 +46,12 @@ public static class Initialize
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();
 
-        return new ServiceContainer(apiService, dbService, mongoDbService);
+        // Initialize PostgreSQL Service
+        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database=inventar;username=postgres;password=postgres");
+        pgSqlDbService.InitializeDatabase();
+
+        // Return the initialized services
+        return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService);
     }
 
     /// <summary>
@@ -87,16 +97,25 @@ public sealed class ServiceContainer : IDisposable, IAsyncDisposable
     public MongoDbService MongoDbService { get; }
 
     /// <summary>
+    /// Gets the PostgreSQL database service instance for managing connections
+    /// and performing database initialization tasks.
+    /// </summary>
+    public PgSqlDbService PgSqlDbService { get; }
+
+    /// <summary>
     /// Initializes a new instance of the ServiceContainer class.
     /// </summary>
     /// <param name="apiService">The API service instance.</param>
     /// <param name="dbService">The database service instance.</param>
     /// <param name="mongoDbService">The MongoDB service instance.</param>
-    internal ServiceContainer(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService)
+    /// <param name="pgSqlDbService">The PostgreSQL service instance.</param>
+    internal ServiceContainer(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService,
+        PgSqlDbService pgSqlDbService)
     {
         ApiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
         DbService = dbService ?? throw new ArgumentNullException(nameof(dbService));
         MongoDbService = mongoDbService ?? throw new ArgumentNullException(nameof(mongoDbService));
+        PgSqlDbService = pgSqlDbService ?? throw new ArgumentNullException(nameof(pgSqlDbService));
     }
 
     /// <summary>
