@@ -177,22 +177,22 @@ namespace InventarViewerApp.UI
 
         private void ShowSettingsDialog()
         {
-            // Hinweis: Hier sollten idealerweise die aktuellen Werte aus einer Konfiguration geladen werden.
-            // Der Einfachheit halber verwenden wir hier Defaults.
-            var dialog = new SettingsDialog();
-            Application.Run(dialog);
+            // Note: Ideally, the current values should be loaded from a configuration here.
+            // For simplicity, we use defaults here.
+            var settingsDialog = new SettingsDialog();
+            Application.Run(settingsDialog);
 
-            if (!dialog.Canceled)
+            if (!settingsDialog.Canceled)
             {
                 var msg = $"Einstellungen gespeichert:\n" +
-                          $"API: {dialog.ClientApiFqdn}:{dialog.ClientApiPort}\n" +
-                          $"Mongo: {dialog.MongoDbFqdn}:{dialog.MongoDbPort}\n" +
-                          $"PgSQL: {dialog.PgSqlDbFqdn}:{dialog.PgSqlDbPort}/{dialog.PgSqlDbName}\n\n" +
+                          $"API: {settingsDialog.ClientApiFqdn}:{settingsDialog.ClientApiPort}\n" +
+                          $"Mongo: {settingsDialog.MongoDbFqdn}:{settingsDialog.MongoDbPort}\n" +
+                          $"PgSQL: {settingsDialog.PgSqlDbFqdn}:{settingsDialog.PgSqlDbPort}/{settingsDialog.PgSqlDbName}\n\n" +
                           "Hinweis: Ein Neustart ist erforderlich, um Änderungen anzuwenden.";
 
                 MessageBox.Query("Einstellungen", msg, "OK");
 
-                // TODO: Werte in einer Konfigurationsdatei speichern, damit sie beim nächsten Start (in Program.cs) genutzt werden können.
+                // TODO: Store values in a configuration file so they can be used on the next startup (in Program.cs).
             }
         }
 
