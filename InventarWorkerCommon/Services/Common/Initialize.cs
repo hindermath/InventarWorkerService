@@ -47,7 +47,7 @@ public static class Initialize
         mongoDbService.InitializeHardwareMongoDatabase();
 
         // Initialize PostgreSQL Service
-        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database=inventar;username=postgres;password=postgres");
+        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database=postgres"); //";username=postgres;password=postgres");
         pgSqlDbService.InitializeDatabase();
 
         // Return the initialized services
