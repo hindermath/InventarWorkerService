@@ -21,32 +21,64 @@ namespace InventarViewerApp.UI
             string currentMongoFqdn = "localhost", string currentMongoPort = "27017",
             string currentPgSqlFqdn = "localhost", string currentPgSqlPort = "5432",
             string currentPgSqlDbName = "postgres",
-            string currentPgSqlUser = "", string currentPgSqlPassword = "")
-            : base("Einstellungen", 50, 28)
+            string currentPgSqlUser = "", string currentPgSqlPassword = "") 
+            : base("Einstellungen", 60, 30) // Größe für GroupBoxes angepasst
         {
-            var apiLabel = new Label("Client API FQDN:") { X = 1, Y = 1 };
-            var apiFqdnText = new TextField(currentApiFqdn) { X = 20, Y = 1, Width = 25 };            var apiPortLabel = new Label("Port:") { X = 1, Y = 2 };
-            var apiPortText = new TextField(currentApiPort) { X = 20, Y = 2, Width = 10 };
+            // --- Client API Group ---
+            var apiFrame = new FrameView("Client API")
+            {
+                X = 1,
+                Y = 0,
+                Width = Dim.Fill(1),
+                Height = 4
+            };
 
-            var mongoLabel = new Label("MongoDB FQDN:") { X = 1, Y = 4 };
-            var mongoFqdnText = new TextField(currentMongoFqdn) { X = 20, Y = 4, Width = 25 };
-            var mongoPortLabel = new Label("Port:") { X = 1, Y = 5 };
-            var mongoPortText = new TextField(currentMongoPort) { X = 20, Y = 5, Width = 10 };
+            var apiLabel = new Label("FQDN:") { X = 1, Y = 0 };
+            var apiFqdnText = new TextField(currentApiFqdn) { X = 12, Y = 0, Width = Dim.Fill(1) };
+            var apiPortLabel = new Label("Port:") { X = 1, Y = 1 };
+            var apiPortText = new TextField(currentApiPort) { X = 12, Y = 1, Width = 10 };
+            
+            apiFrame.Add(apiLabel, apiFqdnText, apiPortLabel, apiPortText);
 
-            var pgSqlLabel = new Label("PgSQL DB FQDN:") { X = 1, Y = 7 };
-            var pgSqlFqdnText = new TextField(currentPgSqlFqdn) { X = 20, Y = 7, Width = 25 };
-            var pgSqlPortLabel = new Label("Port:") { X = 1, Y = 8 };
-            var pgSqlPortText = new TextField(currentPgSqlPort) { X = 20, Y = 8, Width = 10 };
-            var pgSqlDbLabel = new Label("PgSQL DB Name:") { X = 1, Y = 9 };
-            var pgSqlDbText = new TextField(currentPgSqlDbName) { X = 20, Y = 9, Width = 25 };
+            // --- MongoDB Group ---
+            var mongoFrame = new FrameView("MongoDB")
+            {
+                X = 1,
+                Y = Pos.Bottom(apiFrame),
+                Width = Dim.Fill(1),
+                Height = 4
+            };
 
-            var pgSqlAuthCheck = new CheckBox("PgSQL Auth", !string.IsNullOrEmpty(currentPgSqlUser)) { X = 1, Y = 10 };
+            var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
+            var mongoFqdnText = new TextField(currentMongoFqdn) { X = 12, Y = 0, Width = Dim.Fill(1) };
+            var mongoPortLabel = new Label("Port:") { X = 1, Y = 1 };
+            var mongoPortText = new TextField(currentMongoPort) { X = 12, Y = 1, Width = 10 };
+            
+            mongoFrame.Add(mongoLabel, mongoFqdnText, mongoPortLabel, mongoPortText);
 
-            var pgSqlUserLabel = new Label("User:") { X = 1, Y = 11 };
-            var pgSqlUserText = new TextField(currentPgSqlUser) { X = 20, Y = 11, Width = 25 };
+            // --- PgSQL Group ---
+            var pgSqlFrame = new FrameView("PostgreSQL")
+            {
+                X = 1,
+                Y = Pos.Bottom(mongoFrame),
+                Width = Dim.Fill(1),
+                Height = 11
+            };
 
-            var pgSqlPassLabel = new Label("Passwort:") { X = 1, Y = 12 };
-            var pgSqlPassText = new TextField(currentPgSqlPassword) { X = 20, Y = 12, Width = 25, Secret = true };
+            var pgSqlLabel = new Label("FQDN:") { X = 1, Y = 0 };
+            var pgSqlFqdnText = new TextField(currentPgSqlFqdn) { X = 12, Y = 0, Width = Dim.Fill(1) };
+            var pgSqlPortLabel = new Label("Port:") { X = 1, Y = 1 };
+            var pgSqlPortText = new TextField(currentPgSqlPort) { X = 12, Y = 1, Width = 10 };
+            var pgSqlDbLabel = new Label("DB Name:") { X = 1, Y = 2 }; 
+            var pgSqlDbText = new TextField(currentPgSqlDbName) { X = 12, Y = 2, Width = Dim.Fill(1) }; 
+
+            var pgSqlAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentPgSqlUser)) { X = 1, Y = 4 };
+            
+            var pgSqlUserLabel = new Label("User:") { X = 1, Y = 5 };
+            var pgSqlUserText = new TextField(currentPgSqlUser) { X = 12, Y = 5, Width = Dim.Fill(1) };
+            
+            var pgSqlPassLabel = new Label("Passwort:") { X = 1, Y = 6 };
+            var pgSqlPassText = new TextField(currentPgSqlPassword) { X = 12, Y = 6, Width = Dim.Fill(1), Secret = true };
 
             // Initialer Status basierend auf Checkbox
             pgSqlUserText.Enabled = pgSqlAuthCheck.Checked;
@@ -58,10 +90,11 @@ namespace InventarViewerApp.UI
                 pgSqlPassText.Enabled = pgSqlAuthCheck.Checked;
             };
 
-            Add(apiLabel, apiFqdnText, apiPortLabel, apiPortText);
-            Add(mongoLabel, mongoFqdnText, mongoPortLabel, mongoPortText);
-            Add(pgSqlLabel, pgSqlFqdnText, pgSqlPortLabel, pgSqlPortText, pgSqlDbLabel, pgSqlDbText);
-            Add(pgSqlAuthCheck, pgSqlUserLabel, pgSqlUserText, pgSqlPassLabel, pgSqlPassText);
+            pgSqlFrame.Add(pgSqlLabel, pgSqlFqdnText, pgSqlPortLabel, pgSqlPortText, 
+                           pgSqlDbLabel, pgSqlDbText, pgSqlAuthCheck, 
+                           pgSqlUserLabel, pgSqlUserText, pgSqlPassLabel, pgSqlPassText);
+
+            Add(apiFrame, mongoFrame, pgSqlFrame);
 
             var btnOk = new Button("OK", true);
             btnOk.Clicked += () =>
@@ -73,7 +106,7 @@ namespace InventarViewerApp.UI
                 PgSqlDbFqdn = pgSqlFqdnText.Text.ToString();
                 PgSqlDbPort = pgSqlPortText.Text.ToString();
                 PgSqlDbName = pgSqlDbText.Text.ToString();
-
+                
                 if (pgSqlAuthCheck.Checked)
                 {
                     PgSqlUser = pgSqlUserText.Text.ToString();
