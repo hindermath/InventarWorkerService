@@ -8,21 +8,24 @@ namespace InventarViewerApp.UI
         public string ClientApiPort { get; private set; }
         public string MongoDbFqdn { get; private set; }
         public string MongoDbPort { get; private set; }
+        public string MongoDbUser { get; private set; }
+        public string MongoDbPassword { get; private set; }
         public string PgSqlDbFqdn { get; private set; }
         public string PgSqlDbPort { get; private set; }
         public string PgSqlDbName { get; private set; }
         public string PgSqlUser { get; private set; }
         public string PgSqlPassword { get; private set; }
-
+        
         public bool Canceled { get; private set; } = true;
 
         public SettingsDialog(
             string currentApiFqdn = "localhost", string currentApiPort = "80",
             string currentMongoFqdn = "localhost", string currentMongoPort = "27017",
+            string currentMongoUser = "", string currentMongoPassword = "",
             string currentPgSqlFqdn = "localhost", string currentPgSqlPort = "5432",
             string currentPgSqlDbName = "postgres",
             string currentPgSqlUser = "", string currentPgSqlPassword = "") 
-            : base("Einstellungen", 60, 30) // Größe für GroupBoxes angepasst
+            : base("Einstellungen", 60, 38) // Höhe vergrößert für neue Felder
         {
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
@@ -46,7 +49,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(apiFrame),
                 Width = Dim.Fill(1),
-                Height = 4
+                Height = 9 // Höhe angepasst
             };
 
             var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
@@ -54,13 +57,32 @@ namespace InventarViewerApp.UI
             var mongoPortLabel = new Label("Port:") { X = 1, Y = 1 };
             var mongoPortText = new TextField(currentMongoPort) { X = 12, Y = 1, Width = 10 };
             
-            mongoFrame.Add(mongoLabel, mongoFqdnText, mongoPortLabel, mongoPortText);
+            var mongoAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentMongoUser)) { X = 1, Y = 3 };
+            
+            var mongoUserLabel = new Label("User:") { X = 1, Y = 4 };
+            var mongoUserText = new TextField(currentMongoUser) { X = 12, Y = 4, Width = Dim.Fill(1) };
+            
+            var mongoPassLabel = new Label("Passwort:") { X = 1, Y = 5 };
+            var mongoPassText = new TextField(currentMongoPassword) { X = 12, Y = 5, Width = Dim.Fill(1), Secret = true };
+
+            // Initialer Status basierend auf Checkbox
+            mongoUserText.Enabled = mongoAuthCheck.Checked;
+            mongoPassText.Enabled = mongoAuthCheck.Checked;
+
+            mongoAuthCheck.Toggled += (_) =>
+            {
+                mongoUserText.Enabled = mongoAuthCheck.Checked;
+                mongoPassText.Enabled = mongoAuthCheck.Checked;
+            };
+
+            mongoFrame.Add(mongoLabel, mongoFqdnText, mongoPortLabel, mongoPortText, 
+                           mongoAuthCheck, mongoUserLabel, mongoUserText, mongoPassLabel, mongoPassText);
 
             // --- PgSQL Group ---
             var pgSqlFrame = new FrameView("PostgreSQL")
             {
                 X = 1,
-                Y = Pos.Bottom(mongoFrame),
+                Y = Pos.Bottom(mongoFrame), // Positioniert unter MongoFrame
                 Width = Dim.Fill(1),
                 Height = 11
             };
@@ -103,6 +125,18 @@ namespace InventarViewerApp.UI
                 ClientApiPort = apiPortText.Text.ToString();
                 MongoDbFqdn = mongoFqdnText.Text.ToString();
                 MongoDbPort = mongoPortText.Text.ToString();
+                
+                if (mongoAuthCheck.Checked)
+                {
+                    MongoDbUser = mongoUserText.Text.ToString();
+                    MongoDbPassword = mongoPassText.Text.ToString();
+                }
+                else
+                {
+                    MongoDbUser = string.Empty;
+                    MongoDbPassword = string.Empty;
+                }
+
                 PgSqlDbFqdn = pgSqlFqdnText.Text.ToString();
                 PgSqlDbPort = pgSqlPortText.Text.ToString();
                 PgSqlDbName = pgSqlDbText.Text.ToString();
