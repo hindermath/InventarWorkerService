@@ -29,7 +29,7 @@ public class PgSqlDbService
     public void InitializeDatabase()
     {
         using var connection = new NpgsqlConnection(_connectionString);
-        connection.Open();
+        // connection.Open();
     }
 
 
