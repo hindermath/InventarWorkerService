@@ -59,38 +59,43 @@ namespace InventarViewerApp.UI
             
             Add(_tabView);
 
-            _webApiMenuItem = new MenuItem("_WebApi", "Gestoppt", async () => await ToggleWebApiAction());
+            _webApiMenuItem = new MenuItem("_WebApi", "Gestoppt", async () => await ToggleWebApiAction(), shortcut:Key.CtrlMask| Key.ShiftMask | Key.W);
             
             // Create Menu Bar
             var menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_Datei", new MenuItem[] {
-                    new MenuItem("_Aktualisieren", "", async () => await RefreshData()),
+                    new MenuItem("_Aktualisieren", "", async () => await RefreshData(), shortcut:Key.F5),
                     null,
-                    new MenuItem("_Import Maschinen aus CSV-Datei...", "", async () => await ImportCsvAction()),
+                    new MenuItem("Impor_t Maschinen aus CSV-Datei...", "", async () => await ImportCsvAction(), shortcut:Key.F3),
                     null,
-                    new MenuItem("_Beenden", "", () => Application.RequestStop())
+                    new MenuItem("_Beenden", "", () => Application.RequestStop(), shortcut:Key.CtrlMask| Key.ShiftMask | Key.Q)
                 }),
                 new MenuBarItem("_Optionen", new MenuItem[] {
                     _webApiMenuItem,
                     null,
-                    new MenuItem("_Einstellungen...", "", () => ShowSettingsDialog())
+                    new MenuItem("Einstellun_gen...", "", () => ShowSettingsDialog(), shortcut:Key.F8)
                 }),
                 new MenuBarItem("_Hilfe", new MenuItem[] {
-                    new MenuItem("_Über", "", () => ShowAboutDialog())
+                    new MenuItem("Ü_ber", "", () => ShowAboutDialog(), shortcut:Key.F1)
                 })
             });
             
             Application.Top.Add(menu);
 
             // --- STATUS BAR INITIALISIERUNG ---
+            // Plattformspezifische Shortcut-Anzeige
+            var quitShortcutText = GetPlatformSpecificShortcutText("B", "~B~eenden");
+            var importShortcutText = GetPlatformSpecificShortcutText("T", "CSV Impor~t~");
+            var webApiShortcutText = GetPlatformSpecificShortcutText("W", "~W~ebApi");
+
 
             // Item für die Historie (zeigt die letzte Nachricht)
-            _historyStatusItem = new StatusItem(Key.F12, "Bereit", () => ShowHistoryDialog());
+            _historyStatusItem = new StatusItem(Key.F12, "~F12~ Historie (Verlauf) : Bereit", () => ShowHistoryDialog());
 
             _statusBar = new StatusBar(new StatusItem[] {
-                new StatusItem(Key.CtrlMask| Key.Q, "~^Q~ Beenden", () => Application.RequestStop()),
-                new StatusItem(Key.CtrlMask| Key.I, "~^I~ CSV Import", async () => await ImportCsvAction()),
-                new StatusItem(Key.CtrlMask| Key.W, "~^W~ WebApi", async () => await ToggleWebApiAction()),
+                new StatusItem(Key.CtrlMask| Key.B, quitShortcutText, () => Application.RequestStop()),
+                new StatusItem(Key.CtrlMask| Key.T, importShortcutText, async () => await ImportCsvAction()),
+                new StatusItem(Key.CtrlMask| Key.W, webApiShortcutText, async () => await ToggleWebApiAction()),
                 // Trenner und Historie
                 new StatusItem(Key.Null, "|", null),
                 _historyStatusItem
@@ -100,7 +105,15 @@ namespace InventarViewerApp.UI
 
         }
 
-                // --- NEUE HILFSMETHODEN ---
+        // --- NEUE HILFSMETHODEN ---
+        private string GetPlatformSpecificShortcutText(string key, string description)
+        {
+            var isMacOs = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(
+                System.Runtime.InteropServices.OSPlatform.OSX);
+
+            var modifier = isMacOs ? "^" : "Ctrl"; // ⌘
+            return $"~{modifier}+{key}~ {description}";
+        }
 
         private void AddToHistory(string message)
         {
