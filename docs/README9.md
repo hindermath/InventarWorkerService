@@ -25,7 +25,7 @@ Merkmale eines POCO
 - Keine Vererbung von speziellen Klassen.
 - Nur Properties, die Daten beschreiben.
 - Kann direkt in Entity Framework als Datenmodell verwendet werden, ohne zusätzliche Attribute oder Basisklassen.
-  Warum wichtig?
+### Warum wichtig?
 - Trennung von Geschäftslogik und Infrastruktur: Deine Klassen bleiben unabhängig vom Datenbank- oder Framework-Code.
 - Testbarkeit: POCOs sind leicht in Unit Tests einsetzbar.
 - Wiederverwendbarkeit: Du kannst sie in verschiedenen Projekten oder Schichten nutzen.
