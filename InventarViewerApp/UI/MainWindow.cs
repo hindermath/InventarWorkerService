@@ -16,6 +16,12 @@ namespace InventarViewerApp.UI
         private TabView _tabView;
         private MenuItem _webApiMenuItem;
 
+        // Für die Historie
+        private readonly List<string> _actionHistory = new();
+        private StatusItem _historyStatusItem;
+        private StatusBar _statusBar;
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -49,86 +55,14 @@ namespace InventarViewerApp.UI
             
             Add(_tabView);
 
-            _webApiMenuItem = new MenuItem("_WebApi", "Gestoppt", async () =>
-            {
-                try
-                {
-                    if (!WebApi.IsRunning)
-                    {
-                        // Start as Singleton
-                        await WebApi.WebApiAsync(new[] {"--start"});
-                        Application.MainLoop.Invoke(() =>
-                            MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
-                        UpdateWebApiMenuItemText();
-                    }
-                    else
-                    {
-                        // Stopping the current Singleton
-                        await WebApi.WebApiAsync(new[] {"--stop"});
-                        Application.MainLoop.Invoke(() =>
-                            MessageBox.Query("WebApi", "WebApi wurde gestoppt.", "OK"));
-                        UpdateWebApiMenuItemText();
-                    }
-                }
-                catch (Exception e)
-                {
-                    Application.MainLoop.Invoke(() =>
-                        MessageBox.ErrorQuery("Fehler", $"Fehler beim Umschalten der WebApi: {e.Message}", "OK"));
-                }
-            });
+            _webApiMenuItem = new MenuItem("_WebApi", "Gestoppt", async () => await ToggleWebApiAction());
             
             // Create Menu Bar
             var menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_Datei", new MenuItem[] {
                     new MenuItem("_Aktualisieren", "", async () => await RefreshData()),
                     null,
-                    new MenuItem("_Import Maschinen aus CSV-Datei...", "", async () =>
-                    {
-                        try
-                        {
-                            // File Open Dialog for CSV files
-                            var openDialog = new OpenDialog("CSV-Datei auswählen", "Bitte eine CSV-Datei mit Maschinen auswählen")
-                            {
-                                AllowsMultipleSelection = false,
-                                AllowedFileTypes = new[] { ".csv" },
-                            };
-
-
-                            Application.Run(openDialog);
-
-                            if (openDialog.Canceled)
-                            {
-                                Application.MainLoop.Invoke(() =>
-                                {
-                                    MessageBox.ErrorQuery("Fehler", "CSV-Dateiauswahl wurde abgebrochen.", "OK");
-                                });
-                                return;
-                            }
-
-                            var filePath = openDialog.FilePath?.ToString();
-
-                            if (string.IsNullOrWhiteSpace(filePath))
-                            {
-                                Application.MainLoop.Invoke(() =>
-                                {
-                                    MessageBox.ErrorQuery("Fehler", "Keine Datei ausgewählt.", "OK");
-                                });
-                                return;
-                            }
-
-                            var machinesCountFromCsv = await _dbService.InitializeMachinesFromCsvAsync(filePath);
-
-                            Application.MainLoop.Invoke(() => {
-                                MessageBox.Query("Import", $"Import erfolgreich: {machinesCountFromCsv} Maschinen wurden aus\n\"{filePath}\" importiert.", "OK");
-                            });
-                        }
-                        catch (Exception exception)
-                        {
-                            Application.MainLoop.Invoke(() => {
-                                MessageBox.ErrorQuery("Fehler", $"Fehler beim Importieren der Maschinen aus CSV-Datei: {exception.Message}", "OK");
-                            });
-                        }
-                    }),
+                    new MenuItem("_Import Maschinen aus CSV-Datei...", "", async () => await ImportCsvAction()),
                     null,
                     new MenuItem("_Beenden", "", () => Application.RequestStop())
                 }),
@@ -143,6 +77,127 @@ namespace InventarViewerApp.UI
             });
             
             Application.Top.Add(menu);
+
+            // --- STATUS BAR INITIALISIERUNG ---
+
+            // Item für die Historie (zeigt die letzte Nachricht)
+            _historyStatusItem = new StatusItem(Key.F12, "Bereit", () => ShowHistoryDialog());
+
+            _statusBar = new StatusBar(new StatusItem[] {
+                new StatusItem(Key.CtrlMask| Key.Q, "~^Q~ Beenden", () => Application.RequestStop()),
+                new StatusItem(Key.CtrlMask| Key.I, "~^I~ CSV Import", async () => await ImportCsvAction()),
+                new StatusItem(Key.CtrlMask| Key.W, "~^W~ WebApi", async () => await ToggleWebApiAction()),
+                // Trenner und Historie
+                new StatusItem(Key.Null, "|", null),
+                _historyStatusItem
+            });
+
+            Application.Top.Add(_statusBar);
+
+        }
+
+                // --- NEUE HILFSMETHODEN ---
+
+        private void AddToHistory(string message)
+        {
+            var timestampedMessage = $"{DateTime.Now:HH:mm:ss}: {message}";
+            _actionHistory.Add(timestampedMessage);
+
+            // Aktualisiere den Text in der StatusBar
+            if (_historyStatusItem != null)
+            {
+                _historyStatusItem.Title = $"Log: {message}";
+                _statusBar.SetNeedsDisplay();
+            }
+        }
+
+        private void ShowHistoryDialog()
+        {
+            var historyText = _actionHistory.Count > 0
+                ? string.Join("\n", _actionHistory)
+                : "Keine Einträge vorhanden.";
+
+            MessageBox.Query("Historie (Verlauf)", historyText, "OK");
+        }
+
+        private async Task ToggleWebApiAction()
+        {
+            try
+            {
+                if (!WebApi.IsRunning)
+                {
+                    // Start as Singleton
+                    await WebApi.WebApiAsync(new[] {"--start"});
+                    AddToHistory("WebApi wurde gestartet.");
+
+                    // Optional: Trotzdem MessageBox wenn gewünscht, oder nur Statusleiste nutzen
+                    // Application.MainLoop.Invoke(() => MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
+                }
+                else
+                {
+                    // Stopping the current Singleton
+                    await WebApi.WebApiAsync(new[] {"--stop"});
+                    AddToHistory("WebApi wurde gestoppt.");
+                }
+                UpdateWebApiMenuItemText();
+            }
+            catch (Exception e)
+            {
+                var err = $"Fehler WebApi: {e.Message}";
+                AddToHistory(err);
+                Application.MainLoop.Invoke(() =>
+                    MessageBox.ErrorQuery("Fehler", err, "OK"));
+            }
+        }
+
+        private async Task ImportCsvAction()
+        {
+            try
+            {
+                // File Open Dialog for CSV files
+                var openDialog = new OpenDialog("CSV-Datei auswählen", "Bitte eine CSV-Datei mit Maschinen auswählen")
+                {
+                    AllowsMultipleSelection = false,
+                    AllowedFileTypes = new[] { ".csv" },
+                };
+
+                Application.Run(openDialog);
+
+                if (openDialog.Canceled)
+                {
+                    AddToHistory("CSV-Import abgebrochen.");
+                    return;
+                }
+
+                var filePath = openDialog.FilePath?.ToString();
+
+                if (string.IsNullOrWhiteSpace(filePath))
+                {
+                    Application.MainLoop.Invoke(() =>
+                    {
+                        MessageBox.ErrorQuery("Fehler", "Keine Datei ausgewählt.", "OK");
+                    });
+                    return;
+                }
+
+                AddToHistory($"Starte Import aus {Path.GetFileName(filePath)}...");
+                var machinesCountFromCsv = await _dbService.InitializeMachinesFromCsvAsync(filePath);
+
+                var successMsg = $"Import erfolgreich: {machinesCountFromCsv} Maschinen importiert.";
+                AddToHistory(successMsg);
+
+                Application.MainLoop.Invoke(() => {
+                    MessageBox.Query("Import", successMsg, "OK");
+                });
+            }
+            catch (Exception exception)
+            {
+                var errorMsg = $"Fehler Import: {exception.Message}";
+                AddToHistory(errorMsg);
+                Application.MainLoop.Invoke(() => {
+                    MessageBox.ErrorQuery("Fehler", errorMsg, "OK");
+                });
+            }
         }
 
         private async Task RefreshData()
