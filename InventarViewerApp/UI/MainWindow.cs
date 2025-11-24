@@ -14,6 +14,7 @@ namespace InventarViewerApp.UI
         private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
         private TabView _tabView;
+        private MenuItem _webApiMenuItem;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -47,6 +48,34 @@ namespace InventarViewerApp.UI
             _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService, _mongoDbService)),false);
             
             Add(_tabView);
+
+            _webApiMenuItem = new MenuItem("_WebApi", "Gestoppt", async () =>
+            {
+                try
+                {
+                    if (!WebApi.IsRunning)
+                    {
+                        // Start as Singleton
+                        await WebApi.WebApiAsync(new[] {"--start"});
+                        Application.MainLoop.Invoke(() =>
+                            MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
+                        UpdateWebApiMenuItemText();
+                    }
+                    else
+                    {
+                        // Stopping the current Singleton
+                        await WebApi.WebApiAsync(new[] {"--stop"});
+                        Application.MainLoop.Invoke(() =>
+                            MessageBox.Query("WebApi", "WebApi wurde gestoppt.", "OK"));
+                        UpdateWebApiMenuItemText();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Application.MainLoop.Invoke(() =>
+                        MessageBox.ErrorQuery("Fehler", $"Fehler beim Umschalten der WebApi: {e.Message}", "OK"));
+                }
+            });
             
             // Create Menu Bar
             var menu = new MenuBar(new MenuBarItem[] {
@@ -104,31 +133,7 @@ namespace InventarViewerApp.UI
                     new MenuItem("_Beenden", "", () => Application.RequestStop())
                 }),
                 new MenuBarItem("_Optionen", new MenuItem[] {
-                    new MenuItem("_WebApi", "", async () =>
-                    {
-                        try
-                        {
-                            if (!WebApi.IsRunning)
-                            {
-                                // Start as Singleton
-                                await WebApi.WebApiAsync(new[] { "--start" });
-                                Application.MainLoop.Invoke(() =>
-                                    MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
-                            }
-                            else
-                            {
-                                // Stopping the current Singleton
-                                await WebApi.WebApiAsync(new[] { "--stop" });
-                                Application.MainLoop.Invoke(() =>
-                                    MessageBox.Query("WebApi", "WebApi wurde gestoppt.", "OK"));
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Application.MainLoop.Invoke(() =>
-                                MessageBox.ErrorQuery("Fehler", $"Fehler beim Umschalten der WebApi: {e.Message}", "OK"));
-                        }
-                    }),
+                    _webApiMenuItem,
                     null,
                     new MenuItem("_Einstellungen...", "", () => ShowSettingsDialog())
                 }),
@@ -193,6 +198,14 @@ namespace InventarViewerApp.UI
                 MessageBox.Query("Einstellungen", msg, "OK");
 
                 // TODO: Store values in a configuration file so they can be used on the next startup (in Program.cs).
+            }
+        }
+        // Neue Methode zum Aktualisieren des WebApi MenuItem Textes
+        private void UpdateWebApiMenuItemText()
+        {
+            if (_webApiMenuItem != null)
+            {
+                _webApiMenuItem.Help = WebApi.IsRunning ? "Gestartet" : "Gestoppt";
             }
         }
 
