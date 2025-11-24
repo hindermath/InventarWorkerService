@@ -82,14 +82,14 @@ namespace InventarViewerApp.UI
             
             Application.Top.Add(menu);
 
-            // --- STATUS BAR INITIALISIERUNG ---
-            // Plattformspezifische Shortcut-Anzeige
+            // --- STATUS BAR INITIALIZATION ---
+            // Platform-specific shortcut display
             var quitShortcutText = GetPlatformSpecificShortcutText("B", "~B~eenden");
             var importShortcutText = GetPlatformSpecificShortcutText("T", "CSV Impor~t~");
             var webApiShortcutText = GetPlatformSpecificShortcutText("W", "~W~ebApi");
 
 
-            // Item für die Historie (zeigt die letzte Nachricht)
+            // History item (shows the last message)
             _historyStatusItem = new StatusItem(Key.F12, "~F12~ Historie (Verlauf) : Bereit", () => ShowHistoryDialog());
 
             _statusBar = new StatusBar(new StatusItem[] {
@@ -105,7 +105,7 @@ namespace InventarViewerApp.UI
 
         }
 
-        // --- NEUE HILFSMETHODEN ---
+        // --- NEW HELPER METHODS ---
         private string GetPlatformSpecificShortcutText(string key, string description)
         {
             var isMacOs = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(
@@ -120,7 +120,7 @@ namespace InventarViewerApp.UI
             var timestampedMessage = $"{DateTime.Now:HH:mm:ss}: {message}";
             _actionHistory.Add(timestampedMessage);
 
-            // Aktualisiere den Text in der StatusBar
+            // Update the text in the StatusBar
             if (_historyStatusItem != null)
             {
                 _historyStatusItem.Title = $"Log: {message}";
@@ -146,9 +146,6 @@ namespace InventarViewerApp.UI
                     // Start as Singleton
                     await WebApi.WebApiAsync(new[] {"--start"});
                     AddToHistory("WebApi wurde gestartet.");
-
-                    // Optional: Trotzdem MessageBox wenn gewünscht, oder nur Statusleiste nutzen
-                    // Application.MainLoop.Invoke(() => MessageBox.Query("WebApi", "WebApi wurde gestartet.", "OK"));
                 }
                 else
                 {
@@ -160,10 +157,10 @@ namespace InventarViewerApp.UI
             }
             catch (Exception e)
             {
-                var err = $"Fehler WebApi: {e.Message}";
-                AddToHistory(err);
+                var errorMsg = $"Fehler WebApi: {e.Message}";
+                AddToHistory(errorMsg);
                 Application.MainLoop.Invoke(() =>
-                    MessageBox.ErrorQuery("Fehler", err, "OK"));
+                    MessageBox.ErrorQuery("Fehler", errorMsg, "OK"));
             }
         }
 
