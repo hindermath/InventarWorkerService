@@ -3,7 +3,7 @@ namespace InventarWorkerCommon.Models.Software;
 /// <summary>
 /// Represents information about an installed software package or application.
 /// </summary>
-public record SoftwareInfo
+public class SoftwareInfo
 {
     /// <summary>
     /// Gets or sets the display name of the software.

@@ -8,7 +8,7 @@ public record NetworkInfo
     /// <summary>
     /// Gets or sets the interface name (for example, "eth0" or "Wi-Fi").
     /// </summary>
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets or sets a descriptive label provided by the OS for the interface.

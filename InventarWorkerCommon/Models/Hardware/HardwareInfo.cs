@@ -6,7 +6,7 @@ namespace InventarWorkerCommon.Models.Hardware;
 /// <summary>
 /// Aggregates system, CPU, memory, disks, network, OS and software inventory data.
 /// </summary>
-public record HardwareInfo
+public class HardwareInfo
 {
     /// <summary>
     /// Gets or sets the timestamp when this hardware snapshot was collected.

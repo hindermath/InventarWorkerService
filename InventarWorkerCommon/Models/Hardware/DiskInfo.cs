@@ -8,7 +8,7 @@ public record DiskInfo
     /// <summary>
     /// Gets or sets the drive name or letter (for example, "C:").
     /// </summary>
-    public string DriveName { get; set; } = string.Empty;
+    public string DriveName { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the type of the drive (for example, Fixed, Removable, Network).
@@ -43,5 +43,5 @@ public record DiskInfo
     /// <summary>
     /// Gets or sets a value indicating whether the drive is ready and accessible.
     /// </summary>
-    public bool IsReady { get; set; }
+    public bool IsReady { get; init; }
 }
