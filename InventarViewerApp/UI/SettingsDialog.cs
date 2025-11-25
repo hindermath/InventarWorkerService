@@ -25,7 +25,7 @@ namespace InventarViewerApp.UI
             string currentPgSqlFqdn = "localhost", string currentPgSqlPort = "5432",
             string currentPgSqlDbName = "postgres",
             string currentPgSqlUser = "", string currentPgSqlPassword = "") 
-            : base("Einstellungen", 60, 38) // Höhe vergrößert für neue Felder
+            : base("Einstellungen", 60, 24) // Höhe vergrößert für neue Felder
         {
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
@@ -49,7 +49,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(apiFrame),
                 Width = Dim.Fill(1),
-                Height = 9 // Höhe angepasst
+                Height = 8 // Höhe angepasst
             };
 
             var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
@@ -84,7 +84,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(mongoFrame), // Positioniert unter MongoFrame
                 Width = Dim.Fill(1),
-                Height = 11
+                Height = 9
             };
 
             var pgSqlLabel = new Label("FQDN:") { X = 1, Y = 0 };
