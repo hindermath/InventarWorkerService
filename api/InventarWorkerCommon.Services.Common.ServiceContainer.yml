@@ -11,6 +11,7 @@ items:
   - InventarWorkerCommon.Services.Common.ServiceContainer.DisposeAsync
   - InventarWorkerCommon.Services.Common.ServiceContainer.Finalize
   - InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService
+  - InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
   langs:
   - csharp
   - vb
@@ -25,7 +26,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceContainer
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 69
+    startLine: 79
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -64,7 +65,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ApiService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 76
+    startLine: 86
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -95,7 +96,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 81
+    startLine: 91
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -126,7 +127,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 86
+    startLine: 96
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -139,6 +140,40 @@ items:
       type: InventarWorkerCommon.Services.Database.MongoDbService
     content.vb: Public ReadOnly Property MongoDbService As MongoDbService
   overload: InventarWorkerCommon.Services.Common.ServiceContainer.MongoDbService*
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
+  commentId: P:InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
+  id: PgSqlDbService
+  parent: InventarWorkerCommon.Services.Common.ServiceContainer
+  langs:
+  - csharp
+  - vb
+  name: PgSqlDbService
+  nameWithType: ServiceContainer.PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: PgSqlDbService
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 102
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: >-
+    Gets the PostgreSQL database service instance for managing connections
+
+    and performing database initialization tasks.
+  example: []
+  syntax:
+    content: public PgSqlDbService PgSqlDbService { get; }
+    parameters: []
+    return:
+      type: InventarWorkerCommon.Services.Database.PgSqlDbService
+    content.vb: Public ReadOnly Property PgSqlDbService As PgSqlDbService
+  overload: InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService*
 - uid: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
   commentId: M:InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
   id: Dispose
@@ -157,7 +192,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 104
+    startLine: 123
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -187,7 +222,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisposeAsync
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 114
+    startLine: 133
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -220,7 +255,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Finalize
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 230
+    startLine: 249
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -592,6 +627,19 @@ references:
   name: MongoDbService
   nameWithType: MongoDbService
   fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService*
+  commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
+  href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_PgSqlDbService
+  name: PgSqlDbService
+  nameWithType: ServiceContainer.PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Common.ServiceContainer.PgSqlDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Common.ServiceContainer.Dispose*
   commentId: Overload:InventarWorkerCommon.Services.Common.ServiceContainer.Dispose
   href: InventarWorkerCommon.Services.Common.ServiceContainer.html#InventarWorkerCommon_Services_Common_ServiceContainer_Dispose
