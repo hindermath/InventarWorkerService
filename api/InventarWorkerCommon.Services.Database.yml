@@ -5,6 +5,7 @@ items:
   id: InventarWorkerCommon.Services.Database
   children:
   - InventarWorkerCommon.Services.Database.MongoDbService
+  - InventarWorkerCommon.Services.Database.PgSqlDbService
   - InventarWorkerCommon.Services.Database.SqliteDbService
   langs:
   - csharp
@@ -23,6 +24,13 @@ references:
   name: MongoDbService
   nameWithType: MongoDbService
   fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Database.SqliteDbService
   commentId: T:InventarWorkerCommon.Services.Database.SqliteDbService
   parent: InventarWorkerCommon.Services.Database
