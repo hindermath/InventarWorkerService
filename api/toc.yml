@@ -54,6 +54,9 @@ items:
   - uid: InventarViewerApp.UI.MainWindow
     name: MainWindow
     type: Class
+  - uid: InventarViewerApp.UI.SettingsDialog
+    name: SettingsDialog
+    type: Class
   - uid: InventarViewerApp.UI.SoftwareView
     name: SoftwareView
     type: Class
@@ -199,6 +202,9 @@ items:
   items:
   - uid: InventarWorkerCommon.Services.Database.MongoDbService
     name: MongoDbService
+    type: Class
+  - uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+    name: PgSqlDbService
     type: Class
   - uid: InventarWorkerCommon.Services.Database.SqliteDbService
     name: SqliteDbService
