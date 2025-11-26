@@ -13,17 +13,13 @@ partial class Program
             await WebApiAsync(args);
             return;
         }
-
-        // Initialize services
-        //var (apiService, dbService, mongoDbService) = Services();
-
-        // Services use...
-        // Automatic Disposal by 'using' Statement
+        // Services use with automatic Disposal by 'using' Statement
         using var serviceContainer = Services();
         var apiService = serviceContainer.ApiService;
         var dbService = serviceContainer.DbService;
         var mongoDbService = serviceContainer.MongoDbService;
+        var pgSqlDbService = serviceContainer.PgSqlDbService;
         // Start Terminal.GUI Application
-        TuiApp(apiService, dbService, mongoDbService);
+        TuiApp(apiService, dbService, mongoDbService, pgSqlDbService);
     }
 }
