@@ -94,6 +94,17 @@ namespace InventarViewerApp.UI
         /// The dialog provides input fields for entering connection details
         /// and allows the user to either save or cancel their changes.
         /// </summary>
+        /// <param name="clientApiFqdn">The Fully Qualified Domain Name (FQDN) of the Client API.</param>
+        /// <param name="clientApiPort">The port number for the Client API.</param>
+        /// <param name="mongoDbFqdn">The FQDN of the MongoDB server.</param>
+        /// <param name="mongoDbPort">The port number for the MongoDB server.</param>
+        /// <param name="mongoDbUser">The username for MongoDB authentication.</param>
+        /// <param name="mongoDbPassword">The password for MongoDB authentication.</param>
+        /// <param name="pgSqlDbFqdn">The FQDN of the PostgreSQL server.</param>
+        /// <param name="pgSqlDbPort">The port number for the PostgreSQL server.</param>
+        /// <param name="pgSqlDbName">The name of the PostgreSQL database.</param>
+        /// <param name="pgSqlUser">The username for PostgreSQL authentication.</param>
+        /// <param name="pgSqlPassword">The password for PostgreSQL authentication.</param>
         /// <remarks>
         /// When initialized, the dialog displays a preconfigured layout with input fields
         /// for API, MongoDB, and PostgreSQL connection parameters. If the user cancels,
@@ -101,7 +112,9 @@ namespace InventarViewerApp.UI
         /// through the instance properties.
         /// The dialog is intended to be used in conjunction with the application's main window.
         /// </remarks>
-        public SettingsDialog(string clientApiFqdn, string clientApiPort, string mongoDbFqdn, string mongoDbPort, string mongoDbUser, string mongoDbPassword, string pgSqlDbFqdn, string pgSqlDbPort, string pgSqlDbName, string pgSqlUser, string pgSqlPassword) : base("Einstellungen", 60, 22)
+        public SettingsDialog(string clientApiFqdn, string clientApiPort, string mongoDbFqdn, string mongoDbPort,
+            string mongoDbUser, string mongoDbPassword, string pgSqlDbFqdn, string pgSqlDbPort, string pgSqlDbName,
+            string pgSqlUser, string pgSqlPassword) : base("Einstellungen", 60, 22)
         {
             ClientApiFqdn = clientApiFqdn;
             ClientApiPort = clientApiPort;
