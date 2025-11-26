@@ -6,6 +6,7 @@ items:
   children:
   - InventarViewerApp.UI.HardwareView
   - InventarViewerApp.UI.MainWindow
+  - InventarViewerApp.UI.SettingsDialog
   - InventarViewerApp.UI.SoftwareView
   - InventarViewerApp.UI.StatusView
   langs:
@@ -30,6 +31,12 @@ references:
   name: MainWindow
   nameWithType: MainWindow
   fullName: InventarViewerApp.UI.MainWindow
+- uid: InventarViewerApp.UI.SettingsDialog
+  commentId: T:InventarViewerApp.UI.SettingsDialog
+  href: InventarViewerApp.UI.SettingsDialog.html
+  name: SettingsDialog
+  nameWithType: SettingsDialog
+  fullName: InventarViewerApp.UI.SettingsDialog
 - uid: InventarViewerApp.UI.SoftwareView
   commentId: T:InventarViewerApp.UI.SoftwareView
   href: InventarViewerApp.UI.SoftwareView.html
