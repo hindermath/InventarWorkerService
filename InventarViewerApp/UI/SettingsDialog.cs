@@ -25,7 +25,7 @@ namespace InventarViewerApp.UI
             string currentPgSqlFqdn = "localhost", string currentPgSqlPort = "5432",
             string currentPgSqlDbName = "postgres",
             string currentPgSqlUser = "", string currentPgSqlPassword = "") 
-            : base("Einstellungen", 60, 24) // Höhe vergrößert für neue Felder
+            : base("Einstellungen", 60, 22) // Höhe vergrößert für neue Felder
         {
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
@@ -49,7 +49,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(apiFrame),
                 Width = Dim.Fill(1),
-                Height = 8 // Höhe angepasst
+                Height = 7 // Höhe angepasst
             };
 
             var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
@@ -57,13 +57,13 @@ namespace InventarViewerApp.UI
             var mongoPortLabel = new Label("Port:") { X = 1, Y = 1 };
             var mongoPortText = new TextField(currentMongoPort) { X = 12, Y = 1, Width = 10 };
             
-            var mongoAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentMongoUser)) { X = 1, Y = 3 };
+            var mongoAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentMongoUser)) { X = 1, Y = 2 };
             
-            var mongoUserLabel = new Label("User:") { X = 1, Y = 4 };
-            var mongoUserText = new TextField(currentMongoUser) { X = 12, Y = 4, Width = Dim.Fill(1) };
+            var mongoUserLabel = new Label("User:") { X = 1, Y = 3 };
+            var mongoUserText = new TextField(currentMongoUser) { X = 12, Y = 3, Width = Dim.Fill(1) };
             
-            var mongoPassLabel = new Label("Passwort:") { X = 1, Y = 5 };
-            var mongoPassText = new TextField(currentMongoPassword) { X = 12, Y = 5, Width = Dim.Fill(1), Secret = true };
+            var mongoPassLabel = new Label("Passwort:") { X = 1, Y = 4 };
+            var mongoPassText = new TextField(currentMongoPassword) { X = 12, Y = 4, Width = Dim.Fill(1), Secret = true };
 
             // Initialer Status basierend auf Checkbox
             mongoUserText.Enabled = mongoAuthCheck.Checked;
@@ -84,7 +84,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(mongoFrame), // Positioniert unter MongoFrame
                 Width = Dim.Fill(1),
-                Height = 9
+                Height = 8
             };
 
             var pgSqlLabel = new Label("FQDN:") { X = 1, Y = 0 };
@@ -94,13 +94,13 @@ namespace InventarViewerApp.UI
             var pgSqlDbLabel = new Label("DB Name:") { X = 1, Y = 2 }; 
             var pgSqlDbText = new TextField(currentPgSqlDbName) { X = 12, Y = 2, Width = Dim.Fill(1) }; 
 
-            var pgSqlAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentPgSqlUser)) { X = 1, Y = 4 };
+            var pgSqlAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentPgSqlUser)) { X = 1, Y = 3 };
             
-            var pgSqlUserLabel = new Label("User:") { X = 1, Y = 5 };
-            var pgSqlUserText = new TextField(currentPgSqlUser) { X = 12, Y = 5, Width = Dim.Fill(1) };
+            var pgSqlUserLabel = new Label("User:") { X = 1, Y = 4 };
+            var pgSqlUserText = new TextField(currentPgSqlUser) { X = 12, Y = 4, Width = Dim.Fill(1) };
             
-            var pgSqlPassLabel = new Label("Passwort:") { X = 1, Y = 6 };
-            var pgSqlPassText = new TextField(currentPgSqlPassword) { X = 12, Y = 6, Width = Dim.Fill(1), Secret = true };
+            var pgSqlPassLabel = new Label("Passwort:") { X = 1, Y = 5 };
+            var pgSqlPassText = new TextField(currentPgSqlPassword) { X = 12, Y = 5, Width = Dim.Fill(1), Secret = true };
 
             // Initialer Status basierend auf Checkbox
             pgSqlUserText.Enabled = pgSqlAuthCheck.Checked;
