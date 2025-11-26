@@ -17,6 +17,7 @@ namespace InventarViewerApp.UI
         private readonly ApiService _apiService;
         private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
+        private readonly PgSqlDbService _pgSqlDbService;
         private TabView _tabView;
         private MenuItem _webApiMenuItem;
 
@@ -32,11 +33,13 @@ namespace InventarViewerApp.UI
         /// <param name="apiService">API service used by child views.</param>
         /// <param name="dbService">SQLite DB service used by child views.</param>
         /// <param name="mongoDbService">MongoDB service used by child views.</param>
-        public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) : base("Main Window")
+        /// <param name="pgSqlDbService"></param>
+        public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Main Window")
         {
             _apiService = apiService;
             _dbService = dbService;
             _mongoDbService = mongoDbService;
+            _pgSqlDbService = pgSqlDbService;
             
             InitializeUI();
         }
@@ -53,9 +56,9 @@ namespace InventarViewerApp.UI
             };
             
             // Add Tabs
-            _tabView.AddTab(new TabView.Tab("Status", new StatusView(_apiService, _dbService)), true);
-            _tabView.AddTab(new TabView.Tab("Hardware", new HardwareView(_apiService, _dbService)), false);
-            _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService, _mongoDbService)),false);
+            _tabView.AddTab(new TabView.Tab("Status", new StatusView(_apiService, _dbService, _pgSqlDbService)), true);
+            _tabView.AddTab(new TabView.Tab("Hardware", new HardwareView(_apiService, _dbService, _pgSqlDbService)), false);
+            _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService, _mongoDbService, _pgSqlDbService)),false);
             
             Add(_tabView);
 
