@@ -6,7 +6,7 @@ items:
   parent: InventarWorkerCommon.Services.Common
   children:
   - InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
-  - InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
+  - InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String)
   langs:
   - csharp
   - vb
@@ -43,16 +43,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
-  commentId: M:InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String)
-  id: Services(System.String,System.String,System.String,System.String)
+- uid: InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String)
+  commentId: M:InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String)
+  id: Services(System.String,System.String,System.String,System.String,System.String,System.String)
   parent: InventarWorkerCommon.Services.Common.Initialize
   langs:
   - csharp
   - vb
-  name: Services(string, string, string, string)
-  nameWithType: Initialize.Services(string, string, string, string)
-  fullName: InventarWorkerCommon.Services.Common.Initialize.Services(string, string, string, string)
+  name: Services(string, string, string, string, string, string)
+  nameWithType: Initialize.Services(string, string, string, string, string, string)
+  fullName: InventarWorkerCommon.Services.Common.Initialize.Services(string, string, string, string, string, string)
   type: Method
   source:
     remote:
@@ -61,7 +61,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Services
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 21
+    startLine: 23
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -71,7 +71,7 @@ items:
     SQLite database service, and MongoDB service.
   example: []
   syntax:
-    content: public static ServiceContainer Services(string clientApiFqdn = "localhost", string clientApiPort = "80", string mongoDbFqdn = "localhost", string mongoDbPort = "27017")
+    content: public static ServiceContainer Services(string clientApiFqdn = "localhost", string clientApiPort = "80", string mongoDbFqdn = "localhost", string mongoDbPort = "27017", string pgSqlDbFqdn = "localhost", string pgSqlDbPort = "5432")
     parameters:
     - id: clientApiFqdn
       type: System.String
@@ -85,14 +85,20 @@ items:
     - id: mongoDbPort
       type: System.String
       description: The port on which the MongoDB server is running. The default is "27017".
+    - id: pgSqlDbFqdn
+      type: System.String
+      description: The fully qualified domain name of the PostgreSQL database server. The default is "localhost".
+    - id: pgSqlDbPort
+      type: System.String
+      description: The port on which the PostgreSQL database server is running. The default is "5432".
     return:
       type: InventarWorkerCommon.Services.Common.ServiceContainer
       description: A disposable container with the initialized instances of services.
-    content.vb: Public Shared Function Services(clientApiFqdn As String = "localhost", clientApiPort As String = "80", mongoDbFqdn As String = "localhost", mongoDbPort As String = "27017") As ServiceContainer
+    content.vb: Public Shared Function Services(clientApiFqdn As String = "localhost", clientApiPort As String = "80", mongoDbFqdn As String = "localhost", mongoDbPort As String = "27017", pgSqlDbFqdn As String = "localhost", pgSqlDbPort As String = "5432") As ServiceContainer
   overload: InventarWorkerCommon.Services.Common.Initialize.Services*
-  nameWithType.vb: Initialize.Services(String, String, String, String)
-  fullName.vb: InventarWorkerCommon.Services.Common.Initialize.Services(String, String, String, String)
-  name.vb: Services(String, String, String, String)
+  nameWithType.vb: Initialize.Services(String, String, String, String, String, String)
+  fullName.vb: InventarWorkerCommon.Services.Common.Initialize.Services(String, String, String, String, String, String)
+  name.vb: Services(String, String, String, String, String, String)
 - uid: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
   commentId: M:InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
   id: GetDbBasePath
@@ -111,7 +117,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetDbBasePath
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 52
+    startLine: 62
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -399,7 +405,7 @@ references:
   fullName: System
 - uid: InventarWorkerCommon.Services.Common.Initialize.Services*
   commentId: Overload:InventarWorkerCommon.Services.Common.Initialize.Services
-  href: InventarWorkerCommon.Services.Common.Initialize.html#InventarWorkerCommon_Services_Common_Initialize_Services_System_String_System_String_System_String_System_String_
+  href: InventarWorkerCommon.Services.Common.Initialize.html#InventarWorkerCommon_Services_Common_Initialize_Services_System_String_System_String_System_String_System_String_System_String_System_String_
   name: Services
   nameWithType: Initialize.Services
   fullName: InventarWorkerCommon.Services.Common.Initialize.Services
