@@ -11,6 +11,7 @@ namespace InventarViewerApp.UI
     {
         private readonly ApiService _apiService;
         private readonly SqliteDbService _dbService;
+        private readonly PgSqlDbService _pgSqlDbService;
         private ListView _listView;
         private Label _statusLabel;
         private Button _refreshButton;
@@ -21,10 +22,12 @@ namespace InventarViewerApp.UI
         /// </summary>
         /// <param name="apiService">Service used to retrieve hardware inventory from the backend.</param>
         /// <param name="dbService">Service used to save data to the local SQLite database.</param>
-        public HardwareView(ApiService apiService, SqliteDbService dbService) : base("Hardware Inventar")
+        /// <param name="pgSqlDbService"></param>
+        public HardwareView(ApiService apiService, SqliteDbService dbService, PgSqlDbService pgSqlDbService) : base("Hardware Inventar")
         {
             _apiService = apiService;
             _dbService = dbService;
+            _pgSqlDbService = pgSqlDbService;
             
             InitializeUI();
         }

@@ -12,6 +12,7 @@ namespace InventarViewerApp.UI
         private readonly ApiService _apiService;
         private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
+        private readonly PgSqlDbService _pgSqlDbService;
         private ListView _listView;
         private Label _statusLabel;
         private Button _refreshButton;
@@ -23,11 +24,13 @@ namespace InventarViewerApp.UI
         /// <param name="apiService">Service used to retrieve inventory data from the backend API.</param>
         /// <param name="dbService">Service used to persist data to the local SQLite database.</param>
         /// <param name="mongoDbService">Service used to persist data to MongoDB.</param>
-        public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService) : base("Software Inventar")
+        /// <param name="pgSqlDbService"></param>
+        public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Software Inventar")
         {
             _apiService = apiService;
             _dbService = dbService;
             _mongoDbService = mongoDbService;
+            _pgSqlDbService = pgSqlDbService;
             
             InitializeUI();
         }

@@ -14,6 +14,7 @@ namespace InventarViewerApp.UI
     {
         private readonly ApiService _apiService;
         private readonly SqliteDbService _sqliteDbService;
+        private readonly PgSqlDbService _pgSqlDbService;
         private readonly JsonSerializerOptions _jsonOptions;
         private Label _statusLabel;
         private Label _contentLabel;
@@ -24,10 +25,12 @@ namespace InventarViewerApp.UI
         /// </summary>
         /// <param name="apiService">Service used to retrieve the service status from the backend.</param>
         /// <param name="sqliteDbService">Service used to persist the current machine in the local database.</param>
-        public StatusView(ApiService apiService, SqliteDbService sqliteDbService) : base("Service Status")
+        /// <param name="pgSqlDbService"></param>
+        public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService pgSqlDbService) : base("Service Status")
         {
             _apiService = apiService;
             _sqliteDbService = sqliteDbService;
+            _pgSqlDbService = pgSqlDbService;
 
             _jsonOptions = new JsonSerializerOptions
             {
