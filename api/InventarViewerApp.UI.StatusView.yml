@@ -5,7 +5,7 @@ items:
   id: StatusView
   parent: InventarViewerApp.UI
   children:
-  - InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
+  - InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
   - InventarViewerApp.UI.StatusView.RefreshData
   langs:
   - csharp
@@ -191,16 +191,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
-  commentId: M:InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
-  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)'
+- uid: InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  commentId: M:InventarViewerApp.UI.StatusView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)'
   parent: InventarViewerApp.UI.StatusView
   langs:
   - csharp
   - vb
-  name: StatusView(ApiService, SqliteDbService)
-  nameWithType: StatusView.StatusView(ApiService, SqliteDbService)
-  fullName: InventarViewerApp.UI.StatusView.StatusView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
+  name: StatusView(ApiService, SqliteDbService, PgSqlDbService)
+  nameWithType: StatusView.StatusView(ApiService, SqliteDbService, PgSqlDbService)
+  fullName: InventarViewerApp.UI.StatusView.StatusView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
   type: Constructor
   source:
     remote:
@@ -209,14 +209,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/StatusView.cs
-    startLine: 26
+    startLine: 28
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
   summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.StatusView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public StatusView(ApiService apiService, SqliteDbService sqliteDbService)
+    content: public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
@@ -224,11 +224,14 @@ items:
     - id: sqliteDbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
       description: Service used to persist the current machine in the local database.
-    content.vb: Public Sub New(apiService As ApiService, sqliteDbService As SqliteDbService)
+    - id: pgSqlDbService
+      type: InventarWorkerCommon.Services.Database.PgSqlDbService
+      description: ''
+    content.vb: Public Sub New(apiService As ApiService, sqliteDbService As SqliteDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.StatusView.#ctor*
-  nameWithType.vb: StatusView.New(ApiService, SqliteDbService)
-  fullName.vb: InventarViewerApp.UI.StatusView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
-  name.vb: New(ApiService, SqliteDbService)
+  nameWithType.vb: StatusView.New(ApiService, SqliteDbService, PgSqlDbService)
+  fullName.vb: InventarViewerApp.UI.StatusView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
+  name.vb: New(ApiService, SqliteDbService, PgSqlDbService)
 - uid: InventarViewerApp.UI.StatusView.RefreshData
   commentId: M:InventarViewerApp.UI.StatusView.RefreshData
   id: RefreshData
@@ -247,7 +250,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/StatusView.cs
-    startLine: 80
+    startLine: 83
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -3204,7 +3207,7 @@ references:
   fullName: InventarViewerApp.UI.StatusView
 - uid: InventarViewerApp.UI.StatusView.#ctor*
   commentId: Overload:InventarViewerApp.UI.StatusView.#ctor
-  href: InventarViewerApp.UI.StatusView.html#InventarViewerApp_UI_StatusView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_
+  href: InventarViewerApp.UI.StatusView.html#InventarViewerApp_UI_StatusView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_PgSqlDbService_
   name: StatusView
   nameWithType: StatusView.StatusView
   fullName: InventarViewerApp.UI.StatusView.StatusView
@@ -3225,6 +3228,13 @@ references:
   name: SqliteDbService
   nameWithType: SqliteDbService
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Api
   commentId: N:InventarWorkerCommon.Services.Api
   href: InventarWorkerCommon.html

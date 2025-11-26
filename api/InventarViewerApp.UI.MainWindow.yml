@@ -5,7 +5,7 @@ items:
   id: MainWindow
   parent: InventarViewerApp.UI
   children:
-  - InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
+  - InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
   langs:
   - csharp
   - vb
@@ -20,7 +20,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MainWindow
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 10
+    startLine: 14
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -229,16 +229,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
-  commentId: M:InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
-  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)'
+- uid: InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  commentId: M:InventarViewerApp.UI.MainWindow.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)'
   parent: InventarViewerApp.UI.MainWindow
   langs:
   - csharp
   - vb
-  name: MainWindow(ApiService, SqliteDbService, MongoDbService)
-  nameWithType: MainWindow.MainWindow(ApiService, SqliteDbService, MongoDbService)
-  fullName: InventarViewerApp.UI.MainWindow.MainWindow(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService)
+  name: MainWindow(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  nameWithType: MainWindow.MainWindow(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  fullName: InventarViewerApp.UI.MainWindow.MainWindow(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
   type: Constructor
   source:
     remote:
@@ -247,14 +247,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 23
+    startLine: 36
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
   summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.MainWindow" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService)
+    content: public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
@@ -265,11 +265,14 @@ items:
     - id: mongoDbService
       type: InventarWorkerCommon.Services.Database.MongoDbService
       description: MongoDB service used by child views.
-    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService)
+    - id: pgSqlDbService
+      type: InventarWorkerCommon.Services.Database.PgSqlDbService
+      description: ''
+    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.MainWindow.#ctor*
-  nameWithType.vb: MainWindow.New(ApiService, SqliteDbService, MongoDbService)
-  fullName.vb: InventarViewerApp.UI.MainWindow.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService)
-  name.vb: New(ApiService, SqliteDbService, MongoDbService)
+  nameWithType.vb: MainWindow.New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  fullName.vb: InventarViewerApp.UI.MainWindow.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
+  name.vb: New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
 references:
 - uid: InventarViewerApp.UI
   commentId: N:InventarViewerApp.UI
@@ -3763,7 +3766,7 @@ references:
   fullName: InventarViewerApp.UI.MainWindow
 - uid: InventarViewerApp.UI.MainWindow.#ctor*
   commentId: Overload:InventarViewerApp.UI.MainWindow.#ctor
-  href: InventarViewerApp.UI.MainWindow.html#InventarViewerApp_UI_MainWindow__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_MongoDbService_
+  href: InventarViewerApp.UI.MainWindow.html#InventarViewerApp_UI_MainWindow__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_MongoDbService_InventarWorkerCommon_Services_Database_PgSqlDbService_
   name: MainWindow
   nameWithType: MainWindow.MainWindow
   fullName: InventarViewerApp.UI.MainWindow.MainWindow
@@ -3791,6 +3794,13 @@ references:
   name: MongoDbService
   nameWithType: MongoDbService
   fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Api
   commentId: N:InventarWorkerCommon.Services.Api
   href: InventarWorkerCommon.html

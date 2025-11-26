@@ -5,7 +5,7 @@ items:
   id: HardwareView
   parent: InventarViewerApp.UI
   children:
-  - InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
+  - InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
   - InventarViewerApp.UI.HardwareView.RefreshData
   langs:
   - csharp
@@ -191,16 +191,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
-  commentId: M:InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)
-  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService)'
+- uid: InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  commentId: M:InventarViewerApp.UI.HardwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)'
   parent: InventarViewerApp.UI.HardwareView
   langs:
   - csharp
   - vb
-  name: HardwareView(ApiService, SqliteDbService)
-  nameWithType: HardwareView.HardwareView(ApiService, SqliteDbService)
-  fullName: InventarViewerApp.UI.HardwareView.HardwareView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
+  name: HardwareView(ApiService, SqliteDbService, PgSqlDbService)
+  nameWithType: HardwareView.HardwareView(ApiService, SqliteDbService, PgSqlDbService)
+  fullName: InventarViewerApp.UI.HardwareView.HardwareView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
   type: Constructor
   source:
     remote:
@@ -209,14 +209,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/HardwareView.cs
-    startLine: 23
+    startLine: 25
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
   summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.HardwareView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public HardwareView(ApiService apiService, SqliteDbService dbService)
+    content: public HardwareView(ApiService apiService, SqliteDbService dbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
@@ -224,11 +224,14 @@ items:
     - id: dbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
       description: Service used to save data to the local SQLite database.
-    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService)
+    - id: pgSqlDbService
+      type: InventarWorkerCommon.Services.Database.PgSqlDbService
+      description: ''
+    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.HardwareView.#ctor*
-  nameWithType.vb: HardwareView.New(ApiService, SqliteDbService)
-  fullName.vb: InventarViewerApp.UI.HardwareView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService)
-  name.vb: New(ApiService, SqliteDbService)
+  nameWithType.vb: HardwareView.New(ApiService, SqliteDbService, PgSqlDbService)
+  fullName.vb: InventarViewerApp.UI.HardwareView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
+  name.vb: New(ApiService, SqliteDbService, PgSqlDbService)
 - uid: InventarViewerApp.UI.HardwareView.RefreshData
   commentId: M:InventarViewerApp.UI.HardwareView.RefreshData
   id: RefreshData
@@ -247,7 +250,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/HardwareView.cs
-    startLine: 79
+    startLine: 82
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -3204,7 +3207,7 @@ references:
   fullName: InventarViewerApp.UI.HardwareView
 - uid: InventarViewerApp.UI.HardwareView.#ctor*
   commentId: Overload:InventarViewerApp.UI.HardwareView.#ctor
-  href: InventarViewerApp.UI.HardwareView.html#InventarViewerApp_UI_HardwareView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_
+  href: InventarViewerApp.UI.HardwareView.html#InventarViewerApp_UI_HardwareView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_PgSqlDbService_
   name: HardwareView
   nameWithType: HardwareView.HardwareView
   fullName: InventarViewerApp.UI.HardwareView.HardwareView
@@ -3225,6 +3228,13 @@ references:
   name: SqliteDbService
   nameWithType: SqliteDbService
   fullName: InventarWorkerCommon.Services.Database.SqliteDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Api
   commentId: N:InventarWorkerCommon.Services.Api
   href: InventarWorkerCommon.html

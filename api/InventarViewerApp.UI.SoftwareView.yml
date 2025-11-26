@@ -5,7 +5,7 @@ items:
   id: SoftwareView
   parent: InventarViewerApp.UI
   children:
-  - InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
+  - InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
   - InventarViewerApp.UI.SoftwareView.RefreshData
   langs:
   - csharp
@@ -191,16 +191,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
-  commentId: M:InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)
-  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService)'
+- uid: InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  commentId: M:InventarViewerApp.UI.SoftwareView.#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)
+  id: '#ctor(InventarWorkerCommon.Services.Api.ApiService,InventarWorkerCommon.Services.Database.SqliteDbService,InventarWorkerCommon.Services.Database.MongoDbService,InventarWorkerCommon.Services.Database.PgSqlDbService)'
   parent: InventarViewerApp.UI.SoftwareView
   langs:
   - csharp
   - vb
-  name: SoftwareView(ApiService, SqliteDbService, MongoDbService)
-  nameWithType: SoftwareView.SoftwareView(ApiService, SqliteDbService, MongoDbService)
-  fullName: InventarViewerApp.UI.SoftwareView.SoftwareView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService)
+  name: SoftwareView(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  nameWithType: SoftwareView.SoftwareView(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  fullName: InventarViewerApp.UI.SoftwareView.SoftwareView(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
   type: Constructor
   source:
     remote:
@@ -209,14 +209,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SoftwareView.cs
-    startLine: 25
+    startLine: 27
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
   summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.SoftwareView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService)
+    content: public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
@@ -227,11 +227,14 @@ items:
     - id: mongoDbService
       type: InventarWorkerCommon.Services.Database.MongoDbService
       description: Service used to persist data to MongoDB.
-    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService)
+    - id: pgSqlDbService
+      type: InventarWorkerCommon.Services.Database.PgSqlDbService
+      description: ''
+    content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.SoftwareView.#ctor*
-  nameWithType.vb: SoftwareView.New(ApiService, SqliteDbService, MongoDbService)
-  fullName.vb: InventarViewerApp.UI.SoftwareView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService)
-  name.vb: New(ApiService, SqliteDbService, MongoDbService)
+  nameWithType.vb: SoftwareView.New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
+  fullName.vb: InventarViewerApp.UI.SoftwareView.New(InventarWorkerCommon.Services.Api.ApiService, InventarWorkerCommon.Services.Database.SqliteDbService, InventarWorkerCommon.Services.Database.MongoDbService, InventarWorkerCommon.Services.Database.PgSqlDbService)
+  name.vb: New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
 - uid: InventarViewerApp.UI.SoftwareView.RefreshData
   commentId: M:InventarViewerApp.UI.SoftwareView.RefreshData
   id: RefreshData
@@ -250,7 +253,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/SoftwareView.cs
-    startLine: 82
+    startLine: 85
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -3207,7 +3210,7 @@ references:
   fullName: InventarViewerApp.UI.SoftwareView
 - uid: InventarViewerApp.UI.SoftwareView.#ctor*
   commentId: Overload:InventarViewerApp.UI.SoftwareView.#ctor
-  href: InventarViewerApp.UI.SoftwareView.html#InventarViewerApp_UI_SoftwareView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_MongoDbService_
+  href: InventarViewerApp.UI.SoftwareView.html#InventarViewerApp_UI_SoftwareView__ctor_InventarWorkerCommon_Services_Api_ApiService_InventarWorkerCommon_Services_Database_SqliteDbService_InventarWorkerCommon_Services_Database_MongoDbService_InventarWorkerCommon_Services_Database_PgSqlDbService_
   name: SoftwareView
   nameWithType: SoftwareView.SoftwareView
   fullName: InventarViewerApp.UI.SoftwareView.SoftwareView
@@ -3235,6 +3238,13 @@ references:
   name: MongoDbService
   nameWithType: MongoDbService
   fullName: InventarWorkerCommon.Services.Database.MongoDbService
+- uid: InventarWorkerCommon.Services.Database.PgSqlDbService
+  commentId: T:InventarWorkerCommon.Services.Database.PgSqlDbService
+  parent: InventarWorkerCommon.Services.Database
+  href: InventarWorkerCommon.Services.Database.PgSqlDbService.html
+  name: PgSqlDbService
+  nameWithType: PgSqlDbService
+  fullName: InventarWorkerCommon.Services.Database.PgSqlDbService
 - uid: InventarWorkerCommon.Services.Api
   commentId: N:InventarWorkerCommon.Services.Api
   href: InventarWorkerCommon.html
