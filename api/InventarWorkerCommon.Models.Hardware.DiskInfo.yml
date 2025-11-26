@@ -73,7 +73,7 @@ items:
   summary: Gets or sets the drive name or letter (for example, "C:").
   example: []
   syntax:
-    content: public string DriveName { get; set; }
+    content: public string DriveName { get; init; }
     parameters: []
     return:
       type: System.String
@@ -290,7 +290,7 @@ items:
   summary: Gets or sets a value indicating whether the drive is ready and accessible.
   example: []
   syntax:
-    content: public bool IsReady { get; set; }
+    content: public bool IsReady { get; init; }
     parameters: []
     return:
       type: System.Boolean

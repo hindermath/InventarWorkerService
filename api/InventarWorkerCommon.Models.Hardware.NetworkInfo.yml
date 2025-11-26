@@ -74,7 +74,7 @@ items:
   summary: Gets or sets the interface name (for example, "eth0" or "Wi-Fi").
   example: []
   syntax:
-    content: public string Name { get; set; }
+    content: public string Name { get; init; }
     parameters: []
     return:
       type: System.String

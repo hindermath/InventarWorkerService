@@ -36,12 +36,10 @@ items:
   summary: Represents information about an installed software package or application.
   example: []
   syntax:
-    content: 'public record SoftwareInfo : IEquatable<SoftwareInfo>'
-    content.vb: Public Class SoftwareInfo Implements IEquatable(Of SoftwareInfo)
+    content: public class SoftwareInfo
+    content.vb: Public Class SoftwareInfo
   inheritance:
   - System.Object
-  implements:
-  - System.IEquatable{InventarWorkerCommon.Models.Software.SoftwareInfo}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -402,39 +400,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{InventarWorkerCommon.Models.Software.SoftwareInfo}
-  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Software.SoftwareInfo}
-  parent: System
-  definition: System.IEquatable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  name: IEquatable<SoftwareInfo>
-  nameWithType: IEquatable<SoftwareInfo>
-  fullName: System.IEquatable<InventarWorkerCommon.Models.Software.SoftwareInfo>
-  nameWithType.vb: IEquatable(Of SoftwareInfo)
-  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Software.SoftwareInfo)
-  name.vb: IEquatable(Of SoftwareInfo)
-  spec.csharp:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: <
-  - uid: InventarWorkerCommon.Models.Software.SoftwareInfo
-    name: SoftwareInfo
-    href: InventarWorkerCommon.Models.Software.SoftwareInfo.html
-  - name: '>'
-  spec.vb:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: InventarWorkerCommon.Models.Software.SoftwareInfo
-    name: SoftwareInfo
-    href: InventarWorkerCommon.Models.Software.SoftwareInfo.html
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -661,34 +626,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.IEquatable`1
-  commentId: T:System.IEquatable`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  name: IEquatable<T>
-  nameWithType: IEquatable<T>
-  fullName: System.IEquatable<T>
-  nameWithType.vb: IEquatable(Of T)
-  fullName.vb: System.IEquatable(Of T)
-  name.vb: IEquatable(Of T)
-  spec.csharp:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: InventarWorkerCommon.Models.Software.SoftwareInfo.Name*
   commentId: Overload:InventarWorkerCommon.Models.Software.SoftwareInfo.Name
   href: InventarWorkerCommon.Models.Software.SoftwareInfo.html#InventarWorkerCommon_Models_Software_SoftwareInfo_Name

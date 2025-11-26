@@ -73,7 +73,7 @@ items:
   summary: Gets or sets the OS platform (for example, Windows, Linux, macOS).
   example: []
   syntax:
-    content: public string Platform { get; set; }
+    content: public string Platform { get; init; }
     parameters: []
     return:
       type: System.String
@@ -104,7 +104,7 @@ items:
   summary: Gets or sets the OS version string.
   example: []
   syntax:
-    content: public string Version { get; set; }
+    content: public string Version { get; init; }
     parameters: []
     return:
       type: System.String
@@ -135,7 +135,7 @@ items:
   summary: Gets or sets the service pack or update level, if applicable.
   example: []
   syntax:
-    content: public string ServicePack { get; set; }
+    content: public string ServicePack { get; init; }
     parameters: []
     return:
       type: System.String
@@ -166,7 +166,7 @@ items:
   summary: Gets or sets a descriptive label of the OS distribution/build.
   example: []
   syntax:
-    content: public string Description { get; set; }
+    content: public string Description { get; init; }
     parameters: []
     return:
       type: System.String
@@ -197,7 +197,7 @@ items:
   summary: Gets or sets the OS architecture (for example, x64, arm64).
   example: []
   syntax:
-    content: public string Architecture { get; set; }
+    content: public string Architecture { get; init; }
     parameters: []
     return:
       type: System.String
@@ -259,7 +259,7 @@ items:
   summary: Gets or sets the number of logical processors reported by the OS.
   example: []
   syntax:
-    content: public int ProcessorCount { get; set; }
+    content: public int ProcessorCount { get; init; }
     parameters: []
     return:
       type: System.Int32
@@ -290,7 +290,7 @@ items:
   summary: Gets or sets the current user's domain name.
   example: []
   syntax:
-    content: public string UserDomainName { get; set; }
+    content: public string UserDomainName { get; init; }
     parameters: []
     return:
       type: System.String

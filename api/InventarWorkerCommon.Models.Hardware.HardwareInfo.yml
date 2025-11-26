@@ -34,12 +34,10 @@ items:
   summary: Aggregates system, CPU, memory, disks, network, OS and software inventory data.
   example: []
   syntax:
-    content: 'public record HardwareInfo : IEquatable<HardwareInfo>'
-    content.vb: Public Class HardwareInfo Implements IEquatable(Of HardwareInfo)
+    content: public class HardwareInfo
+    content.vb: Public Class HardwareInfo
   inheritance:
   - System.Object
-  implements:
-  - System.IEquatable{InventarWorkerCommon.Models.Hardware.HardwareInfo}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -338,39 +336,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{InventarWorkerCommon.Models.Hardware.HardwareInfo}
-  commentId: T:System.IEquatable{InventarWorkerCommon.Models.Hardware.HardwareInfo}
-  parent: System
-  definition: System.IEquatable`1
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  name: IEquatable<HardwareInfo>
-  nameWithType: IEquatable<HardwareInfo>
-  fullName: System.IEquatable<InventarWorkerCommon.Models.Hardware.HardwareInfo>
-  nameWithType.vb: IEquatable(Of HardwareInfo)
-  fullName.vb: System.IEquatable(Of InventarWorkerCommon.Models.Hardware.HardwareInfo)
-  name.vb: IEquatable(Of HardwareInfo)
-  spec.csharp:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: <
-  - uid: InventarWorkerCommon.Models.Hardware.HardwareInfo
-    name: HardwareInfo
-    href: InventarWorkerCommon.Models.Hardware.HardwareInfo.html
-  - name: '>'
-  spec.vb:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: InventarWorkerCommon.Models.Hardware.HardwareInfo
-    name: HardwareInfo
-    href: InventarWorkerCommon.Models.Hardware.HardwareInfo.html
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -597,34 +562,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.IEquatable`1
-  commentId: T:System.IEquatable`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  name: IEquatable<T>
-  nameWithType: IEquatable<T>
-  fullName: System.IEquatable<T>
-  nameWithType.vb: IEquatable(Of T)
-  fullName.vb: System.IEquatable(Of T)
-  name.vb: IEquatable(Of T)
-  spec.csharp:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.IEquatable`1
-    name: IEquatable
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: InventarWorkerCommon.Models.Hardware.HardwareInfo.CollectionTime*
   commentId: Overload:InventarWorkerCommon.Models.Hardware.HardwareInfo.CollectionTime
   href: InventarWorkerCommon.Models.Hardware.HardwareInfo.html#InventarWorkerCommon_Models_Hardware_HardwareInfo_CollectionTime

@@ -74,7 +74,7 @@ items:
   summary: Gets or sets the machine name (host name) of the current system.
   example: []
   syntax:
-    content: public string MachineName { get; set; }
+    content: public string MachineName { get; init; }
     parameters: []
     return:
       type: System.String
@@ -105,7 +105,7 @@ items:
   summary: Gets or sets the name of the currently logged-in user.
   example: []
   syntax:
-    content: public string UserName { get; set; }
+    content: public string UserName { get; init; }
     parameters: []
     return:
       type: System.String
@@ -136,7 +136,7 @@ items:
   summary: Gets or sets the domain of the current machine or user, if available.
   example: []
   syntax:
-    content: public string Domain { get; set; }
+    content: public string Domain { get; init; }
     parameters: []
     return:
       type: System.String
@@ -198,7 +198,7 @@ items:
   summary: Gets or sets the platform identifier (for example, Windows, Linux, macOS).
   example: []
   syntax:
-    content: public string Platform { get; set; }
+    content: public string Platform { get; init; }
     parameters: []
     return:
       type: System.String
@@ -229,7 +229,7 @@ items:
   summary: Gets or sets the system architecture (for example, x64, arm64).
   example: []
   syntax:
-    content: public string Architecture { get; set; }
+    content: public string Architecture { get; init; }
     parameters: []
     return:
       type: System.String

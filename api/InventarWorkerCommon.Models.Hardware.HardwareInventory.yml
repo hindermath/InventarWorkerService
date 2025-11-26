@@ -73,7 +73,7 @@ items:
   summary: Gets or sets the timestamp when the inventory was collected.
   example: []
   syntax:
-    content: public DateTime CollectionTime { get; set; }
+    content: public DateTime CollectionTime { get; init; }
     parameters: []
     return:
       type: System.DateTime
@@ -104,7 +104,7 @@ items:
   summary: Gets or sets general system information.
   example: []
   syntax:
-    content: public SystemInfo System { get; set; }
+    content: public SystemInfo System { get; init; }
     parameters: []
     return:
       type: InventarWorkerCommon.Models.Service.SystemInfo
@@ -135,7 +135,7 @@ items:
   summary: Gets or sets CPU details.
   example: []
   syntax:
-    content: public CpuInfo Cpu { get; set; }
+    content: public CpuInfo Cpu { get; init; }
     parameters: []
     return:
       type: InventarWorkerCommon.Models.Hardware.CpuInfo
@@ -166,7 +166,7 @@ items:
   summary: Gets or sets memory capacity and usage information.
   example: []
   syntax:
-    content: public MemoryInfo Memory { get; set; }
+    content: public MemoryInfo Memory { get; init; }
     parameters: []
     return:
       type: InventarWorkerCommon.Models.Hardware.MemoryInfo
@@ -197,7 +197,7 @@ items:
   summary: Gets or sets the collection of disks detected on the machine.
   example: []
   syntax:
-    content: public List<DiskInfo> Disks { get; set; }
+    content: public List<DiskInfo> Disks { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.List{InventarWorkerCommon.Models.Hardware.DiskInfo}
@@ -228,7 +228,7 @@ items:
   summary: Gets or sets network interface information for the machine.
   example: []
   syntax:
-    content: public List<NetworkInfo> NetworkInterfaces { get; set; }
+    content: public List<NetworkInfo> NetworkInterfaces { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.List{InventarWorkerCommon.Models.Hardware.NetworkInfo}
@@ -259,7 +259,7 @@ items:
   summary: Gets or sets operating system details.
   example: []
   syntax:
-    content: public OsInfo OperatingSystem { get; set; }
+    content: public OsInfo OperatingSystem { get; init; }
     parameters: []
     return:
       type: InventarWorkerCommon.Models.Hardware.OsInfo
@@ -290,7 +290,7 @@ items:
   summary: Gets or sets the software inventory collected together with the hardware snapshot.
   example: []
   syntax:
-    content: public SoftwareInventory Software { get; set; }
+    content: public SoftwareInventory Software { get; init; }
     parameters: []
     return:
       type: InventarWorkerCommon.Models.Software.SoftwareInventory
