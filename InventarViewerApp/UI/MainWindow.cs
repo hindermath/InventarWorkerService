@@ -20,7 +20,7 @@ namespace InventarViewerApp.UI
         private TabView _tabView;
         private MenuItem _webApiMenuItem;
 
-        // Für die Historie
+        // For the history
         private readonly List<string> _actionHistory = new();
         private StatusItem _historyStatusItem;
         private StatusBar _statusBar;
@@ -43,7 +43,7 @@ namespace InventarViewerApp.UI
 
         private void InitializeUI()
         {
-            // Erstelle Tab-View mit unterschiedlichen Ansichten
+            // Create Tab-View with different views
             _tabView = new TabView()
             {
                 X = 0,
@@ -52,7 +52,7 @@ namespace InventarViewerApp.UI
                 Height = Dim.Fill()
             };
             
-            // Füge Tabs hinzu
+            // Add Tabs
             _tabView.AddTab(new TabView.Tab("Status", new StatusView(_apiService, _dbService)), true);
             _tabView.AddTab(new TabView.Tab("Hardware", new HardwareView(_apiService, _dbService)), false);
             _tabView.AddTab(new TabView.Tab("Software", new SoftwareView(_apiService, _dbService, _mongoDbService)),false);
@@ -218,10 +218,10 @@ namespace InventarViewerApp.UI
         {
             try
             {
-                // Daten aktualisieren
+                // Update Data
                 MessageBox.Query("Datenaktualisierung", "Daten werden aktualisiert...", "OK");
                 
-                // Daten für jeden Tab aktualisieren
+                // Update data for each tab
                 foreach (var tab in _tabView.Tabs)
                 {
                     if (tab.View is HardwareView hardwareView)
@@ -266,10 +266,10 @@ namespace InventarViewerApp.UI
 
                 MessageBox.Query("Einstellungen", msg, "OK");
 
-                // TODO: Store values in a configuration file so they can be used on the next startup (in Program.cs).
+                // Note: Store values in a configuration file so they can be used on the next startup (in Program.cs).
             }
         }
-        // Neue Methode zum Aktualisieren des WebApi MenuItem Textes
+        // New Method for Updating the WebApi MenuItem Text
         private void UpdateWebApiMenuItemText()
         {
             if (_webApiMenuItem != null)
