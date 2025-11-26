@@ -83,24 +83,53 @@ namespace InventarViewerApp.UI
         /// through the instance properties.
         /// The dialog is intended to be used in conjunction with the application's main window.
         /// </remarks>
-        public SettingsDialog() : base("Einstellungen", 60, 22) // Höhe vergrößert für neue Felder
+        public SettingsDialog() : base("Einstellungen", 60, 22)
         {
+            InitializeUI();
+        }
+
+        /// <summary>
+        /// Represents a dialog window for modifying the application settings.
+        /// This includes configurations for API, MongoDB, and PostgreSQL.
+        /// The dialog provides input fields for entering connection details
+        /// and allows the user to either save or cancel their changes.
+        /// </summary>
+        /// <remarks>
+        /// When initialized, the dialog displays a preconfigured layout with input fields
+        /// for API, MongoDB, and PostgreSQL connection parameters. If the user cancels,
+        /// the changes are discarded. If the user saves, the updated values can be accessed
+        /// through the instance properties.
+        /// The dialog is intended to be used in conjunction with the application's main window.
+        /// </remarks>
+        public SettingsDialog(string clientApiFqdn, string clientApiPort, string mongoDbFqdn, string mongoDbPort, string mongoDbUser, string mongoDbPassword, string pgSqlDbFqdn, string pgSqlDbPort, string pgSqlDbName, string pgSqlUser, string pgSqlPassword) : base("Einstellungen", 60, 22)
+        {
+            ClientApiFqdn = clientApiFqdn;
+            ClientApiPort = clientApiPort;
+            MongoDbFqdn = mongoDbFqdn;
+            MongoDbPort = mongoDbPort;
+            MongoDbUser = mongoDbUser;
+            MongoDbPassword = mongoDbPassword;
+            PgSqlDbFqdn = pgSqlDbFqdn;
+            PgSqlDbPort = pgSqlDbPort;
+            PgSqlDbName = pgSqlDbName;
+            PgSqlUser = pgSqlUser;
+            PgSqlPassword = pgSqlPassword;
             InitializeUI();
         }
 
         private void InitializeUI()
         {
-            string currentApiFqdn = "localhost";
-            string currentApiPort = "80";
-            string currentMongoFqdn = "localhost";
-            string currentMongoPort = "27017";
-            string currentMongoUser = "";
-            string currentMongoPassword = "";
-            string currentPgSqlFqdn = "localhost";
-            string currentPgSqlPort = "5432";
-            string currentPgSqlDbName = "postgres";
-            string currentPgSqlUser = "";
-            string currentPgSqlPassword = "";
+            var currentApiFqdn = "localhost";
+            var currentApiPort = "80";
+            var currentMongoFqdn = "localhost";
+            var currentMongoPort = "27017";
+            var currentMongoUser = string.Empty;
+            var currentMongoPassword = string.Empty;
+            var currentPgSqlFqdn = "localhost";
+            var currentPgSqlPort = "5432";
+            var currentPgSqlDbName = "postgres";
+            var currentPgSqlUser = string.Empty;
+            var currentPgSqlPassword = string.Empty;
 
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
