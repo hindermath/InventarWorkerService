@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Services.Settings
+  commentId: N:InventarWorkerCommon.Services.Settings
+  id: InventarWorkerCommon.Services.Settings
+  children:
+  - InventarWorkerCommon.Services.Settings.SettingsReader
+  - InventarWorkerCommon.Services.Settings.SettingsWriter
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Services.Settings
+  nameWithType: InventarWorkerCommon.Services.Settings
+  fullName: InventarWorkerCommon.Services.Settings
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Services.Settings.SettingsReader
+  commentId: T:InventarWorkerCommon.Services.Settings.SettingsReader
+  href: InventarWorkerCommon.Services.Settings.SettingsReader.html
+  name: SettingsReader
+  nameWithType: SettingsReader
+  fullName: InventarWorkerCommon.Services.Settings.SettingsReader
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter
+  commentId: T:InventarWorkerCommon.Services.Settings.SettingsWriter
+  href: InventarWorkerCommon.Services.Settings.SettingsWriter.html
+  name: SettingsWriter
+  nameWithType: SettingsWriter
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter

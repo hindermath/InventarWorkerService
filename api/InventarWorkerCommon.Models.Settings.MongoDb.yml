@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Settings.MongoDb
+  commentId: T:InventarWorkerCommon.Models.Settings.MongoDb
+  id: MongoDb
+  parent: InventarWorkerCommon.Models.Settings
+  children:
+  - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+  - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+  - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+  - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  langs:
+  - csharp
+  - vb
+  name: MongoDb
+  nameWithType: MongoDb
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb
+  type: Class
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDb
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 5
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Represents the configuration settings required to connect to a MongoDB database.
+  example: []
+  syntax:
+    content: public class MongoDb
+    content.vb: Public Class MongoDb
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+  id: MongoDbFqdn
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: MongoDbFqdn
+  nameWithType: MongoDb.MongoDbFqdn
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbFqdn
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets the fully qualified domain name (FQDN) of the MongoDB server.
+  example: []
+  syntax:
+    content: public string MongoDbFqdn { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MongoDbFqdn As String
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn*
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+  id: MongoDbPort
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: MongoDbPort
+  nameWithType: MongoDb.MongoDbPort
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbPort
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 15
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets the port of the MongoDB server.
+  example: []
+  syntax:
+    content: public string MongoDbPort { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MongoDbPort As String
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort*
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  id: MongoDbUser
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: MongoDbUser
+  nameWithType: MongoDb.MongoDbUser
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbUser
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 20
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets the username for the MongoDB connection.
+  example: []
+  syntax:
+    content: public string MongoDbUser { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MongoDbUser As String
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser*
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+  id: MongoDbPassword
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: MongoDbPassword
+  nameWithType: MongoDb.MongoDbPassword
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbPassword
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 25
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets the password for the MongoDB connection.
+  example: []
+  syntax:
+    content: public string MongoDbPassword { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MongoDbPassword As String
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword*
+references:
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbFqdn
+  name: MongoDbFqdn
+  nameWithType: MongoDb.MongoDbFqdn
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbPort
+  name: MongoDbPort
+  nameWithType: MongoDb.MongoDbPort
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbUser
+  name: MongoDbUser
+  nameWithType: MongoDb.MongoDbUser
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbPassword
+  name: MongoDbPassword
+  nameWithType: MongoDb.MongoDbPassword
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword

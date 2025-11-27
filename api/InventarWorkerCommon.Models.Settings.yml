@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  id: InventarWorkerCommon.Models.Settings
+  children:
+  - InventarWorkerCommon.Models.Settings.ClientApi
+  - InventarWorkerCommon.Models.Settings.MongoDb
+  - InventarWorkerCommon.Models.Settings.PgSqlDb
+  - InventarWorkerCommon.Models.Settings.Settings
+  langs:
+  - csharp
+  - vb
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  type: Namespace
+  assemblies:
+  - InventarWorkerCommon
+references:
+- uid: InventarWorkerCommon.Models.Settings.ClientApi
+  commentId: T:InventarWorkerCommon.Models.Settings.ClientApi
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.ClientApi.html
+  name: ClientApi
+  nameWithType: ClientApi
+  fullName: InventarWorkerCommon.Models.Settings.ClientApi
+- uid: InventarWorkerCommon.Models.Settings.MongoDb
+  commentId: T:InventarWorkerCommon.Models.Settings.MongoDb
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html
+  name: MongoDb
+  nameWithType: MongoDb
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb
+  commentId: T:InventarWorkerCommon.Models.Settings.PgSqlDb
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html
+  name: PgSqlDb
+  nameWithType: PgSqlDb
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb
+- uid: InventarWorkerCommon.Models.Settings.Settings
+  commentId: T:InventarWorkerCommon.Models.Settings.Settings
+  href: InventarWorkerCommon.Models.Settings.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: InventarWorkerCommon.Models.Settings.Settings
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
