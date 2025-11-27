@@ -134,6 +134,22 @@ items:
   - uid: InventarWorkerCommon.Models.Service.SystemInfo
     name: SystemInfo
     type: Class
+- uid: InventarWorkerCommon.Models.Settings
+  name: InventarWorkerCommon.Models.Settings
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Models.Settings.ClientApi
+    name: ClientApi
+    type: Class
+  - uid: InventarWorkerCommon.Models.Settings.MongoDb
+    name: MongoDb
+    type: Class
+  - uid: InventarWorkerCommon.Models.Settings.PgSqlDb
+    name: PgSqlDb
+    type: Class
+  - uid: InventarWorkerCommon.Models.Settings.Settings
+    name: Settings
+    type: Class
 - uid: InventarWorkerCommon.Models.Software
   name: InventarWorkerCommon.Models.Software
   type: Namespace
@@ -232,6 +248,16 @@ items:
     type: Class
   - uid: InventarWorkerCommon.Services.Paths.ServicePath
     name: ServicePath
+    type: Class
+- uid: InventarWorkerCommon.Services.Settings
+  name: InventarWorkerCommon.Services.Settings
+  type: Namespace
+  items:
+  - uid: InventarWorkerCommon.Services.Settings.SettingsReader
+    name: SettingsReader
+    type: Class
+  - uid: InventarWorkerCommon.Services.Settings.SettingsWriter
+    name: SettingsWriter
     type: Class
 - uid: InventarWorkerCommon.Services.Software
   name: InventarWorkerCommon.Services.Software
