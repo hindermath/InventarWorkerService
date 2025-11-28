@@ -143,17 +143,20 @@ namespace InventarViewerApp.UI
 
         private void InitializeUI()
         {
-            var currentApiFqdn = "localhost";
-            var currentApiPort = "80";
-            var currentMongoFqdn = "localhost";
-            var currentMongoPort = "27017";
-            var currentMongoUser = string.Empty;
-            var currentMongoPassword = string.Empty;
-            var currentPgSqlFqdn = "localhost";
-            var currentPgSqlPort = "5432";
-            var currentPgSqlDbName = "postgres";
-            var currentPgSqlUser = string.Empty;
-            var currentPgSqlPassword = string.Empty;
+            var settingsReader = new SettingsReader();
+            var settings = settingsReader.ReadSettings();
+
+            var currentApiFqdn = settings?.ClientApi.ClientApiFqdn ?? "localhost";
+            var currentApiPort = settings?.ClientApi.ClientApiPort ?? "80";
+            var currentMongoFqdn = settings?.MongoDb.MongoDbFqdn ?? "localhost";
+            var currentMongoPort = settings?.MongoDb.MongoDbPort ?? "27017";
+            var currentMongoUser = settings?.MongoDb.MongoDbUser ?? string.Empty;
+            var currentMongoPassword = settings?.MongoDb.MongoDbPassword ?? string.Empty;
+            var currentPgSqlFqdn = settings?.PgSqlDb.PgSqlDbFqdn ?? "localhost";
+            var currentPgSqlPort = settings?.PgSqlDb.PgSqlDbPort ?? "5432";
+            var currentPgSqlDbName = settings?.PgSqlDb.PgSqlDbName ?? "postgres";
+            var currentPgSqlUser =  settings?.PgSqlDb.PgSqlUser ?? string.Empty;
+            var currentPgSqlPassword = settings?.PgSqlDb.PgSqlPassword ?? string.Empty;
 
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
