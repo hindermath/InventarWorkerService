@@ -4,7 +4,9 @@ items:
   commentId: T:InventarWorkerCommon.Services.Settings.SettingsWriter
   id: SettingsWriter
   parent: InventarWorkerCommon.Services.Settings
-  children: []
+  children:
+  - InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor(System.String)
+  - InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile(InventarWorkerCommon.Models.Settings.Settings)
   langs:
   - csharp
   - vb
@@ -19,7 +21,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsWriter
     path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Settings
@@ -38,6 +40,72 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: InventarWorkerCommon.Services.Settings.SettingsWriter
+  langs:
+  - csharp
+  - vb
+  name: SettingsWriter(string)
+  nameWithType: SettingsWriter.SettingsWriter(string)
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.SettingsWriter(string)
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+    startLine: 17
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Settings
+  summary: Handles the writing of application settings to a specified directory in a JSON format.
+  example: []
+  syntax:
+    content: public SettingsWriter(string statusDirectory = "inventar-service")
+    parameters:
+    - id: statusDirectory
+      type: System.String
+    content.vb: Public Sub New(statusDirectory As String = "inventar-service")
+  overload: InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor*
+  nameWithType.vb: SettingsWriter.New(String)
+  fullName.vb: InventarWorkerCommon.Services.Settings.SettingsWriter.New(String)
+  name.vb: New(String)
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile(InventarWorkerCommon.Models.Settings.Settings)
+  commentId: M:InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile(InventarWorkerCommon.Models.Settings.Settings)
+  id: WriteSettingsToFile(InventarWorkerCommon.Models.Settings.Settings)
+  parent: InventarWorkerCommon.Services.Settings.SettingsWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteSettingsToFile(Settings)
+  nameWithType: SettingsWriter.WriteSettingsToFile(Settings)
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile(InventarWorkerCommon.Models.Settings.Settings)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteSettingsToFile
+    path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+    startLine: 43
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Settings
+  summary: Writes the specified application settings to a file in JSON format at the specified file path.
+  example: []
+  syntax:
+    content: public void WriteSettingsToFile(Settings settings)
+    parameters:
+    - id: settings
+      type: InventarWorkerCommon.Models.Settings.Settings
+      description: The settings object containing the configuration data to be written to the file.
+    content.vb: Public Sub WriteSettingsToFile(settings As Settings)
+  overload: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile*
 references:
 - uid: InventarWorkerCommon.Services.Settings
   commentId: N:InventarWorkerCommon.Services.Settings
@@ -306,3 +374,66 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor*
+  commentId: Overload:InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor
+  href: InventarWorkerCommon.Services.Settings.SettingsWriter.html#InventarWorkerCommon_Services_Settings_SettingsWriter__ctor_System_String_
+  name: SettingsWriter
+  nameWithType: SettingsWriter.SettingsWriter
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.SettingsWriter
+  nameWithType.vb: SettingsWriter.New
+  fullName.vb: InventarWorkerCommon.Services.Settings.SettingsWriter.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile*
+  commentId: Overload:InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile
+  href: InventarWorkerCommon.Services.Settings.SettingsWriter.html#InventarWorkerCommon_Services_Settings_SettingsWriter_WriteSettingsToFile_InventarWorkerCommon_Models_Settings_Settings_
+  name: WriteSettingsToFile
+  nameWithType: SettingsWriter.WriteSettingsToFile
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsToFile
+- uid: InventarWorkerCommon.Models.Settings.Settings
+  commentId: T:InventarWorkerCommon.Models.Settings.Settings
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: InventarWorkerCommon.Models.Settings.Settings
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
