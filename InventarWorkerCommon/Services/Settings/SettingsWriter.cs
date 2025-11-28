@@ -41,7 +41,7 @@ public class SettingsWriter
     /// Writes the specified application settings to a file in JSON format at the specified file path.
     /// </summary>
     /// <param name="settings">The settings object containing the configuration data to be written to the file.</param>
-    public void WriteSettingsToFile(Models.Settings.Settings settings)
+    public void WriteSettings(Models.Settings.Settings settings)
     {
         var settingsFile = Path.Combine(_statusDirectory, "settings.json");
         string json = JsonSerializer.Serialize(settings, _jsonOptions);
