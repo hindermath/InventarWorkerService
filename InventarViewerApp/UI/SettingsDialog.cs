@@ -294,7 +294,7 @@ namespace InventarViewerApp.UI
                 _settings.MongoDb = _mongoDb;
                 _settings.PgSqlDb = _pgSqlDb;
 
-                _settingsWriter.WriteSettingsToFile(_settings);
+                _settingsWriter.WriteSettings(_settings);
 
                 Canceled = false;
                 Application.RequestStop();
