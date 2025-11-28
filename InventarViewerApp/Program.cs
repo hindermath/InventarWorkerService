@@ -30,6 +30,7 @@ partial class Program
         }
         else
         {
+            // NOTE: Noch mit Werten befüllen.
             using var serviceContainer = Services();
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
