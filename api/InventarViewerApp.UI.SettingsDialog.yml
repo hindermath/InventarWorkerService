@@ -33,7 +33,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsDialog
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 10
+    startLine: 13
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -270,7 +270,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 15
+    startLine: 18
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -301,7 +301,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiPort
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -332,7 +332,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 25
+    startLine: 28
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -363,7 +363,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPort
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 30
+    startLine: 33
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -394,7 +394,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbUser
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 35
+    startLine: 38
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -425,7 +425,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPassword
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 40
+    startLine: 43
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -456,7 +456,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 45
+    startLine: 48
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -487,7 +487,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbPort
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 50
+    startLine: 53
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -518,7 +518,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbName
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 55
+    startLine: 58
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -549,7 +549,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlUser
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 60
+    startLine: 63
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -580,7 +580,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlPassword
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 65
+    startLine: 68
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -611,7 +611,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Canceled
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 70
+    startLine: 73
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -642,7 +642,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 85
+    startLine: 96
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
@@ -690,7 +690,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SettingsDialog.cs
-    startLine: 114
+    startLine: 125
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
