@@ -1,3 +1,6 @@
+using InventarWorkerCommon.Models.Settings;
+using InventarWorkerCommon.Services.Settings;
+
 using Terminal.Gui;
 
 namespace InventarViewerApp.UI
@@ -69,6 +72,14 @@ namespace InventarViewerApp.UI
         /// Gets a value indicating whether the dialog was canceled by the user.
         /// </summary>
         public bool Canceled { get; private set; } = true;
+
+        private ClientApi _clientApi { get; set; } = new ClientApi();
+        private MongoDb _mongoDb { get; set; } = new MongoDb();
+        private PgSqlDb _pgSqlDb { get; set; } = new PgSqlDb();
+        private Settings _settings { get; set; } = new Settings();
+
+        private SettingsWriter _settingsWriter { get; set; } = new SettingsWriter();
+
 
         /// <summary>
         /// Represents a dialog window for modifying the application settings.
@@ -240,9 +251,11 @@ namespace InventarViewerApp.UI
             {
                 ClientApiFqdn = apiFqdnText.Text.ToString();
                 ClientApiPort = apiPortText.Text.ToString();
+                _clientApi.ClientApiFqdn = ClientApiFqdn;
+                _clientApi.ClientApiPort = ClientApiPort;
+
                 MongoDbFqdn = mongoFqdnText.Text.ToString();
                 MongoDbPort = mongoPortText.Text.ToString();
-
                 if (mongoAuthCheck.Checked)
                 {
                     MongoDbUser = mongoUserText.Text.ToString();
@@ -253,11 +266,14 @@ namespace InventarViewerApp.UI
                     MongoDbUser = string.Empty;
                     MongoDbPassword = string.Empty;
                 }
+                _mongoDb.MongoDbFqdn = MongoDbFqdn;
+                _mongoDb.MongoDbPort = MongoDbPort;
+                _mongoDb.MongoDbUser = MongoDbUser;
+                _mongoDb.MongoDbPassword = MongoDbPassword;
 
                 PgSqlDbFqdn = pgSqlFqdnText.Text.ToString();
                 PgSqlDbPort = pgSqlPortText.Text.ToString();
                 PgSqlDbName = pgSqlDbText.Text.ToString();
-
                 if (pgSqlAuthCheck.Checked)
                 {
                     PgSqlUser = pgSqlUserText.Text.ToString();
@@ -268,6 +284,17 @@ namespace InventarViewerApp.UI
                     PgSqlUser = string.Empty;
                     PgSqlPassword = string.Empty;
                 }
+                _pgSqlDb.PgSqlDbFqdn = PgSqlDbFqdn;
+                _pgSqlDb.PgSqlDbPort = PgSqlDbPort;
+                _pgSqlDb.PgSqlDbName = PgSqlDbName;
+                _pgSqlDb.PgSqlUser = PgSqlUser;
+                _pgSqlDb.PgSqlPassword = PgSqlPassword;
+
+                _settings.ClientApi = _clientApi;
+                _settings.MongoDb = _mongoDb;
+                _settings.PgSqlDb = _pgSqlDb;
+
+                _settingsWriter.WriteSettingsToFile(_settings);
 
                 Canceled = false;
                 Application.RequestStop();
