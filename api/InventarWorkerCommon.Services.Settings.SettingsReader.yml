@@ -4,7 +4,9 @@ items:
   commentId: T:InventarWorkerCommon.Services.Settings.SettingsReader
   id: SettingsReader
   parent: InventarWorkerCommon.Services.Settings
-  children: []
+  children:
+  - InventarWorkerCommon.Services.Settings.SettingsReader.#ctor(System.String)
+  - InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings
   langs:
   - csharp
   - vb
@@ -19,7 +21,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsReader
     path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
-    startLine: 7
+    startLine: 11
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Settings
@@ -43,6 +45,86 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: InventarWorkerCommon.Services.Settings.SettingsReader.#ctor(System.String)
+  commentId: M:InventarWorkerCommon.Services.Settings.SettingsReader.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: InventarWorkerCommon.Services.Settings.SettingsReader
+  langs:
+  - csharp
+  - vb
+  name: SettingsReader(string)
+  nameWithType: SettingsReader.SettingsReader(string)
+  fullName: InventarWorkerCommon.Services.Settings.SettingsReader.SettingsReader(string)
+  type: Constructor
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: .ctor
+    path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
+    startLine: 21
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Settings
+  summary: >-
+    Provides functionality to read configuration settings for the application.
+
+    This class enables reading configuration data from a predefined status directory
+
+    and deserializes it into strongly-typed objects.
+  example: []
+  syntax:
+    content: public SettingsReader(string statusDirectory = "inventar-service")
+    parameters:
+    - id: statusDirectory
+      type: System.String
+    content.vb: Public Sub New(statusDirectory As String = "inventar-service")
+  overload: InventarWorkerCommon.Services.Settings.SettingsReader.#ctor*
+  nameWithType.vb: SettingsReader.New(String)
+  fullName.vb: InventarWorkerCommon.Services.Settings.SettingsReader.New(String)
+  name.vb: New(String)
+- uid: InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings
+  commentId: M:InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings
+  id: ReadSettings
+  parent: InventarWorkerCommon.Services.Settings.SettingsReader
+  langs:
+  - csharp
+  - vb
+  name: ReadSettings()
+  nameWithType: SettingsReader.ReadSettings()
+  fullName: InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ReadSettings
+    path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
+    startLine: 43
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Settings
+  summary: >-
+    Reads the configuration settings from a predefined status directory.
+
+    This method attempts to locate and deserialize the settings stored in a JSON file
+
+    within the specified status directory. If the file doesn't exist or an error occurs
+
+    during the read operation, it returns null.
+  example: []
+  syntax:
+    content: public Settings? ReadSettings()
+    return:
+      type: InventarWorkerCommon.Models.Settings.Settings
+      description: >-
+        An instance of the <xref href="InventarWorkerCommon.Models.Settings.Settings" data-throw-if-not-resolved="false"></xref> class containing
+
+        the deserialized configuration settings, or null if the file is not found or cannot be read.
+    content.vb: Public Function ReadSettings() As Settings
+  overload: InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings*
 references:
 - uid: InventarWorkerCommon.Services.Settings
   commentId: N:InventarWorkerCommon.Services.Settings
@@ -311,3 +393,66 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: InventarWorkerCommon.Services.Settings.SettingsReader.#ctor*
+  commentId: Overload:InventarWorkerCommon.Services.Settings.SettingsReader.#ctor
+  href: InventarWorkerCommon.Services.Settings.SettingsReader.html#InventarWorkerCommon_Services_Settings_SettingsReader__ctor_System_String_
+  name: SettingsReader
+  nameWithType: SettingsReader.SettingsReader
+  fullName: InventarWorkerCommon.Services.Settings.SettingsReader.SettingsReader
+  nameWithType.vb: SettingsReader.New
+  fullName.vb: InventarWorkerCommon.Services.Settings.SettingsReader.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: InventarWorkerCommon.Models.Settings.Settings
+  commentId: T:InventarWorkerCommon.Models.Settings.Settings
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: InventarWorkerCommon.Models.Settings.Settings
+- uid: InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings*
+  commentId: Overload:InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings
+  href: InventarWorkerCommon.Services.Settings.SettingsReader.html#InventarWorkerCommon_Services_Settings_SettingsReader_ReadSettings
+  name: ReadSettings
+  nameWithType: SettingsReader.ReadSettings
+  fullName: InventarWorkerCommon.Services.Settings.SettingsReader.ReadSettings
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
