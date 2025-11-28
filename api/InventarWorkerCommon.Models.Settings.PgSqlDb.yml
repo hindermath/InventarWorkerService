@@ -5,6 +5,7 @@ items:
   id: PgSqlDb
   parent: InventarWorkerCommon.Models.Settings
   children:
+  - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbName
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword
@@ -42,6 +43,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
+  commentId: P:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
+  id: PgSqlDbFqdn
+  parent: InventarWorkerCommon.Models.Settings.PgSqlDb
+  langs:
+  - csharp
+  - vb
+  name: PgSqlDbFqdn
+  nameWithType: PgSqlDb.PgSqlDbFqdn
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: PgSqlDbFqdn
+    path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+    startLine: 10
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets or sets the fully qualified domain name (FQDN) of the PostgreSQL server.
+  example: []
+  syntax:
+    content: public string PgSqlDbFqdn { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PgSqlDbFqdn As String
+  overload: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn*
 - uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
   commentId: P:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
   id: PgSqlDbPort
@@ -60,14 +92,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbPort
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-    startLine: 10
+    startLine: 14
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
   summary: Gets the port of the PostgreSQL server.
   example: []
   syntax:
-    content: public string PgSqlDbPort { get; }
+    content: public string PgSqlDbPort { get; set; }
     parameters: []
     return:
       type: System.String
@@ -91,14 +123,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbName
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-    startLine: 15
+    startLine: 19
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
   summary: Gets the name of the PostgreSQL database.
   example: []
   syntax:
-    content: public string PgSqlDbName { get; }
+    content: public string PgSqlDbName { get; set; }
     parameters: []
     return:
       type: System.String
@@ -122,14 +154,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlUser
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-    startLine: 20
+    startLine: 24
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
   summary: Gets the username for the PostgreSQL connection.
   example: []
   syntax:
-    content: public string PgSqlUser { get; }
+    content: public string PgSqlUser { get; set; }
     parameters: []
     return:
       type: System.String
@@ -153,14 +185,14 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlPassword
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-    startLine: 25
+    startLine: 29
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
   summary: Gets the password for the PostgreSQL connection.
   example: []
   syntax:
-    content: public string PgSqlPassword { get; }
+    content: public string PgSqlPassword { get; set; }
     parameters: []
     return:
       type: System.String
@@ -434,12 +466,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort*
-  commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
-  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlDbPort
-  name: PgSqlDbPort
-  nameWithType: PgSqlDb.PgSqlDbPort
-  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
+  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlDbFqdn
+  name: PgSqlDbFqdn
+  nameWithType: PgSqlDb.PgSqlDbFqdn
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -451,6 +483,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
+  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlDbPort
+  name: PgSqlDbPort
+  nameWithType: PgSqlDb.PgSqlDbPort
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
 - uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbName*
   commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbName
   href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlDbName

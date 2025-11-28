@@ -67,7 +67,7 @@ items:
   summary: Gets the fully qualified domain name (FQDN) of the MongoDB server.
   example: []
   syntax:
-    content: public string MongoDbFqdn { get; }
+    content: public string MongoDbFqdn { get; set; }
     parameters: []
     return:
       type: System.String
@@ -98,7 +98,7 @@ items:
   summary: Gets the port of the MongoDB server.
   example: []
   syntax:
-    content: public string MongoDbPort { get; }
+    content: public string MongoDbPort { get; set; }
     parameters: []
     return:
       type: System.String
@@ -129,7 +129,7 @@ items:
   summary: Gets the username for the MongoDB connection.
   example: []
   syntax:
-    content: public string MongoDbUser { get; }
+    content: public string MongoDbUser { get; set; }
     parameters: []
     return:
       type: System.String
@@ -160,7 +160,7 @@ items:
   summary: Gets the password for the MongoDB connection.
   example: []
   syntax:
-    content: public string MongoDbPassword { get; }
+    content: public string MongoDbPassword { get; set; }
     parameters: []
     return:
       type: System.String

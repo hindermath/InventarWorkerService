@@ -41,6 +41,7 @@ references:
   fullName: InventarWorkerCommon.Models.Settings.PgSqlDb
 - uid: InventarWorkerCommon.Models.Settings.Settings
   commentId: T:InventarWorkerCommon.Models.Settings.Settings
+  parent: InventarWorkerCommon.Models.Settings
   href: InventarWorkerCommon.Models.Settings.Settings.html
   name: Settings
   nameWithType: Settings
