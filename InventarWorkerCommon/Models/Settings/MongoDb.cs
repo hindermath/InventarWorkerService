@@ -36,7 +36,7 @@ public class MongoDb
             var host = string.IsNullOrWhiteSpace(MongoDbFqdn) ? "localhost" : MongoDbFqdn;
             var port = string.IsNullOrWhiteSpace(MongoDbPort) ? "27017" : MongoDbPort;
 
-            if (!string.IsNullOrWhiteSpace(MongoDbUser) && !string.IsNullOrWhiteSpace(MongoDbPassword))
+            if (string.IsNullOrWhiteSpace(MongoDbUser) is false && string.IsNullOrWhiteSpace(MongoDbPassword) is false)
             {
                 return $"mongodb://{MongoDbUser}:{MongoDbPassword}@{host}:{port}";
             }

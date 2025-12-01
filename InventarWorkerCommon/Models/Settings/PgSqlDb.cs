@@ -42,7 +42,7 @@ public class PgSqlDb
             var port = string.IsNullOrWhiteSpace(PgSqlDbPort) ? "5432" : PgSqlDbPort;
             var dbName = string.IsNullOrWhiteSpace(PgSqlDbName) ? "postgres" : PgSqlDbName;
 
-            if (!string.IsNullOrWhiteSpace(PgSqlUser) && !string.IsNullOrWhiteSpace(PgSqlPassword))
+            if (string.IsNullOrWhiteSpace(PgSqlUser) is false && (string.IsNullOrWhiteSpace(PgSqlPassword) is false))
             {
                 return $"Host={host};Port={port};Database={dbName};Username={PgSqlUser};Password={PgSqlPassword};";
             }
