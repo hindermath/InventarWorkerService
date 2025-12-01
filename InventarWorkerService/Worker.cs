@@ -101,14 +101,12 @@ public class Worker : BackgroundService
                 });
             }
 #if DEBUG
-            await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
+            await Task.Delay(30_000, stoppingToken);
 #else
             // 86400000ms = 24h - Minus the milliseconds difference
             // of the time consumed for processing the hard and software inventory
             // of machine the service is running on
-            await Task.Delay(
-                Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))),
-                stoppingToken);
+            await Task.Delay(86_400_000, stoppingToken);
 #endif
 
         }

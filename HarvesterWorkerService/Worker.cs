@@ -327,13 +327,11 @@ public class Worker : BackgroundService
                  HandleException(exception);
             }
 #if DEBUG
-            await Task.Delay(Convert.ToInt32((30_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))), stoppingToken);
+            await Task.Delay(30_000, stoppingToken);
 #else
             // 86,400,000 ms = 24h - Minus the milliseconds difference
             // of the time consumed for processing the machine table
-            await Task.Delay(
-                Convert.ToInt32((86_400_000 - Convert.ToInt32((DateTime.Now - startProcessingTime).TotalMilliseconds))),
-                stoppingToken);
+            await Task.Delay(86_400_000, stoppingToken);
 #endif
 
         }
