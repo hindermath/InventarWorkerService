@@ -81,6 +81,7 @@ public static class Initialize
         // Initialize PostgreSQL Service
         var pgSqlDbService = new PgSqlDbService(settings.PgSqlDb.PgSqlConnectionString);
         pgSqlDbService.InitializeDatabase();
+
         // Return the initialized services
         return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService);
     }
