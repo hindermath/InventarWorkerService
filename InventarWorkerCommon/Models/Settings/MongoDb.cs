@@ -24,4 +24,24 @@ public class MongoDb
     /// Gets the password for the MongoDB connection.
     /// </summary>
     public string MongoDbPassword { get; set; }
+
+    /// <summary>
+    /// Gets the connection string used to connect to the MongoDB database, including authentication
+    /// credentials (if provided) and host/port information.
+    /// </summary>
+    public string MongoDbConnectionString
+    {
+        get
+        {
+            var host = string.IsNullOrWhiteSpace(MongoDbFqdn) ? "localhost" : MongoDbFqdn;
+            var port = string.IsNullOrWhiteSpace(MongoDbPort) ? "27017" : MongoDbPort;
+
+            if (!string.IsNullOrWhiteSpace(MongoDbUser) && !string.IsNullOrWhiteSpace(MongoDbPassword))
+            {
+                return $"mongodb://{MongoDbUser}:{MongoDbPassword}@{host}:{port}";
+            }
+
+            return $"mongodb://{host}:{port}";
+        }
+    }
 }
