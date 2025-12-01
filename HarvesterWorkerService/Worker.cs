@@ -8,6 +8,7 @@ using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
 using InventarWorkerCommon.Services.Network;
+using InventarWorkerCommon.Services.Settings;
 using InventarWorkerCommon.Services.Status;
 using static InventarWorkerCommon.Services.Common.Initialize;
 
@@ -37,6 +38,7 @@ public class Worker : BackgroundService
     private ApiService _apiService;
     private SqliteDbService _sqliteDbService;
     private MongoDbService _mongoDbService;
+    private PgSqlDbService _pgSqlDbService;
     private HostInformationResult _hostInformationResult;
 
     /// <summary>
@@ -93,9 +95,23 @@ public class Worker : BackgroundService
     /// <param name="stoppingToken">Token that signals when the service should stop.</param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        await using var serviceContainer = Services();
-        _sqliteDbService = serviceContainer.DbService;
-        _mongoDbService = serviceContainer.MongoDbService;
+        var settingsReader = new SettingsReader();
+        var settings = settingsReader.ReadSettings();
+
+        if (settings == null)
+        {
+            await using var serviceContainer = Services();
+            _sqliteDbService = serviceContainer.DbService;
+            _mongoDbService = serviceContainer.MongoDbService;
+            _pgSqlDbService = serviceContainer.PgSqlDbService;
+        }
+        else
+        {
+            await using var serviceContainer = Services(settings);
+            _sqliteDbService = serviceContainer.DbService;
+            _mongoDbService = serviceContainer.MongoDbService;
+            _pgSqlDbService = serviceContainer.PgSqlDbService;
+        }
 
         // Write initial status
         _statusWriter.WriteStatus(new ServiceStatus
