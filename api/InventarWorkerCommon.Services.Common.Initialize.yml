@@ -6,6 +6,7 @@ items:
   parent: InventarWorkerCommon.Services.Common
   children:
   - InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
+  - InventarWorkerCommon.Services.Common.Initialize.Services(InventarWorkerCommon.Models.Settings.Settings)
   - InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String)
   langs:
   - csharp
@@ -99,6 +100,44 @@ items:
   nameWithType.vb: Initialize.Services(String, String, String, String, String, String)
   fullName.vb: InventarWorkerCommon.Services.Common.Initialize.Services(String, String, String, String, String, String)
   name.vb: Services(String, String, String, String, String, String)
+- uid: InventarWorkerCommon.Services.Common.Initialize.Services(InventarWorkerCommon.Models.Settings.Settings)
+  commentId: M:InventarWorkerCommon.Services.Common.Initialize.Services(InventarWorkerCommon.Models.Settings.Settings)
+  id: Services(InventarWorkerCommon.Models.Settings.Settings)
+  parent: InventarWorkerCommon.Services.Common.Initialize
+  langs:
+  - csharp
+  - vb
+  name: Services(Settings)
+  nameWithType: Initialize.Services(Settings)
+  fullName: InventarWorkerCommon.Services.Common.Initialize.Services(InventarWorkerCommon.Models.Settings.Settings)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Common/Initialize.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: Services
+    path: InventarWorkerCommon/Services/Common/Initialize.cs
+    startLine: 62
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Common
+  summary: >-
+    Initializes and configures the necessary services for the application, including API service, SQLite database service,
+
+    MongoDB service, and PostgreSQL database service.
+  example: []
+  syntax:
+    content: public static ServiceContainer Services(Settings settings)
+    parameters:
+    - id: settings
+      type: InventarWorkerCommon.Models.Settings.Settings
+      description: The application settings containing configuration details for API, MongoDB, and PostgreSQL connections.
+    return:
+      type: InventarWorkerCommon.Services.Common.ServiceContainer
+      description: A container encapsulating the initialized services.
+    content.vb: Public Shared Function Services(settings As Settings) As ServiceContainer
+  overload: InventarWorkerCommon.Services.Common.Initialize.Services*
 - uid: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
   commentId: M:InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
   id: GetDbBasePath
@@ -117,7 +156,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetDbBasePath
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 62
+    startLine: 94
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -427,6 +466,43 @@ references:
   name: ServiceContainer
   nameWithType: ServiceContainer
   fullName: InventarWorkerCommon.Services.Common.ServiceContainer
+- uid: InventarWorkerCommon.Models.Settings.Settings
+  commentId: T:InventarWorkerCommon.Models.Settings.Settings
+  parent: InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.Models.Settings.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: InventarWorkerCommon.Models.Settings.Settings
+- uid: InventarWorkerCommon.Models.Settings
+  commentId: N:InventarWorkerCommon.Models.Settings
+  href: InventarWorkerCommon.html
+  name: InventarWorkerCommon.Models.Settings
+  nameWithType: InventarWorkerCommon.Models.Settings
+  fullName: InventarWorkerCommon.Models.Settings
+  spec.csharp:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
+  spec.vb:
+  - uid: InventarWorkerCommon
+    name: InventarWorkerCommon
+    href: InventarWorkerCommon.html
+  - name: .
+  - uid: InventarWorkerCommon.Models
+    name: Models
+    href: InventarWorkerCommon.Models.html
+  - name: .
+  - uid: InventarWorkerCommon.Models.Settings
+    name: Settings
+    href: InventarWorkerCommon.Models.Settings.html
 - uid: InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath*
   commentId: Overload:InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath
   href: InventarWorkerCommon.Services.Common.Initialize.html#InventarWorkerCommon_Services_Common_Initialize_GetDbBasePath
