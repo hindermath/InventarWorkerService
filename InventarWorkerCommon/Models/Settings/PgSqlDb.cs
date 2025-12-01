@@ -28,4 +28,26 @@ public class PgSqlDb
     /// Gets the password for the PostgreSQL connection.
     /// </summary>
     public string PgSqlPassword { get; set; }
+
+    /// <summary>
+    /// Gets the connection string required to connect to the PostgreSQL database.
+    /// The connection string is dynamically constructed using the database host, port, name,
+    /// user credentials, and other related properties.
+    /// </summary>
+    public string PgSqlConnectionString
+    {
+        get
+        {
+            var host = string.IsNullOrWhiteSpace(PgSqlDbFqdn) ? "localhost" : PgSqlDbFqdn;
+            var port = string.IsNullOrWhiteSpace(PgSqlDbPort) ? "5432" : PgSqlDbPort;
+            var dbName = string.IsNullOrWhiteSpace(PgSqlDbName) ? "postgres" : PgSqlDbName;
+
+            if (!string.IsNullOrWhiteSpace(PgSqlUser) && !string.IsNullOrWhiteSpace(PgSqlPassword))
+            {
+                return $"Host={host};Port={port};Database={dbName};Username={PgSqlUser};Password={PgSqlPassword};";
+            }
+
+            return $"Host={host};Port={port};Database={dbName};";
+        }
+    }
 }
