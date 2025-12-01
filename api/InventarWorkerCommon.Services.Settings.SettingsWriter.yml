@@ -7,6 +7,7 @@ items:
   children:
   - InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor(System.String)
   - InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettings(InventarWorkerCommon.Models.Settings.Settings)
+  - InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)
   langs:
   - csharp
   - vb
@@ -21,7 +22,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsWriter
     path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Settings
@@ -58,7 +59,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Settings
@@ -92,7 +93,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WriteSettings
     path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
-    startLine: 43
+    startLine: 44
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Settings
@@ -106,6 +107,38 @@ items:
       description: The settings object containing the configuration data to be written to the file.
     content.vb: Public Sub WriteSettings(settings As Settings)
   overload: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettings*
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)
+  commentId: M:InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)
+  id: WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)
+  parent: InventarWorkerCommon.Services.Settings.SettingsWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteSettingsYaml(Settings)
+  nameWithType: SettingsWriter.WriteSettingsYaml(Settings)
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteSettingsYaml
+    path: InventarWorkerCommon/Services/Settings/SettingsWriter.cs
+    startLine: 55
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Services.Settings
+  summary: Writes the specified application settings to a file in YAML format at the specified file path.
+  example: []
+  syntax:
+    content: public void WriteSettingsYaml(Settings settings)
+    parameters:
+    - id: settings
+      type: InventarWorkerCommon.Models.Settings.Settings
+      description: The settings object containing the configuration data to be written to the file.
+    content.vb: Public Sub WriteSettingsYaml(settings As Settings)
+  overload: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml*
 references:
 - uid: InventarWorkerCommon.Services.Settings
   commentId: N:InventarWorkerCommon.Services.Settings
@@ -437,3 +470,9 @@ references:
   - uid: InventarWorkerCommon.Models.Settings
     name: Settings
     href: InventarWorkerCommon.Models.Settings.html
+- uid: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml*
+  commentId: Overload:InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml
+  href: InventarWorkerCommon.Services.Settings.SettingsWriter.html#InventarWorkerCommon_Services_Settings_SettingsWriter_WriteSettingsYaml_InventarWorkerCommon_Models_Settings_Settings_
+  name: WriteSettingsYaml
+  nameWithType: SettingsWriter.WriteSettingsYaml
+  fullName: InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml

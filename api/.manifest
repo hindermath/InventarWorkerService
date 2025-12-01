@@ -400,6 +400,7 @@
   "InventarWorkerCommon.Services.Settings.SettingsWriter": "InventarWorkerCommon.Services.Settings.SettingsWriter.yml",
   "InventarWorkerCommon.Services.Settings.SettingsWriter.#ctor(System.String)": "InventarWorkerCommon.Services.Settings.SettingsWriter.yml",
   "InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettings(InventarWorkerCommon.Models.Settings.Settings)": "InventarWorkerCommon.Services.Settings.SettingsWriter.yml",
+  "InventarWorkerCommon.Services.Settings.SettingsWriter.WriteSettingsYaml(InventarWorkerCommon.Models.Settings.Settings)": "InventarWorkerCommon.Services.Settings.SettingsWriter.yml",
   "InventarWorkerCommon.Services.Software": "InventarWorkerCommon.Services.Software.yml",
   "InventarWorkerCommon.Services.Software.SoftwareInventoryService": "InventarWorkerCommon.Services.Software.SoftwareInventoryService.yml",
   "InventarWorkerCommon.Services.Software.SoftwareInventoryService.#ctor(Microsoft.Extensions.Logging.ILogger{InventarWorkerCommon.Services.Software.SoftwareInventoryService})": "InventarWorkerCommon.Services.Software.SoftwareInventoryService.yml",
