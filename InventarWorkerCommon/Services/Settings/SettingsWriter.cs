@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using InventarWorkerCommon.Services.Paths;
+using YamlDotNet.Serialization;
 
 namespace InventarWorkerCommon.Services.Settings;
 
@@ -46,5 +47,21 @@ public class SettingsWriter
         var settingsFile = Path.Combine(_statusDirectory, "settings.json");
         string json = JsonSerializer.Serialize(settings, _jsonOptions);
         File.WriteAllText(settingsFile, json);
+    }
+
+    /// <summary>
+    /// Writes the specified application settings to a file in YAML format at the specified file path.
+    /// </summary>
+    /// <param name="settings">The settings object containing the configuration data to be written to the file.</param>
+    public void WriteSettingsYaml(Models.Settings.Settings settings)
+    {
+        var settingsFile = Path.Combine(_statusDirectory, "settings.yaml");
+
+        var serializer = new SerializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.CamelCaseNamingConvention.Instance)
+            .Build();
+
+        var yaml = serializer.Serialize(settings);
+        File.WriteAllText(settingsFile, yaml);
     }
 }
