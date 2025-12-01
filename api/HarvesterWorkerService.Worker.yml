@@ -21,7 +21,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Worker
     path: HarvesterWorkerService/Worker.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -75,7 +75,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: HarvesterWorkerService/Worker.cs
-    startLine: 45
+    startLine: 47
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
@@ -112,7 +112,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ExecuteAsync
     path: HarvesterWorkerService/Worker.cs
-    startLine: 93
+    startLine: 95
   assemblies:
   - HarvesterWorkerService
   namespace: HarvesterWorkerService
