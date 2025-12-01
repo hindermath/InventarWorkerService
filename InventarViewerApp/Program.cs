@@ -14,12 +14,13 @@ partial class Program
             await WebApiAsync(args);
             return;
         }
-        // Services use with automatic Disposal by 'using' Statement
+
         var settingsReader = new SettingsReader();
         var settings = settingsReader.ReadSettings();
 
         if (settings == null)
         {
+            // Services use with automatic Disposal by 'using' Statement
             using var serviceContainer = Services();
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
@@ -30,6 +31,7 @@ partial class Program
         }
         else
         {
+            // Services use with automatic Disposal by 'using' Statement
             using var serviceContainer = Services(settings);
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
