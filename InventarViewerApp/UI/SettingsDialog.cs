@@ -298,6 +298,7 @@ namespace InventarViewerApp.UI
                 _settings.PgSqlDb = _pgSqlDb;
 
                 _settingsWriter.WriteSettings(_settings);
+                _settingsWriter.WriteSettingsYaml(_settings);
 
                 Canceled = false;
                 Application.RequestStop();
