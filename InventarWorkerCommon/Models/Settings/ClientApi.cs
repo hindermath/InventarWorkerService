@@ -25,7 +25,7 @@ public class ClientApi
         {
             var host = string.IsNullOrWhiteSpace(ClientApiFqdn) ? "localhost" : ClientApiFqdn;
             var port = string.IsNullOrWhiteSpace(ClientApiPort) ? "80" : ClientApiPort;
-            return $"http://{host}:{port}/api";
+            return $"http://{host}:{port}";
         }
     }
 }
