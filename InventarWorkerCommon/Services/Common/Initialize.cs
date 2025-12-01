@@ -55,6 +55,37 @@ public static class Initialize
     }
 
     /// <summary>
+    /// Initializes and configures the necessary services for the application, including API service, SQLite database service,
+    /// MongoDB service, and PostgreSQL database service.
+    /// </summary>
+    /// <param name="settings">The application settings containing configuration details for API, MongoDB, and PostgreSQL connections.</param>
+    /// <returns>A container encapsulating the initialized services.</returns>
+    public static ServiceContainer Services(Models.Settings.Settings settings)
+    {
+        // Initialize API service
+        var apiService = new ApiService(settings.ClientApi.ClientApiUrl);
+
+        // Initialize database service
+        var basePath = GetDbBasePath();
+        var dbPath = Path.Combine(basePath, "inventar.db");
+        var dbService = new SqliteDbService($"Data Source={dbPath}");
+        // Create a database schema if necessary
+        dbService.InitializeDatabase();
+
+        // Initialize MongoDB Service
+        var mongoDbService = new MongoDbService(settings.MongoDb.MongoDbConnectionString);
+        // Initialize MongoDB hardware and softwaredatabases
+        mongoDbService.InitializeSoftwareMongoDatabase();
+        mongoDbService.InitializeHardwareMongoDatabase();
+
+        // Initialize PostgreSQL Service
+        var pgSqlDbService = new PgSqlDbService(settings.PgSqlDb.PgSqlConnectionString);
+        pgSqlDbService.InitializeDatabase();
+        // Return the initialized services
+        return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService);
+    }
+
+    /// <summary>
     /// Retrieves the base path for the database file. If the service status path does not exist, it creates
     /// the required path and returns its full name.
     /// If the service status path already exists, it retrieves and returns the existing path.
