@@ -7,6 +7,7 @@ items:
   children:
   - InventarWorkerCommon.Models.Settings.ClientApi.ClientApiFqdn
   - InventarWorkerCommon.Models.Settings.ClientApi.ClientApiPort
+  - InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl
   langs:
   - csharp
   - vb
@@ -58,7 +59,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiFqdn
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
@@ -89,7 +90,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiPort
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
@@ -102,6 +103,37 @@ items:
       type: System.String
     content.vb: Public Property ClientApiPort As String
   overload: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiPort*
+- uid: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl
+  commentId: P:InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl
+  id: ClientApiUrl
+  parent: InventarWorkerCommon.Models.Settings.ClientApi
+  langs:
+  - csharp
+  - vb
+  name: ClientApiUrl
+  nameWithType: ClientApi.ClientApiUrl
+  fullName: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/ClientApi.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ClientApiUrl
+    path: InventarWorkerCommon/Models/Settings/ClientApi.cs
+    startLine: 21
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Gets the full URL of the client API, constructed using the FQDN and port information.
+  example: []
+  syntax:
+    content: public string ClientApiUrl { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ClientApiUrl As String
+  overload: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl*
 references:
 - uid: InventarWorkerCommon.Models.Settings
   commentId: N:InventarWorkerCommon.Models.Settings
@@ -393,3 +425,9 @@ references:
   name: ClientApiPort
   nameWithType: ClientApi.ClientApiPort
   fullName: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiPort
+- uid: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl
+  href: InventarWorkerCommon.Models.Settings.ClientApi.html#InventarWorkerCommon_Models_Settings_ClientApi_ClientApiUrl
+  name: ClientApiUrl
+  nameWithType: ClientApi.ClientApiUrl
+  fullName: InventarWorkerCommon.Models.Settings.ClientApi.ClientApiUrl

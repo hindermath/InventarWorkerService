@@ -5,6 +5,7 @@ items:
   id: PgSqlDb
   parent: InventarWorkerCommon.Models.Settings
   children:
+  - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbFqdn
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbName
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
@@ -198,6 +199,42 @@ items:
       type: System.String
     content.vb: Public Property PgSqlPassword As String
   overload: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword*
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
+  commentId: P:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
+  id: PgSqlConnectionString
+  parent: InventarWorkerCommon.Models.Settings.PgSqlDb
+  langs:
+  - csharp
+  - vb
+  name: PgSqlConnectionString
+  nameWithType: PgSqlDb.PgSqlConnectionString
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: PgSqlConnectionString
+    path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+    startLine: 36
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: >-
+    Gets the connection string required to connect to the PostgreSQL database.
+
+    The connection string is dynamically constructed using the database host, port, name,
+
+    user credentials, and other related properties.
+  example: []
+  syntax:
+    content: public string PgSqlConnectionString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PgSqlConnectionString As String
+  overload: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString*
 references:
 - uid: InventarWorkerCommon.Models.Settings
   commentId: N:InventarWorkerCommon.Models.Settings
@@ -507,3 +544,9 @@ references:
   name: PgSqlPassword
   nameWithType: PgSqlDb.PgSqlPassword
   fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
+  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlConnectionString
+  name: PgSqlConnectionString
+  nameWithType: PgSqlDb.PgSqlConnectionString
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString

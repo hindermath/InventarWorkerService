@@ -5,6 +5,7 @@ items:
   id: MongoDb
   parent: InventarWorkerCommon.Models.Settings
   children:
+  - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbFqdn
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
@@ -166,6 +167,40 @@ items:
       type: System.String
     content.vb: Public Property MongoDbPassword As String
   overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword*
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
+  id: MongoDbConnectionString
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: MongoDbConnectionString
+  nameWithType: MongoDb.MongoDbConnectionString
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: MongoDbConnectionString
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 31
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: >-
+    Gets the connection string used to connect to the MongoDB database, including authentication
+
+    credentials (if provided) and host/port information.
+  example: []
+  syntax:
+    content: public string MongoDbConnectionString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MongoDbConnectionString As String
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString*
 references:
 - uid: InventarWorkerCommon.Models.Settings
   commentId: N:InventarWorkerCommon.Models.Settings
@@ -469,3 +504,9 @@ references:
   name: MongoDbPassword
   nameWithType: MongoDb.MongoDbPassword
   fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbConnectionString
+  name: MongoDbConnectionString
+  nameWithType: MongoDb.MongoDbConnectionString
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
