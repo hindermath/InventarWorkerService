@@ -30,8 +30,7 @@ partial class Program
         }
         else
         {
-            // NOTE: Noch mit Werten befüllen.
-            using var serviceContainer = Services();
+            using var serviceContainer = Services(settings);
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
             var mongoDbService = serviceContainer.MongoDbService;
