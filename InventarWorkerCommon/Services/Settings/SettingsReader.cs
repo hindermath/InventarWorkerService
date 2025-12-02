@@ -45,7 +45,7 @@ public class SettingsReader
     {
         try
         {
-            var settingsFile = System.IO.Path.Combine(_statusDirectory, "settings.json");
+            var settingsFile = Path.Combine(_statusDirectory, "settings.json");
             if (!File.Exists(settingsFile)) return null;
 
             var json = File.ReadAllText(settingsFile);
