@@ -5,7 +5,7 @@ using Terminal.Gui;
 
 namespace InventarViewerApp;
 
-partial class Program
+static partial class Program
 {
     private static void TuiApp(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService)
     {
