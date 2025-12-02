@@ -4,7 +4,7 @@ using InventarWorkerCommon.Services.Settings;
 
 namespace InventarViewerApp;
 
-partial class Program
+static partial class Program
 {
     static async Task Main(string[] args)
     {
@@ -21,7 +21,7 @@ partial class Program
         if (settings == null)
         {
             // Services use with automatic Disposal by 'using' Statement
-            using var serviceContainer = Services();
+            await using var serviceContainer = Services();
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
             var mongoDbService = serviceContainer.MongoDbService;
@@ -32,7 +32,7 @@ partial class Program
         else
         {
             // Services use with automatic Disposal by 'using' Statement
-            using var serviceContainer = Services(settings);
+            await using var serviceContainer = Services(settings);
             var apiService = serviceContainer.ApiService;
             var dbService = serviceContainer.DbService;
             var mongoDbService = serviceContainer.MongoDbService;
