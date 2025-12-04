@@ -5,6 +5,7 @@ items:
   id: InventarWorkerCommon.Helpers.Calculate
   children:
   - InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+  - InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension
   langs:
   - csharp
   - vb
@@ -21,3 +22,9 @@ references:
   name: AverageProcessingTime
   nameWithType: AverageProcessingTime
   fullName: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
+- uid: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension
+  commentId: T:InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension
+  href: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension.html
+  name: AverageProcessingTimeExtension
+  nameWithType: AverageProcessingTimeExtension
+  fullName: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension
