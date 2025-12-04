@@ -81,6 +81,8 @@
   "InventarWorkerCommon.Helpers.Calculate": "InventarWorkerCommon.Helpers.Calculate.yml",
   "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime": "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime.yml",
   "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime.CalculateAverageProcessingTime(System.Int32,System.DateTime)": "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime.yml",
+  "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension": "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension.yml",
+  "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension.CalculateAverageProcessingTime(System.Int32,System.DateTime)": "InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension.yml",
   "InventarWorkerCommon.Helpers.Exceptions": "InventarWorkerCommon.Helpers.Exceptions.yml",
   "InventarWorkerCommon.Helpers.Exceptions.NetworkInformation": "InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.yml",
   "InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException": "InventarWorkerCommon.Helpers.Exceptions.NetworkInformation.HostNetworkInformationCannotResolveException.yml",
