@@ -70,6 +70,9 @@ items:
   - uid: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTime
     name: AverageProcessingTime
     type: Class
+  - uid: InventarWorkerCommon.Helpers.Calculate.AverageProcessingTimeExtension
+    name: AverageProcessingTimeExtension
+    type: Class
 - uid: InventarWorkerCommon.Helpers.Exceptions
   name: InventarWorkerCommon.Helpers.Exceptions
   type: Namespace
