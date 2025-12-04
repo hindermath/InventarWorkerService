@@ -27,6 +27,7 @@
       {
         "files": [
           "*.png",
+          "images/**",
           "docs/**.pdf"
         ]
       }
