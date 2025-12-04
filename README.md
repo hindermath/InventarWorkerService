@@ -1058,9 +1058,10 @@ sind jedoch leistungsfähig und haben ihre Berechtigung.
 ### QuickFixes
 Wenn unter Linux/Ubuntu mit normalen USer-Rechten der InventarWorkerService nicht gestartet werden kann, dann versuche
 ```bash
-sudo setcap 'cap_net_bind_service=+ep' ./InventarWorkerService
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/InventarWorkerService
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarViewerApp/bin/Debug/net9.0/InventarViewerApp
 # Auflösen des SymLink
-readlink readlink -f /usr/bin/dotnet
+readlink -f /usr/bin/dotnet
 # Antwort
 /usr/lib/dotnet/dotnet
 sudo setcap 'cap_net_bind_service=+ep' /usr/lib/dotnet/dotnet
@@ -1068,3 +1069,4 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/lib/dotnet/dotnet
 ### Projekt-Historie
 Projektstart: 26.06.2025 (Geburtstag und 1. Urlaubstag)
 Funktionsumfang abgeschlossen: 16.11.2025
+Implementierung abgeschlossen: TT.MM.JJJJ

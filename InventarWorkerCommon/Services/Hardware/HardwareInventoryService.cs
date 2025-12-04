@@ -83,9 +83,9 @@ public class HardwareInventoryService
                 MachineName = Environment.MachineName,
                 UserName = Environment.UserName,
                 Domain = Environment.UserDomainName,
-                Uptime = GetSystemUptime(),
+                Uptime = TimeSpan.FromSeconds(Environment.TickCount / 1000.0),
                 Platform = GetPlatformName(),
-                Architecture = RuntimeInformation.ProcessArchitecture.ToString()
+                Architecture = RuntimeInformation.OSArchitecture.ToString()
             };
         }
         catch (Exception ex)
@@ -286,48 +286,6 @@ public class HardwareInventoryService
             return "FreeBSD";
         
         return "Unknown";
-    }
-
-    private TimeSpan GetSystemUptime()
-    {
-        try
-        {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return TimeSpan.FromMilliseconds(Environment.TickCount);
-            }
-            else
-            {
-                // Für Unix-Systeme: /proc/uptime lesen
-                return GetUnixUptime();
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogWarning(ex, "Uptime konnte nicht ermittelt werden");
-            return TimeSpan.Zero;
-        }
-    }
-
-    private TimeSpan GetUnixUptime()
-    {
-        try
-        {
-            if (File.Exists("/proc/uptime"))
-            {
-                var uptimeString = File.ReadAllText("/proc/uptime").Split(' ')[0];
-                if (double.TryParse(uptimeString, out var uptimeSeconds))
-                {
-                    return TimeSpan.FromSeconds(uptimeSeconds);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogWarning(ex, "Unix-Uptime konnte nicht gelesen werden");
-        }
-
-        return TimeSpan.Zero;
     }
 
     private string GetProcessorName()

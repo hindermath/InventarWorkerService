@@ -126,7 +126,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 529
+    startLine: 487
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
@@ -154,7 +154,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInfoAsync
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 539
+    startLine: 497
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
