@@ -8,7 +8,7 @@ _layout: landing
 
 ## Weitere Informationen
 
-- [Projekt-Dokumentation](docs/einleitung.html)
+- [Projekt-Dokumentation](docs/einleitung.md)
 - [API Dokumentation](xref:CtrlWorkerCommon.Controller)
 
 
