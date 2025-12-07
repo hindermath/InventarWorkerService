@@ -154,7 +154,7 @@ namespace InventarViewerApp.UI
             var currentMongoPassword = settings?.MongoDb.MongoDbPassword ?? string.Empty;
             var currentPgSqlFqdn = settings?.PgSqlDb.PgSqlDbFqdn ?? "localhost";
             var currentPgSqlPort = settings?.PgSqlDb.PgSqlDbPort ?? "5432";
-            var currentPgSqlDbName = settings?.PgSqlDb.PgSqlDbName ?? "postgres";
+            var currentPgSqlDbName = settings?.PgSqlDb.PgSqlDbName ?? "inventar";
             var currentPgSqlUser =  settings?.PgSqlDb.PgSqlUser ?? string.Empty;
             var currentPgSqlPassword = settings?.PgSqlDb.PgSqlPassword ?? string.Empty;
 
