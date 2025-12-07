@@ -20,6 +20,7 @@ public static class Initialize
     /// <param name="mongoDbPort">The port on which the MongoDB server is running. The default is "27017".</param>
     /// <param name="pgSqlDbFqdn">The fully qualified domain name of the PostgreSQL database server. The default is "localhost".</param>
     /// <param name="pgSqlDbPort">The port on which the PostgreSQL database server is running. The default is "5432".</param>
+    /// <param name="pgSqlDbName">The name of the PostgreSQL database to be used. The default is "inventar".</param>
     /// <returns>A disposable container with the initialized instances of services.</returns>
     public static ServiceContainer Services(
         string clientApiFqdn = "localhost",
@@ -27,7 +28,8 @@ public static class Initialize
         string mongoDbFqdn = "localhost",
         string mongoDbPort = "27017",
         string pgSqlDbFqdn = "localhost",
-        string pgSqlDbPort = "5432"
+        string pgSqlDbPort = "5432",
+        string pgSqlDbName = "inventar"
         )
     {
         // Initialize API service
@@ -47,7 +49,7 @@ public static class Initialize
         mongoDbService.InitializeHardwareMongoDatabase();
 
         // Initialize PostgreSQL Service
-        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database=postgres"); //";username=postgres;password=postgres");
+        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database={pgSqlDbName}");
         pgSqlDbService.InitializeDatabase();
 
         // Return the initialized services
