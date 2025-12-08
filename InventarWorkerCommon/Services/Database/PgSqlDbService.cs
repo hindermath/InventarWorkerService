@@ -28,11 +28,14 @@ public class PgSqlDbService
     /// </summary>
     public void InitializeDatabase()
     {
+#if DEBUG
         // Determine the target database name from the connection string
         var targetDatabase = GetTargetDatabaseName();
-
         // Ensure the target database exists, create it if necessary
         EnsureDatabaseExists(targetDatabase);
+#else
+        EnsureDatabaseExists(GetTargetDatabaseName());
+#endif
 
         // Finally, try opening a connection to the target DB to ensure it's ready
         using var connection = new NpgsqlConnection(_connectionString);
@@ -57,11 +60,11 @@ public class PgSqlDbService
         adminConnection.Open();
 
         // Check if database exists
-        using var checkCmd = new NpgsqlCommand("SELECT 1 FROM pg_database WHERE datname = @dbname", adminConnection);
-        checkCmd.Parameters.AddWithValue("dbname", targetDatabase);
-        var exists = checkCmd.ExecuteScalar() is not null;
+        using var checkDbExistsCmd = new NpgsqlCommand("SELECT 1 FROM pg_database WHERE datname = @dbname", adminConnection);
+        checkDbExistsCmd.Parameters.AddWithValue("dbname", targetDatabase);
+        var dbExists = checkDbExistsCmd.ExecuteScalar() is not null;
 
-        if (!exists)
+        if (dbExists is false)
         {
             // Create database with a quoted identifier to handle special characters/casing
             var quotedDbName = QuoteIdentifier(targetDatabase);
@@ -77,15 +80,15 @@ public class PgSqlDbService
     /// <exception cref="InvalidOperationException">Thrown if no database is specified in the connection string.</exception>
     private string GetTargetDatabaseName()
     {
-        var csb = new NpgsqlConnectionStringBuilder(_connectionString);
-        var db = csb.Database;
+        var csStringBuilder = new NpgsqlConnectionStringBuilder(_connectionString);
+        var dbName = csStringBuilder.Database;
 
-        if (string.IsNullOrWhiteSpace(db))
+        if (string.IsNullOrWhiteSpace(dbName))
         {
             throw new InvalidOperationException("No target database specified in the PostgreSQL connection string.");
         }
 
-        return db;
+        return dbName;
     }
 
     /// <summary>
