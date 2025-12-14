@@ -26,7 +26,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceContainer
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 111
+    startLine: 113
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -65,7 +65,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ApiService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 118
+    startLine: 120
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -96,7 +96,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 123
+    startLine: 125
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 128
+    startLine: 130
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -158,7 +158,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 134
+    startLine: 136
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -192,7 +192,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 155
+    startLine: 157
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -222,7 +222,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisposeAsync
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 165
+    startLine: 167
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
@@ -255,7 +255,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Finalize
     path: InventarWorkerCommon/Services/Common/Initialize.cs
-    startLine: 281
+    startLine: 283
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Common
