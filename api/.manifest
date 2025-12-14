@@ -331,7 +331,7 @@
   "InventarWorkerCommon.Services.Common.Initialize": "InventarWorkerCommon.Services.Common.Initialize.yml",
   "InventarWorkerCommon.Services.Common.Initialize.GetDbBasePath": "InventarWorkerCommon.Services.Common.Initialize.yml",
   "InventarWorkerCommon.Services.Common.Initialize.Services(InventarWorkerCommon.Models.Settings.Settings)": "InventarWorkerCommon.Services.Common.Initialize.yml",
-  "InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String)": "InventarWorkerCommon.Services.Common.Initialize.yml",
+  "InventarWorkerCommon.Services.Common.Initialize.Services(System.String,System.String,System.String,System.String,System.String,System.String,System.String)": "InventarWorkerCommon.Services.Common.Initialize.yml",
   "InventarWorkerCommon.Services.Common.ServiceContainer": "InventarWorkerCommon.Services.Common.ServiceContainer.yml",
   "InventarWorkerCommon.Services.Common.ServiceContainer.ApiService": "InventarWorkerCommon.Services.Common.ServiceContainer.yml",
   "InventarWorkerCommon.Services.Common.ServiceContainer.DbService": "InventarWorkerCommon.Services.Common.ServiceContainer.yml",
