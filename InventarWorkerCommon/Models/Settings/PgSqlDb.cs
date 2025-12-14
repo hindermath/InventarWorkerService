@@ -30,6 +30,11 @@ public class PgSqlDb
     public string PgSqlPassword { get; set; }
 
     /// <summary>
+    /// Indicates whether the application should write data to PostgreSQL.
+    /// </summary>
+    public bool WriteEnabled { get; set; }
+
+    /// <summary>
     /// Gets the connection string required to connect to the PostgreSQL database.
     /// The connection string is dynamically constructed using the database host, port, name,
     /// user credentials, and other related properties.
