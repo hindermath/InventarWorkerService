@@ -94,7 +94,7 @@ namespace InventarViewerApp.UI
         /// through the instance properties.
         /// The dialog is intended to be used in conjunction with the application's main window.
         /// </remarks>
-        public SettingsDialog() : base("Einstellungen", 60, 26)
+        public SettingsDialog() : base("Einstellungen", 60, 22)
         {
             InitializeUI();
         }
