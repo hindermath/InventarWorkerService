@@ -125,7 +125,7 @@ namespace InventarViewerApp.UI
         /// </remarks>
         public SettingsDialog(string clientApiFqdn, string clientApiPort, string mongoDbFqdn, string mongoDbPort,
             string mongoDbUser, string mongoDbPassword, string pgSqlDbFqdn, string pgSqlDbPort, string pgSqlDbName,
-            string pgSqlUser, string pgSqlPassword) : base("Einstellungen", 60, 22)
+            string pgSqlUser, string pgSqlPassword) : base("Einstellungen", 60, 20)
         {
             ClientApiFqdn = clientApiFqdn;
             ClientApiPort = clientApiPort;
@@ -182,7 +182,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(apiFrame),
                 Width = Dim.Fill(1),
-                Height = 7 // Höhe angepasst für zusätzliche Checkbox
+                Height = 7
             };
 
             var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
