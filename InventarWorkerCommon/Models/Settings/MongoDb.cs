@@ -26,6 +26,11 @@ public class MongoDb
     public string MongoDbPassword { get; set; }
 
     /// <summary>
+    /// Indicates whether the application should write data to MongoDB.
+    /// </summary>
+    public bool WriteEnabled { get; set; }
+
+    /// <summary>
     /// Gets the connection string used to connect to the MongoDB database, including authentication
     /// credentials (if provided) and host/port information.
     /// </summary>
