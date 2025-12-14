@@ -21,7 +21,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbService
     path: InventarWorkerCommon/Services/Database/PgSqlDbService.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/PgSqlDbService.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
@@ -102,7 +102,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeDatabase
     path: InventarWorkerCommon/Services/Database/PgSqlDbService.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Database
