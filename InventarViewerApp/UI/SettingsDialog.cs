@@ -152,11 +152,13 @@ namespace InventarViewerApp.UI
             var currentMongoPort = settings?.MongoDb.MongoDbPort ?? "27017";
             var currentMongoUser = settings?.MongoDb.MongoDbUser ?? string.Empty;
             var currentMongoPassword = settings?.MongoDb.MongoDbPassword ?? string.Empty;
+            var currentMongoWriteEnabled = settings?.MongoDb.WriteEnabled ?? false;
             var currentPgSqlFqdn = settings?.PgSqlDb.PgSqlDbFqdn ?? "localhost";
             var currentPgSqlPort = settings?.PgSqlDb.PgSqlDbPort ?? "5432";
             var currentPgSqlDbName = settings?.PgSqlDb.PgSqlDbName ?? "inventar";
             var currentPgSqlUser =  settings?.PgSqlDb.PgSqlUser ?? string.Empty;
             var currentPgSqlPassword = settings?.PgSqlDb.PgSqlPassword ?? string.Empty;
+            var currentPgSqlWriteEnabled = settings?.PgSqlDb.WriteEnabled ?? false;
 
             // --- Client API Group ---
             var apiFrame = new FrameView("Client API")
@@ -180,7 +182,7 @@ namespace InventarViewerApp.UI
                 X = 1,
                 Y = Pos.Bottom(apiFrame),
                 Width = Dim.Fill(1),
-                Height = 7 // Höhe angepasst
+                Height = 7 // Höhe angepasst für zusätzliche Checkbox
             };
 
             var mongoLabel = new Label("FQDN:") { X = 1, Y = 0 };
@@ -189,12 +191,14 @@ namespace InventarViewerApp.UI
             var mongoPortText = new TextField(currentMongoPort) { X = 12, Y = 1, Width = 10 };
 
             var mongoAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentMongoUser)) { X = 1, Y = 2 };
+            var mongoWriteCheck = new CheckBox("in DB schreiben", currentMongoWriteEnabled) { X = 22, Y = 2 };
 
             var mongoUserLabel = new Label("User:") { X = 1, Y = 3 };
             var mongoUserText = new TextField(currentMongoUser) { X = 12, Y = 3, Width = Dim.Fill(1) };
 
             var mongoPassLabel = new Label("Passwort:") { X = 1, Y = 4 };
             var mongoPassText = new TextField(currentMongoPassword) { X = 12, Y = 4, Width = Dim.Fill(1), Secret = true };
+
 
             // Initialer Status basierend auf Checkbox
             mongoUserText.Enabled = mongoAuthCheck.Checked;
@@ -207,7 +211,8 @@ namespace InventarViewerApp.UI
             };
 
             mongoFrame.Add(mongoLabel, mongoFqdnText, mongoPortLabel, mongoPortText,
-                           mongoAuthCheck, mongoUserLabel, mongoUserText, mongoPassLabel, mongoPassText);
+                           mongoAuthCheck, mongoUserLabel, mongoUserText, mongoPassLabel, mongoPassText,
+                           mongoWriteCheck);
 
             // --- PgSQL Group ---
             var pgSqlFrame = new FrameView("PostgreSQL")
@@ -226,12 +231,14 @@ namespace InventarViewerApp.UI
             var pgSqlDbText = new TextField(currentPgSqlDbName) { X = 12, Y = 2, Width = Dim.Fill(1) };
 
             var pgSqlAuthCheck = new CheckBox("Authentifizierung", !string.IsNullOrEmpty(currentPgSqlUser)) { X = 1, Y = 3 };
+            var pgSqlWriteCheck = new CheckBox("in DB schreiben", currentPgSqlWriteEnabled) { X =22, Y = 3 };
 
             var pgSqlUserLabel = new Label("User:") { X = 1, Y = 4 };
             var pgSqlUserText = new TextField(currentPgSqlUser) { X = 12, Y = 4, Width = Dim.Fill(1) };
 
             var pgSqlPassLabel = new Label("Passwort:") { X = 1, Y = 5 };
             var pgSqlPassText = new TextField(currentPgSqlPassword) { X = 12, Y = 5, Width = Dim.Fill(1), Secret = true };
+
 
             // Initialer Status basierend auf Checkbox
             pgSqlUserText.Enabled = pgSqlAuthCheck.Checked;
@@ -245,7 +252,8 @@ namespace InventarViewerApp.UI
 
             pgSqlFrame.Add(pgSqlLabel, pgSqlFqdnText, pgSqlPortLabel, pgSqlPortText,
                            pgSqlDbLabel, pgSqlDbText, pgSqlAuthCheck,
-                           pgSqlUserLabel, pgSqlUserText, pgSqlPassLabel, pgSqlPassText);
+                           pgSqlUserLabel, pgSqlUserText, pgSqlPassLabel, pgSqlPassText,
+                           pgSqlWriteCheck);
 
             Add(apiFrame, mongoFrame, pgSqlFrame);
 
@@ -273,6 +281,7 @@ namespace InventarViewerApp.UI
                 _mongoDb.MongoDbPort = MongoDbPort;
                 _mongoDb.MongoDbUser = MongoDbUser;
                 _mongoDb.MongoDbPassword = MongoDbPassword;
+                _mongoDb.WriteEnabled = mongoWriteCheck.Checked;
 
                 PgSqlDbFqdn = pgSqlFqdnText.Text.ToString();
                 PgSqlDbPort = pgSqlPortText.Text.ToString();
@@ -292,6 +301,7 @@ namespace InventarViewerApp.UI
                 _pgSqlDb.PgSqlDbName = PgSqlDbName;
                 _pgSqlDb.PgSqlUser = PgSqlUser;
                 _pgSqlDb.PgSqlPassword = PgSqlPassword;
+                _pgSqlDb.WriteEnabled = pgSqlWriteCheck.Checked;
 
                 _settings.ClientApi = _clientApi;
                 _settings.MongoDb = _mongoDb;
