@@ -23,5 +23,5 @@ public record CpuInfo
     /// <summary>
     /// Gets or sets the current overall CPU usage in percent (0–100).
     /// </summary>
-    public double CurrentUsage { get; set; }
+    public double CurrentUsage { get; init; }
 }
