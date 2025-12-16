@@ -11,6 +11,7 @@ items:
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlDbPort
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword
   - InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlUser
+  - InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
   langs:
   - csharp
   - vb
@@ -199,6 +200,37 @@ items:
       type: System.String
     content.vb: Public Property PgSqlPassword As String
   overload: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword*
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
+  commentId: P:InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
+  id: WriteEnabled
+  parent: InventarWorkerCommon.Models.Settings.PgSqlDb
+  langs:
+  - csharp
+  - vb
+  name: WriteEnabled
+  nameWithType: PgSqlDb.WriteEnabled
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteEnabled
+    path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
+    startLine: 34
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Indicates whether the application should write data to PostgreSQL.
+  example: []
+  syntax:
+    content: public bool WriteEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property WriteEnabled As Boolean
+  overload: InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled*
 - uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
   commentId: P:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
   id: PgSqlConnectionString
@@ -217,7 +249,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlConnectionString
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-    startLine: 36
+    startLine: 41
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
@@ -544,6 +576,23 @@ references:
   name: PgSqlPassword
   nameWithType: PgSqlDb.PgSqlPassword
   fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlPassword
+- uid: InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
+  href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_WriteEnabled
+  name: WriteEnabled
+  nameWithType: PgSqlDb.WriteEnabled
+  fullName: InventarWorkerCommon.Models.Settings.PgSqlDb.WriteEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString*
   commentId: Overload:InventarWorkerCommon.Models.Settings.PgSqlDb.PgSqlConnectionString
   href: InventarWorkerCommon.Models.Settings.PgSqlDb.html#InventarWorkerCommon_Models_Settings_PgSqlDb_PgSqlConnectionString

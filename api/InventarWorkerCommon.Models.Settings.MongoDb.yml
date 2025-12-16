@@ -10,6 +10,7 @@ items:
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPort
   - InventarWorkerCommon.Models.Settings.MongoDb.MongoDbUser
+  - InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
   langs:
   - csharp
   - vb
@@ -167,6 +168,37 @@ items:
       type: System.String
     content.vb: Public Property MongoDbPassword As String
   overload: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword*
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
+  commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
+  id: WriteEnabled
+  parent: InventarWorkerCommon.Models.Settings.MongoDb
+  langs:
+  - csharp
+  - vb
+  name: WriteEnabled
+  nameWithType: MongoDb.WriteEnabled
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
+  type: Property
+  source:
+    remote:
+      path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+      branch: main
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: WriteEnabled
+    path: InventarWorkerCommon/Models/Settings/MongoDb.cs
+    startLine: 30
+  assemblies:
+  - InventarWorkerCommon
+  namespace: InventarWorkerCommon.Models.Settings
+  summary: Indicates whether the application should write data to MongoDB.
+  example: []
+  syntax:
+    content: public bool WriteEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property WriteEnabled As Boolean
+  overload: InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled*
 - uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
   commentId: P:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
   id: MongoDbConnectionString
@@ -185,7 +217,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbConnectionString
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-    startLine: 31
+    startLine: 36
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
@@ -504,6 +536,23 @@ references:
   name: MongoDbPassword
   nameWithType: MongoDb.MongoDbPassword
   fullName: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbPassword
+- uid: InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled*
+  commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
+  href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_WriteEnabled
+  name: WriteEnabled
+  nameWithType: MongoDb.WriteEnabled
+  fullName: InventarWorkerCommon.Models.Settings.MongoDb.WriteEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString*
   commentId: Overload:InventarWorkerCommon.Models.Settings.MongoDb.MongoDbConnectionString
   href: InventarWorkerCommon.Models.Settings.MongoDb.html#InventarWorkerCommon_Models_Settings_MongoDb_MongoDbConnectionString
