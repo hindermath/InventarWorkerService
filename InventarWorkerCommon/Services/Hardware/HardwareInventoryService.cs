@@ -99,22 +99,18 @@ public class HardwareInventoryService
     {
         try
         {
-            var cpuInfo = new CpuInfo
+            return new CpuInfo
             {
                 ProcessorCount = Environment.ProcessorCount,
                 Architecture = RuntimeInformation.ProcessArchitecture.ToString(),
-                ProcessorName = GetProcessorName()
+                ProcessorName = GetProcessorName(),
+                CurrentUsage = GetCpuUsage()
             };
-
-            // CPU-Auslastung ermitteln
-            cpuInfo.CurrentUsage = GetCpuUsage();
-
-            return cpuInfo;
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Fehler beim Sammeln der CPU-Informationen");
-            return new CpuInfo { ProcessorCount = Environment.ProcessorCount };
+            return new CpuInfo();
         }
     }
 
