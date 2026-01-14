@@ -16,6 +16,30 @@ public class HardwareInventoryService
     private readonly PerformanceCounter? _cpuCounter;
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
+    /*
+     * 2. Native macOS‑API via P/Invoke (host_statistics64)
+     * Wenn du es selbst implementieren willst, nutzt macOS die Kernel‑API host_statistics64.
+     * Damit bekommst du die CPU‑Ticks für:
+     * - user
+     * - system
+     * - idle
+     * - nice
+     * Code (funktioniert auf macOS Intel & Apple Silicon)
+     */
+    private const int HOST_CPU_LOAD_INFO = 3;
+    private const int HOST_CPU_LOAD_INFO_COUNT = 4;
+
+    [DllImport("libSystem.dylib")]
+    private static extern int host_statistics64(
+        IntPtr host,
+        int flavor,
+        IntPtr data,
+        ref int count);
+
+    [DllImport("libSystem.dylib")]
+    private static extern IntPtr mach_host_self();
+
+
     /// <summary>
     /// Initializes a new instance of HardwareInventoryService with the provided logger.
     /// </summary>
@@ -292,6 +316,10 @@ public class HardwareInventoryService
             {
                 return GetWindowsProcessorName();
             }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                return GetOsxProcessorName();
+            }
             else
             {
                 return GetUnixProcessorName();
@@ -300,8 +328,39 @@ public class HardwareInventoryService
         catch (Exception ex)
         {
             _logger.LogWarning(ex, "Prozessor-Name konnte nicht ermittelt werden");
-            return "Unknown";
+            return "Unknown processor";
         }
+    }
+
+    private string GetOsxProcessorName()
+    {
+        try
+        {
+            using var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "sysctl",
+                    Arguments = "-n machdep.cpu.brand_string",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                }
+            };
+
+            process.Start();
+            var output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+
+            return string.IsNullOrWhiteSpace(output) ? "Unknown" : output.Trim();
+        }
+        catch (Exception e)
+        {
+            _logger.LogWarning(e, "OSX-Prozessor-Name konnte nicht ermittelt werden");
+            return "Unknown";
+
+        }
+        return "Unknown";
     }
 
     private string GetWindowsProcessorName()
@@ -373,9 +432,14 @@ public class HardwareInventoryService
     {
         try
         {
+            // Windows Performance Counter verwenden
             if (_cpuCounter != null)
             {
                 return _cpuCounter.NextValue();
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                return GetOsxCpuUsage();
             }
             else
             {
@@ -388,13 +452,60 @@ public class HardwareInventoryService
             _logger.LogWarning(ex, "CPU-Auslastung konnte nicht ermittelt werden");
             return 0;
         }
+        return 0;
+    }
+
+    private double GetOsxCpuUsage()
+    {
+        IntPtr host = mach_host_self();
+        int count = HOST_CPU_LOAD_INFO_COUNT;
+
+        IntPtr ptr = Marshal.AllocHGlobal(sizeof(ulong) * count);
+        try
+        {
+            int result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
+            if (result != 0) return -1;
+
+            ulong user = (ulong) Marshal.ReadInt64(ptr, 0);
+            ulong system = (ulong) Marshal.ReadInt64(ptr, 8);
+            ulong idle = (ulong) Marshal.ReadInt64(ptr, 16);
+            ulong nice = (ulong) Marshal.ReadInt64(ptr, 24);
+
+            ulong total = user + system + idle + nice;
+
+            return Math.Round((double) (total - idle) / total * 100, 2);
+        }
+        catch (Exception e)
+        {
+           _logger.LogWarning(e, "OSX-CPU-Auslastung konnte nicht ermittelt werden");
+            return 0;
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(ptr);
+        }
     }
 
     private double GetUnixCpuUsage()
     {
-        // Vereinfachte CPU-Auslastung für Unix-Systeme
-        // Hier könnte eine detailliertere Implementierung über /proc/stat erfolgen
-        return 0;
+        try
+        {
+            if (File.Exists("/proc/stat"))
+            {
+                var lines = File.ReadAllLines("/proc/stat");
+                var parts = lines[0].Split(' ');
+                if (parts.Length > 1)
+                {
+                    return Double.Parse(parts[2].Trim());
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error collecting Unix CPU utilization");
+            return 0.0;
+        }
+        return 0.0;
     }
 
     private void CollectWindowsMemoryInfo(MemoryInfo memoryInfo)
