@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using Microsoft.Extensions.Logging;
+using Universe.CpuUsage;
 
 namespace InventarWorkerCommon.Services.Hardware;
 
@@ -432,6 +433,8 @@ public class HardwareInventoryService
     {
         try
         {
+            #region GetCpuUsagePerSystem
+            /*
             // Windows Performance Counter verwenden
             if (_cpuCounter != null)
             {
@@ -446,6 +449,18 @@ public class HardwareInventoryService
                 // Alternative Methode für Unix-Systeme
                 return GetUnixCpuUsage();
             }
+            */
+            #endregion
+
+            #region GetCpuUsagePerUniverseCpuUsage
+
+            var cpuUsage = CpuUsage.GetByProcess();
+            if (cpuUsage != null)
+            {
+                return cpuUsage.Value.UserUsage.TotalSeconds + cpuUsage.Value.KernelUsage.TotalSeconds;
+            }
+
+            #endregion
         }
         catch (Exception ex)
         {
