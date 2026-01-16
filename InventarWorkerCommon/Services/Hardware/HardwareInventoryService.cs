@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+using System.Management.Automation;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using Microsoft.Extensions.Logging;
@@ -380,22 +381,40 @@ public class HardwareInventoryService
                 }
             };
 
-            process.Start();
-            var output = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-
-            var lines = output.Split('\n');
-            foreach (var line in lines)
+            if (process.Start())
             {
-                if (line.StartsWith("Name="))
+                var output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                var lines = output.Split('\n');
+                foreach (var line in lines)
                 {
-                    return line.Substring(5).Trim();
+                    if (line.StartsWith("Name="))
+                    {
+                        return line.Substring(5).Trim();
+                    }
                 }
             }
         }
         catch (Exception ex)
         {
-            _logger.LogWarning(ex, "Windows-Prozessor-Name konnte nicht ermittelt werden");
+            _logger.LogWarning(ex, "wmic konnte nicht gestartet werden, versuche PowerShell");
+        }
+
+        // Fallback via PowerShell SDK
+        try
+        {
+            using var ps = PowerShell.Create();
+            ps.AddScript("(Get-CimInstance Win32_Processor).Name");
+            var results = ps.Invoke();
+            if (results.Count > 0 && results[0] != null)
+            {
+                return results[0].ToString() ?? "Unknown";
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Windows-Prozessor-Name konnte auch via PowerShell nicht ermittelt werden");
         }
 
         return "Unknown";
