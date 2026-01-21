@@ -569,6 +569,13 @@ public class HardwareInventoryService
      *
      *     return (double)(total - idle) / total * 100.0;
      * }
+     *
+     * Die Marshal-Klasse wird hier verwendet, um mit nicht verwaltetem (unmanaged) Speicher zu interagieren.
+     * In diesem Kontext:
+     * - Marshal.AllocHGlobal: Reserviert einen Speicherblock im unmanaged Speicher (ähnlich wie malloc in C).
+     * - Marshal.ReadInt64: Liest einen 64-Bit-Ganzzahlwert (ulong) aus dem unmanaged Speicher an einem bestimmten Offset.
+     * - Marshal.FreeHGlobal: Gibt den zuvor reservierten Speicherblock wieder frei (ähnlich wie free in C).
+     * 
      */
     private double GetOsxCpuUsage()
     {
