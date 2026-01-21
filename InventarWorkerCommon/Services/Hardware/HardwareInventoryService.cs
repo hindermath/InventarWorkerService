@@ -73,6 +73,28 @@ public class HardwareInventoryService
         IntPtr data,
         ref int count);
 
+    /*
+     * mach_host_self (macOS Mach Kernel API)
+     * -------------------------------------
+     * Dokumentation:
+     * Die Funktion mach_host_self() gibt den Sende-Port für den Host-Port des aktuellen Hosts zurück.
+     * Dieser Port wird für verschiedene Host-Abfragen verwendet, wie z.B. host_statistics64.
+     * 
+     * Header-Dateien:
+     * Die Definition befindet sich typischerweise in:
+     * /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/mach/mach_init.h
+     * 
+     * Definition in den Apple XNU-Sourcen (mach/mach_init.h):
+     * mach_port_t mach_host_self(void);
+     * 
+     * Rückgabewert:
+     * - Gibt einen Mach-Port (mach_port_t) zurück, der den Host repräsentiert.
+     * - Dieser Port sollte normalerweise nach Gebrauch nicht freigegeben (deallocated) werden, 
+     *   da es sich um einen speziellen Port handelt, den der Kernel verwaltet.
+     * 
+     * Man-Pages:
+     * - man mach_host_self
+     */
     [DllImport("libSystem.dylib")]
     private static extern IntPtr mach_host_self();
 
@@ -520,6 +542,7 @@ public class HardwareInventoryService
             return 0;
         }
     }
+
 
     private double GetOsxCpuUsage()
     {
