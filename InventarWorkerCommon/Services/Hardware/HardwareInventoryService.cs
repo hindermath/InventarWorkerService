@@ -544,6 +544,32 @@ public class HardwareInventoryService
     }
 
 
+    /*
+     * Klassischer C-Code für den Aufruf von host_statistics64:
+     * ------------------------------------------------------
+     * #include <mach/mach_host.h>
+     * #include <mach/host_info.h>
+     * #include <stdio.h>
+     *
+     * double get_osx_cpu_usage() {
+     *     host_t host = mach_host_self();
+     *     host_cpu_load_info_data_t load_info;
+     *     mach_msg_type_number_t count = HOST_CPU_LOAD_INFO_COUNT;
+     *
+     *     kern_return_t kr = host_statistics64(host, HOST_CPU_LOAD_INFO, (host_info64_t)&load_info, &count);
+     *     if (kr != KERN_SUCCESS) return -1.0;
+     *
+     *     unsigned long long user = load_info.cpu_ticks[CPU_STATE_USER];
+     *     unsigned long long system = load_info.cpu_ticks[CPU_STATE_SYSTEM];
+     *     unsigned long long idle = load_info.cpu_ticks[CPU_STATE_IDLE];
+     *     unsigned long long nice = load_info.cpu_ticks[CPU_STATE_NICE];
+     *
+     *     unsigned long long total = user + system + idle + nice;
+     *     if (total == 0) return 0.0;
+     *
+     *     return (double)(total - idle) / total * 100.0;
+     * }
+     */
     private double GetOsxCpuUsage()
     {
         IntPtr host = mach_host_self();
