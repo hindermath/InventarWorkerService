@@ -18,6 +18,23 @@ public class HardwareInventoryService
     private readonly PerformanceCounter? _cpuCounter;
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
+    // Felder für die CPU-Berechnung (Zwei-Punkt-Messung)
+    private ulong _lastOsxUser;
+    private ulong _lastOsxSystem;
+    private ulong _lastOsxIdle;
+    private ulong _lastOsxNice;
+    private DateTime? _lastCpuCheck;
+
+    // Unix CPU Felder
+    private ulong _lastUnixUser;
+    private ulong _lastUnixNice;
+    private ulong _lastUnixSystem;
+    private ulong _lastUnixIdle;
+    private ulong _lastUnixIowait;
+    private ulong _lastUnixIrq;
+    private ulong _lastUnixSoftirq;
+    private bool _unixCpuInitialized;
+
     /*
      * host_statistics64 (macOS Mach Kernel API)
      * ----------------------------------------
@@ -593,13 +610,49 @@ public class HardwareInventoryService
             ulong idle = (ulong) Marshal.ReadInt64(ptr, 16);
             ulong nice = (ulong) Marshal.ReadInt64(ptr, 24);
 
-            ulong total = user + system + idle + nice;
+            if (_lastCpuCheck == null)
+            {
+                // Erste Messung: Werte speichern und kurz warten für eine sofortige Auslastung,
+                // oder 0 zurückgeben und beim nächsten Aufruf korrekt berechnen.
+                // Hier wählen wir kurzes Warten, um beim ersten Aufruf nicht 0 zu liefern.
+                _lastOsxUser = user;
+                _lastOsxSystem = system;
+                _lastOsxIdle = idle;
+                _lastOsxNice = nice;
+                _lastCpuCheck = DateTime.Now;
 
-            return Math.Round((double) (total - idle) / total * 100, 2);
+                Thread.Sleep(100); // 100ms warten für erste Differenz
+
+                result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
+                if (result != 0) return -1;
+
+                user = (ulong) Marshal.ReadInt64(ptr, 0);
+                system = (ulong) Marshal.ReadInt64(ptr, 8);
+                idle = (ulong) Marshal.ReadInt64(ptr, 16);
+                nice = (ulong) Marshal.ReadInt64(ptr, 24);
+            }
+
+            ulong diffUser = user - _lastOsxUser;
+            ulong diffSystem = system - _lastOsxSystem;
+            ulong diffIdle = idle - _lastOsxIdle;
+            ulong diffNice = nice - _lastOsxNice;
+
+            _lastOsxUser = user;
+            _lastOsxSystem = system;
+            _lastOsxIdle = idle;
+            _lastOsxNice = nice;
+            _lastCpuCheck = DateTime.Now;
+
+            ulong totalDiff = diffUser + diffSystem + diffIdle + diffNice;
+
+            if (totalDiff == 0) return 0.0;
+
+            double usage = (double) (totalDiff - diffIdle) / totalDiff * 100.0;
+            return Math.Round(usage, 2);
         }
         catch (Exception e)
         {
-           _logger.LogWarning(e, "OSX-CPU-Auslastung konnte nicht ermittelt werden");
+            _logger.LogWarning(e, "OSX-CPU-Auslastung konnte nicht ermittelt werden");
             return 0;
         }
         finally
@@ -615,11 +668,59 @@ public class HardwareInventoryService
             if (File.Exists("/proc/stat"))
             {
                 var lines = File.ReadAllLines("/proc/stat");
-                var parts = lines[0].Split(' ');
-                if (parts.Length > 1)
+                var cpuLine = lines.FirstOrDefault(l => l.StartsWith("cpu "));
+                if (string.IsNullOrEmpty(cpuLine)) return 0.0;
+
+                var parts = cpuLine.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length < 8) return 0.0;
+
+                // /proc/stat cpu line: user nice system idle iowait irq softirq steal guest guest_nice
+                ulong user = ulong.Parse(parts[1]);
+                ulong nice = ulong.Parse(parts[2]);
+                ulong system = ulong.Parse(parts[3]);
+                ulong idle = ulong.Parse(parts[4]);
+                ulong iowait = ulong.Parse(parts[5]);
+                ulong irq = ulong.Parse(parts[6]);
+                ulong softirq = ulong.Parse(parts[7]);
+
+                if (!_unixCpuInitialized)
                 {
-                    return Double.Parse(parts[2].Trim());
+                    _lastUnixUser = user;
+                    _lastUnixNice = nice;
+                    _lastUnixSystem = system;
+                    _lastUnixIdle = idle;
+                    _lastUnixIowait = iowait;
+                    _lastUnixIrq = irq;
+                    _lastUnixSoftirq = softirq;
+                    _unixCpuInitialized = true;
+
+                    Thread.Sleep(100);
+                    return GetUnixCpuUsage(); // Rekursiv aufrufen nach Initialisierung
                 }
+
+                ulong diffUser = user - _lastUnixUser;
+                ulong diffNice = nice - _lastUnixNice;
+                ulong diffSystem = system - _lastUnixSystem;
+                ulong diffIdle = idle - _lastUnixIdle;
+                ulong diffIowait = iowait - _lastUnixIowait;
+                ulong diffIrq = irq - _lastUnixIrq;
+                ulong diffSoftirq = softirq - _lastUnixSoftirq;
+
+                _lastUnixUser = user;
+                _lastUnixNice = nice;
+                _lastUnixSystem = system;
+                _lastUnixIdle = idle;
+                _lastUnixIowait = iowait;
+                _lastUnixIrq = irq;
+                _lastUnixSoftirq = softirq;
+
+                ulong totalDiff = diffUser + diffNice + diffSystem + diffIdle + diffIowait + diffIrq + diffSoftirq;
+                ulong idleDiff = diffIdle + diffIowait;
+
+                if (totalDiff == 0) return 0.0;
+
+                double usage = (double)(totalDiff - idleDiff) / totalDiff * 100.0;
+                return Math.Round(usage, 2);
             }
         }
         catch (Exception e)
