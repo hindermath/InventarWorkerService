@@ -19,14 +19,49 @@ public class HardwareInventoryService
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
     /*
-     * 2. Native macOS‑API via P/Invoke (host_statistics64)
-     * Wenn du es selbst implementieren willst, nutzt macOS die Kernel‑API host_statistics64.
-     * Damit bekommst du die CPU‑Ticks für:
-     * - user
-     * - system
-     * - idle
-     * - nice
-     * Code (funktioniert auf macOS Intel & Apple Silicon)
+     * host_statistics64 (macOS Mach Kernel API)
+     * ----------------------------------------
+     * Dokumentation:
+     * Die Funktion host_statistics64 ist Teil des Mach-Kernels in macOS (XNU) und wird über die libSystem.dylib exportiert.
+     * Sie dient zum Abrufen von statistischen Informationen über den Host auf 64-Bit-Basis.
+     * 
+     * Header-Dateien:
+     * Die Header-Dateien sind Teil des macOS SDKs und befinden sich typischerweise unter:
+     * /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/mach/host_info.h
+     * /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/mach/mach_host.h
+     * (Der Pfad kann je nach installierter Xcode-Version oder CommandLineTools variieren).
+     * 
+     * Man-Pages:
+     * Informationen zu Mach-Kernel-Aufrufen können oft über die Man-Pages abgerufen werden (Sektion 2):
+     * - man host_statistics (allgemeine Informationen, falls installiert)
+     * Hinweis: Auf vielen modernen macOS-Systemen sind die Mach-Kernel-Dokumentationen primär über die Apple Developer Documentation online verfügbar.
+     * 
+     * Definition in den Apple XNU-Sourcen (mach/host_info.h):
+     * kern_return_t host_statistics64(
+     *     host_t host_priv,
+     *     host_flavor_t flavor,
+     *     host_info64_t host_info64_out,
+     *     mach_msg_type_number_t *host_info64_outCnt
+     * );
+     * 
+     * Parameter:
+     * - host_priv: Ein Port auf den Host, für den Statistiken abgefragt werden sollen (meist mach_host_self()).
+     * - flavor: Der Typ der Statistiken, die abgefragt werden sollen. Mögliche Werte sind u.a.:
+     *     - HOST_VM_INFO64 (4): Informationen über den virtuellen Speicher.
+     *     - HOST_CPU_LOAD_INFO (3): Informationen über die CPU-Auslastung (Ticks).
+     *     - HOST_EXPIRED_TASKS_INFO (5): Informationen über abgelaufene Tasks.
+     * - host_info64_out: Ein Zeiger auf einen Puffer (Struktur), in dem die Daten gespeichert werden.
+     * - host_info64_outCnt: Ein Zeiger auf eine Ganzzahl, die die Größe des Puffers in mach_msg_type_number_t Einheiten angibt.
+     * 
+     * Rückgabewert:
+     * - KERN_SUCCESS (0) bei Erfolg.
+     * - Andere Werte weisen auf Fehler hin (siehe mach/kern_return.h).
+     * 
+     * Die Struktur für HOST_CPU_LOAD_INFO ist host_cpu_load_info, die 4 Ticks enthält:
+     * - CPU_STATE_USER (0)
+     * - CPU_STATE_SYSTEM (1)
+     * - CPU_STATE_IDLE (2)
+     * - CPU_STATE_NICE (3)
      */
     private const int HOST_CPU_LOAD_INFO = 3;
     private const int HOST_CPU_LOAD_INFO_COUNT = 4;
