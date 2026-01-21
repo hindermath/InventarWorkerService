@@ -19,6 +19,7 @@ public class HardwareInventoryService
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
     // Felder für die CPU-Berechnung (Zwei-Punkt-Messung)
+    // OSX CPU Felder
     private ulong _lastOsxUser;
     private ulong _lastOsxSystem;
     private ulong _lastOsxIdle;
@@ -34,6 +35,11 @@ public class HardwareInventoryService
     private ulong _lastUnixIrq;
     private ulong _lastUnixSoftirq;
     private bool _unixCpuInitialized;
+
+    // Felder für die CPU-Berechnung (Zwei-Punkt-Messung)
+    // mit der Universe.CpuUsage NuGet-Bibliothek
+    private CpuUsage? _lastLibraryCpuUsage;
+    private DateTime? _lastLibraryCpuCheck;
 
     /*
      * host_statistics64 (macOS Mach Kernel API)
@@ -527,6 +533,7 @@ public class HardwareInventoryService
         try
         {
             #region GetCpuUsagePerSystem
+            /*
             // Windows Performance Counter verwenden
             if (_cpuCounter != null)
             {
@@ -538,19 +545,43 @@ public class HardwareInventoryService
             }
             else
             {
-                // Alternative Methode für Unix-Systeme
                 return GetUnixCpuUsage();
             }
+            */
             #endregion
 
             #region GetCpuUsagePerUniverseCpuUsage
-            /*
             var cpuUsage = CpuUsage.GetByProcess();
             if (cpuUsage != null)
             {
-                return cpuUsage.Value.UserUsage.TotalSeconds + cpuUsage.Value.KernelUsage.TotalSeconds;
+                if (_lastLibraryCpuUsage == null || _lastLibraryCpuCheck == null)
+                {
+                    _lastLibraryCpuUsage = cpuUsage;
+                    _lastLibraryCpuCheck = DateTime.Now;
+
+                    Thread.Sleep(100);
+                    cpuUsage = CpuUsage.GetByProcess();
+                    if (cpuUsage == null) return 0;
+                }
+
+                var currentUsage = cpuUsage.Value;
+                var lastUsage = _lastLibraryCpuUsage.Value;
+                var currentTime = DateTime.Now;
+                var elapsed = currentTime - _lastLibraryCpuCheck.Value;
+
+                double totalSeconds = (currentUsage.UserUsage.TotalSeconds + currentUsage.KernelUsage.TotalSeconds) -
+                                     (lastUsage.UserUsage.TotalSeconds + lastUsage.KernelUsage.TotalSeconds);
+
+                _lastLibraryCpuUsage = currentUsage;
+                _lastLibraryCpuCheck = currentTime;
+
+                if (elapsed.TotalSeconds <= 0) return 0;
+
+                // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
+                double usage = (totalSeconds / (elapsed.TotalSeconds * Environment.ProcessorCount)) * 100.0;
+                return Math.Round(usage, 2);
             }
-            */
+            return 0;
             #endregion
         }
         catch (Exception ex)
