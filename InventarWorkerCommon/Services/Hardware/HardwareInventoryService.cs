@@ -533,7 +533,6 @@ public class HardwareInventoryService
         try
         {
             #region GetCpuUsagePerSystem
-            /*
             // Windows Performance Counter verwenden
             if (_cpuCounter != null)
             {
@@ -547,41 +546,10 @@ public class HardwareInventoryService
             {
                 return GetUnixCpuUsage();
             }
-            */
             #endregion
 
             #region GetCpuUsagePerUniverseCpuUsage
-            var cpuUsage = CpuUsage.GetByProcess();
-            if (cpuUsage != null)
-            {
-                if (_lastLibraryCpuUsage == null || _lastLibraryCpuCheck == null)
-                {
-                    _lastLibraryCpuUsage = cpuUsage;
-                    _lastLibraryCpuCheck = DateTime.Now;
-
-                    Thread.Sleep(100);
-                    cpuUsage = CpuUsage.GetByProcess();
-                    if (cpuUsage == null) return 0;
-                }
-
-                var currentUsage = cpuUsage.Value;
-                var lastUsage = _lastLibraryCpuUsage.Value;
-                var currentTime = DateTime.Now;
-                var elapsed = currentTime - _lastLibraryCpuCheck.Value;
-
-                double totalSeconds = (currentUsage.UserUsage.TotalSeconds + currentUsage.KernelUsage.TotalSeconds) -
-                                     (lastUsage.UserUsage.TotalSeconds + lastUsage.KernelUsage.TotalSeconds);
-
-                _lastLibraryCpuUsage = currentUsage;
-                _lastLibraryCpuCheck = currentTime;
-
-                if (elapsed.TotalSeconds <= 0) return 0;
-
-                // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
-                double usage = (totalSeconds / (elapsed.TotalSeconds * Environment.ProcessorCount)) * 100.0;
-                return Math.Round(usage, 2);
-            }
-            return 0;
+            //return GetUniverseCpuUsage();
             #endregion
         }
         catch (Exception ex)
@@ -589,6 +557,42 @@ public class HardwareInventoryService
             _logger.LogWarning(ex, "CPU-Auslastung konnte nicht ermittelt werden");
             return 0;
         }
+    }
+
+    private double GetUniverseCpuUsage()
+    {
+        var cpuUsage = CpuUsage.GetByProcess();
+        if (cpuUsage != null)
+        {
+            if (_lastLibraryCpuUsage == null || _lastLibraryCpuCheck == null)
+            {
+                _lastLibraryCpuUsage = cpuUsage;
+                _lastLibraryCpuCheck = DateTime.Now;
+
+                Thread.Sleep(100);
+                cpuUsage = CpuUsage.GetByProcess();
+                if (cpuUsage == null) return 0;
+            }
+
+            var currentUsage = cpuUsage.Value;
+            var lastUsage = _lastLibraryCpuUsage.Value;
+            var currentTime = DateTime.Now;
+            var elapsed = currentTime - _lastLibraryCpuCheck.Value;
+
+            double totalSeconds = (currentUsage.UserUsage.TotalSeconds + currentUsage.KernelUsage.TotalSeconds) -
+                                 (lastUsage.UserUsage.TotalSeconds + lastUsage.KernelUsage.TotalSeconds);
+
+            _lastLibraryCpuUsage = currentUsage;
+            _lastLibraryCpuCheck = currentTime;
+
+            if (elapsed.TotalSeconds <= 0) return 0;
+
+            // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
+            double usage = (totalSeconds / (elapsed.TotalSeconds * Environment.ProcessorCount)) * 100.0;
+            return Math.Round(usage, 2);
+        }
+
+        return 0;
     }
 
 
