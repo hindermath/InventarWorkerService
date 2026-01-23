@@ -679,12 +679,13 @@ public class HardwareInventoryService
             var elapsedTime = DateTime.Now - _lastCpuCheck;
             _lastCpuCheck = DateTime.Now;
 
-            ulong totalDiff = diffUser; //+ diffSystem + diffIdle + diffNice;
+            ulong totalDiff = diffUser + diffSystem + diffIdle + diffNice;
 
             if (totalDiff == 0) return 0.0;
 
-            // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
-            double usage = (double) (totalDiff / (ulong) (elapsedTime.Value.Milliseconds * Environment.ProcessorCount)) * 100.0;
+            ulong busyDiff = totalDiff - diffIdle;
+
+            double usage = (double)busyDiff / totalDiff * 100.0;
             return Math.Round(usage, 2);
         }
         catch (Exception e)
