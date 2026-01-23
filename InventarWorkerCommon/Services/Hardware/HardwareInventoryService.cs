@@ -557,6 +557,7 @@ public class HardwareInventoryService
             #region GetCpuUsagePerUniverseCpuUsage
             return GetUniverseCpuUsage();
             #endregion
+
             #region GetEnvirionmentCpuUsage
             return GetEnvironmentCpuUsage();
             #endregion
