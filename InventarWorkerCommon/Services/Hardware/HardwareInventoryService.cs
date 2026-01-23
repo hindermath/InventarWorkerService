@@ -291,7 +291,7 @@ public class HardwareInventoryService
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Fehler beim Lesen der Laufwerk-Informationen für {DriveName}", drive.Name);
+                    _logger.LogWarning(ex, $"Fehler beim Lesen der Laufwerk-Informationen für {drive.Name}");
                 }
             }
         }
@@ -347,7 +347,7 @@ public class HardwareInventoryService
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Fehler beim Lesen der Netzwerk-Informationen für {InterfaceName}", networkInterface.Name);
+                    _logger.LogWarning(ex, $"Fehler beim Lesen der Netzwerk-Informationen für {networkInterface.Name}");
                 }
             }
         }
