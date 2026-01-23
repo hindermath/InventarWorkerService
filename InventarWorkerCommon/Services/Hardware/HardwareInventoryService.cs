@@ -629,75 +629,71 @@ public class HardwareInventoryService
      * - Marshal.FreeHGlobal: Gibt den zuvor reservierten Speicherblock wieder frei (ähnlich wie free in C).
      * 
      */
-    private double GetOsxCpuUsage()
-    {
-        IntPtr host = mach_host_self();
-        int count = HOST_CPU_LOAD_INFO_COUNT;
-
-        IntPtr ptr = Marshal.AllocHGlobal(sizeof(ulong) * count);
-        try
+        private double GetOsxCpuUsage()
         {
-            int result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
-            if (result != 0) return -1;
+            IntPtr host = mach_host_self();
+            int count = HOST_CPU_LOAD_INFO_COUNT;
 
-            ulong user = (ulong) Marshal.ReadInt64(ptr, 0);
-            ulong system = (ulong) Marshal.ReadInt64(ptr, 8);
-            ulong idle = (ulong) Marshal.ReadInt64(ptr, 16);
-            ulong nice = (ulong) Marshal.ReadInt64(ptr, 24);
-
-            if (_lastCpuCheck == null)
+            // host_cpu_load_info liefert natural_t[4] => i.d.R. 4 * 4 Bytes
+            IntPtr ptr = Marshal.AllocHGlobal(sizeof(uint) * count);
+            try
             {
-                // Erste Messung: Werte speichern und kurz warten für eine sofortige Auslastung,
-                // oder 0 zurückgeben und beim nächsten Aufruf korrekt berechnen.
-                // Hier wählen wir kurzes Warten, um beim ersten Aufruf nicht 0 zu liefern.
+                int result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
+                if (result != 0) return -1;
+
+                ulong user = (uint)Marshal.ReadInt32(ptr, 0);
+                ulong system = (uint)Marshal.ReadInt32(ptr, 4);
+                ulong idle = (uint)Marshal.ReadInt32(ptr, 8);
+                ulong nice = (uint)Marshal.ReadInt32(ptr, 12);
+
+                if (_lastCpuCheck == null)
+                {
+                    _lastOsxUser = user;
+                    _lastOsxSystem = system;
+                    _lastOsxIdle = idle;
+                    _lastOsxNice = nice;
+                    _lastCpuCheck = DateTime.Now;
+
+                    Thread.Sleep(250); // etwas länger -> stabilere Deltas
+
+                    result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
+                    if (result != 0) return -1;
+
+                    user = (uint)Marshal.ReadInt32(ptr, 0);
+                    system = (uint)Marshal.ReadInt32(ptr, 4);
+                    idle = (uint)Marshal.ReadInt32(ptr, 8);
+                    nice = (uint)Marshal.ReadInt32(ptr, 12);
+                }
+
+                ulong diffUser = user - _lastOsxUser;
+                ulong diffSystem = system - _lastOsxSystem;
+                ulong diffIdle = idle - _lastOsxIdle;
+                ulong diffNice = nice - _lastOsxNice;
+
                 _lastOsxUser = user;
                 _lastOsxSystem = system;
                 _lastOsxIdle = idle;
                 _lastOsxNice = nice;
                 _lastCpuCheck = DateTime.Now;
 
-                Thread.Sleep(100); // 100ms warten für erste Differenz
+                ulong totalDiff = diffUser + diffSystem + diffIdle + diffNice;
+                if (totalDiff == 0) return 0.0;
 
-                result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
-                if (result != 0) return -1;
+                ulong busyDiff = totalDiff - diffIdle;
 
-                user = (ulong) Marshal.ReadInt64(ptr, 0);
-                system = (ulong) Marshal.ReadInt64(ptr, 8);
-                idle = (ulong) Marshal.ReadInt64(ptr, 16);
-                nice = (ulong) Marshal.ReadInt64(ptr, 24);
+                double usage = (double)busyDiff / totalDiff * 100.0;
+                return Math.Round(usage, 2);
             }
-
-            ulong diffUser = user - _lastOsxUser;
-            ulong diffSystem = system - _lastOsxSystem;
-            ulong diffIdle = idle - _lastOsxIdle;
-            ulong diffNice = nice - _lastOsxNice;
-
-            _lastOsxUser = user;
-            _lastOsxSystem = system;
-            _lastOsxIdle = idle;
-            _lastOsxNice = nice;
-
-            // elapsedTime ist für die %‑Berechnung mit Tick‑Verhältnissen nicht nötig
-            _lastCpuCheck = DateTime.Now;
-
-            ulong totalDiff = diffUser + diffSystem + diffIdle + diffNice;
-            if (totalDiff == 0) return 0.0;
-
-            ulong busyDiff = totalDiff - diffIdle;
-
-            double usage = (double)busyDiff / totalDiff * 100.0;
-            return Math.Round(usage, 2);
+            catch (Exception e)
+            {
+                _logger.LogWarning(e, "OSX-CPU-Auslastung konnte nicht ermittelt werden");
+                return 0;
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(ptr);
+            }
         }
-        catch (Exception e)
-        {
-            _logger.LogWarning(e, "OSX-CPU-Auslastung konnte nicht ermittelt werden");
-            return 0;
-        }
-        finally
-        {
-            Marshal.FreeHGlobal(ptr);
-        }
-    }
 
     private double GetUnixCpuUsage()
     {
