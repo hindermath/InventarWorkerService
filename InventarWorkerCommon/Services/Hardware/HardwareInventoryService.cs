@@ -542,7 +542,7 @@ public class HardwareInventoryService
             // Windows Performance Counter verwenden
             if (_cpuCounter != null)
             {
-                return _cpuCounter.NextValue();
+                return Math.Round(Math.Clamp(_cpuCounter.NextValue(), 0.0, 100.0),2);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
