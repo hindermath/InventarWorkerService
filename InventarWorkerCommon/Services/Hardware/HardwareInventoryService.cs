@@ -676,11 +676,11 @@ public class HardwareInventoryService
             _lastOsxSystem = system;
             _lastOsxIdle = idle;
             _lastOsxNice = nice;
-            var elapsedTime = DateTime.Now - _lastCpuCheck;
+
+            // elapsedTime ist für die %‑Berechnung mit Tick‑Verhältnissen nicht nötig
             _lastCpuCheck = DateTime.Now;
 
             ulong totalDiff = diffUser + diffSystem + diffIdle + diffNice;
-
             if (totalDiff == 0) return 0.0;
 
             ulong busyDiff = totalDiff - diffIdle;
