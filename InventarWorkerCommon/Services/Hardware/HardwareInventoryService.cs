@@ -41,6 +41,12 @@ public class HardwareInventoryService
     private CpuUsage? _lastLibraryCpuUsage;
     private DateTime? _lastLibraryCpuCheck;
 
+    // Felder für die CPU-Berechnung (Zwei-Punkt-Messung)
+    // mit Environment.CpuUsage (Systemweit)
+    private Environment.ProcessCpuUsage? _lastEnvCpuUsage;
+    private DateTime? _lastEnvCpuCheck;
+
+
     /*
      * host_statistics64 (macOS Mach Kernel API)
      * ----------------------------------------
@@ -551,11 +557,54 @@ public class HardwareInventoryService
             #region GetCpuUsagePerUniverseCpuUsage
             return GetUniverseCpuUsage();
             #endregion
+            #region GetEnvirionmentCpuUsage
+            return GetEnvironmentCpuUsage();
+            #endregion
         }
         catch (Exception ex)
         {
             _logger.LogWarning(ex, "CPU-Auslastung konnte nicht ermittelt werden");
             return 0;
+        }
+    }
+
+    private double GetEnvironmentCpuUsage()
+    {
+        try
+        {
+            var current = Environment.CpuUsage; // kumulative Zeiten: User/Kernel/Idle
+            var now = DateTime.UtcNow;
+
+            if (_lastEnvCpuUsage == null || _lastEnvCpuCheck == null)
+            {
+                _lastEnvCpuUsage = current;
+                _lastEnvCpuCheck = now;
+
+                Thread.Sleep(250); // kurzer Abstand für ein sinnvolles Delta
+                current = Environment.CpuUsage;
+                now = DateTime.UtcNow;
+            }
+
+            var last = _lastEnvCpuUsage.Value;
+
+            var deltaUserTime = (current.UserTime - last.UserTime).TotalSeconds;
+            var deltaTotalTime = (current.TotalTime - last.TotalTime).TotalSeconds;
+            _lastEnvCpuUsage = current;
+            _lastEnvCpuCheck = now;
+
+            var deltaTotal = deltaUserTime + deltaTotalTime;
+            if (deltaTotal <= 0) return 0.0;
+
+            var usage = deltaUserTime / deltaTotal * 100.0;
+
+            // Schutz gegen Rundungs-/Messartefakte
+            usage = Math.Clamp(usage, 0.0, 100.0);
+            return Math.Round(usage, 2);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "CPU-Auslastung konnte nicht mit Environment.CpuUsage ermittelt werden");
+            return 0.0;
         }
     }
 
@@ -589,6 +638,7 @@ public class HardwareInventoryService
 
             // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
             double usage = (totalSeconds / (elapsed.TotalSeconds * Environment.ProcessorCount)) * 100.0;
+            usage = Math.Clamp(usage, 0.0, 100.0);
             return Math.Round(usage, 2);
         }
 
@@ -682,6 +732,7 @@ public class HardwareInventoryService
                 ulong busyDiff = totalDiff - diffIdle;
 
                 double usage = (double)busyDiff / totalDiff * 100.0;
+                usage = Math.Clamp(usage, 0.0, 100.0);
                 return Math.Round(usage, 2);
             }
             catch (Exception e)
@@ -755,6 +806,7 @@ public class HardwareInventoryService
 
                 // Berechnung: (Verbrauchte CPU-Zeit / (Vergangene Zeit * Anzahl Kerne)) * 100
                 double usage = (double)(totalDiff - idleDiff) / totalDiff * 100.0;
+                usage = Math.Clamp(usage, 0.0, 100.0);
                 return Math.Round(usage, 2);
             }
         }
