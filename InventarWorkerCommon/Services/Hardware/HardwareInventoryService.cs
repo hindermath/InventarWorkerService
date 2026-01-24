@@ -908,7 +908,46 @@ public class HardwareInventoryService
 
     private void GetOsxMemoryInfo(MemoryInfo memoryInfo)
     {
+        try
+        {
+            using var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "sysctl",
+                    Arguments = " -n hw.memsize",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                }
+            };
 
+            process.Start();
+            var output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            memoryInfo.TotalPhysicalMemory = long.Parse(output);
+
+            using var process2 = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "sysctl",
+                    Arguments = " -n hw.memsize_usable",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                }
+            };
+            process2.Start();
+            output = process2.StandardOutput.ReadToEnd();
+            process2.WaitForExit();
+            memoryInfo.AvailablePhysicalMemory = long.Parse(output);
+        }
+        catch (Exception e)
+        {
+            _logger.LogWarning(e, "OSX-Memory-Informationen konnten nicht ermittelt werden");
+
+        }
     }
 
     /// <summary>
