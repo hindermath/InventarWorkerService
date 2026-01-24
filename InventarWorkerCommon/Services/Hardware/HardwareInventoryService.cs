@@ -239,11 +239,15 @@ public class HardwareInventoryService
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                CollectWindowsMemoryInfo(memoryInfo);
+                GetWindowsMemoryInfo(memoryInfo);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                GetOsxMemoryInfo(memoryInfo);
             }
             else
             {
-                CollectUnixMemoryInfo(memoryInfo);
+                GetUnixMemoryInfo(memoryInfo);
             }
 
             if (memoryInfo.TotalPhysicalMemory > 0)
@@ -821,7 +825,7 @@ public class HardwareInventoryService
         return 0.0;
     }
 
-    private void CollectWindowsMemoryInfo(MemoryInfo memoryInfo)
+    private void GetWindowsMemoryInfo(MemoryInfo memoryInfo)
     {
         try
         {
@@ -867,7 +871,7 @@ public class HardwareInventoryService
         }
     }
 
-    private void CollectUnixMemoryInfo(MemoryInfo memoryInfo)
+    private void GetUnixMemoryInfo(MemoryInfo memoryInfo)
     {
         try
         {
@@ -900,6 +904,11 @@ public class HardwareInventoryService
         {
             _logger.LogWarning(ex, "Unix-Memory-Informationen konnten nicht gelesen werden");
         }
+    }
+
+    private void GetOsxMemoryInfo(MemoryInfo memoryInfo)
+    {
+
     }
 
     /// <summary>
