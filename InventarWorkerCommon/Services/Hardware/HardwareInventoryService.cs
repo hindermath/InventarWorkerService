@@ -18,6 +18,8 @@ public class HardwareInventoryService
     private readonly PerformanceCounter? _cpuCounter;
     private readonly PerformanceCounter? _memoryAvailableCounter;
 
+    private const int THREAD_SLEEP = 250;
+
     // Felder für die CPU-Berechnung (Zwei-Punkt-Messung)
     // OSX CPU Felder
     private ulong _lastOsxUser;
@@ -581,7 +583,7 @@ public class HardwareInventoryService
                 _lastEnvCpuUsage = current;
                 _lastEnvCpuCheck = now;
 
-                Thread.Sleep(250); // kurzer Abstand für ein sinnvolles Delta
+                Thread.Sleep(THREAD_SLEEP); // kurzer Abstand für ein sinnvolles Delta
                 current = Environment.CpuUsage;
                 now = DateTime.UtcNow;
             }
@@ -619,7 +621,7 @@ public class HardwareInventoryService
                 _lastLibraryCpuUsage = cpuUsage;
                 _lastLibraryCpuCheck = DateTime.Now;
 
-                Thread.Sleep(100);
+                Thread.Sleep(THREAD_SLEEP); // kurzer Abstand für ein sinnvolles Delta);
                 cpuUsage = CpuUsage.GetByProcess();
                 if (cpuUsage == null) return 0;
             }
@@ -705,7 +707,7 @@ public class HardwareInventoryService
                     _lastOsxNice = nice;
                     _lastCpuCheck = DateTime.Now;
 
-                    Thread.Sleep(250); // etwas länger -> stabilere Deltas
+                    Thread.Sleep(THREAD_SLEEP); // etwas länger -> stabilere Deltas
 
                     result = host_statistics64(host, HOST_CPU_LOAD_INFO, ptr, ref count);
                     if (result != 0) return -1;
@@ -780,7 +782,7 @@ public class HardwareInventoryService
                     _lastUnixSoftirq = softirq;
                     _unixCpuInitialized = true;
 
-                    Thread.Sleep(100);
+                    Thread.Sleep(THREAD_SLEEP);
                     return GetUnixCpuUsage(); // Rekursiv aufrufen nach Initialisierung
                 }
 
