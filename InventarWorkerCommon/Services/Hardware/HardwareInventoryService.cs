@@ -833,7 +833,14 @@ public class HardwareInventoryService
             {
                 memoryInfo.AvailablePhysicalMemory = (long)_memoryAvailableCounter.NextValue() * 1024 * 1024; // MB zu Bytes
             }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Verfügbarer Speicher konnte nicht über Performance Counter ermittelt werden");
+        }
 
+        try
+        {
             // Gesamten Speicher über Performance Counter oder WMI ermitteln
             using var process = new Process
             {
@@ -847,27 +854,73 @@ public class HardwareInventoryService
                 }
             };
 
-            process.Start();
-            var output = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-
-            var lines = output.Split('\n');
-            foreach (var line in lines)
+            if (process.Start())
             {
-                if (line.StartsWith("TotalPhysicalMemory="))
+                var output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                var lines = output.Split('\n');
+                foreach (var line in lines)
                 {
-                    var memoryString = line.Substring(20).Trim();
-                    if (long.TryParse(memoryString, out var totalMemory))
+                    if (line.StartsWith("TotalPhysicalMemory="))
                     {
-                        memoryInfo.TotalPhysicalMemory = totalMemory;
+                        var memoryString = line.Substring(20).Trim();
+                        if (long.TryParse(memoryString, out var totalMemory))
+                        {
+                            memoryInfo.TotalPhysicalMemory = totalMemory;
+                        }
+
+                        break;
                     }
-                    break;
                 }
             }
         }
         catch (Exception ex)
         {
-            _logger.LogWarning(ex, "Windows-Memory-Informationen konnten nicht ermittelt werden");
+            _logger.LogWarning(ex, "wmic konnte nicht gestartet werden für Memory-Info, versuche PowerShell");
+        }
+
+        // Fallback via PowerShell SDK
+        if (memoryInfo.TotalPhysicalMemory == 0)
+        {
+            try
+            {
+                using var ps = PowerShell.Create();
+                ps.AddScript("(Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory");
+                var results = ps.Invoke();
+                if (results.Count > 0 && results[0] != null)
+                {
+                    if (long.TryParse(results[0].ToString(), out var totalMemory))
+                    {
+                        memoryInfo.TotalPhysicalMemory = totalMemory;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Windows-Gesamtspeicher konnte auch via PowerShell nicht ermittelt werden");
+            }
+        }
+
+        if (memoryInfo.AvailablePhysicalMemory == 0)
+        {
+            try
+            {
+                using var ps = PowerShell.Create();
+                ps.AddScript("(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory");
+                var results = ps.Invoke();
+                if (results.Count > 0 && results[0] != null)
+                {
+                    if (long.TryParse(results[0].ToString(), out var freeMemoryKb))
+                    {
+                        memoryInfo.AvailablePhysicalMemory = freeMemoryKb * 1024; // KB zu Bytes
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Verfügbarer Speicher konnte auch via PowerShell nicht ermittelt werden");
+            }
         }
     }
 
