@@ -279,7 +279,7 @@ public class HardwareInventoryService
                 {
                     var diskInfo = new DiskInfo
                     {
-                        DriveName = drive.Name,
+                        DriveName = $@"{drive.Name}",
                         DriveType = drive.DriveType.ToString(),
                         IsReady = drive.IsReady
                     };
