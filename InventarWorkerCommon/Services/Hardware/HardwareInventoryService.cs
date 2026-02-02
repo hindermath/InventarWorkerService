@@ -281,17 +281,13 @@ public class HardwareInventoryService
                     {
                         DriveName = drive.Name,
                         DriveType = drive.DriveType.ToString(),
-                        IsReady = drive.IsReady
+                        IsReady = drive.IsReady,
+                        FileSystem = drive.IsReady ? drive.DriveFormat : string.Empty,
+                        TotalSize = drive.IsReady ? drive.TotalSize : 0,
+                        AvailableSpace = drive.IsReady ? drive.AvailableFreeSpace : 0,
+                        UsedSpace = drive.IsReady ? drive.TotalSize - drive.AvailableFreeSpace : 0,
+                        UsagePercentage = drive.IsReady ? (double)(drive.TotalSize - drive.AvailableFreeSpace) / drive.TotalSize * 100 : 0
                     };
-
-                    if (drive.IsReady)
-                    {
-                        diskInfo.FileSystem = drive.DriveFormat;
-                        diskInfo.TotalSize = drive.TotalSize;
-                        diskInfo.AvailableSpace = drive.AvailableFreeSpace;
-                        diskInfo.UsedSpace = drive.TotalSize - drive.AvailableFreeSpace;
-                        diskInfo.UsagePercentage = (double)diskInfo.UsedSpace / diskInfo.TotalSize * 100;
-                    }
 
                     disks.Add(diskInfo);
                 }
