@@ -486,3 +486,62 @@ public class SoftwareInfoTests
         Assert.AreEqual(software1, software2);
     }
 }
+
+[TestClass]
+public class DiskInfoTests
+{
+    [TestMethod]
+    public void DiskInfo_DefaultValues_ShouldBeCorrect()
+    {
+        // Arrange & Act
+        var diskInfo = new DiskInfo();
+
+        // Assert
+        Assert.AreEqual(string.Empty, diskInfo.DriveName);
+        Assert.AreEqual(string.Empty, diskInfo.DriveType);
+        Assert.AreEqual(string.Empty, diskInfo.FileSystem);
+        Assert.AreEqual(0, diskInfo.TotalSize);
+        Assert.AreEqual(0, diskInfo.AvailableSpace);
+        Assert.AreEqual(0, diskInfo.UsedSpace);
+        Assert.AreEqual(0.0, diskInfo.UsagePercentage);
+        Assert.IsFalse(diskInfo.IsReady);
+    }
+
+    [TestMethod]
+    public void DiskInfo_SetAllProperties_ShouldRetainValues()
+    {
+        // Arrange
+        var diskInfo = new DiskInfo
+        {
+            DriveName = "C:",
+            DriveType = "Fixed",
+            FileSystem = "NTFS",
+            TotalSize = 1000,
+            AvailableSpace = 400,
+            UsedSpace = 600,
+            UsagePercentage = 60.0,
+            IsReady = true
+        };
+
+        // Assert
+        Assert.AreEqual("C:", diskInfo.DriveName);
+        Assert.AreEqual("Fixed", diskInfo.DriveType);
+        Assert.AreEqual("NTFS", diskInfo.FileSystem);
+        Assert.AreEqual(1000, diskInfo.TotalSize);
+        Assert.AreEqual(400, diskInfo.AvailableSpace);
+        Assert.AreEqual(600, diskInfo.UsedSpace);
+        Assert.AreEqual(60.0, diskInfo.UsagePercentage);
+        Assert.IsTrue(diskInfo.IsReady);
+    }
+
+    [TestMethod]
+    public void DiskInfo_RecordEquality_ShouldWork()
+    {
+        // Arrange
+        var disk1 = new DiskInfo { DriveName = "C:", TotalSize = 100 };
+        var disk2 = new DiskInfo { DriveName = "C:", TotalSize = 100 };
+
+        // Assert
+        Assert.AreEqual(disk1, disk2);
+    }
+}
