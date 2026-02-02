@@ -31,7 +31,7 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Represents disk information including capacity, file system and usage.
+  summary: Represents information about a disk drive, including capacity, file system, and usage.
   example: []
   syntax:
     content: 'public record DiskInfo : IEquatable<DiskInfo>'
@@ -70,7 +70,7 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the drive name or letter (for example, "C:").
+  summary: Gets the drive name or letter (for example, "C:").
   example: []
   syntax:
     content: public string DriveName { get; init; }
@@ -101,10 +101,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the type of the drive (for example, Fixed, Removable, Network).
+  summary: Gets the type of the drive (for example, "Fixed", "Removable", "Network").
   example: []
   syntax:
-    content: public string DriveType { get; set; }
+    content: public string DriveType { get; init; }
     parameters: []
     return:
       type: System.String
@@ -132,10 +132,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the file system used by the drive (for example, NTFS, ext4, APFS).
+  summary: Gets the file system used by the drive (for example, "NTFS", "ext4", "APFS").
   example: []
   syntax:
-    content: public string FileSystem { get; set; }
+    content: public string FileSystem { get; init; }
     parameters: []
     return:
       type: System.String
@@ -163,10 +163,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the total capacity of the drive in bytes.
+  summary: Gets the total capacity of the drive in bytes.
   example: []
   syntax:
-    content: public long TotalSize { get; set; }
+    content: public long TotalSize { get; init; }
     parameters: []
     return:
       type: System.Int64
@@ -194,10 +194,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the available free space on the drive in bytes.
+  summary: Gets the available free space on the drive in bytes.
   example: []
   syntax:
-    content: public long AvailableSpace { get; set; }
+    content: public long AvailableSpace { get; init; }
     parameters: []
     return:
       type: System.Int64
@@ -225,10 +225,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the used space on the drive in bytes.
+  summary: Gets the used space on the drive in bytes.
   example: []
   syntax:
-    content: public long UsedSpace { get; set; }
+    content: public long UsedSpace { get; init; }
     parameters: []
     return:
       type: System.Int64
@@ -256,10 +256,10 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets the percentage of used space (0–100).
+  summary: Gets the percentage of used space (0–100).
   example: []
   syntax:
-    content: public double UsagePercentage { get; set; }
+    content: public double UsagePercentage { get; init; }
     parameters: []
     return:
       type: System.Double
@@ -287,7 +287,7 @@ items:
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Hardware
-  summary: Gets or sets a value indicating whether the drive is ready and accessible.
+  summary: Gets a value indicating whether the drive is ready and accessible.
   example: []
   syntax:
     content: public bool IsReady { get; init; }

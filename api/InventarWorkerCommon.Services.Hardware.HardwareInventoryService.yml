@@ -23,7 +23,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareInventoryService
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 12
+    startLine: 14
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
@@ -60,7 +60,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 22
+    startLine: 136
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
@@ -95,7 +95,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectHardwareInfoAsync
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 45
+    startLine: 159
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
@@ -126,7 +126,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 487
+    startLine: 1004
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware
@@ -154,7 +154,7 @@ items:
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInfoAsync
     path: InventarWorkerCommon/Services/Hardware/HardwareInventoryService.cs
-    startLine: 497
+    startLine: 1014
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Hardware

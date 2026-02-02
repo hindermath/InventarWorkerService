@@ -162,7 +162,7 @@ items:
   summary: Gets or sets the current overall CPU usage in percent (0–100).
   example: []
   syntax:
-    content: public double CurrentUsage { get; set; }
+    content: public double CurrentUsage { get; init; }
     parameters: []
     return:
       type: System.Double

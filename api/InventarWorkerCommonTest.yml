@@ -5,6 +5,7 @@ items:
   id: InventarWorkerCommonTest
   children:
   - InventarWorkerCommonTest.CpuInfoTests
+  - InventarWorkerCommonTest.DiskInfoTests
   - InventarWorkerCommonTest.OsInfoTests
   - InventarWorkerCommonTest.ServiceStatisticsTests
   - InventarWorkerCommonTest.SoftwareInfoTests
@@ -49,3 +50,9 @@ references:
   name: SoftwareInfoTests
   nameWithType: SoftwareInfoTests
   fullName: InventarWorkerCommonTest.SoftwareInfoTests
+- uid: InventarWorkerCommonTest.DiskInfoTests
+  commentId: T:InventarWorkerCommonTest.DiskInfoTests
+  href: InventarWorkerCommonTest.DiskInfoTests.html
+  name: DiskInfoTests
+  nameWithType: DiskInfoTests
+  fullName: InventarWorkerCommonTest.DiskInfoTests
