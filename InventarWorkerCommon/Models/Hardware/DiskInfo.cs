@@ -13,32 +13,32 @@ public record DiskInfo
     /// <summary>
     /// Gets or sets the type of the drive (for example, Fixed, Removable, Network).
     /// </summary>
-    public string DriveType { get; set; } = string.Empty;
+    public string DriveType { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the file system used by the drive (for example, NTFS, ext4, APFS).
     /// </summary>
-    public string FileSystem { get; set; } = string.Empty;
+    public string FileSystem { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the total capacity of the drive in bytes.
     /// </summary>
-    public long TotalSize { get; set; }
+    public long TotalSize { get; init; }
 
     /// <summary>
     /// Gets or sets the available free space on the drive in bytes.
     /// </summary>
-    public long AvailableSpace { get; set; }
+    public long AvailableSpace { get; init; }
 
     /// <summary>
     /// Gets or sets the used space on the drive in bytes.
     /// </summary>
-    public long UsedSpace { get; set; }
+    public long UsedSpace { get; init; }
 
     /// <summary>
     /// Gets or sets the percentage of used space (0–100).
     /// </summary>
-    public double UsagePercentage { get; set; }
+    public double UsagePercentage { get; init; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the drive is ready and accessible.
