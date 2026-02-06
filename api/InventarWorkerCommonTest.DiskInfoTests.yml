@@ -73,11 +73,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 493)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 493)]
 
       public void DiskInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 493)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 493)>
 
       Public Sub DiskInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_DefaultValues_ShouldBeCorrect*
@@ -86,7 +86,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 493
 - uid: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_SetAllProperties_ShouldRetainValues
@@ -113,11 +113,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 510)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 510)]
 
       public void DiskInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 510)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 510)>
 
       Public Sub DiskInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_SetAllProperties_ShouldRetainValues*
@@ -126,7 +126,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 510
 - uid: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_RecordEquality_ShouldWork
@@ -153,11 +153,11 @@ items:
   namespace: InventarWorkerCommonTest
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 537)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 537)]
 
       public void DiskInfo_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 537)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 537)>
 
       Public Sub DiskInfo_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_RecordEquality_ShouldWork*
@@ -166,7 +166,7 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
       value: 537
 references:
