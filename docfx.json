@@ -43,7 +43,8 @@
       "_appName": "InventarWorkerService",
       "_appTitle": "InventarWorkerService",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": true,
+      "_sourcePathStyle": "unix"
     }
   }
 }
