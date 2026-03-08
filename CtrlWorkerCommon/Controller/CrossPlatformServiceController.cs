@@ -31,8 +31,24 @@ public class CrossPlatformServiceController
     /// Initializes a new instance of the CrossPlatformServiceController for the specified service.
     /// </summary>
     /// <param name="serviceName">The OS service name to manage (e.g., Windows service name, systemd unit on Linux).</param>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when <paramref name="serviceName"/> is <see langword="null"/>.
+    /// </exception>
+    /// <exception cref="ArgumentException">
+    /// Thrown when <paramref name="serviceName"/> is empty or whitespace.
+    /// </exception>
     public CrossPlatformServiceController(string serviceName)
     {
+        if (serviceName is null)
+        {
+            throw new ArgumentNullException(nameof(serviceName));
+        }
+
+        if (string.IsNullOrWhiteSpace(serviceName))
+        {
+            throw new ArgumentException("Service name must not be empty or whitespace.", nameof(serviceName));
+        }
+
         _serviceName = serviceName;
     }
 
