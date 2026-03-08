@@ -1,0 +1,17 @@
+# Command Template: `/speckit.checklist`
+
+Use this command to generate review checklists for a feature or release.
+
+## Required Actions
+
+1. Build checklist items from `spec.md`, `plan.md`, and `tasks.md`.
+2. Include governance checks for:
+   - branch/PR compliance
+   - constitution gate compliance
+   - test evidence completeness
+   - documentation completeness (bilingual + XML + DocFX when required)
+
+## Validation Checklist
+
+- Checklist items are actionable and testable.
+- Each item maps to a concrete artifact or command output.
