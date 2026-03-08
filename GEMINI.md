@@ -19,12 +19,18 @@ Das Projekt nutzt die Standard .NET-CLI.
 - **Agent starten**: `dotnet run --project InventarWorkerService/InventarWorkerService.csproj`
 - **Sammler starten**: `dotnet run --project HarvesterWorkerService/HarvesterWorkerService.csproj`
 - **TUI-App starten**: `dotnet run --project InventarViewerApp/InventarViewerApp.csproj`
+- **Dokumentation neu erzeugen (bei API/XML-Doku-Änderungen)**: `docfx docfx.json`
 
 ## 🧪 Testing
 - **Alle Tests**: `dotnet test`
 - **Unit Tests**: `dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj`
 - **Integration Tests**: Erfordern einen laufenden Agenten auf Port 5000.
   `dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj`
+
+## 🌿 Branching-Workflow (Verbindlich)
+- Der Branch `main` ist geschützt und darf nicht direkt für Feature-Commits genutzt werden.
+- Für jedes Feature/Fix muss ein neuer Branch erstellt werden.
+- Änderungen gelangen ausschließlich per Pull Request nach `main` (inkl. Testnachweis).
 
 ## 🏗 Architektur & Konventionen
 - **Plattform-Support**: Implementiert als Windows Service, systemd (Linux) und launchd (macOS).
@@ -33,12 +39,15 @@ Das Projekt nutzt die Standard .NET-CLI.
   - Sekundär (Harvester): **MongoDB** & **PostgreSQL**.
 - **API**: System.Text.Json (camelCase), RestSharp für Clients. Swagger/OpenAPI ist in Development unter `/swagger` verfügbar.
 - **Sprache**: 
-  - Code & Kommentare: Englisch.
+  - Erklärende Texte in Kommentaren/Dokumentation: zweisprachig (Deutsch zuerst, dann Englisch) auf CEFR-B2-Niveau.
   - UI-Labels & Logs: Deutsch.
 - **Coding Style**:
   - Nullable Reference Types sind aktiviert.
   - Asynchrone Programmierung (`async/await`) ist Standard für I/O.
   - Test-Namensschema: `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`.
+  - XML-Dokumentation ist für öffentliche APIs verpflichtend (CS1591 nicht global unterdrücken).
+  - Für nicht-öffentliche Member/Variablen sind an didaktisch relevanten Stellen zweisprachige Block- oder Zeilen-Kommentare zu nutzen.
+  - Bei API- oder XML-Doku-Änderungen `docfx docfx.json` ausführen.
 - **Worker-Intervalle**:
   - Debug: 30 Sekunden.
   - Release: 24 Stunden.

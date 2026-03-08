@@ -19,7 +19,16 @@ dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"
 # Integration tests (requires InventarWorkerService running on http://localhost:5000 first)
 dotnet run --project InventarWorkerService/InventarWorkerService.csproj
 dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj
+
+# Regenerate documentation when API/XML docs change
+docfx docfx.json
 ```
+
+## Branching Workflow (Mandatory)
+
+- `main` is protected and must not receive direct feature commits.
+- Create a new branch for each feature/fix/change.
+- Merge to `main` only through pull requests with test evidence.
 
 ## Architecture
 
@@ -45,7 +54,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 ## Key Conventions
 
-**Language split:** Code and comments in English; UI labels and log messages in German.
+**Language split:** Explanatory texts in comments/docs MUST be bilingual (German first, then English, CEFR B2). UI labels and log messages remain German.
 
 **Naming:**
 - Types/methods/properties/constants: PascalCase
@@ -69,7 +78,11 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Error handling:** Catch at boundary layers (API controllers return `StatusCode(500, new { error = ... })`; TUI shows `MessageBox.ErrorQuery`). Use `using` statements on DB connections.
 
-**XML doc comments** are expected on all public members in service classes.
+**XML doc comments** are mandatory on all public API members; CS1591 must not be globally suppressed.
+
+**Didactic comments:** Add bilingual block/line comments for non-public members/variables where XML docs do not apply.
+
+**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes.
 
 **Test framework:** MSTest. Use `[TestInitialize]`/`[TestCleanup]` for per-test setup. Assert default property values (empty strings, 0, false, null) explicitly in unit tests.
 
