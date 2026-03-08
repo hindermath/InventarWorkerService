@@ -1,4 +1,4 @@
-# InventarWorkerService mit .NET9/C# für Service für Windows, macOS und Linux
+# InventarWorkerService mit .NET10/C# 14.0 für Service für Windows, macOS und Linux
 
 ## Generelles Beispielprojekt
 Gerne! Hier ist ein kleines Beispiel für ein plattformübergreifendes .NET Worker Service-Projekt, das unter Windows als Service, unter Linux als systemd-Daemon und unter macOS als launchd-Daemon laufen kann.
@@ -114,7 +114,7 @@ Inhalt:
       <string>com.inventarworkerservice</string>
       <key>ProgramArguments</key>
       <array>
-<string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/InventarWorkerService</string>
+<string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/InventarWorkerService</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -122,7 +122,7 @@ Inhalt:
       <true/>
       <!-- Arbeitsverzeichnis -->
       <key>WorkingDirectory</key>
-      <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/</string>
+      <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/</string>
     
       <!-- Umgebungsvariablen -->
       <key>EnvironmentVariables</key>
@@ -225,7 +225,7 @@ dotnet publish -c Release -r win-x64 --self-contained false
 #### Installieren mit sc.exe:
 Das Terminal, die PowerShell oder Kommandozeile als _**Administrator bzw. mit Administrator-Rechten**_ öffnen und den Service mit `sc.exe` registrieren.
 ```cmd
-sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe"
+sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net10.0\InventarWorkerService.exe"
 ```
 Die erfolgreiche Installation wird mit `[SC] CreateService SUCCESS` oder `[SC] CreateService ERFOLG` bestätigt.
 
@@ -236,7 +236,7 @@ Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar
 Alternativ via PowerShell mit New-Service:
 ```powershell
 New-Service -Name "InventarWorkerService" `
-            -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net9.0\InventarWorkerService.exe" `
+            -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net10.0\InventarWorkerService.exe" `
             -DisplayName "InventarWorkerService" `
             -StartupType Manual
 ```
@@ -967,17 +967,17 @@ Import-Module PSSQLite
 sie nicht existiert)
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net9.0\mydatabase.db' -Query 'CREATE TABLE IF NOT EXISTS users
+bin\Debug\net10.0\mydatabase.db' -Query 'CREATE TABLE IF NOT EXISTS users
 (id INTEGER PRIMARY KEY, name TEXT);'
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net9.0\mydatabase.db' -Query 'INSERT INTO users (name) VALUES (
+bin\Debug\net10.0\mydatabase.db' -Query 'INSERT INTO users (name) VALUES (
 "John Doe"), ("Jane Doe");'
 
 # Daten abfragen und anzeigen
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net9.0\mydatabase.db' -Query 'SELECT * FROM users;'
+bin\Debug\net10.0\mydatabase.db' -Query 'SELECT * FROM users;'
 ```
 Eine andere Möglichkeit ist die direkte Verwendung der .NET-Bibliothek
 Microsoft.Data.Sqlite, die ebenfalls plattformübergreifend ist, aber die
@@ -1022,7 +1022,7 @@ Import-Module SQLitePS
 # Erstelle ein neues PSDrive, das auf deine Datenbankdatei zeigt
 New-PSDrive -Name "MyDB" -PSProvider "SQLite" -Root "C:\Users\t
 hinder\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debu
-g\net9.0\mydatabase.db"
+g\net10.0\mydatabase.db"
 
 # Wechsle in das neue Laufwerk
 cd MyDB:
@@ -1058,8 +1058,8 @@ sind jedoch leistungsfähig und haben ihre Berechtigung.
 ### QuickFixes
 Wenn unter Linux/Ubuntu mit normalen USer-Rechten der InventarWorkerService nicht gestartet werden kann, dann versuche
 ```bash
-sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net9.0/InventarWorkerService
-sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarViewerApp/bin/Debug/net9.0/InventarViewerApp
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/InventarWorkerService
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarViewerApp/bin/Debug/net10.0/InventarViewerApp
 # Auflösen des SymLink
 readlink -f /usr/bin/dotnet
 # Antwort

@@ -9,6 +9,9 @@ Use this command to generate review checklists for a feature or release.
    - branch/PR compliance
    - constitution gate compliance
    - test evidence completeness
+   - coverage evidence (`>=70%` minimum, `>=80%` target tracking)
+   - .NET 10 + C# 14.0 toolchain alignment
+   - NuGet dependency currency / pinning documentation
    - documentation completeness (bilingual + XML + DocFX when required)
 
 ## Validation Checklist

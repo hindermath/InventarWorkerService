@@ -95,6 +95,18 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+## Constitution Alignment *(mandatory)*
+
+- **CA-001 Branching**: Feature work MUST be delivered from a new branch and merged via PR to `main`.
+- **CA-002 Toolchain**: Feature scope MUST specify .NET 10 + C# 14.0 impact and migration needs.
+- **CA-003 Dependency Currency**: Spec MUST define NuGet update impact and any justified pinning exceptions.
+- **CA-004 Coverage**: Spec MUST define how CI coverage meets >=70% minimum and tracks >=80% target.
+- **CA-005 Layering**: Shared domain/service logic impact MUST identify changes in `InventarWorkerCommon` vs app-specific projects.
+- **CA-006 Linguistic Rules**: Spec MUST define bilingual documentation scope (German first, English second) at CEFR B2.
+- **CA-007 Documentation Enforcement**: Spec MUST identify XML documentation impact and whether a `docfx docfx.json` run is required.
+- **CA-008 Testing Impact**: Spec MUST define Red-Green-Refactor coverage and required unit/integration tests.
+- **CA-009 Data Contracts**: Spec MUST identify JSON serialization and SQL schema/index implications when data is affected.
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

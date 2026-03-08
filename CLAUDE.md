@@ -33,6 +33,12 @@ dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegratio
 # Run a single test method
 dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"
 
+# Collect coverage (CI gate >=70%, target >=80%)
+dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+# Check package currency
+dotnet list package --outdated
+
 # Regenerate documentation when API/XML docs change
 docfx docfx.json
 ```
@@ -45,7 +51,7 @@ docfx docfx.json
 
 ## Architecture Overview
 
-This is a multi-project .NET 9.0 solution for hardware/software inventory management across machines.
+This is a multi-project .NET 10 / C# 14.0 solution for hardware/software inventory management across machines.
 
 ### Data Flow
 
@@ -87,12 +93,15 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 ### Key Technical Conventions
 
 - **Nullable reference types** are enabled throughout; use `string?` where values may be absent
+- **Toolchain baseline**: .NET 10 with C# 14.0
 - **Async/await** for all I/O-bound operations; public service methods return `Task` or `Task<T>`
 - **System.Text.Json** with camelCase naming policy — avoid Newtonsoft.Json
+- **Dependency currency**: keep NuGet packages on latest stable versions; document any pinning exceptions
 - **Dapper + Microsoft.Data.Sqlite** for local persistence; SQL written as raw strings with `IF NOT EXISTS`, indices on frequently queried columns
 - **ServiceStatusWriter** writes three output types: status (JSON), statistics (JSON), log (text) — identified by service name prefix (default `""`, harvester uses `"harvester-service"`)
 - Worker loop delay: `30_000ms` in `#if DEBUG`, `86_400_000ms` (24h) in Release
 - **Test naming**: `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`
+- **Coverage gate**: CI coverage must be >=70% and must target >=80%
 - **Language clarity**: Explanatory text in comments/docs must be bilingual (German block first, English block second) at CEFR B2 level
 - **UI language**: German strings in UI labels and log messages
 - **XML docs**: Public API members require complete XML documentation; do not suppress CS1591 globally
