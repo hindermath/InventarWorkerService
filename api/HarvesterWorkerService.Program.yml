@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: HarvesterWorkerService/Program.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Program
     path: HarvesterWorkerService/Program.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: HarvesterWorkerService/Program.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Main
     path: HarvesterWorkerService/Program.cs

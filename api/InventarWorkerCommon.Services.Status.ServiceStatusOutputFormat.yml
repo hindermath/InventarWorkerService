@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceStatusOutputFormat
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
@@ -47,7 +47,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Json
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
@@ -75,7 +75,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Ini
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Xml
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
@@ -131,7 +131,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Yaml
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
@@ -159,7 +159,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: All
     path: InventarWorkerCommon/Services/Status/ServiceStatusOutputFormat.cs

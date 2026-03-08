@@ -8,7 +8,8 @@ using Terminal.Gui;
 namespace InventarViewerApp.UI
 {
     /// <summary>
-    /// A Terminal.Gui view that shows the service status and persists the machine entry.
+    /// DE: Terminal.Gui-Ansicht zur Anzeige des Service-Status und zur Ablage des aktuellen Maschinen-Eintrags.
+    /// EN: Terminal.Gui view that displays service status and persists the current machine entry.
     /// </summary>
     public class StatusView : FrameView
     {
@@ -21,11 +22,21 @@ namespace InventarViewerApp.UI
         private Button _refreshButton;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatusView"/> class.
+        /// DE: Initialisiert eine neue Instanz der <see cref="StatusView"/>-Klasse.
+        /// EN: Initializes a new instance of the <see cref="StatusView"/> class.
         /// </summary>
-        /// <param name="apiService">Service used to retrieve the service status from the backend.</param>
-        /// <param name="sqliteDbService">Service used to persist the current machine in the local database.</param>
-        /// <param name="pgSqlDbService"></param>
+        /// <param name="apiService">
+        /// DE: Dienst zum Abrufen des Service-Status aus dem Backend.
+        /// EN: Service used to retrieve the service status from the backend.
+        /// </param>
+        /// <param name="sqliteDbService">
+        /// DE: Dienst zur lokalen Persistierung der Maschineninformationen in SQLite.
+        /// EN: Service used to persist machine information in local SQLite storage.
+        /// </param>
+        /// <param name="pgSqlDbService">
+        /// DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+        /// EN: Service for PostgreSQL access in the viewer application.
+        /// </param>
         public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService pgSqlDbService) : base("Service Status")
         {
             _apiService = apiService;
@@ -78,9 +89,13 @@ namespace InventarViewerApp.UI
         }
 
         /// <summary>
-        /// Refreshes the status information from the API and updates the view; also ensures the machine entry exists in the database.
+        /// DE: Lädt den Status neu, aktualisiert die Ansicht und stellt sicher, dass die Maschine in der Datenbank vorhanden ist.
+        /// EN: Refreshes status data, updates the view, and ensures the machine exists in the database.
         /// </summary>
-        /// <returns>A task that represents the asynchronous refresh operation.</returns>
+        /// <returns>
+        /// DE: Asynchroner Vorgang für das Aktualisieren von Status- und Maschinendaten.
+        /// EN: Asynchronous operation for refreshing status and machine data.
+        /// </returns>
         public async Task RefreshData()
         {
             try
@@ -89,15 +104,18 @@ namespace InventarViewerApp.UI
                 
                 var status = await _apiService.GetServiceStatusAsync();
                 
-                // JSON-String deserialisieren, um Maschinennamen zu extrahieren
+                // DE: JSON-Antwort auswerten, um den Maschinennamen robust zu extrahieren.
+                // EN: Parse JSON response to extract the machine name in a robust way.
                 string machineName;
                 try
                 {
-                    // status zu string konvertieren und als JsonDocument deserialisieren
+                    // DE: Status in einen String umwandeln und als JsonDocument lesen.
+                    // EN: Convert status to string and parse it as JsonDocument.
                     var statusString = status.ToString();
                     var statusDocument = JsonDocument.Parse(statusString);
                     
-                    // JsonDocument in Dictionary deserialisieren für einfacheren Zugriff
+                    // DE: Für den Zugriff nach Schlüsseln in ein Dictionary deserialisieren.
+                    // EN: Deserialize into a dictionary for key-based access.
                     var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
 
                     machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
@@ -106,11 +124,13 @@ namespace InventarViewerApp.UI
                 }
                 catch
                 {
-                    // Fallback auf lokalen Maschinennamen falls JSON-Deserialisierung fehlschlägt
+                    // DE: Fallback auf lokalen Namen, damit die UI trotz Formatfehler weiterarbeitet.
+                    // EN: Fall back to local machine name so the UI keeps working even on format errors.
                     machineName = Environment.MachineName;
                 }
                 
-                // Maschinen-Information in die Datenbank speichern
+                // DE: Maschinen-Informationen persistieren, um spätere Inventar-Speicherungen zuzuordnen.
+                // EN: Persist machine information so later inventory writes can be linked correctly.
                 var machine = new Machine
                 {
                     Name = machineName,

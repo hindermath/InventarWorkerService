@@ -5,7 +5,8 @@ using Terminal.Gui;
 namespace InventarViewerApp.UI
 {
     /// <summary>
-    /// A Terminal.Gui view that displays and persists hardware inventory data.
+    /// DE: Terminal.Gui-Ansicht zur Anzeige und Persistierung von Hardware-Inventardaten.
+    /// EN: Terminal.Gui view for displaying and persisting hardware inventory data.
     /// </summary>
     public class HardwareView : FrameView
     {
@@ -18,11 +19,21 @@ namespace InventarViewerApp.UI
         private Button _saveButton;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HardwareView"/> class.
+        /// DE: Initialisiert eine neue Instanz der <see cref="HardwareView"/>-Klasse.
+        /// EN: Initializes a new instance of the <see cref="HardwareView"/> class.
         /// </summary>
-        /// <param name="apiService">Service used to retrieve hardware inventory from the backend.</param>
-        /// <param name="dbService">Service used to save data to the local SQLite database.</param>
-        /// <param name="pgSqlDbService"></param>
+        /// <param name="apiService">
+        /// DE: Dienst zum Abrufen des Hardware-Inventars aus dem Backend.
+        /// EN: Service used to retrieve hardware inventory from the backend.
+        /// </param>
+        /// <param name="dbService">
+        /// DE: Dienst zum Speichern von Daten in der lokalen SQLite-Datenbank.
+        /// EN: Service used to save data in the local SQLite database.
+        /// </param>
+        /// <param name="pgSqlDbService">
+        /// DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+        /// EN: Service for PostgreSQL access in the viewer application.
+        /// </param>
         public HardwareView(ApiService apiService, SqliteDbService dbService, PgSqlDbService pgSqlDbService) : base("Hardware Inventar")
         {
             _apiService = apiService;
@@ -77,9 +88,13 @@ namespace InventarViewerApp.UI
         }
 
         /// <summary>
-        /// Refreshes the hardware inventory by calling the API and updating the view content.
+        /// DE: Lädt das Hardware-Inventar neu und aktualisiert die Anzeige.
+        /// EN: Refreshes hardware inventory data and updates the view.
         /// </summary>
-        /// <returns>A task that represents the asynchronous refresh operation.</returns>
+        /// <returns>
+        /// DE: Asynchroner Vorgang zum Aktualisieren der Hardwaredaten.
+        /// EN: Asynchronous operation that refreshes hardware data.
+        /// </returns>
         public async Task RefreshData()
         {
             try

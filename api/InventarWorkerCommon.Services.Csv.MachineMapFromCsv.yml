@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Csv/MachineMapFromCsv.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineMapFromCsv
     path: InventarWorkerCommon/Services/Csv/MachineMapFromCsv.cs
@@ -86,7 +86,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Csv/MachineMapFromCsv.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Csv/MachineMapFromCsv.cs

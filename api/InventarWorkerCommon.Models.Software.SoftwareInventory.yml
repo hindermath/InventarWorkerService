@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInventory
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectionTime
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -95,7 +95,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledSoftware
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RunningProcesses
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WindowsServices
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartupPrograms
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -219,7 +219,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: EnvironmentVariables
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
@@ -250,7 +250,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Runtime
     path: InventarWorkerCommon/Models/Software/SoftwareInventory.cs

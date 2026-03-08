@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryInfo
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalPhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailablePhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsedPhysicalMemory
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
@@ -152,7 +152,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsagePercentage
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
@@ -183,7 +183,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ManagedMemoryUsage
     path: InventarWorkerCommon/Models/Hardware/MemoryInfo.cs

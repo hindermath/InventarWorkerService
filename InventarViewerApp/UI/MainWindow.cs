@@ -10,7 +10,8 @@ using Terminal.Gui;
 namespace InventarViewerApp.UI
 {
     /// <summary>
-    /// The main application window that hosts tabs for status, hardware and software views.
+    /// DE: Hauptfenster der Anwendung mit Reitern für Status-, Hardware- und Softwareansicht.
+    /// EN: Main application window hosting tabs for status, hardware, and software views.
     /// </summary>
     public class MainWindow : Window
     {
@@ -28,12 +29,25 @@ namespace InventarViewerApp.UI
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// DE: Initialisiert eine neue Instanz der <see cref="MainWindow"/>-Klasse.
+        /// EN: Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
-        /// <param name="apiService">API service used by child views.</param>
-        /// <param name="dbService">SQLite DB service used by child views.</param>
-        /// <param name="mongoDbService">MongoDB service used by child views.</param>
-        /// <param name="pgSqlDbService"></param>
+        /// <param name="apiService">
+        /// DE: API-Dienst für untergeordnete Ansichten.
+        /// EN: API service used by child views.
+        /// </param>
+        /// <param name="dbService">
+        /// DE: SQLite-Dienst für untergeordnete Ansichten.
+        /// EN: SQLite database service used by child views.
+        /// </param>
+        /// <param name="mongoDbService">
+        /// DE: MongoDB-Dienst für untergeordnete Ansichten.
+        /// EN: MongoDB service used by child views.
+        /// </param>
+        /// <param name="pgSqlDbService">
+        /// DE: PostgreSQL-Dienst für untergeordnete Ansichten.
+        /// EN: PostgreSQL service used by child views.
+        /// </param>
         public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Main Window")
         {
             _apiService = apiService;

@@ -26,18 +26,22 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InventarController
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
   summary: >-
-    Controller that provides endpoints related to inventory management, focusing on machines
+    DE: Stellt Endpunkte für das Inventar-Management bereit, mit Fokus auf Maschinen sowie
 
-    and their associated hardware and software details.
+    zugehörige Hardware- und Softwaredaten.
+
+    EN: Provides endpoints for inventory management, focusing on machines and their related
+
+    hardware and software data.
   example: []
   syntax:
     content: >-
@@ -261,19 +265,28 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 16
+    startLine: 26
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
+  summary: >-
+    DE: Initialisiert den Controller mit dem SQLite-Dienst für Maschinen- und Inventarabfragen.
+
+    EN: Initializes the controller with the SQLite service for machine and inventory queries.
+  example: []
   syntax:
     content: public InventarController(SqliteDbService sqliteDbService)
     parameters:
     - id: sqliteDbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
+      description: >-
+        DE: Datenbankdienst für den Zugriff auf Maschinen-, Hardware- und Softwaredaten.
+
+        EN: Database service used to access machine, hardware, and software data.
     content.vb: Public Sub New(sqliteDbService As SqliteDbService)
   overload: InventarViewerApp.Controllers.InventarController.#ctor*
   nameWithType.vb: InventarController.New(SqliteDbService)
@@ -293,11 +306,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachines
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 28
+    startLine: 38
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -342,11 +355,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachine
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 49
+    startLine: 59
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -395,11 +408,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineNameByIdAsync
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 73
+    startLine: 83
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -448,11 +461,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachine
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 98
+    startLine: 108
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -504,11 +517,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineIdByNameAsync
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 122
+    startLine: 132
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -557,11 +570,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventory
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 145
+    startLine: 155
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -609,11 +622,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventory
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 170
+    startLine: 180
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -665,11 +678,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventory
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 198
+    startLine: 208
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -720,11 +733,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventory
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 222
+    startLine: 232
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers
@@ -772,11 +785,11 @@ items:
   source:
     remote:
       path: InventarViewerApp/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareOverview
     path: InventarViewerApp/Controllers/InventarController.cs
-    startLine: 250
+    startLine: 260
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.Controllers

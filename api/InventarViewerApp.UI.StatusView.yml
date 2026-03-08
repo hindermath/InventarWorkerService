@@ -17,15 +17,18 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/StatusView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StatusView
     path: InventarViewerApp/UI/StatusView.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: A Terminal.Gui view that shows the service status and persists the machine entry.
+  summary: >-
+    DE: Terminal.Gui-Ansicht zur Anzeige des Service-Status und zur Ablage des aktuellen Maschinen-Eintrags.
+
+    EN: Terminal.Gui view that displays service status and persists the current machine entry.
   example: []
   syntax:
     content: 'public class StatusView : FrameView, IDisposable, ISupportInitializeNotification, ISupportInitialize'
@@ -205,28 +208,40 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/StatusView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/StatusView.cs
-    startLine: 28
+    startLine: 39
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.StatusView" data-throw-if-not-resolved="false"></xref> class.
+  summary: >-
+    DE: Initialisiert eine neue Instanz der <xref href="InventarViewerApp.UI.StatusView" data-throw-if-not-resolved="false"></xref>-Klasse.
+
+    EN: Initializes a new instance of the <xref href="InventarViewerApp.UI.StatusView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
-      description: Service used to retrieve the service status from the backend.
+      description: >-
+        DE: Dienst zum Abrufen des Service-Status aus dem Backend.
+
+        EN: Service used to retrieve the service status from the backend.
     - id: sqliteDbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
-      description: Service used to persist the current machine in the local database.
+      description: >-
+        DE: Dienst zur lokalen Persistierung der Maschineninformationen in SQLite.
+
+        EN: Service used to persist machine information in local SQLite storage.
     - id: pgSqlDbService
       type: InventarWorkerCommon.Services.Database.PgSqlDbService
-      description: ''
+      description: >-
+        DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+
+        EN: Service for PostgreSQL access in the viewer application.
     content.vb: Public Sub New(apiService As ApiService, sqliteDbService As SqliteDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.StatusView.#ctor*
   nameWithType.vb: StatusView.New(ApiService, SqliteDbService, PgSqlDbService)
@@ -246,21 +261,27 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/StatusView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/StatusView.cs
-    startLine: 83
+    startLine: 98
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Refreshes the status information from the API and updates the view; also ensures the machine entry exists in the database.
+  summary: >-
+    DE: Lädt den Status neu, aktualisiert die Ansicht und stellt sicher, dass die Maschine in der Datenbank vorhanden ist.
+
+    EN: Refreshes status data, updates the view, and ensures the machine exists in the database.
   example: []
   syntax:
     content: public Task RefreshData()
     return:
       type: System.Threading.Tasks.Task
-      description: A task that represents the asynchronous refresh operation.
+      description: >-
+        DE: Asynchroner Vorgang für das Aktualisieren von Status- und Maschinendaten.
+
+        EN: Asynchronous operation for refreshing status and machine data.
     content.vb: Public Function RefreshData() As Task
   overload: InventarViewerApp.UI.StatusView.RefreshData*
 references:

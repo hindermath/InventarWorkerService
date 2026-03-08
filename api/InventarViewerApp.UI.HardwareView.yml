@@ -17,15 +17,18 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/HardwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareView
     path: InventarViewerApp/UI/HardwareView.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: A Terminal.Gui view that displays and persists hardware inventory data.
+  summary: >-
+    DE: Terminal.Gui-Ansicht zur Anzeige und Persistierung von Hardware-Inventardaten.
+
+    EN: Terminal.Gui view for displaying and persisting hardware inventory data.
   example: []
   syntax:
     content: 'public class HardwareView : FrameView, IDisposable, ISupportInitializeNotification, ISupportInitialize'
@@ -205,28 +208,40 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/HardwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/HardwareView.cs
-    startLine: 25
+    startLine: 36
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.HardwareView" data-throw-if-not-resolved="false"></xref> class.
+  summary: >-
+    DE: Initialisiert eine neue Instanz der <xref href="InventarViewerApp.UI.HardwareView" data-throw-if-not-resolved="false"></xref>-Klasse.
+
+    EN: Initializes a new instance of the <xref href="InventarViewerApp.UI.HardwareView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public HardwareView(ApiService apiService, SqliteDbService dbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
-      description: Service used to retrieve hardware inventory from the backend.
+      description: >-
+        DE: Dienst zum Abrufen des Hardware-Inventars aus dem Backend.
+
+        EN: Service used to retrieve hardware inventory from the backend.
     - id: dbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
-      description: Service used to save data to the local SQLite database.
+      description: >-
+        DE: Dienst zum Speichern von Daten in der lokalen SQLite-Datenbank.
+
+        EN: Service used to save data in the local SQLite database.
     - id: pgSqlDbService
       type: InventarWorkerCommon.Services.Database.PgSqlDbService
-      description: ''
+      description: >-
+        DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+
+        EN: Service for PostgreSQL access in the viewer application.
     content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.HardwareView.#ctor*
   nameWithType.vb: HardwareView.New(ApiService, SqliteDbService, PgSqlDbService)
@@ -246,21 +261,27 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/HardwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/HardwareView.cs
-    startLine: 82
+    startLine: 97
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Refreshes the hardware inventory by calling the API and updating the view content.
+  summary: >-
+    DE: Lädt das Hardware-Inventar neu und aktualisiert die Anzeige.
+
+    EN: Refreshes hardware inventory data and updates the view.
   example: []
   syntax:
     content: public Task RefreshData()
     return:
       type: System.Threading.Tasks.Task
-      description: A task that represents the asynchronous refresh operation.
+      description: >-
+        DE: Asynchroner Vorgang zum Aktualisieren der Hardwaredaten.
+
+        EN: Asynchronous operation that refreshes hardware data.
     content.vb: Public Function RefreshData() As Task
   overload: InventarViewerApp.UI.HardwareView.RefreshData*
 references:

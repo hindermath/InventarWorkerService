@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Helpers/Calculate/AverageProcessingTime.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AverageProcessingTime
     path: InventarWorkerCommon/Helpers/Calculate/AverageProcessingTime.cs
@@ -53,7 +53,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Helpers/Calculate/AverageProcessingTime.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CalculateAverageProcessingTime
     path: InventarWorkerCommon/Helpers/Calculate/AverageProcessingTime.cs

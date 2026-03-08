@@ -18,15 +18,18 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApi
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 5
+    startLine: 6
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
-  summary: Represents the configuration settings required to connect to the Client API.
+  summary: >-
+    DE: Enthält die Verbindungsparameter für die Client-API.
+
+    EN: Contains connection parameters for the client API.
   example: []
   syntax:
     content: public class ClientApi
@@ -55,15 +58,18 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiFqdn
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
-  summary: Gets the fully qualified domain name (FQDN) of the client API.
+  summary: >-
+    DE: Vollqualifizierter Domänenname (FQDN) der Client-API.
+
+    EN: Fully qualified domain name (FQDN) of the client API.
   example: []
   syntax:
     content: public string ClientApiFqdn { get; set; }
@@ -86,15 +92,18 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiPort
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 16
+    startLine: 19
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
-  summary: Gets the port of the client API.
+  summary: >-
+    DE: Port der Client-API.
+
+    EN: Port of the client API.
   example: []
   syntax:
     content: public string ClientApiPort { get; set; }
@@ -117,15 +126,18 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiUrl
     path: InventarWorkerCommon/Models/Settings/ClientApi.cs
-    startLine: 21
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Models.Settings
-  summary: Gets the full URL of the client API, constructed using the FQDN and port information.
+  summary: >-
+    DE: Vollständige URL der Client-API, zusammengesetzt aus FQDN und Port.
+
+    EN: Full client API URL, composed from FQDN and port.
   example: []
   syntax:
     content: public string ClientApiUrl { get; }

@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveMachine
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PingWithDetailsAsync
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -106,7 +106,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsMachineReachableAsync
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -150,7 +150,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveIpToHostInfoAsync
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -201,7 +201,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveIpToFqdnAsync
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -243,7 +243,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveFqdnToIpv4Async
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -281,7 +281,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveFqdnToIpv6Async
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
@@ -319,7 +319,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Network/ResolveMachine.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ResolveFqdnToHostInfoAsync
     path: InventarWorkerCommon/Services/Network/ResolveMachine.cs

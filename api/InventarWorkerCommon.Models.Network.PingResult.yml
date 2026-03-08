@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PingResult
     path: InventarWorkerCommon/Models/Network/PingResult.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsSuccess
     path: InventarWorkerCommon/Models/Network/PingResult.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Status
     path: InventarWorkerCommon/Models/Network/PingResult.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RoundTripTime
     path: InventarWorkerCommon/Models/Network/PingResult.cs
@@ -168,7 +168,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Address
     path: InventarWorkerCommon/Models/Network/PingResult.cs
@@ -202,7 +202,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Network/PingResult.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ErrorMessage
     path: InventarWorkerCommon/Models/Network/PingResult.cs

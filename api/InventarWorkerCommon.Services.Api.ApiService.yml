@@ -20,15 +20,18 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ApiService
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Provides methods to call backend inventory API endpoints and deserialize results.
+  summary: >-
+    DE: Kapselt den Zugriff auf die Inventar-API und stellt deserialisierte Ergebnisobjekte bereit.
+
+    EN: Encapsulates access to the inventory API and returns deserialized result objects.
   example: []
   syntax:
     content: public class ApiService
@@ -57,22 +60,28 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 20
+    startLine: 25
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Initializes a new instance of the ApiService with the specified base URL.
+  summary: >-
+    DE: Initialisiert den Dienst mit der Basisadresse der Ziel-API.
+
+    EN: Initializes the service with the base address of the target API.
   example: []
   syntax:
     content: public ApiService(string baseUrl)
     parameters:
     - id: baseUrl
       type: System.String
-      description: The base URL of the backend API.
+      description: >-
+        DE: Basis-URL der Backend-API.
+
+        EN: Base URL of the backend API.
     content.vb: Public Sub New(baseUrl As String)
   overload: InventarWorkerCommon.Services.Api.ApiService.#ctor*
   nameWithType.vb: ApiService.New(String)
@@ -92,27 +101,36 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetServiceStatusAsync
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 35
+    startLine: 47
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Retrieves the current service status from the backend API.
+  summary: >-
+    DE: Lädt den aktuellen Servicestatus von der Backend-API.
+
+    EN: Retrieves the current service status from the backend API.
   example: []
   syntax:
     content: public Task<object> GetServiceStatusAsync()
     return:
       type: System.Threading.Tasks.Task{System.Object}
-      description: An object graph representing the service status JSON payload.
+      description: >-
+        DE: Deserialisierte JSON-Antwort des Status-Endpunkts.
+
+        EN: Deserialized JSON response from the status endpoint.
     content.vb: Public Function GetServiceStatusAsync() As Task(Of Object)
   overload: InventarWorkerCommon.Services.Api.ApiService.GetServiceStatusAsync*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: Thrown when the API request fails.
+    description: >-
+      DE: Wird ausgelöst, wenn der API-Aufruf fehlschlägt oder kein verwertbarer Inhalt zurückkommt.
+
+      EN: Thrown when the API call fails or no usable response content is returned.
 - uid: InventarWorkerCommon.Services.Api.ApiService.GetHardwareInventoryAsync
   commentId: M:InventarWorkerCommon.Services.Api.ApiService.GetHardwareInventoryAsync
   id: GetHardwareInventoryAsync
@@ -127,27 +145,36 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 53
+    startLine: 73
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Retrieves hardware inventory information from the backend API.
+  summary: >-
+    DE: Lädt Hardware-Inventardaten von der Backend-API.
+
+    EN: Retrieves hardware inventory data from the backend API.
   example: []
   syntax:
     content: public Task<HardwareInventory> GetHardwareInventoryAsync()
     return:
       type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Hardware.HardwareInventory}
-      description: A deserialized HardwareInventory instance.
+      description: >-
+        DE: Deserialisiertes Hardware-Inventarobjekt.
+
+        EN: Deserialized hardware inventory object.
     content.vb: Public Function GetHardwareInventoryAsync() As Task(Of HardwareInventory)
   overload: InventarWorkerCommon.Services.Api.ApiService.GetHardwareInventoryAsync*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: Thrown when the API request fails.
+    description: >-
+      DE: Wird ausgelöst, wenn der API-Aufruf fehlschlägt oder kein verwertbarer Inhalt zurückkommt.
+
+      EN: Thrown when the API call fails or no usable response content is returned.
 - uid: InventarWorkerCommon.Services.Api.ApiService.GetSoftwareInventoryAsync
   commentId: M:InventarWorkerCommon.Services.Api.ApiService.GetSoftwareInventoryAsync
   id: GetSoftwareInventoryAsync
@@ -162,27 +189,36 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 71
+    startLine: 99
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Retrieves software inventory information from the backend API.
+  summary: >-
+    DE: Lädt Software-Inventardaten von der Backend-API.
+
+    EN: Retrieves software inventory data from the backend API.
   example: []
   syntax:
     content: public Task<SoftwareInventory> GetSoftwareInventoryAsync()
     return:
       type: System.Threading.Tasks.Task{InventarWorkerCommon.Models.Software.SoftwareInventory}
-      description: A deserialized SoftwareInventory instance.
+      description: >-
+        DE: Deserialisiertes Software-Inventarobjekt.
+
+        EN: Deserialized software inventory object.
     content.vb: Public Function GetSoftwareInventoryAsync() As Task(Of SoftwareInventory)
   overload: InventarWorkerCommon.Services.Api.ApiService.GetSoftwareInventoryAsync*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: Thrown when the API request fails.
+    description: >-
+      DE: Wird ausgelöst, wenn der API-Aufruf fehlschlägt oder kein verwertbarer Inhalt zurückkommt.
+
+      EN: Thrown when the API call fails or no usable response content is returned.
 - uid: InventarWorkerCommon.Services.Api.ApiService.GetFullInventoryAsync
   commentId: M:InventarWorkerCommon.Services.Api.ApiService.GetFullInventoryAsync
   id: GetFullInventoryAsync
@@ -197,27 +233,36 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Api/ApiService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetFullInventoryAsync
     path: InventarWorkerCommon/Services/Api/ApiService.cs
-    startLine: 89
+    startLine: 125
   assemblies:
   - InventarWorkerCommon
   namespace: InventarWorkerCommon.Services.Api
-  summary: Retrieves the full inventory from the backend API.
+  summary: >-
+    DE: Lädt das vollständige Inventar von der Backend-API.
+
+    EN: Retrieves the full inventory from the backend API.
   example: []
   syntax:
     content: public Task<object> GetFullInventoryAsync()
     return:
       type: System.Threading.Tasks.Task{System.Object}
-      description: An object representing the combined inventory JSON payload.
+      description: >-
+        DE: Deserialisierte JSON-Antwort mit kombiniertem Inventar.
+
+        EN: Deserialized JSON response with combined inventory data.
     content.vb: Public Function GetFullInventoryAsync() As Task(Of Object)
   overload: InventarWorkerCommon.Services.Api.ApiService.GetFullInventoryAsync*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: Thrown when the API request fails.
+    description: >-
+      DE: Wird ausgelöst, wenn der API-Aufruf fehlschlägt oder kein verwertbarer Inhalt zurückkommt.
+
+      EN: Thrown when the API call fails or no usable response content is returned.
 references:
 - uid: InventarWorkerCommon.Services.Api
   commentId: N:InventarWorkerCommon.Services.Api

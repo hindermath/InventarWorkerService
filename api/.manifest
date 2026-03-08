@@ -495,6 +495,8 @@
   "InventarWorkerServiceIntegrationTests": "InventarWorkerServiceIntegrationTests.yml",
   "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
   "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
+  "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
+  "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
   "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
   "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",
   "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders": "InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.yml",

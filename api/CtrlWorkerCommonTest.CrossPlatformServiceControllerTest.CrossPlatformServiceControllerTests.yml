@@ -27,14 +27,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CrossPlatformServiceControllerTests
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 8
+    startLine: 16
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Enthält Tests für CrossPlatformServiceControllerTests.
+
+    EN: Contains tests for CrossPlatformServiceControllerTests.
+  example: []
   syntax:
     content: >-
       [TestClass]
@@ -72,14 +77,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestInitialize
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 15
+    startLine: 27
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+
+    EN: Executes the test or helper step TestInitialize.
+  example: []
   syntax:
     content: >-
       [TestInitialize]
@@ -108,14 +118,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestCleanup
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 22
+    startLine: 38
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+
+    EN: Executes the test or helper step TestCleanup.
+  example: []
   syntax:
     content: >-
       [TestCleanup]
@@ -144,14 +159,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Constructor_WithValidServiceName_SetsServiceNameCorrectly
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 29
+    startLine: 49
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Constructor_WithValidServiceName_SetsServiceNameCorrectly aus.
+
+    EN: Executes the test or helper step Constructor_WithValidServiceName_SetsServiceNameCorrectly.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -180,14 +200,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Constructor_WithNullServiceName_ThrowsArgumentNullException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 39
+    startLine: 63
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Constructor_WithNullServiceName_ThrowsArgumentNullException aus.
+
+    EN: Executes the test or helper step Constructor_WithNullServiceName_ThrowsArgumentNullException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -225,14 +250,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Constructor_WithEmptyServiceName_ThrowsArgumentException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 47
+    startLine: 75
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Constructor_WithEmptyServiceName_ThrowsArgumentException aus.
+
+    EN: Executes the test or helper step Constructor_WithEmptyServiceName_ThrowsArgumentException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -270,14 +300,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 55
+    startLine: 87
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException aus.
+
+    EN: Executes the test or helper step StartService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -306,14 +341,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 85
+    startLine: 121
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException aus.
+
+    EN: Executes the test or helper step StopService_OnSupportedPlatform_DoesNotThrowPlatformNotSupportedException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -342,14 +382,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_WithInvalidServiceName_ThrowsException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 115
+    startLine: 155
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_WithInvalidServiceName_ThrowsException aus.
+
+    EN: Executes the test or helper step StartService_WithInvalidServiceName_ThrowsException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -378,14 +423,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StopService_WithInvalidServiceName_ThrowsException
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 125
+    startLine: 186
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StopService_WithInvalidServiceName_ThrowsException aus.
+
+    EN: Executes the test or helper step StopService_WithInvalidServiceName_ThrowsException.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -414,14 +464,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_CalledMultipleTimes_DoesNotThrow
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 135
+    startLine: 217
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_CalledMultipleTimes_DoesNotThrow aus.
+
+    EN: Executes the test or helper step StartService_CalledMultipleTimes_DoesNotThrow.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -450,14 +505,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StopService_CalledMultipleTimes_DoesNotThrow
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 160
+    startLine: 246
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StopService_CalledMultipleTimes_DoesNotThrow aus.
+
+    EN: Executes the test or helper step StopService_CalledMultipleTimes_DoesNotThrow.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -486,14 +546,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartAndStopService_InSequence_DoesNotThrow
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 185
+    startLine: 275
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartAndStopService_InSequence_DoesNotThrow aus.
+
+    EN: Executes the test or helper step StartAndStopService_InSequence_DoesNotThrow.
+  example: []
   syntax:
     content: >-
       [TestMethod]

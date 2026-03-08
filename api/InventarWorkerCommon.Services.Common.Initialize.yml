@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Initialize
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Services
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -117,7 +117,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Services
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetDbBasePath
     path: InventarWorkerCommon/Services/Common/Initialize.cs

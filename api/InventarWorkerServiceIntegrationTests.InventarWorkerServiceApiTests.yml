@@ -6,6 +6,8 @@ items:
   parent: InventarWorkerServiceIntegrationTests
   children:
   - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup
+  - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
   - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
   - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
   - InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders
@@ -28,41 +30,33 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InventarWorkerServiceApiTests
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Enthält Tests für InventarWorkerServiceApiTests.
+
+    EN: Contains tests for InventarWorkerServiceApiTests.
+  example: []
   syntax:
     content: >-
       [TestClass]
 
-      public class InventarWorkerServiceApiTests : PageTest
+      public class InventarWorkerServiceApiTests : PlaywrightTest
     content.vb: >-
       <TestClass>
 
-      Public Class InventarWorkerServiceApiTests Inherits PageTest
+      Public Class InventarWorkerServiceApiTests Inherits PlaywrightTest
   inheritance:
   - System.Object
   - Microsoft.Playwright.MSTest.WorkerAwareTest
   - Microsoft.Playwright.MSTest.PlaywrightTest
-  - Microsoft.Playwright.MSTest.BrowserTest
-  - Microsoft.Playwright.MSTest.ContextTest
-  - Microsoft.Playwright.MSTest.PageTest
   inheritedMembers:
-  - Microsoft.Playwright.MSTest.PageTest.PageSetup
-  - Microsoft.Playwright.MSTest.PageTest.Page
-  - Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  - Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  - Microsoft.Playwright.MSTest.ContextTest.Context
-  - Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  - Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  - Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  - Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  - Microsoft.Playwright.MSTest.BrowserTest.Browser
   - Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   - Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
   - Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
@@ -102,14 +96,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 13
+    startLine: 20
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Initialisiert eine neue Instanz von <xref href="InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests" data-throw-if-not-resolved="false"></xref>.
+
+    EN: Initializes a new instance of <xref href="InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public InventarWorkerServiceApiTests()
     content.vb: Public Sub New()
@@ -117,6 +116,107 @@ items:
   nameWithType.vb: InventarWorkerServiceApiTests.New()
   fullName.vb: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.New()
   name.vb: New()
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  id: ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: ClassInitialize(TestContext)
+  nameWithType: InventarWorkerServiceApiTests.ClassInitialize(TestContext)
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext)
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: chore/constitution-2.1-compliance
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ClassInitialize
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 41
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Startet den lokalen Test-Host für Integrationsprüfungen auf Port 8080.
+
+    EN: Starts the local test host for integration checks on port 8080.
+  example: []
+  syntax:
+    content: >-
+      [ClassInitialize]
+
+      public static Task ClassInitialize(TestContext context)
+    parameters:
+    - id: context
+      type: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+      description: >-
+        DE: MSTest-Kontext für die Klasseninitialisierung.
+
+        EN: MSTest context for class initialization.
+    return:
+      type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Host-Starts.
+
+        EN: Asynchronous result indicating completion of host startup.
+    content.vb: >-
+      <ClassInitialize>
+
+      Public Shared Function ClassInitialize(context As TestContext) As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute.#ctor
+    arguments: []
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup
+  commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup
+  id: ClassCleanup
+  parent: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  langs:
+  - csharp
+  - vb
+  name: ClassCleanup()
+  nameWithType: InventarWorkerServiceApiTests.ClassCleanup()
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup()
+  type: Method
+  source:
+    remote:
+      path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+      branch: chore/constitution-2.1-compliance
+      repo: https://github.com/hindermath/InventarWorkerService.git
+    id: ClassCleanup
+    path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
+    startLine: 55
+  assemblies:
+  - InventarWorkerServiceIntegrationTest
+  namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Beendet den lokalen Test-Host nach Abschluss aller Tests dieser Klasse.
+
+    EN: Stops the local test host after all tests in this class are completed.
+  example: []
+  syntax:
+    content: >-
+      [ClassCleanup]
+
+      public static Task ClassCleanup()
+    return:
+      type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Host-Stopps.
+
+        EN: Asynchronous result indicating completion of host shutdown.
+    content.vb: >-
+      <ClassCleanup>
+
+      Public Shared Function ClassCleanup() As Task
+  overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup*
+  attributes:
+  - type: Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute.#ctor
+    arguments: []
 - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
   commentId: M:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
   id: Setup
@@ -131,14 +231,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Setup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 22
+    startLine: 69
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Setup aus.
+
+    EN: Executes the test or helper step Setup.
+  example: []
   syntax:
     content: >-
       [TestInitialize]
@@ -146,6 +251,10 @@ items:
       public Task Setup()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Setup.
+
+        EN: Asynchronous result indicating completion of step Setup.
     content.vb: >-
       <TestInitialize>
 
@@ -169,14 +278,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cleanup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 32
+    startLine: 89
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Cleanup aus.
+
+    EN: Executes the test or helper step Cleanup.
+  example: []
   syntax:
     content: >-
       [TestCleanup]
@@ -184,6 +298,10 @@ items:
       public Task Cleanup()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Cleanup.
+
+        EN: Asynchronous result indicating completion of step Cleanup.
     content.vb: >-
       <TestCleanup>
 
@@ -207,25 +325,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_ServiceStatus
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 38
+    startLine: 106
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_ServiceStatus aus.
+
+    EN: Executes the test or helper step Test_ServiceStatus.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 39)]
+      [TestMethod]
 
       [Description("Service Status prüfen")]
 
       public Task Test_ServiceStatus()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_ServiceStatus.
+
+        EN: Asynchronous result indicating completion of step Test_ServiceStatus.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 39)>
+      <TestMethod>
 
       <Description("Service Status prüfen")>
 
@@ -233,12 +360,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_ServiceStatus*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 39
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -258,25 +381,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_HardwareInventar
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 69
+    startLine: 145
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_HardwareInventar aus.
+
+    EN: Executes the test or helper step Test_HardwareInventar.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 70)]
+      [TestMethod]
 
       [Description("Hardware Inventar abrufen")]
 
       public Task Test_HardwareInventar()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_HardwareInventar.
+
+        EN: Asynchronous result indicating completion of step Test_HardwareInventar.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 70)>
+      <TestMethod>
 
       <Description("Hardware Inventar abrufen")>
 
@@ -284,12 +416,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_HardwareInventar*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 70
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -309,25 +437,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_SoftwareInventar
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 100
+    startLine: 184
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_SoftwareInventar aus.
+
+    EN: Executes the test or helper step Test_SoftwareInventar.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 101)]
+      [TestMethod]
 
       [Description("Software Inventar abrufen")]
 
       public Task Test_SoftwareInventar()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SoftwareInventar.
+
+        EN: Asynchronous result indicating completion of step Test_SoftwareInventar.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 101)>
+      <TestMethod>
 
       <Description("Software Inventar abrufen")>
 
@@ -335,12 +472,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SoftwareInventar*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 101
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -360,25 +493,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_KomplettesInventar
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 131
+    startLine: 223
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_KomplettesInventar aus.
+
+    EN: Executes the test or helper step Test_KomplettesInventar.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 132)]
+      [TestMethod]
 
       [Description("Komplettes Inventar abrufen")]
 
       public Task Test_KomplettesInventar()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_KomplettesInventar.
+
+        EN: Asynchronous result indicating completion of step Test_KomplettesInventar.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 132)>
+      <TestMethod>
 
       <Description("Komplettes Inventar abrufen")>
 
@@ -386,12 +528,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_KomplettesInventar*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 132
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -411,25 +549,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_LocalhostIP
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 162
+    startLine: 262
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_LocalhostIP aus.
+
+    EN: Executes the test or helper step Test_LocalhostIP.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 163)]
+      [TestMethod]
 
       [Description("Test mit 127.0.0.1")]
 
       public Task Test_LocalhostIP()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_LocalhostIP.
+
+        EN: Asynchronous result indicating completion of step Test_LocalhostIP.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 163)>
+      <TestMethod>
 
       <Description("Test mit 127.0.0.1")>
 
@@ -437,12 +584,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_LocalhostIP*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 163
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -462,25 +605,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_CustomHeaders
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 207
+    startLine: 315
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_CustomHeaders aus.
+
+    EN: Executes the test or helper step Test_CustomHeaders.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 208)]
+      [TestMethod]
 
       [Description("Test mit Custom Headers")]
 
       public Task Test_CustomHeaders()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_CustomHeaders.
+
+        EN: Asynchronous result indicating completion of step Test_CustomHeaders.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 208)>
+      <TestMethod>
 
       <Description("Test mit Custom Headers")>
 
@@ -488,12 +640,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_CustomHeaders*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 208
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -513,25 +661,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_SwaggerDokumentation
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 243
+    startLine: 359
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_SwaggerDokumentation aus.
+
+    EN: Executes the test or helper step Test_SwaggerDokumentation.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 244)]
+      [TestMethod]
 
       [Description("Swagger Dokumentation testen")]
 
       public Task Test_SwaggerDokumentation()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SwaggerDokumentation.
+
+        EN: Asynchronous result indicating completion of step Test_SwaggerDokumentation.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 244)>
+      <TestMethod>
 
       <Description("Swagger Dokumentation testen")>
 
@@ -539,12 +696,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerDokumentation*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 244
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -564,25 +717,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_Gesundheitscheck
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 265
+    startLine: 389
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_Gesundheitscheck aus.
+
+    EN: Executes the test or helper step Test_Gesundheitscheck.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 266)]
+      [TestMethod]
 
       [Description("Gesundheitscheck testen")]
 
       public Task Test_Gesundheitscheck()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_Gesundheitscheck.
+
+        EN: Asynchronous result indicating completion of step Test_Gesundheitscheck.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 266)>
+      <TestMethod>
 
       <Description("Gesundheitscheck testen")>
 
@@ -590,12 +752,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_Gesundheitscheck*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 266
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -615,25 +773,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_SwaggerJson
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 304
+    startLine: 436
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_SwaggerJson aus.
+
+    EN: Executes the test or helper step Test_SwaggerJson.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 305)]
+      [TestMethod]
 
       [Description("API Dokumentation JSON testen")]
 
       public Task Test_SwaggerJson()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SwaggerJson.
+
+        EN: Asynchronous result indicating completion of step Test_SwaggerJson.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 305)>
+      <TestMethod>
 
       <Description("API Dokumentation JSON testen")>
 
@@ -641,12 +808,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_SwaggerJson*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 305
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -666,25 +829,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_PerformanceMultipleRequests
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTests.cs
-    startLine: 342
+    startLine: 482
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_PerformanceMultipleRequests aus.
+
+    EN: Executes the test or helper step Test_PerformanceMultipleRequests.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceIntegrationTests.cs", 343)]
+      [TestMethod]
 
       [Description("Performance Test - Mehrere parallele Anfragen")]
 
       public Task Test_PerformanceMultipleRequests()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_PerformanceMultipleRequests.
+
+        EN: Asynchronous result indicating completion of step Test_PerformanceMultipleRequests.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs", 343)>
+      <TestMethod>
 
       <Description("Performance Test - Mehrere parallele Anfragen")>
 
@@ -692,12 +864,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Test_PerformanceMultipleRequests*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceIntegrationTests.cs
-    - type: System.Int32
-      value: 343
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -735,187 +903,6 @@ references:
   name: PlaywrightTest
   nameWithType: PlaywrightTest
   fullName: Microsoft.Playwright.MSTest.PlaywrightTest
-- uid: Microsoft.Playwright.MSTest.BrowserTest
-  commentId: T:Microsoft.Playwright.MSTest.BrowserTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: BrowserTest
-  nameWithType: BrowserTest
-  fullName: Microsoft.Playwright.MSTest.BrowserTest
-- uid: Microsoft.Playwright.MSTest.ContextTest
-  commentId: T:Microsoft.Playwright.MSTest.ContextTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: ContextTest
-  nameWithType: ContextTest
-  fullName: Microsoft.Playwright.MSTest.ContextTest
-- uid: Microsoft.Playwright.MSTest.PageTest
-  commentId: T:Microsoft.Playwright.MSTest.PageTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: PageTest
-  nameWithType: PageTest
-  fullName: Microsoft.Playwright.MSTest.PageTest
-- uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-  commentId: M:Microsoft.Playwright.MSTest.PageTest.PageSetup
-  parent: Microsoft.Playwright.MSTest.PageTest
-  isExternal: true
-  name: PageSetup()
-  nameWithType: PageTest.PageSetup()
-  fullName: Microsoft.Playwright.MSTest.PageTest.PageSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-    name: PageSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-    name: PageSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.PageTest.Page
-  commentId: P:Microsoft.Playwright.MSTest.PageTest.Page
-  parent: Microsoft.Playwright.MSTest.PageTest
-  isExternal: true
-  name: Page
-  nameWithType: PageTest.Page
-  fullName: Microsoft.Playwright.MSTest.PageTest.Page
-- uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: ContextSetup()
-  nameWithType: ContextTest.ContextSetup()
-  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-    name: ContextSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-    name: ContextSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: ContextOptions()
-  nameWithType: ContextTest.ContextOptions()
-  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextOptions()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-    name: ContextOptions
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-    name: ContextOptions
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.ContextTest.Context
-  commentId: P:Microsoft.Playwright.MSTest.ContextTest.Context
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: Context
-  nameWithType: ContextTest.Context
-  fullName: Microsoft.Playwright.MSTest.ContextTest.Context
-- uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: NewContextAsync(BrowserNewContextOptions)
-  nameWithType: BrowserTest.NewContextAsync(BrowserNewContextOptions)
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-    name: NewContextAsync
-    isExternal: true
-  - name: (
-  - uid: Microsoft.Playwright.BrowserNewContextOptions
-    name: BrowserNewContextOptions
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-    name: NewContextAsync
-    isExternal: true
-  - name: (
-  - uid: Microsoft.Playwright.BrowserNewContextOptions
-    name: BrowserNewContextOptions
-    isExternal: true
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: BrowserSetup()
-  nameWithType: BrowserTest.BrowserSetup()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-    name: BrowserSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-    name: BrowserSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: BrowserTearDown()
-  nameWithType: BrowserTest.BrowserTearDown()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-    name: BrowserTearDown
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-    name: BrowserTearDown
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: ConnectOptionsAsync()
-  nameWithType: BrowserTest.ConnectOptionsAsync()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-    name: ConnectOptionsAsync
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-    name: ConnectOptionsAsync
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.Browser
-  commentId: P:Microsoft.Playwright.MSTest.BrowserTest.Browser
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: Browser
-  nameWithType: BrowserTest.Browser
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.Browser
 - uid: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   parent: Microsoft.Playwright.MSTest.PlaywrightTest
@@ -1534,6 +1521,12 @@ references:
   - name: )
   - name: )
   - name: )
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  commentId: T:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html
+  name: InventarWorkerServiceApiTests
+  nameWithType: InventarWorkerServiceApiTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests
 - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor*
   commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.#ctor
   href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests__ctor
@@ -1543,12 +1536,20 @@ references:
   nameWithType.vb: InventarWorkerServiceApiTests.New
   fullName.vb: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.New
   name.vb: New
-- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup*
-  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
-  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Setup
-  name: Setup
-  nameWithType: InventarWorkerServiceApiTests.Setup
-  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_ClassInitialize_Microsoft_VisualStudio_TestTools_UnitTesting_TestContext_
+  name: ClassInitialize
+  nameWithType: InventarWorkerServiceApiTests.ClassInitialize
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassInitialize
+- uid: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+  commentId: T:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+  parent: Microsoft.VisualStudio.TestTools.UnitTesting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting.testcontext
+  name: TestContext
+  nameWithType: TestContext
+  fullName: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
 - uid: System.Threading.Tasks.Task
   commentId: T:System.Threading.Tasks.Task
   parent: System.Threading.Tasks
@@ -1557,6 +1558,53 @@ references:
   name: Task
   nameWithType: Task
   fullName: System.Threading.Tasks.Task
+- uid: Microsoft.VisualStudio.TestTools.UnitTesting
+  commentId: N:Microsoft.VisualStudio.TestTools.UnitTesting
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.VisualStudio.TestTools.UnitTesting
+  nameWithType: Microsoft.VisualStudio.TestTools.UnitTesting
+  fullName: Microsoft.VisualStudio.TestTools.UnitTesting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.VisualStudio
+    name: VisualStudio
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools
+    name: TestTools
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools.UnitTesting
+    name: UnitTesting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.VisualStudio
+    name: VisualStudio
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools
+    name: TestTools
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools
+  - name: .
+  - uid: Microsoft.VisualStudio.TestTools.UnitTesting
+    name: UnitTesting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting
 - uid: System.Threading.Tasks
   commentId: N:System.Threading.Tasks
   isExternal: true
@@ -1594,6 +1642,18 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_ClassCleanup
+  name: ClassCleanup
+  nameWithType: InventarWorkerServiceApiTests.ClassCleanup
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.ClassCleanup
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup*
+  commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Setup
+  name: Setup
+  nameWithType: InventarWorkerServiceApiTests.Setup
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Setup
 - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup*
   commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.Cleanup
   href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceApiTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceApiTests_Cleanup

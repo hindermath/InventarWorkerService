@@ -3,14 +3,21 @@ using Microsoft.Playwright;
 
 namespace InventarWorkerServiceIntegrationTests;
 
+/// <summary>
+/// DE: Enthält Tests für InventarWorkerServiceApiTests.
+/// EN: Contains tests for InventarWorkerServiceApiTests.
+/// </summary>
 [TestClass]
-public class InventarWorkerServiceApiTests : PageTest
+public class InventarWorkerServiceApiTests : PlaywrightTest
 {
-    private const string BaseUrl = "http://localhost:5000";
-    private const string RemoteUrl = "http://192.168.2.169:5000";
+    private const string LocalBaseUrl = "http://127.0.0.1:8080";
     private IAPIRequestContext? _apiContext;
     private readonly JsonSerializerOptions _jsonOptions;
 
+    /// <summary>
+    /// DE: Initialisiert eine neue Instanz von <see cref="InventarWorkerServiceApiTests"/>.
+    /// EN: Initializes a new instance of <see cref="InventarWorkerServiceApiTests"/>.
+    /// </summary>
     public InventarWorkerServiceApiTests()
     {
         _jsonOptions = new JsonSerializerOptions
@@ -20,22 +27,83 @@ public class InventarWorkerServiceApiTests : PageTest
         };
     }
 
+    /// <summary>
+    /// DE: Startet den lokalen Test-Host für Integrationsprüfungen auf Port 8080.
+    /// EN: Starts the local test host for integration checks on port 8080.
+    /// </summary>
+    /// <param name="context">
+    /// DE: MSTest-Kontext für die Klasseninitialisierung.
+    /// EN: MSTest context for class initialization.
+    /// </param>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Host-Starts.
+    /// EN: Asynchronous result indicating completion of host startup.
+    /// </returns>
+    [ClassInitialize]
+    public static async Task ClassInitialize(TestContext context)
+    {
+        await LocalServiceHostManager.StartAsync(LocalBaseUrl);
+    }
+
+    /// <summary>
+    /// DE: Beendet den lokalen Test-Host nach Abschluss aller Tests dieser Klasse.
+    /// EN: Stops the local test host after all tests in this class are completed.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Host-Stopps.
+    /// EN: Asynchronous result indicating completion of host shutdown.
+    /// </returns>
+    [ClassCleanup]
+    public static async Task ClassCleanup()
+    {
+        await LocalServiceHostManager.StopAsync();
+    }
+
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Setup aus.
+    /// EN: Executes the test or helper step Setup.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Setup.
+    /// EN: Asynchronous result indicating completion of step Setup.
+    /// </returns>
     [TestInitialize]
     public async Task Setup()
     {
         _apiContext = await Playwright.APIRequest.NewContextAsync(new()
         {
-            BaseURL = BaseUrl,
+            BaseURL = LocalBaseUrl,
             IgnoreHTTPSErrors = true
         });
+
+        await EnsureReachableOrFailAsync(LocalBaseUrl);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Cleanup aus.
+    /// EN: Executes the test or helper step Cleanup.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Cleanup.
+    /// EN: Asynchronous result indicating completion of step Cleanup.
+    /// </returns>
     [TestCleanup]
     public async Task Cleanup()
     {
-        //await _apiContext?.DisposeAsync()!;
+        if (_apiContext is not null)
+        {
+            await _apiContext.DisposeAsync();
+        }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_ServiceStatus aus.
+    /// EN: Executes the test or helper step Test_ServiceStatus.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_ServiceStatus.
+    /// EN: Asynchronous result indicating completion of step Test_ServiceStatus.
+    /// </returns>
     [TestMethod]
     [Description("Service Status prüfen")]
     public async Task Test_ServiceStatus()
@@ -67,6 +135,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_HardwareInventar aus.
+    /// EN: Executes the test or helper step Test_HardwareInventar.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_HardwareInventar.
+    /// EN: Asynchronous result indicating completion of step Test_HardwareInventar.
+    /// </returns>
     [TestMethod]
     [Description("Hardware Inventar abrufen")]
     public async Task Test_HardwareInventar()
@@ -98,6 +174,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_SoftwareInventar aus.
+    /// EN: Executes the test or helper step Test_SoftwareInventar.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SoftwareInventar.
+    /// EN: Asynchronous result indicating completion of step Test_SoftwareInventar.
+    /// </returns>
     [TestMethod]
     [Description("Software Inventar abrufen")]
     public async Task Test_SoftwareInventar()
@@ -129,6 +213,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_KomplettesInventar aus.
+    /// EN: Executes the test or helper step Test_KomplettesInventar.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_KomplettesInventar.
+    /// EN: Asynchronous result indicating completion of step Test_KomplettesInventar.
+    /// </returns>
     [TestMethod]
     [Description("Komplettes Inventar abrufen")]
     public async Task Test_KomplettesInventar()
@@ -160,6 +252,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_LocalhostIP aus.
+    /// EN: Executes the test or helper step Test_LocalhostIP.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_LocalhostIP.
+    /// EN: Asynchronous result indicating completion of step Test_LocalhostIP.
+    /// </returns>
     [TestMethod]
     [Description("Test mit 127.0.0.1")]
     public async Task Test_LocalhostIP()
@@ -167,7 +267,7 @@ public class InventarWorkerServiceApiTests : PageTest
         // Arrange
         var localApiContext = await Playwright.APIRequest.NewContextAsync(new()
         {
-            BaseURL = "http://127.0.0.1:5000",
+            BaseURL = LocalBaseUrl,
             IgnoreHTTPSErrors = true
         });
 
@@ -205,6 +305,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_CustomHeaders aus.
+    /// EN: Executes the test or helper step Test_CustomHeaders.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_CustomHeaders.
+    /// EN: Asynchronous result indicating completion of step Test_CustomHeaders.
+    /// </returns>
     [TestMethod]
     [Description("Test mit Custom Headers")]
     public async Task Test_CustomHeaders()
@@ -241,6 +349,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_SwaggerDokumentation aus.
+    /// EN: Executes the test or helper step Test_SwaggerDokumentation.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SwaggerDokumentation.
+    /// EN: Asynchronous result indicating completion of step Test_SwaggerDokumentation.
+    /// </returns>
     [TestMethod]
     [Description("Swagger Dokumentation testen")]
     public async Task Test_SwaggerDokumentation()
@@ -263,6 +379,14 @@ public class InventarWorkerServiceApiTests : PageTest
             "Response should contain swagger content");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_Gesundheitscheck aus.
+    /// EN: Executes the test or helper step Test_Gesundheitscheck.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_Gesundheitscheck.
+    /// EN: Asynchronous result indicating completion of step Test_Gesundheitscheck.
+    /// </returns>
     [TestMethod]
     [Description("Gesundheitscheck testen")]
     public async Task Test_Gesundheitscheck()
@@ -302,6 +426,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_SwaggerJson aus.
+    /// EN: Executes the test or helper step Test_SwaggerJson.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_SwaggerJson.
+    /// EN: Asynchronous result indicating completion of step Test_SwaggerJson.
+    /// </returns>
     [TestMethod]
     [Description("API Dokumentation JSON testen")]
     public async Task Test_SwaggerJson()
@@ -340,6 +472,14 @@ public class InventarWorkerServiceApiTests : PageTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt Test_PerformanceMultipleRequests aus.
+    /// EN: Executes the test or helper step Test_PerformanceMultipleRequests.
+    /// </summary>
+    /// <returns>
+    /// DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_PerformanceMultipleRequests.
+    /// EN: Asynchronous result indicating completion of step Test_PerformanceMultipleRequests.
+    /// </returns>
     [TestMethod]
     [Description("Performance Test - Mehrere parallele Anfragen")]
     public async Task Test_PerformanceMultipleRequests()
@@ -392,6 +532,34 @@ public class InventarWorkerServiceApiTests : PageTest
         foreach (var response in responses)
         {
             await response.DisposeAsync();
+        }
+    }
+
+    private async Task EnsureReachableOrFailAsync(string baseUrl)
+    {
+        try
+        {
+            var probeResponse = await _apiContext!.GetAsync("/api/inventar/status", new APIRequestContextOptions
+            {
+                Headers = new Dictionary<string, string>
+                {
+                    ["Accept"] = "application/json"
+                }
+            });
+
+            if (probeResponse.Status == 403)
+            {
+                Assert.Fail($"Testziel {baseUrl} antwortet mit 403.");
+            }
+
+            if (!probeResponse.Ok)
+            {
+                Assert.Fail($"Testziel {baseUrl} antwortet mit HTTP {probeResponse.Status}.");
+            }
+        }
+        catch (Exception exception)
+        {
+            Assert.Fail($"Testziel {baseUrl} ist nicht erreichbar: {exception.Message}");
         }
     }
 }

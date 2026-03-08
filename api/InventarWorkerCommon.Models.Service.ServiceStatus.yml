@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceStatus
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: State
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartTime
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastActivity
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
@@ -152,7 +152,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessedItems
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
@@ -183,7 +183,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatus.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastError
     path: InventarWorkerCommon/Models/Service/ServiceStatus.cs

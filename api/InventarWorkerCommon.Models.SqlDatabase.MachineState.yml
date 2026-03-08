@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineState
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -67,7 +67,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Id
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -163,7 +163,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastSeen
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -194,7 +194,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IPv4
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -225,7 +225,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IPv6
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -256,7 +256,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FQDN
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -287,7 +287,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Disabled
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -318,7 +318,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Deprovisioned
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
@@ -349,7 +349,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: LastHarvested
     path: InventarWorkerCommon/Models/SqlDatabase/MachineState.cs

@@ -18,14 +18,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DiskInfoTests
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 489
+    startLine: 681
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Enthält Tests für DiskInfoTests.
+
+    EN: Contains tests for DiskInfoTests.
+  example: []
   syntax:
     content: >-
       [TestClass]
@@ -63,21 +68,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DiskInfo_DefaultValues_ShouldBeCorrect
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 492
+    startLine: 688
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt DiskInfo_DefaultValues_ShouldBeCorrect aus.
+
+    EN: Executes the test or helper step DiskInfo_DefaultValues_ShouldBeCorrect.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 493)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 689)]
 
       public void DiskInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 493)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 689)>
 
       Public Sub DiskInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_DefaultValues_ShouldBeCorrect*
@@ -86,9 +96,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 493
+      value: 689
 - uid: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_SetAllProperties_ShouldRetainValues
   commentId: M:InventarWorkerCommonTest.DiskInfoTests.DiskInfo_SetAllProperties_ShouldRetainValues
   id: DiskInfo_SetAllProperties_ShouldRetainValues
@@ -103,21 +113,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DiskInfo_SetAllProperties_ShouldRetainValues
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 509
+    startLine: 709
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt DiskInfo_SetAllProperties_ShouldRetainValues aus.
+
+    EN: Executes the test or helper step DiskInfo_SetAllProperties_ShouldRetainValues.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 510)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 710)]
 
       public void DiskInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 510)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 710)>
 
       Public Sub DiskInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_SetAllProperties_ShouldRetainValues*
@@ -126,9 +141,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 510
+      value: 710
 - uid: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_RecordEquality_ShouldWork
   commentId: M:InventarWorkerCommonTest.DiskInfoTests.DiskInfo_RecordEquality_ShouldWork
   id: DiskInfo_RecordEquality_ShouldWork
@@ -143,21 +158,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DiskInfo_RecordEquality_ShouldWork
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 536
+    startLine: 740
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt DiskInfo_RecordEquality_ShouldWork aus.
+
+    EN: Executes the test or helper step DiskInfo_RecordEquality_ShouldWork.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 537)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 741)]
 
       public void DiskInfo_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 537)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 741)>
 
       Public Sub DiskInfo_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.DiskInfoTests.DiskInfo_RecordEquality_ShouldWork*
@@ -166,9 +186,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 537
+      value: 741
 references:
 - uid: InventarWorkerCommonTest
   commentId: N:InventarWorkerCommonTest

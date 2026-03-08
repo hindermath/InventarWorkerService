@@ -17,15 +17,18 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SoftwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareView
     path: InventarViewerApp/UI/SoftwareView.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: A Terminal.Gui view that displays and manages the software inventory for the current machine.
+  summary: >-
+    DE: Terminal.Gui-Ansicht zur Anzeige und Verwaltung des Software-Inventars der aktuellen Maschine.
+
+    EN: Terminal.Gui view for displaying and managing software inventory of the current machine.
   example: []
   syntax:
     content: 'public class SoftwareView : FrameView, IDisposable, ISupportInitializeNotification, ISupportInitialize'
@@ -205,31 +208,46 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SoftwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SoftwareView.cs
-    startLine: 27
+    startLine: 41
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.SoftwareView" data-throw-if-not-resolved="false"></xref> class.
+  summary: >-
+    DE: Initialisiert eine neue Instanz der <xref href="InventarViewerApp.UI.SoftwareView" data-throw-if-not-resolved="false"></xref>-Klasse.
+
+    EN: Initializes a new instance of the <xref href="InventarViewerApp.UI.SoftwareView" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
-      description: Service used to retrieve inventory data from the backend API.
+      description: >-
+        DE: Dienst zum Abrufen von Inventardaten aus der Backend-API.
+
+        EN: Service used to retrieve inventory data from the backend API.
     - id: dbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
-      description: Service used to persist data to the local SQLite database.
+      description: >-
+        DE: Dienst zur Persistierung in der lokalen SQLite-Datenbank.
+
+        EN: Service used to persist data to the local SQLite database.
     - id: mongoDbService
       type: InventarWorkerCommon.Services.Database.MongoDbService
-      description: Service used to persist data to MongoDB.
+      description: >-
+        DE: Dienst zur Persistierung von Softwaredaten in MongoDB.
+
+        EN: Service used to persist software data to MongoDB.
     - id: pgSqlDbService
       type: InventarWorkerCommon.Services.Database.PgSqlDbService
-      description: ''
+      description: >-
+        DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+
+        EN: Service for PostgreSQL access in the viewer application.
     content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.SoftwareView.#ctor*
   nameWithType.vb: SoftwareView.New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)
@@ -249,21 +267,27 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SoftwareView.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RefreshData
     path: InventarViewerApp/UI/SoftwareView.cs
-    startLine: 85
+    startLine: 103
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Refreshes the software inventory by calling the API and updating the view content.
+  summary: >-
+    DE: Lädt das Software-Inventar neu und aktualisiert die Anzeige.
+
+    EN: Refreshes software inventory data and updates the view.
   example: []
   syntax:
     content: public Task RefreshData()
     return:
       type: System.Threading.Tasks.Task
-      description: A task that represents the asynchronous refresh operation.
+      description: >-
+        DE: Asynchroner Vorgang zum Aktualisieren der Softwaredaten.
+
+        EN: Asynchronous operation that refreshes software data.
     content.vb: Public Function RefreshData() As Task
   overload: InventarViewerApp.UI.SoftwareView.RefreshData*
 references:

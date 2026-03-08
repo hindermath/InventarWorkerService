@@ -20,14 +20,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CrossPlatformServiceControllerPlatformSpecificTest
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Enthält Tests für CrossPlatformServiceControllerPlatformSpecificTest.
+
+    EN: Contains tests for CrossPlatformServiceControllerPlatformSpecificTest.
+  example: []
   syntax:
     content: >-
       [TestClass]
@@ -65,14 +70,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestInitialize
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+
+    EN: Executes the test or helper step TestInitialize.
+  example: []
   syntax:
     content: >-
       [TestInitialize]
@@ -101,14 +111,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestCleanup
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 17
+    startLine: 29
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+
+    EN: Executes the test or helper step TestCleanup.
+  example: []
   syntax:
     content: >-
       [TestCleanup]
@@ -137,14 +152,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_OnWindows_CallsWindowsSpecificLogic
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 23
+    startLine: 39
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_OnWindows_CallsWindowsSpecificLogic aus.
+
+    EN: Executes the test or helper step StartService_OnWindows_CallsWindowsSpecificLogic.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -173,14 +193,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_OnLinux_CallsLinuxSpecificLogic
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 46
+    startLine: 66
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_OnLinux_CallsLinuxSpecificLogic aus.
+
+    EN: Executes the test or helper step StartService_OnLinux_CallsLinuxSpecificLogic.
+  example: []
   syntax:
     content: >-
       [TestMethod]
@@ -209,14 +234,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService_OnMacOS_CallsMacOSSpecificLogic
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerPlatformSpecificTest.cs
-    startLine: 69
+    startLine: 93
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt StartService_OnMacOS_CallsMacOSSpecificLogic aus.
+
+    EN: Executes the test or helper step StartService_OnMacOS_CallsMacOSSpecificLogic.
+  example: []
   syntax:
     content: >-
       [TestMethod]

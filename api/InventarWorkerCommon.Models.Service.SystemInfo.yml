@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SystemInfo
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineName
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -94,7 +94,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UserName
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Domain
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -156,7 +156,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Uptime
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -187,7 +187,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Platform
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/SystemInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Service/SystemInfo.cs

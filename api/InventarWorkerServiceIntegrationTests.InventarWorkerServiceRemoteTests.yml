@@ -20,41 +20,33 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InventarWorkerServiceRemoteTests
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Enthält Tests für InventarWorkerServiceRemoteTests.
+
+    EN: Contains tests for InventarWorkerServiceRemoteTests.
+  example: []
   syntax:
     content: >-
       [TestClass]
 
-      public class InventarWorkerServiceRemoteTests : PageTest
+      public class InventarWorkerServiceRemoteTests : PlaywrightTest
     content.vb: >-
       <TestClass>
 
-      Public Class InventarWorkerServiceRemoteTests Inherits PageTest
+      Public Class InventarWorkerServiceRemoteTests Inherits PlaywrightTest
   inheritance:
   - System.Object
   - Microsoft.Playwright.MSTest.WorkerAwareTest
   - Microsoft.Playwright.MSTest.PlaywrightTest
-  - Microsoft.Playwright.MSTest.BrowserTest
-  - Microsoft.Playwright.MSTest.ContextTest
-  - Microsoft.Playwright.MSTest.PageTest
   inheritedMembers:
-  - Microsoft.Playwright.MSTest.PageTest.PageSetup
-  - Microsoft.Playwright.MSTest.PageTest.Page
-  - Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  - Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  - Microsoft.Playwright.MSTest.ContextTest.Context
-  - Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  - Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  - Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  - Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  - Microsoft.Playwright.MSTest.BrowserTest.Browser
   - Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   - Microsoft.Playwright.MSTest.PlaywrightTest.SetDefaultExpectTimeout(System.Single)
   - Microsoft.Playwright.MSTest.PlaywrightTest.Expect(Microsoft.Playwright.ILocator)
@@ -94,14 +86,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Initialisiert eine neue Instanz von <xref href="InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests" data-throw-if-not-resolved="false"></xref>.
+
+    EN: Initializes a new instance of <xref href="InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public InventarWorkerServiceRemoteTests()
     content.vb: Public Sub New()
@@ -123,14 +120,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Setup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 21
+    startLine: 38
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Setup aus.
+
+    EN: Executes the test or helper step Setup.
+  example: []
   syntax:
     content: >-
       [TestInitialize]
@@ -138,6 +140,10 @@ items:
       public Task Setup()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Setup.
+
+        EN: Asynchronous result indicating completion of step Setup.
     content.vb: >-
       <TestInitialize>
 
@@ -161,14 +167,19 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cleanup
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 32
+    startLine: 63
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Cleanup aus.
+
+    EN: Executes the test or helper step Cleanup.
+  example: []
   syntax:
     content: >-
       [TestCleanup]
@@ -176,6 +187,10 @@ items:
       public Task Cleanup()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Cleanup.
+
+        EN: Asynchronous result indicating completion of step Cleanup.
     content.vb: >-
       <TestCleanup>
 
@@ -199,25 +214,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_RemoteServiceStatus
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 38
+    startLine: 80
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_RemoteServiceStatus aus.
+
+    EN: Executes the test or helper step Test_RemoteServiceStatus.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceRemoteTests.cs", 39)]
+      [TestMethod]
 
       [Description("Remote Service Status prüfen")]
 
       public Task Test_RemoteServiceStatus()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_RemoteServiceStatus.
+
+        EN: Asynchronous result indicating completion of step Test_RemoteServiceStatus.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs", 39)>
+      <TestMethod>
 
       <Description("Remote Service Status prüfen")>
 
@@ -225,12 +249,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.Test_RemoteServiceStatus*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs
-    - type: System.Int32
-      value: 39
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -250,25 +270,34 @@ items:
   source:
     remote:
       path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Test_RemoteKomplettesInventar
     path: InventarWorkerServiceIntegrationTest/InventarWorkerServiceRemoteTests.cs
-    startLine: 76
+    startLine: 130
   assemblies:
   - InventarWorkerServiceIntegrationTest
   namespace: InventarWorkerServiceIntegrationTests
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt Test_RemoteKomplettesInventar aus.
+
+    EN: Executes the test or helper step Test_RemoteKomplettesInventar.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerServiceIntegrationTest\\InventarWorkerServiceRemoteTests.cs", 77)]
+      [TestMethod]
 
       [Description("Remote komplettes Inventar abrufen")]
 
       public Task Test_RemoteKomplettesInventar()
     return:
       type: System.Threading.Tasks.Task
+      description: >-
+        DE: Asynchrones Ergebnis für den Abschluss des Schritts Test_RemoteKomplettesInventar.
+
+        EN: Asynchronous result indicating completion of step Test_RemoteKomplettesInventar.
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs", 77)>
+      <TestMethod>
 
       <Description("Remote komplettes Inventar abrufen")>
 
@@ -276,12 +305,8 @@ items:
   overload: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.Test_RemoteKomplettesInventar*
   attributes:
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute
-    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
-    arguments:
-    - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerServiceIntegrationTest\InventarWorkerServiceRemoteTests.cs
-    - type: System.Int32
-      value: 77
+    ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor
+    arguments: []
   - type: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute.#ctor(System.String)
     arguments:
@@ -319,187 +344,6 @@ references:
   name: PlaywrightTest
   nameWithType: PlaywrightTest
   fullName: Microsoft.Playwright.MSTest.PlaywrightTest
-- uid: Microsoft.Playwright.MSTest.BrowserTest
-  commentId: T:Microsoft.Playwright.MSTest.BrowserTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: BrowserTest
-  nameWithType: BrowserTest
-  fullName: Microsoft.Playwright.MSTest.BrowserTest
-- uid: Microsoft.Playwright.MSTest.ContextTest
-  commentId: T:Microsoft.Playwright.MSTest.ContextTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: ContextTest
-  nameWithType: ContextTest
-  fullName: Microsoft.Playwright.MSTest.ContextTest
-- uid: Microsoft.Playwright.MSTest.PageTest
-  commentId: T:Microsoft.Playwright.MSTest.PageTest
-  parent: Microsoft.Playwright.MSTest
-  isExternal: true
-  name: PageTest
-  nameWithType: PageTest
-  fullName: Microsoft.Playwright.MSTest.PageTest
-- uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-  commentId: M:Microsoft.Playwright.MSTest.PageTest.PageSetup
-  parent: Microsoft.Playwright.MSTest.PageTest
-  isExternal: true
-  name: PageSetup()
-  nameWithType: PageTest.PageSetup()
-  fullName: Microsoft.Playwright.MSTest.PageTest.PageSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-    name: PageSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.PageTest.PageSetup
-    name: PageSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.PageTest.Page
-  commentId: P:Microsoft.Playwright.MSTest.PageTest.Page
-  parent: Microsoft.Playwright.MSTest.PageTest
-  isExternal: true
-  name: Page
-  nameWithType: PageTest.Page
-  fullName: Microsoft.Playwright.MSTest.PageTest.Page
-- uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: ContextSetup()
-  nameWithType: ContextTest.ContextSetup()
-  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-    name: ContextSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextSetup
-    name: ContextSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  commentId: M:Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: ContextOptions()
-  nameWithType: ContextTest.ContextOptions()
-  fullName: Microsoft.Playwright.MSTest.ContextTest.ContextOptions()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-    name: ContextOptions
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.ContextTest.ContextOptions
-    name: ContextOptions
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.ContextTest.Context
-  commentId: P:Microsoft.Playwright.MSTest.ContextTest.Context
-  parent: Microsoft.Playwright.MSTest.ContextTest
-  isExternal: true
-  name: Context
-  nameWithType: ContextTest.Context
-  fullName: Microsoft.Playwright.MSTest.ContextTest.Context
-- uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: NewContextAsync(BrowserNewContextOptions)
-  nameWithType: BrowserTest.NewContextAsync(BrowserNewContextOptions)
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-    name: NewContextAsync
-    isExternal: true
-  - name: (
-  - uid: Microsoft.Playwright.BrowserNewContextOptions
-    name: BrowserNewContextOptions
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.NewContextAsync(Microsoft.Playwright.BrowserNewContextOptions)
-    name: NewContextAsync
-    isExternal: true
-  - name: (
-  - uid: Microsoft.Playwright.BrowserNewContextOptions
-    name: BrowserNewContextOptions
-    isExternal: true
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: BrowserSetup()
-  nameWithType: BrowserTest.BrowserSetup()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-    name: BrowserSetup
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserSetup
-    name: BrowserSetup
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: BrowserTearDown()
-  nameWithType: BrowserTest.BrowserTearDown()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-    name: BrowserTearDown
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.BrowserTearDown
-    name: BrowserTearDown
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  commentId: M:Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: ConnectOptionsAsync()
-  nameWithType: BrowserTest.ConnectOptionsAsync()
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync()
-  spec.csharp:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-    name: ConnectOptionsAsync
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Microsoft.Playwright.MSTest.BrowserTest.ConnectOptionsAsync
-    name: ConnectOptionsAsync
-    isExternal: true
-  - name: (
-  - name: )
-- uid: Microsoft.Playwright.MSTest.BrowserTest.Browser
-  commentId: P:Microsoft.Playwright.MSTest.BrowserTest.Browser
-  parent: Microsoft.Playwright.MSTest.BrowserTest
-  isExternal: true
-  name: Browser
-  nameWithType: BrowserTest.Browser
-  fullName: Microsoft.Playwright.MSTest.BrowserTest.Browser
 - uid: Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   commentId: M:Microsoft.Playwright.MSTest.PlaywrightTest.PlaywrightSetup
   parent: Microsoft.Playwright.MSTest.PlaywrightTest
@@ -1118,6 +962,12 @@ references:
   - name: )
   - name: )
   - name: )
+- uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+  commentId: T:InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
+  href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.html
+  name: InventarWorkerServiceRemoteTests
+  nameWithType: InventarWorkerServiceRemoteTests
+  fullName: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests
 - uid: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.#ctor*
   commentId: Overload:InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.#ctor
   href: InventarWorkerServiceIntegrationTests.InventarWorkerServiceRemoteTests.html#InventarWorkerServiceIntegrationTests_InventarWorkerServiceRemoteTests__ctor

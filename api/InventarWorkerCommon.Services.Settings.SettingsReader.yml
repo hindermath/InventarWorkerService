@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsReader
     path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Settings/SettingsReader.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ReadSettings
     path: InventarWorkerCommon/Services/Settings/SettingsReader.cs

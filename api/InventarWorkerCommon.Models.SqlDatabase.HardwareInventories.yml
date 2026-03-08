@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareInventories
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -66,7 +66,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Id
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineId
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerName
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -159,7 +159,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerModel
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -190,7 +190,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ComputerManufacturer
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -221,7 +221,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -252,7 +252,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorName
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -283,7 +283,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorCores
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -314,7 +314,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalMemoryGB
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -345,7 +345,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableMemoryGB
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -376,7 +376,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsagePercent
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
@@ -407,7 +407,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CreatedAt
     path: InventarWorkerCommon/Models/SqlDatabase/HardwareInventories.cs

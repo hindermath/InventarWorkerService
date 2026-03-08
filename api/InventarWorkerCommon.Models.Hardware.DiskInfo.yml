@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DiskInfo
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DriveName
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DriveType
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileSystem
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalSize
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -186,7 +186,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableSpace
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -217,7 +217,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsedSpace
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UsagePercentage
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsReady
     path: InventarWorkerCommon/Models/Hardware/DiskInfo.cs

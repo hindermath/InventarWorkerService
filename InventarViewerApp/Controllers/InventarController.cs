@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace InventarViewerApp.Controllers;
 
 /// <summary>
-/// Controller that provides endpoints related to inventory management, focusing on machines
-/// and their associated hardware and software details.
+/// DE: Stellt Endpunkte für das Inventar-Management bereit, mit Fokus auf Maschinen sowie
+/// zugehörige Hardware- und Softwaredaten.
+/// EN: Provides endpoints for inventory management, focusing on machines and their related
+/// hardware and software data.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -14,6 +16,14 @@ public class InventarController : ControllerBase
 {
     private readonly SqliteDbService _sqliteDbService;
 
+    /// <summary>
+    /// DE: Initialisiert den Controller mit dem SQLite-Dienst für Maschinen- und Inventarabfragen.
+    /// EN: Initializes the controller with the SQLite service for machine and inventory queries.
+    /// </summary>
+    /// <param name="sqliteDbService">
+    /// DE: Datenbankdienst für den Zugriff auf Maschinen-, Hardware- und Softwaredaten.
+    /// EN: Database service used to access machine, hardware, and software data.
+    /// </param>
     public InventarController(SqliteDbService sqliteDbService)
     {
         _sqliteDbService = sqliteDbService;

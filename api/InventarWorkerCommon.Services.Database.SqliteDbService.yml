@@ -37,7 +37,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SqliteDbService
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -111,7 +111,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeDatabase
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveOrUpdateMachineAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -192,7 +192,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -233,7 +233,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -274,7 +274,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -307,7 +307,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -341,7 +341,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllActiveMachinesWithNetworkInfoAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -378,7 +378,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDeprovisionedMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -409,7 +409,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetAllDisabledMachinesAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -443,7 +443,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByIdAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -484,7 +484,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineByNameAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -525,7 +525,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -563,7 +563,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetLatestSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -601,7 +601,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CleanupOldRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -639,7 +639,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasMachineRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -670,7 +670,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasHardwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -701,7 +701,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HasSoftwareInventoryRecordsAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -732,7 +732,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetMachineCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -763,7 +763,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -794,7 +794,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventoryCountAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
@@ -825,7 +825,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/SqliteDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeMachinesFromCsvAsync
     path: InventarWorkerCommon/Services/Database/SqliteDbService.cs

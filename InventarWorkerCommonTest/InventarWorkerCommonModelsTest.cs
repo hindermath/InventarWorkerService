@@ -4,11 +4,19 @@ using InventarWorkerCommon.Models.Software;
 
 namespace InventarWorkerCommonTest;
 
+/// <summary>
+/// DE: Enthält Tests für CpuInfoTests.
+/// EN: Contains tests for CpuInfoTests.
+/// </summary>
 [TestClass]
 public class CpuInfoTests
 {
     private CpuInfo? _testCpuInfo;
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
@@ -16,6 +24,10 @@ public class CpuInfoTests
         _testCpuInfo = new CpuInfo();
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -23,6 +35,14 @@ public class CpuInfoTests
         _testCpuInfo = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+    /// EN: Executes the test or helper step ClassInitialize.
+    /// </summary>
+    /// <param name="context">
+    /// DE: Parameter context für die Ausführung dieses Schritts.
+    /// EN: Parameter context used to execute this step.
+    /// </param>
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
@@ -30,6 +50,10 @@ public class CpuInfoTests
         System.Diagnostics.Debug.WriteLine("CpuInfoTests - Klassen-Initialisierung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+    /// EN: Executes the test or helper step ClassCleanup.
+    /// </summary>
     [ClassCleanup]
     public static void ClassCleanup()
     {
@@ -37,6 +61,10 @@ public class CpuInfoTests
         System.Diagnostics.Debug.WriteLine("CpuInfoTests - Klassen-Bereinigung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt CpuInfo_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step CpuInfo_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void CpuInfo_DefaultValues_ShouldBeCorrect()
     {
@@ -50,6 +78,10 @@ public class CpuInfoTests
         Assert.AreEqual(0.0, cpuInfo.CurrentUsage);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt CpuInfo_SetAllProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step CpuInfo_SetAllProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void CpuInfo_SetAllProperties_ShouldRetainValues()
     {
@@ -69,6 +101,10 @@ public class CpuInfoTests
         Assert.AreEqual(67.5, cpuInfo.CurrentUsage);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt CpuInfo_RecordEquality_ShouldWork aus.
+    /// EN: Executes the test or helper step CpuInfo_RecordEquality_ShouldWork.
+    /// </summary>
     [TestMethod]
     public void CpuInfo_RecordEquality_ShouldWork()
     {
@@ -81,11 +117,19 @@ public class CpuInfoTests
     }
 }
 
+/// <summary>
+/// DE: Enthält Tests für OsInfoTests.
+/// EN: Contains tests for OsInfoTests.
+/// </summary>
 [TestClass]
 public class OsInfoTests
 {
     private OsInfo? _testOsInfo;
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
@@ -93,6 +137,10 @@ public class OsInfoTests
         _testOsInfo = new OsInfo();
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -100,6 +148,14 @@ public class OsInfoTests
         _testOsInfo = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+    /// EN: Executes the test or helper step ClassInitialize.
+    /// </summary>
+    /// <param name="context">
+    /// DE: Parameter context für die Ausführung dieses Schritts.
+    /// EN: Parameter context used to execute this step.
+    /// </param>
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
@@ -107,6 +163,10 @@ public class OsInfoTests
         System.Diagnostics.Debug.WriteLine("OsInfoTests - Klassen-Initialisierung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+    /// EN: Executes the test or helper step ClassCleanup.
+    /// </summary>
     [ClassCleanup]
     public static void ClassCleanup()
     {
@@ -114,6 +174,10 @@ public class OsInfoTests
         System.Diagnostics.Debug.WriteLine("OsInfoTests - Klassen-Bereinigung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt OsInfo_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step OsInfo_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void OsInfo_DefaultValues_ShouldBeCorrect()
     {
@@ -131,6 +195,10 @@ public class OsInfoTests
         Assert.AreEqual(string.Empty, osInfo.UserDomainName);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt OsInfo_SetAllProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step OsInfo_SetAllProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void OsInfo_SetAllProperties_ShouldRetainValues()
     {
@@ -158,6 +226,10 @@ public class OsInfoTests
         Assert.AreEqual("WORKGROUP", osInfo.UserDomainName);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt OsInfo_BooleanProperty_ShouldToggle aus.
+    /// EN: Executes the test or helper step OsInfo_BooleanProperty_ShouldToggle.
+    /// </summary>
     [TestMethod]
     public void OsInfo_BooleanProperty_ShouldToggle()
     {
@@ -171,11 +243,19 @@ public class OsInfoTests
     }
 }
 
+/// <summary>
+/// DE: Enthält Tests für ServiceStatisticsTests.
+/// EN: Contains tests for ServiceStatisticsTests.
+/// </summary>
 [TestClass]
 public class ServiceStatisticsTests
 {
     private ServiceStatistics? _testServiceStats;
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
@@ -183,6 +263,10 @@ public class ServiceStatisticsTests
         _testServiceStats = new ServiceStatistics();
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -190,6 +274,14 @@ public class ServiceStatisticsTests
         _testServiceStats = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+    /// EN: Executes the test or helper step ClassInitialize.
+    /// </summary>
+    /// <param name="context">
+    /// DE: Parameter context für die Ausführung dieses Schritts.
+    /// EN: Parameter context used to execute this step.
+    /// </param>
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
@@ -197,6 +289,10 @@ public class ServiceStatisticsTests
         System.Diagnostics.Debug.WriteLine("ServiceStatisticsTests - Klassen-Initialisierung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+    /// EN: Executes the test or helper step ClassCleanup.
+    /// </summary>
     [ClassCleanup]
     public static void ClassCleanup()
     {
@@ -204,6 +300,10 @@ public class ServiceStatisticsTests
         System.Diagnostics.Debug.WriteLine("ServiceStatisticsTests - Klassen-Bereinigung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ServiceStatistics_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step ServiceStatistics_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void ServiceStatistics_DefaultValues_ShouldBeCorrect()
     {
@@ -217,6 +317,10 @@ public class ServiceStatisticsTests
         Assert.AreEqual(0L, stats.MemoryUsage);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ServiceStatistics_InitProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step ServiceStatistics_InitProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void ServiceStatistics_InitProperties_ShouldRetainValues()
     {
@@ -237,6 +341,10 @@ public class ServiceStatisticsTests
         Assert.AreEqual(2048576L, stats.MemoryUsage);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ServiceStatistics_RecordEquality_ShouldWork aus.
+    /// EN: Executes the test or helper step ServiceStatistics_RecordEquality_ShouldWork.
+    /// </summary>
     [TestMethod]
     public void ServiceStatistics_RecordEquality_ShouldWork()
     {
@@ -262,11 +370,19 @@ public class ServiceStatisticsTests
     }
 }
 
+/// <summary>
+/// DE: Enthält Tests für SystemInfoTests.
+/// EN: Contains tests for SystemInfoTests.
+/// </summary>
 [TestClass]
 public class SystemInfoTests
 {
     private SystemInfo? _testSystemInfo;
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
@@ -274,6 +390,10 @@ public class SystemInfoTests
         _testSystemInfo = new SystemInfo();
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -281,6 +401,14 @@ public class SystemInfoTests
         _testSystemInfo = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+    /// EN: Executes the test or helper step ClassInitialize.
+    /// </summary>
+    /// <param name="context">
+    /// DE: Parameter context für die Ausführung dieses Schritts.
+    /// EN: Parameter context used to execute this step.
+    /// </param>
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
@@ -288,6 +416,10 @@ public class SystemInfoTests
         System.Diagnostics.Debug.WriteLine("SystemInfoTests - Klassen-Initialisierung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+    /// EN: Executes the test or helper step ClassCleanup.
+    /// </summary>
     [ClassCleanup]
     public static void ClassCleanup()
     {
@@ -295,6 +427,10 @@ public class SystemInfoTests
         System.Diagnostics.Debug.WriteLine("SystemInfoTests - Klassen-Bereinigung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SystemInfo_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step SystemInfo_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void SystemInfo_DefaultValues_ShouldBeCorrect()
     {
@@ -310,6 +446,10 @@ public class SystemInfoTests
         Assert.AreEqual(string.Empty, systemInfo.Architecture);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SystemInfo_SetAllProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step SystemInfo_SetAllProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void SystemInfo_SetAllProperties_ShouldRetainValues()
     {
@@ -334,6 +474,10 @@ public class SystemInfoTests
         Assert.AreEqual("AMD64", systemInfo.Architecture);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans aus.
+    /// EN: Executes the test or helper step SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans.
+    /// </summary>
     [TestMethod]
     public void SystemInfo_UptimeProperty_ShouldHandleDifferentTimeSpans()
     {
@@ -351,11 +495,19 @@ public class SystemInfoTests
     }
 }
 
+/// <summary>
+/// DE: Enthält Tests für SoftwareInfoTests.
+/// EN: Contains tests for SoftwareInfoTests.
+/// </summary>
 [TestClass]
 public class SoftwareInfoTests
 {
     private SoftwareInfo? _testSoftwareInfo;
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
@@ -363,6 +515,10 @@ public class SoftwareInfoTests
         _testSoftwareInfo = new SoftwareInfo();
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
@@ -370,6 +526,14 @@ public class SoftwareInfoTests
         _testSoftwareInfo = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+    /// EN: Executes the test or helper step ClassInitialize.
+    /// </summary>
+    /// <param name="context">
+    /// DE: Parameter context für die Ausführung dieses Schritts.
+    /// EN: Parameter context used to execute this step.
+    /// </param>
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
@@ -377,6 +541,10 @@ public class SoftwareInfoTests
         System.Diagnostics.Debug.WriteLine("SoftwareInfoTests - Klassen-Initialisierung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+    /// EN: Executes the test or helper step ClassCleanup.
+    /// </summary>
     [ClassCleanup]
     public static void ClassCleanup()
     {
@@ -384,6 +552,10 @@ public class SoftwareInfoTests
         System.Diagnostics.Debug.WriteLine("SoftwareInfoTests - Klassen-Bereinigung");
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SoftwareInfo_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step SoftwareInfo_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void SoftwareInfo_DefaultValues_ShouldBeCorrect()
     {
@@ -403,6 +575,10 @@ public class SoftwareInfoTests
         Assert.AreEqual(string.Empty, softwareInfo.Architecture);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SoftwareInfo_SetAllProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step SoftwareInfo_SetAllProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void SoftwareInfo_SetAllProperties_ShouldRetainValues()
     {
@@ -435,6 +611,10 @@ public class SoftwareInfoTests
         Assert.AreEqual("x64", softwareInfo.Architecture);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SoftwareInfo_NullableProperties_ShouldHandleNullValues aus.
+    /// EN: Executes the test or helper step SoftwareInfo_NullableProperties_ShouldHandleNullValues.
+    /// </summary>
     [TestMethod]
     public void SoftwareInfo_NullableProperties_ShouldHandleNullValues()
     {
@@ -452,6 +632,10 @@ public class SoftwareInfoTests
         Assert.IsNull(softwareInfo.Size);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SoftwareInfo_SystemComponentFlag_ShouldToggle aus.
+    /// EN: Executes the test or helper step SoftwareInfo_SystemComponentFlag_ShouldToggle.
+    /// </summary>
     [TestMethod]
     public void SoftwareInfo_SystemComponentFlag_ShouldToggle()
     {
@@ -464,6 +648,10 @@ public class SoftwareInfoTests
         Assert.IsTrue(softwareInfo.IsSystemComponent);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt SoftwareInfo_RecordEquality_ShouldWork aus.
+    /// EN: Executes the test or helper step SoftwareInfo_RecordEquality_ShouldWork.
+    /// </summary>
     [TestMethod]
     public void SoftwareInfo_RecordEquality_ShouldWork()
     {
@@ -487,9 +675,17 @@ public class SoftwareInfoTests
     }
 }
 
+/// <summary>
+/// DE: Enthält Tests für DiskInfoTests.
+/// EN: Contains tests for DiskInfoTests.
+/// </summary>
 [TestClass]
 public class DiskInfoTests
 {
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt DiskInfo_DefaultValues_ShouldBeCorrect aus.
+    /// EN: Executes the test or helper step DiskInfo_DefaultValues_ShouldBeCorrect.
+    /// </summary>
     [TestMethod]
     public void DiskInfo_DefaultValues_ShouldBeCorrect()
     {
@@ -507,6 +703,10 @@ public class DiskInfoTests
         Assert.IsFalse(diskInfo.IsReady);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt DiskInfo_SetAllProperties_ShouldRetainValues aus.
+    /// EN: Executes the test or helper step DiskInfo_SetAllProperties_ShouldRetainValues.
+    /// </summary>
     [TestMethod]
     public void DiskInfo_SetAllProperties_ShouldRetainValues()
     {
@@ -534,6 +734,10 @@ public class DiskInfoTests
         Assert.IsTrue(diskInfo.IsReady);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt DiskInfo_RecordEquality_ShouldWork aus.
+    /// EN: Executes the test or helper step DiskInfo_RecordEquality_ShouldWork.
+    /// </summary>
     [TestMethod]
     public void DiskInfo_RecordEquality_ShouldWork()
     {
