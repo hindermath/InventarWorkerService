@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInfo
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -95,7 +95,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Version
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Publisher
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstallDate
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstallLocation
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -219,7 +219,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Size
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -250,7 +250,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UninstallString
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -281,7 +281,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisplayIcon
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -312,7 +312,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsSystemComponent
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
@@ -343,7 +343,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Software/SoftwareInfo.cs

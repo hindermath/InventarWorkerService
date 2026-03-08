@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InvokeWorkerServiceControlCmdlet
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
@@ -133,7 +133,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Start
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Stop
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
@@ -249,7 +249,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Tui
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
@@ -304,7 +304,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceName
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
@@ -361,7 +361,7 @@ items:
   source:
     remote:
       path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessRecord
     path: CtrlWorkerServiceCmdlet/InvokeWorkerServiceControlCmdlet.cs

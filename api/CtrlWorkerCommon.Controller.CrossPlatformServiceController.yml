@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CrossPlatformServiceController
     path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
@@ -66,11 +66,11 @@ items:
   source:
     remote:
       path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-    startLine: 33
+    startLine: 39
   assemblies:
   - CtrlWorkerCommon
   namespace: CtrlWorkerCommon.Controller
@@ -84,6 +84,13 @@ items:
       description: The OS service name to manage (e.g., Windows service name, systemd unit on Linux).
     content.vb: Public Sub New(serviceName As String)
   overload: CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">serviceName</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when <code class="paramref">serviceName</code> is empty or whitespace.
   nameWithType.vb: CrossPlatformServiceController.New(String)
   fullName.vb: CtrlWorkerCommon.Controller.CrossPlatformServiceController.New(String)
   name.vb: New(String)
@@ -101,11 +108,11 @@ items:
   source:
     remote:
       path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartService
     path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-    startLine: 50
+    startLine: 66
   assemblies:
   - CtrlWorkerCommon
   namespace: CtrlWorkerCommon.Controller
@@ -141,11 +148,11 @@ items:
   source:
     remote:
       path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StopService
     path: CtrlWorkerCommon/Controller/CrossPlatformServiceController.cs
-    startLine: 82
+    startLine: 98
   assemblies:
   - CtrlWorkerCommon
   namespace: CtrlWorkerCommon.Controller
@@ -421,6 +428,22 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
 - uid: CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor*
   commentId: Overload:CtrlWorkerCommon.Controller.CrossPlatformServiceController.#ctor
   href: CtrlWorkerCommon.Controller.CrossPlatformServiceController.html#CtrlWorkerCommon_Controller_CrossPlatformServiceController__ctor_System_String_

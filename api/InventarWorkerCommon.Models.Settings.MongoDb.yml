@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDb
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbFqdn
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPort
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbUser
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPassword
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -182,7 +182,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WriteEnabled
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs
@@ -213,7 +213,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/MongoDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbConnectionString
     path: InventarWorkerCommon/Models/Settings/MongoDb.cs

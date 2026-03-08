@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: ServiceStatusReaderApp/Service/Monitor/AdvancedServiceMonitor.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AdvancedServiceMonitor
     path: ServiceStatusReaderApp/Service/Monitor/AdvancedServiceMonitor.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: ServiceStatusReaderApp/Service/Monitor/AdvancedServiceMonitor.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WatchForChanges
     path: ServiceStatusReaderApp/Service/Monitor/AdvancedServiceMonitor.cs

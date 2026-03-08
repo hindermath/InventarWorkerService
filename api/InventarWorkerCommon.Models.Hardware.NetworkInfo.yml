@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInfo
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Name
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -94,7 +94,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -125,7 +125,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInterfaceType
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -156,7 +156,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperationalStatus
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -187,7 +187,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Speed
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IpAddresses
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -249,7 +249,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MacAddress
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -280,7 +280,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BytesSent
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
@@ -311,7 +311,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BytesReceived
     path: InventarWorkerCommon/Models/Hardware/NetworkInfo.cs

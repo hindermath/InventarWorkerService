@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInventories
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -66,7 +66,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Id
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MachineId
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessesJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -159,7 +159,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledSoftwareJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -190,7 +190,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServicesJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -221,7 +221,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: EnvironmentJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -252,7 +252,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartupProgramsJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -283,7 +283,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RuntimeJson
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
@@ -314,7 +314,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CreatedAt
     path: InventarWorkerCommon/Models/SqlDatabase/SoftwareInventories.cs

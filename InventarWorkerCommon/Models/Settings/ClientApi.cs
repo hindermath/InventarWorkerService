@@ -1,23 +1,27 @@
 namespace InventarWorkerCommon.Models.Settings;
 
 /// <summary>
-/// Represents the configuration settings required to connect to the Client API.
+/// DE: Enthält die Verbindungsparameter für die Client-API.
+/// EN: Contains connection parameters for the client API.
 /// </summary>
 public class ClientApi
 {
 
     /// <summary>
-    /// Gets the fully qualified domain name (FQDN) of the client API.
+    /// DE: Vollqualifizierter Domänenname (FQDN) der Client-API.
+    /// EN: Fully qualified domain name (FQDN) of the client API.
     /// </summary>
-    public string ClientApiFqdn { get; set; }
+    public string ClientApiFqdn { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the port of the client API.
+    /// DE: Port der Client-API.
+    /// EN: Port of the client API.
     /// </summary>
-    public string ClientApiPort { get; set; }
+    public string ClientApiPort { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets the full URL of the client API, constructed using the FQDN and port information.
+    /// DE: Vollständige URL der Client-API, zusammengesetzt aus FQDN und Port.
+    /// EN: Full client API URL, composed from FQDN and port.
     /// </summary>
     public string ClientApiUrl
     {

@@ -5,7 +5,8 @@ using Terminal.Gui;
 namespace InventarViewerApp.UI
 {
     /// <summary>
-    /// A Terminal.Gui view that displays and manages the software inventory for the current machine.
+    /// DE: Terminal.Gui-Ansicht zur Anzeige und Verwaltung des Software-Inventars der aktuellen Maschine.
+    /// EN: Terminal.Gui view for displaying and managing software inventory of the current machine.
     /// </summary>
     public class SoftwareView : FrameView
     {
@@ -19,12 +20,25 @@ namespace InventarViewerApp.UI
         private Button _saveButton;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SoftwareView"/> class.
+        /// DE: Initialisiert eine neue Instanz der <see cref="SoftwareView"/>-Klasse.
+        /// EN: Initializes a new instance of the <see cref="SoftwareView"/> class.
         /// </summary>
-        /// <param name="apiService">Service used to retrieve inventory data from the backend API.</param>
-        /// <param name="dbService">Service used to persist data to the local SQLite database.</param>
-        /// <param name="mongoDbService">Service used to persist data to MongoDB.</param>
-        /// <param name="pgSqlDbService"></param>
+        /// <param name="apiService">
+        /// DE: Dienst zum Abrufen von Inventardaten aus der Backend-API.
+        /// EN: Service used to retrieve inventory data from the backend API.
+        /// </param>
+        /// <param name="dbService">
+        /// DE: Dienst zur Persistierung in der lokalen SQLite-Datenbank.
+        /// EN: Service used to persist data to the local SQLite database.
+        /// </param>
+        /// <param name="mongoDbService">
+        /// DE: Dienst zur Persistierung von Softwaredaten in MongoDB.
+        /// EN: Service used to persist software data to MongoDB.
+        /// </param>
+        /// <param name="pgSqlDbService">
+        /// DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
+        /// EN: Service for PostgreSQL access in the viewer application.
+        /// </param>
         public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Software Inventar")
         {
             _apiService = apiService;
@@ -80,9 +94,13 @@ namespace InventarViewerApp.UI
         }
 
         /// <summary>
-        /// Refreshes the software inventory by calling the API and updating the view content.
+        /// DE: Lädt das Software-Inventar neu und aktualisiert die Anzeige.
+        /// EN: Refreshes software inventory data and updates the view.
         /// </summary>
-        /// <returns>A task that represents the asynchronous refresh operation.</returns>
+        /// <returns>
+        /// DE: Asynchroner Vorgang zum Aktualisieren der Softwaredaten.
+        /// EN: Asynchronous operation that refreshes software data.
+        /// </returns>
         public async Task RefreshData()
         {
             try

@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDb
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbFqdn
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbPort
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbName
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -152,7 +152,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlUser
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -183,7 +183,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlPassword
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -214,7 +214,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WriteEnabled
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
@@ -245,7 +245,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlConnectionString
     path: InventarWorkerCommon/Models/Settings/PgSqlDb.cs

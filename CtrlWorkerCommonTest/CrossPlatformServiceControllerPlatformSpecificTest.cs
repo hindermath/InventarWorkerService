@@ -3,24 +3,40 @@ using CtrlWorkerCommon.Controller;
 
 namespace CtrlWorkerCommonTest;
 
+/// <summary>
+/// DE: Enthält Tests für CrossPlatformServiceControllerPlatformSpecificTest.
+/// EN: Contains tests for CrossPlatformServiceControllerPlatformSpecificTest.
+/// </summary>
 [TestClass]
 public class CrossPlatformServiceControllerPlatformSpecificTest
 {
     private CrossPlatformServiceController _controller;
     private const string TestServiceName = "TestService";
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+    /// EN: Executes the test or helper step TestInitialize.
+    /// </summary>
     [TestInitialize]
     public void TestInitialize()
     {
         _controller = new CrossPlatformServiceController(TestServiceName);
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+    /// EN: Executes the test or helper step TestCleanup.
+    /// </summary>
     [TestCleanup]
     public void TestCleanup()
     {
         _controller = null;
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt StartService_OnWindows_CallsWindowsSpecificLogic aus.
+    /// EN: Executes the test or helper step StartService_OnWindows_CallsWindowsSpecificLogic.
+    /// </summary>
     [TestMethod]
     public void StartService_OnWindows_CallsWindowsSpecificLogic()
     {
@@ -44,6 +60,10 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt StartService_OnLinux_CallsLinuxSpecificLogic aus.
+    /// EN: Executes the test or helper step StartService_OnLinux_CallsLinuxSpecificLogic.
+    /// </summary>
     [TestMethod]
     public void StartService_OnLinux_CallsLinuxSpecificLogic()
     {
@@ -67,6 +87,10 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
     }
 
+    /// <summary>
+    /// DE: Führt den Test- oder Hilfeschritt StartService_OnMacOS_CallsMacOSSpecificLogic aus.
+    /// EN: Executes the test or helper step StartService_OnMacOS_CallsMacOSSpecificLogic.
+    /// </summary>
     [TestMethod]
     public void StartService_OnMacOS_CallsMacOSSpecificLogic()
     {

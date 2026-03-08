@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: HardwareInventory
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectionTime
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: System
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Cpu
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Memory
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -186,7 +186,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Disks
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -217,7 +217,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: NetworkInterfaces
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OperatingSystem
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Software
     path: InventarWorkerCommon/Models/Hardware/HardwareInventory.cs

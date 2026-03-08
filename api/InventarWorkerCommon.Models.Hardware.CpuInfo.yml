@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuInfo
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorCount
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorName
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CurrentUsage
     path: InventarWorkerCommon/Models/Hardware/CpuInfo.cs

@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceStatistics
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalProcessedItems
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AverageProcessingTime
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Uptime
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsage
     path: InventarWorkerCommon/Models/Service/ServiceStatistics.cs

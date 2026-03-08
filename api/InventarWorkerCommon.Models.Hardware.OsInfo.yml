@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: OsInfo
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -62,7 +62,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Platform
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Version
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServicePack
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -186,7 +186,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Architecture
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -217,7 +217,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Is64Bit
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessorCount
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/OsInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: UserDomainName
     path: InventarWorkerCommon/Models/Hardware/OsInfo.cs

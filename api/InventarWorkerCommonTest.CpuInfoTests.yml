@@ -22,14 +22,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuInfoTests
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Enthält Tests für CpuInfoTests.
+
+    EN: Contains tests for CpuInfoTests.
+  example: []
   syntax:
     content: >-
       [TestClass]
@@ -67,14 +72,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestInitialize
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestInitialize aus.
+
+    EN: Executes the test or helper step TestInitialize.
+  example: []
   syntax:
     content: >-
       [TestInitialize]
@@ -103,14 +113,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TestCleanup
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 18
+    startLine: 30
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt TestCleanup aus.
+
+    EN: Executes the test or helper step TestCleanup.
+  example: []
   syntax:
     content: >-
       [TestCleanup]
@@ -139,14 +154,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClassInitialize
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 25
+    startLine: 45
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt ClassInitialize aus.
+
+    EN: Executes the test or helper step ClassInitialize.
+  example: []
   syntax:
     content: >-
       [ClassInitialize]
@@ -155,6 +175,10 @@ items:
     parameters:
     - id: context
       type: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
+      description: >-
+        DE: Parameter context für die Ausführung dieses Schritts.
+
+        EN: Parameter context used to execute this step.
     content.vb: >-
       <ClassInitialize>
 
@@ -178,14 +202,19 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClassCleanup
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 32
+    startLine: 56
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt ClassCleanup aus.
+
+    EN: Executes the test or helper step ClassCleanup.
+  example: []
   syntax:
     content: >-
       [ClassCleanup]
@@ -214,21 +243,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuInfo_DefaultValues_ShouldBeCorrect
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 39
+    startLine: 67
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt CpuInfo_DefaultValues_ShouldBeCorrect aus.
+
+    EN: Executes the test or helper step CpuInfo_DefaultValues_ShouldBeCorrect.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 40)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 68)]
 
       public void CpuInfo_DefaultValues_ShouldBeCorrect()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 40)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 68)>
 
       Public Sub CpuInfo_DefaultValues_ShouldBeCorrect()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_DefaultValues_ShouldBeCorrect*
@@ -237,9 +271,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 40
+      value: 68
 - uid: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_SetAllProperties_ShouldRetainValues
   commentId: M:InventarWorkerCommonTest.CpuInfoTests.CpuInfo_SetAllProperties_ShouldRetainValues
   id: CpuInfo_SetAllProperties_ShouldRetainValues
@@ -254,21 +288,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuInfo_SetAllProperties_ShouldRetainValues
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 52
+    startLine: 84
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt CpuInfo_SetAllProperties_ShouldRetainValues aus.
+
+    EN: Executes the test or helper step CpuInfo_SetAllProperties_ShouldRetainValues.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 53)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 85)]
 
       public void CpuInfo_SetAllProperties_ShouldRetainValues()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 53)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 85)>
 
       Public Sub CpuInfo_SetAllProperties_ShouldRetainValues()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_SetAllProperties_ShouldRetainValues*
@@ -277,9 +316,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 53
+      value: 85
 - uid: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_RecordEquality_ShouldWork
   commentId: M:InventarWorkerCommonTest.CpuInfoTests.CpuInfo_RecordEquality_ShouldWork
   id: CpuInfo_RecordEquality_ShouldWork
@@ -294,21 +333,26 @@ items:
   source:
     remote:
       path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuInfo_RecordEquality_ShouldWork
     path: InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
-    startLine: 71
+    startLine: 107
   assemblies:
   - InventarWorkerCommonTest
   namespace: InventarWorkerCommonTest
+  summary: >-
+    DE: Führt den Test- oder Hilfeschritt CpuInfo_RecordEquality_ShouldWork aus.
+
+    EN: Executes the test or helper step CpuInfo_RecordEquality_ShouldWork.
+  example: []
   syntax:
     content: >-
-      [TestMethod("C:\\Users\\thinder\\RiderProjects\\InventarWorkerService\\InventarWorkerCommonTest\\InventarWorkerCommonModelsTest.cs", 72)]
+      [TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 108)]
 
       public void CpuInfo_RecordEquality_ShouldWork()
     content.vb: >-
-      <TestMethod("C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs", 72)>
+      <TestMethod("/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs", 108)>
 
       Public Sub CpuInfo_RecordEquality_ShouldWork()
   overload: InventarWorkerCommonTest.CpuInfoTests.CpuInfo_RecordEquality_ShouldWork*
@@ -317,9 +361,9 @@ items:
     ctor: Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String,System.Int32)
     arguments:
     - type: System.String
-      value: C:\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerCommonTest\InventarWorkerCommonModelsTest.cs
+      value: /Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerCommonTest/InventarWorkerCommonModelsTest.cs
     - type: System.Int32
-      value: 72
+      value: 108
 references:
 - uid: InventarWorkerCommonTest
   commentId: N:InventarWorkerCommonTest
@@ -586,6 +630,7 @@ references:
   commentId: T:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext
   parent: Microsoft.VisualStudio.TestTools.UnitTesting
   isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting.testcontext
   name: TestContext
   nameWithType: TestContext
   fullName: Microsoft.VisualStudio.TestTools.UnitTesting.TestContext

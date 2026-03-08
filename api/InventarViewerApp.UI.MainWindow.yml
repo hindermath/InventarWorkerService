@@ -16,15 +16,18 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/MainWindow.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MainWindow
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: The main application window that hosts tabs for status, hardware and software views.
+  summary: >-
+    DE: Hauptfenster der Anwendung mit Reitern für Status-, Hardware- und Softwareansicht.
+
+    EN: Main application window hosting tabs for status, hardware, and software views.
   example: []
   syntax:
     content: 'public class MainWindow : Window, IDisposable, ISupportInitializeNotification, ISupportInitialize'
@@ -243,31 +246,46 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/MainWindow.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/MainWindow.cs
-    startLine: 36
+    startLine: 50
   assemblies:
   - InventarViewerApp
   namespace: InventarViewerApp.UI
-  summary: Initializes a new instance of the <xref href="InventarViewerApp.UI.MainWindow" data-throw-if-not-resolved="false"></xref> class.
+  summary: >-
+    DE: Initialisiert eine neue Instanz der <xref href="InventarViewerApp.UI.MainWindow" data-throw-if-not-resolved="false"></xref>-Klasse.
+
+    EN: Initializes a new instance of the <xref href="InventarViewerApp.UI.MainWindow" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService)
     parameters:
     - id: apiService
       type: InventarWorkerCommon.Services.Api.ApiService
-      description: API service used by child views.
+      description: >-
+        DE: API-Dienst für untergeordnete Ansichten.
+
+        EN: API service used by child views.
     - id: dbService
       type: InventarWorkerCommon.Services.Database.SqliteDbService
-      description: SQLite DB service used by child views.
+      description: >-
+        DE: SQLite-Dienst für untergeordnete Ansichten.
+
+        EN: SQLite database service used by child views.
     - id: mongoDbService
       type: InventarWorkerCommon.Services.Database.MongoDbService
-      description: MongoDB service used by child views.
+      description: >-
+        DE: MongoDB-Dienst für untergeordnete Ansichten.
+
+        EN: MongoDB service used by child views.
     - id: pgSqlDbService
       type: InventarWorkerCommon.Services.Database.PgSqlDbService
-      description: ''
+      description: >-
+        DE: PostgreSQL-Dienst für untergeordnete Ansichten.
+
+        EN: PostgreSQL service used by child views.
     content.vb: Public Sub New(apiService As ApiService, dbService As SqliteDbService, mongoDbService As MongoDbService, pgSqlDbService As PgSqlDbService)
   overload: InventarViewerApp.UI.MainWindow.#ctor*
   nameWithType.vb: MainWindow.New(ApiService, SqliteDbService, MongoDbService, PgSqlDbService)

@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceContainer
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ApiService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -154,7 +154,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbService
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dispose
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisposeAsync
     path: InventarWorkerCommon/Services/Common/Initialize.cs
@@ -251,7 +251,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Common/Initialize.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Finalize
     path: InventarWorkerCommon/Services/Common/Initialize.cs

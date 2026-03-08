@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessInfo
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -68,7 +68,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessName
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProcessId
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -130,7 +130,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MainWindowTitle
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -161,7 +161,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartTime
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -192,7 +192,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: WorkingSet
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -223,7 +223,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: VirtualMemorySize
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -254,7 +254,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: TotalProcessorTime
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -285,7 +285,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileName
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -316,7 +316,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FileVersion
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -347,7 +347,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ProductVersion
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -378,7 +378,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Company
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -409,7 +409,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -440,7 +440,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: IsResponding
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
@@ -471,7 +471,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ProcessInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ThreadCount
     path: InventarWorkerCommon/Models/Software/ProcessInfo.cs

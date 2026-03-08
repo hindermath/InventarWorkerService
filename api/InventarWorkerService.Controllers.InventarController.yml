@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InventarController
     path: InventarWorkerService/Controllers/InventarController.cs
@@ -255,7 +255,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerService/Controllers/InventarController.cs
@@ -293,7 +293,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetHardwareInventory
     path: InventarWorkerService/Controllers/InventarController.cs
@@ -336,7 +336,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInventory
     path: InventarWorkerService/Controllers/InventarController.cs
@@ -379,7 +379,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetFullInventory
     path: InventarWorkerService/Controllers/InventarController.cs
@@ -422,7 +422,7 @@ items:
   source:
     remote:
       path: InventarWorkerService/Controllers/InventarController.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetServiceStatus
     path: InventarWorkerService/Controllers/InventarController.cs

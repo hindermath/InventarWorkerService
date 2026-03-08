@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/Settings.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Settings
     path: InventarWorkerCommon/Models/Settings/Settings.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/Settings.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApi
     path: InventarWorkerCommon/Models/Settings/Settings.cs
@@ -94,7 +94,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/Settings.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDb
     path: InventarWorkerCommon/Models/Settings/Settings.cs
@@ -130,7 +130,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Settings/Settings.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDb
     path: InventarWorkerCommon/Models/Settings/Settings.cs

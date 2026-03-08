@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SoftwareInventoryService
     path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CollectSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
@@ -124,7 +124,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: GetSoftwareInfoAsync
     path: InventarWorkerCommon/Services/Software/SoftwareInventoryService.cs

@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceInfo
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceName
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -95,7 +95,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DisplayName
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Status
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: StartType
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ServiceAccount
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -219,7 +219,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: BinaryPath
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -250,7 +250,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Description
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -281,7 +281,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Dependencies
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -312,7 +312,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CanStop
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
@@ -343,7 +343,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/ServiceInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CanPauseAndContinue
     path: InventarWorkerCommon/Models/Software/ServiceInfo.cs

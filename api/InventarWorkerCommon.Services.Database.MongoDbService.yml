@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbService
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeSoftwareMongoDatabase
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InitializeHardwareMongoDatabase
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveSoftwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -189,7 +189,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SaveHardwareInventoryAsync
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs
@@ -229,7 +229,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Services/Database/MongoDbService.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: FindSoftwareByNameAsync
     path: InventarWorkerCommon/Services/Database/MongoDbService.cs

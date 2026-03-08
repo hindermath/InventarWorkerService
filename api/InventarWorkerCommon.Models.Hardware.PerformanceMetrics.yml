@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PerformanceMetrics
     path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CpuUsage
     path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MemoryUsage
     path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ThreadCount
     path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Timestamp
     path: InventarWorkerCommon/Models/Hardware/PerformanceMetrics.cs

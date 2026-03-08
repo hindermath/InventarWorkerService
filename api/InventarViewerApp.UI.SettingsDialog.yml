@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: SettingsDialog
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -297,7 +297,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: ClientApiPort
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -328,7 +328,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -359,7 +359,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPort
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -390,7 +390,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbUser
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -421,7 +421,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: MongoDbPassword
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -452,7 +452,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbFqdn
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -483,7 +483,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbPort
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -514,7 +514,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlDbName
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -545,7 +545,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlUser
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -576,7 +576,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PgSqlPassword
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -607,7 +607,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: Canceled
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -638,7 +638,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SettingsDialog.cs
@@ -686,7 +686,7 @@ items:
   source:
     remote:
       path: InventarViewerApp/UI/SettingsDialog.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: .ctor
     path: InventarViewerApp/UI/SettingsDialog.cs

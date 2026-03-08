@@ -15,14 +15,19 @@ items:
   source:
     remote:
       path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: CrossPlatformServiceControllerTest
     path: CtrlWorkerCommonTest/CrossPlatformServiceControllerTest.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - CtrlWorkerCommonTest
   namespace: CtrlWorkerCommonTest
+  summary: >-
+    DE: Enthält Tests für CrossPlatformServiceControllerTest.
+
+    EN: Contains tests for CrossPlatformServiceControllerTest.
+  example: []
   syntax:
     content: >-
       [TestClass]

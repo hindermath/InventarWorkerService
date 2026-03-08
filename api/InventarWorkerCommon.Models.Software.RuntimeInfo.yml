@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: RuntimeInfo
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: DotNetVersion
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: InstalledFrameworks
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: PowerShellVersion
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
-      branch: main
+      branch: chore/constitution-2.1-compliance
       repo: https://github.com/hindermath/InventarWorkerService.git
     id: AvailableModules
     path: InventarWorkerCommon/Models/Software/RuntimeInfo.cs
