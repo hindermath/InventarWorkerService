@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is a multi-project .NET 9 solution (`InventarWorkerService.sln`). Core domain logic lives in `InventarWorkerCommon/` (`Models/`, `Services/`, `Helpers/`). Runtime services are in `InventarWorkerService/` (agent + API), `HarvesterWorkerService/` (collector), and `InventarViewerApp/` (Terminal UI client). Service control utilities are in `CtrlWorkerCommon/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`, and `CtrlWorkerServicePS/`.
+This repository is a multi-project .NET 10 / C# 14.0 solution (`InventarWorkerService.sln`). Core domain logic lives in `InventarWorkerCommon/` (`Models/`, `Services/`, `Helpers/`). Runtime services are in `InventarWorkerService/` (agent + API), `HarvesterWorkerService/` (collector), and `InventarViewerApp/` (Terminal UI client). Service control utilities are in `CtrlWorkerCommon/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`, and `CtrlWorkerServicePS/`.
 
 Tests are split by scope: `InventarWorkerCommonTest/`, `CtrlWorkerCommonTest/`, and `InventarWorkerServiceIntegrationTest/`. Documentation sources are under `docs/` with DocFX config in `docfx.json` and generated output in `_site/`.
 
@@ -14,7 +14,9 @@ Tests are split by scope: `InventarWorkerCommonTest/`, `CtrlWorkerCommonTest/`, 
 - `dotnet test`: execute all unit and integration tests.
 - `dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj`: run integration tests only.
 - `dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"`: run a single test method.
-- `pwsh InventarWorkerServiceIntegrationTest/bin/Debug/net9.0/playwright.ps1 install`: install Playwright browsers after first build.
+- `dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults`: collect CI-ready coverage artifacts.
+- `dotnet list package --outdated`: identify packages not on latest stable versions.
+- `pwsh InventarWorkerServiceIntegrationTest/bin/Debug/net10.0/playwright.ps1 install`: install Playwright browsers after first build.
 - `docfx docfx.json`: build API and Markdown documentation.
 
 ## Coding Style & Naming Conventions
@@ -31,7 +33,7 @@ Use C# with 4-space indentation and nullable reference types enabled. Follow exi
 - Documentation language: Explanatory text MUST be bilingual (German block first, English block second) at CEFR B2 readability
 
 ## Testing Guidelines
-Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names such as `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`. Keep unit tests deterministic and independent of machine state. Integration tests require `InventarWorkerService` running at `http://localhost:5000`; remote tests may be network-dependent.
+Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names such as `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`. Keep unit tests deterministic and independent of machine state. Integration tests require `InventarWorkerService` running at `http://localhost:5000`; remote tests may be network-dependent. Coverage in CI MUST stay at least 70% and MUST target 80% or more.
 
 ## Commit & Pull Request Guidelines
 Recent history follows imperative subjects (for example: `Add ...`, `Update ...`, `Refine ...`). Continue with short, present-tense commit titles and narrow scope per commit.
@@ -41,7 +43,7 @@ Recent history follows imperative subjects (for example: `Add ...`, `Update ...`
 PRs should include: purpose, touched projects, test evidence (commands run), and any config/API impact. For UI-related changes in `InventarViewerApp`, include screenshots or terminal captures.
 
 ## Copilot Instructions
-This is a .NET 9.0 multi-project solution for cross-platform IT hardware/software inventory.
+This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
 
 **Data flow:**
 ```
@@ -75,7 +77,11 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Async:** All I/O-bound public service methods return `Task` or `Task<T>`.
 
+**Toolchain:** Use `.NET 10` with `C# 14.0`.
+
 **Serialization:** `System.Text.Json` with camelCase naming policy throughout. Do not use Newtonsoft.Json.
+
+**Dependencies:** Keep NuGet packages on latest stable versions; pinning exceptions must be documented.
 
 **HTTP client:** RestSharp in `InventarViewerApp`; integration tests use Playwright's `APIRequestContext`.
 

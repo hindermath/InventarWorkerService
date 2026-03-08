@@ -1,19 +1,12 @@
 <!--
 Sync Impact Report
-- Version change: 1.0.0 -> 2.0.0
+- Version change: 2.0.0 -> 2.1.0
 - Modified principles:
-  - I. Shared Domain and Layer Boundaries (NON-NEGOTIABLE)
-    -> I. Didaktische und sprachliche Klarheit (Pedagogical and Linguistic Clarity)
-  - II. C# Quality and Language Conventions
-    -> II. Shared Domain and Layer Boundaries (NON-NEGOTIABLE)
-  - III. Testability and Regression Safety
-    -> III. Documentation Completeness and Learning-First Standards (NON-NEGOTIABLE)
-  - IV. Data, Serialization, and Persistence Consistency
-    -> V. Data, Serialization, and Persistence Consistency
-  - V. Branching and Pull Request Governance (NON-NEGOTIABLE)
-    -> VI. Branching and Pull Request Governance (NON-NEGOTIABLE)
-- Added sections:
   - IV. Testability and TDD Discipline
+    -> IV. Testability, TDD, and Coverage Discipline
+  - Added VII. Toolchain and Dependency Currency
+- Added sections:
+  - None
 - Removed sections:
   - None
 - Templates requiring updates:
@@ -26,6 +19,7 @@ Sync Impact Report
   - CLAUDE.md: ✅ updated
   - GEMINI.md: ✅ updated
   - .github/copilot-instructions.md: ✅ updated
+  - README.md: ✅ updated
 - Follow-up TODOs:
   - None
 -->
@@ -65,16 +59,18 @@ Didactically relevant non-public members, variables, and complex control paths M
 carry bilingual block or line comments where XML documentation is not applicable.
 Rationale: documentation is a first-class training artifact and must stay executable.
 
-### IV. Testability and TDD Discipline
+### IV. Testability, TDD, and Coverage Discipline
 Tests MUST use MSTest attributes and descriptive method names in the
 `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>` pattern. New feature work MUST start
 with failing tests (Red), then implementation to passing tests (Green), then cleanup
 (Refactor), unless an explicit exception is documented in the plan's complexity section.
 Unit tests MUST be deterministic and independent of machine-specific state. Any API
 contract change, new endpoint, or cross-service integration behavior MUST include or
-update integration tests.
-Rationale: explicit Red-Green-Refactor behavior is required as teaching and quality
-baseline.
+update integration tests. Coverage for changed code paths MUST be at least 70% in CI.
+Coverage of 80% or higher MUST be actively targeted; if a PR lands between 70% and 80%,
+the PR MUST include an explicit follow-up item with owner and due date.
+Rationale: explicit Red-Green-Refactor behavior and coverage gates reduce regression
+risk while keeping improvements measurable.
 
 ### V. Data, Serialization, and Persistence Consistency
 JSON serialization MUST use `System.Text.Json` with camelCase naming policy; new
@@ -94,10 +90,19 @@ touched projects, test evidence, and config/API impact; UI-impacting changes in
 Rationale: branch protection and documented review gates are mandatory for controlled
 integration.
 
+### VII. Toolchain and Dependency Currency
+Repository work MUST target .NET 10 and C# 14.0 for new or migrated projects. NuGet
+packages MUST be kept on latest stable versions as part of regular delivery. If a
+package must stay behind latest stable due compatibility or vendor issues, the PR MUST
+document package name, pinned version, rationale, and next review date.
+Rationale: current toolchains and dependencies reduce security exposure and maintenance
+cost.
+
 ## Implementation Constraints
 
 - C# naming conventions (`PascalCase`, `camelCase`, `_camelCase`) and nullable
   reference types MUST remain enabled.
+- Toolchain baseline MUST be `.NET 10` with `LangVersion` set to `14.0`.
 - Runtime model MUST stay cross-platform: Windows Service (`AddWindowsService`),
   systemd (`AddSystemd`), and launchd compatibility.
 - Worker loop timing MUST remain `30_000ms` in debug and `86_400_000ms` in release,
@@ -114,15 +119,19 @@ integration.
 1. Create a new working branch before implementation. Work on `main` for feature
    development is prohibited.
 2. Define or update feature specification, plan, and tasks with a constitution check
-   that covers bilingual B2 documentation, XML completeness, TDD, and layering rules.
+   covering bilingual B2 documentation, XML completeness, TDD, coverage, layering, and
+   dependency currency.
 3. Implement code in the project-specific location defined by Principle II.
-4. Run relevant validation commands at minimum:
-   `dotnet build InventarWorkerService.sln`, applicable `dotnet test` scope, and
-   `docfx docfx.json` whenever API signatures/XML docs or documentation content changed.
+4. Run validation commands at minimum:
+   `dotnet restore InventarWorkerService.sln`,
+   `dotnet build InventarWorkerService.sln`,
+   `dotnet test` with coverage collection,
+   `dotnet list package --outdated`,
+   and `docfx docfx.json` whenever API signatures/XML docs or documentation content
+   changed.
 5. Open a pull request to `main` with required evidence and ensure constitution
    compliance is reviewed before merge.
-6. Perform a final documentation compliance review; missing documentation MUST be added
-   before merge.
+6. Perform a final documentation and coverage compliance review before merge.
 
 ## Governance
 
@@ -137,4 +146,4 @@ versioning for governance:
 Compliance review is mandatory in planning and code review; unresolved violations MUST
 be documented in the implementation plan's complexity tracking section.
 
-**Version**: 2.0.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-08
+**Version**: 2.1.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-08

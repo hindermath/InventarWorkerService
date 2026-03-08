@@ -8,6 +8,9 @@ Use this command to create or update a feature specification.
 2. Fill `spec.md` with prioritized, independently testable user stories.
 3. Define measurable outcomes and explicit edge cases.
 4. Fill the Constitution Alignment section with concrete impacts:
+   - .NET 10 + C# 14.0 toolchain impact
+   - NuGet dependency currency impact
+   - coverage thresholds (`>=70%`, target `>=80%`)
    - layering/shared logic placement
    - bilingual documentation impact (German first, English second, CEFR B2)
    - XML documentation and DocFX impact
@@ -19,3 +22,4 @@ Use this command to create or update a feature specification.
 - Each story can be tested independently.
 - Requirements are implementation-agnostic.
 - Constitution alignment items are complete and non-empty.
+- Toolchain/dependency/coverage constraints are explicit and measurable.

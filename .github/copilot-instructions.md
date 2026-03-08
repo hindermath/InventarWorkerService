@@ -20,6 +20,12 @@ dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"
 dotnet run --project InventarWorkerService/InventarWorkerService.csproj
 dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj
 
+# Collect coverage (CI gate >=70%, target >=80%)
+dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+# Check package currency
+dotnet list package --outdated
+
 # Regenerate documentation when API/XML docs change
 docfx docfx.json
 ```
@@ -32,7 +38,7 @@ docfx docfx.json
 
 ## Architecture
 
-This is a .NET 9.0 multi-project solution for cross-platform IT hardware/software inventory.
+This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
 
 **Data flow:**
 ```
@@ -64,9 +70,15 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Nullable reference types** are enabled everywhere — use `string?` for optional values.
 
+**Toolchain:** Use `.NET 10` with `C# 14.0`.
+
 **Async:** All I/O-bound public service methods return `Task` or `Task<T>`.
 
+**Coverage:** CI coverage must be >=70% and must target >=80%.
+
 **Serialization:** `System.Text.Json` with camelCase naming policy throughout. Do not use Newtonsoft.Json.
+
+**Dependencies:** Keep NuGet packages on latest stable versions; document any pinning exceptions.
 
 **HTTP client:** RestSharp in `InventarViewerApp`; integration tests use Playwright's `APIRequestContext`.
 

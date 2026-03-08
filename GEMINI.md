@@ -3,7 +3,7 @@
 Dieses Dokument dient als zentrale Orientierungshilfe für die Arbeit an diesem Repository. Es ergänzt die `README.md` und `CLAUDE.md`.
 
 ## 🚀 Projektübersicht
-**InventarWorkerService** ist eine plattformübergreifende Inventarisierungslösung für IT-Infrastrukturen, entwickelt mit **.NET 9.0** und **C#**. Das System erfasst Hardware- und Software-Informationen von Windows-, macOS- und Linux-Systemen.
+**InventarWorkerService** ist eine plattformübergreifende Inventarisierungslösung für IT-Infrastrukturen, entwickelt mit **.NET 10.0** und **C# 14.0**. Das System erfasst Hardware- und Software-Informationen von Windows-, macOS- und Linux-Systemen.
 
 ### Kernkomponenten:
 1.  **InventarWorkerService**: Ein ASP.NET Core "Agent", der auf jedem zu überwachenden Rechner läuft. Er erfasst lokale Daten und stellt sie über eine REST-API bereit.
@@ -19,6 +19,8 @@ Das Projekt nutzt die Standard .NET-CLI.
 - **Agent starten**: `dotnet run --project InventarWorkerService/InventarWorkerService.csproj`
 - **Sammler starten**: `dotnet run --project HarvesterWorkerService/HarvesterWorkerService.csproj`
 - **TUI-App starten**: `dotnet run --project InventarViewerApp/InventarViewerApp.csproj`
+- **Coverage messen (CI-Grenze >=70%, Ziel >=80%)**: `dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults`
+- **Veraltete NuGet-Pakete prüfen**: `dotnet list package --outdated`
 - **Dokumentation neu erzeugen (bei API/XML-Doku-Änderungen)**: `docfx docfx.json`
 
 ## 🧪 Testing
@@ -42,9 +44,12 @@ Das Projekt nutzt die Standard .NET-CLI.
   - Erklärende Texte in Kommentaren/Dokumentation: zweisprachig (Deutsch zuerst, dann Englisch) auf CEFR-B2-Niveau.
   - UI-Labels & Logs: Deutsch.
 - **Coding Style**:
+  - Toolchain-Basis: `.NET 10` und `C# 14.0`.
   - Nullable Reference Types sind aktiviert.
   - Asynchrone Programmierung (`async/await`) ist Standard für I/O.
   - Test-Namensschema: `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`.
+  - Testabdeckung in CI: mindestens 70%, Zielbereich ab 80%.
+  - NuGet-Pakete auf aktuellem stabilen Stand halten; Ausnahmen dokumentieren.
   - XML-Dokumentation ist für öffentliche APIs verpflichtend (CS1591 nicht global unterdrücken).
   - Für nicht-öffentliche Member/Variablen sind an didaktisch relevanten Stellen zweisprachige Block- oder Zeilen-Kommentare zu nutzen.
   - Bei API- oder XML-Doku-Änderungen `docfx docfx.json` ausführen.
