@@ -25,14 +25,18 @@ Use C# with 4-space indentation and nullable reference types enabled. Follow exi
 - Types: Use `string?` for optional reference types, `int?` for optional value types
 - Naming: PascalCase for types/methods/properties/constants; camelCase for locals/parameters/_camelCase for private fields
 - Error handling: Catch at boundary layers (API controllers return `StatusCode(500, new { error = ... })`; TUI shows `MessageBox.ErrorQuery`). Use `using` statements on DB connections.
-- XML doc comments: Expected on all public members in service classes
+- XML doc comments: Mandatory for all public API types and members (`<summary>`, `<param>`, `<returns>`, `<exception>` as applicable)
+- Didactic comments: Use bilingual block/line comments for non-public members or variables where XML docs do not apply
 - Async: All I/O-bound public service methods return `Task` or `Task<T>`
+- Documentation language: Explanatory text MUST be bilingual (German block first, English block second) at CEFR B2 readability
 
 ## Testing Guidelines
 Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names such as `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`. Keep unit tests deterministic and independent of machine state. Integration tests require `InventarWorkerService` running at `http://localhost:5000`; remote tests may be network-dependent.
 
 ## Commit & Pull Request Guidelines
 Recent history follows imperative subjects (for example: `Add ...`, `Update ...`, `Refine ...`). Continue with short, present-tense commit titles and narrow scope per commit.
+
+`main` is protected: create a new branch for every feature/fix and merge changes through a pull request targeting `main`.
 
 PRs should include: purpose, touched projects, test evidence (commands run), and any config/API impact. For UI-related changes in `InventarViewerApp`, include screenshots or terminal captures.
 
@@ -59,7 +63,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Key Conventions:**
 
-**Language split:** Code and comments in English; UI labels and log messages in German.
+**Language split:** Explanatory texts in comments/docs MUST be bilingual (German first, then English, CEFR B2). UI labels and log messages remain German.
 
 **Naming:**
 - Types/methods/properties/constants: PascalCase
@@ -83,7 +87,11 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Error handling:** Catch at boundary layers (API controllers return `StatusCode(500, new { error = ... })`; TUI shows `MessageBox.ErrorQuery`). Use `using` statements on DB connections.
 
-**XML doc comments** are expected on all public members in service classes.
+**XML doc comments** are mandatory on all public API members; CS1591 must not be globally suppressed.
+
+**Didactic comments:** Add bilingual block/line comments for non-public members/variables where XML docs do not apply.
+
+**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes.
 
 **Test framework:** MSTest. Use `[TestInitialize]`/`[TestCleanup]` for per-test setup. Assert default property values (empty strings, 0, false, null) explicitly in unit tests.
 

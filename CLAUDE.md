@@ -32,7 +32,16 @@ dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegratio
 
 # Run a single test method
 dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"
+
+# Regenerate documentation when API/XML docs change
+docfx docfx.json
 ```
+
+## Branching Workflow (Mandatory)
+
+- `main` is protected and must not receive direct feature commits.
+- Create a new branch for each feature/fix/change.
+- Merge to `main` only through a pull request with test evidence.
 
 ## Architecture Overview
 
@@ -84,7 +93,11 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 - **ServiceStatusWriter** writes three output types: status (JSON), statistics (JSON), log (text) — identified by service name prefix (default `""`, harvester uses `"harvester-service"`)
 - Worker loop delay: `30_000ms` in `#if DEBUG`, `86_400_000ms` (24h) in Release
 - **Test naming**: `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`
-- **UI language**: German strings in UI labels and log messages; English in code and comments
+- **Language clarity**: Explanatory text in comments/docs must be bilingual (German block first, English block second) at CEFR B2 level
+- **UI language**: German strings in UI labels and log messages
+- **XML docs**: Public API members require complete XML documentation; do not suppress CS1591 globally
+- **Didactic comments**: Add bilingual block/line comments for non-public members/variables where XML docs do not apply
+- **DocFX**: Run `docfx docfx.json` when API signatures or XML docs change
 
 ### Database
 
