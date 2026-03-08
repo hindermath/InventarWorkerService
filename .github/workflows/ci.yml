@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - codex/**
+      - claude/**
+      - gemini/**
+      - copilot/**
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restore
+        run: dotnet restore InventarWorkerService.sln
+
+      - name: Build
+        run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
+
+      - name: Test (Unit)
+        run: |
+          dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj --configuration Release --no-build
+          dotnet test CtrlWorkerCommonTest/CtrlWorkerCommonTest.csproj --configuration Release --no-build
+
+      - name: Test (Coverage)
+        run: |
+          dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
+          dotnet test CtrlWorkerCommonTest/CtrlWorkerCommonTest.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+      - name: Upload Coverage Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults
