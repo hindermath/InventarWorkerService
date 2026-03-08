@@ -20,7 +20,7 @@ Sync Impact Report
   - .specify/templates/plan-template.md: ✅ updated
   - .specify/templates/spec-template.md: ✅ updated
   - .specify/templates/tasks-template.md: ✅ updated
-  - .specify/templates/commands/*.md: ⚠ pending (directory does not exist)
+  - .specify/templates/commands/*.md: ✅ updated
 - Runtime guidance documents reviewed:
   - AGENTS.md: ✅ updated
   - CLAUDE.md: ✅ updated
