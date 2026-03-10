@@ -18,14 +18,14 @@
 
     <ItemGroup>
       <PackageReference Include="CsvHelper" Version="33.1.0" />
-      <PackageReference Include="Dapper" Version="2.1.66" />
-      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
-      <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
-      <PackageReference Include="MongoDB.Driver" Version="3.5.1" />
+      <PackageReference Include="Dapper" Version="2.1.72" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.4" />
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.4" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.4" />
+      <PackageReference Include="MongoDB.Driver" Version="3.7.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-      <PackageReference Include="RestSharp" Version="112.1.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+      <PackageReference Include="RestSharp" Version="114.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.5" />
       <PackageReference Include="Terminal.Gui" Version="1.19.0" />
     </ItemGroup>
 
@@ -53,9 +53,7 @@
             <!-- Forward-Slashes funktionieren auf Windows, Linux und macOS -->
             <DocSiteFiles Include="../_site/**/*.*" />        </ItemGroup>
         <!-- Kopiert die Dateien und behält die Ordnerstruktur bei -->
-        <Copy SourceFiles="@(DocSiteFiles)"
-              DestinationFolder="$(TargetDir)_site\%(RecursiveDir)"
-              SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(DocSiteFiles)" DestinationFolder="$(TargetDir)_site\%(RecursiveDir)" SkipUnchangedFiles="true" />
     </Target>
 
 </Project>

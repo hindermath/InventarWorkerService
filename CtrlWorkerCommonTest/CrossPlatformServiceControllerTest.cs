@@ -62,11 +62,10 @@ public sealed class CrossPlatformServiceControllerTest
         /// EN: Executes the test or helper step Constructor_WithNullServiceName_ThrowsArgumentNullException.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_WithNullServiceName_ThrowsArgumentNullException()
         {
-            // Act
-            var controller = new CrossPlatformServiceController(null);
+            // Act & Assert
+            Assert.ThrowsExactly<ArgumentNullException>(() => new CrossPlatformServiceController(null));
         }
 
         /// <summary>
@@ -74,11 +73,10 @@ public sealed class CrossPlatformServiceControllerTest
         /// EN: Executes the test or helper step Constructor_WithEmptyServiceName_ThrowsArgumentException.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void Constructor_WithEmptyServiceName_ThrowsArgumentException()
         {
-            // Act
-            var controller = new CrossPlatformServiceController(string.Empty);
+            // Act & Assert
+            Assert.ThrowsExactly<ArgumentException>(() => new CrossPlatformServiceController(string.Empty));
         }
 
         /// <summary>
@@ -164,7 +162,7 @@ public sealed class CrossPlatformServiceControllerTest
                 RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ||
                 RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
             {
-                Assert.ThrowsException<InvalidOperationException>(() => controller.StartService());
+                Assert.ThrowsExactly<InvalidOperationException>(() => controller.StartService());
             }
             else
             {
@@ -195,7 +193,7 @@ public sealed class CrossPlatformServiceControllerTest
                 RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ||
                 RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
             {
-                Assert.ThrowsException<InvalidOperationException>(() => controller.StopService());
+                Assert.ThrowsExactly<InvalidOperationException>(() => controller.StopService());
             }
             else
             {
