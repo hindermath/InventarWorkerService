@@ -76,7 +76,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Coverage:** CI coverage must be >=70% and must target >=80%.
 
-**Serialization:** `System.Text.Json` with camelCase naming policy throughout. Do not use Newtonsoft.Json.
+**Serialization:** `System.Text.Json` with camelCase naming policy throughout. Do not use Newtonsoft.Json. All existing usage of `Newtonsoft.Json` MUST be migrated to `System.Text.Json` and the `Newtonsoft.Json` NuGet package MUST be removed from all projects and the solution.
 
 **Dependencies:** Keep NuGet packages on latest stable versions; document any pinning exceptions.
 

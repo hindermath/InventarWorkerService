@@ -1,25 +1,25 @@
 <!--
 Sync Impact Report
-- Version change: 2.0.0 -> 2.1.0
+- Version change: 2.1.0 -> 2.1.1
 - Modified principles:
-  - IV. Testability and TDD Discipline
-    -> IV. Testability, TDD, and Coverage Discipline
-  - Added VII. Toolchain and Dependency Currency
+  - V. Data, Serialization, and Persistence Consistency:
+    Expanded Newtonsoft.Json prohibition to mandate migration of all existing usage
+    to System.Text.Json and removal of the Newtonsoft.Json NuGet package.
 - Added sections:
   - None
 - Removed sections:
   - None
 - Templates requiring updates:
-  - .specify/templates/plan-template.md: ✅ updated
-  - .specify/templates/spec-template.md: ✅ updated
-  - .specify/templates/tasks-template.md: ✅ updated
-  - .specify/templates/commands/*.md: ✅ updated
+  - .specify/templates/plan-template.md: ✅ no change required
+  - .specify/templates/spec-template.md: ✅ no change required
+  - .specify/templates/tasks-template.md: ✅ no change required
+  - .specify/templates/commands/*.md: ✅ no change required
 - Runtime guidance documents reviewed:
   - AGENTS.md: ✅ updated
   - CLAUDE.md: ✅ updated
-  - GEMINI.md: ✅ updated
+  - GEMINI.md: ✅ no Newtonsoft reference present
   - .github/copilot-instructions.md: ✅ updated
-  - README.md: ✅ updated
+  - README.md: ✅ no change required
 - Follow-up TODOs:
   - None
 -->
@@ -74,7 +74,9 @@ risk while keeping improvements measurable.
 
 ### V. Data, Serialization, and Persistence Consistency
 JSON serialization MUST use `System.Text.Json` with camelCase naming policy; new
-usage of `Newtonsoft.Json` is prohibited. Data access MUST use Dapper with explicit SQL
+usage of `Newtonsoft.Json` is prohibited, all existing usage of `Newtonsoft.Json` MUST
+be migrated to `System.Text.Json`, and the `Newtonsoft.Json` NuGet package MUST be
+removed from all projects and the solution. Data access MUST use Dapper with explicit SQL
 strings, `IF NOT EXISTS` guards for schema creation, PascalCase identifiers for
 tables/columns, and indices on frequently queried columns. Status output behavior MUST
 remain compatible with the `ServiceStatusWriter` model (status JSON, statistics JSON,
@@ -146,4 +148,4 @@ versioning for governance:
 Compliance review is mandatory in planning and code review; unresolved violations MUST
 be documented in the implementation plan's complexity tracking section.
 
-**Version**: 2.1.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-08
+**Version**: 2.1.1 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-10
