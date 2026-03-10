@@ -8,22 +8,22 @@ public class MongoDb
     /// <summary>
     /// Gets the fully qualified domain name (FQDN) of the MongoDB server.
     /// </summary>
-    public string MongoDbFqdn { get; set; }
+    public string MongoDbFqdn { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets the port of the MongoDB server.
     /// </summary>
-    public string MongoDbPort { get; set; }
+    public string MongoDbPort { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets the username for the MongoDB connection.
     /// </summary>
-    public string MongoDbUser { get; set; }
+    public string MongoDbUser { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets the password for the MongoDB connection.
     /// </summary>
-    public string MongoDbPassword { get; set; }
+    public string MongoDbPassword { get; set; } = string.Empty;
 
     /// <summary>
     /// Indicates whether the application should write data to MongoDB.

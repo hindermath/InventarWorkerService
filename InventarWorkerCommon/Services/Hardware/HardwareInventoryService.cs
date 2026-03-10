@@ -450,7 +450,9 @@ public class HardwareInventoryService
             return "Unknown";
 
         }
+        #pragma warning disable CS0162
         return "Unknown";
+        #pragma warning restore CS0162
     }
 
     private string GetWindowsProcessorName()
@@ -556,6 +558,7 @@ public class HardwareInventoryService
             }
             #endregion
 
+            #pragma warning disable CS0162
             #region GetCpuUsagePerUniverseCpuUsage
             return GetUniverseCpuUsage();
             #endregion
@@ -563,6 +566,7 @@ public class HardwareInventoryService
             #region GetEnvirionmentCpuUsage
             return GetEnvironmentCpuUsage();
             #endregion
+            #pragma warning restore CS0162
         }
         catch (Exception ex)
         {

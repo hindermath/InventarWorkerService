@@ -17,7 +17,7 @@ public sealed class CrossPlatformServiceControllerTest
     [TestClass]
     public class CrossPlatformServiceControllerTests
     {
-        private CrossPlatformServiceController _controller;
+        private CrossPlatformServiceController? _controller;
         private const string TestServiceName = "TestService";
         private const string InvalidServiceName = "NonExistentService";
 
@@ -40,7 +40,7 @@ public sealed class CrossPlatformServiceControllerTest
         public void TestCleanup()
         {
             // Cleanup after each test
-            _controller = null;
+            _controller = null!;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ public sealed class CrossPlatformServiceControllerTest
         public void Constructor_WithNullServiceName_ThrowsArgumentNullException()
         {
             // Act & Assert
-            Assert.ThrowsExactly<ArgumentNullException>(() => new CrossPlatformServiceController(null));
+            Assert.ThrowsExactly<ArgumentNullException>(() => new CrossPlatformServiceController(null!));
         }
 
         /// <summary>

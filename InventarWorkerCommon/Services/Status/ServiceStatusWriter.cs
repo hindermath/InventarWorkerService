@@ -208,7 +208,7 @@ public class ServiceStatusWriter
                type == typeof(DateTime) ||
                type == typeof(decimal) ||
                type.IsEnum ||
-               (Nullable.GetUnderlyingType(type) != null && IsSimpleType(Nullable.GetUnderlyingType(type)));
+               (Nullable.GetUnderlyingType(type) != null && IsSimpleType(Nullable.GetUnderlyingType(type)!));
     }
     /// <summary>
     /// Serializes the provided service status to JSON format and writes it to a predefined "status.json" file
