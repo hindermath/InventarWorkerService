@@ -69,3 +69,9 @@ Das Projekt nutzt die Standard .NET-CLI.
 - **Datenbanken**: SQLite, PostgreSQL, MongoDB.
 - **Interessen**: C64-Entwicklung (cc65, ACME), VST3-Plugins, Arbeitsrecht (Betriebsrat).
 - **Kommunikation**: Deutsch (Du-Form).
+
+## 📊 Projektstatistik
+
+- `docs/project-statistics.md` ist das fortlaufende Statistik-Register des Repositories.
+- Die Datei muss nach jeder abgeschlossenen Spec-Kit-Implementierungsphase, nach jeder agentischen Änderung am Repository und auf explizite Anforderung aktualisiert werden.
+- Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete sowie die konservative Handarbeits-Basis von 80 Codezeilen pro Tag für einen erfahrenen Entwickler enthalten.

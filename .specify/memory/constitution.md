@@ -1,25 +1,27 @@
 <!--
 Sync Impact Report
-- Version change: 2.0.0 -> 2.1.0
+- Version change: 2.1.0 -> 2.2.0
+- Bump rationale:
+  - MINOR: Added a mandatory project-statistics ledger with update triggers,
+    required metrics, and a conservative manual-effort baseline for
+    AI-assisted/spec-driven delivery.
 - Modified principles:
-  - IV. Testability and TDD Discipline
-    -> IV. Testability, TDD, and Coverage Discipline
-  - Added VII. Toolchain and Dependency Currency
-- Added sections:
   - None
+- Added sections:
+  - Development Workflow and Quality Gates -> Statistical Documentation
 - Removed sections:
   - None
 - Templates requiring updates:
   - .specify/templates/plan-template.md: ✅ updated
-  - .specify/templates/spec-template.md: ✅ updated
+  - .specify/templates/spec-template.md: ✅ reviewed; no change required
   - .specify/templates/tasks-template.md: ✅ updated
-  - .specify/templates/commands/*.md: ✅ updated
+  - .specify/templates/commands/*.md: ✅ reviewed; no change required
 - Runtime guidance documents reviewed:
   - AGENTS.md: ✅ updated
   - CLAUDE.md: ✅ updated
   - GEMINI.md: ✅ updated
   - .github/copilot-instructions.md: ✅ updated
-  - README.md: ✅ updated
+  - docs/project-statistics.md: ✅ added
 - Follow-up TODOs:
   - None
 -->
@@ -133,6 +135,31 @@ cost.
    compliance is reviewed before merge.
 6. Perform a final documentation and coverage compliance review before merge.
 
+### Statistical Documentation
+
+`docs/project-statistics.md` is the mandatory, living statistical ledger for the
+repository. It MUST be updated whenever one of the following happens:
+
+1. A Spec-Kit implementation phase is completed or materially re-scoped.
+2. An agent-driven work package changes repository content (code, tests, specs,
+   plans, tasks, governance, or operational docs).
+3. A contributor explicitly requests a statistics refresh.
+
+Every update MUST record, at minimum:
+
+- branch or phase identifier and current status,
+- observable git-based work window (first and last date, commit days where possible),
+- current or change-based counts for production code, test code, and
+  documentation,
+- the main work packages or delivered artefacts,
+- whether the numbers come from committed history, the working tree, or both,
+- a conservative manual-effort baseline using **80 code lines per day** for an
+  experienced developer.
+
+Manual-effort estimates for a small team MAY be derived from that baseline, but
+the formula and assumptions MUST be stated explicitly. Documentation effort is
+tracked separately and MUST NOT be hidden inside the code-line estimate.
+
 ## Governance
 
 This constitution is authoritative for repository engineering practices and supersedes
@@ -146,4 +173,7 @@ versioning for governance:
 Compliance review is mandatory in planning and code review; unresolved violations MUST
 be documented in the implementation plan's complexity tracking section.
 
-**Version**: 2.1.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-08
+Use `docs/project-statistics.md` for the living project-statistics ledger and
+manual-effort baseline tracking.
+
+**Version**: 2.2.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-21

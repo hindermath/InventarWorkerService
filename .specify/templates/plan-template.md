@@ -39,6 +39,7 @@
 - Testing/Coverage Gate: Red-Green-Refactor tasks are identified and coverage plan enforces >=70% minimum with >=80% target.
 - Dependency Currency Gate: NuGet update strategy is defined; package pinning exceptions are documented with review date.
 - Data Contract Gate: `System.Text.Json` camelCase, Dapper SQL conventions, and schema/index rules are preserved.
+- Statistical Documentation Gate: impact on `docs/project-statistics.md` is identified and a ledger update is planned when the change lands.
 
 ## Project Structure
 

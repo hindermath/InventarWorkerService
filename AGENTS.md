@@ -42,6 +42,12 @@ Recent history follows imperative subjects (for example: `Add ...`, `Update ...`
 
 PRs should include: purpose, touched projects, test evidence (commands run), and any config/API impact. For UI-related changes in `InventarViewerApp`, include screenshots or terminal captures.
 
+## Project Statistics
+
+- Maintain `docs/project-statistics.md` as the living statistics ledger for the repository.
+- Update the file after each completed Spec-Kit implementation phase, after each agent-driven repository change, or when a refresh is explicitly requested.
+- Each update must record branch or phase, observable work window, production/test/documentation line counts, main work packages, and the conservative manual baseline of 80 code lines per day for an experienced developer.
+
 ## Copilot Instructions
 This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
 

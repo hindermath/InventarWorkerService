@@ -120,3 +120,9 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 - New API endpoints in `InventarWorkerService` → add controller action + integration test
 - New DB tables/views → extend `SqliteDbService` with clearly separated methods + add indices
 - New services → place under `InventarWorkerCommon/Services/` and register via DI in `Program.cs`
+
+## Project Statistics
+
+- Maintain `docs/project-statistics.md` as the living statistics ledger for the repository.
+- Update the file after each completed Spec-Kit implementation phase, after each agent-driven repository change, or when a refresh is explicitly requested.
+- Each update must capture branch or phase, observable work window, production/test/documentation line counts, main work packages, and the conservative manual baseline of 80 code lines per day for an experienced developer.
