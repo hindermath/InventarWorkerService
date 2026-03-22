@@ -95,7 +95,7 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 - **Nullable reference types** are enabled throughout; use `string?` where values may be absent
 - **Toolchain baseline**: .NET 10 with C# 14.0
 - **Async/await** for all I/O-bound operations; public service methods return `Task` or `Task<T>`
-- **System.Text.Json** with camelCase naming policy — avoid Newtonsoft.Json
+- **System.Text.Json** with camelCase naming policy — avoid Newtonsoft.Json; all existing `Newtonsoft.Json` usage MUST be migrated to `System.Text.Json` and the package removed from all projects
 - **Dependency currency**: keep NuGet packages on latest stable versions; document any pinning exceptions
 - **Dapper + Microsoft.Data.Sqlite** for local persistence; SQL written as raw strings with `IF NOT EXISTS`, indices on frequently queried columns
 - **ServiceStatusWriter** writes three output types: status (JSON), statistics (JSON), log (text) — identified by service name prefix (default `""`, harvester uses `"harvester-service"`)

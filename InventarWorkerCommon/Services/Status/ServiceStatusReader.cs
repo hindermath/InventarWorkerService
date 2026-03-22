@@ -10,7 +10,7 @@ namespace InventarWorkerCommon.Services.Status;
 /// </summary>
 public class ServiceStatusReader
 {
-    private readonly string _statusDirectory;
+    private readonly string? _statusDirectory;
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
@@ -44,6 +44,7 @@ public class ServiceStatusReader
     {
         try
         {
+            if (_statusDirectory is null) return null;
             var statusFile = System.IO.Path.Combine(_statusDirectory, "status.json");
             if (!File.Exists(statusFile)) return null;
             
@@ -69,6 +70,7 @@ public class ServiceStatusReader
     {
         try
         {
+            if (_statusDirectory is null) return null;
             var statsFile = System.IO.Path.Combine(_statusDirectory, "statistics.json");
             if (!File.Exists(statsFile)) return null;
             
@@ -93,6 +95,7 @@ public class ServiceStatusReader
     {
         try
         {
+            if (_statusDirectory is null) return new List<string>();
             var logFile = System.IO.Path.Combine(_statusDirectory, "service.log");
             if (!File.Exists(logFile)) return new List<string>();
             

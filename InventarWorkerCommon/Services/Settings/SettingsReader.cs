@@ -11,7 +11,7 @@ namespace InventarWorkerCommon.Services.Settings;
 /// </summary>
 public class SettingsReader
 {
-    private readonly string _statusDirectory;
+    private readonly string? _statusDirectory;
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
@@ -45,6 +45,7 @@ public class SettingsReader
     {
         try
         {
+            if (_statusDirectory is null) return null;
             var settingsFile = Path.Combine(_statusDirectory, "settings.json");
             if (!File.Exists(settingsFile)) return null;
 

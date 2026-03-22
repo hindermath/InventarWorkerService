@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.0" />
+      <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.4" />
       <PackageReference Include="Universe.CpuUsage" Version="2.2.778.893" />
     </ItemGroup>
 

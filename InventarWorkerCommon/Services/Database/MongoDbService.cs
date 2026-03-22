@@ -12,8 +12,8 @@ public class MongoDbService
 {
     private readonly string _connectionString;
     private readonly IMongoClient _mongoClient;
-    private IMongoDatabase _mongoSoftwareDatabase;
-    private IMongoDatabase _mongoHardwareDatabase;
+    private IMongoDatabase _mongoSoftwareDatabase = null!;
+    private IMongoDatabase _mongoHardwareDatabase = null!;
 
 
     /// <summary>

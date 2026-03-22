@@ -202,7 +202,7 @@ public class CrossPlatformServiceController
             
             if (process?.ExitCode != 0)
             {
-                var error = process.StandardError.ReadToEnd();
+                var error = process?.StandardError.ReadToEnd();
                 throw new InvalidOperationException($"Befehl fehlgeschlagen: {error}");
             }
         }

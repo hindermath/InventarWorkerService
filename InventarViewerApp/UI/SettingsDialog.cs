@@ -280,27 +280,27 @@ namespace InventarViewerApp.UI
                 _mongoDb.MongoDbFqdn = MongoDbFqdn;
                 _mongoDb.MongoDbPort = MongoDbPort;
                 _mongoDb.MongoDbUser = MongoDbUser;
-                _mongoDb.MongoDbPassword = MongoDbPassword;
+                _mongoDb.MongoDbPassword = MongoDbPassword ?? string.Empty;
                 _mongoDb.WriteEnabled = mongoWriteCheck.Checked;
 
-                PgSqlDbFqdn = pgSqlFqdnText.Text.ToString();
-                PgSqlDbPort = pgSqlPortText.Text.ToString();
-                PgSqlDbName = pgSqlDbText.Text.ToString();
+                PgSqlDbFqdn = pgSqlFqdnText.Text.ToString() ?? string.Empty;
+                PgSqlDbPort = pgSqlPortText.Text.ToString() ?? string.Empty;
+                PgSqlDbName = pgSqlDbText.Text.ToString() ?? string.Empty;
                 if (pgSqlAuthCheck.Checked)
                 {
-                    PgSqlUser = pgSqlUserText.Text.ToString();
-                    PgSqlPassword = pgSqlPassText.Text.ToString();
+                    PgSqlUser = pgSqlUserText.Text.ToString() ?? string.Empty;
+                    PgSqlPassword = pgSqlPassText.Text.ToString() ?? string.Empty;
                 }
                 else
                 {
                     PgSqlUser = string.Empty;
                     PgSqlPassword = string.Empty;
                 }
-                _pgSqlDb.PgSqlDbFqdn = PgSqlDbFqdn;
-                _pgSqlDb.PgSqlDbPort = PgSqlDbPort;
-                _pgSqlDb.PgSqlDbName = PgSqlDbName;
-                _pgSqlDb.PgSqlUser = PgSqlUser;
-                _pgSqlDb.PgSqlPassword = PgSqlPassword;
+                _pgSqlDb.PgSqlDbFqdn = PgSqlDbFqdn ?? string.Empty;
+                _pgSqlDb.PgSqlDbPort = PgSqlDbPort ?? string.Empty;
+                _pgSqlDb.PgSqlDbName = PgSqlDbName ?? string.Empty;
+                _pgSqlDb.PgSqlUser = PgSqlUser ?? string.Empty;
+                _pgSqlDb.PgSqlPassword = PgSqlPassword ?? string.Empty;
                 _pgSqlDb.WriteEnabled = pgSqlWriteCheck.Checked;
 
                 _settings.ClientApi = _clientApi;

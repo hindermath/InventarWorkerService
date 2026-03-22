@@ -10,7 +10,7 @@ namespace CtrlWorkerCommonTest;
 [TestClass]
 public class CrossPlatformServiceControllerPlatformSpecificTest
 {
-    private CrossPlatformServiceController _controller;
+    private CrossPlatformServiceController? _controller;
     private const string TestServiceName = "TestService";
 
     /// <summary>
@@ -30,7 +30,7 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
     [TestCleanup]
     public void TestCleanup()
     {
-        _controller = null;
+        _controller = null!;
     }
 
     /// <summary>
