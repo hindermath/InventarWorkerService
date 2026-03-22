@@ -185,3 +185,4 @@ und auf explizite Anforderung fortgeschrieben.
 |---|---|---|
 | 2026-03-21 | Erstanlage | Basisstatistik fuer `InventarWorkerService` angelegt; Entwicklungsphasen aus der Git-Historie rekonstruiert und Constitution, Templates sowie Agent-Dateien auf Pflegepflicht synchronisiert. |
 | 2026-03-22 | Methodik-Update fuer Handarbeits-Schaetzung | Die Statistik rechnet Handarbeit jetzt auf Basis von Produktionscode, Testcode und Dokumentation gemeinsam; zusaetzlich werden Monatswerte auf Basis von 21.5 Arbeitstagen pro Monat sowie TVoeD-Kalenderwerte mit 30 Urlaubstagen pro Jahr ausgewiesen. |
+| 2026-03-22 | Governance-Synchronisierung zur Statistiklogik | Constitution sowie die gemeinsamen Agent-Hinweise (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) wurden auf die neue Statistiklogik synchronisiert: Handarbeits-Schaetzung umfasst nun Code, Tests und Dokumentation gemeinsam; Monats- und TVoeD-Annahmen muessen explizit genannt werden. |

@@ -46,7 +46,7 @@ PRs should include: purpose, touched projects, test evidence (commands run), and
 
 - Maintain `docs/project-statistics.md` as the living statistics ledger for the repository.
 - Update the file after each completed Spec-Kit implementation phase, after each agent-driven repository change, or when a refresh is explicitly requested.
-- Each update must record branch or phase, observable work window, production/test/documentation line counts, main work packages, and the conservative manual baseline of 80 code lines per day for an experienced developer.
+- Each update must record branch or phase, observable work window, production/test/documentation line counts, main work packages, and the conservative manual baseline of 80 manually created lines per workday across code, tests, and documentation. When effort is converted into months, use explicit assumptions such as 21.5 workdays per month and, if applicable, 30 vacation days per year under a TVoeD-style calendar.
 
 ## Copilot Instructions
 This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.

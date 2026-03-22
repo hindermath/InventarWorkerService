@@ -74,4 +74,4 @@ Das Projekt nutzt die Standard .NET-CLI.
 
 - `docs/project-statistics.md` ist das fortlaufende Statistik-Register des Repositories.
 - Die Datei muss nach jeder abgeschlossenen Spec-Kit-Implementierungsphase, nach jeder agentischen Änderung am Repository und auf explizite Anforderung aktualisiert werden.
-- Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete sowie die konservative Handarbeits-Basis von 80 Codezeilen pro Tag für einen erfahrenen Entwickler enthalten.
+- Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete sowie die konservative Handarbeits-Basis von 80 manuell erstellten Zeilen pro Arbeitstag über Code, Tests und Dokumentation hinweg enthalten. Wenn daraus Monatswerte abgeleitet werden, sind die Annahmen explizit zu nennen, zum Beispiel 21,5 Arbeitstage pro Monat und optional 30 Urlaubstage pro Jahr in einer TVöD-ähnlichen Kalenderannahme.
