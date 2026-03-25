@@ -72,6 +72,10 @@ Das Projekt nutzt die Standard .NET-CLI.
 
 ## 📊 Projektstatistik
 
+- Wenn sich gemeinsam genutzte KI-Agenten-Hinweise, Workflow-Konventionen oder die Statistikmethodik aendern, muessen `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` und `.github/copilot-instructions.md` gemeinsam geprueft und bei Bedarf im selben Change aktualisiert werden.
+- Gemeinsame Vorgaben duerfen nicht nur in einer dieser Dateien geaendert werden; beabsichtigte agentenspezifische Abweichungen sind im selben Change ausdruecklich zu dokumentieren.
 - `docs/project-statistics.md` ist das fortlaufende Statistik-Register des Repositories.
 - Die Datei muss nach jeder abgeschlossenen Spec-Kit-Implementierungsphase, nach jeder agentischen Änderung am Repository und auf explizite Anforderung aktualisiert werden.
-- Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete sowie die konservative Handarbeits-Basis von 80 manuell erstellten Zeilen pro Arbeitstag über Code, Tests und Dokumentation hinweg enthalten. Wenn daraus Monatswerte abgeleitet werden, sind die Annahmen explizit zu nennen, zum Beispiel 21,5 Arbeitstage pro Monat und optional 30 Urlaubstage pro Jahr in einer TVöD-ähnlichen Kalenderannahme.
+- Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete, die konservative Handarbeits-Basis von 80 manuell erstellten Zeilen pro Arbeitstag ueber Code, Tests und Dokumentation hinweg sowie die repo-spezifische Thorsten-Solo-Vergleichsbasis von 100 Zeilen pro Arbeitstag fuer diese native .NET-Loesung enthalten.
+- Wenn daraus Monatswerte abgeleitet werden, sind die Annahmen explizit zu nennen, zum Beispiel 21,5 Arbeitstage pro Monat und optional 30 Urlaubstage pro Jahr in einer TVoeD-aehnlichen Kalenderannahme.
+- Beschleunigungsangaben muessen beide Referenzen gegen sichtbare Git-Aktivtage stellen und ausdruecklich als repo-weiten Verdichtungsfaktor statt als Stoppuhrmessung kennzeichnen.

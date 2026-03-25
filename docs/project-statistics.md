@@ -1,6 +1,6 @@
 # Projektstatistik InventarWorkerService
 
-Stand: 2026-03-22
+Stand: 2026-03-25
 
 ## Zweck und Pflege
 
@@ -34,6 +34,31 @@ und auf explizite Anforderung fortgeschrieben.
 - Abgeleitete Formeln in dieser Datei:
   Einzelentwickler `((Produktionscode + Testcode + Dokumentation) / 80)`;
   3er-Team `Einzelentwickler / 3 * 1.2` mit 20 % Koordinationsaufschlag.
+- Zusatzannahmen fuer die erfahrungsadjustierte Thorsten-Referenz:
+  - Allgemeiner Expertenaufschlag `* 1.25`, weil Thorsten seit Februar 1985
+    mehr als 40 Jahre Softwareentwicklungspraxis einbringt und seit 2001 mit
+    .NET/C# arbeitet.
+  - Kein zusaetzlicher Legacy-Portierungsaufschlag, weil
+    `InventarWorkerService` kein Pascal-/Turbo-Vision-Port ist, sondern eine
+    native .NET-Loesung.
+  - Daraus ergibt sich fuer `InventarWorkerService` eine
+    erfahrungsadjustierte Solo-Referenz von `80 * 1.25 = 100` manuell
+    erstellten Zeilen pro Arbeitstag.
+- Beschleunigungsfaktoren vergleichen Referenz-Arbeitstage mit sichtbaren
+  `Git-Aktivtagen`. Sie sind als repo-weiter Output-zu-Aktivtag-Indikator
+  formuliert und keine exakte Zeiterfassung.
+
+## Erfahrungsprofil und Beschleunigungsmodell
+
+- Referenzprofil fuer die erfahrungsadjustierte Zweitrechnung:
+  - mehr als 40 Jahre Softwareentwicklung seit Februar 1985
+  - langjaehrige .NET-/C#-Praxis seit 2001
+  - hier ohne zusaetzlichen Pascal-/Turbo-Vision-Domainaufschlag
+- Neben der konservativen 80-Zeilen-Referenz fuehrt das Repository daher eine
+  zweite Thorsten-Solo-Referenz mit `100 Zeilen/Arbeitstag`.
+- Die Beschleunigungsfaktoren beantworten die Frage, wie stark der sichtbare
+  Lieferumfang gegenueber einer klassischen, manuell dominierten .NET-
+  Entwicklung verdichtet wurde.
 
 ## Gesamtstand des Repositories
 
@@ -53,8 +78,13 @@ und auf explizite Anforderung fortgeschrieben.
 | Erfahrener Entwickler, konservative Untergrenze | 219.0 Arbeitstage |
 | Erfahrener Entwickler, brutto | 10.2 Arbeitsmonate (21.5 Tage/Monat) |
 | Erfahrener Entwickler, TVoeD-Annahme | 11.5 Kalendermonate bzw. 1.0 Jahre |
+| Thorsten solo, erfahrungsadjustierte Untergrenze | 175.2 Arbeitstage |
+| Thorsten solo, brutto | 8.1 Arbeitsmonate (21.5 Tage/Monat) |
+| Thorsten solo, TVoeD-Annahme | 9.2 Kalendermonate bzw. 0.8 Jahre |
 | Kleines Team (3 Personen, +20 % Koordination), Untergrenze | 87.6 Arbeitstage |
 | Kleines Team (3 Personen, +20 % Koordination), TVoeD-Annahme | 4.6 Kalendermonate |
+| Repo-weiter Beschleunigungsfaktor vs. konservative Referenz | 2.1x (219.0 / 102 Git-Aktivtage) |
+| Repo-weiter Beschleunigungsfaktor vs. Thorsten-Referenz | 1.7x (175.2 / 102 Git-Aktivtage) |
 
 ## Branch-Ueberblick
 
@@ -175,6 +205,12 @@ und auf explizite Anforderung fortgeschrieben.
 - Unter TVoeD-Annahme mit 30 Urlaubstagen pro Jahr entspricht das fuer einen
   erfahrenen Entwickler ca. 11.5 Kalendermonaten bzw. 1.0 Arbeitsjahren; fuer
   ein 3er-Team mit 20 % Koordinationsaufschlag ca. 4.6 Kalendermonaten.
+- Unter Einbezug von Thorstens Erfahrungsprofil sinkt die klassische
+  Solo-Referenz fuer `InventarWorkerService` auf ca. 175.2 Arbeitstage bzw.
+  9.2 TVoeD-Kalendermonate.
+- Gegen die sichtbaren 102 Git-Aktivtage ergibt sich damit ein repo-weiter
+  Beschleunigungsfaktor von ca. 2.1x gegen die konservative Referenz und
+  ca. 1.7x gegen die erfahrungsadjustierte Thorsten-Referenz.
 - Die Historie zeigt einen langen manuellen Aufbau mit spaeter Verdichtung durch
   Governance-/Spec-Kit-Rollout. Die Statistik macht damit sowohl die klassische
   Entwicklungsmasse als auch den spaeteren agentischen Strukturgewinn sichtbar.
@@ -187,3 +223,4 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-03-22 | Methodik-Update fuer Handarbeits-Schaetzung | Die Statistik rechnet Handarbeit jetzt auf Basis von Produktionscode, Testcode und Dokumentation gemeinsam; zusaetzlich werden Monatswerte auf Basis von 21.5 Arbeitstagen pro Monat sowie TVoeD-Kalenderwerte mit 30 Urlaubstagen pro Jahr ausgewiesen. |
 | 2026-03-22 | Governance-Synchronisierung zur Statistiklogik | Constitution sowie die gemeinsamen Agent-Hinweise (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) wurden auf die neue Statistiklogik synchronisiert: Handarbeits-Schaetzung umfasst nun Code, Tests und Dokumentation gemeinsam; Monats- und TVoeD-Annahmen muessen explizit genannt werden. |
 | 2026-03-22 | GitHub-Codex-Spec-Kit-Skills installiert | Die lokale Codex-Skill-Struktur `.agents/skills/` mit den neun `speckit-*`-Skills wurde aus TuiVision in InventarWorkerService uebernommen, damit die Spec-Kit-Kommandos auch in diesem Repository direkt als Skills verfuegbar sind. |
+| 2026-03-25 | Erfahrungsadjustierte Beschleunigungsrechnung erweitert | Die Statistik fuehrt jetzt zusaetzlich zur konservativen 80-Zeilen-Referenz eine explizite Thorsten-Solo-Referenz ohne Pascal-Legacy-Aufschlag; dieselbe Methodik wurde in `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` und `.github/copilot-instructions.md` synchronisiert. |
