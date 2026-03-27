@@ -1,10 +1,10 @@
 <!--
 Sync Impact Report
-- Version change: 2.2.0 -> 2.3.0
+- Version change: 2.3.0 -> 2.4.0
 - Bump rationale:
-  - MINOR: Expanded the statistical documentation policy so manual-effort
-    estimates now include production code, test code, and documentation
-    together, and added explicit month and TVoeD calendar assumptions.
+  - MINOR: Added numbered Spec-Kit branch support plus repo-wide assembly
+    version governance via `Directory.Build.props`, including the rule that the
+    feature/branch number becomes the canonical PR number for `Minor`.
 - Modified principles:
   - None
 - Added sections:
@@ -86,9 +86,11 @@ Rationale: uniform contracts prevent drift between agent, harvester, viewer, and
 ### VI. Branching and Pull Request Governance (NON-NEGOTIABLE)
 The `main` branch is protected and MUST NOT receive direct feature commits. Every
 feature, fix, or constitutional amendment MUST be implemented on a newly created branch
-and merged through a pull request targeting `main`. Pull requests MUST state purpose,
-touched projects, test evidence, and config/API impact; UI-impacting changes in
-`InventarViewerApp` MUST include a screenshot or terminal capture.
+and merged through a pull request targeting `main`. Branches MAY use either the
+existing topic naming or the numbered Spec-Kit form `NNN-short-description`. Pull
+requests MUST state purpose, touched projects, test evidence, and config/API impact;
+UI-impacting changes in `InventarViewerApp` MUST include a screenshot or terminal
+capture.
 Rationale: branch protection and documented review gates are mandatory for controlled
 integration.
 
@@ -105,6 +107,12 @@ cost.
 - C# naming conventions (`PascalCase`, `camelCase`, `_camelCase`) and nullable
   reference types MUST remain enabled.
 - Toolchain baseline MUST be `.NET 10` with `LangVersion` set to `14.0`.
+- `Directory.Build.props` MUST keep repo-wide `Version`, `AssemblyVersion`, and
+  `FileVersion` aligned as `Major.Minor.Patch.Build`. On numbered Spec-Kit
+  branches, `Minor` = numerically interpreted feature/branch number as
+  canonical PR number for versioning (`002` -> `2`), `Patch` = commit count in
+  that feature/PR branch after the current change is committed, and `Build` =
+  manual build counter incremented before every `dotnet build` or `dotnet test`.
 - Runtime model MUST stay cross-platform: Windows Service (`AddWindowsService`),
   systemd (`AddSystemd`), and launchd compatibility.
 - Worker loop timing MUST remain `30_000ms` in debug and `86_400_000ms` in release,
@@ -179,4 +187,4 @@ be documented in the implementation plan's complexity tracking section.
 Use `docs/project-statistics.md` for the living project-statistics ledger and
 manual-effort baseline tracking.
 
-**Version**: 2.3.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-22
+**Version**: 2.4.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-27
