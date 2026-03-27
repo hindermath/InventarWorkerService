@@ -35,6 +35,14 @@ docfx docfx.json
 - `main` is protected and must not receive direct feature commits.
 - Create a new branch for each feature/fix/change.
 - Merge to `main` only through pull requests with test evidence.
+- Work branches may use either the existing topic naming or the numbered Spec-Kit form `NNN-short-description`.
+
+`Directory.Build.props` carries the repo-wide `Version`, `AssemblyVersion`, and `FileVersion` values for all projects using `Major.Minor.Patch.Build`:
+- `Minor` = current Spec-Kit feature/branch number, interpreted numerically as the canonical PR number for versioning (`002` -> `2`) and used immediately even before a GitHub PR exists
+- `Patch` = current commit count in that feature/PR branch (after committing the current change)
+- `Build` = manual build counter incremented before every `dotnet build` or `dotnet test`
+
+On numbered Spec-Kit branches, align those three version fields before pushing.
 
 ## Architecture
 

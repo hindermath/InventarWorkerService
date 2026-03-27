@@ -1,6 +1,6 @@
 # Projektstatistik InventarWorkerService
 
-Stand: 2026-03-25
+Stand: 2026-03-27
 
 ## Zweck und Pflege
 
@@ -95,6 +95,7 @@ und auf explizite Anforderung fortgeschrieben.
 
 | Branch/Ref | Letzte sichtbare Aktivitaet | Einordnung |
 |---|---|---|
+| `002-spec-kit-versioning` | 2026-03-27 | Arbeitsbranch fuer repo-weite Versionslogik auf Basis nummerierter Spec-Kit-Branches |
 | `main` | 2026-03-08 | Integrationsbranch |
 | `INV-7` | sichtbar lokal | lokaler Arbeitsbranch |
 | `chore/constitution-2.1-compliance` | sichtbar lokal | lokaler Governance-Branch |
@@ -200,6 +201,34 @@ und auf explizite Anforderung fortgeschrieben.
   - 32.2 Arbeitstage fuer ein 3er-Team (+20 % Koordination), entsprechend ca.
     1.7 TVoeD-Kalendermonaten
 
+### 5. Branch `002-spec-kit-versioning`
+
+- Status: in Arbeit auf Feature-Branch `002-spec-kit-versioning`
+- Beobachtbarer Zeitraum: 2026-03-27 bis 2026-03-27
+- Commit-Bild: aktueller Working-Tree-Aenderungssatz vor dem ersten Branch-Commit
+- Grundlegende Arbeiten: nummerierte Spec-Kit-Branches als zulaessige
+  Arbeitsform ergaenzt, repo-weite Versionslogik in `Directory.Build.props`
+  eingefuehrt und die gemeinsame Agent-/Constitution-Governance darauf
+  synchronisiert
+- Git-/Arbeitsbaum-Aenderungsvolumen fuer den aktuellen Aenderungssatz:
+  - Produktionscode: 0 Zeilen
+  - Testcode: 0 Zeilen
+  - Dokumentation und Governance: 38 Zeilen netto
+  - Build-/Versionsmetadaten: 3 Zeilen in `Directory.Build.props`
+- Konservative Handarbeits-Basis fuer Code und Dokumentation:
+  - 41 Zeilen netto gesamt
+  - 0.5 Arbeitstage fuer einen erfahrenen Entwickler
+  - 3.9 Stunden auf TVoeD-Basis (`0.5 * 7.8`)
+  - 0.0 Arbeitsmonate brutto bzw. 0.0 TVoeD-Kalendermonate
+- Thorsten-Solo-Referenz:
+  - 0.4 Arbeitstage
+  - 3.1 Stunden auf TVoeD-Basis (`0.4 * 7.8`)
+  - 0.0 Arbeitsmonate brutto bzw. 0.0 TVoeD-Kalendermonate
+- Blended Repository Speedup gegen sichtbare 1 Git-Aktivtag fuer diesen
+  Aenderungssatz:
+  - 0.5x gegen die konservative 80-Zeilen-Referenz
+  - 0.4x gegen die Thorsten-Solo-Referenz mit 100 Zeilen pro Arbeitstag
+
 ## Einordnung der KI-/Spec-Kit-Wirkung
 
 - Die beobachtbare manuelle Gesamtbasis liegt bereits bei 17522 Zeilen
@@ -224,6 +253,7 @@ und auf explizite Anforderung fortgeschrieben.
 
 | Datum | Ausloeser | Eintrag |
 |---|---|---|
+| 2026-03-27 | Branch `002-spec-kit-versioning` | Repo-weite Versionslogik fuer nummerierte Spec-Kit-Branches eingefuehrt: `Directory.Build.props` traegt jetzt `Version`, `AssemblyVersion` und `FileVersion`; die gemeinsame Agent-Governance und die Constitution wurden auf `Minor = Spec-Kit-Feature-/Branch-Nummer als kanonische PR-Nummer` synchronisiert. |
 | 2026-03-21 | Erstanlage | Basisstatistik fuer `InventarWorkerService` angelegt; Entwicklungsphasen aus der Git-Historie rekonstruiert und Constitution, Templates sowie Agent-Dateien auf Pflegepflicht synchronisiert. |
 | 2026-03-22 | Methodik-Update fuer Handarbeits-Schaetzung | Die Statistik rechnet Handarbeit jetzt auf Basis von Produktionscode, Testcode und Dokumentation gemeinsam; zusaetzlich werden Monatswerte auf Basis von 21.5 Arbeitstagen pro Monat sowie TVoeD-Kalenderwerte mit 30 Urlaubstagen pro Jahr ausgewiesen. |
 | 2026-03-22 | Governance-Synchronisierung zur Statistiklogik | Constitution sowie die gemeinsamen Agent-Hinweise (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) wurden auf die neue Statistiklogik synchronisiert: Handarbeits-Schaetzung umfasst nun Code, Tests und Dokumentation gemeinsam; Monats- und TVoeD-Annahmen muessen explizit genannt werden. |

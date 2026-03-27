@@ -39,6 +39,16 @@ Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names 
 Recent history follows imperative subjects (for example: `Add ...`, `Update ...`, `Refine ...`). Continue with short, present-tense commit titles and narrow scope per commit.
 
 `main` is protected: create a new branch for every feature/fix and merge changes through a pull request targeting `main`.
+Branches may use either the existing topic form or the numbered Spec-Kit form `NNN-short-description` when the Spec-Kit workflow creates the branch.
+
+## Build Versioning
+
+- Repo-wide assembly version fields live in `Directory.Build.props` and MUST keep `Version`, `AssemblyVersion`, and `FileVersion` aligned for all projects.
+- The scheme is `Major.Minor.Patch.Build`.
+- `Minor` = current Spec-Kit feature/branch number, interpreted numerically as the canonical PR number for versioning (`002` -> `2`) and used immediately even before a GitHub PR exists.
+- `Patch` = current commit count in that feature/PR branch after committing the current change.
+- `Build` = manual build counter incremented by the bot before every `dotnet build` or `dotnet test`.
+- Before any commit or push on a numbered Spec-Kit branch, the repo-wide version fields in `Directory.Build.props` MUST be aligned to this scheme.
 
 PRs should include: purpose, touched projects, test evidence (commands run), and any config/API impact. For UI-related changes in `InventarViewerApp`, include screenshots or terminal captures.
 
