@@ -1,6 +1,6 @@
 # Projektstatistik InventarWorkerService
 
-Stand: 2026-03-22
+Stand: 2026-03-27
 
 ## Zweck und Pflege
 
@@ -28,12 +28,41 @@ und auf explizite Anforderung fortgeschrieben.
   Entwickler.
 - Umrechnung in Zeitraeume:
   durchschnittlich 21.5 Arbeitstage pro Monat (Mittel aus 21-22 Arbeitstagen);
-  unter TVoeD-Annahme mit 30 Urlaubstagen pro Jahr ergeben sich
-  `21.5 * 12 - 30 = 228` produktive Arbeitstage pro Jahr bzw.
-  durchschnittlich 19.0 produktive Tage pro Kalendermonat.
+  unter TVoeD-Annahme mit 30 Urlaubstagen pro Jahr bis einschliesslich 2026 und
+  31 Urlaubstagen pro Jahr ab 2027 (jeweils 5-Tage-Woche) ergeben sich
+  `21.5 * 12 - 30 = 228` produktive Arbeitstage pro Jahr fuer Zeitraeume bis
+  2026 bzw. `21.5 * 12 - 31 = 227` produktive Arbeitstage pro Jahr ab 2027.
+- TVoeD-Stundenbasis in dieser Datei:
+  `7.8 Stunden` bzw. `7 Stunden 48 Minuten` pro Arbeitstag fuer zusaetzliche
+  Stundenumrechnungen.
 - Abgeleitete Formeln in dieser Datei:
   Einzelentwickler `((Produktionscode + Testcode + Dokumentation) / 80)`;
   3er-Team `Einzelentwickler / 3 * 1.2` mit 20 % Koordinationsaufschlag.
+- Zusatzannahmen fuer die erfahrungsadjustierte Thorsten-Referenz:
+  - Allgemeiner Expertenaufschlag `* 1.25`, weil Thorsten seit Februar 1985
+    mehr als 40 Jahre Softwareentwicklungspraxis einbringt und seit 2001 mit
+    .NET/C# arbeitet.
+  - Kein zusaetzlicher Legacy-Portierungsaufschlag, weil
+    `InventarWorkerService` kein Pascal-/Turbo-Vision-Port ist, sondern eine
+    native .NET-Loesung.
+  - Daraus ergibt sich fuer `InventarWorkerService` eine
+    erfahrungsadjustierte Solo-Referenz von `80 * 1.25 = 100` manuell
+    erstellten Zeilen pro Arbeitstag.
+- Beschleunigungsfaktoren vergleichen Referenz-Arbeitstage mit sichtbaren
+  `Git-Aktivtagen`. Sie sind als repo-weiter Output-zu-Aktivtag-Indikator
+  formuliert und keine exakte Zeiterfassung.
+
+## Erfahrungsprofil und Beschleunigungsmodell
+
+- Referenzprofil fuer die erfahrungsadjustierte Zweitrechnung:
+  - mehr als 40 Jahre Softwareentwicklung seit Februar 1985
+  - langjaehrige .NET-/C#-Praxis seit 2001
+  - hier ohne zusaetzlichen Pascal-/Turbo-Vision-Domainaufschlag
+- Neben der konservativen 80-Zeilen-Referenz fuehrt das Repository daher eine
+  zweite Thorsten-Solo-Referenz mit `100 Zeilen/Arbeitstag`.
+- Die Beschleunigungsfaktoren beantworten die Frage, wie stark der sichtbare
+  Lieferumfang gegenueber einer klassischen, manuell dominierten .NET-
+  Entwicklung verdichtet wurde.
 
 ## Gesamtstand des Repositories
 
@@ -51,15 +80,23 @@ und auf explizite Anforderung fortgeschrieben.
 | Davon `docs/` | 13 Dateien / 1994 Zeilen |
 | Gesamtbasis fuer Handschaetzung (inkl. Dokumentation) | 17522 Zeilen |
 | Erfahrener Entwickler, konservative Untergrenze | 219.0 Arbeitstage |
+| Erfahrener Entwickler, konservative Untergrenze in Stunden | 1708.2 Stunden (219.0 * 7.8) |
 | Erfahrener Entwickler, brutto | 10.2 Arbeitsmonate (21.5 Tage/Monat) |
 | Erfahrener Entwickler, TVoeD-Annahme | 11.5 Kalendermonate bzw. 1.0 Jahre |
+| Thorsten solo, erfahrungsadjustierte Untergrenze | 175.2 Arbeitstage |
+| Thorsten solo, erfahrungsadjustierte Untergrenze in Stunden | 1366.6 Stunden (175.2 * 7.8) |
+| Thorsten solo, brutto | 8.1 Arbeitsmonate (21.5 Tage/Monat) |
+| Thorsten solo, TVoeD-Annahme | 9.2 Kalendermonate bzw. 0.8 Jahre |
 | Kleines Team (3 Personen, +20 % Koordination), Untergrenze | 87.6 Arbeitstage |
 | Kleines Team (3 Personen, +20 % Koordination), TVoeD-Annahme | 4.6 Kalendermonate |
+| Repo-weiter Beschleunigungsfaktor vs. konservative Referenz | 2.1x (219.0 / 102 Git-Aktivtage) |
+| Repo-weiter Beschleunigungsfaktor vs. Thorsten-Referenz | 1.7x (175.2 / 102 Git-Aktivtage) |
 
 ## Branch-Ueberblick
 
 | Branch/Ref | Letzte sichtbare Aktivitaet | Einordnung |
 |---|---|---|
+| `002-spec-kit-versioning` | 2026-03-27 | Arbeitsbranch fuer repo-weite Versionslogik auf Basis nummerierter Spec-Kit-Branches |
 | `main` | 2026-03-08 | Integrationsbranch |
 | `INV-7` | sichtbar lokal | lokaler Arbeitsbranch |
 | `chore/constitution-2.1-compliance` | sichtbar lokal | lokaler Governance-Branch |
@@ -165,6 +202,34 @@ und auf explizite Anforderung fortgeschrieben.
   - 32.2 Arbeitstage fuer ein 3er-Team (+20 % Koordination), entsprechend ca.
     1.7 TVoeD-Kalendermonaten
 
+### 5. Branch `002-spec-kit-versioning`
+
+- Status: in Arbeit auf Feature-Branch `002-spec-kit-versioning`
+- Beobachtbarer Zeitraum: 2026-03-27 bis 2026-03-27
+- Commit-Bild: aktueller Working-Tree-Aenderungssatz vor dem ersten Branch-Commit
+- Grundlegende Arbeiten: nummerierte Spec-Kit-Branches als zulaessige
+  Arbeitsform ergaenzt, repo-weite Versionslogik in `Directory.Build.props`
+  eingefuehrt und die gemeinsame Agent-/Constitution-Governance darauf
+  synchronisiert
+- Git-/Arbeitsbaum-Aenderungsvolumen fuer den aktuellen Aenderungssatz:
+  - Produktionscode: 0 Zeilen
+  - Testcode: 0 Zeilen
+  - Dokumentation und Governance: 38 Zeilen netto
+  - Build-/Versionsmetadaten: 3 Zeilen in `Directory.Build.props`
+- Konservative Handarbeits-Basis fuer Code und Dokumentation:
+  - 41 Zeilen netto gesamt
+  - 0.5 Arbeitstage fuer einen erfahrenen Entwickler
+  - 3.9 Stunden auf TVoeD-Basis (`0.5 * 7.8`)
+  - 0.0 Arbeitsmonate brutto bzw. 0.0 TVoeD-Kalendermonate
+- Thorsten-Solo-Referenz:
+  - 0.4 Arbeitstage
+  - 3.1 Stunden auf TVoeD-Basis (`0.4 * 7.8`)
+  - 0.0 Arbeitsmonate brutto bzw. 0.0 TVoeD-Kalendermonate
+- Blended Repository Speedup gegen sichtbare 1 Git-Aktivtag fuer diesen
+  Aenderungssatz:
+  - 0.5x gegen die konservative 80-Zeilen-Referenz
+  - 0.4x gegen die Thorsten-Solo-Referenz mit 100 Zeilen pro Arbeitstag
+
 ## Einordnung der KI-/Spec-Kit-Wirkung
 
 - Die beobachtbare manuelle Gesamtbasis liegt bereits bei 17522 Zeilen
@@ -175,6 +240,12 @@ und auf explizite Anforderung fortgeschrieben.
 - Unter TVoeD-Annahme mit 30 Urlaubstagen pro Jahr entspricht das fuer einen
   erfahrenen Entwickler ca. 11.5 Kalendermonaten bzw. 1.0 Arbeitsjahren; fuer
   ein 3er-Team mit 20 % Koordinationsaufschlag ca. 4.6 Kalendermonaten.
+- Unter Einbezug von Thorstens Erfahrungsprofil sinkt die klassische
+  Solo-Referenz fuer `InventarWorkerService` auf ca. 175.2 Arbeitstage bzw.
+  9.2 TVoeD-Kalendermonate.
+- Gegen die sichtbaren 102 Git-Aktivtage ergibt sich damit ein repo-weiter
+  Beschleunigungsfaktor von ca. 2.1x gegen die konservative Referenz und
+  ca. 1.7x gegen die erfahrungsadjustierte Thorsten-Referenz.
 - Die Historie zeigt einen langen manuellen Aufbau mit spaeter Verdichtung durch
   Governance-/Spec-Kit-Rollout. Die Statistik macht damit sowohl die klassische
   Entwicklungsmasse als auch den spaeteren agentischen Strukturgewinn sichtbar.
@@ -187,4 +258,9 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-03-22 | Methodik-Update fuer Handarbeits-Schaetzung | Die Statistik rechnet Handarbeit jetzt auf Basis von Produktionscode, Testcode und Dokumentation gemeinsam; zusaetzlich werden Monatswerte auf Basis von 21.5 Arbeitstagen pro Monat sowie TVoeD-Kalenderwerte mit 30 Urlaubstagen pro Jahr ausgewiesen. |
 | 2026-03-22 | Governance-Synchronisierung zur Statistiklogik | Constitution sowie die gemeinsamen Agent-Hinweise (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) wurden auf die neue Statistiklogik synchronisiert: Handarbeits-Schaetzung umfasst nun Code, Tests und Dokumentation gemeinsam; Monats- und TVoeD-Annahmen muessen explizit genannt werden. |
 | 2026-03-22 | GitHub-Codex-Spec-Kit-Skills installiert | Die lokale Codex-Skill-Struktur `.agents/skills/` mit den neun `speckit-*`-Skills wurde aus TuiVision in InventarWorkerService uebernommen, damit die Spec-Kit-Kommandos auch in diesem Repository direkt als Skills verfuegbar sind. |
+| 2026-03-25 | Erfahrungsadjustierte Beschleunigungsrechnung erweitert | Die Statistik fuehrt jetzt zusaetzlich zur konservativen 80-Zeilen-Referenz eine explizite Thorsten-Solo-Referenz ohne Pascal-Legacy-Aufschlag; dieselbe Methodik wurde in `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` und `.github/copilot-instructions.md` synchronisiert. |
+| 2026-03-25 | TVoeD-Stundenbasis ergänzt | Die Statistik weist zusaetzlich Stundenwerte auf Basis von `7,8 Stunden` bzw. `7 Stunden 48 Minuten` pro Arbeitstag aus; dieselbe Umrechnungsregel wurde in die gemeinsamen Agent-Dateien aufgenommen. |
+| 2026-03-27 | TVoeD-Urlaubsregel ab 2027 nachgezogen | Die Statistik- und Agentenmethodik wurde auf die neue Stichtagsregel umgestellt: 30 Urlaubstage pro Jahr gelten nur bis einschliesslich 2026, ab dem Kalenderjahr 2027 werden unter TVoeD-Annahme 31 Urlaubstage bei unveraenderter 5-Tage-Woche verwendet. |
+| 2026-03-27 | Branch `002-spec-kit-versioning` | Repo-weite Versionslogik fuer nummerierte Spec-Kit-Branches eingefuehrt: `Directory.Build.props` traegt jetzt `Version`, `AssemblyVersion` und `FileVersion`; die gemeinsame Agent-Governance und die Constitution wurden auf `Minor = Spec-Kit-Feature-/Branch-Nummer als kanonische PR-Nummer` synchronisiert. |
+| 2026-03-27 | Sortierung des Fortschreibungsprotokolls vereinheitlicht | Die Eintraege im Fortschreibungsprotokoll wurden auf strikt chronologische Reihenfolge gebracht: aeltester Eintrag oben, juengster und zuletzt eingetragener Eintrag unten. Dieselbe Regel wurde in der gemeinsamen Agent-Governance fuer dieses Repository festgeschrieben. |
 | 2026-03-28 | Lastenheft-Branch-Suffix-Regel in Agent-Guidance verankert | Die gemeinsamen Agent-Dateien (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) wurden um die Governance-Regel erweitert, dass ein Lastenheft nach Umsetzung durch einen dedizierten Feature-Branch auf `Lastenheft_<Thema>.<feature-branch>.md` umzubenennen ist, damit die Rueckverfolgbarkeit im Repository erhalten bleibt; Aenderungsumfang dieser Runde vor dieser Ledger-Fortschreibung: 0 Produktionscode-Zeilen, 0 Testcode-Zeilen, +4 Dokumentationszeilen netto im Arbeitsbaum, konservative Handarbeits-Untergrenze 0.1 Arbeitstage bzw. 0.4 Stunden auf TVoeD-Basis, Monatsannahme weiterhin 21.5 Arbeitstage pro Monat. |
