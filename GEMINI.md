@@ -33,6 +33,7 @@ Das Projekt nutzt die Standard .NET-CLI.
 - Der Branch `main` ist geschützt und darf nicht direkt für Feature-Commits genutzt werden.
 - Für jedes Feature/Fix muss ein neuer Branch erstellt werden.
 - Änderungen gelangen ausschließlich per Pull Request nach `main` (inkl. Testnachweis).
+- Wenn ein dedizierter Feature-Branch die Anforderungen eines Lastenhefts umgesetzt hat, wird die Datei in `Lastenheft_<Thema>.<feature-branch>.md` umbenannt, damit der gelieferte Umfang im Repository nachvollziehbar bleibt.
 
 ## 🏗 Architektur & Konventionen
 - **Plattform-Support**: Implementiert als Windows Service, systemd (Linux) und launchd (macOS).

@@ -39,6 +39,7 @@ Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names 
 Recent history follows imperative subjects (for example: `Add ...`, `Update ...`, `Refine ...`). Continue with short, present-tense commit titles and narrow scope per commit.
 
 `main` is protected: create a new branch for every feature/fix and merge changes through a pull request targeting `main`.
+- When a dedicated feature branch has implemented the requirements of a Lastenheft, rename that file to `Lastenheft_<Thema>.<feature-branch>.md` so the delivered requirement scope stays traceable in the repository.
 
 PRs should include: purpose, touched projects, test evidence (commands run), and any config/API impact. For UI-related changes in `InventarViewerApp`, include screenshots or terminal captures.
 
