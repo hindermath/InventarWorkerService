@@ -35,6 +35,7 @@ docfx docfx.json
 - `main` is protected and must not receive direct feature commits.
 - Create a new branch for each feature/fix/change.
 - Merge to `main` only through pull requests with test evidence.
+- When a dedicated feature branch has implemented the requirements of a Lastenheft, rename that file to `Lastenheft_<topic>.<feature-branch>.md` so the delivered scope stays traceable.
 - Work branches may use either the existing topic naming or the numbered Spec-Kit form `NNN-short-description`.
 
 `Directory.Build.props` carries the repo-wide `Version`, `AssemblyVersion`, and `FileVersion` values for all projects using `Major.Minor.Patch.Build`:

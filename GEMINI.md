@@ -33,6 +33,7 @@ Das Projekt nutzt die Standard .NET-CLI.
 - Der Branch `main` ist geschützt und darf nicht direkt für Feature-Commits genutzt werden.
 - Für jedes Feature/Fix muss ein neuer Branch erstellt werden.
 - Änderungen gelangen ausschließlich per Pull Request nach `main` (inkl. Testnachweis).
+- Wenn ein dedizierter Feature-Branch die Anforderungen eines Lastenhefts umgesetzt hat, wird die Datei in `Lastenheft_<Thema>.<feature-branch>.md` umbenannt, damit der gelieferte Umfang im Repository nachvollziehbar bleibt.
 - Arbeits-Branches duerfen entweder die bestehende Themenbenennung oder die nummerierte Spec-Kit-Form `NNN-short-description` verwenden.
 - `Directory.Build.props` fuehrt die repo-weiten Felder `Version`, `AssemblyVersion` und `FileVersion` als `Major.Minor.Patch.Build`; auf nummerierten Spec-Kit-Branches ist `Minor` die numerisch interpretierte Feature-/Branch-Nummer (`002` -> `2`), `Patch` die Commit-Anzahl im Feature-/PR-Branch nach dem aktuellen Commit und `Build` ein nur vor `dotnet build` oder `dotnet test` erhoehter Zaehler.
 
