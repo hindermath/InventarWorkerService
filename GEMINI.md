@@ -92,12 +92,12 @@ Das Projekt nutzt die Standard .NET-CLI.
 
 - Erklaerende Lern- und Governance-Dokumentation muss zweisprachig mit Deutsch zuerst und Englisch danach auf CEFR-B2-Niveau vorliegen.
 - Grosse normative Dokumente wie `Pflichtenheft*.md` und `Lastenheft*.md` duerfen statt eines uebergrossen Inline-Zweisprachblocks als synchron gepflegte englische Parallelfassung mit Suffix `.EN.md` gefuehrt werden; die deutsche Fassung bleibt kanonisch, solange nichts anderes markiert ist.
-- Follow `Programmierung #include<everyone>`: learner-facing guides, statistics, and generated HTML/API documentation must stay usable on Braille displays, with screen readers, and in text browsers.
+*   Programmierung #include<everyone> — Diese Lernbeispiele richten sich an Azubis (Fachinformatiker AE/SI) mit Deutsch und Englisch als Arbeitssprachen sowie an sehbehinderte Lernende, die mit Braille-Displays, Screen-Readern oder Textbrowsern arbeiten. Barrierefreiheit ist kein Nice-to-have, sondern Pflichtanforderung.
 - Treat WCAG 2.2 conformance level AA as the practical baseline for generated HTML documentation.
 - If `docfx` output is regenerated, the same work item must also run a text-oriented accessibility review with Playwright + `@axe-core/playwright` and `lynx`.
 - Recommended A11y toolchain for DocFX-based repos: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
 
 ## Shared Parent Guidance
 
-- Die gemeinsame Datei `/Users/thorstenhindermann/RiderProjects/AGENTS.md` speichert bewusst nur repo-uebergreifende Basisregeln.
-- Repository-spezifische Build-, Test-, Workflow-, Architektur- und Feature-Regeln bleiben in den lokalen Projektdateien; wenn beide Ebenen existieren, ist die repo-lokale Guidance die spezifischere Autoritaet.
+- Die gemeinsamen Dateien `/Users/thorstenhindermann/RiderProjects/AGENTS.md` und `/Users/thorstenhindermann/RiderProjects/GEMINI.md` speichern die repo-uebergreifenden Basisregeln.
+- Diese Projekt-Datei ist die spezifischere Autoritaet fuer projektspezifische Build-Befehle, Workflows, Architektur und Features.
