@@ -80,7 +80,24 @@ Das Projekt nutzt die Standard .NET-CLI.
 - `docs/project-statistics.md` ist das fortlaufende Statistik-Register des Repositories.
 - Die Datei muss nach jeder abgeschlossenen Spec-Kit-Implementierungsphase, nach jeder agentischen Änderung am Repository und auf explizite Anforderung aktualisiert werden.
 - Im `## Fortschreibungsprotokoll` muessen die Tabelleneintraege strikt chronologisch stehen: der aelteste Eintrag oben, der juengste und zuletzt eingetragene Eintrag unten; Eintraege mit demselben Datum behalten ihre Eintragungsreihenfolge.
+- Als letzter Top-Level-Block der Datei muss immer ein `## Gesamtstatistik`-Abschnitt stehen; danach darf kein weiterer Top-Level-Abschnitt folgen.
+- Innerhalb dieses finalen `## Gesamtstatistik`-Abschnitts muessen kompakte ASCII-only-Diagramme direkt unter der textlichen Gesamtauswertung stehen, damit Artefaktmix, dokumentierte Branch-/Phasenverlaeufe, Beschleunigungsfaktoren und der Vergleich zwischen erfahrener Entwickler-Referenz, Thorsten-Solo-Referenz und sichtbarem KI-Lieferfenster in reinem Markdown lesbar bleiben.
+- Jeder kurze CEFR-B2-Erklaertext muss direkt bei seiner ASCII-Diagrammgruppe stehen, und der Statistikblock muss fuer Braille-Zeile, Screenreader und Textbrowser textfreundlich bleiben, ohne auf Farbe oder Layout allein angewiesen zu sein.
 - Jeder Eintrag muss Branch oder Phase, beobachtbares Arbeitsfenster, Produktions-, Test- und Doku-Zeilen, die wesentlichen Arbeitspakete, die konservative Handarbeits-Basis von 80 manuell erstellten Zeilen pro Arbeitstag ueber Code, Tests und Dokumentation hinweg sowie die repo-spezifische Thorsten-Solo-Vergleichsbasis von 100 Zeilen pro Arbeitstag fuer diese native .NET-Loesung enthalten.
 - Wenn daraus Monatswerte abgeleitet werden, sind die Annahmen explizit zu nennen, zum Beispiel 21,5 Arbeitstage pro Monat sowie 30 Urlaubstage pro Jahr bis einschliesslich 2026 und 31 Urlaubstage pro Jahr ab 2027 in einer TVoeD-aehnlichen Kalenderannahme bei 5-Tage-Woche.
 - Beschleunigungsangaben muessen beide Referenzen gegen sichtbare Git-Aktivtage stellen und ausdruecklich als repo-weiten Verdichtungsfaktor statt als Stoppuhrmessung kennzeichnen.
 - Wenn Stundenwerte ausgewiesen werden, sind die Tageswerte mit der TVoeD-Arbeitszeit von `7,8 Stunden` bzw. `7 Stunden 48 Minuten` pro Arbeitstag umzurechnen.
+
+## Inclusion & Accessibility
+
+- Erklaerende Lern- und Governance-Dokumentation muss zweisprachig mit Deutsch zuerst und Englisch danach auf CEFR-B2-Niveau vorliegen.
+- Grosse normative Dokumente wie `Pflichtenheft*.md` und `Lastenheft*.md` duerfen statt eines uebergrossen Inline-Zweisprachblocks als synchron gepflegte englische Parallelfassung mit Suffix `.EN.md` gefuehrt werden; die deutsche Fassung bleibt kanonisch, solange nichts anderes markiert ist.
+- Follow `Programmierung #include<everyone>`: learner-facing guides, statistics, and generated HTML/API documentation must stay usable on Braille displays, with screen readers, and in text browsers.
+- Treat WCAG 2.2 conformance level AA as the practical baseline for generated HTML documentation.
+- If `docfx` output is regenerated, the same work item must also run a text-oriented accessibility review with Playwright + `@axe-core/playwright` and `lynx`.
+- Recommended A11y toolchain for DocFX-based repos: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
+
+## Shared Parent Guidance
+
+- Die gemeinsame Datei `/Users/thorstenhindermann/RiderProjects/AGENTS.md` speichert bewusst nur repo-uebergreifende Basisregeln.
+- Repository-spezifische Build-, Test-, Workflow-, Architektur- und Feature-Regeln bleiben in den lokalen Projektdateien; wenn beide Ebenen existieren, ist die repo-lokale Guidance die spezifischere Autoritaet.

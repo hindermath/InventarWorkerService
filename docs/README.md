@@ -597,3 +597,31 @@ Abschließend auf `Push` klicken.
 Ab diesem Zeitpunkt können nun alle geänderten oder neu hinzugefügten Dateien in das Repository aufgenommen werden.
 Dazu in der `Commit`-Ansicht den Button `Commit And Push` anklicken, nachdem zuvor die Dateien für den `Git Commit`
 markiert und eine `Commit Message` eingegeben wurden.
+
+## Inklusion und Barrierefreiheit / Inclusion and Accessibility
+
+- Erlaeuternde Lern- und Governance-Dokumentation soll in Deutsch zuerst und Englisch danach auf CEFR-B2-Niveau vorliegen.
+- Explanatory learner-facing and governance documentation should be German first and English second at CEFR-B2 readability.
+- Grosse normative Dokumente wie `Pflichtenheft*.md` und `Lastenheft*.md` duerfen statt eines uebergrossen Inline-Zweisprachblocks als synchron gepflegte englische Parallelfassung mit Suffix `.EN.md` gefuehrt werden; die deutsche Fassung bleibt kanonisch.
+- Large normative documents such as `Pflichtenheft*.md` and `Lastenheft*.md` may use a synchronized English sidecar with suffix `.EN.md` instead of one oversized inline-bilingual file; the German version remains canonical.
+- Folge dem Leitsatz `Programmierung #include<everyone>`: Lernmaterialien, Guides und erzeugte HTML-/API-Dokumentation muessen fuer Braille-Zeile, Screenreader und Textbrowser nutzbar bleiben.
+- Follow `Programmierung #include<everyone>`: learner-facing material, guides, and generated HTML/API documentation must stay usable on Braille displays, with screen readers, and in text browsers.
+- Fuer erzeugte HTML-Dokumentation gilt WCAG 2.2 Konformitaetsstufe AA als praktische Basis.
+- For generated HTML documentation, WCAG 2.2 conformance level AA is the practical baseline.
+- Nach jedem `docfx`-Neubau muessen im selben Arbeitsschritt sowohl Playwright + `@axe-core/playwright` als auch `lynx` fuer den textorientierten Review laufen.
+- After every `docfx` regeneration, the same work step must also run both Playwright + `@axe-core/playwright` and `lynx` for the text-oriented review.
+- Empfohlene A11Y-Toolchain fuer DocFX-basierte Doku: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright` und `lynx`.
+- Recommended A11y toolchain for DocFX-based documentation: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
+
+## Abschlusspruefung fuer Bilingualitaet und A11Y
+
+- Lernrelevante Dokumente und Guides muessen fuer Auszubildende nachvollziehbar in Deutsch und Englisch auf CEFR-B2-Niveau vorliegen.
+- Die Reihenfolge fuer erklaerende Inhalte ist Deutsch zuerst und Englisch danach.
+- Fuer grosse normative Dokumente ist aus Uebersichtsgruenden eine synchron gepflegte englische Parallelfassung mit Suffix `.EN.md` zulaessig und empfohlen.
+- Erzeugte HTML-/API-Dokumentation muss nach `Programmierung #include<everyone>` fuer Braille-Zeile, Screenreader und Textbrowser nutzbar sein; WCAG 2.2 AA ist die praktische Baseline.
+- Nach jedem `docfx`-Neubau folgen im selben Arbeitsschritt Playwright + `@axe-core/playwright` und `lynx`.
+- Learner-facing documents and guides must be understandable for apprentices in German and English at CEFR-B2 readability.
+- The order for explanatory content is German first and English second.
+- Large normative documents may use a synchronized English sidecar with suffix `.EN.md`.
+- Generated HTML/API documentation must remain usable for Braille displays, screen readers, and text browsers under `Programmierung #include<everyone>`; WCAG 2.2 AA is the practical baseline.
+- After every `docfx` regeneration, the same work step must run Playwright + `@axe-core/playwright` and `lynx`.
