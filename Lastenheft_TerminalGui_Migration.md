@@ -16,7 +16,7 @@ API-Mappings und Abnahmekriterien für jeweils eine Komponente:
 
 | PR | Komponente | Dokument | Umfang |
 |----|-----------|----------|--------|
-| **PR A** ⚠️ | **Elmish-Entscheidung** (Vorbedingung) | [Lastenheft_TG_Migration_CtrlWorkerServiceApp.md → R-TG-CSA-01](Lastenheft_TG_Migration_CtrlWorkerServiceApp.md) | `Terminal.Gui.Elmish`-Referenz aus `CtrlWorkerServiceApp.csproj` entfernen — 1 Zeile, kein Funktionsverlust |
+| **PR A** ⚠️ | **Elmish-Abhängigkeit entfernen** (Vorbedingung für PR D) | [Lastenheft_TG_Elmish_Entscheidung.md](Lastenheft_TG_Elmish_Entscheidung.md) | `Terminal.Gui.Elmish`-Referenz aus `CtrlWorkerServiceApp.csproj` entfernen — 1 Zeile, kein Funktionsverlust |
 | **PR B** | **InventarViewerApp** | [Lastenheft_TG_Migration_InventarViewerApp.md](Lastenheft_TG_Migration_InventarViewerApp.md) | 6 Dateien, `MainLoop.Invoke()` (kritischste Stelle) |
 | **PR C** | **CtrlWorkerServiceCmdlet** | [Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md](Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md) | 1 Datei, PSCmdlet-Kontext, Mehrfach-Init-Test |
 | **PR D** | **CtrlWorkerServiceApp** | [Lastenheft_TG_Migration_CtrlWorkerServiceApp.md](Lastenheft_TG_Migration_CtrlWorkerServiceApp.md) | 1 Datei, einfachste Komponente (nach PR A) |
