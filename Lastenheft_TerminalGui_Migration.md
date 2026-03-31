@@ -1,12 +1,24 @@
-# Lastenheft: Terminal.Gui Migration 1.19.x → 2.x (InventarWorkerService)
+# Lastenheft: Terminal.Gui Migration 1.19.x → 2.x — Überblick (InventarWorkerService)
 
-**Dokument-Status:** Entwurf
+**Dokument-Status:** Überblick (verweist auf drei Einzel-Lastenhefte)
 **Erstellt:** 2026-03-31
+**Aktualisiert:** 2026-03-31 — in drei Einzel-Lastenhefte aufgeteilt
 **Betrifft:** `InventarViewerApp/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`
-**Empfohlener Durchführungszeitraum:** Als eigenständiger PR pro Sub-Projekt,
-beginnend mit `InventarViewerApp` (größte Komplexität), dann `CtrlWorkerServiceCmdlet`,
-zuletzt `CtrlWorkerServiceApp` (Elmish-Entscheidung vorher klären, s. R-TG-IWS-02).
 **Voraussetzung:** `dotnet test InventarWorkerService.sln` muss vor Beginn vollständig grün sein.
+
+---
+
+## Einzel-Lastenhefte (operative Dokumente)
+
+Dieses Dokument dient als **Überblick und Einstiegspunkt**.
+Die drei Einzel-Lastenhefte enthalten die vollständigen Anforderungen,
+API-Mappings und Abnahmekriterien für jeweils eine Komponente:
+
+| Komponente | Datei | Umfang | Empfohlener PR |
+|-----------|-------|--------|----------------|
+| **InventarViewerApp** | [Lastenheft_TG_Migration_InventarViewerApp.md](Lastenheft_TG_Migration_InventarViewerApp.md) | 6 Dateien, `MainLoop.Invoke()` (kritisch) | PR B |
+| **CtrlWorkerServiceApp** | [Lastenheft_TG_Migration_CtrlWorkerServiceApp.md](Lastenheft_TG_Migration_CtrlWorkerServiceApp.md) | 1 Datei, Elmish-Vorbedingung | PR D |
+| **CtrlWorkerServiceCmdlet** | [Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md](Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md) | 1 Datei, PSCmdlet-Kontext | PR C |
 
 ---
 
