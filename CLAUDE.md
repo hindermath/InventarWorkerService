@@ -169,3 +169,8 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 
 ## Recent Changes
 - 001-pgsql-paritaet: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+<!-- SPECKIT END -->
