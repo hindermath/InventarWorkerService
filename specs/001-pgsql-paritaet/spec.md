@@ -115,7 +115,7 @@ sein.
 
 1. **Given** mehrere Maschinen in PostgreSQL (aktiv, deaktiviert, deprovisioniert),
    **When** `GetAllActiveMachinesAsync()` aufgerufen wird,
-   **Then** werden ausschliesslich aktive Maschinen (`Disabled=0, Deprovisioned=0`) zurückgegeben.
+   **Then** werden ausschliesslich aktive Maschinen (`Disabled=FALSE, Deprovisioned=FALSE`) zurückgegeben.
 
 2. **Given** eine Maschine mit `Id = 5` in PostgreSQL,
    **When** `GetMachineByIdAsync(5)` aufgerufen wird,
@@ -189,9 +189,12 @@ gegen die PostgreSQL-Instanz ausgeführt wird und PascalCase-Spalten zurückgege
    **Then** ist die View unter `HardwareInventoryView` vorhanden (nicht `hardware_inventory_view`).
 
 2. **Given** die View `HardwareInventoryView`,
-   **When** die Spaltennamen abgefragt werden,
-   **Then** lauten sie `MachineID`, `MachineName`, `Architecture`, `ProcessorCores`,
-   `TotalMemoryGB`, `AvailableMemoryGB`, `MemoryUsagePercent` (PascalCase, identisch zu SQLite).
+   **When** die Spaltennamen über `information_schema.columns` abgefragt werden,
+   **Then** lauten sie `machineid`, `machinename`, `architecture`, `processorcores`,
+   `totalmemorygb`, `availablememorygb`, `memoryusagepercent` (PostgreSQL normalisiert
+   unquotierte Bezeichner auf Lowercase; für Dapper-Mapping gilt PascalCase-Semantik,
+   da Dapper case-insensitiv mappt; für manuelle SQL-Abfragen ist Groß-/Kleinschreibung
+   unerheblich, da PostgreSQL Bezeichner in Queries ebenfalls case-insensitiv behandelt).
 
 3. **Given** eine Datenbank, die zuvor mit `hardware_inventory_view` initialisiert wurde,
    **When** `InitializeDatabase()` erneut aufgerufen wird,

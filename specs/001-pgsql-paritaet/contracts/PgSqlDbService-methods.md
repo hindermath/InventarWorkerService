@@ -134,8 +134,8 @@ public async Task<List<MachineState>> GetAllActiveMachinesAsync()
 ```
 
 **Beschreibung / Description**:
-DE: Gibt alle aktiven Maschinen zurück (Disabled=0, Deprovisioned=0) aus `AllActiveMachinesView`.
-EN: Returns all active machines (Disabled=0, Deprovisioned=0) from `AllActiveMachinesView`.
+DE: Gibt alle aktiven Maschinen zurück (Disabled=FALSE, Deprovisioned=FALSE) aus `AllActiveMachinesView`.
+EN: Returns all active machines (Disabled=FALSE, Deprovisioned=FALSE) from `AllActiveMachinesView`.
 
 **Returns**: `Task<List<MachineState>>`.
 
@@ -164,8 +164,8 @@ public async Task<List<MachineState>> GetAllDisabledMachinesAsync()
 ```
 
 **Beschreibung / Description**:
-DE: Gibt alle deaktivierten Maschinen zurück (Disabled=1, Deprovisioned=0) aus `AllDisabledMachinesView`.
-EN: Returns all disabled machines (Disabled=1, Deprovisioned=0) from `AllDisabledMachinesView`.
+DE: Gibt alle deaktivierten Maschinen zurück (Disabled=TRUE, Deprovisioned=FALSE) aus `AllDisabledMachinesView`.
+EN: Returns all disabled machines (Disabled=TRUE, Deprovisioned=FALSE) from `AllDisabledMachinesView`.
 
 **Returns**: `Task<List<MachineState>>`.
 
@@ -178,9 +178,9 @@ public async Task<List<MachineState>> GetAllDeprovisionedMachinesAsync()
 ```
 
 **Beschreibung / Description**:
-DE: Gibt alle deprovisionierten Maschinen zurück (Disabled=1, Deprovisioned=1) aus
+DE: Gibt alle deprovisionierten Maschinen zurück (Disabled=TRUE, Deprovisioned=TRUE) aus
     `AllDeprovisionedMachinesView`.
-EN: Returns all deprovisioned machines (Disabled=1, Deprovisioned=1) from
+EN: Returns all deprovisioned machines (Disabled=TRUE, Deprovisioned=TRUE) from
     `AllDeprovisionedMachinesView`.
 
 **Returns**: `Task<List<MachineState>>`.

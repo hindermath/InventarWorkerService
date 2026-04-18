@@ -101,6 +101,7 @@ Diese Phase muss vor allen User-Story-Phasen abgeschlossen sein.
 - [ ] T024 [P] [US3] Integration-Tests: `HasMachineRecordsAsync_RecordsExist_ReturnsTrue`, `HasMachineRecordsAsync_EmptyTable_ReturnsFalse`, `HasHardwareInventoryRecordsAsync_RecordsExist_ReturnsTrue`, `HasSoftwareInventoryRecordsAsync_RecordsExist_ReturnsTrue` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs`
 - [ ] T025 [P] [US3] Integration-Tests: `GetMachineCountAsync_ReturnsCorrectCount`, `GetHardwareInventoryCountAsync_ReturnsCorrectCount`, `GetSoftwareInventoryCountAsync_ReturnsCorrectCount` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs`
 - [ ] T026 [P] [US3] Integration-Test: `CleanupOldRecordsAsync_ZeroDays_DeletesAllInventoryEntries` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — Einträge anlegen; `CleanupOldRecordsAsync(0)` aufrufen; prüfen Count = 0 für Hardware und Software
+- [ ] T026b [P] [US3] Unit-Test: `CleanupOldRecordsAsync_ZeroDays_CutoffIsUtcNow` und `CleanupOldRecordsAsync_NegativeDays_CutoffIsInFuture` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — kein DB-Server nötig; Implementierung in `CleanupOldRecordsAsync` muss eine `internal static DateTime CalculateCutoff(int daysToKeep)` Hilfsmethode bereitstellen (z. B. `internal static DateTime CalculateCutoff(int daysToKeep) => DateTime.UtcNow.AddDays(-daysToKeep)`); Test 1: `CalculateCutoff(0)` ist ≤ `DateTime.UtcNow` (cutoff = jetzt, löscht alle); Test 2: `CalculateCutoff(-5)` ist > `DateTime.UtcNow` (cutoff in der Zukunft — verhält sich wie daysToKeep=0); verifiziert plan.md §Test-Strategie und research.md R-07 Randfall negativeWerte
 - [ ] T027 [P] [US3] Integration-Test: `CleanupOldRecordsAsync_PositiveDays_KeepsRecentEntries` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs`
 
 ### Implementierung für US3
@@ -128,6 +129,7 @@ Diese Phase muss vor allen User-Story-Phasen abgeschlossen sein.
 - [ ] T036 [P] [US4] Unit-Test: `InitializeMachinesFromCsvAsync_FileNotFound_ThrowsFileNotFoundException` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — kein DB-Server nötig
 - [ ] T037 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_ValidCsv3Machines_Returns3` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — temporäre CSV-Datei mit 3 Einträgen; prüfen Count = 3
 - [ ] T038 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_DuplicateMachines_SkipsExisting` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — erste Maschine vorab anlegen; CSV mit 3 Maschinen (1 vorhanden, 2 neu); prüfen importedCount = 2
+- [ ] T038b [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_ExceptionDuringImport_RollsBackTransaction` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — CSV-Datei mit zwei Einträgen erstellen, wobei der zweite Eintrag einen leeren Namen hat (verletzt NOT NULL-Constraint oder UNIQUE-Constraint); prüfen dass nach dem fehlgeschlagenen Import `SELECT COUNT(*) FROM Machines WHERE Name LIKE 'TestRollback%'` = 0 (Transaktion vollständig zurückgerollt); verifiziert SC-004 und US4 Acceptance Scenario 3
 - [ ] T039 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_DisabledDeprovisioned_MappedAsBool` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — CSV mit "0"/"1" für Disabled/Deprovisioned; prüfen BOOLEAN-Spalten korrekt gesetzt (CsvHelper-Konvertierung verifizieren)
 
 ### Implementierung für US4
@@ -209,15 +211,15 @@ Phase 1 (Setup)
 ### Parallele Ausführung: Phase 2 (Foundational)
 
 ```
-# Parallel starten:
+# Zuerst (blockierend — alle anderen Phase-2-Tasks hängen von T002 ab):
+T002  ServiceContainer nullable — MUSS als erstes in Phase 2 implementiert werden
+
+# Danach parallel (nach T002 abgeschlossen):
 T003  Update Initialize.Services(Settings) — WriteEnabled-Guard
 T004  Update Initialize.Services() parameterlos — immer null
+T005  InitializeDatabase() — unabhängig von T003/T004, kann parallel zu diesen laufen
 T006  Unit-Test: Services_Parameterless_PgSqlDbServiceIsNull
 T007  Unit-Test: Services_WriteEnabledFalse_PgSqlDbServiceIsNull
-
-# Danach sequenziell (braucht T002):
-T002  ServiceContainer nullable — muss zuerst!
-T005  InitializeDatabase() — unabhängig von T003/T004, kann parallel zu diesen laufen
 ```
 
 ### Parallele Ausführung: Phase 3 (US1)
@@ -276,11 +278,11 @@ Phase 8    → Polish → PR-ready
 | Phase 2 Foundational | 6 | 2 | — | 4 |
 | Phase 3 US1 | 10 | 2 | 5 | 3 |
 | Phase 4 US2 | 2 | 1 | — | 1 |
-| Phase 5 US3 | 16 | — | 8 | 8 |
-| Phase 6 US4 | 5 | 1 | 3 | 1 |
+| Phase 5 US3 | 17 | 1 | 8 | 8 |
+| Phase 6 US4 | 6 | 1 | 4 | 1 |
 | Phase 7 US5 | 2 | — | 2 | — |
 | Phase 8 Polish | 10 | — | — | 10 |
-| **Gesamt** | **52** | **6** | **18** | **28** |
+| **Gesamt** | **54** | **7** | **19** | **28** |
 
 ---
 
