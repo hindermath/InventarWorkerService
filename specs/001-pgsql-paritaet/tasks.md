@@ -113,7 +113,7 @@ Diese Phase muss vor allen User-Story-Phasen abgeschlossen sein.
 - [ ] T032 [P] [US3] Implementiere `GetLatestHardwareInventoryAsync(int machineId)`, `GetLatestSoftwareInventoryAsync(int machineId)` in `InventarWorkerCommon/Services/Database/PgSqlDbService.cs` — `SELECT * FROM HardwareInventories WHERE MachineId = @MachineId ORDER BY CreatedAt DESC LIMIT 1` bzw. SoftwareInventories; bilingual XML-Dokumentation
 - [ ] T033 [P] [US3] Implementiere `HasMachineRecordsAsync()`, `HasHardwareInventoryRecordsAsync()`, `HasSoftwareInventoryRecordsAsync()` in `InventarWorkerCommon/Services/Database/PgSqlDbService.cs` — `SELECT EXISTS(SELECT 1 FROM ...)` via `QuerySingleAsync<bool>`; bilingual XML-Dokumentation
 - [ ] T034 [P] [US3] Implementiere `GetMachineCountAsync()`, `GetHardwareInventoryCountAsync()`, `GetSoftwareInventoryCountAsync()` in `InventarWorkerCommon/Services/Database/PgSqlDbService.cs` — `SELECT COUNT(*) FROM ...` via `QuerySingleAsync<int>`; bilingual XML-Dokumentation
-- [ ] T035 [US3] Implementiere `CleanupOldRecordsAsync(int daysToKeep = 30)` in `InventarWorkerCommon/Services/Database/PgSqlDbService.cs` — `var cutoff = DateTime.UtcNow.AddDays(-daysToKeep);`; `DELETE FROM HardwareInventories WHERE CreatedAt < @CutoffDate`; `DELETE FROM SoftwareInventories WHERE CreatedAt < @CutoffDate`; bilingual XML-Dokumentation
+- [ ] T035 [US3] Implementiere `CleanupOldRecordsAsync(int daysToKeep = 30)` in `InventarWorkerCommon/Services/Database/PgSqlDbService.cs` — extrahiere Cutoff-Logik als `internal static DateTime CalculateCutoff(int daysToKeep) => DateTime.UtcNow.AddDays(-daysToKeep);` (benötigt von T026b Unit-Test); nutze `var cutoff = CalculateCutoff(daysToKeep);`; `DELETE FROM HardwareInventories WHERE CreatedAt < @CutoffDate`; `DELETE FROM SoftwareInventories WHERE CreatedAt < @CutoffDate`; bilingual XML-Dokumentation
 
 **Checkpoint**: Alle 16 Lese- und Wartungsmethoden funktionieren unabhängig testbar.
 
@@ -129,7 +129,7 @@ Diese Phase muss vor allen User-Story-Phasen abgeschlossen sein.
 - [ ] T036 [P] [US4] Unit-Test: `InitializeMachinesFromCsvAsync_FileNotFound_ThrowsFileNotFoundException` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — kein DB-Server nötig
 - [ ] T037 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_ValidCsv3Machines_Returns3` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — temporäre CSV-Datei mit 3 Einträgen; prüfen Count = 3
 - [ ] T038 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_DuplicateMachines_SkipsExisting` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — erste Maschine vorab anlegen; CSV mit 3 Maschinen (1 vorhanden, 2 neu); prüfen importedCount = 2
-- [ ] T038b [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_ExceptionDuringImport_RollsBackTransaction` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — CSV-Datei mit zwei Einträgen erstellen, wobei der zweite Eintrag einen leeren Namen hat (verletzt NOT NULL-Constraint oder UNIQUE-Constraint); prüfen dass nach dem fehlgeschlagenen Import `SELECT COUNT(*) FROM Machines WHERE Name LIKE 'TestRollback%'` = 0 (Transaktion vollständig zurückgerollt); verifiziert SC-004 und US4 Acceptance Scenario 3
+- [ ] T038b [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_ExceptionDuringImport_RollsBackTransaction` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — erste Maschine mit Name `"TestRollback-Existing"` vorab per INSERT anlegen; CSV-Datei mit zwei Einträgen erstellen: Eintrag 1 = neuer Name `"TestRollback-New"`, Eintrag 2 = bereits vorhandener Name `"TestRollback-Existing"` (verletzt UNIQUE-Constraint auf `Machines.Name`); prüfen dass nach dem fehlgeschlagenen Import `SELECT COUNT(*) FROM Machines WHERE Name = 'TestRollback-New'` = 0 (Transaktion vollständig zurückgerollt, auch der erste Eintrag ist weg); verifiziert SC-004 und US4 Acceptance Scenario 3
 - [ ] T039 [P] [US4] Integration-Test: `InitializeMachinesFromCsvAsync_DisabledDeprovisioned_MappedAsBool` in `InventarWorkerCommonTest/PgSqlDbServiceTest.cs` — CSV mit "0"/"1" für Disabled/Deprovisioned; prüfen BOOLEAN-Spalten korrekt gesetzt (CsvHelper-Konvertierung verifizieren)
 
 ### Implementierung für US4
@@ -195,6 +195,8 @@ Phase 1 (Setup)
 | US3 (P3) | Phase 2 + US1 | T015–T017 done (braucht Testdaten via Write-Methoden) |
 | US4 (P4) | Phase 2 | T002–T005 done |
 | US5 (P5) | Phase 2 | T005 done |
+
+> **Hinweis T026b / T038b**: Die nachträglich hinzugefügten Tasks folgen denselben Phasen-Regeln wie die übrigen Test-Tasks ihrer jeweiligen Phase. T026b (Unit-Test) gehört zu Phase 5 und kann parallel zu T020–T027 geschrieben werden. T038b (Integration-Test) gehört zu Phase 6 und kann parallel zu T036–T039 geschrieben werden. Beide sind in der Implementierungsreihenfolge vor ihren jeweiligen Impl-Tasks auszuführen (Red-Green-Refactor).
 
 ### Innerhalb jeder Phase
 
