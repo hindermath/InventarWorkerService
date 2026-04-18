@@ -166,3 +166,6 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 
 - Diese Datei ergaenzt die projektspezifische Dokumentation mit agentischen Arbeitsregeln.
 - This file complements the project-specific documentation with agent-oriented working rules.
+
+## Recent Changes
+- 001-pgsql-paritaet: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]

@@ -1,9 +1,21 @@
 # Lastenheft: Vervollständigung der PostgreSQL-Implementierung (PGSQL-Parität)
 
-**Dokument-Status:** Entwurf
+**Dokument-Status:** Entwurf (Review-Entscheidungen eingearbeitet)
 **Erstellt:** 2026-04-12
+**Letzte Überarbeitung:** 2026-04-18
 **Betrifft:** `InventarWorkerCommon/Services/Database/PgSqlDbService.cs`, `InventarWorkerCommon/Services/Common/Initialize.cs`, `HarvesterWorkerService/Worker.cs`
 **Priorität:** Hoch (Herstellung der funktionalen Parität zur SQLite-Implementierung)
+**Reihenfolge:** 1 von 5 (dieses Lastenheft wird zuerst umgesetzt)
+
+### Umsetzungsreihenfolge aller Lastenhefte
+
+| Nr. | Lastenheft | Abhaengigkeit |
+|-----|-----------|---------------|
+| **1** | **`Lastenheft_PostgreSQL_Implementation.md`** (dieses Dokument) | Keine |
+| 2 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Keine (unabhaengig, aber nach Nr. 1 geplant) |
+| 3 | `Lastenheft_IDbService_Interface.md` | Setzt Nr. 1 voraus |
+| 4 | `Lastenheft_Statistik_View_Lesemethoden.md` | Setzt Nr. 1 voraus |
+| 5 | `Lastenheft_MongoDB_Paritaet.md` | Keine direkte, logisch nach Nr. 1 |
 
 ---
 
@@ -68,19 +80,20 @@ Abfrage der in `PgSqlDbService.cs` bereits definierten Views und Tabellen.
 
 - **Dapper:** Alle SQL-Abfragen müssen weiterhin via `Dapper` ausgeführt werden.
 - **Npgsql:** Nutzung von `NpgsqlConnection` für die Verbindung.
-- **Async/Await:** Konsequente Nutzung von asynchronen Methoden (Parität zu SQLite).
+- **Async/Await:** Konsequente Nutzung von asynchronen Methoden (Parität zu SQLite). **Ausnahme:** `InitializeDatabase()` bleibt synchron, da die Methode einmalig beim Startup aufgerufen wird und in SQLite ebenfalls synchron ist.
 - **DateTime-Handling:** PostgreSQL erwartet für `timestamptz` in der Regel UTC. Sicherstellen, dass `DateTime.UtcNow` verwendet wird.
-- **View-Namen:** Die Namen der Views in PostgreSQL müssen exakt denen in SQLite entsprechen (PascalCase), um die Abfrageroutine identisch halten zu können. Bestehende Abweichungen (z.B. `hardware_inventory_view` vs. `HardwareInventoryView`) müssen korrigiert werden.
+- **View-Namen:** Die Namen der Views in PostgreSQL müssen exakt denen in SQLite entsprechen (PascalCase), um die Abfrageroutine identisch halten zu können. Die bestehende Abweichung `hardware_inventory_view` muss im Rahmen dieses Features auf `HardwareInventoryView` umbenannt werden. Ebenso müssen die Spalten-Aliase dieser View an die SQLite-Konvention angeglichen werden (z.B. `machine_id` → `MachineID`, `machine_name` → `MachineName`).
 - **Dokumentation:** Alle neuen öffentlichen Methoden müssen vollständig mit XML-Kommentaren (zweisprachig oder konsistent zum Projekt) dokumentiert werden.
 
-### R-PGSQL-07: Vorbereitung für Provider-Switching (Optional/Ausblick)
+### R-PGSQL-07: Vorbereitung für Provider-Switching (Ausblick)
 
-Obwohl dieses Lastenheft primär die Parität des Services betrifft, sollte die Implementierung so sauber sein, dass der `HarvesterWorkerService` in einem nächsten Schritt leicht auf PostgreSQL umgestellt oder beide parallel betrieben werden können.
+Die Implementierung muss so sauber sein, dass der `HarvesterWorkerService` in einem späteren Schritt leicht auf PostgreSQL umgestellt oder beide parallel betrieben werden können. Ein formales `IDbService`-Interface ist **nicht** Teil dieses Vorhabens (siehe "Nicht im Scope"), die identischen Methoden-Signaturen bilden jedoch die Grundlage für ein späteres Interface-Refactoring.
 
 ### R-PGSQL-08: Konfigurations-Integration und Write-Safety
 
 - **R-PGSQL-08.1: Nutzung der Settings:** Der `PgSqlDbService` muss den über `Initialize.cs` bereitgestellten Connection-String (inkl. User/Passwort aus `PgSqlDb.PgSqlConnectionString`) für alle Datenbankverbindungen nutzen.
-- **R-PGSQL-08.2: Berücksichtigung von `WriteEnabled`:** Im `HarvesterWorkerService` (oder an zentraler Stelle in `Initialize.cs`) muss sichergestellt werden, dass Schreibzugriffe auf PostgreSQL nur dann erfolgen, wenn `PgSqlDb.WriteEnabled` auf `true` gesetzt ist. Dies verhindert Fehlermeldungen bei unkonfigurierten PostgreSQL-Instanzen.
+- **R-PGSQL-08.2: Berücksichtigung von `WriteEnabled`:** Im `HarvesterWorkerService` muss sichergestellt werden, dass Schreibzugriffe auf PostgreSQL nur dann erfolgen, wenn `PgSqlDb.WriteEnabled` auf `true` gesetzt ist. Dies verhindert Fehlermeldungen bei unkonfigurierten PostgreSQL-Instanzen. Die Worker-Integration erfolgt analog zu den bestehenden MongoDB-Aufrufen in `Worker.cs`.
+- **R-PGSQL-08.3: Fallback-Pfad ohne Settings:** Wenn keine Settings-Datei vorhanden ist (parameterloser Aufruf von `Initialize.Services()`), wird die PostgreSQL-Initialisierung übersprungen. Der Connection-String ohne Credentials kann keine authentifizierte Verbindung aufbauen. `ServiceContainer.PgSqlDbService` darf in diesem Fall `null` sein; alle Aufrufer müssen darauf prüfen.
 
 ---
 
@@ -89,6 +102,10 @@ Obwohl dieses Lastenheft primär die Parität des Services betrifft, sollte die 
 - Migration bestehender SQLite-Daten nach PostgreSQL.
 - Performance-Optimierung (Indizes sind bereits im Schema-Script vorhanden).
 - Änderung der Domänenmodelle.
+- Lesemethoden für Statistik-Views (`ComputerModelStatisticsView`, `ArchitectureStatisticsView`, `ModelArchitectureStatisticsView`, `HardwareStatisticsOverview`). Diese Views werden zwar beim Initialisieren erstellt, C#-Abfragemethoden sind jedoch weder in SQLite noch in PostgreSQL vorhanden und können als eigenes Feature nachgeliefert werden.
+- Einführung eines formalen `IDbService`-Interfaces für Provider-Switching. Die identischen Methoden-Signaturen bereiten dies vor, das Interface-Refactoring ist ein eigenständiges Feature mit Auswirkung auf alle Consumer.
+- Herstellung der MongoDB-Parität. Der `MongoDbService` besitzt aktuell nur Schreibmethoden und eine einzelne Abfrage. Die Erweiterung des MongoDB-Services ist nicht Gegenstand dieses Vorhabens.
+- Behebung bestehender SQLite-Bugs (z.B. fehlerhafte View-Abfragen in `GetAllDeprovisionedMachinesAsync` und `GetAllDisabledMachinesAsync`). Diese werden in einem separaten Bug-Fix adressiert; die PgSQL-Implementierung verwendet von Anfang an die korrekten View-Abfragen.
 
 ---
 
@@ -99,9 +116,12 @@ Obwohl dieses Lastenheft primär die Parität des Services betrifft, sollte die 
 | AK-PGSQL-01 | `PgSqlDbService` besitzt alle öffentlichen Methoden des `SqliteDbService` mit identischen Signaturen. |
 | AK-PGSQL-02 | Alle Schreiboperationen speichern Daten korrekt in der PostgreSQL-Instanz (Verifikation via SQL-Abfrage). |
 | AK-PGSQL-03 | Der CSV-Import liest Daten erfolgreich in PostgreSQL ein. |
-| AK-PGSQL-04 | Alle Methoden sind asynchron implementiert. |
+| AK-PGSQL-04 | Alle Methoden sind asynchron implementiert (Ausnahme: `InitializeDatabase()` bleibt synchron, Parität zu SQLite). |
 | AK-PGSQL-05 | XML-Dokumentation für alle öffentlichen Member ist vorhanden. |
 | AK-PGSQL-06 | `dotnet build` läuft ohne Warnungen (bezogen auf den neuen Code) durch. |
+| AK-PGSQL-07 | Der `HarvesterWorkerService` schreibt bei `WriteEnabled = true` parallel zu SQLite und MongoDB auch nach PostgreSQL. |
+| AK-PGSQL-08 | Bei `WriteEnabled = false` oder fehlender Settings-Datei werden keine PostgreSQL-Schreibzugriffe ausgeführt und keine Exceptions geworfen. |
+| AK-PGSQL-09 | Die View `HardwareInventoryView` in PostgreSQL verwendet PascalCase-Namen und -Spaltenaliase, identisch zur SQLite-Variante. |
 
 ---
 

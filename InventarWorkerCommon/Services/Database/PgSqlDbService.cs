@@ -55,8 +55,8 @@ public class PgSqlDbService
                 IPv4 TEXT,
                 IPv6 TEXT,
                 FQDN TEXT,
-                Disabled INTEGER NOT NULL DEFAULT 0,
-                Deprovisioned INTEGER NOT NULL DEFAULT 0,
+                Disabled BOOLEAN NOT NULL DEFAULT FALSE,
+                Deprovisioned BOOLEAN NOT NULL DEFAULT FALSE,
                 LastHarvested timestamptz
             );
             
@@ -247,8 +247,8 @@ public class PgSqlDbService
             CREATE OR REPLACE VIEW AllActiveMachinesView AS
             SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
             FROM Machines
-            WHERE DISABLED = 0 AND DEPROVISIONED = 0;
-            
+            WHERE Disabled = FALSE AND Deprovisioned = FALSE;
+
             -- View to retrieve all active machines with network information (not disabled or deprovisioned)
             -- This view selects all machines that are currently active, meaning they are not disabled or deprovisioned.
             -- It includes the Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, and LastHarvested columns.
@@ -262,7 +262,7 @@ public class PgSqlDbService
             CREATE OR REPLACE VIEW AllActiveMachinesWithNetworkInfoView AS
             SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
             FROM Machines
-            WHERE DISABLED = 0 AND DEPROVISIONED = 0 AND (
+            WHERE Disabled = FALSE AND Deprovisioned = FALSE AND (
                 (IPv4 IS NOT NULL AND IPv4 != '') OR
                 (IPv6 IS NOT NULL AND IPv6 != '') OR
                 (FQDN IS NOT NULL AND FQDN != '')
@@ -281,7 +281,7 @@ public class PgSqlDbService
             CREATE OR REPLACE VIEW AllDisabledMachinesView AS
             SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
             FROM Machines
-            WHERE DISABLED = 1 AND DEPROVISIONED = 0;
+            WHERE Disabled = TRUE AND Deprovisioned = FALSE;
             
             -- View to retrieve all deprovisioned machines (disabled)
             -- This view selects all machines that are currently deprovisioned, meaning they are disabled and marked as deprovisioned.
@@ -297,7 +297,7 @@ public class PgSqlDbService
             CREATE OR REPLACE VIEW AllDeprovisionedMachinesView AS
             SELECT Id, Name, IPv4, IPv6, FQDN, Disabled, Deprovisioned, LastSeen, LastHarvested
             FROM Machines
-            WHERE DISABLED = 1 AND DEPROVISIONED = 1;
+            WHERE Disabled = TRUE AND Deprovisioned = TRUE;
             """;
 
         connection.Execute(createTablesAndViewsQuery);

@@ -165,6 +165,9 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX Run quickstart.md validation
 - [ ] TXXX Run coverage report and attach CI evidence (>=70%; target >=80%)
 - [ ] TXXX Run `dotnet list package --outdated` and document package update decisions
+- [ ] TXXX Rename the corresponding `Lastenheft_*.md` to `Lastenheft_*.<branch-name>.md`
+      via `bash scripts/rename-lastenheft.sh <LH-Datei> <branch-name>` (macOS/Linux)
+      or `pwsh scripts/rename-lastenheft.ps1 -File <LH-Datei> -BranchName <branch-name>` (Windows)
 
 ---
 
