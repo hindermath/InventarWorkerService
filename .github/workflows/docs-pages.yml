@@ -76,7 +76,7 @@ jobs:
           python3 -m http.server 8080 --directory _site >/tmp/docfx-http.log 2>&1 &
           server_pid=$!
           trap 'kill $server_pid' EXIT
-          cat > /tmp/docfx-axe-smoke.mjs <<'EOF'
+          cat > ./docfx-axe-smoke.mjs <<'EOF'
           import { chromium } from '@playwright/test';
           import AxeBuilder from '@axe-core/playwright';
 
@@ -92,7 +92,8 @@ jobs:
 
           await browser.close();
           EOF
-          node /tmp/docfx-axe-smoke.mjs
+          node ./docfx-axe-smoke.mjs
+          rm -f ./docfx-axe-smoke.mjs
 
       - name: Setup GitHub Pages
         if: github.event_name != 'pull_request'
