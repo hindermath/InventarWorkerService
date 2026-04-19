@@ -66,6 +66,26 @@ jobs:
       - name: Build DocFX site
         run: docfx docfx.json
 
+      - name: Post-process DocFX HTML for accessibility
+        run: bash .github/scripts/postprocess-docfx-site.sh _site
+
+      - name: Verify DocFX accessibility patches
+        run: |
+          if rg -n --pcre2 '<html(?![^>]*\blang=)' _site/**/*.html _site/index.html; then
+            echo "Found HTML documents without lang attribute." >&2
+            exit 1
+          fi
+
+          if rg -n 'id="logo".*alt="InventarWorkerService"' _site/**/*.html _site/index.html; then
+            echo "Found redundant logo alt text after post-processing." >&2
+            exit 1
+          fi
+
+          if rg -n '<a[^>]*dropdown-toggle[^>]*aria-expanded=' _site/**/*.html _site/index.html; then
+            echo "Found unsupported aria-expanded on DocFX theme links after post-processing." >&2
+            exit 1
+          fi
+
       - name: Text-browser smoke check
         run: |
           test -f _site/index.html
