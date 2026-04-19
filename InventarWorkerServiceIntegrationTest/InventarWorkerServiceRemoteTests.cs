@@ -103,7 +103,7 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
             try
             {
                 using var document = JsonDocument.Parse(content);
-                Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+                Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
             }
             catch (JsonException ex)
             {
@@ -153,7 +153,7 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
             try
             {
                 using var document = JsonDocument.Parse(content);
-                Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+                Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
             }
             catch (JsonException ex)
             {

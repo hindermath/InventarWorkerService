@@ -127,7 +127,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
         }
         catch (JsonException ex)
         {
@@ -166,7 +166,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
         }
         catch (JsonException ex)
         {
@@ -205,7 +205,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
         }
         catch (JsonException ex)
         {
@@ -244,7 +244,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
         }
         catch (JsonException ex)
         {
@@ -292,7 +292,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
             try
             {
                 using var document = JsonDocument.Parse(content);
-                Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+                Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
             }
             catch (JsonException ex)
             {
@@ -341,7 +341,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
         }
         catch (JsonException ex)
         {
@@ -416,7 +416,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
                 try
                 {
                     using var document = JsonDocument.Parse(content);
-                    Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+                    Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
                 }
                 catch (JsonException)
                 {
@@ -457,14 +457,13 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         try
         {
             using var document = JsonDocument.Parse(content);
-            Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+            Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
             
             // Additional validation for Swagger/OpenAPI structure
-            if (document.RootElement.TryGetProperty("openapi", out var openApiProperty) ||
-                document.RootElement.TryGetProperty("swagger", out var swaggerProperty))
-            {
-                Assert.IsTrue(true, "Valid OpenAPI/Swagger document detected");
-            }
+            Assert.IsTrue(
+                document.RootElement.TryGetProperty("openapi", out _) ||
+                document.RootElement.TryGetProperty("swagger", out _),
+                "Valid OpenAPI/Swagger document detected");
         }
         catch (JsonException ex)
         {
@@ -520,7 +519,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
             try
             {
                 using var document = JsonDocument.Parse(content);
-                Assert.IsNotNull(document.RootElement, "JSON should be parseable");
+                Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
             }
             catch (JsonException ex)
             {

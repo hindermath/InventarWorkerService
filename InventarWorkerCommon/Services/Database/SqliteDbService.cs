@@ -493,7 +493,7 @@ public class SqliteDbService
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
-        const string query = "SELECT * FROM Machines AllDeprovisionedMachinesView ORDER BY Name";
+        const string query = "SELECT * FROM AllDeprovisionedMachinesView ORDER BY Name";
         var machines = await connection.QueryAsync<MachineState>(query);
         return machines.ToList();
     }
@@ -508,7 +508,7 @@ public class SqliteDbService
         using var connection = new SqliteConnection(_connectionString);
         await connection.OpenAsync();
 
-        const string query = "SELECT * FROM Machines AllDisabledMachinesView ORDER BY Name";
+        const string query = "SELECT * FROM AllDisabledMachinesView ORDER BY Name";
         var machines = await connection.QueryAsync<MachineState>(query);
         return machines.ToList();
     }

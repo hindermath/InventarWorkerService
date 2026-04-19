@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Management.Automation;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
@@ -141,7 +142,7 @@ public class HardwareInventoryService
         try
         {
             // Performance Counter nur auf unterstützten Plattformen initialisieren
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (OperatingSystem.IsWindows())
             {
                 _cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
                 _memoryAvailableCounter = new PerformanceCounter("Memory", "Available MBytes");
@@ -237,7 +238,7 @@ public class HardwareInventoryService
                 ManagedMemoryUsage = GC.GetTotalMemory(false)
             };
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (OperatingSystem.IsWindows())
             {
                 GetWindowsMemoryInfo(memoryInfo);
             }
@@ -402,7 +403,7 @@ public class HardwareInventoryService
     {
         try
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (OperatingSystem.IsWindows())
             {
                 return GetWindowsProcessorName();
             }
@@ -544,9 +545,9 @@ public class HardwareInventoryService
         {
             #region GetCpuUsagePerSystem
             // Windows Performance Counter verwenden
-            if (_cpuCounter != null)
+            if (OperatingSystem.IsWindows() && _cpuCounter != null)
             {
-                return Math.Round(Math.Clamp(_cpuCounter.NextValue(), 0.0, 100.0),2);
+                return Math.Round(Math.Clamp(ReadWindowsPerformanceCounterValue(_cpuCounter), 0.0, 100.0), 2);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
@@ -829,9 +830,9 @@ public class HardwareInventoryService
     {
         try
         {
-            if (_memoryAvailableCounter != null)
+            if (OperatingSystem.IsWindows() && _memoryAvailableCounter != null)
             {
-                memoryInfo.AvailablePhysicalMemory = (long)_memoryAvailableCounter.NextValue() * 1024 * 1024; // MB zu Bytes
+                memoryInfo.AvailablePhysicalMemory = (long)ReadWindowsPerformanceCounterValue(_memoryAvailableCounter) * 1024 * 1024; // MB zu Bytes
             }
         }
         catch (Exception ex)
@@ -922,6 +923,12 @@ public class HardwareInventoryService
                 _logger.LogWarning(ex, "Verfügbarer Speicher konnte auch via PowerShell nicht ermittelt werden");
             }
         }
+    }
+
+    [SupportedOSPlatform("windows")]
+    private static float ReadWindowsPerformanceCounterValue(PerformanceCounter performanceCounter)
+    {
+        return performanceCounter.NextValue();
     }
 
     private void GetUnixMemoryInfo(MemoryInfo memoryInfo)

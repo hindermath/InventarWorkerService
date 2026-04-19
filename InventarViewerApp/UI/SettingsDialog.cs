@@ -16,57 +16,57 @@ namespace InventarViewerApp.UI
         /// <summary>
         /// Gets the fully qualified domain name (FQDN) of the client API.
         /// </summary>
-        public string ClientApiFqdn { get; private set; }
+        public string ClientApiFqdn { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the port of the client API.
         /// </summary>
-        public string ClientApiPort { get; private set; }
+        public string ClientApiPort { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the fully qualified domain name (FQDN) of the MongoDB server.
         /// </summary>
-        public string MongoDbFqdn { get; private set; }
+        public string MongoDbFqdn { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the port of the MongoDB server.
         /// </summary>
-        public string MongoDbPort { get; private set; }
+        public string MongoDbPort { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the username for the MongoDB connection.
         /// </summary>
-        public string MongoDbUser { get; private set; }
+        public string MongoDbUser { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the password for the MongoDB connection.
         /// </summary>
-        public string MongoDbPassword { get; private set; }
+        public string MongoDbPassword { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the fully qualified domain name (FQDN) of the PostgreSQL server.
         /// </summary>
-        public string PgSqlDbFqdn { get; private set; }
+        public string PgSqlDbFqdn { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the port of the PostgreSQL server.
         /// </summary>
-        public string PgSqlDbPort { get; private set; }
+        public string PgSqlDbPort { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the name of the PostgreSQL database.
         /// </summary>
-        public string PgSqlDbName { get; private set; }
+        public string PgSqlDbName { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the username for the PostgreSQL connection.
         /// </summary>
-        public string PgSqlUser { get; private set; }
+        public string PgSqlUser { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the password for the PostgreSQL connection.
         /// </summary>
-        public string PgSqlPassword { get; private set; }
+        public string PgSqlPassword { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets a value indicating whether the dialog was canceled by the user.
@@ -139,6 +139,11 @@ namespace InventarViewerApp.UI
             PgSqlUser = pgSqlUser;
             PgSqlPassword = pgSqlPassword;
             InitializeUI();
+        }
+
+        private static string ReadText(TextField textField)
+        {
+            return textField.Text.ToString() ?? string.Empty;
         }
 
         private void InitializeUI()
@@ -260,17 +265,17 @@ namespace InventarViewerApp.UI
             var btnOk = new Button("OK", true);
             btnOk.Clicked += () =>
             {
-                ClientApiFqdn = apiFqdnText.Text.ToString();
-                ClientApiPort = apiPortText.Text.ToString();
+                ClientApiFqdn = ReadText(apiFqdnText);
+                ClientApiPort = ReadText(apiPortText);
                 _clientApi.ClientApiFqdn = ClientApiFqdn;
                 _clientApi.ClientApiPort = ClientApiPort;
 
-                MongoDbFqdn = mongoFqdnText.Text.ToString();
-                MongoDbPort = mongoPortText.Text.ToString();
+                MongoDbFqdn = ReadText(mongoFqdnText);
+                MongoDbPort = ReadText(mongoPortText);
                 if (mongoAuthCheck.Checked)
                 {
-                    MongoDbUser = mongoUserText.Text.ToString();
-                    MongoDbPassword = mongoPassText.Text.ToString();
+                    MongoDbUser = ReadText(mongoUserText);
+                    MongoDbPassword = ReadText(mongoPassText);
                 }
                 else
                 {
@@ -280,27 +285,27 @@ namespace InventarViewerApp.UI
                 _mongoDb.MongoDbFqdn = MongoDbFqdn;
                 _mongoDb.MongoDbPort = MongoDbPort;
                 _mongoDb.MongoDbUser = MongoDbUser;
-                _mongoDb.MongoDbPassword = MongoDbPassword ?? string.Empty;
+                _mongoDb.MongoDbPassword = MongoDbPassword;
                 _mongoDb.WriteEnabled = mongoWriteCheck.Checked;
 
-                PgSqlDbFqdn = pgSqlFqdnText.Text.ToString() ?? string.Empty;
-                PgSqlDbPort = pgSqlPortText.Text.ToString() ?? string.Empty;
-                PgSqlDbName = pgSqlDbText.Text.ToString() ?? string.Empty;
+                PgSqlDbFqdn = ReadText(pgSqlFqdnText);
+                PgSqlDbPort = ReadText(pgSqlPortText);
+                PgSqlDbName = ReadText(pgSqlDbText);
                 if (pgSqlAuthCheck.Checked)
                 {
-                    PgSqlUser = pgSqlUserText.Text.ToString() ?? string.Empty;
-                    PgSqlPassword = pgSqlPassText.Text.ToString() ?? string.Empty;
+                    PgSqlUser = ReadText(pgSqlUserText);
+                    PgSqlPassword = ReadText(pgSqlPassText);
                 }
                 else
                 {
                     PgSqlUser = string.Empty;
                     PgSqlPassword = string.Empty;
                 }
-                _pgSqlDb.PgSqlDbFqdn = PgSqlDbFqdn ?? string.Empty;
-                _pgSqlDb.PgSqlDbPort = PgSqlDbPort ?? string.Empty;
-                _pgSqlDb.PgSqlDbName = PgSqlDbName ?? string.Empty;
-                _pgSqlDb.PgSqlUser = PgSqlUser ?? string.Empty;
-                _pgSqlDb.PgSqlPassword = PgSqlPassword ?? string.Empty;
+                _pgSqlDb.PgSqlDbFqdn = PgSqlDbFqdn;
+                _pgSqlDb.PgSqlDbPort = PgSqlDbPort;
+                _pgSqlDb.PgSqlDbName = PgSqlDbName;
+                _pgSqlDb.PgSqlUser = PgSqlUser;
+                _pgSqlDb.PgSqlPassword = PgSqlPassword;
                 _pgSqlDb.WriteEnabled = pgSqlWriteCheck.Checked;
 
                 _settings.ClientApi = _clientApi;

@@ -21,8 +21,8 @@ alle `timestamptz`-Spalten, null-Pattern für `PgSqlDbService?` im `ServiceConta
 ## Technical Context
 
 **Language/Version**: C# 14.0 on .NET 10
-**Primary Dependencies**: Npgsql 10.0.1 (bestehend / existing), Dapper 2.1.72 (bestehend),
-  CsvHelper 33.1.0 (bestehend), System.Text.Json (BCL, kein separates Paket)
+**Primary Dependencies**: Npgsql 10.0.2, Dapper 2.1.72, CsvHelper 33.1.0,
+  MSTest 4.2.1, System.Text.Json (BCL, kein separates Paket)
 **Storage**: PostgreSQL 14+ (Ziel / target), SQLite (bestehend), MongoDB (bestehend)
 **Testing**: MSTest 4.1.0 + coverage gates (>=70% minimum, target >=80%);
   Unit-Tests ohne echte DB; Integrationstests (`[TestCategory("Integration")]`) mit echter PgSQL-Instanz
@@ -64,9 +64,13 @@ alle `timestamptz`-Spalten, null-Pattern für `PgSqlDbService?` im `ServiceConta
   Coverage-Plan: Unit-Tests (Logik, null-Checks) + Integrationstests (full method coverage).
   CI-Gate ≥70%; Ziel ≥80%.
 
-- **Dependency Currency Gate**: ✅ Alle betroffenen Pakete sind auf aktueller stabiler Version:
-  Npgsql 10.0.1, Dapper 2.1.72, CsvHelper 33.1.0, MSTest 4.1.0. Kein Pinning erforderlich.
-  `dotnet list package --outdated` wird als Polish-Task ausgeführt.
+- **Dependency Currency Gate**: ✅ Die sichere Patch-/Minor-Welle wurde nachgezogen:
+  `.NET 10`-Pakete auf `10.0.6`, `Npgsql` auf `10.0.2`, `MongoDB.Driver` auf `3.7.1`,
+  `Swashbuckle.AspNetCore` auf `10.1.7`, `Microsoft.Playwright.MSTest` auf `1.59.0`
+  und MSTest / `Microsoft.NET.Test.Sdk` auf `4.2.1` / `18.4.0`.
+  Bewusste Pinning-Ausnahme: `YamlDotNet` bleibt vorerst auf `16.3.0`, weil `17.0.1`
+  ein Major-Upgrade ist und ausserhalb des PostgreSQL-Paritaets-MVP liegt.
+  Der Restbestand nach `dotnet list package --outdated` besteht nur noch aus diesem Pin.
 
 - **Data Contract Gate**: ✅ `System.Text.Json` mit camelCase für JSON-Serialisierung (FR-003).
   Dapper mit expliziten SQL-Strings. PascalCase für Tabellen/Spalten. View-Umbenennung per

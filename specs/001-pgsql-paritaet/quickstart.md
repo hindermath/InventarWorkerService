@@ -275,3 +275,33 @@ dotnet list package --outdated
 # DocFX generieren (nach API-Änderungen) / Generate DocFX (after API changes):
 docfx docfx.json
 ```
+
+---
+
+## Validierungsprotokoll / Validation Log
+
+Stand / Snapshot: `2026-04-19`
+
+Die folgenden Ergebnisse dokumentieren die reale Ausfuehrung der Quickstart-Schritte
+gegen den aktuellen Branch-Stand. Fuer die Worker-Laufschritte wurde bewusst eine
+isolierte Umgebung mit `SERVICESTATUSDIRECTORY=InventarWorkerServiceQuickstart`
+und der PostgreSQL-Testdatenbank `inventar_test` verwendet, damit keine regulaeren
+lokalen Daten ueberschrieben werden.
+
+The following results document the real execution of the quickstart steps against
+the current branch state. For the worker runtime steps, an isolated environment
+with `SERVICESTATUSDIRECTORY=InventarWorkerServiceQuickstart` and the PostgreSQL
+test database `inventar_test` was used on purpose so that no regular local data
+was overwritten.
+
+| Schritt | Status | Ergebnis / Evidence |
+|--------|--------|---------------------|
+| 1 | PASS | Integrationstests (`30/30`) und Non-Integration-Tests (`28/28`) liefen gruen; manuelle `psql`-Pruefung zeigte die Tabellen `machines`, `hardwareinventories`, `softwareinventories` sowie die Views inklusive `hardwareinventoryview` und ohne `hardware_inventory_view`. |
+| 2 | PASS | Temporaerer Smoke-Lauf via `PgSqlDbService` erfolgreich: `machineId=1001`, `machinesTableRows=4`, `hardwareTableRows=1`, `softwareTableRows=1`. |
+| 3 | PASS | Isolierter Harvester-Lauf mit `pgSqlDb.writeEnabled=true` und lokalem Agenten auf Port `80` lief erfolgreich (`Collecting inventory completed successfully: 1 runs`); anschliessend PostgreSQL-Zaehler jeweils `1` fuer `machines`, `hardwareinventories`, `softwareinventories`. |
+| 4 | PASS | Smoke-Lauf bestaetigte die Lese-Methoden: `machines=1`, `activeMachines=1`, `machineCount=1`, `hasMachineRecords=True`, `latestHardwareExists=True`. |
+| 5 | PASS | CSV-Import im Smoke-Lauf: `csvImported=3`, erneuter Import `csvReimported=0`. |
+| 6 | PASS | View-Verifikation im Smoke-Lauf: `pascalCaseViewCount=1`, `snakeCaseViewCount=0`, Spalten `machineid,machinename,architecture,processorcores,totalmemorygb,availablememorygb,memoryusagepercent`. |
+| 7 | PASS | Isolierter Harvester-Lauf mit `pgSqlDb.writeEnabled=false` lief erfolgreich; anschliessende SQL-Negativverifikation ergab `0` Datensaetze in `machines`, `hardwareinventories`, `softwareinventories`. |
+| 8 | FAIL | Coverage-Lauf und Reportgenerator liefen technisch erfolgreich, aber das Gate bleibt rot: Cobertura `line-rate="0.2266"` (`22.66 %`). Das entspricht dem weiterhin offenen Task `T046`. |
+| 9 | PASS | `dotnet build InventarWorkerService.sln --no-incremental` erfolgreich mit `0 Warnung(en)` und `0 Fehler`; `dotnet list ... --outdated` zeigt nur noch die bewusst gepinnte Ausnahme `YamlDotNet 16.3.0 -> 17.0.1`; `docfx docfx.json` lief erfolgreich mit `0 warning(s)` und `0 error(s)`. |

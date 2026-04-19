@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace CtrlWorkerCommon.Controller;
 
@@ -66,19 +67,19 @@ public class CrossPlatformServiceController
     /// </exception>
     public void StartService()
     {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        if (OperatingSystem.IsWindows())
         {
             StartWindowsService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        else if (OperatingSystem.IsLinux())
         {
             StartLinuxService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        else if (OperatingSystem.IsMacOS())
         {
             StartMacOSService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+        else if (OperatingSystem.IsFreeBSD())
         {
             StartFreeBSDService();
         }
@@ -98,24 +99,25 @@ public class CrossPlatformServiceController
     /// </remarks>
     public void StopService()
     {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        if (OperatingSystem.IsWindows())
         {
             StopWindowsService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        else if (OperatingSystem.IsLinux())
         {
             StopLinuxService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        else if (OperatingSystem.IsMacOS())
         {
             StopMacOSService();
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+        else if (OperatingSystem.IsFreeBSD())
         {
             StopFreeBSDService();
         }
     }
-    
+
+    [SupportedOSPlatform("windows")]
     private void StartWindowsService()
     {
         using var service = new System.ServiceProcess.ServiceController(_serviceName);
@@ -124,7 +126,8 @@ public class CrossPlatformServiceController
             service.Start();
         }
     }
-    
+
+    [SupportedOSPlatform("windows")]
     private void StopWindowsService()
     {
         using var service = new System.ServiceProcess.ServiceController(_serviceName);

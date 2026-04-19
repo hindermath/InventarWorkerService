@@ -11,15 +11,15 @@ namespace InventarViewerApp.UI
     /// DE: Terminal.Gui-Ansicht zur Anzeige des Service-Status und zur Ablage des aktuellen Maschinen-Eintrags.
     /// EN: Terminal.Gui view that displays service status and persists the current machine entry.
     /// </summary>
-    public class StatusView : FrameView
-    {
+        public class StatusView : FrameView
+        {
         private readonly ApiService _apiService;
         private readonly SqliteDbService _sqliteDbService;
-        private readonly PgSqlDbService _pgSqlDbService;
+        private readonly PgSqlDbService? _pgSqlDbService;
         private readonly JsonSerializerOptions _jsonOptions;
-        private Label _statusLabel;
-        private Label _contentLabel;
-        private Button _refreshButton;
+        private Label _statusLabel = null!;
+        private Label _contentLabel = null!;
+        private Button _refreshButton = null!;
 
         /// <summary>
         /// DE: Initialisiert eine neue Instanz der <see cref="StatusView"/>-Klasse.
@@ -37,7 +37,7 @@ namespace InventarViewerApp.UI
         /// DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
         /// EN: Service for PostgreSQL access in the viewer application.
         /// </param>
-        public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService pgSqlDbService) : base("Service Status")
+        public StatusView(ApiService apiService, SqliteDbService sqliteDbService, PgSqlDbService? pgSqlDbService) : base("Service Status")
         {
             _apiService = apiService;
             _sqliteDbService = sqliteDbService;
@@ -111,15 +111,16 @@ namespace InventarViewerApp.UI
                 {
                     // DE: Status in einen String umwandeln und als JsonDocument lesen.
                     // EN: Convert status to string and parse it as JsonDocument.
-                    var statusString = status.ToString();
+                    var statusString = status?.ToString() ?? "{}";
                     var statusDocument = JsonDocument.Parse(statusString);
                     
                     // DE: Für den Zugriff nach Schlüsseln in ein Dictionary deserialisieren.
                     // EN: Deserialize into a dictionary for key-based access.
-                    var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions);
+                    var statusData = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(statusDocument.RootElement.GetRawText(), _jsonOptions)
+                        ?? new Dictionary<string, JsonElement>();
 
                     machineName = statusData.ContainsKey("machineName") && statusData["machineName"].ValueKind == JsonValueKind.String
-                        ? statusData["machineName"].GetString()
+                        ? statusData["machineName"].GetString() ?? Environment.MachineName
                         : Environment.MachineName;
                 }
                 catch
