@@ -610,6 +610,10 @@ markiert und eine `Commit Message` eingegeben wurden.
 - For generated HTML documentation, WCAG 2.2 conformance level AA is the practical baseline.
 - Nach jedem `docfx`-Neubau muessen im selben Arbeitsschritt sowohl Playwright + `@axe-core/playwright` als auch `lynx` fuer den textorientierten Review laufen.
 - After every `docfx` regeneration, the same work step must also run both Playwright + `@axe-core/playwright` and `lynx` for the text-oriented review.
+- Die von DocFX erzeugten Verzeichnisse `api/` und `_site/` sind in diesem Repository lokale oder CI-Artefakte und werden nicht in Git versioniert.
+- The DocFX-generated `api/` and `_site/` directories are local or CI artifacts in this repository and are not versioned in Git.
+- Die veroeffentlichte Online-Dokumentation liegt auf GitHub Pages unter <https://hindermath.github.io/InventarWorkerService/>.
+- The published online documentation is available on GitHub Pages at <https://hindermath.github.io/InventarWorkerService/>.
 - Empfohlene A11Y-Toolchain fuer DocFX-basierte Doku: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright` und `lynx`.
 - Recommended A11y toolchain for DocFX-based documentation: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
 
@@ -625,3 +629,5 @@ markiert und eine `Commit Message` eingegeben wurden.
 - Large normative documents may use a synchronized English sidecar with suffix `.EN.md`.
 - Generated HTML/API documentation must remain usable for Braille displays, screen readers, and text browsers under `Programmierung #include<everyone>`; WCAG 2.2 AA is the practical baseline.
 - After every `docfx` regeneration, the same work step must run Playwright + `@axe-core/playwright` and `lynx`.
+- Der automatische GitHub-Pages-Workflow fuer Build, A11Y-Smoke-Checks und Deployment liegt unter `.github/workflows/docs-pages.yml`.
+- The automatic GitHub Pages workflow for build, accessibility smoke checks, and deployment is available at `.github/workflows/docs-pages.yml`.

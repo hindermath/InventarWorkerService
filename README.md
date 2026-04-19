@@ -1,5 +1,11 @@
 # InventarWorkerService mit .NET10/C# 14.0 für Service für Windows, macOS und Linux
 
+[![Docs Pages](https://github.com/hindermath/InventarWorkerService/actions/workflows/docs-pages.yml/badge.svg)](https://github.com/hindermath/InventarWorkerService/actions/workflows/docs-pages.yml)
+
+> Online-Dokumentation / Online documentation: <https://hindermath.github.io/InventarWorkerService/>
+>
+> API-Referenz auf GitHub Pages / API reference on GitHub Pages: <https://hindermath.github.io/InventarWorkerService/api/>
+
 ## Generelles Beispielprojekt
 Gerne! Hier ist ein kleines Beispiel für ein plattformübergreifendes .NET Worker Service-Projekt, das unter Windows als Service, unter Linux als systemd-Daemon und unter macOS als launchd-Daemon laufen kann.
 
@@ -1083,6 +1089,10 @@ Implementierung abgeschlossen: TT.MM.JJJJ
 - For generated HTML documentation, WCAG 2.2 conformance level AA is the practical baseline.
 - Nach jedem `docfx`-Neubau muessen im selben Arbeitsschritt sowohl Playwright + `@axe-core/playwright` als auch `lynx` fuer den textorientierten Review laufen.
 - After every `docfx` regeneration, the same work step must also run both Playwright + `@axe-core/playwright` and `lynx` for the text-oriented review.
+- Die von DocFX erzeugten Verzeichnisse `api/` und `_site/` gelten in diesem Repository als Build-Artefakte und werden nicht versioniert.
+- In this repository, the DocFX-generated `api/` and `_site/` directories are treated as build artifacts and are not versioned.
+- Die veroeffentlichte DocFX-Site wird automatisch aus `main` nach GitHub Pages ausgerollt; API-Referenz und Guides sind dort fuer Nutzende und Azubis zentral auffindbar.
+- The published DocFX site is deployed automatically from `main` to GitHub Pages; API reference and guides are centrally discoverable there for users and apprentices.
 - Empfohlene A11Y-Toolchain fuer DocFX-basierte Doku: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright` und `lynx`.
 - Recommended A11y toolchain for DocFX-based documentation: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
 

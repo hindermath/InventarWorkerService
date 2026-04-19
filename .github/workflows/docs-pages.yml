@@ -1,0 +1,125 @@
+name: Docs Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docfx.json"
+      - "index.md"
+      - "toc.yml"
+      - "README.md"
+      - "docs/**"
+      - "**/*.cs"
+      - "**/*.csproj"
+      - ".github/workflows/docs-pages.yml"
+  pull_request:
+    paths:
+      - "docfx.json"
+      - "index.md"
+      - "toc.yml"
+      - "README.md"
+      - "docs/**"
+      - "**/*.cs"
+      - "**/*.csproj"
+      - ".github/workflows/docs-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Restore solution dependencies
+        run: dotnet restore InventarWorkerService.sln
+
+      - name: Install DocFX and accessibility tooling
+        run: |
+          dotnet tool update --global docfx || dotnet tool install --global docfx
+          sudo apt-get update
+          sudo apt-get install -y lynx
+          npm install --no-save @playwright/test @axe-core/playwright
+          npx playwright install --with-deps chromium
+
+      - name: Build DocFX site
+        run: docfx docfx.json
+
+      - name: Text-browser smoke check
+        run: |
+          test -f _site/index.html
+          lynx -dump _site/index.html | sed -n '1,80p'
+
+      - name: Axe smoke check
+        run: |
+          python3 -m http.server 8080 --directory _site >/tmp/docfx-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          cat > /tmp/docfx-axe-smoke.mjs <<'EOF'
+          import { chromium } from '@playwright/test';
+          import AxeBuilder from '@axe-core/playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage();
+          await page.goto('http://127.0.0.1:8080/');
+
+          const results = await new AxeBuilder({ page }).analyze();
+          if (results.violations.length > 0) {
+            console.error(JSON.stringify(results.violations, null, 2));
+            process.exitCode = 1;
+          }
+
+          await browser.close();
+          EOF
+          node /tmp/docfx-axe-smoke.mjs
+
+      - name: Setup GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Upload preview artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: docfx-site-preview
+          path: _site
+
+  deploy-pages:
+    if: github.event_name != 'pull_request'
+    needs: build-docs
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

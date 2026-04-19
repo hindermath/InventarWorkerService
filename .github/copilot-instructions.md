@@ -30,6 +30,8 @@ dotnet list package --outdated
 docfx docfx.json
 ```
 
+The generated DocFX directories `api/` and `_site/` are build artifacts. Keep them out of Git. Published documentation is deployed automatically from `main` via `.github/workflows/docs-pages.yml`.
+
 ## Branching Workflow (Mandatory)
 
 - `main` is protected and must not receive direct feature commits.
@@ -103,7 +105,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Didactic comments:** Add bilingual block/line comments for non-public members/variables where XML docs do not apply.
 
-**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes.
+**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes. The generated `api/` metadata and `_site/` HTML output must remain untracked. GitHub Pages deployment is handled by `.github/workflows/docs-pages.yml`.
 
 **Test framework:** MSTest. Use `[TestInitialize]`/`[TestCleanup]` for per-test setup. Assert default property values (empty strings, 0, false, null) explicitly in unit tests.
 

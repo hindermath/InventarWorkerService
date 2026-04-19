@@ -5,7 +5,9 @@
       "src": [
         {
           "files": [
-            "**/*.csproj"
+            "InventarWorkerCommon/InventarWorkerCommon.csproj",
+            "CtrlWorkerCommon/CtrlWorkerCommon.csproj",
+            "CtrlWorkerServiceCmdlet/CtrlWorkerServiceCmdlet.csproj"
           ]
         }
       ],
@@ -18,12 +20,13 @@
     "content": [
       {
         "files": [
-          "**/*.{md,yml}"
-        ],
-        "exclude": [
-          "_site/**",
-          "**/bin/**",
-          "**/obj/**"
+          "index.md",
+          "toc.yml",
+          "README.md",
+          "docs/**/*.md",
+          "docs/toc.yml",
+          "api/**/*.yml",
+          "api/.manifest"
         ]
       }
     ],

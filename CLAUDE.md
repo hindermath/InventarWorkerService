@@ -43,6 +43,8 @@ dotnet list package --outdated
 docfx docfx.json
 ```
 
+DocFX metadata in `api/` and generated HTML in `_site/` are generated artifacts. Keep both untracked and publish them via CI artifacts or Pages instead of committing them. This repository deploys the published site automatically from `main` via `.github/workflows/docs-pages.yml`.
+
 ## Branching Workflow (Mandatory)
 
 - `main` is protected and must not receive direct feature commits.
@@ -117,7 +119,7 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 - **UI language**: German strings in UI labels and log messages
 - **XML docs**: Public API members require complete XML documentation; do not suppress CS1591 globally
 - **Didactic comments**: Add bilingual block/line comments for non-public members/variables where XML docs do not apply
-- **DocFX**: Run `docfx docfx.json` when API signatures or XML docs change
+- **DocFX**: Run `docfx docfx.json` when API signatures or XML docs change. The generated `api/` and `_site/` directories are artifacts and must stay out of Git. GitHub Pages deployment is handled by `.github/workflows/docs-pages.yml`.
 
 ### Database
 

@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 This repository is a multi-project .NET 10 / C# 14.0 solution (`InventarWorkerService.sln`). Core domain logic lives in `InventarWorkerCommon/` (`Models/`, `Services/`, `Helpers/`). Runtime services are in `InventarWorkerService/` (agent + API), `HarvesterWorkerService/` (collector), and `InventarViewerApp/` (Terminal UI client). Service control utilities are in `CtrlWorkerCommon/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`, and `CtrlWorkerServicePS/`.
 
-Tests are split by scope: `InventarWorkerCommonTest/`, `CtrlWorkerCommonTest/`, and `InventarWorkerServiceIntegrationTest/`. Documentation sources are under `docs/` with DocFX config in `docfx.json` and generated output in `_site/`.
+Tests are split by scope: `InventarWorkerCommonTest/`, `CtrlWorkerCommonTest/`, and `InventarWorkerServiceIntegrationTest/`. Documentation sources are under `docs/` with DocFX config in `docfx.json`; generated DocFX metadata in `api/` and generated HTML output in `_site/` are local or CI artifacts and MUST remain untracked.
 
 ## Build, Test, and Development Commands
 - `dotnet restore InventarWorkerService.sln`: restore dependencies for all projects.
@@ -123,7 +123,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Didactic comments:** Add bilingual block/line comments for non-public members/variables where XML docs do not apply.
 
-**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes.
+**DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes. The generated `api/` metadata and `_site/` HTML output are build artifacts and must not be committed. Published documentation is deployed automatically from `main` to GitHub Pages via `.github/workflows/docs-pages.yml`.
 
 **Test framework:** MSTest. Use `[TestInitialize]`/`[TestCleanup]` for per-test setup. Assert default property values (empty strings, 0, false, null) explicitly in unit tests.
 

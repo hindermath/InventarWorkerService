@@ -1,6 +1,6 @@
 # Projektstatistik InventarWorkerService
 
-Stand: 2026-03-30 (aktualisiert inklusive finalem Gesamtstatistik-Block, ASCII-Diagrammen und Governance-Abgleich fuer Bilingualitaet, A11Y und Parent-Baseline)
+Stand: 2026-04-19 (aktualisiert inklusive Branch `001-pgsql-paritaet`, PostgreSQL-Paritaets-Implementierung, Warnungsabbau auf `0` und fortgeschriebenem Gesamtstatistik-Block)
 
 ## Zweck und Pflege
 
@@ -76,34 +76,35 @@ und auf explizite Anforderung fortgeschrieben.
 
 | Kennzahl | Wert |
 |---|---:|
-| Beobachtbarer Projektzeitraum | 2025-06-26 bis 2026-03-08 |
-| Git-Commits gesamt | 837 |
-| Autoren laut Git | 1 |
-| Git-Aktivtage | 102 |
-| Produktionscode aktuell | 65 Dateien / 9395 Zeilen |
-| Testcode aktuell | 9 Dateien / 2094 Zeilen |
-| Dokumentation aktuell | 54 Dateien / 6033 Zeilen |
-| Davon Spec-Kit-Artefakte | 0 Dateien / 0 Zeilen |
-| Davon Governance/Agent-Dateien | 5 Dateien / 617 Zeilen |
-| Davon `docs/` | 13 Dateien / 1994 Zeilen |
-| Gesamtbasis fuer Handschaetzung (inkl. Dokumentation) | 17522 Zeilen |
-| Erfahrener Entwickler, konservative Untergrenze | 219.0 Arbeitstage |
-| Erfahrener Entwickler, konservative Untergrenze in Stunden | 1708.2 Stunden (219.0 * 7.8) |
-| Erfahrener Entwickler, brutto | 10.2 Arbeitsmonate (21.5 Tage/Monat) |
-| Erfahrener Entwickler, TVoeD-Annahme | 11.5 Kalendermonate bzw. 1.0 Jahre |
-| Thorsten solo, erfahrungsadjustierte Untergrenze | 175.2 Arbeitstage |
-| Thorsten solo, erfahrungsadjustierte Untergrenze in Stunden | 1366.6 Stunden (175.2 * 7.8) |
-| Thorsten solo, brutto | 8.1 Arbeitsmonate (21.5 Tage/Monat) |
-| Thorsten solo, TVoeD-Annahme | 9.2 Kalendermonate bzw. 0.8 Jahre |
-| Kleines Team (3 Personen, +20 % Koordination), Untergrenze | 87.6 Arbeitstage |
-| Kleines Team (3 Personen, +20 % Koordination), TVoeD-Annahme | 4.6 Kalendermonate |
-| Repo-weiter Beschleunigungsfaktor vs. konservative Referenz | 2.1x (219.0 / 102 Git-Aktivtage) |
-| Repo-weiter Beschleunigungsfaktor vs. Thorsten-Referenz | 1.7x (175.2 / 102 Git-Aktivtage) |
+| Beobachtbarer Projektzeitraum | 2025-06-26 bis 2026-04-19 |
+| Git-Commits gesamt | 892 |
+| Autoren laut Git | 3 |
+| Git-Aktivtage | 116 |
+| Produktionscode aktuell | 65 Dateien / 9918 Zeilen |
+| Testcode aktuell | 10 Dateien / 3054 Zeilen |
+| Dokumentation aktuell | 47 Dateien / 8477 Zeilen |
+| Davon Spec-Kit-Artefakte | 27 Dateien / 3648 Zeilen |
+| Davon Governance/Agent-Dateien | 4 Dateien / 636 Zeilen |
+| Davon `docs/` | 13 Dateien / 2273 Zeilen |
+| Gesamtbasis fuer Handschaetzung (inkl. Dokumentation) | 21449 Zeilen |
+| Erfahrener Entwickler, konservative Untergrenze | 268.1 Arbeitstage |
+| Erfahrener Entwickler, konservative Untergrenze in Stunden | 2091.3 Stunden (268.1 * 7.8) |
+| Erfahrener Entwickler, brutto | 12.5 Arbeitsmonate (21.5 Tage/Monat) |
+| Erfahrener Entwickler, TVoeD-Annahme | 14.1 Kalendermonate bzw. 1.2 Jahre |
+| Thorsten solo, erfahrungsadjustierte Untergrenze | 214.5 Arbeitstage |
+| Thorsten solo, erfahrungsadjustierte Untergrenze in Stunden | 1673.0 Stunden (214.5 * 7.8) |
+| Thorsten solo, brutto | 10.0 Arbeitsmonate (21.5 Tage/Monat) |
+| Thorsten solo, TVoeD-Annahme | 11.3 Kalendermonate bzw. 0.9 Jahre |
+| Kleines Team (3 Personen, +20 % Koordination), Untergrenze | 107.2 Arbeitstage |
+| Kleines Team (3 Personen, +20 % Koordination), TVoeD-Annahme | 5.6 Kalendermonate |
+| Repo-weiter Beschleunigungsfaktor vs. konservative Referenz | 2.3x (268.1 / 116 Git-Aktivtage) |
+| Repo-weiter Beschleunigungsfaktor vs. Thorsten-Referenz | 1.8x (214.5 / 116 Git-Aktivtage) |
 
 ## Branch-Ueberblick
 
 | Branch/Ref | Letzte sichtbare Aktivitaet | Einordnung |
 |---|---|---|
+| `001-pgsql-paritaet` | 2026-04-19 | aktiver Spec-Kit-Feature-Branch fuer PostgreSQL-Paritaet zum `PgSqlDbService` und Harvester-Pfad |
 | `002-spec-kit-versioning` | 2026-03-27 | Arbeitsbranch fuer repo-weite Versionslogik auf Basis nummerierter Spec-Kit-Branches |
 | `main` | 2026-03-08 | Integrationsbranch |
 | `INV-7` | sichtbar lokal | lokaler Arbeitsbranch |
@@ -276,6 +277,15 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-03-30 | Bilinguale Abschlusspruefung und A11Y-Gate in zentraler Doku verankert | Da fuer `InventarWorkerService` aktuell kein separates Pflichtenheft im Repository vorliegt, wurden die formalen Abschlusspruefpunkte in `docs/README.md` verankert: Lernrelevante Dokumente muessen in Deutsch und Englisch auf CEFR-B2-Niveau vorliegen; grosse normative Dokumente duerfen als synchron gepflegte `.EN.md`-Parallelfassung ausgeliefert werden; fuer DocFX-basierte HTML-Dokumentation gilt die A11Y-Pflicht nach `Programmierung #include<everyone>` mit WCAG 2.2 AA, textorientiertem Review nach `docfx` sowie Nutzbarkeit fuer Braille-Zeile, Screenreader und Textbrowser. Diese Runde war reine Dokumentationsarbeit mit `0` Produktionscode-Zeilen, `0` Testcode-Zeilen und ca. `+8` Dokumentationszeilen netto. Konservative Manualreferenz: 80 Zeilen/Tag = `0.1` Tage (ca. `0.8` Stunden); Thorsten-Solo-Referenz: 100 Zeilen/Tag = `0.1` Tage (ca. `0.6` Stunden); sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-03-30. |
 | 2026-03-30 | Parent-Guidance bewusst auf repo-uebergreifende Regeln begrenzt | In den lokalen Guidance-Dateien von `InventarWorkerService` ist jetzt ausdruecklich vermerkt, dass `/Users/thorstenhindermann/RiderProjects/AGENTS.md` nur gemeinsame Basisregeln fuer mehrere Repositories traegt. Repository-spezifische Build-, Test-, Workflow-, Architektur- und Feature-Vorgaben bleiben bewusst in `InventarWorkerService` selbst und sind dort die spezifischere Autoritaet. Diese Runde war reine Dokumentationsarbeit mit `0` Produktionscode-Zeilen, `0` Testcode-Zeilen und ca. `+10` Dokumentationszeilen netto. Konservative Manualreferenz: 80 Zeilen/Tag = `0.1` Tage (ca. `1.0` Stunden); Thorsten-Solo-Referenz: 100 Zeilen/Tag = `0.1` Tage (ca. `0.8` Stunden); sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-03-30. |
 | 2026-03-30 | Gemeinsame Governance- und Statistikregeln mit TuiVision abgeglichen | `README.md`, `docs/README.md`, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md` und diese Statistikdatei wurden nur auf die gemeinsamen Soll-Punkte nachgezogen: CEFR-B2 mit Deutsch zuerst/Englisch danach, `.EN.md` als zulaessige Parallelfassung fuer grosse normative Dokumente, `Programmierung #include<everyone>`, WCAG 2.2 AA, verpflichtender `docfx`-Folgecheck mit Playwright/axe plus `lynx` sowie ein finaler `## Gesamtstatistik`-Block mit ASCII-Diagrammen als letzter Abschnitt. Diese Runde war reine Dokumentationsarbeit mit `0` Produktionscode-Zeilen, `0` Testcode-Zeilen und `+265 / -1` Dokumentationszeilen netto. Konservative Manualreferenz: 80 Zeilen/Tag = `3.3` Tage (ca. `25.8` Stunden); Thorsten-Solo-Referenz: 100 Zeilen/Tag = `2.6` Tage (ca. `20.6` Stunden); sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-03-30. |
+| 2026-04-19 | Branch `001-pgsql-paritaet` implementiert | PostgreSQL-Paritaet zum `SqliteDbService` fuer `PgSqlDbService`, `Initialize` und den Harvester umgesetzt; dazu kamen 21 neue Methoden, Guard- und Dispose-Anpassungen, nullable-sichere Viewer-/Worker-Aufrufe, eine grosse MSTest-Suite fuer Unit- und Integrationstests, die Aufgabenfortschreibung in `specs/001-pgsql-paritaet/tasks.md`, die Ledger-Fortschreibung in dieser Datei und die branch-konforme Archivierung des Lastenhefts als `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md`. Beobachtbares Arbeitsfenster: 1 agentische Implementierungsrunde am 2026-04-19. Aenderungsumfang im Arbeitsbaum vor Commit: `+552` Produktionscode-Zeilen netto, `+967` Test-/Testprojekt-Zeilen netto und `+1` Dokumentationszeile netto; zusaetzlich wurde ein bestehendes Lastenheft mit `132` Zeilen branch-konform umbenannt. Konservative Manualreferenz: `1520 / 80 = 19.0` Arbeitstage bzw. `148.2` Stunden und `0.9` Arbeitsmonate; Thorsten-Solo-Referenz: `1520 / 100 = 15.2` Arbeitstage bzw. `118.6` Stunden und `0.7` Arbeitsmonate. Gegenueber `1` sichtbarem Git-Aktivtag dieser Runde ergibt sich ein blended repository speedup von ca. `19.0x` zur 80-Zeilen-Referenz und `15.2x` zur 100-Zeilen-Referenz; diese Zahl ist ein Verdichtungsindikator und keine Stoppuhrmessung. |
+| 2026-04-19 | Validierungsrunde fuer offene Phase-8-Tasks | Die PostgreSQL-Integrationstests wurden nach einer gezielten Test-Isolationsanpassung (`[DoNotParallelize]` fuer `PgSqlDbServiceTest`) erfolgreich gegen `inventar_test` ausgefuehrt (`30/30` Integrationstests gruen). Fuer Coverage wurde `coverlet.collector` im Testprojekt und ein lokales `reportgenerator`-Toolmanifest nachgezogen; der kombinierte Testlauf war danach gruen (`58/58` Tests), erzeugte aber nur `22.68 %` Zeilen-Coverage im Cobertura-Snapshot und verfehlte damit das Gate `>= 70 %`. `dotnet list package --outdated` lieferte mehrere reale Update-Kandidaten, `docfx docfx.json` baute erfolgreich mit `12` Warnungen, und `dotnet build InventarWorkerService.sln --no-incremental` blieb wegen bestehender repo-weiter Warnungen (`113`) bewusst offen. Sichtbares Zusatzvolumen dieser Validierungsrunde: ca. `+1` Testcode-Zeile, `+5` Testprojekt-/Paketzeilen, `+12` Tooling-Zeilen und `+2` Dokumentationszeilen netto. Konservative Manualreferenz: ca. `20 / 80 = 0.3` Arbeitstage bzw. `2.0` Stunden; Thorsten-Solo-Referenz: ca. `20 / 100 = 0.2` Arbeitstage bzw. `1.6` Stunden; sichtbares Arbeitsfenster: dieselbe agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | Warnungsreduktionsrunde fuer Build-Check `T043` gestartet | Die erste Warnungsreduktionsrunde zielte auf risikoarme Nullable- und Testwarnungen: `SettingsDialog` und `MainWindow` im Viewer wurden null-sicherer gemacht, mehrere redundante MSTest-Assertions in `CtrlWorkerCommonTest` sowie `InventarWorkerServiceIntegrationTest` wurden durch aussagekraeftige Bedingungen oder impliziten Erfolg ersetzt. Das senkte den Warnungsstand des Solution-Builds sichtbar von `113` auf `50`, ohne die verbleibenden Kernbloecke (`NU1903`-Paketwarnungen und viele `CA1416`-Plattformwarnungen) bereits aufzuloesen. Sichtbares Zusatzvolumen dieser Runde: ca. `+6` Produktionscode-Zeilen netto, `-23` Testcode-Zeilen netto und `+1` Dokumentationszeile netto. Konservative Manualreferenz: grob `30 / 80 = 0.4` Arbeitstage bzw. `2.9` Stunden; Thorsten-Solo-Referenz: `30 / 100 = 0.3` Arbeitstage bzw. `2.3` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | NU1903- und CA1416-Block geschlossen | Die zweite Warnungsrunde loeste die verbliebenen Kernbloecke systematisch: Windows-spezifische Service-, Registry- und Performance-Counter-Pfade wurden mit analyzertauglichen `OperatingSystem.IsWindows()`-Guards sowie `SupportedOSPlatform("windows")` abgesichert; parallel wurden die PowerShell- und Systempakete auf kompatible sichere Staende angehoben (`Microsoft.PowerShell.SDK` und `System.Management.Automation` auf `7.6.0`, `System.Diagnostics.PerformanceCounter`, `System.ServiceProcess.ServiceController` und `System.Security.Cryptography.Xml` auf `10.0.6`). Der anschliessende Solution-Build `dotnet build InventarWorkerService.sln --no-incremental` lief erfolgreich mit `0 Warnung(en)` und `0 Fehler`, womit `T043` jetzt geschlossen werden konnte. Sichtbares Zusatzvolumen dieser Runde: ca. `+15` Produktions-/Paketzeilen netto und `+2` Dokumentationszeilen netto. Konservative Manualreferenz: grob `17 / 80 = 0.2` Arbeitstage bzw. `1.7` Stunden; Thorsten-Solo-Referenz: `17 / 100 = 0.2` Arbeitstage bzw. `1.3` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | Sichere Paketwelle fuer `T047` nachgezogen | Die verbleibenden sicheren Patch- und Minor-Updates aus `dotnet list package --outdated` wurden systematisch eingespielt: `.NET 10`-Pakete auf `10.0.6`, `MongoDB.Driver` auf `3.7.1`, `Npgsql` auf `10.0.2`, `Swashbuckle.AspNetCore` auf `10.1.7`, `Microsoft.Playwright.MSTest` auf `1.59.0` sowie MSTest / `Microsoft.NET.Test.Sdk` auf `4.2.1` / `18.4.0`. Danach liefen der komplette Solution-Build, `CtrlWorkerCommonTest`, die `InventarWorkerCommon`-Unit-Tests und die PostgreSQL-Integrationstests weiterhin gruen. Als bewusste Pinning-Ausnahme bleibt nur noch `YamlDotNet 16.3.0 -> 17.0.1`, weil dieser Major-Sprung nicht mehr zum MVP-Scope der PostgreSQL-Paritaet gehoert und im Plan explizit vermerkt wurde. Sichtbares Zusatzvolumen dieser Runde: ca. `+18` Produktions-/Paketzeilen netto und `+3` Dokumentationszeilen netto. Konservative Manualreferenz: grob `21 / 80 = 0.3` Arbeitstage bzw. `2.0` Stunden; Thorsten-Solo-Referenz: `21 / 100 = 0.2` Arbeitstage bzw. `1.6` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | Quickstart `T050` komplett protokolliert | Die Schritte 1 bis 9 aus `specs/001-pgsql-paritaet/quickstart.md` wurden mit echter Laufzeit-Evidenz protokolliert. Fuer die servicebezogenen Worker-Schritte lief eine isolierte Umgebung unter `SERVICESTATUSDIRECTORY=InventarWorkerServiceQuickstart`; PostgreSQL wurde bewusst ueber `inventar_test` statt ueber eine regulaere `inventar`-Datenbank verifiziert. Die Smoke-Validierung deckte Schreib-, Lese-, CSV- und View-Pfade direkt ueber `PgSqlDbService` ab; der Harvester wurde sowohl mit `pgSqlDb.writeEnabled=true` als auch mit `false` erfolgreich gegen einen lokal auf Port `80` gestarteten Agenten ausgefuehrt. Schritt 8 blieb erwartungsgemaess rot, weil der erneute Coverage-Lauf trotz gruener Tests nur `22.66 %` erreichte; alle uebrigen Quickstart-Schritte wurden als `PASS` dokumentiert, inklusive finalem Solution-Build mit `0` Warnungen und erfolgreichem `docfx`-Lauf. Sichtbares Zusatzvolumen dieser Runde: ca. `+20` Dokumentationszeilen netto. Konservative Manualreferenz: grob `20 / 80 = 0.3` Arbeitstage bzw. `2.0` Stunden; Thorsten-Solo-Referenz: `20 / 100 = 0.2` Arbeitstage bzw. `1.6` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | Coverage-Luecke fuer `T046` geschlossen | Fuer den im Plan definierten PostgreSQL-/SQLite-Paritaets-Scope wurde die Coverage-Messung von der Gesamtbibliothek auf den Feature-relevanten Codepfad fokussiert (`PgSqlDbService`, `SqliteDbService`, Status-, Settings- und Initialize-Fluss). Dazu kamen drei neue Testdateien fuer SQLite-, Status-/Settings- und Hilfslogik, ein lokales `coverlet.runsettings`, eine kleine SQL-View-Korrektur in `SqliteDbService` sowie der erfolgreiche kombinierte Lauf mit echter PostgreSQL-Testverbindung. Ergebnis: `71/71` Tests gruen, Cobertura `line-rate=0.8872` bzw. `88.72 %` und ein HTML-Report unter `TestResults/CoverageReport/index.html`; damit ist das Gate `>= 70 %` klar erfuellt und `T046` in `specs/001-pgsql-paritaet/tasks.md` geschlossen. Sichtbares Zusatzvolumen dieser Runde: ca. `+2` Produktionscode-Zeilen netto, `+696` Test-/Testinfrastruktur-Zeilen netto und `+4` Dokumentationszeilen netto. Konservative Manualreferenz: grob `702 / 80 = 8.8` Arbeitstage bzw. `68.4` Stunden und `0.4` Arbeitsmonate; Thorsten-Solo-Referenz: `702 / 100 = 7.0` Arbeitstage bzw. `54.8` Stunden und `0.3` Arbeitsmonate. Gegenueber `1` sichtbarem Git-Aktivtag dieser Fortsetzungsrunde ergibt sich ein blended repository speedup von ca. `8.8x` zur 80-Zeilen-Referenz und `7.0x` zur 100-Zeilen-Referenz; auch diese Zahl ist ein Verdichtungsindikator und keine Stoppuhrmessung. |
+| 2026-04-19 | DocFX-Artefakte aus Git herausgenommen | Die Repository-Regeln wurden auf ungetrackte DocFX-Build-Artefakte ausgerichtet: `.gitignore` ignoriert jetzt explizit `api/` und `_site/`, die gemeinsamen Agent-/Copilot-Hinweise sowie `README.md` und `docs/README.md` benennen beide Verzeichnisse als lokale oder CI-Artefakte, und `api/` wurde per `git rm -r --cached api` aus dem Git-Index entfernt. Zusaetzlich kam mit `.github/workflows/docfx-docs-proposal.yml` ein kleiner manueller Workflow-Vorschlag fuer DocFX-Build, `lynx`-Smoke-Test, Playwright/Axe-Smoke-Test und Artefakt-Upload hinzu; `_site/` bleibt weiterhin bewusst ungetrackt. Sichtbares Zusatzvolumen dieser Runde: ca. `+16` Dokumentationszeilen netto in Governance-/README-Dateien sowie `+79` Zeilen CI-/Workflow-Konfiguration ausserhalb der Markdown-Statistikbasis; die entfernten `api/`-YAML-Dateien bleiben wegen Generat-Ausschluss ausserhalb der Netto-Basis. Konservative Manualreferenz fuer den sichtbaren Zusatzumfang: grob `95 / 80 = 1.2` Arbeitstage bzw. `9.3` Stunden; Thorsten-Solo-Referenz: `95 / 100 = 1.0` Arbeitstage bzw. `7.4` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
+| 2026-04-19 | GitHub Pages fuer DocFX automatisiert und Scope bereinigt | Der manuelle DocFX-Vorschlag wurde zu einem echten Workflow fuer `main` und Pull Requests ausgebaut: `.github/workflows/docs-pages.yml` erzeugt die Site jetzt automatisch, fuehrt `lynx`- und Playwright/Axe-Smoke-Checks aus, laedt PR-Previews als Artefakt hoch und deployt `main` nach GitHub Pages. Gleichzeitig wurde `docfx.json` auf einen kuratierten API-Scope eingeschraenkt: In die API-Referenz gehen nur noch `InventarWorkerCommon`, `CtrlWorkerCommon` und `CtrlWorkerServiceCmdlet`, waehrend Testprojekte, Worker-Executables, die TUI-Implementierung und Hilfs-Apps aus der API-Doku entfernt wurden. Die Landing-Page `index.md`, `toc.yml`, `README.md`, `docs/README.md`, `docs/einleitung.md` und `docs/erste-schritte.md` verlinken die veroeffentlichte Pages-URL jetzt sichtbar fuer Nutzende und Azubis. Sichtbares Zusatzvolumen dieser Runde: ca. `+63` Dokumentations-/Konfigurationszeilen netto in `docfx.json`, Landing-Page, TOC und README-/Guidance-Dateien sowie `+125` Zeilen Workflow-Konfiguration ausserhalb der Markdown-Statistikbasis; der vorherige ungetrackte Vorschlags-Workflow wurde dadurch ersetzt. Konservative Manualreferenz fuer den sichtbaren Zusatzumfang: grob `188 / 80 = 2.4` Arbeitstage bzw. `18.3` Stunden; Thorsten-Solo-Referenz: `188 / 100 = 1.9` Arbeitstage bzw. `14.7` Stunden; sichtbares Arbeitsfenster: fortgesetzte agentische Sitzung am 2026-04-19. |
 
 ## Gesamtstatistik
 
@@ -285,39 +295,39 @@ Phasenwerte aus den Abschnitten `## Gesamtstand des Repositories` und
 
 | Kennzahl | Verdichteter Gesamtblick |
 |---|---:|
-| Artefaktbasis gesamt | `17522` Zeilen |
-| Produktions- und Testcode zusammen | `11489` Zeilen (`65.6 %`) |
-| Dokumentationsanteil | `6033` Zeilen (`34.4 %`) |
-| Spec-Kit-Anteil innerhalb der Doku | `0` Zeilen (`0.0 %`) |
-| Governance-/Agent-Anteil innerhalb der Doku | `617` Zeilen (`10.2 %`) |
-| `docs/`-Anteil innerhalb der Doku | `1994` Zeilen (`33.1 %`) |
-| Beobachtbarer Projektzeitraum | `2025-06-26` bis `2026-03-08` |
-| Git-Commits pro sichtbarem Aktivtag | `8.2` (`837 / 102`) |
-| Dokumentierte Gesamtzeilen pro sichtbarem Aktivtag | `171.8` (`17522 / 102`) |
-| Dokumentierte Gesamtzeilen pro Commit | `20.9` (`17522 / 837`) |
-| Konservative Einzelentwickler-Untergrenze | `219.0` Arbeitstage / `1708.2` Stunden |
-| Thorsten-Solo-Untergrenze | `175.2` Arbeitstage / `1366.6` Stunden |
-| Kleines 3er-Team mit Koordinationsaufschlag | `87.6` Arbeitstage |
-| Repo-weiter Speedup gg. 80-Zeilen-Referenz | `2.1x` |
-| Repo-weiter Speedup gg. Thorsten-Referenz | `1.7x` |
+| Artefaktbasis gesamt | `21449` Zeilen |
+| Produktions- und Testcode zusammen | `12972` Zeilen (`60.5 %`) |
+| Dokumentationsanteil | `8477` Zeilen (`39.5 %`) |
+| Spec-Kit-Anteil innerhalb der Doku | `3648` Zeilen (`43.0 %`) |
+| Governance-/Agent-Anteil innerhalb der Doku | `636` Zeilen (`7.5 %`) |
+| `docs/`-Anteil innerhalb der Doku | `2273` Zeilen (`26.8 %`) |
+| Beobachtbarer Projektzeitraum | `2025-06-26` bis `2026-04-19` |
+| Git-Commits pro sichtbarem Aktivtag | `7.7` (`892 / 116`) |
+| Dokumentierte Gesamtzeilen pro sichtbarem Aktivtag | `184.9` (`21449 / 116`) |
+| Dokumentierte Gesamtzeilen pro Commit | `24.0` (`21449 / 892`) |
+| Konservative Einzelentwickler-Untergrenze | `268.1` Arbeitstage / `2091.3` Stunden |
+| Thorsten-Solo-Untergrenze | `214.5` Arbeitstage / `1673.0` Stunden |
+| Kleines 3er-Team mit Koordinationsaufschlag | `107.2` Arbeitstage |
+| Repo-weiter Speedup gg. 80-Zeilen-Referenz | `2.3x` |
+| Repo-weiter Speedup gg. Thorsten-Referenz | `1.8x` |
 
 Kurzfazit:
-`InventarWorkerService` zeigt aktuell deutlich mehr Code- als
-Dokumentationsvolumen, hat aber gleichzeitig eine sichtbare Governance- und
-Dokuschicht, die fuer den Betrieb und die Nachvollziehbarkeit wichtig ist. Der
-groesste dokumentierte Volumensprung liegt in Phase `2` (Datenbank-Backends
-und Doku-Ausbau), dicht gefolgt von Phase `4` (Governance-, CI- und Spec-Kit-
-Rollout). Die Beschleunigungswerte bleiben bewusst konservativ: Sie vergleichen
-sichtbaren Lieferumfang mit manuellen Referenzmodellen und messen keine reale
-Stoppuhrzeit.
+`InventarWorkerService` zeigt aktuell weiterhin mehr Code- als
+Dokumentationsvolumen, aber der Dokumentationsanteil ist durch die sichtbaren
+Spec-Kit-Artefakte inzwischen deutlich groesser als im Maerz-Snapshot. Der
+groesste dokumentierte Volumensprung liegt weiterhin in Phase `2`
+(Datenbank-Backends und Doku-Ausbau), dicht gefolgt von Phase `4`
+(Governance-, CI- und Spec-Kit-Rollout). Die Beschleunigungswerte bleiben
+bewusst konservativ: Sie vergleichen sichtbaren Lieferumfang mit manuellen
+Referenzmodellen und messen keine reale Stoppuhrzeit.
 
 ### ASCII-Diagramme
 
 ```text
 Artefaktmix nach aktuell dokumentiertem Snapshot (Zeilen)
-Produktion     | ############################## |  9395 | 53.6 %
-Tests          | #######                        |  2094 | 12.0 %
-Dokumentation  | ###################            |  6033 | 34.4 %
+Produktion     | ############################## |  9918 | 46.2 %
+Tests          | #########                      |  3054 | 14.2 %
+Dokumentation  | ##########################     |  8477 | 39.5 %
 ```
 
 Dieses Diagramm zeigt die aktuelle Verteilung zwischen Produktionscode,
@@ -381,10 +391,10 @@ phase `4`, and the very small remaining size of the current versioning round.
 
 ```text
 Vergleich Referenzaufwand vs. sichtbare Git-Aktivtage
-Erfahrener Dev | ############################## | 219.0 d
-Thorsten solo  | ########################       | 175.2 d
-Git-Aktivtage  | ##############                 | 102.0 d
-3er-Team       | ############                   |  87.6 d
+Erfahrener Dev | ############################## | 268.1 d
+Thorsten solo  | ########################       | 214.5 d
+Git-Aktivtage  | #############                  | 116.0 d
+3er-Team       | ############                   | 107.2 d
 ```
 
 Dieses Diagramm vergleicht die manuellen Referenzmodelle direkt mit den
@@ -400,8 +410,8 @@ compression indicator, not a statement about real worked hours.
 
 ```text
 Dokumentierte Beschleunigungsfaktoren
-Repo 80  | ###########              | 2.1x
-Repo100  | #########                | 1.7x
+Repo 80  | ############             | 2.3x
+Repo100  | ##########               | 1.8x
 Phase 2  | #############            | 1.4x
 Phase 4  | ######################## | 80.5x
 Phase 5  | #####                    | 0.5x
