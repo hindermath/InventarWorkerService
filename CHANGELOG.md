@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.2.1](https://github.com/hindermath/InventarWorkerService/compare/v0.2.0...v0.2.1) (2026-04-19)
+
+
+### Bug Fixes / Fehlerbehebungen
+
+* install ripgrep for windows secret scan ([0fc09b3](https://github.com/hindermath/InventarWorkerService/commit/0fc09b3acb89364da96d6367af05a9a34fc195b9))
+* replace broken homogeneity workflow ([f19f5eb](https://github.com/hindermath/InventarWorkerService/commit/f19f5ebd151e9749fd90effa8e6a54f620a3c571))
+* stabilize windows secret scan CI ([8af0439](https://github.com/hindermath/InventarWorkerService/commit/8af0439acab1144e43803c20e344a22e5c16b4d7))
+
+
+### Documentation / Dokumentation
+
+* **001-pgsql-paritaet:** add implementation tasks.md — 52 tasks across 8 phases ([d65b47f](https://github.com/hindermath/InventarWorkerService/commit/d65b47fab71831cd5910339bec48f27aab120284))
+* **001-pgsql-paritaet:** apply speckit.analyze LOW remediation — U1, U2, D1 ([9cb089d](https://github.com/hindermath/InventarWorkerService/commit/9cb089d0a277b705aea12b40bbe0e9e5284d133d))
+* **001-pgsql-paritaet:** apply speckit.analyze remediation — H1, H2, M1, M2, M3 ([6983f48](https://github.com/hindermath/InventarWorkerService/commit/6983f48cf1096830339b001a67fa4039fd7ea4ec))
+* **001-pgsql-paritaet:** complete plan quality checklist — all 30 items resolved ([dc5c546](https://github.com/hindermath/InventarWorkerService/commit/dc5c5465faabd75e271fd4cad3809b2d01db028a))
+* update stats ([29f74fb](https://github.com/hindermath/InventarWorkerService/commit/29f74fb449f8d28da045898e7345e3a93142fe9d))
+
+
+### Maintenance / Wartung
+
+* complete bilingual compliance markers ([46b8c6e](https://github.com/hindermath/InventarWorkerService/commit/46b8c6e67fe39e67d29191ecbe1a165576977edc))
+* complete bilingual heading coverage ([6ee9092](https://github.com/hindermath/InventarWorkerService/commit/6ee90929e92a684a65701fb9fc474837cc370705))
+* sync constitution to v1.4.0 ([870089d](https://github.com/hindermath/InventarWorkerService/commit/870089dba44f89ce486db2986249ea6fe9c9a8e1))
+* update stats ([fc6ba85](https://github.com/hindermath/InventarWorkerService/commit/fc6ba854e8b6bdafcd480124cd3eec5a91d8df0b))
+
 ## [0.2.0](https://github.com/hindermath/InventarWorkerService/compare/v0.1.0...v0.2.0) (2026-04-12)
 
 
