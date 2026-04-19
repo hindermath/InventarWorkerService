@@ -81,7 +81,8 @@ jobs:
           import AxeBuilder from '@axe-core/playwright';
 
           const browser = await chromium.launch({ headless: true });
-          const page = await browser.newPage();
+          const context = await browser.newContext();
+          const page = await context.newPage();
           await page.goto('http://127.0.0.1:8080/');
 
           const results = await new AxeBuilder({ page }).analyze();
@@ -90,6 +91,7 @@ jobs:
             process.exitCode = 1;
           }
 
+          await context.close();
           await browser.close();
           EOF
           node ./docfx-axe-smoke.mjs
