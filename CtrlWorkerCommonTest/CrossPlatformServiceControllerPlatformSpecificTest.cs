@@ -48,15 +48,14 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
 
         // Act & Assert
+        var controller = _controller ?? throw new InvalidOperationException("Controller was not initialized.");
         try
         {
-            _controller.StartService();
-            Assert.IsTrue(true, "Windows Service Start wurde aufgerufen");
+            controller.StartService();
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
             // Other exceptions are acceptable (the service might not exist).
-            Assert.IsTrue(true);
         }
     }
 
@@ -75,15 +74,14 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
 
         // Act & Assert
+        var controller = _controller ?? throw new InvalidOperationException("Controller was not initialized.");
         try
         {
-            _controller.StartService();
-            Assert.IsTrue(true, "Linux Service Start wurde aufgerufen");
+            controller.StartService();
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
             // Other exceptions are acceptable.
-            Assert.IsTrue(true);
         }
     }
 
@@ -102,15 +100,14 @@ public class CrossPlatformServiceControllerPlatformSpecificTest
         }
 
         // Act & Assert
+        var controller = _controller ?? throw new InvalidOperationException("Controller was not initialized.");
         try
         {
-            _controller.StartService();
-            Assert.IsTrue(true, "macOS Service Start wurde aufgerufen");
+            controller.StartService();
         }
         catch (Exception ex) when (!(ex is PlatformNotSupportedException))
         {
             // Other exceptions are acceptable.
-            Assert.IsTrue(true);
         }
     }
 }

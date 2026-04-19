@@ -15,17 +15,18 @@ namespace InventarViewerApp.UI
     /// </summary>
     public class MainWindow : Window
     {
+        private static readonly MenuItem SeparatorMenuItem = null!;
         private readonly ApiService _apiService;
         private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
-        private readonly PgSqlDbService _pgSqlDbService;
-        private TabView _tabView;
-        private MenuItem _webApiMenuItem;
+        private readonly PgSqlDbService? _pgSqlDbService;
+        private TabView _tabView = null!;
+        private MenuItem _webApiMenuItem = null!;
 
         // For the history
         private readonly List<string> _actionHistory = new();
-        private StatusItem _historyStatusItem;
-        private StatusBar _statusBar;
+        private StatusItem _historyStatusItem = null!;
+        private StatusBar _statusBar = null!;
 
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace InventarViewerApp.UI
         /// DE: PostgreSQL-Dienst für untergeordnete Ansichten.
         /// EN: PostgreSQL service used by child views.
         /// </param>
-        public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Main Window")
+        public MainWindow(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService? pgSqlDbService) : base("Main Window")
         {
             _apiService = apiService;
             _dbService = dbService;
@@ -82,14 +83,14 @@ namespace InventarViewerApp.UI
             var menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_Datei", new MenuItem[] {
                     new MenuItem("_Aktualisieren", "", async () => await RefreshData(), shortcut:Key.F5),
-                    null,
+                    SeparatorMenuItem,
                     new MenuItem("Impor_t Maschinen aus CSV-Datei...", "", async () => await ImportCsvAction(), shortcut:Key.F3),
-                    null,
+                    SeparatorMenuItem,
                     new MenuItem("_Beenden", "", () => Application.RequestStop(), shortcut:Key.CtrlMask| Key.ShiftMask | Key.Q)
                 }),
                 new MenuBarItem("_Optionen", new MenuItem[] {
                     _webApiMenuItem,
-                    null,
+                    SeparatorMenuItem,
                     new MenuItem("Einstellun_gen...", "", () => ShowSettingsDialog(), shortcut:Key.F8)
                 }),
                 new MenuBarItem("_Hilfe", new MenuItem[] {
@@ -114,7 +115,7 @@ namespace InventarViewerApp.UI
                 new StatusItem(Key.CtrlMask| Key.T, importShortcutText, async () => await ImportCsvAction()),
                 new StatusItem(Key.CtrlMask| Key.W, webApiShortcutText, async () => await ToggleWebApiAction()),
                 // Trenner und Historie
-                new StatusItem(Key.Null, "|", null),
+                new StatusItem(Key.Null, "|", () => { }),
                 _historyStatusItem
             });
 

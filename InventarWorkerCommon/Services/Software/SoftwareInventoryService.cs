@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.ServiceProcess;
 using InventarWorkerCommon.Models.Software;
 using Microsoft.Extensions.Logging;
@@ -65,15 +66,15 @@ public class SoftwareInventoryService
 
         try
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (OperatingSystem.IsWindows())
             {
                 software.AddRange(CollectWindowsInstalledSoftware());
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            else if (OperatingSystem.IsLinux())
             {
                 software.AddRange(CollectLinuxInstalledSoftware());
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            else if (OperatingSystem.IsMacOS())
             {
                 software.AddRange(CollectMacOSInstalledSoftware());
             }
@@ -86,6 +87,7 @@ public class SoftwareInventoryService
         return software;
     }
 
+    [SupportedOSPlatform("windows")]
     private List<SoftwareInfo> CollectWindowsInstalledSoftware()
     {
         var software = new List<SoftwareInfo>();
@@ -520,7 +522,7 @@ public class SoftwareInventoryService
             runtimeInfo.DotNetVersion = Environment.Version.ToString();
 
             // Installierte .NET Frameworks
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (OperatingSystem.IsWindows())
             {
                 runtimeInfo.InstalledFrameworks.AddRange(GetInstalledDotNetFrameworks());
             }
@@ -731,6 +733,7 @@ public class SoftwareInventoryService
         };
     }
 
+    [SupportedOSPlatform("windows")]
     private List<string> GetInstalledDotNetFrameworks()
     {
         var frameworks = new List<string>();

@@ -2,8 +2,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using InventarWorkerCommon.Helpers.Calculate;
 using InventarWorkerCommon.Helpers.Exceptions;
+using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Network;
 using InventarWorkerCommon.Models.Service;
+using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Database;
@@ -32,14 +34,14 @@ public class Worker : BackgroundService
     private readonly DateTime _startTime = DateTime.Now;
     private int _processedItems;
     private int _nonProcessedItems;
-    private string _machineName;
-    private object _serviceStatus;
+    private string _machineName = string.Empty;
+    private object _serviceStatus = new();
     private int _machineId;
-    private ApiService _apiService;
-    private SqliteDbService _sqliteDbService;
-    private MongoDbService _mongoDbService;
-    private PgSqlDbService _pgSqlDbService;
-    private HostInformationResult _hostInformationResult;
+    private ApiService _apiService = null!;
+    private SqliteDbService _sqliteDbService = null!;
+    private MongoDbService _mongoDbService = null!;
+    private PgSqlDbService? _pgSqlDbService;
+    private HostInformationResult _hostInformationResult = null!;
 
     /// <summary>
     /// Represents a background worker responsible for handling periodic tasks within the HarvesterWorkerService,
@@ -86,6 +88,31 @@ public class Worker : BackgroundService
             ProcessedItems = _processedItems,
             LastError = exception.Message
         });
+    }
+
+    private static async Task WriteToPgSqlAsync(
+        PgSqlDbService? pgSqlDbService,
+        int machineId,
+        Machine machine,
+        HardwareInventory hardwareInventory,
+        SoftwareInventory softwareInventory,
+        Action<Exception> handleException)
+    {
+        if (pgSqlDbService == null)
+        {
+            return;
+        }
+
+        try
+        {
+            await pgSqlDbService.SaveOrUpdateMachineAsync(machine, isHarvester: true);
+            await pgSqlDbService.SaveHardwareInventoryAsync(machineId, hardwareInventory);
+            await pgSqlDbService.SaveSoftwareInventoryAsync(machineId, softwareInventory);
+        }
+        catch (Exception pgException)
+        {
+            handleException(pgException);
+        }
     }
 
     /// <summary>
@@ -140,6 +167,8 @@ public class Worker : BackgroundService
 
                 foreach (var activeMachineWithNetworkInfo in allActiveMachinesWithNetworkInfo)
                 {
+                    Machine? machine = null;
+
                     if (string.IsNullOrEmpty(activeMachineWithNetworkInfo.IPv4) is false)
                     {
                         try
@@ -177,6 +206,12 @@ public class Worker : BackgroundService
                         try
                         {
                             var iPv4 = await ResolveMachine.ResolveFqdnToIpv4Async(activeMachineWithNetworkInfo.FQDN);
+
+                            if (string.IsNullOrWhiteSpace(iPv4))
+                            {
+                                throw new NetworkInformation.HostNetworkInformationCannotResolveException(activeMachineWithNetworkInfo.FQDN);
+                            }
+
                             _hostInformationResult = await ResolveMachine.ResolveIpToHostInfoAsync(iPv4);
                         }
                         catch (NetworkInformation.HostNetworkInformationCannotResolveException hostResolutionException)
@@ -201,27 +236,34 @@ public class Worker : BackgroundService
                             throw new NetworkInformation.HostNetworkInformationCannotResolveException(_hostInformationResult.HostName);
                         }
 
-                        await using var workerServiceContainer =
-                            Services(clientApiFqdn: _hostInformationResult.AddressList.First() ??_hostInformationResult.HostName);
+                        var resolvedApiAddress = _hostInformationResult.AddressList.FirstOrDefault()
+                            ?? _hostInformationResult.HostName
+                            ?? activeMachineWithNetworkInfo.FQDN
+                            ?? activeMachineWithNetworkInfo.IPv4
+                            ?? activeMachineWithNetworkInfo.IPv6
+                            ?? "localhost";
+
+                        await using var workerServiceContainer = Services(clientApiFqdn: resolvedApiAddress);
                         _apiService = workerServiceContainer.ApiService;
                         _serviceStatus = await _apiService.GetServiceStatusAsync();
 
                         // convert status to string and deserialize as JsonDocument
-                        var serviceStatusString = _serviceStatus.ToString();
+                        var serviceStatusString = _serviceStatus?.ToString() ?? "{}";
                         var serviceStatusJsonDocument = JsonDocument.Parse(serviceStatusString);
 
                         // Deserialize JsonDocument into Dictionary for easier access
                         var serviceStatusJsonData =
                             JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(
-                                serviceStatusJsonDocument.RootElement.GetRawText(), _jsonOptions);
+                                serviceStatusJsonDocument.RootElement.GetRawText(), _jsonOptions)
+                            ?? new Dictionary<string, JsonElement>();
 
                         _machineName = serviceStatusJsonData.ContainsKey("machineName") &&
                                        serviceStatusJsonData["machineName"].ValueKind == JsonValueKind.String
-                            ? serviceStatusJsonData["machineName"].GetString()
+                            ? serviceStatusJsonData["machineName"].GetString() ?? Environment.MachineName
                             : Environment.MachineName;
 
                         // Store machine information in the database
-                        var machine = new Machine
+                        machine = new Machine
                         {
                             Name = _machineName,
                             OperatingSystem = Environment.OSVersion.ToString(),
@@ -232,6 +274,7 @@ public class Worker : BackgroundService
                             LastHarvested = DateTime.UtcNow
                         };
                         _machineId = await _sqliteDbService.SaveOrUpdateMachineAsync(machine, isHarvester: true);
+                        machine.Id = _machineId;
 
                     }
                     catch (JsonException jsonException)
@@ -259,7 +302,7 @@ public class Worker : BackgroundService
                          HandleException(exception);
                     }
 
-                    if (_machineId > 0)
+                    if (_machineId > 0 && machine != null)
                     {
                         // Software and Hardware Inventory Query
                         var softwareInventory = await _apiService.GetSoftwareInventoryAsync();
@@ -269,6 +312,7 @@ public class Worker : BackgroundService
                         await _sqliteDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
                         await _mongoDbService.SaveSoftwareInventoryAsync(_machineId, softwareInventory);
                         await _mongoDbService.SaveHardwareInventoryAsync(_machineId, hardwareInventory);
+                        await WriteToPgSqlAsync(_pgSqlDbService, _machineId, machine, hardwareInventory, softwareInventory, HandleException);
 
                         _processedItems++;
 

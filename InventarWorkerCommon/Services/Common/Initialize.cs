@@ -5,23 +5,28 @@ using InventarWorkerCommon.Services.Paths;
 namespace InventarWorkerCommon.Services.Common;
 
 /// <summary>
-/// Provides a static method to initialize and configure essential services used in the application.
-/// This includes API service, SQLite database service, and MongoDB service.
+/// DE: Stellt Hilfsmethoden bereit, um die gemeinsam genutzten Dienste der Anwendung zu erzeugen.
+/// EN: Provides helper methods that create the application's shared services.
 /// </summary>
 public static class Initialize
 {
     /// <summary>
-    /// Initializes and configures essential services required by the application, including API service,
-    /// SQLite database service, and MongoDB service.
+    /// DE: Initialisiert API-, SQLite- und MongoDB-Dienste fuer den Fallback-Pfad ohne Settings-Datei.
+    /// PostgreSQL wird in diesem Pfad bewusst nicht initialisiert.
+    /// EN: Initializes API, SQLite, and MongoDB services for the fallback path without a settings file.
+    /// PostgreSQL is intentionally not initialized on this path.
     /// </summary>
-    /// <param name="clientApiFqdn">The fully qualified domain name of the client API. The default is "localhost".</param>
-    /// <param name="clientApiPort">The port on which the client API is running. The default is "80".</param>
-    /// <param name="mongoDbFqdn">The fully qualified domain name of the MongoDB server. The default is "localhost".</param>
-    /// <param name="mongoDbPort">The port on which the MongoDB server is running. The default is "27017".</param>
-    /// <param name="pgSqlDbFqdn">The fully qualified domain name of the PostgreSQL database server. The default is "localhost".</param>
-    /// <param name="pgSqlDbPort">The port on which the PostgreSQL database server is running. The default is "5432".</param>
-    /// <param name="pgSqlDbName">The name of the PostgreSQL database to be used. The default is "inventar".</param>
-    /// <returns>A disposable container with the initialized instances of services.</returns>
+    /// <param name="clientApiFqdn">DE: FQDN der Client-API. EN: FQDN of the client API.</param>
+    /// <param name="clientApiPort">DE: Port der Client-API. EN: Port of the client API.</param>
+    /// <param name="mongoDbFqdn">DE: FQDN des MongoDB-Servers. EN: FQDN of the MongoDB server.</param>
+    /// <param name="mongoDbPort">DE: Port des MongoDB-Servers. EN: Port of the MongoDB server.</param>
+    /// <param name="pgSqlDbFqdn">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
+    /// <param name="pgSqlDbPort">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
+    /// <param name="pgSqlDbName">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
+    /// <returns>
+    /// DE: Ein Container mit initialisierten Diensten; <see cref="ServiceContainer.PgSqlDbService"/> ist <c>null</c>.
+    /// EN: A container with initialized services; <see cref="ServiceContainer.PgSqlDbService"/> is <c>null</c>.
+    /// </returns>
     public static ServiceContainer Services(
         string clientApiFqdn = "localhost",
         string clientApiPort = "80",
@@ -29,71 +34,72 @@ public static class Initialize
         string mongoDbPort = "27017",
         string pgSqlDbFqdn = "localhost",
         string pgSqlDbPort = "5432",
-        string pgSqlDbName = "inventar"
-        )
+        string pgSqlDbName = "inventar")
     {
-        // Initialize API service
         var apiService = new ApiService($"http://{clientApiFqdn}:{clientApiPort}");
 
-        // Initialize database service
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
-        // Create a database schema if necessary
         dbService.InitializeDatabase();
 
-        // Initialize MongoDB Service
         var mongoDbService = new MongoDbService($"mongodb://{mongoDbFqdn}:{mongoDbPort}");
-        // Initialize MongoDB hardware and softwaredatabases
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();
 
-        // Initialize PostgreSQL Service
-        var pgSqlDbService = new PgSqlDbService($"host={pgSqlDbFqdn};port={pgSqlDbPort};database={pgSqlDbName}");
-        pgSqlDbService.InitializeDatabase();
+        _ = pgSqlDbFqdn;
+        _ = pgSqlDbPort;
+        _ = pgSqlDbName;
 
-        // Return the initialized services
-        return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService);
+        return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService: null);
     }
 
     /// <summary>
-    /// Initializes and configures the necessary services for the application, including API service, SQLite database service,
-    /// MongoDB service, and PostgreSQL database service.
+    /// DE: Initialisiert API-, SQLite-, MongoDB- und optional PostgreSQL-Dienste anhand der Einstellungen.
+    /// Wenn <c>WriteEnabled</c> fuer PostgreSQL deaktiviert ist, bleibt der PostgreSQL-Dienst <c>null</c>.
+    /// EN: Initializes API, SQLite, MongoDB, and optionally PostgreSQL services based on settings.
+    /// When PostgreSQL <c>WriteEnabled</c> is disabled, the PostgreSQL service stays <c>null</c>.
     /// </summary>
-    /// <param name="settings">The application settings containing configuration details for API, MongoDB, and PostgreSQL connections.</param>
-    /// <returns>A container encapsulating the initialized services.</returns>
-    public static ServiceContainer Services(Models.Settings.Settings settings)
+    /// <param name="settings">
+    /// DE: Anwendungseinstellungen fuer API- und Datenbankverbindungen.
+    /// EN: Application settings for API and database connections.
+    /// </param>
+    /// <returns>
+    /// DE: Ein Container mit allen verfuegbaren Diensten.
+    /// EN: A container with all available services.
+    /// </returns>
+    public static ServiceContainer Services(InventarWorkerCommon.Models.Settings.Settings settings)
     {
-        // Initialize API service
         var apiService = new ApiService(settings.ClientApi.ClientApiUrl);
 
-        // Initialize database service
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
         var dbService = new SqliteDbService($"Data Source={dbPath}");
-        // Create a database schema if necessary
         dbService.InitializeDatabase();
 
-        // Initialize MongoDB Service
         var mongoDbService = new MongoDbService(settings.MongoDb.MongoDbConnectionString);
-        // Initialize MongoDB hardware and softwaredatabases
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();
 
-        // Initialize PostgreSQL Service
+        if (!settings.PgSqlDb.WriteEnabled)
+        {
+            return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService: null);
+        }
+
         var pgSqlDbService = new PgSqlDbService(settings.PgSqlDb.PgSqlConnectionString);
         pgSqlDbService.InitializeDatabase();
 
-        // Return the initialized services
         return new ServiceContainer(apiService, dbService, mongoDbService, pgSqlDbService);
     }
 
     /// <summary>
-    /// Retrieves the base path for the database file. If the service status path does not exist, it creates
-    /// the required path and returns its full name.
-    /// If the service status path already exists, it retrieves and returns the existing path.
+    /// DE: Liefert das Basisverzeichnis fuer die lokale SQLite-Datenbank und erzeugt es bei Bedarf.
+    /// EN: Returns the base directory for the local SQLite database and creates it when needed.
     /// </summary>
-    /// <returns>The base path for the database file as a string.</returns>
+    /// <returns>
+    /// DE: Vollstaendiger Pfad zum Datenbank-Basisverzeichnis.
+    /// EN: Full path to the database base directory.
+    /// </returns>
     public static string GetDbBasePath()
     {
         if (ServicePath.ExistsServiceStatusPath(ServicePath.GetServiceStatusPath()) is false)
@@ -101,59 +107,66 @@ public static class Initialize
             var directory = ServicePath.CreateServiceStatusPath(ServicePath.GetServiceStatusPath());
             return directory.FullName;
         }
-        else
-        {
-            return ServicePath.GetServiceStatusPath();
-        }
+
+        return ServicePath.GetServiceStatusPath();
     }
 }
 
 /// <summary>
-/// Container for disposable services implementing the Microsoft Dispose Pattern.
+/// DE: Kapselt die gemeinsam erzeugten Dienste und entsorgt sie nach dem Microsoft-Dispose-Pattern.
+/// EN: Wraps the shared services and disposes them according to the Microsoft dispose pattern.
 /// </summary>
 public sealed class ServiceContainer : IDisposable, IAsyncDisposable
 {
-    private bool _disposed = false;
+    private bool _disposed;
 
     /// <summary>
-    /// Gets the API service instance.
+    /// DE: API-Dienst fuer REST-Zugriffe.
+    /// EN: API service for REST access.
     /// </summary>
     public ApiService ApiService { get; }
 
     /// <summary>
-    /// Gets the SQLite database service instance.
+    /// DE: SQLite-Dienst fuer lokale relationale Persistenz.
+    /// EN: SQLite service for local relational persistence.
     /// </summary>
     public SqliteDbService DbService { get; }
 
     /// <summary>
-    /// Gets the MongoDB service instance.
+    /// DE: MongoDB-Dienst fuer dokumentenbasierte Persistenz.
+    /// EN: MongoDB service for document-based persistence.
     /// </summary>
     public MongoDbService MongoDbService { get; }
 
     /// <summary>
-    /// Gets the PostgreSQL database service instance for managing connections
-    /// and performing database initialization tasks.
+    /// DE: Optionaler PostgreSQL-Dienst; ist <c>null</c>, wenn PostgreSQL nicht initialisiert wurde.
+    /// EN: Optional PostgreSQL service; is <c>null</c> when PostgreSQL was not initialized.
     /// </summary>
-    public PgSqlDbService PgSqlDbService { get; }
+    public PgSqlDbService? PgSqlDbService { get; }
 
     /// <summary>
-    /// Initializes a new instance of the ServiceContainer class.
+    /// DE: Erstellt einen neuen Container fuer die gemeinsam genutzten Dienste.
+    /// EN: Creates a new container for the shared services.
     /// </summary>
-    /// <param name="apiService">The API service instance.</param>
-    /// <param name="dbService">The database service instance.</param>
-    /// <param name="mongoDbService">The MongoDB service instance.</param>
-    /// <param name="pgSqlDbService">The PostgreSQL service instance.</param>
-    internal ServiceContainer(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService,
-        PgSqlDbService pgSqlDbService)
+    /// <param name="apiService">DE: API-Dienst. EN: API service.</param>
+    /// <param name="dbService">DE: SQLite-Dienst. EN: SQLite service.</param>
+    /// <param name="mongoDbService">DE: MongoDB-Dienst. EN: MongoDB service.</param>
+    /// <param name="pgSqlDbService">DE: Optionaler PostgreSQL-Dienst. EN: Optional PostgreSQL service.</param>
+    internal ServiceContainer(
+        ApiService apiService,
+        SqliteDbService dbService,
+        MongoDbService mongoDbService,
+        PgSqlDbService? pgSqlDbService)
     {
         ApiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
         DbService = dbService ?? throw new ArgumentNullException(nameof(dbService));
         MongoDbService = mongoDbService ?? throw new ArgumentNullException(nameof(mongoDbService));
-        PgSqlDbService = pgSqlDbService ?? throw new ArgumentNullException(nameof(pgSqlDbService));
+        PgSqlDbService = pgSqlDbService;
     }
 
     /// <summary>
-    /// Releases all resources used by the ServiceContainer.
+    /// DE: Gibt alle synchron entsorgbaren Ressourcen frei.
+    /// EN: Releases all synchronously disposable resources.
     /// </summary>
     public void Dispose()
     {
@@ -162,9 +175,13 @@ public sealed class ServiceContainer : IDisposable, IAsyncDisposable
     }
 
     /// <summary>
-    /// Asynchronously releases all resources used by the ServiceContainer.
+    /// DE: Gibt alle asynchron entsorgbaren Ressourcen frei.
+    /// EN: Releases all asynchronously disposable resources.
     /// </summary>
-    /// <returns>A task that represents the asynchronous dispose operation.</returns>
+    /// <returns>
+    /// DE: Asynchroner Dispose-Vorgang.
+    /// EN: Asynchronous dispose operation.
+    /// </returns>
     public async ValueTask DisposeAsync()
     {
         await DisposeAsyncCore().ConfigureAwait(false);
@@ -172,97 +189,107 @@ public sealed class ServiceContainer : IDisposable, IAsyncDisposable
         GC.SuppressFinalize(this);
     }
 
-    /// <summary>
-    /// Core dispose logic for synchronous disposal.
-    /// </summary>
-    /// <param name="disposing">True if disposing managed resources; false if called from finalizer.</param>
     private void Dispose(bool disposing)
     {
-        if (!_disposed && disposing)
+        if (_disposed || !disposing)
         {
-            // Dispose managed resources
-            try
-            {
-                if (ApiService is IDisposable apiDisposable)
-                {
-                    apiDisposable.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log exception if logging is available
-                System.Diagnostics.Debug.WriteLine($"Error disposing ApiService: {ex.Message}");
-            }
-
-            try
-            {
-                if (DbService is IDisposable dbDisposable)
-                {
-                    dbDisposable.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log exception if logging is available
-                System.Diagnostics.Debug.WriteLine($"Error disposing DbService: {ex.Message}");
-            }
-
-            try
-            {
-                if (MongoDbService is IDisposable mongoDisposable)
-                {
-                    mongoDisposable.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log exception if logging is available
-                System.Diagnostics.Debug.WriteLine($"Error disposing MongoDbService: {ex.Message}");
-            }
-
-            _disposed = true;
+            return;
         }
+
+        try
+        {
+            if (ApiService is IDisposable apiDisposable)
+            {
+                apiDisposable.Dispose();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error disposing ApiService: {ex.Message}");
+        }
+
+        try
+        {
+            if (DbService is IDisposable dbDisposable)
+            {
+                dbDisposable.Dispose();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error disposing DbService: {ex.Message}");
+        }
+
+        try
+        {
+            if (MongoDbService is IDisposable mongoDisposable)
+            {
+                mongoDisposable.Dispose();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error disposing MongoDbService: {ex.Message}");
+        }
+
+        try
+        {
+            if (PgSqlDbService is IDisposable pgSqlDisposable)
+            {
+                pgSqlDisposable.Dispose();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error disposing PgSqlDbService: {ex.Message}");
+        }
+
+        _disposed = true;
     }
 
-    /// <summary>
-    /// Core dispose logic for asynchronous disposal.
-    /// </summary>
-    /// <returns>A task that represents the asynchronous dispose operation.</returns>
     private async ValueTask DisposeAsyncCore()
     {
         if (_disposed)
+        {
             return;
+        }
 
         var disposeTasks = new List<Task>();
 
-        // Dispose API Service asynchronously if it implements IAsyncDisposable
         if (ApiService is IAsyncDisposable apiAsyncDisposable)
         {
             disposeTasks.Add(apiAsyncDisposable.DisposeAsync().AsTask());
         }
         else if (ApiService is IDisposable apiDisposable)
         {
-            disposeTasks.Add(Task.Run(() => apiDisposable.Dispose()));
+            disposeTasks.Add(Task.Run(apiDisposable.Dispose));
         }
 
-        // Dispose Database Service asynchronously if it implements IAsyncDisposable
         if (DbService is IAsyncDisposable dbAsyncDisposable)
         {
             disposeTasks.Add(dbAsyncDisposable.DisposeAsync().AsTask());
         }
         else if (DbService is IDisposable dbDisposable)
         {
-            disposeTasks.Add(Task.Run(() => dbDisposable.Dispose()));
+            disposeTasks.Add(Task.Run(dbDisposable.Dispose));
         }
 
-        // Dispose MongoDB Service asynchronously if it implements IAsyncDisposable
         if (MongoDbService is IAsyncDisposable mongoAsyncDisposable)
         {
             disposeTasks.Add(mongoAsyncDisposable.DisposeAsync().AsTask());
         }
         else if (MongoDbService is IDisposable mongoDisposable)
         {
-            disposeTasks.Add(Task.Run(() => mongoDisposable.Dispose()));
+            disposeTasks.Add(Task.Run(mongoDisposable.Dispose));
+        }
+
+        if (PgSqlDbService is IAsyncDisposable pgSqlAsyncDisposable)
+        {
+            disposeTasks.Add(pgSqlAsyncDisposable.DisposeAsync().AsTask());
+        }
+        else if (PgSqlDbService is IDisposable pgSqlDisposable)
+        {
+            disposeTasks.Add(Task.Run(pgSqlDisposable.Dispose));
         }
 
         try
@@ -271,7 +298,6 @@ public sealed class ServiceContainer : IDisposable, IAsyncDisposable
         }
         catch (Exception ex)
         {
-            // Log exception if logging is available
             System.Diagnostics.Debug.WriteLine($"Error during async disposal: {ex.Message}");
         }
 
@@ -279,22 +305,11 @@ public sealed class ServiceContainer : IDisposable, IAsyncDisposable
     }
 
     /// <summary>
-    /// Finalizer to ensure resources are released even if Dispose is not called.
+    /// DE: Finalizer als Sicherheitsnetz, falls <see cref="Dispose()"/> nicht aufgerufen wurde.
+    /// EN: Finalizer as a safety net when <see cref="Dispose()"/> was not called.
     /// </summary>
     ~ServiceContainer()
     {
         Dispose(disposing: false);
-    }
-
-    /// <summary>
-    /// Throws an ObjectDisposedException if the container has been disposed.
-    /// </summary>
-    /// <exception cref="ObjectDisposedException">Thrown when the container is disposed.</exception>
-    private void ThrowIfDisposed()
-    {
-        if (_disposed)
-        {
-            throw new ObjectDisposedException(nameof(ServiceContainer));
-        }
     }
 }

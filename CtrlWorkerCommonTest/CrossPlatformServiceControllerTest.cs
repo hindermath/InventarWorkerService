@@ -98,8 +98,6 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StartService();
-                    // Test successful if no PlatformNotSupportedException is thrown.
-                    Assert.IsTrue(true);
                 }
                 catch (PlatformNotSupportedException)
                 {
@@ -108,7 +106,6 @@ public sealed class CrossPlatformServiceControllerTest
                 catch
                 {
                     // Other exceptions are acceptable for this test (e.g., service does not exist).
-                    Assert.IsTrue(true);
                 }
             }
         }
@@ -132,8 +129,6 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StopService();
-                    // Test successful if no PlatformNotSupportedException is thrown.
-                    Assert.IsTrue(true);
                 }
                 catch (PlatformNotSupportedException)
                 {
@@ -142,7 +137,6 @@ public sealed class CrossPlatformServiceControllerTest
                 catch
                 {
                     // Other exceptions are acceptable for this test (e.g., service does not exist).
-                    Assert.IsTrue(true);
                 }
             }
         }
@@ -169,11 +163,9 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StartService();
-                    Assert.IsTrue(true);
                 }
                 catch (InvalidOperationException)
                 {
-                    Assert.IsTrue(true);
                 }
             }
         }
@@ -200,11 +192,9 @@ public sealed class CrossPlatformServiceControllerTest
                 try
                 {
                     controller.StopService();
-                    Assert.IsTrue(true);
                 }
                 catch (InvalidOperationException)
                 {
-                    Assert.IsTrue(true);
                 }
             }
         }
@@ -224,17 +214,14 @@ public sealed class CrossPlatformServiceControllerTest
             {
                 controller.StartService();
                 controller.StartService(); // The second call should not fail.
-                Assert.IsTrue(true);
             }
             catch (PlatformNotSupportedException)
             {
                 // On unsupported platforms expected
-                Assert.IsTrue(true);
             }
             catch
             {
                 // Other exceptions are acceptable for this test.
-                Assert.IsTrue(true);
             }
         }
 
@@ -253,17 +240,14 @@ public sealed class CrossPlatformServiceControllerTest
             {
                 controller.StopService();
                 controller.StopService(); // The second call should not fail.
-                Assert.IsTrue(true);
             }
             catch (PlatformNotSupportedException)
             {
                 // On unsupported platforms expected
-                Assert.IsTrue(true);
             }
             catch
             {
                 // Other exceptions are acceptable for this test.
-                Assert.IsTrue(true);
             }
         }
 
@@ -282,17 +266,14 @@ public sealed class CrossPlatformServiceControllerTest
             {
                 controller.StartService();
                 controller.StopService();
-                Assert.IsTrue(true);
             }
             catch (PlatformNotSupportedException)
             {
                 // On unsupported platforms, expected.
-                Assert.IsTrue(true);
             }
             catch
             {
                 // Other exceptions are acceptable for this test.
-                Assert.IsTrue(true);
             }
         }
     }

@@ -1,29 +1,33 @@
 <!--
 Sync Impact Report
-- Version change: 2.3.0 -> 2.4.0
+- Version change: 2.4.0 -> 2.5.0
 - Bump rationale:
-  - MINOR: Added numbered Spec-Kit branch support plus repo-wide assembly
-    version governance via `Directory.Build.props`, including the rule that the
-    feature/branch number becomes the canonical PR number for `Minor`.
+  - MINOR: Four governance rules incorporated from home-baseline constitution.md v1.4.0:
+    (1) Lastenheft archiving mandate on feature completion added to Governance.
+    (2) Conventional Commits message format mandated in Development Workflow.
+    (3) Co-authored-by AI agent trailer mandated in Development Workflow.
+    (4) TVöD workday baseline (7.8 h / 7h 48m) made explicit in Statistical Documentation.
+    Additionally, PR description requirements in Principle VI enriched (PATCH).
 - Modified principles:
-  - None
+  - Principle VI: PR description requirements expanded with specifics from constitution.md.
 - Added sections:
-  - None
+  - None (content merged into existing sections/governance)
 - Removed sections:
   - None
 - Templates requiring updates:
-  - .specify/templates/plan-template.md: pending review
+  - .specify/templates/tasks-template.md: ✅ updated — Lastenheft rename task added to Polish phase
+  - .specify/templates/plan-template.md: ✅ reviewed — no update required
   - .specify/templates/spec-template.md: pending review
-  - .specify/templates/tasks-template.md: pending review
   - .specify/templates/commands/*.md: pending review
 - Runtime guidance documents reviewed:
-  - AGENTS.md: ✅ updated
-  - CLAUDE.md: ✅ updated
-  - GEMINI.md: ✅ updated
-  - .github/copilot-instructions.md: ✅ updated
-  - docs/project-statistics.md: ✅ updated
+  - AGENTS.md: pending review
+  - CLAUDE.md: pending review
+  - GEMINI.md: pending review
+  - .github/copilot-instructions.md: pending review
+  - docs/project-statistics.md: pending review
 - Follow-up TODOs:
-  - Review template files if this constitution amendment is propagated further.
+  - Review AGENTS.md, CLAUDE.md, GEMINI.md, .github/copilot-instructions.md for
+    consistency with new Lastenheft archiving and commit-format mandates.
 -->
 # InventarWorkerService Constitution
 
@@ -88,9 +92,13 @@ The `main` branch is protected and MUST NOT receive direct feature commits. Ever
 feature, fix, or constitutional amendment MUST be implemented on a newly created branch
 and merged through a pull request targeting `main`. Branches MAY use either the
 existing topic naming or the numbered Spec-Kit form `NNN-short-description`. Pull
-requests MUST state purpose, touched projects, test evidence, and config/API impact;
-UI-impacting changes in `InventarViewerApp` MUST include a screenshot or terminal
-capture.
+requests MUST state:
+- Purpose and which projects are touched.
+- Test evidence (coverage report or CI link).
+- Config/API impact if applicable.
+- UI-impacting changes in `InventarViewerApp` MUST include a screenshot or terminal
+  capture.
+- Sample console output when user-visible output changes.
 Rationale: branch protection and documented review gates are mandatory for controlled
 integration.
 
@@ -143,6 +151,25 @@ cost.
    compliance is reviewed before merge.
 6. Perform a final documentation and coverage compliance review before merge.
 
+### Commit Message Format
+
+Every commit MUST use Conventional Commits format:
+`<type>: <short imperative subject line>`
+
+Allowed types: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `ci:`.
+The subject line MUST be lowercase and imperative (e.g., `feat: add PgSqlDbService write methods`).
+
+Every commit that involves AI-assisted work MUST include a `Co-authored-by` trailer
+identifying the active AI agent, for example:
+```
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+```
+The exact identity token depends on the agent used in the session. The trailer MUST be
+the last line of the commit message body.
+
+Rationale: uniform commit history enables automated changelog generation and makes
+AI-assisted sessions auditable.
+
 ### Statistical Documentation
 
 `docs/project-statistics.md` is the mandatory, living statistical ledger for the
@@ -153,23 +180,25 @@ repository. It MUST be updated whenever one of the following happens:
    plans, tasks, governance, or operational docs).
 3. A contributor explicitly requests a statistics refresh.
 
-
-Within the `## Fortschreibungsprotokoll` section, table rows MUST remain in strict chronological order: oldest entry first, newest and most recently added entry last, while rows with the same date keep their insertion order.
+Within the `## Fortschreibungsprotokoll` section, table rows MUST remain in strict
+chronological order: oldest entry first, newest and most recently added entry last,
+while rows with the same date keep their insertion order.
 
 Every update MUST record, at minimum:
 
 - branch or phase identifier and current status,
 - observable git-based work window (first and last date, commit days where possible),
-- current or change-based counts for production code, test code, and
-  documentation,
+- current or change-based counts for production code, test code, and documentation,
 - the main work packages or delivered artefacts,
 - whether the numbers come from committed history, the working tree, or both,
 - a conservative manual-effort baseline using **80 manually created lines per
   workday** for an experienced developer across production code, test code, and
   documentation,
 - when time spans are derived, the assumptions for monthly conversion
-  (21-22 workdays, typically 21.5) and, if used, TVoeD-style annual leave
-  assumptions such as 30 vacation days per year.
+  (21.5 workdays/month) and TVöD-style annual leave (30 vacation days per year
+  through end of 2026, 31 days from 2027 onwards under a 5-day-week calendar),
+- when hour values are shown, convert day-based estimates using the TVöD working-day
+  baseline of **7.8 hours (7h 48m)** per day.
 
 Manual-effort estimates for a small team MAY be derived from that baseline, but
 the formula and assumptions MUST be stated explicitly.
@@ -187,7 +216,27 @@ versioning for governance:
 Compliance review is mandatory in planning and code review; unresolved violations MUST
 be documented in the implementation plan's complexity tracking section.
 
+### Lastenheft Archivierung (Feature Completion Archive)
+
+When a feature's implementation is fully merged, the corresponding `Lastenheft_*.md`
+MUST be renamed to stamp the delivering branch name onto the filename:
+
+```bash
+# macOS/Linux
+bash scripts/rename-lastenheft.sh <LH-Datei> <branch-name>
+
+# Windows
+pwsh scripts/rename-lastenheft.ps1 -File <LH-Datei> -BranchName <branch-name>
+```
+
+Example: `Lastenheft_PostgreSQL_Implementation.md` + branch `008-pgsql-parity`
+→ `Lastenheft_PostgreSQL_Implementation.008-pgsql-parity.md`.
+
+This rename MUST be included in the final tasks.md as the last task of the Polish
+phase. Omitting it leaves the Lastenheft in an ambiguous delivered/undelivered state
+and breaks traceability.
+
 Use `docs/project-statistics.md` for the living project-statistics ledger and
 manual-effort baseline tracking.
 
-**Version**: 2.4.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-03-27
+**Version**: 2.5.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-04-18

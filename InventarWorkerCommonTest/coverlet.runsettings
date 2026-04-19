@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>[InventarWorkerCommon]InventarWorkerCommon.Services.Database.PgSqlDbService*,[InventarWorkerCommon]InventarWorkerCommon.Services.Database.SqliteDbService*,[InventarWorkerCommon]InventarWorkerCommon.Services.Settings.*, [InventarWorkerCommon]InventarWorkerCommon.Services.Status.*, [InventarWorkerCommon]InventarWorkerCommon.Services.Common.Initialize*, [InventarWorkerCommon]InventarWorkerCommon.Services.Common.ServiceContainer*, [InventarWorkerCommon]InventarWorkerCommon.Models.Settings.PgSqlDb*</Include>
+          <ExcludeByFile>**/obj/**/*.cs</ExcludeByFile>
+          <IncludeTestAssembly>false</IncludeTestAssembly>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

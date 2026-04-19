@@ -13,11 +13,11 @@ namespace InventarViewerApp.UI
         private readonly ApiService _apiService;
         private readonly SqliteDbService _dbService;
         private readonly MongoDbService _mongoDbService;
-        private readonly PgSqlDbService _pgSqlDbService;
-        private ListView _listView;
-        private Label _statusLabel;
-        private Button _refreshButton;
-        private Button _saveButton;
+        private readonly PgSqlDbService? _pgSqlDbService;
+        private ListView _listView = null!;
+        private Label _statusLabel = null!;
+        private Button _refreshButton = null!;
+        private Button _saveButton = null!;
 
         /// <summary>
         /// DE: Initialisiert eine neue Instanz der <see cref="SoftwareView"/>-Klasse.
@@ -39,7 +39,7 @@ namespace InventarViewerApp.UI
         /// DE: Dienst für PostgreSQL-Zugriffe in der Viewer-Anwendung.
         /// EN: Service for PostgreSQL access in the viewer application.
         /// </param>
-        public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService pgSqlDbService) : base("Software Inventar")
+        public SoftwareView(ApiService apiService, SqliteDbService dbService, MongoDbService mongoDbService, PgSqlDbService? pgSqlDbService) : base("Software Inventar")
         {
             _apiService = apiService;
             _dbService = dbService;
@@ -138,7 +138,8 @@ namespace InventarViewerApp.UI
                 var softwareData = await _apiService.GetSoftwareInventoryAsync();
                 var hardwareData = await _apiService.GetHardwareInventoryAsync();
 
-                var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName);
+                var machine = await _dbService.GetMachineByNameAsync(hardwareData.System.MachineName)
+                    ?? throw new InvalidOperationException("Maschine wurde vor dem Speichern des Software-Inventars nicht gefunden.");
                 await _dbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
                 await _mongoDbService.SaveSoftwareInventoryAsync(machine.Id, softwareData);
 

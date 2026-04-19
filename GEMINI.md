@@ -22,6 +22,7 @@ Das Projekt nutzt die Standard .NET-CLI.
 - **Coverage messen (CI-Grenze >=70%, Ziel >=80%)**: `dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults`
 - **Veraltete NuGet-Pakete prüfen**: `dotnet list package --outdated`
 - **Dokumentation neu erzeugen (bei API/XML-Doku-Änderungen)**: `docfx docfx.json`
+- Die dabei erzeugten Verzeichnisse `api/` und `_site/` sind Build-Artefakte und bleiben ungetrackt; Verteilung erfolgt ueber GitHub Pages und CI-Artefakte statt ueber Git.
 
 ## 🧪 Testing
 - **Alle Tests**: `dotnet test`
@@ -63,8 +64,9 @@ Das Projekt nutzt die Standard .NET-CLI.
 ## 📁 Wichtige Verzeichnisse
 - `InventarWorkerCommon/Models/`: Domänenmodelle (Hardware, Software, SQL, etc.).
 - `InventarWorkerCommon/Services/`: Geschäftslogik für DB, API und Inventarisierung.
-- `api/`: Enthält statische API-Dokumentation (DocFX).
+- `api/`: Lokal oder in CI erzeugte DocFX-Metadaten; das Verzeichnis bleibt ungetrackt.
 - `docs/`: Zusätzliche Dokumentation und PDFs.
+- `_site/`: Lokal oder in CI erzeugte HTML-Dokumentation; das Verzeichnis bleibt ungetrackt.
 
 ## 👤 Benutzer-Präferenzen (Thorsten)
 - **IDE**: JetBrains Rider.
@@ -108,3 +110,8 @@ Das Projekt nutzt die Standard .NET-CLI.
 
 - Diese Datei bleibt bewusst kompakt und ergänzt die projektspezifische Dokumentation.
 - This file intentionally stays compact and complements the project-specific documentation.
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+<!-- SPECKIT END -->
