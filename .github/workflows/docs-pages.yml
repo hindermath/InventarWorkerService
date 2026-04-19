@@ -66,6 +66,31 @@ jobs:
       - name: Build DocFX site
         run: docfx docfx.json
 
+      - name: Post-process DocFX HTML for accessibility
+        run: bash .github/scripts/postprocess-docfx-site.sh _site
+
+      - name: Verify DocFX accessibility patches
+        run: |
+          if rg -n --pcre2 '<html(?![^>]*\blang=)' _site/**/*.html _site/index.html; then
+            echo "Found HTML documents without lang attribute." >&2
+            exit 1
+          fi
+
+          if rg -n 'id="logo".*alt="InventarWorkerService"' _site/**/*.html _site/index.html; then
+            echo "Found redundant logo alt text after post-processing." >&2
+            exit 1
+          fi
+
+          if rg -n '<a[^>]*dropdown-toggle[^>]*aria-expanded=' _site/**/*.html _site/index.html; then
+            echo "Found unsupported aria-expanded on DocFX theme links after post-processing." >&2
+            exit 1
+          fi
+
+          if rg -n "dropdown-toggle[^\\n]*aria-expanded='false'|dropdown-toggle[^\\n]*aria-expanded=\\\"false\\\"" _site/public/docfx.min.js; then
+            echo "Found unsupported aria-expanded in generated DocFX JavaScript after post-processing." >&2
+            exit 1
+          fi
+
       - name: Text-browser smoke check
         run: |
           test -f _site/index.html
@@ -76,12 +101,13 @@ jobs:
           python3 -m http.server 8080 --directory _site >/tmp/docfx-http.log 2>&1 &
           server_pid=$!
           trap 'kill $server_pid' EXIT
-          cat > /tmp/docfx-axe-smoke.mjs <<'EOF'
+          cat > ./docfx-axe-smoke.mjs <<'EOF'
           import { chromium } from '@playwright/test';
           import AxeBuilder from '@axe-core/playwright';
 
           const browser = await chromium.launch({ headless: true });
-          const page = await browser.newPage();
+          const context = await browser.newContext();
+          const page = await context.newPage();
           await page.goto('http://127.0.0.1:8080/');
 
           const results = await new AxeBuilder({ page }).analyze();
@@ -90,9 +116,11 @@ jobs:
             process.exitCode = 1;
           }
 
+          await context.close();
           await browser.close();
           EOF
-          node /tmp/docfx-axe-smoke.mjs
+          node ./docfx-axe-smoke.mjs
+          rm -f ./docfx-axe-smoke.mjs
 
       - name: Setup GitHub Pages
         if: github.event_name != 'pull_request'
