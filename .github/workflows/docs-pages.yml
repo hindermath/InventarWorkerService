@@ -86,6 +86,11 @@ jobs:
             exit 1
           fi
 
+          if rg -n "dropdown-toggle[^\\n]*aria-expanded='false'|dropdown-toggle[^\\n]*aria-expanded=\\\"false\\\"" _site/public/docfx.min.js; then
+            echo "Found unsupported aria-expanded in generated DocFX JavaScript after post-processing." >&2
+            exit 1
+          fi
+
       - name: Text-browser smoke check
         run: |
           test -f _site/index.html
