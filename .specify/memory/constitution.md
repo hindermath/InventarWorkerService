@@ -1,34 +1,24 @@
 <!--
 Sync Impact Report
-- Version change: 2.4.0 -> 2.5.0
+- Version change: 2.5.0 -> 2.6.0
 - Bump rationale:
-  - MINOR: Four governance rules incorporated from home-baseline constitution.md v1.4.0:
-    (1) Lastenheft archiving mandate on feature completion added to Governance.
-    (2) Conventional Commits message format mandated in Development Workflow.
-    (3) Co-authored-by AI agent trailer mandated in Development Workflow.
-    (4) TVöD workday baseline (7.8 h / 7h 48m) made explicit in Statistical Documentation.
-    Additionally, PR description requirements in Principle VI enriched (PATCH).
+  - MINOR: Added workspace-baseline alignment guidance from the repository root `constitution.md` without removing repository-specific principles.
 - Modified principles:
-  - Principle VI: PR description requirements expanded with specifics from constitution.md.
+  - None
 - Added sections:
-  - None (content merged into existing sections/governance)
+  - Workspace Baseline Alignment / Programmierung #include<everyone> — Inclusion & Accessibility By Default
+  - Workspace Baseline Alignment / DE-First / EN-Second Delivery
 - Removed sections:
   - None
 - Templates requiring updates:
-  - .specify/templates/tasks-template.md: ✅ updated — Lastenheft rename task added to Polish phase
-  - .specify/templates/plan-template.md: ✅ reviewed — no update required
+  - .specify/templates/plan-template.md: pending review
   - .specify/templates/spec-template.md: pending review
-  - .specify/templates/commands/*.md: pending review
-- Runtime guidance documents reviewed:
-  - AGENTS.md: pending review
-  - CLAUDE.md: pending review
-  - GEMINI.md: pending review
-  - .github/copilot-instructions.md: pending review
-  - docs/project-statistics.md: pending review
+  - .specify/templates/tasks-template.md: pending review
+  - .specify/templates/commands/constitution.md: pending review
 - Follow-up TODOs:
-  - Review AGENTS.md, CLAUDE.md, GEMINI.md, .github/copilot-instructions.md for
-    consistency with new Lastenheft archiving and commit-format mandates.
+  - Review template and runtime-guidance wording for repository-specific propagation where needed.
 -->
+
 # InventarWorkerService Constitution
 
 ## Core Principles
@@ -203,6 +193,18 @@ Every update MUST record, at minimum:
 Manual-effort estimates for a small team MAY be derived from that baseline, but
 the formula and assumptions MUST be stated explicitly.
 
+## Workspace Baseline Alignment
+
+This Spec-Kit constitution inherits the binding workspace-family governance from `constitution.md` in the repository root. Project-specific rules remain in force; where both apply, the stricter rule wins.
+
+### A. Programmierung #include<everyone> — Inclusion & Accessibility By Default
+
+`Programmierung #include<everyone>` is a binding repository-wide principle. All user-facing artefacts — including CLI output, documentation and Markdown, HTML and generated websites, graphical user interfaces, and generated templates or scaffolding — MUST follow WCAG 2.2 Level AA wherever the criteria are applicable. They MUST remain usable with keyboard-only interaction, screen readers, Braille displays, and text browsers. Accessibility review is part of completion, not post-processing.
+
+### B. DE-First / EN-Second Delivery
+
+German is the canonical first language for user-facing governance and documentation in this repository family; English follows directly after it. User-facing and learner-facing guidance MUST remain bilingual at approximately CEFR-B2 readability, and materially changed guidance MUST update both language tracks in the same change.
+
 ## Governance
 
 This constitution is authoritative for repository engineering practices and supersedes
@@ -239,4 +241,4 @@ and breaks traceability.
 Use `docs/project-statistics.md` for the living project-statistics ledger and
 manual-effort baseline tracking.
 
-**Version**: 2.5.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-04-18
+**Version**: 2.6.0 | **Ratified**: 2026-03-08 | **Last Amended**: 2026-04-20
