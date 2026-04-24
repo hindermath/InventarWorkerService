@@ -95,17 +95,33 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
-## Constitution Alignment *(mandatory)*
+### Constitution Requirements *(mandatory)*
 
-- **CA-001 Branching**: Feature work MUST be delivered from a new branch and merged via PR to `main`.
-- **CA-002 Toolchain**: Feature scope MUST specify .NET 10 + C# 14.0 impact and migration needs.
-- **CA-003 Dependency Currency**: Spec MUST define NuGet update impact and any justified pinning exceptions.
-- **CA-004 Coverage**: Spec MUST define how CI coverage meets >=70% minimum and tracks >=80% target.
-- **CA-005 Layering**: Shared domain/service logic impact MUST identify changes in `InventarWorkerCommon` vs app-specific projects.
-- **CA-006 Linguistic Rules**: Spec MUST define bilingual documentation scope (German first, English second) at CEFR B2.
-- **CA-007 Documentation Enforcement**: Spec MUST identify XML documentation impact and whether a `docfx docfx.json` run is required.
-- **CA-008 Testing Impact**: Spec MUST define Red-Green-Refactor coverage and required unit/integration tests.
-- **CA-009 Data Contracts**: Spec MUST identify JSON serialization and SQL schema/index implications when data is affected.
+- **CR-001**: If this feature targets a listed Level-2 project, the feature MUST
+  use the matching Level-2 Project Environment Registry entry from
+  `constitution.md` as binding project context.
+- **CR-002**: User-facing artefacts MUST identify their A11Y review path
+  (WCAG 2.2 Level AA where applicable, text-first fallback otherwise).
+- **CR-003**: Learner-facing or shared guidance content MUST be DE-first,
+  EN-second unless a synchronized `.EN.md` companion is explicitly chosen.
+- **CR-004**: The feature MUST state whether statistics and AI-agent guidance
+  files require synchronized updates.
+- **CR-005**: The feature MUST name its primary implementation language and
+  either confirm it is on the MSL allow-list (`constitution.md`, Principle XI)
+  or cite the documented non-MSL justification from the Level-2
+  `constitution.md`.
+- **CR-006**: The feature MUST determine the applicable security standards from
+  `constitution.md`, Principles XIV-XVIII, and mark non-applicable standards
+  as `N/A` with justification. `NIST SSDF` and `CWE Top 25` are mandatory for
+  all Level-2 work.
+- **CR-007**: If the feature includes web/API/HTTP/auth-bearing services, it
+  MUST declare the selected `OWASP ASVS` level and verification scope.
+- **CR-008**: If the feature creates releasable or distributable artefacts, it
+  MUST declare the intended `SBOM` / `VEX` evidence path and any required
+  provenance / `SLSA` considerations.
+- **CR-009**: If the feature changes trust boundaries, externally reachable
+  flows, or distributed/service architecture, it MUST state how `CAPEC` and
+  `Zero Trust` applicability will be handled.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -125,3 +141,16 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+## Assumptions
+
+<!--
+  ACTION REQUIRED: The content in this section represents placeholders.
+  Fill them out with the right assumptions based on reasonable defaults
+  chosen when the feature description did not specify certain details.
+-->
+
+- [Assumption about target users, e.g., "Users have stable internet connectivity"]
+- [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
+- [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
+- [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
