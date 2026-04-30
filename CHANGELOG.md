@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.2.2](https://github.com/hindermath/InventarWorkerService/compare/v0.2.1...v0.2.2) (2026-04-30)
+
+
+### Bug Fixes / Fehlerbehebungen
+
+* opt release-please into node 24 ([bf30f94](https://github.com/hindermath/InventarWorkerService/commit/bf30f94208b76bd18a15fc653fd82a2782bec6a6))
+* pin release-please node 24 action ([b431418](https://github.com/hindermath/InventarWorkerService/commit/b4314188deed5a4fcb9bac91db78d2df60f16f26))
+
+
+### Documentation / Dokumentation
+
+* add security evidence structure ([79f75bc](https://github.com/hindermath/InventarWorkerService/commit/79f75bc01710e1ba972efab660ad7088226b3e53))
+* amend constitution to v1.6.0 ([80782f4](https://github.com/hindermath/InventarWorkerService/commit/80782f45f0e4f914a44537ba90486756f5e8dad3))
+* initialize speckit assets and align constitutions ([f5c3f3d](https://github.com/hindermath/InventarWorkerService/commit/f5c3f3db26a50d828aa18ce5d6b6e02aaedee721))
+* propagate constitution v1.10.0 guidance ([8fc6a26](https://github.com/hindermath/InventarWorkerService/commit/8fc6a26ed249d9691ec65d354c63b8a33d026768))
+* propagate constitution v1.11.0 guidance ([73cabc0](https://github.com/hindermath/InventarWorkerService/commit/73cabc0fddcd681d1d50bd5e5dc584d278a92757))
+* sync constitution and shared agent guidance ([e28f310](https://github.com/hindermath/InventarWorkerService/commit/e28f310764fdec24b7e2a7eababa79cb1a8c99ae))
+* update constitution v1.5.1 ([93ead4d](https://github.com/hindermath/InventarWorkerService/commit/93ead4d623f4358f17145d543e1b8e246f215f90))
+
+
+### Maintenance / Wartung
+
+* propagate security guidance from home-baseline v1.12.0 ([c4628df](https://github.com/hindermath/InventarWorkerService/commit/c4628df7618851e701983b184ff970e10cc1bad5))
+* reconcile local agent artifacts ([61ad95c](https://github.com/hindermath/InventarWorkerService/commit/61ad95c3930548ce8692673d7c13338987de91fe))
+* update homogeneity stats ([1d25f2e](https://github.com/hindermath/InventarWorkerService/commit/1d25f2e32ad653498d9dc897d72f7a2b5bb4f548))
+* update homogeneity stats ([82adf9c](https://github.com/hindermath/InventarWorkerService/commit/82adf9c01d25eec6f131a41908f7f3f5ce4b013b))
+* update spec-kit integrations ([3a88bfe](https://github.com/hindermath/InventarWorkerService/commit/3a88bfef170b892e25748434660f7bfe480949cc))
+* update spec-kit integrations to 0.8.3 ([4216bb3](https://github.com/hindermath/InventarWorkerService/commit/4216bb38780a5049f59265ece3c6c1233bba76f5))
+
 ## [0.2.1](https://github.com/hindermath/InventarWorkerService/compare/v0.2.0...v0.2.1) (2026-04-19)
 
 
