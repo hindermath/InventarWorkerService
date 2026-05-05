@@ -10,6 +10,7 @@ Use this command when governance or project rules change.
    - `.specify/templates/plan-template.md`
    - `.specify/templates/spec-template.md`
    - `.specify/templates/tasks-template.md`
+   - any preset-provided evidence templates under `.specify/templates/`
 4. Reconcile runtime guidance:
    - `AGENTS.md`
    - `CLAUDE.md`
@@ -28,3 +29,6 @@ Use this command when governance or project rules change.
 - Principles are declarative and auditable.
 - `main` protection workflow is respected (new branch + PR).
 - Toolchain/coverage/dependency rules are reflected in templates and guidance files.
+- Preset evidence surfaces for A11Y, security, cross-platform parity, agent
+  parity, and architecture governance are either present or explicitly marked
+  not applicable.

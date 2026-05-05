@@ -126,6 +126,16 @@
   in `docs/security/` (`asvs-verification.md`, `supply-chain-evidence.md`,
   `zero-trust-applicability.md`, `samm-assessment.md`) or an explicitly
   justified equivalent governance location.
+- **CR-011**: If the feature changes structure, interfaces, quality attributes,
+  runtime behavior, deployment, or long-term maintainability, it MUST state
+  which iSAQB/arc42 architecture evidence under `docs/architecture/` is required
+  or justify `N/A`.
+- **CR-012**: User-facing or learner-facing Markdown MUST use language-tagged
+  code blocks and adjacent DE-first/EN-second explanations for diagrams or
+  ASCII charts where they carry meaning.
+- **CR-013**: If the feature changes distribution, EU market reach, release
+  artefacts, or vulnerability handling, it MUST record the CRA applicability
+  evidence path.
 
 ### Key Entities *(include if feature involves data)*
 
