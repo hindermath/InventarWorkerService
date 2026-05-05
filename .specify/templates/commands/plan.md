@@ -11,9 +11,13 @@ Use this command to produce an implementation plan from an approved specificatio
    - architecture/layer boundaries
    - bilingual CEFR B2 documentation scope
    - XML documentation + DocFX regeneration scope
+   - accessibility evidence and code-block language tagging scope
+   - iSAQB/arc42 architecture evidence scope under `docs/architecture/`
    - Red-Green-Refactor testing scope
    - coverage gate (`>=70%` minimum, `>=80%` target)
    - NuGet dependency currency and pinning exceptions
+   - security standards, CRA applicability, MSL applicability, and supply-chain
+     evidence scope
    - serialization/data conventions
 3. Document concrete project structure for this feature.
 4. Record justified exceptions in Complexity Tracking.
@@ -21,4 +25,5 @@ Use this command to produce an implementation plan from an approved specificatio
 ## Validation Checklist
 
 - No gate is left unresolved without rationale.
-- Test, coverage, dependency, and documentation impacts are planned before implementation.
+- Test, coverage, dependency, security, architecture, accessibility, and
+  documentation impacts are planned before implementation.

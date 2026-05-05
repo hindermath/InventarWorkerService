@@ -13,8 +13,12 @@ Use this command to create or update a feature specification.
    - coverage thresholds (`>=70%`, target `>=80%`)
    - layering/shared logic placement
    - bilingual documentation impact (German first, English second, CEFR B2)
+   - A11Y evidence and language-tagged code-block impact
+   - iSAQB/arc42 architecture evidence impact under `docs/architecture/`
    - XML documentation and DocFX impact
    - Red-Green-Refactor test impact
+   - secure-development standards, MSL applicability, CRA applicability, and
+     supply-chain evidence impact
    - data contract implications
 
 ## Validation Checklist
@@ -22,4 +26,5 @@ Use this command to create or update a feature specification.
 - Each story can be tested independently.
 - Requirements are implementation-agnostic.
 - Constitution alignment items are complete and non-empty.
-- Toolchain/dependency/coverage constraints are explicit and measurable.
+- Toolchain/dependency/coverage/security/architecture/A11Y constraints are
+  explicit and measurable.

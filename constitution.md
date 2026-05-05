@@ -1,16 +1,40 @@
 <!--
 Sync Impact Report
-Version change: 1.11.0 -> 1.12.0
+Version change: 1.12.0 -> 1.13.0
 Modified principles:
-- None (purely additive)
+- II. Cross-Platform Parity & Documentation (aligned with preset-specific Bash/PowerShell rules)
+- VII. Programmierung #include<everyone> — Inclusion & Accessibility By Default (added evidence and code-block tagging)
+- XII. Secure Code Generation (added MSL and CRA evidence templates)
+- XIV. Secure Development Standards & Applicability Matrix (added general architecture evidence routing)
+- XVI. Supply-Chain Transparency & Build Integrity (kept CRA-linked all-level SBOM scope)
+- XIX. EU Cyber Resilience Act (CRA) Compliance Awareness (linked dedicated CRA template)
 Added sections:
-- None
+- XX. General iSAQB / arc42 Architecture Governance
 Removed sections:
 - None
 Templates requiring updates:
 - ✅ .specify/templates/plan-template.md
 - ✅ .specify/templates/spec-template.md
 - ✅ .specify/templates/tasks-template.md
+- ✅ .specify/templates/a11y-checklist-template.md
+- ✅ .specify/templates/a11y-evidence-template.md
+- ✅ .specify/templates/bilingual-content-check-template.md
+- ✅ .specify/templates/cli-a11y-review-template.md
+- ✅ .specify/templates/agent-parity-checklist-template.md
+- ✅ .specify/templates/man-page-template.md
+- ✅ .specify/templates/powershell-help-template.md
+- ✅ .specify/templates/script-parity-checklist-template.md
+- ✅ .specify/templates/architecture-vision-template.md
+- ✅ .specify/templates/context-view-template.md
+- ✅ .specify/templates/building-block-view-template.md
+- ✅ .specify/templates/runtime-view-template.md
+- ✅ .specify/templates/deployment-view-template.md
+- ✅ .specify/templates/architecture-decision-template.md
+- ✅ .specify/templates/architecture-risks-template.md
+- ✅ .specify/templates/quality-scenarios-template.md
+- ✅ .specify/templates/msl-applicability-template.md
+- ✅ .specify/templates/secure-coding-language-rules-template.md
+- ✅ .specify/templates/cra-applicability-template.md
 - ✅ .specify/templates/asvs-verification-template.md
 - ✅ .specify/templates/supply-chain-evidence-template.md
 - ✅ .specify/templates/zero-trust-applicability-template.md
@@ -21,12 +45,13 @@ Runtime guidance requiring updates:
 - ✅ CLAUDE.md
 - ✅ GEMINI.md
 - ✅ .github/copilot-instructions.md
+- ✅ docs/project-statistics.md
 - ✅ .specify/memory/constitution.md (mirror)
 Follow-up TODOs:
 - None
 -->
 
-# Constitution v1.12.0
+# Constitution v1.13.0
 
 # home-baseline Constitution
 
@@ -80,9 +105,11 @@ synchronized across devices without exposing any credentials.
 
 ### II. Cross-Platform Parity & Documentation
 
-Every critical script MUST exist in two variants:
-- Bash (`.sh`) for macOS/Linux
-- PowerShell Core 7+ (`.ps1`) for Windows
+Every critical script-shaped tool MUST exist in two variants:
+- Bash 3.x-compatible (`.sh`) for macOS/Linux unless a higher Bash version is
+  documented as a hard project requirement.
+- PowerShell Core 7+ (`.ps1`) for Windows and as a portable shell on other
+  platforms.
 
 Both variants MUST provide identical functionality and produce equivalent output.
 A new script is not considered complete until:
@@ -93,6 +120,18 @@ A new script is not considered complete until:
 5. Help switches (`-h`, `--help`) point to the man-page or internal help.
 
 All files MUST be committed together in the same commit.
+
+Implementation discipline:
+- Bash scripts SHOULD use `set -euo pipefail` or document the exception.
+- Bash scripts MUST quote variable expansions and MUST NOT use `eval` on
+  untrusted input.
+- PowerShell scripts MUST use `Set-StrictMode -Version Latest` and SHOULD use
+  `-NoProfile` for non-interactive subprocess calls.
+- Both variants MUST behave equivalently in dry-run mode (`--dry-run` /
+  `-WhatIf`) where the tool mutates state.
+- Script-parity evidence SHOULD use `script-parity-checklist-template.md`;
+  Bash man pages and PowerShell help SHOULD use the matching templates in
+  `.specify/templates/`.
 
 **Rationale**: The workspace is used on macOS and Windows. Bash-only or PowerShell-only scripts create a second-class experience. Professional documentation ensures maintainability and ease of use across platforms.
 
@@ -211,6 +250,15 @@ Mandatory rules:
 - WCAG 2.2 Level AA is the default accessibility baseline wherever the criteria are applicable.
 - User-facing artefacts MUST remain usable with keyboard-only interaction, screen readers, Braille displays, and text browsers.
 - Text-first fallbacks MUST be preferred for status reporting, diagrams, and operational guidance.
+- Every Markdown code block in user-facing or learner-facing documentation MUST
+  carry a language tag such as `bash`, `powershell`, `csharp`, `json`, or
+  `text`; bare fenced code blocks are not allowed.
+- Non-decorative images, diagrams, and ASCII charts MUST include adjacent
+  text alternatives or DE-first/EN-second explanations at CEFR B2 readability.
+- Accessibility evidence defaults to `docs/accessibility/` using
+  `a11y-checklist-template.md`, `a11y-evidence-template.md`,
+  `cli-a11y-review-template.md`, and `bilingual-content-check-template.md`
+  where applicable.
 - Accessibility review is part of completion, not post-processing.
 
 **Rationale**: Inclusive delivery improves quality for everyone, reduces retrofit work, and makes the repositories usable in real assistive-technology workflows from the start.
@@ -387,6 +435,12 @@ Mandatory security documentation (Principle XII extensions):
   (`dependency-audit-template.md`) that is updated before each release and at
   least monthly. The audit MUST cover CVE status, license compliance, registry
   verification, lock-file status, and supply-chain risks.
+- Every Level-2 project MUST maintain or cite a **Memory-Safe Language
+  Applicability** record (`msl-applicability-template.md`) when runtime or
+  language choice is part of the feature or project setup.
+- Every Level-2 project MUST maintain language-specific secure-coding evidence
+  using `secure-coding-language-rules-template.md` or an equivalent checklist
+  when new language/runtime rules are introduced.
 - Every Level-2 project SHOULD maintain **Security Quality Scenarios**
   (`security-quality-scenarios-template.md`) following iSAQB CPSA-F quality
   attribute scenario methodology to make security requirements testable and
@@ -503,6 +557,7 @@ MUST use this matrix to determine which standards apply.
 | OWASP SAMM | SHOULD | Long-lived Level-1 and Level-2 workspaces/projects | Periodic self-assessment with prioritized improvement actions |
 | CAPEC | SHOULD | Threat modeling of material attack paths | Reference relevant attack patterns for high-risk flows and abuse cases |
 | NIST Zero Trust (SP 800-207) | Project-type-dependent | Distributed, service-based, cloud, remote-managed, or multi-device systems | Explicit applicability decision with controls or justified N/A |
+| iSAQB / arc42 architecture governance | SHOULD | Structural, interface, quality-attribute, deployment, or long-term maintainability changes | Architecture evidence under `docs/architecture/` or justified N/A |
 | OWASP Cheat Sheet Series / Proactive Controls | SHOULD | All developer-facing projects | Use as day-to-day implementation guidance below the constitution |
 | OpenSSF Scorecard | Project-type-dependent | Public OSS repositories or high-impact external dependencies | Review repository/dependency security posture before adoption or release |
 
@@ -572,9 +627,13 @@ Secure development MUST include transparency about what is shipped and how it
 was produced.
 
 Mandatory rules:
-- Every release-capable or distributable Level-2 project MUST generate a
-  machine-readable `SBOM` for each released artefact set. The SBOM MAY be
-  stored as a release asset and/or mirrored in `docs/security/`.
+- Every release-capable or distributable project at ALL workspace levels
+  (Level-0, Level-1, Level-2) MUST generate a machine-readable `SBOM` for
+  each released artefact set. SBOM generation is mandatory regardless of
+  whether the SBOM is published externally. The SBOM MAY be stored as a
+  release asset and/or in `docs/security/`. This reflects the forthcoming
+  requirements of the EU Cyber Resilience Act (CRA) and established industry
+  best practice.
 - When a released or evaluated component has a known vulnerability that is
   relevant to consumers or reviewers, the project MUST publish or record a
   `VEX`-style status statement indicating whether the product is affected,
@@ -587,6 +646,18 @@ Mandatory rules:
 - Public OSS repositories and the adoption of high-impact external
   dependencies SHOULD consider `OpenSSF Scorecard` findings (or an equivalent
   source of repository security posture evidence) before release or adoption.
+- Dependency tracking SHOULD use automated tooling in preference to manual
+  static documentation. Preferred approaches:
+  - **Automated update PRs**: Renovatebot or Dependabot SHOULD be configured
+    to open PRs automatically for outdated or vulnerable dependencies. This is
+    established best practice for all projects regardless of level.
+  - **Continuous SBOM/CVE tracking**: Tools such as Dependency Track (which
+    accepts SBOM artefacts from CI pipelines and continuously monitors CVE
+    status and license compliance) SHOULD be preferred over periodic manual
+    audits wherever the project's hosting infrastructure supports it.
+  - Static dependency audit documents (`dependency-audit-template.md`) serve
+    as supplementary evidence for release decisions, exceptions, and risk
+    acceptance — not as a replacement for automated tooling.
 - Dependency, SBOM, VEX, provenance, and Scorecard evidence MUST feed into the
   repository's dependency audit and release review process.
 - Release-capable projects MUST maintain a supply-chain evidence document using
@@ -597,6 +668,9 @@ Mandatory rules:
 **Rationale**: A project can follow secure coding rules and still ship opaque
 or tampered artefacts. SBOM, VEX, SLSA, and Scorecard address transparency,
 integrity, and supplier trustworthiness across the software supply chain.
+Automated tooling (Renovatebot/Dependabot, Dependency Track) dramatically
+reduces the manual overhead of dependency management and removes the gap
+between policy and enforcement that static documentation cannot close.
 
 ### XVII. Threat Modeling & Attack Pattern Coverage
 
@@ -604,6 +678,11 @@ Threat modeling MUST describe both what the system values and how it can be
 attacked.
 
 Mandatory rules:
+- Every Level-2 threat model MUST include an **asset inventory with a CIA
+  matrix** (Confidentiality/Integrity/Availability, rated High/Medium/Low/Not
+  applicable). The CIA rating determines protection requirements and informs
+  STRIDE prioritisation: assets rated High in Confidentiality or Integrity
+  MUST be addressed with at least Defense-in-Depth controls (Principle XIII).
 - Every Level-2 threat model MUST use `STRIDE` as the base categorization
   scheme, as already required by Principle XIII.
 - Threat models SHOULD reference relevant `CAPEC` attack patterns for the
@@ -657,6 +736,87 @@ Mandatory rules:
 and cloud deployment; SAMM addresses the maturity of the development program
 itself. Together they keep security architecture and security process moving
 forward instead of freezing at a one-time baseline.
+
+### XIX. EU Cyber Resilience Act (CRA) Compliance Awareness
+
+Software placed on the EU market is subject to the Cyber Resilience Act
+(Regulation (EU) 2024/2847), which establishes mandatory cybersecurity
+requirements for products with digital elements. This principle requires
+that all workspace projects maintain awareness of CRA applicability and
+align their practices accordingly.
+
+Mandatory rules:
+- All projects MUST assess whether their software qualifies as a "product
+  with digital elements" under the CRA (commercial sale, licensing, or
+  free distribution for economic purposes within the EU market). Even
+  open-source projects distributed for economic benefit may fall in scope.
+- CRA-scoped projects MUST generate SBOMs for each released version (see
+  Principle XVI — this requirement applies at all levels for this reason).
+- CRA-scoped projects MUST implement a documented vulnerability disclosure
+  and handling process. Actively exploited vulnerabilities MUST be reported
+  to relevant authorities within 24 hours and patched within established
+  deadlines per the CRA.
+- CRA-scoped projects MUST document their conformity assessment approach
+  (self-assessment for most products; third-party assessment for critical
+  or important products under Annex III/IV of the CRA).
+- All projects SHOULD align security practices with CRA principles
+  regardless of formal scope applicability, as the CRA reflects emerging
+  industry baseline expectations for secure software development:
+  secure-by-design, secure-by-default, vulnerability management, lifecycle
+  transparency, and SBOM availability.
+- The CRA applicability decision MUST be recorded in `docs/security/` or
+  equivalent governance documentation using `cra-applicability-template.md`,
+  as a note in the supply-chain evidence document, or as a dedicated S-ADR.
+
+**Rationale**: The EU Cyber Resilience Act (in force since December 2024,
+with compliance deadlines phased through 2027) is the most significant
+EU regulatory development in software security since GDPR. It codifies
+many existing best practices — SBOM, vulnerability disclosure, secure
+development lifecycle, security-by-design — as legal obligations for
+software placed on the EU market. Recording CRA applicability and aligning
+practices proactively reduces legal and reputational risk and builds on the
+security work already required by Principles XII–XVIII.
+
+### XX. General iSAQB / arc42 Architecture Governance
+
+Software architecture MUST be treated as explicit design evidence when a
+change affects structure, interfaces, quality attributes, runtime behavior,
+deployment, or long-term maintainability. Security-specific architecture stays
+under Principle XIII; this principle covers general architecture reasoning.
+
+Mandatory rules:
+- Architecture work SHOULD follow iSAQB/CPSA-F method discipline and use
+  lightweight arc42-compatible documentation where useful.
+- Architecturally significant decisions MUST be documented as ADRs or
+  architecture decision records.
+- Quality attributes MUST be expressed as concrete scenarios with stimulus,
+  environment, response, and measurable response criteria. Generic words such
+  as "fast", "maintainable", or "scalable" are insufficient on their own.
+- System context, building blocks, runtime behavior, and deployment constraints
+  MUST be documented when they materially affect the design or future change
+  decisions.
+- Architecture risks and technical debt MUST be recorded with owner, impact,
+  mitigation, and review trigger when they affect delivery or operation.
+- Architecture documentation MUST remain proportional: enough to support
+  review, onboarding, maintenance, and later change decisions without turning
+  every small implementation detail into a formal architecture artefact.
+
+Evidence defaults:
+- General architecture evidence lives in `docs/architecture/`.
+- ADRs for general architecture default to `docs/architecture/adr/`.
+- Use the templates `architecture-vision-template.md`,
+  `context-view-template.md`, `building-block-view-template.md`,
+  `runtime-view-template.md`, `deployment-view-template.md`,
+  `architecture-decision-template.md`, `architecture-risks-template.md`, and
+  `quality-scenarios-template.md` when the corresponding artefact applies.
+- Security architecture evidence remains in `docs/security/`; if a decision is
+  both general and security-relevant, cross-link the records instead of
+  duplicating divergent content.
+
+**Rationale**: iSAQB and arc42 provide a lightweight, reviewable way to keep
+architecture decisions visible. Making general architecture evidence explicit
+prevents structural drift while leaving security-specific controls in the
+dedicated secure-architecture principles.
 
 ## Level-2 Project Environment Registry / Level-2-Projektumgebungsregister
 
@@ -748,7 +908,7 @@ allowed path.
 `.github/copilot-instructions.md` for per-agent operational guidance. This
 constitution is the authoritative policy layer above all agent-specific files.
 
-**Version**: 1.12.0 | **Ratified**: 2026-03-31 | **Last Amended**: 2026-04-24
+**Version**: 1.13.0 | **Ratified**: 2026-03-31 | **Last Amended**: 2026-05-05
 
 <!-- EN: constitution.md placeholder
 [DE-Zusammenfassung: constitution.md beschreibt die Prinzipien und Standards für alle home-baseline Workspaces.]
