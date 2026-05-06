@@ -909,3 +909,9 @@ modules.xml
 .junie/memory/
 .junie/.onboarding_migrated
 .opencode/node_modules/
+
+# Spec-Kit Presets (Policy-Dateien tracken, lokalen Cache ignorieren)
+!.specify/presets/
+!.specify/presets/**
+.specify/presets/.cache/
+.specify/presets/.cache/**

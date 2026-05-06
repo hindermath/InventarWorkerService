@@ -152,6 +152,7 @@ Examples of foundational tasks (adjust based on your project):
 
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX [P] Verify the implementation against the matching Level-2 Project Environment Registry row in `constitution.md`
+- [ ] TXXX [P] Verify installed Spec-Kit governance presets with `specify preset list`; for C#/.NET Level-2 projects confirm the all-six default or document the justified exception
 - [ ] TXXX [P] Verify primary implementation language against the MSL allow-list in `constitution.md`, Principle XI; cite the Level-2 non-MSL justification if applicable
 - [ ] TXXX [P] Run the required A11Y/text-first review path for affected user-facing artefacts
 - [ ] TXXX [P] Add or update A11Y evidence under `docs/accessibility/` using `a11y-checklist-template.md`, `a11y-evidence-template.md`, `cli-a11y-review-template.md`, or `bilingual-content-check-template.md` where applicable
