@@ -119,23 +119,22 @@
 - **CR-008**: If the feature creates releasable or distributable artefacts, it
   MUST declare the intended `SBOM` / `VEX` evidence path and any required
   provenance / `SLSA` considerations.
-- **CR-009**: If the feature changes trust boundaries, externally reachable
+- **CR-009**: The feature MUST state whether AI is used only as a development
+  tool, absent from the released/operated system, or present as a runtime or
+  product component. If AI models, AI services, training/embedding datasets,
+  inference infrastructure, or AI runtime components are part of the released
+  or operated system, it MUST declare the intended `AI-SBOM` evidence path;
+  otherwise it MUST record `AI-SBOM` as `N/A` with a short rationale.
+- **CR-010**: If the feature changes trust boundaries, externally reachable
   flows, or distributed/service architecture, it MUST state how `CAPEC` and
   `Zero Trust` applicability will be handled.
-- **CR-010**: The feature MUST state whether it uses the default evidence files
+- **CR-011**: The feature MUST state whether it uses the default evidence files
   in `docs/security/` (`asvs-verification.md`, `supply-chain-evidence.md`,
   `zero-trust-applicability.md`, `samm-assessment.md`) or an explicitly
   justified equivalent governance location.
-- **CR-011**: If the feature changes structure, interfaces, quality attributes,
-  runtime behavior, deployment, or long-term maintainability, it MUST state
-  which iSAQB/arc42 architecture evidence under `docs/architecture/` is required
-  or justify `N/A`.
-- **CR-012**: User-facing or learner-facing Markdown MUST use language-tagged
-  code blocks and adjacent DE-first/EN-second explanations for diagrams or
-  ASCII charts where they carry meaning.
-- **CR-013**: If the feature changes distribution, EU market reach, release
-  artefacts, or vulnerability handling, it MUST record the CRA applicability
-  evidence path.
+- **CR-012**: The feature MUST state which installed Spec-Kit governance
+  presets apply. C#/.NET Level-2 projects default to all six home-baseline
+  presets unless a justified exception is documented.
 
 ### Key Entities *(include if feature involves data)*
 

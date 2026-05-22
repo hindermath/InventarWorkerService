@@ -52,24 +52,24 @@
   security). State how trust boundaries and layered security apply.
 - **Security documentation**: Identify which mandatory security documents apply
   (threat model, S-ADRs, arc42 Section 8 security concepts, security checklist,
-  dependency audit, MSL applicability, secure-coding language rules, security
-  quality scenarios, CRA applicability). State whether `docs/security/` needs
-  new or updated documents. Templates: `.specify/templates/`.
+  dependency audit, security quality scenarios). State whether `docs/security/`
+  needs new or updated documents. Templates: `.specify/templates/`.
 - **Security standards applicability**: Determine which standards from
   `constitution.md`, Principles XIV-XVIII apply. `NIST SSDF` and `CWE Top 25`
   always apply to Level-2; add `OWASP ASVS`, `SBOM`, `VEX`, `SLSA`, `CAPEC`,
-  `NIST Zero Trust`, `OWASP SAMM`, `OWASP Cheat Sheet Series` /
+  `AI-SBOM`, `NIST Zero Trust`, `OWASP SAMM`, `OWASP Cheat Sheet Series` /
   `OWASP Proactive Controls`, and `OpenSSF Scorecard` where relevant. Mark
   non-applicable standards as `N/A` with justification.
+- **AI-SBOM applicability**: State whether AI is used only as a development
+  tool, absent from the released/operated system, or present as a runtime or
+  product component. If AI runtime or product components are present, plan the
+  G7/BSI AI-SBOM evidence across metadata, system-level properties, models,
+  datasets, infrastructure, security properties, and key performance
+  indicators. If not, record the `N/A` rationale.
 - **Release / supply-chain evidence**: State whether the feature requires
-  ASVS verification notes, SBOM/VEX artefacts, provenance/SLSA evidence,
-  CAPEC references, Zero-Trust applicability notes, CRA applicability notes, or
-  SAMM follow-up items, and where that evidence will live.
-- **General architecture evidence**: State whether iSAQB/arc42 architecture
-  evidence under `docs/architecture/` is needed. If yes, identify the affected
-  artefacts: architecture vision, context view, building-block view, runtime
-  view, deployment view, architecture decision, architecture risk, or quality
-  scenario.
+  ASVS verification notes, SBOM/VEX artefacts, AI-SBOM evidence,
+  provenance/SLSA evidence, CAPEC references, Zero-Trust applicability notes,
+  or SAMM follow-up items, and where that evidence will live.
 - **Default evidence files**: Prefer `docs/security/asvs-verification.md`,
   `docs/security/supply-chain-evidence.md`,
   `docs/security/zero-trust-applicability.md`, and
@@ -83,9 +83,8 @@
   exception is documented.
 - **Security-first**: Confirm no credential files, agent state, logs, history,
   or SQLite state are planned for tracking.
-- **Inclusion/A11Y**: Identify affected user-facing artefacts, the WCAG 2.2
-  Level AA or text-first review path, any `docs/accessibility/` evidence, and
-  whether Markdown code-block language tags / diagram explanations are affected.
+- **Inclusion/A11Y**: Identify affected user-facing artefacts and the WCAG 2.2
+  Level AA or text-first review path.
 - **Bilingual delivery**: State how DE-first/EN-second requirements apply.
 - **Statistics**: State whether `docs/project-statistics.md` needs an update
   and which manual/Thorsten-Solo baseline applies.
