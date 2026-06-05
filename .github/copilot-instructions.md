@@ -106,6 +106,9 @@ Each machine runs InventarWorkerService (REST agent)
 **Didactic comments:** Add bilingual block/line comments for non-public members/variables where XML docs do not apply.
 
 **DocFX sync:** Run `docfx docfx.json` whenever API signatures or XML documentation changes. The generated `api/` metadata and `_site/` HTML output must remain untracked. GitHub Pages deployment is handled by `.github/workflows/docs-pages.yml`.
+- New or changed non-trivial logic must be reviewed for didactic inline-comment value when it affects learner understanding or maintainability.
+- Inline comments explain why a decision, trade-off, constraint, historical deviation, or proof boundary exists; do not add comments that merely restate obvious code.
+- Keep inline-comment intensity moderate: normally 1-3 lines before a non-trivial block, with German-first/English-second CEFR-B2 text for didactic explanation blocks.
 
 **Test framework:** MSTest. Use `[TestInitialize]`/`[TestCleanup]` for per-test setup. Assert default property values (empty strings, 0, false, null) explicitly in unit tests.
 

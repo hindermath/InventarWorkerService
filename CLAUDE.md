@@ -120,6 +120,9 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 - **XML docs**: Public API members require complete XML documentation; do not suppress CS1591 globally
 - **Didactic comments**: Add bilingual block/line comments for non-public members/variables where XML docs do not apply
 - **DocFX**: Run `docfx docfx.json` when API signatures or XML docs change. The generated `api/` and `_site/` directories are artifacts and must stay out of Git. GitHub Pages deployment is handled by `.github/workflows/docs-pages.yml`.
+- New or changed non-trivial logic must be reviewed for didactic inline-comment value when it affects learner understanding or maintainability.
+- Inline comments explain why a decision, trade-off, constraint, historical deviation, or proof boundary exists; do not add comments that merely restate obvious code.
+- Keep inline-comment intensity moderate: normally 1-3 lines before a non-trivial block, with German-first/English-second CEFR-B2 text for didactic explanation blocks.
 
 ### Database
 

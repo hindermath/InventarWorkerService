@@ -31,6 +31,9 @@ Use C# with 4-space indentation and nullable reference types enabled. Follow exi
 - Didactic comments: Use bilingual block/line comments for non-public members or variables where XML docs do not apply
 - Async: All I/O-bound public service methods return `Task` or `Task<T>`
 - Documentation language: Explanatory text MUST be bilingual (German block first, English block second) at CEFR B2 readability
+- New or changed non-trivial logic must be reviewed for didactic inline-comment value when it affects learner understanding or maintainability.
+- Inline comments explain why a decision, trade-off, constraint, historical deviation, or proof boundary exists; do not add comments that merely restate obvious code.
+- Keep inline-comment intensity moderate: normally 1-3 lines before a non-trivial block, with German-first/English-second CEFR-B2 text for didactic explanation blocks.
 
 ## Testing Guidelines
 Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names such as `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`. Keep unit tests deterministic and independent of machine state. Integration tests require `InventarWorkerService` running at `http://localhost:5000`; remote tests may be network-dependent. Coverage in CI MUST stay at least 70% and MUST target 80% or more.
