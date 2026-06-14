@@ -129,7 +129,7 @@ Inhalt:
       <!-- Arbeitsverzeichnis -->
       <key>WorkingDirectory</key>
       <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/</string>
-    
+
       <!-- Umgebungsvariablen -->
       <key>EnvironmentVariables</key>
       <dict>
@@ -141,33 +141,33 @@ Inhalt:
          <!-- Detailliertes Logging aktivieren -->
          <key>ASPNETCORE_LOGGING__LOGLEVEL__DEFAULT</key>
          <string>Debug</string>
-         
+
          <key>ASPNETCORE_LOGGING__LOGLEVEL__MICROSOFT</key>
          <string>Information</string>
-         
+
          <key>ASPNETCORE_LOGGING__LOGLEVEL__MICROSOFT.HOSTING.LIFETIME</key>
          <string>Information</string>
-         
+
          <!-- Console-Logging aktivieren -->
          <key>ASPNETCORE_LOGGING__CONSOLE__INCLUDESCOPES</key>
          <string>true</string>
-         
+
          <!-- Swagger in allen Umgebungen aktivieren -->
          <key>ASPNETCORE_ENABLE_SWAGGER</key>
          <string>true</string>
-         
+
          <!-- .NET Core Debug-Features -->
          <key>DOTNET_ENVIRONMENT</key>
          <string>Development</string>
-         
+
          <!-- Zusätzliche Debug-Optionen -->
          <key>DOTNET_PRINT_TELEMETRY_MESSAGE</key>
          <string>false</string>
-         
+
          <!-- Detaillierte Exception-Seiten -->
          <key>ASPNETCORE_DETAILEDERRORS</key>
          <string>true</string>
-         
+
          <!-- Host-spezifische Debugging-URLs -->
          <key>ASPNETCORE_HOSTINGSTARTUPASSEMBLIES</key>
          <string></string>
@@ -342,7 +342,7 @@ inventarworkerservice_enable="YES"
 # Service starten
 service inventarworkerservice start
 
-# Service stoppen  
+# Service stoppen
 service inventarworkerservice stop
 ```
 Mit diesen Änderungen kann Ihre Anwendung als nativer Service auf allen genannten Betriebssystemen ausgeführt werden.
@@ -679,7 +679,7 @@ Invoke-SqliteQuery -DataSource $dbPath -Query $query
 # Starte Dokumentation
 @"
 # 📘 SQLite-Datenbankstruktur
-**Datenbank:** $dbPath  
+**Datenbank:** $dbPath
 **Erstellt am:** $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 
 "@ | Out-File $outputFile -Encoding UTF8
@@ -844,7 +844,7 @@ Invoke-SqliteQuery -DataSource $dbPath -Query $query
 # Markdown-Dokumentation starten
 @"
 # 📘 SQLite-Datenbankstruktur
-**Datenbank:** $dbPath  
+**Datenbank:** $dbPath
 **Erstellt am:** $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 "@ | Out-File $mdFile -Encoding UTF8
 
@@ -1086,16 +1086,16 @@ installieren, sofern das Projekt keine begründete Ausnahme dokumentiert.
 
 Standard-Preset-Set:
 
-- `security-governance` v0.4.0, Priority 10
-- `architecture-governance` v0.2.0, Priority 20
-- `isaqb-architecture-governance` v0.1.0, Priority 30
-- `a11y-governance` v0.2.0, Priority 40
-- `cross-platform-governance` v0.1.0, Priority 50
-- `agent-parity-governance` v0.2.0, Priority 60
+- `security-governance` v0.6.0, Priority 10
+- `architecture-governance` v0.5.0, Priority 20
+- `isaqb-architecture-governance` v0.2.0, Priority 30
+- `a11y-governance` v0.4.0, Priority 40
+- `cross-platform-governance` v0.2.0, Priority 50
+- `agent-parity-governance` v0.3.0, Priority 60
 
-`security-governance` v0.4.0 behandelt `AI-SBOM` bedingt: reine KI-Nutzung als Entwicklungswerkzeug ist `N/A` mit kurzer Toolchain-Begründung; KI-Runtime-/Produktkomponenten im ausgelieferten oder betriebenen System benötigen Supply-Chain-Evidenz nach den G7/BSI AI-SBOM-Clustern.
+`architecture-governance` v0.5.0 ergänzt `BSI C3A` als bedingte Cloud-Autonomie-Evidenz und `BSI C5` als bedingte Cloud-Compliance-Assurance-Evidenz. `security-governance` v0.6.0 führt `AI-SBOM` weiter als bedingt anwendbare Supply-Chain-Evidenz, ergänzt sprachspezifische Secure-Coding-Profile und ergänzt regulatorische Anwendbarkeit für NIS2, CRA, EU AI Act und DORA. `a11y-governance` v0.4.0 ergänzt didaktische Inline-Code-Kommentar-Governance. Alle sechs Presets erzeugen oder verlangen audit-ready Spec-Kit-Run-Evidenz mit `Applicable` / `N/A` / `Open`, Begründung, Evidenzpfad, Reviewer, Restrisiko und Follow-up.
 
-*`security-governance` v0.4.0 treats `AI-SBOM` as conditional: development-tool-only AI usage is `N/A` with a short toolchain rationale; AI runtime/product components in the released or operated system require supply-chain evidence using the G7/BSI AI-SBOM clusters.*
+*`architecture-governance` v0.5.0 adds conditional `BSI C3A` cloud-autonomy evidence and `BSI C5` cloud-compliance assurance evidence. `security-governance` v0.6.0 keeps conditional `AI-SBOM` evidence, adds language-specific secure-coding profiles, and adds regulatory applicability screening for NIS2, CRA, EU AI Act, and DORA. `a11y-governance` v0.4.0 adds didactic inline-code-comment governance. All six presets produce or require audit-ready Spec-Kit run evidence with `Applicable` / `N/A` / `Open`, rationale, evidence path, reviewer, residual risk, and follow-up.*
 
 Nach Installation oder Update prüfen:
 
@@ -1110,10 +1110,9 @@ Agenten-/Command-Dateien committen; `.specify/presets/.cache/` nicht committen.
 
 *All six governance presets are included in the `github/spec-kit` community
 catalog as of 2026-05-04. C#/.NET Level-2 projects default to all six presets
-unless a justified exception is documented. `security-governance` v0.4.0 keeps conditional `AI-SBOM` evidence and adds language-specific secure-coding profiles. Commit `.specify/presets/` and
+unless a justified exception is documented. Commit `.specify/presets/` and
 generated agent/command files when presets are project policy; do not commit
 `.specify/presets/.cache/`.*
-
 ## Inklusion und Barrierefreiheit / Inclusion and Accessibility
 
 - Erlaeuternde Lern- und Governance-Dokumentation soll in Deutsch zuerst und Englisch danach auf CEFR-B2-Niveau vorliegen.
