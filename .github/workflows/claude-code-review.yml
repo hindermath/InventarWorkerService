@@ -39,6 +39,8 @@ jobs:
           plugin_marketplaces: 'https://github.com/anthropics/claude-code.git'
           plugins: 'code-review@claude-code-plugins'
           prompt: '/code-review:code-review ${{ github.repository }}/pull/${{ github.event.pull_request.number }}'
+          # Release-Please-PRs werden von github-actions[bot] erstellt; nur dieser Bot darf den Review-Lauf starten.
+          # Release Please PRs are created by github-actions[bot]; only this bot may start the review run.
+          allowed_bots: 'github-actions'
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://code.claude.com/docs/en/cli-reference for available options
-
