@@ -71,3 +71,29 @@ werden ergaenzt, sobald sie als spaeterer Spec-Kit-Input vorgesehen sind.
 Each of the fourteen currently known requirements files appears exactly once in
 the active order or in the status table. Add new requirements files as soon as
 they are intended as input for a later Spec Kit run.
+
+
+<!-- secure-development-hardening-order:start -->
+## Automatisch ermittelte Lastenheft-Reihenfolge / Automatically Detected Requirements Order
+
+Diese Tabelle wird aus `Lastenheft*.md` im Repository-Root erzeugt. Sie ist eine Vorbereitung fuer spaetere Spec-Kit-Laeufe und startet selbst keinen Lauf. Manuelle Projektentscheidungen ausserhalb dieses markierten Abschnitts bleiben erhalten.
+
+*This table is generated from `Lastenheft*.md` in the repository root. It prepares later Spec Kit runs and does not start a run. Manual project decisions outside this marked section remain preserved.*
+
+| Rang | Lastenheft | Gruppe | Status |
+|---:|---|---|---|
+| 1 | `Lastenheft_Constitution_Change.md` | Governance/Baseline | aktiv / active |
+| 2 | `Lastenheft_TerminalGui_Migration.md` | Migration/Tooling | aktiv / active |
+| 3 | `Lastenheft_TG_Migration_CtrlWorkerServiceApp.md` | Migration/Tooling | aktiv / active |
+| 4 | `Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md` | Migration/Tooling | aktiv / active |
+| 5 | `Lastenheft_TG_Migration_InventarViewerApp.md` | Migration/Tooling | aktiv / active |
+| 6 | `Lastenheft_IDbService_Interface.md` | Kernlogik/Runtime | aktiv / active |
+| 7 | `Lastenheft_MongoDB_Paritaet.md` | Kernlogik/Runtime | aktiv / active |
+| 8 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Kernlogik/Runtime | archiviert oder abgeschlossen / archived or completed |
+| 9 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | aktiv / active |
+| 10 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | aktiv / active |
+| 11 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | UI/A11Y/Dokumentation | aktiv / active |
+| 12 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
+| 13 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
+| 14 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
+<!-- secure-development-hardening-order:end -->
