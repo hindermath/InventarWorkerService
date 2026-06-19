@@ -1137,6 +1137,10 @@ generated agent/command files when presets are project policy; do not commit
 Neue Features in diesem Workspace werden nach dem **Specification-Driven Development (SDD)**-Workflow entwickelt.
 Der Workflow verwendet das `speckit`-CLI-Tool (GitHub Copilot Skill).
 
+Die priorisierte Reihenfolge der vorbereiteten Lastenhefte fuer spaetere
+Spec-Kit-Laeufe steht in
+[`Lastenheft_Abarbeitungsreihenfolge.md`](Lastenheft_Abarbeitungsreihenfolge.md).
+
 Schritte für ein neues Feature:
 
 1. **Spezifikation erstellen** — `speckit specify "Feature-Name"` → `specs/{branch}/spec.md`
@@ -1154,6 +1158,10 @@ Alle Spec-Artefakte werden im Branch-Verzeichnis `specs/{branch}/` gespeichert u
 
 New features in this workspace are developed following the **Specification-Driven Development (SDD)** workflow.
 The workflow uses the `speckit` CLI tool (GitHub Copilot Skill).
+
+The prioritized order of prepared requirements files for later Spec Kit runs is
+recorded in
+[`Lastenheft_Abarbeitungsreihenfolge.md`](Lastenheft_Abarbeitungsreihenfolge.md).
 
 Steps for a new feature:
 
