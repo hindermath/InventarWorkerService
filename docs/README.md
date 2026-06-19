@@ -617,6 +617,16 @@ markiert und eine `Commit Message` eingegeben wurden.
 - Empfohlene A11Y-Toolchain fuer DocFX-basierte Doku: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright` und `lynx`.
 - Recommended A11y toolchain for DocFX-based documentation: Node 24 LTS, `npm`, Playwright, `@axe-core/playwright`, and `lynx`.
 
+## Spec-Kit-Lastenhefte / Spec Kit Requirements Files
+
+Die priorisierte Reihenfolge der vorbereiteten Lastenhefte fuer spaetere
+Spec-Kit-Laeufe steht in
+[`Lastenheft_Abarbeitungsreihenfolge.md`](../Lastenheft_Abarbeitungsreihenfolge.md).
+
+The prioritized order of prepared requirements files for later Spec Kit runs is
+recorded in
+[`Lastenheft_Abarbeitungsreihenfolge.md`](../Lastenheft_Abarbeitungsreihenfolge.md).
+
 ## Abschlusspruefung fuer Bilingualitaet und A11Y
 
 - Lernrelevante Dokumente und Guides muessen fuer Auszubildende nachvollziehbar in Deutsch und Englisch auf CEFR-B2-Niveau vorliegen.
