@@ -104,10 +104,12 @@ Diese Tabelle wird aus `Lastenheft*.md` im Repository-Root erzeugt. Sie ist eine
 | 6 | `Lastenheft_IDbService_Interface.md` | Kernlogik/Runtime | aktiv / active |
 | 7 | `Lastenheft_MongoDB_Paritaet.md` | Kernlogik/Runtime | aktiv / active |
 | 8 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Kernlogik/Runtime | archiviert oder abgeschlossen / archived or completed |
-| 9 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | aktiv / active |
-| 10 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | aktiv / active |
-| 11 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | UI/A11Y/Dokumentation | aktiv / active |
-| 12 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
-| 13 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
-| 14 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
+| 9 | `Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md` | Kernlogik/Runtime | aktiv / active |
+| 10 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | aktiv / active |
+| 11 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | aktiv / active |
+| 12 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | UI/A11Y/Dokumentation | aktiv / active |
+| 13 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | RL-SE-/Checklist-Selbstpruefung | aktiv / active |
+| 14 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
+| 15 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
+| 16 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
 <!-- secure-development-hardening-order:end -->
