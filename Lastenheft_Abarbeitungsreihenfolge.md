@@ -109,7 +109,8 @@ Diese Tabelle wird aus `Lastenheft*.md` im Repository-Root erzeugt. Sie ist eine
 | 11 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | aktiv / active |
 | 12 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | UI/A11Y/Dokumentation | aktiv / active |
 | 13 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | RL-SE-/Checklist-Selbstpruefung | aktiv / active |
-| 14 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
-| 15 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
-| 16 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
+| 14 | `Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md` | GSDB-Spec-Kit-Intensivpruefung | aktiv / active |
+| 15 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
+| 16 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
+| 17 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
 <!-- secure-development-hardening-order:end -->
