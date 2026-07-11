@@ -338,7 +338,7 @@ Prüfen: PowerShell `$line.Length` oder `wc -m` (Bash) für jede Rahmen-Zeile.
 
 ### Spec-Kit-Verzeichnis initialisieren / Initialize the Spec-Kit Directory
 Nie manuell aus `~/home-baseline-tmp/` kopieren. Stattdessen:
-`specify init --here --force --integration {agent}` je Agent für `gemini`, `opencode`, `claude`, `copilot` und `codex` ausführen.
+`specify init --here --force --integration {agent}` je Agent für `agy`, `opencode`, `claude`, `copilot` und `codex` ausführen.
 
 ### Spec-Kit-Updates repo-weit / Repository-Wide Spec-Kit Updates
 Fuer Level 0, Level 1 und Level 2 nicht mehr per Hand in jedem Repo nachziehen.
