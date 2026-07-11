@@ -1,5 +1,55 @@
 # Changelog
 
+## [0.3.0](https://github.com/hindermath/InventarWorkerService/compare/v0.2.2...v0.3.0) (2026-07-10)
+
+
+### Features / Neue Funktionen
+
+* update architecture governance preset to v0.3.0 ([bae5cd3](https://github.com/hindermath/InventarWorkerService/commit/bae5cd34cc3e2c32e0e88b3c8d76dbc1d579be57))
+
+
+### Bug Fixes / Fehlerbehebungen
+
+* relax homogeneity EN guidance detection ([61090c6](https://github.com/hindermath/InventarWorkerService/commit/61090c6d752da53e0dae2953aaeffe1fc28113df))
+
+
+### Documentation / Dokumentation
+
+* add didactic inline comment hardening guidance ([77c828e](https://github.com/hindermath/InventarWorkerService/commit/77c828ee29063f0d62be071e5c2ed508c44faa7d))
+* add generic secure development guide ([ec83622](https://github.com/hindermath/InventarWorkerService/commit/ec83622dd976e1d12587b1bd85ceb2bb9df2f4e4))
+* add GitHub and GitLab CLI-first guidance ([c8df9b0](https://github.com/hindermath/InventarWorkerService/commit/c8df9b09c85b1261a0082ae843f8e58deffb1a3e))
+* add GSDB preflight intake ([ab459ff](https://github.com/hindermath/InventarWorkerService/commit/ab459ff8d06a15c762fa7d439df4f485cbf3af7e))
+* add sandbox hardening intake ([84f3032](https://github.com/hindermath/InventarWorkerService/commit/84f30328f172f10c0b122ec365950ea4d91554a8))
+* add secure development hardening intake ([b29a629](https://github.com/hindermath/InventarWorkerService/commit/b29a629270c63de02b305810d2e4bb2f818c968e))
+* add Spec-Kit model routing guidance ([7500f57](https://github.com/hindermath/InventarWorkerService/commit/7500f57e44a8103796a6d1a5285ab872de6aacca))
+* amend constitution to v1.13.0 for preset governance ([299d19a](https://github.com/hindermath/InventarWorkerService/commit/299d19aa60927646ccbc5924862439f0c9eb30c2))
+* amend constitution to v1.13.0 for preset governance ([3dcbf7d](https://github.com/hindermath/InventarWorkerService/commit/3dcbf7da301b0a993f8e080f09a5ddba5ffcfc09))
+* clarify memory-safe language examples ([070e867](https://github.com/hindermath/InventarWorkerService/commit/070e8676368924e68d4fe4bcc4c31285d7b432ba))
+* prepare RL-SE checklist self-assessment ([f34f9bc](https://github.com/hindermath/InventarWorkerService/commit/f34f9bc1dae7150ce5eb3a5138fbed1e883465fe))
+* prepare RL-SE checklist self-assessment ([5cef191](https://github.com/hindermath/InventarWorkerService/commit/5cef191791c470b7dceb350fc1003d4db9a85652))
+* prepare RL-SE checklist self-assessment ([d63e8fd](https://github.com/hindermath/InventarWorkerService/commit/d63e8fd6c3d678ba2397bdf9e52a6cc6189f024f))
+* prepare secure development hardening ([a22a7e1](https://github.com/hindermath/InventarWorkerService/commit/a22a7e1ca37dd94b0a9ad95be21c7300720a98a8))
+* prepare secure development hardening ([dfa0ec7](https://github.com/hindermath/InventarWorkerService/commit/dfa0ec74b6134884ff15f4da06930d05f5650ea7))
+* prepare secure development hardening ([f7a25b4](https://github.com/hindermath/InventarWorkerService/commit/f7a25b4ec7723142c4d9f8bc062c5fb4a8188288))
+* prepare spec kit intake guidance ([95571a7](https://github.com/hindermath/InventarWorkerService/commit/95571a7e3fa3700bd5ac984dafa360f14d09b72c))
+* propagate AI-SBOM governance ([7b7a2bb](https://github.com/hindermath/InventarWorkerService/commit/7b7a2bb68f8e00019c07a99f77c84a3f209faa7e))
+* propagate security-governance v0.4.0 ([2c39bb2](https://github.com/hindermath/InventarWorkerService/commit/2c39bb2378a9e4509cce6768acb249143794893d))
+* propagate spec-kit preset governance ([c03fd6c](https://github.com/hindermath/InventarWorkerService/commit/c03fd6cad3f19b9b85d7a77a03fed0da6c6f8f7e))
+* record GSDB self-assessment ([653bf7f](https://github.com/hindermath/InventarWorkerService/commit/653bf7fd0e20040c1d463ebbc2d0695e11d96f86))
+* reference secure development guide in constitution ([a92004b](https://github.com/hindermath/InventarWorkerService/commit/a92004bd58a3122706d842c6d7c7f9f3a1287c35))
+* update secure development baseline to 3.0.0 ([158493b](https://github.com/hindermath/InventarWorkerService/commit/158493b4e5f71a3d53e665544516853697ea4b53))
+
+
+### Maintenance / Wartung
+
+* configure spec-kit governance presets ([d4049ae](https://github.com/hindermath/InventarWorkerService/commit/d4049ae00a2cbef6ddad865f92e7c6e8f54f54ab))
+* **security:** add gitleaks.toml allowlist for secure-development teaching docs ([be461ee](https://github.com/hindermath/InventarWorkerService/commit/be461eea3850b13879f5f251483149cb1e470414))
+* update agent parity governance to v0.2.0 ([b5ddf72](https://github.com/hindermath/InventarWorkerService/commit/b5ddf726ed8ec3efa6b8695da7d992eb513b140a))
+* update governance presets ([ae3b7d1](https://github.com/hindermath/InventarWorkerService/commit/ae3b7d10449a0bfb011554185d90d39b6b7d8e39))
+* update governance presets for audit evidence ([441ca8f](https://github.com/hindermath/InventarWorkerService/commit/441ca8f41ca8500d1304b84fd85ef54f74420c73))
+* update spec-kit integrations ([21090d3](https://github.com/hindermath/InventarWorkerService/commit/21090d3a7efd25c74b8a10f00dff6b8d1246c8b3))
+* update spec-kit integrations ([4243a10](https://github.com/hindermath/InventarWorkerService/commit/4243a1025a5cb50946af03aa440785748bfde264))
+
 ## [0.2.2](https://github.com/hindermath/InventarWorkerService/compare/v0.2.1...v0.2.2) (2026-04-30)
 
 
