@@ -228,6 +228,85 @@ function Check-CopilotInstructions {
     }
 }
 
+function Check-StatisticsProfile {
+    param([string]$Dir)
+
+    $ledger = Join-Path $Dir 'docs/project-statistics.md'
+    $config = Join-Path $Dir 'docs/project-statistics.config.json'
+    $renderer = Join-Path $Dir 'scripts/render-project-statistics.ps1'
+    if (-not (Test-Path $ledger)) {
+        return
+    }
+    if (-not (Test-Path $config)) {
+        Emit-Result 'FAIL' 'docs/project-statistics.config.json' `
+            'ASCII Statistics Profile 2 configuration missing' $Dir
+        return
+    }
+    if (-not (Test-Path $renderer)) {
+        Emit-Result 'FAIL' 'scripts/render-project-statistics.ps1' `
+            'ASCII Statistics Profile 2 renderer missing' $Dir
+        return
+    }
+    if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
+        Emit-Result 'FAIL' 'pwsh' `
+            'PowerShell 7 required by ASCII Statistics Profile 2 renderer' $Dir
+        return
+    }
+
+    & pwsh -NoProfile -File $renderer -Repo $Dir -CheckOnly -Json *> $null
+    switch ($LASTEXITCODE) {
+        0 {
+            Emit-Result 'PASS' 'docs/project-statistics.md' `
+                'ASCII Statistics Profile 2 current' $Dir
+        }
+        1 {
+            Emit-Result 'FAIL' 'docs/project-statistics.md' `
+                'ASCII Statistics Profile 2 drift' $Dir
+        }
+        2 {
+            Emit-Result 'FAIL' 'docs/project-statistics.md' `
+                'ASCII Statistics Profile 2 validation or tooling error' $Dir
+        }
+        default {
+            Emit-Result 'FAIL' 'docs/project-statistics.md' `
+                "ASCII Statistics Profile 2 unexpected renderer exit $LASTEXITCODE" $Dir
+        }
+    }
+}
+
+function Check-AntigravityIntegration {
+    param([string]$Dir)
+
+    $agyManifest = Join-Path $Dir '.specify/integrations/agy.manifest.json'
+    if (Test-Path $agyManifest) {
+        Emit-Result 'PASS' '.specify/integrations/agy.manifest.json' 'Antigravity Spec-Kit integration present' $Dir
+    } else {
+        Emit-Result 'FAIL' '.specify/integrations/agy.manifest.json' 'Antigravity Spec-Kit integration missing' $Dir
+    }
+
+    if ((Test-Path (Join-Path $Dir '.specify/integrations/gemini.manifest.json')) -or
+        (Test-Path (Join-Path $Dir '.gemini/commands'))) {
+        Emit-Result 'FAIL' '.gemini/commands' 'legacy Gemini Spec-Kit integration present' $Dir
+    } else {
+        Emit-Result 'PASS' '.gemini/commands' 'legacy Gemini Spec-Kit integration absent' $Dir
+    }
+
+    $skills = Get-ChildItem -Path (Join-Path $Dir '.agents/skills') -Directory -Filter 'speckit-*' -ErrorAction SilentlyContinue
+    if ($skills) {
+        Emit-Result 'PASS' '.agents/skills' 'Antigravity/Codex Spec-Kit skills present' $Dir
+    } else {
+        Emit-Result 'FAIL' '.agents/skills' 'Antigravity/Codex Spec-Kit skills missing' $Dir
+    }
+
+    $gitignore = Join-Path $Dir '.gitignore'
+    $content = if (Test-Path $gitignore) { Get-Content $gitignore -Raw } else { '' }
+    if ($content.Contains('.agents/*') -and $content.Contains('!.agents/skills/')) {
+        Emit-Result 'PASS' '.gitignore' 'surgical .agents skills allowlist' $Dir
+    } else {
+        Emit-Result 'FAIL' '.gitignore' 'surgical .agents skills allowlist missing' $Dir
+    }
+}
+
 # ─── Header ──────────────────────────────────────────────────────────────────
 if (-not $Json) {
     Write-Host "Workspace Homogeneity Guardian — check-homogeneity v1.0"
@@ -280,6 +359,7 @@ foreach ($entry in $scanResults) {
             Emit-Result 'FAIL' $f 'file missing' $dir
         }
     }
+    Check-StatisticsProfile -Dir $dir
 
     # README.md content checks (A11Y, Spec-kit, Azubis sections)
     Check-ReadmeSections -Dir $dir
@@ -299,6 +379,7 @@ foreach ($entry in $scanResults) {
 
     # homogeneity-check.yml presence (all levels)
     Check-WorkflowYml -Dir $dir
+    Check-AntigravityIntegration -Dir $dir
 
     # ANSI escape scan in scripts/ (Level 0 only)
     if ($level -eq 0) {
@@ -318,6 +399,17 @@ foreach ($entry in $scanResults) {
         } else {
             Emit-Result 'WARN' 'scripts/hooks/pre-push' 'canonical hook missing' $dir
         }
+        $scriptReference = Join-Path $dir 'scripts/render-script-reference.ps1'
+        if (Test-Path -LiteralPath $scriptReference -PathType Leaf) {
+            & $scriptReference -Repo $dir -CheckOnly *> $null
+            if ($LASTEXITCODE -eq 0) {
+                Emit-Result 'PASS' 'docs/scripts/reference.md' `
+                    'script catalog complete and current' $dir
+            } else {
+                Emit-Result 'FAIL' 'docs/scripts/reference.md' `
+                    'script catalog incomplete or generated documentation drifted' $dir
+            }
+        }
     }
 
     # Level 0: Git Scope Isolation checks (GIT-SCOPE-001, GIT-SCOPE-002)
@@ -333,12 +425,12 @@ foreach ($entry in $scanResults) {
                 '~/.gitconfig.d/ fehlt — Scope-Isolierung nicht konfiguriert / missing — scope isolation not configured' `
                 $dir
         } elseif (-not ((Get-Content $gitconfig2 -ErrorAction SilentlyContinue) |
-                Select-String -SimpleMatch 'gitdir:~/home-baseline-tmp/' -Quiet)) {
+                Select-String -SimpleMatch 'gitdir:~/home-baseline-source/' -Quiet)) {
             if ($Json) {
-                Write-Host '{"check":"GIT-SCOPE-002","status":"WARN","message":"includeIf für home-baseline-tmp nicht gefunden / not found for home-baseline-tmp"}'
+                Write-Host '{"check":"GIT-SCOPE-002","status":"WARN","message":"includeIf fuer home-baseline-source nicht gefunden / not found for home-baseline-source"}'
             }
             Emit-Result 'WARN' '~/.gitconfig' `
-                'includeIf für home-baseline-tmp nicht gefunden / not found for home-baseline-tmp' `
+                'includeIf fuer home-baseline-source nicht gefunden / not found for home-baseline-source' `
                 $dir
         }
     }
@@ -394,7 +486,7 @@ if ($Json) {
         $lp = $DirPass[$d] ?? 0
         $ls = if ($lt -gt 0) { [int](($lp * 100) / $lt) } else { 0 }
         $filled = [int]($ls * 10 / 100)
-        $bar = ('█' * $filled) + ('░' * (10 - $filled))
+        $bar = ('#' * $filled) + ('.' * (10 - $filled))
         $shortName = $d -replace [regex]::Escape($(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE })), '~'
         Write-Host ("{0,-30} [{1}] {2,3} %  ({3}/{4} checks)" -f $shortName, $bar, $ls, $lp, $lt)
     }

@@ -1,0 +1,58 @@
+{
+  "$schema": "../scripts/config/project-statistics.schema.json",
+  "schemaVersion": 1,
+  "methodologyVersion": 2,
+  "repositoryName": "InventarWorkerService",
+  "timeZone": "Europe/Berlin",
+  "activityWindowWeeks": 52,
+  "references": {
+    "conservativeLinesPerDay": 80,
+    "thorstenLinesPerDay": 100
+  },
+  "phases": [
+    {
+      "slot": 0,
+      "id": "basis",
+      "labelDe": "Basis",
+      "labelEn": "Baseline",
+      "netLines": 2593
+    },
+    {
+      "slot": 1,
+      "id": "ausbau",
+      "labelDe": "Ausbau",
+      "labelEn": "Expansion",
+      "netLines": 2528
+    },
+    {
+      "slot": 2,
+      "id": "db-doku",
+      "labelDe": "DB und Doku",
+      "labelEn": "DB and docs",
+      "netLines": 8078
+    },
+    {
+      "slot": 3,
+      "id": "metrik",
+      "labelDe": "Metrik",
+      "labelEn": "Metric",
+      "netLines": 580
+    },
+    {
+      "slot": 4,
+      "id": "governance-ci",
+      "labelDe": "Governance und CI",
+      "labelEn": "Governance and CI",
+      "netLines": 6438
+    },
+    {
+      "slot": 5,
+      "id": "002-versionierung",
+      "labelDe": "002 Versionierung",
+      "labelEn": "002 versioning",
+      "netLines": 41
+    }
+  ],
+  "excludedPaths": [],
+  "categoryOverrides": []
+}
