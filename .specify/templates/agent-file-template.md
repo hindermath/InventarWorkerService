@@ -39,11 +39,21 @@ Auto-generated from all feature plans. Last updated: [DATE]
 ## Spec-Kit Governance Presets
 
 If this project installs governance presets, keep this section synchronized
-with `.specify/presets/` and generated agent command files. C#/.NET Level-2
-projects default to all seven home-baseline presets unless a justified exception
-is documented: `security-governance`, `architecture-governance`,
+with `.specify/presets/` and generated agent command files. Registered Level-0,
+Level-1, and Level-2 repositories default to all eight home-baseline presets
+unless a justified exception is documented: `security-governance`, `architecture-governance`,
 `isaqb-architecture-governance`, `a11y-governance`,
-`cross-platform-governance`, and `agent-parity-governance`.
+`cross-platform-governance`, `agent-parity-governance`,
+`autonomous-run-governance`, and `parallel-autonomous-run-governance`.
+`architecture-governance` includes conditional BSI C3A cloud-autonomy and BSI
+C5 cloud-compliance assurance evidence for cloud-service selection and
+provider-dependent deployments. `security-governance` includes regulatory
+applicability screening for NIS2, CRA, EU AI Act, and DORA with explicit N/A
+rationale for private training projects when no regulated scope exists.
+Installing either autonomous preset starts no run and grants no remote, merge,
+bypass, cancellation, secret, or provider authority. Complete autonomous and
+parallel autonomous runs require explicit delegation. Parallel campaigns use
+separate worktrees and at most three concurrently active workers.
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
