@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "65b3feff-d1a0-4d1f-a5bb-d473b95a6edb",
+  "mode": "Series",
+  "status": "Ready",
+  "policy": "inventar-worker-active-lastenhefte-v1",
+  "reviewedAt": "2026-07-23T14:32:13Z",
+  "repository": {
+    "root": ".",
+    "head": "e5a35d2f090ed3ec6529837fb12e9a0e247b03ba"
+  },
+  "targets": [
+    {
+      "path": "Lastenheft_Secure-Development-Hardening.md",
+      "role": "Primary",
+      "normalizedSha256": "9eb32515a590aada78a5b33170e00aace834ce87d9b5f5ed9535445c6e50380f",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "3166f34e5d7003cfe28738785c322e3c3fd1431b7e2dec80c738cf0ec342268d",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "a2c55dbb43be5a77cd7cc02722af48fc00c20089ad853b7bda26a44d667abf94",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "17cd456fdf35b788666096abe67d1cb8b2a338dcc61be8bb84bf9e53ab62d374",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "9e4054f42c0d091efe7f7940b8dc6855e899a9926cd7c8feabcc3d52e9fc72a0",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "bca3cf505503fe10c3504e6c03a1e8c6922e10121fe2b3b9610b82de110934aa",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "d0431f7a5c02730f7c1141c1ce9d61a8aca328a3c554dd13e6318ac5bbf8675c",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_A11Y_TUI_API.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "6ee7cbadf3327b81924a2ed8963f53f6be9026e373a916aa987e4cb54a26b211",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "062f43f7910cab4c10c60e5e527cc6df1396537243e70d3fdf52dd5b5fe9ed6a",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_IDbService_Interface.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "62cb6a19e3535f12a295176a5146bac46add45dcbdd2932e04841ac2f0c2985a",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_MongoDB_Paritaet.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "b28296fe4883e6aeb16f02a5f70c27fea949a31e8cea0a237b693c18d30cdd7d",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "7581944e869f50cf8ce1c3d9cd510956c68b3ccb66ec03fe746f7138465ca024",
+      "gitBlob": "N/A"
+    },
+    {
+      "path": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "ffd78d52538010696e63642296258776ea49fe3c3e831f1b93f1d7793c271ed0",
+      "gitBlob": "N/A"
+    }
+  ],
+  "findings": [],
+  "questions": [],
+  "acceptedRisks": [],
+  "operatorExceptions": [],
+  "coverage": {
+    "individual": [
+      "Lastenheft_Secure-Development-Hardening.md",
+      "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "Lastenheft_TG_Elmish_Entscheidung.md",
+      "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "Lastenheft_A11Y_TUI_API.md",
+      "Lastenheft_Statistik_View_Lesemethoden.md",
+      "Lastenheft_IDbService_Interface.md",
+      "Lastenheft_MongoDB_Paritaet.md",
+      "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md"
+    ],
+    "series": [
+      "All 13 active paths and their exact order",
+      "Repository ordering, predecessor gates, overlap, terminology, authority, and no-auto-start boundaries",
+      "Excluded archive and overview classifications from target-manifest.json"
+    ],
+    "workers": []
+  },
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "supersedes": "N/A"
+}

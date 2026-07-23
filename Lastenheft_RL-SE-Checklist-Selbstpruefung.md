@@ -1,3 +1,4 @@
+<!-- intake-authoring:begin -->
 # Lastenheft: RL-SE-/Checklist-Selbstpruefung
 
 **Repository:** InventarWorkerService
@@ -112,10 +113,35 @@ Im spaeteren Prueflauf werden insbesondere behandelt:
 ## 10. Optimaler Specify-Prompt / Optimal Specify Prompt
 
 ```text
-/speckit-specify
+Ersetzter Alt-Prompt: speckit-specify
 Nutze Lastenheft_RL-SE-Checklist-Selbstpruefung.md als verbindlichen Intake fuer einen separaten RL-SE-/Checklist-Selbstpruefungslauf in InventarWorkerService.
 Starte keinen Sammellauf ueber mehrere Repositories, erzeuge keine automatische Haertung und befuelle keine docs/security/-Nachweise ohne konkrete Spec-Kit-Aufgabe.
 Erstelle eine fokussierte Feature-Spezifikation, die docs/secure-development/, Richtlinie_Sichere-Entwicklung.md, Checklistensammelband_Sichere-Entwicklung.md, CL_01 bis CL_12, mitgeltende Dokumente, Verzahnung_Richtlinie_Checklisten_Spec-Kit-Presets.md, constitution.md, .specify/memory/constitution.md und installierte Governance-Presets als Pruefgrundlagen beruecksichtigt.
 Dokumentiere jeden relevanten Pruefpunkt als Applicable, AlreadySatisfied, N/A, Open oder FollowUp mit Begruendung, Evidenzpfad, Owner, Follow-up, Re-Evaluation-Trigger und Restrisiko.
 Behandle sichere Entwicklung als Must-have. MSL-Status ist ein Pruefpunkt, aber keine Voraussetzung fuer diesen Selbstpruefungslauf.
 ```
+<!-- intake-authoring:prompts -->
+## Kopierbare Spec-Kit-Prompts / Copy-Ready Spec Kit Prompts
+
+Die folgenden Alternativen starten keinen Lauf automatisch. Der autonome
+Prompt ist auf `LocalImplementation` begrenzt und erteilt keine Remote-,
+PR-, Merge-, Bypass-, Secret- oder Provider-Berechtigung.
+
+*The alternatives below do not start a run automatically. The autonomous
+prompt is limited to `LocalImplementation` and grants no remote,
+pull-request, merge, bypass, secret, or provider authority.*
+
+### Specify
+
+<!-- spec-kit-command-id: speckit.specify -->
+```text
+$speckit-specify Use Lastenheft_RL-SE-Checklist-Selbstpruefung.md as the binding intake. Preserve its scope, non-goals, ordering, governance, evidence, and acceptance criteria. Create or update only the matching feature specification. Do not implement, commit, push, create a pull request, merge, or start another feature.
+```
+
+### Autonomous
+
+<!-- spec-kit-command-id: speckit.autonomous -->
+```text
+$speckit-autonomous Execute one complete autonomous Spec Kit run using Lastenheft_RL-SE-Checklist-Selbstpruefung.md as the binding intake. Delivery mode: LocalImplementation. Preserve all scope, ordering, security, accessibility, evidence, and acceptance boundaries. Do not push, create or merge a pull request, use bypass authority, expose secrets, or start a follow-up feature.
+```
+<!-- intake-authoring:end -->

@@ -293,6 +293,7 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-06-05 | Didaktische Inline-Code-Kommentar-Haertung vorbereitet | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` wurde als Specify-ready Intake fuer eine moderate Inline-Kommentar-Haertung angelegt. Der Lauf soll Service-, API-, Persistenz-, Cross-Platform-, TUI- und Test-Helfer-Flows pruefen, ohne Runtime-Verhalten, Datenbank-/API-/TUI-Funktionen oder Architektur zu veraendern. `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` und `.github/copilot-instructions.md` halten nun fest, dass neue oder geaenderte nicht-triviale Logik auf didaktischen Kommentarbedarf geprueft wird und Kommentare Warum, Trade-off, Randbedingung, Plattformgrenze oder Proof-Grenze erklaeren muessen. Validierung: Doku-/Guidance-Suchcheck und `git diff --check`; keine Build-/Test-/DocFX-Ausfuehrung, weil nur Lastenheft, Guidance und Statistik geaendert wurden. |
 | 2026-06-18 | Claude-Code-Review fuer Release-Please-PRs freigegeben | Der automatische `Claude Code Review`-Workflow blockierte Release-Please-PRs, weil `github-actions[bot]` als nicht-menschlicher Actor nicht in `allowed_bots` freigegeben war. `.github/workflows/claude-code-review.yml` erlaubt nun gezielt den Bot-Slug `github-actions`, ohne alle Bots per Wildcard zuzulassen. Sichtbares Zusatzvolumen: `0` Produktionscode-Zeilen, `0` Testcode-Zeilen, ca. `+3` Workflow-Konfigurationszeilen und diese Ledger-Fortschreibung. Konservative Manualreferenz: grob `4 / 80 = 0.1` Arbeitstage bzw. `0.4` Stunden; Thorsten-Solo-Referenz: `4 / 100 = 0.0` Arbeitstage bzw. `0.3` Stunden; sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-06-18. |
 | 2026-06-19 | Lastenheft-Abarbeitungsreihenfolge fuer spaetere Spec-Kit-Laeufe dokumentiert | `Lastenheft_Abarbeitungsreihenfolge.md` wurde als dauerhaft einsehbares Root-Artefakt angelegt. Es ordnet die offenen Lastenhefte fuer spaetere Spec-Kit-Laeufe, markiert bereits geloeste oder ueberholte Lastenhefte separat und verlinkt die Reihenfolge aus `README.md` sowie `docs/README.md`. Diese Runde war reine Dokumentationsarbeit ohne Produktions- oder Testcodeaenderung; die Validierung erfolgt ueber Markdown-Suchchecks und `git diff --check`, ein Build-/Test-/DocFX-Lauf ist fuer diese reine Ordnungsdokumentation nicht erforderlich. Sichtbares Zusatzvolumen vor dieser Ledger-Zeile: ca. `+91` Dokumentationszeilen netto. Konservative Manualreferenz: grob `91 / 80 = 1.1` Arbeitstage bzw. `8.9` Stunden; Thorsten-Solo-Referenz: `91 / 100 = 0.9` Arbeitstage bzw. `7.1` Stunden; sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-06-19. |
+| 2026-07-23 | Intake Authoring und Review | 13 aktive Lastenhefte als hashgebundene Legacy-Intakes normalisiert; Einzel- und Serienreview `Ready` mit null offenen Findings, Fragen oder Risiken; keine Produktcode- oder Laufzeitänderung. |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -445,29 +446,29 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 117887 lines |
-| Textdateien / Text files | 766 |
+| Textbasis / Text base | 119678 lines |
+| Textdateien / Text files | 787 |
 | Beobachtbarer Zeitraum / Observable period | 2025-07-27..2026-07-23 |
 | Aktivtage / Active days | 126 |
-| Relevante Commits / Relevant commits | 674 |
-| Zeilen je Aktivtag / Lines per active day | 935.6 |
+| Relevante Commits / Relevant commits | 675 |
+| Zeilen je Aktivtag / Lines per active day | 949.8 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 11.7x |
-| Speedup vs. 100 lines/day | 9.4x |
-| Methodik / Methodology | v2; source `f19351385154` |
+| Speedup vs. 80 lines/day | 11.9x |
+| Speedup vs. 100 lines/day | 9.5x |
+| Methodik / Methodology | v2; source `9db4a433c8a7` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [##..................]   8.7% | 10220
+Produktiv / Production          [##..................]   8.5% | 10220
 Tests                           [#...................]   3.5% | 4174
-Dokumentation / Documentation   [###############.....]  76.9% | 90608
-Skripte / Scripts               [##..................]   8.3% | 9747
-Konfiguration / Configuration   [#...................]   0.6% | 735
+Dokumentation / Documentation   [###############.....]  76.1% | 91055
+Skripte / Scripts               [##..................]   8.1% | 9747
+Konfiguration / Configuration   [#...................]   1.7% | 2079
 Daten und Medien / Data and media [#...................]   1.0% | 1150
-Sonstiger Text / Other text     [#...................]   1.1% | 1253
+Sonstiger Text / Other text     [#...................]   1.0% | 1253
 ```
 
 Die Balken teilen die aktuelle getrackte Textbasis in stabile Kategorien. Prozent und Zeilenwert sind die genaue, textorientierte Aussage.
@@ -493,7 +494,7 @@ So/Su  0 0 0 0 0 0 4 0 4 0 0 2 4 0 0 0 0 0 1 0 4 0 0 0 1 4
 Mo/Mo  0 3 0 0 0 0 0 0 0 2 0 1 4 0 4 0 0 0 0 0 0 0 3 1 4 4
 Di/Tu  0 0 0 0 0 0 2 0 0 3 0 0 0 0 3 0 0 3 0 0 0 0 2 0 3 4
 Mi/We  0 0 0 0 0 0 0 0 1 0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2
-Do/Th  0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 3
+Do/Th  0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 4
 Fr/Fr  0 2 0 0 0 0 0 0 2 4 0 2 4 0 0 0 4 2 2 0 3 2 3 4 4 -
 Sa/Sa  2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 4 0 4 4 0 -
 ```
@@ -589,8 +590,8 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [############........] 11.7x
-100 lines/day      [#########...........] 9.4x
+80 lines/day       [############........] 11.9x
+100 lines/day      [#########...........] 9.5x
 ```
 
 Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen Referenzen. Sie messen keine Arbeitszeit.
@@ -603,7 +604,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..1000 lines/day
 Experienced manual [##..................] 80
 Thorsten solo      [##..................] 100
-Visible repository [###################.] 935.6
+Visible repository [###################.] 949.8
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -629,6 +630,6 @@ DE: Das Fenster beginnt am 2025-07-27 und endet am 2026-07-23. Es enthaelt 126 a
 | 2026-04 | 119744 |
 | 2026-05 | 13510 |
 | 2026-06 | 37685 |
-| 2026-07 | 48673 |
+| 2026-07 | 50490 |
 
 <!-- project-statistics-v2:end -->

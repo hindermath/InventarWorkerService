@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.1",
+  "receiptId": "be2f2566-e882-4398-8f8e-6d1c68d36f93",
+  "generator": {
+    "preset": "intake-authoring-governance",
+    "version": "0.1.1"
+  },
+  "createdAt": "2026-07-23T14:32:12Z",
+  "status": "ReadyForReview",
+  "target": {
+    "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+    "normalizedSha256": "3166f34e5d7003cfe28738785c322e3c3fd1431b7e2dec80c738cf0ec342268d"
+  },
+  "sources": [
+    {
+      "order": 1,
+      "kind": "Pasted",
+      "label": "Legacy target before Intake Creator adoption",
+      "location": "SnapshotOnly",
+      "path": "N/A",
+      "normalizedSha256": "0eb3177a72df3e17c09828a1eca197656785500945aa62405a46acd351edd5f5",
+      "gitBlob": "67d687695af8686857070784a2d171da0f5d1a03"
+    }
+  ],
+  "profile": "level2-lastenheft",
+  "languagePolicy": "GermanFirstEnglishSecond",
+  "decisions": [
+    {
+      "id": "IAD001",
+      "status": "Answered",
+      "question": "Welcher Zielpfad bleibt verbindlich?",
+      "answer": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "evidence": "Die aktive Repository-Abarbeitungsreihenfolge benennt diesen Pfad."
+    },
+    {
+      "id": "IAD002",
+      "status": "Answered",
+      "question": "Darf der bestehende Alt-Intake aktualisiert werden?",
+      "answer": "Ja, als diff-arme LegacyAdoption.",
+      "evidence": "Der aktuelle Nutzerauftrag autorisiert Creator-Normalisierung und Review der aktiven Level-2-Intakes."
+    },
+    {
+      "id": "IAD003",
+      "status": "Answered",
+      "question": "Welcher fachliche Umfang bleibt erhalten?",
+      "answer": "Der bestehende fachliche Scope bleibt unveraendert; ergaenzt werden nur Creator-Vertrag und nachgewiesene Konsistenzkorrekturen.",
+      "evidence": "Genehmigter scope-neutraler Flottenplan."
+    },
+    {
+      "id": "IAD004",
+      "status": "Answered",
+      "question": "Welche Delivery Authority gilt fuer spaetere autonome Laeufe?",
+      "answer": "LocalImplementation.",
+      "evidence": "Dieser Authoring-Lauf erteilt keine Remote-Autoritaet."
+    }
+  ],
+  "openDecisionIds": [],
+  "questionCount": 0,
+  "agentSurface": {
+    "specifyCanonicalId": "speckit.specify",
+    "specifyInvocation": "$speckit-specify",
+    "autonomousCanonicalId": "speckit.autonomous",
+    "autonomousInvocation": "$speckit-autonomous"
+  },
+  "deliveryAuthority": "LocalImplementation",
+  "authorityEvidence": "Default: Dieser Authoring-Lauf erteilt keine Remote-Schreib- oder Lieferautoritaet fuer spaetere Feature-Laeufe.",
+  "promptState": "Enabled",
+  "nextAction": "$speckit-intake-review Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+  "provenanceMode": "LegacyAdoption",
+  "supersedes": {
+    "receiptPath": "N/A",
+    "targetNormalizedSha256": "N/A"
+  },
+  "legacyAdoption": {
+    "evidenceType": "GitBlob",
+    "priorTargetNormalizedSha256": "0eb3177a72df3e17c09828a1eca197656785500945aa62405a46acd351edd5f5",
+    "priorGitBlob": "67d687695af8686857070784a2d171da0f5d1a03"
+  },
+  "updateAuthorized": true,
+  "updateAuthorityEvidence": "Aktueller Nutzerauftrag: Creator-Normalisierung und Review der aktiven C#-Level-2- und cc65-Intakes."
+}
