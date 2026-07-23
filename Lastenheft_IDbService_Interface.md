@@ -1,3 +1,4 @@
+<!-- intake-authoring:begin -->
 # Lastenheft: Einfuehrung des IDbService-Interfaces fuer Provider-Switching
 
 **Dokument-Status:** Entwurf
@@ -130,7 +131,7 @@ Der spaetere Lauf muss mindestens klassifizieren:
 ## Kopierbarer `/speckit-specify`-Prompt / Copyable `/speckit-specify` Prompt
 
 ```text
-/speckit-specify Nutze Lastenheft_IDbService_Interface.md als verbindliche Eingabedatei. Erstelle die Feature-Spezifikation fuer einen Datenbankservice-Interface-Lauf im Repository InventarWorkerService.
+Ersetzter Alt-Prompt: speckit-specify Nutze Lastenheft_IDbService_Interface.md als verbindliche Eingabedatei. Erstelle die Feature-Spezifikation fuer einen Datenbankservice-Interface-Lauf im Repository InventarWorkerService.
 
 Ziel: Pruefe das Lastenheft gegen den aktuellen Repository-Stand und erstelle eine belastbare Spec-Kit-Spezifikation, die fuer Auszubildende, Entwickler*innen, Reviewer und KI-Agenten nachvollziehbar ist.
 
@@ -145,3 +146,28 @@ Pflichtpunkte:
 
 Erzeuge eine Spezifikation mit Scope, Nicht-Zielen, Anforderungen, Abhaengigkeiten, Akzeptanzkriterien, Risiken, Teststrategie, Evidenzpfaden und offenen Folgepunkten.
 ```
+<!-- intake-authoring:prompts -->
+## Kopierbare Spec-Kit-Prompts / Copy-Ready Spec Kit Prompts
+
+Die folgenden Alternativen starten keinen Lauf automatisch. Der autonome
+Prompt ist auf `LocalImplementation` begrenzt und erteilt keine Remote-,
+PR-, Merge-, Bypass-, Secret- oder Provider-Berechtigung.
+
+*The alternatives below do not start a run automatically. The autonomous
+prompt is limited to `LocalImplementation` and grants no remote,
+pull-request, merge, bypass, secret, or provider authority.*
+
+### Specify
+
+<!-- spec-kit-command-id: speckit.specify -->
+```text
+$speckit-specify Use Lastenheft_IDbService_Interface.md as the binding intake. Preserve its scope, non-goals, ordering, governance, evidence, and acceptance criteria. Create or update only the matching feature specification. Do not implement, commit, push, create a pull request, merge, or start another feature.
+```
+
+### Autonomous
+
+<!-- spec-kit-command-id: speckit.autonomous -->
+```text
+$speckit-autonomous Execute one complete autonomous Spec Kit run using Lastenheft_IDbService_Interface.md as the binding intake. Delivery mode: LocalImplementation. Preserve all scope, ordering, security, accessibility, evidence, and acceptance boundaries. Do not push, create or merge a pull request, use bypass authority, expose secrets, or start a follow-up feature.
+```
+<!-- intake-authoring:end -->

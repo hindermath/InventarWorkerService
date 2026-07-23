@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "repository": "hindermath/InventarWorkerService",
+  "baseBranch": "main",
+  "selectionRule": "Active executable intakes only",
+  "targets": [
+    {
+      "path": "Lastenheft_Secure-Development-Hardening.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_A11Y_TUI_API.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_IDbService_Interface.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_MongoDB_Paritaet.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "profile": "level2-lastenheft"
+    },
+    {
+      "path": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
+      "profile": "level2-lastenheft"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "Lastenheft_Abarbeitungsreihenfolge.md",
+      "reason": "Ordering document"
+    },
+    {
+      "path": "Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md",
+      "reason": "Archived feature"
+    },
+    {
+      "path": "Lastenheft_SQLite_ViewQuery_Bugfix.md",
+      "reason": "Already satisfied"
+    },
+    {
+      "path": "Lastenheft_Constitution_Change.md",
+      "reason": "Superseded by current governance"
+    },
+    {
+      "path": "Lastenheft_TerminalGui_Migration.md",
+      "reason": "Overview, not one executable intake"
+    }
+  ]
+}

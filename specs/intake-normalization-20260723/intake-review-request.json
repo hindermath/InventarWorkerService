@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "65b3feff-d1a0-4d1f-a5bb-d473b95a6edb",
+  "mode": "Series",
+  "policy": "inventar-worker-active-lastenhefte-v1",
+  "targets": [
+    {
+      "path": "Lastenheft_Secure-Development-Hardening.md",
+      "role": "Primary"
+    },
+    {
+      "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_A11Y_TUI_API.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_IDbService_Interface.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_MongoDB_Paritaet.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "role": "OrderedMember"
+    },
+    {
+      "path": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
+      "role": "OrderedMember"
+    }
+  ],
+  "series": {
+    "orderedTargetPaths": [
+      "Lastenheft_Secure-Development-Hardening.md",
+      "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "Lastenheft_TG_Elmish_Entscheidung.md",
+      "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "Lastenheft_A11Y_TUI_API.md",
+      "Lastenheft_Statistik_View_Lesemethoden.md",
+      "Lastenheft_IDbService_Interface.md",
+      "Lastenheft_MongoDB_Paritaet.md",
+      "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md"
+    ],
+    "dependencies": []
+  },
+  "campaign": {
+    "manifestPath": "N/A",
+    "workers": [],
+    "operatorExceptions": []
+  }
+}

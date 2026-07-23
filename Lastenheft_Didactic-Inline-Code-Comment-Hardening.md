@@ -1,3 +1,4 @@
+<!-- intake-authoring:begin -->
 # Lastenheft: Didactic Inline Code Comment Hardening fuer InventarWorkerService
 
 **Dokument-Status:** Spec-Kit-Eingabedatei, bereit fuer `/speckit-specify`  
@@ -56,7 +57,7 @@ Out of Scope:
 ## 6. Kopierbarer `/speckit-specify`-Prompt
 
 ```text
-/speckit-specify Nutze Lastenheft_Didactic-Inline-Code-Comment-Hardening.md als verbindliche Eingabedatei. Erstelle die Feature-Spezifikation fuer einen didaktischen Inline-Code-Kommentar-Hardening-Lauf in InventarWorkerService.
+Ersetzter Alt-Prompt: speckit-specify Nutze Lastenheft_Didactic-Inline-Code-Comment-Hardening.md als verbindliche Eingabedatei. Erstelle die Feature-Spezifikation fuer einen didaktischen Inline-Code-Kommentar-Hardening-Lauf in InventarWorkerService.
 
 Ziel: Zentrale Service-, API-, Persistenz-, Cross-Platform-, TUI- und Test-Helfer-Flows muessen fuer Auszubildende und Maintainer besser nachvollziehbar werden. XML-Kommentare bleiben die primaere API-/DocFX-Erklaerung; dieser Lauf ergaenzt nur Code-nahe didaktische Kommentare bei nicht-trivialer Logik.
 
@@ -76,3 +77,28 @@ Wichtig:
 Dieses Lastenheft enthaelt bereits einen kopierbaren `/speckit-specify`-Prompt. Vor dem Start muss der aktuelle Repository-Stand trotzdem geprueft werden. Bereits erledigte oder branch-suffig archivierte Punkte werden nicht erneut umgesetzt; offene Punkte werden als `Applicable`, `AlreadySatisfied`, `N/A`, `Open` oder `FollowUp` klassifiziert.
 
 *This requirements document already contains a copyable `/speckit-specify` prompt. Before starting, still check the current repository state. Completed or branch-suffixed archived items are not implemented again; open items are classified as `Applicable`, `AlreadySatisfied`, `N/A`, `Open`, or `FollowUp`.*
+<!-- intake-authoring:prompts -->
+## Kopierbare Spec-Kit-Prompts / Copy-Ready Spec Kit Prompts
+
+Die folgenden Alternativen starten keinen Lauf automatisch. Der autonome
+Prompt ist auf `LocalImplementation` begrenzt und erteilt keine Remote-,
+PR-, Merge-, Bypass-, Secret- oder Provider-Berechtigung.
+
+*The alternatives below do not start a run automatically. The autonomous
+prompt is limited to `LocalImplementation` and grants no remote,
+pull-request, merge, bypass, secret, or provider authority.*
+
+### Specify
+
+<!-- spec-kit-command-id: speckit.specify -->
+```text
+$speckit-specify Use Lastenheft_Didactic-Inline-Code-Comment-Hardening.md as the binding intake. Preserve its scope, non-goals, ordering, governance, evidence, and acceptance criteria. Create or update only the matching feature specification. Do not implement, commit, push, create a pull request, merge, or start another feature.
+```
+
+### Autonomous
+
+<!-- spec-kit-command-id: speckit.autonomous -->
+```text
+$speckit-autonomous Execute one complete autonomous Spec Kit run using Lastenheft_Didactic-Inline-Code-Comment-Hardening.md as the binding intake. Delivery mode: LocalImplementation. Preserve all scope, ordering, security, accessibility, evidence, and acceptance boundaries. Do not push, create or merge a pull request, use bypass authority, expose secrets, or start a follow-up feature.
+```
+<!-- intake-authoring:end -->
