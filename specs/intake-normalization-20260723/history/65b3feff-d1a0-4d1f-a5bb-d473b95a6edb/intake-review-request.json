@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.1",
-  "reviewId": "07138bdd-24c3-4693-bb2f-38271144a94e",
+  "schemaVersion": "1.0",
+  "reviewId": "65b3feff-d1a0-4d1f-a5bb-d473b95a6edb",
   "mode": "Series",
   "policy": "inventar-worker-active-lastenhefte-v1",
   "targets": [
@@ -73,71 +73,7 @@
       "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
       "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md"
     ],
-    "roots": [
-      "Lastenheft_Secure-Development-Hardening.md"
-    ],
-    "dependencies": [
-      {
-        "from": "Lastenheft_Secure-Development-Hardening.md",
-        "to": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
-        "to": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
-        "to": "Lastenheft_TG_Elmish_Entscheidung.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_TG_Elmish_Entscheidung.md",
-        "to": "Lastenheft_TG_Migration_InventarViewerApp.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_TG_Migration_InventarViewerApp.md",
-        "to": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
-        "to": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
-        "to": "Lastenheft_A11Y_TUI_API.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_A11Y_TUI_API.md",
-        "to": "Lastenheft_Statistik_View_Lesemethoden.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_Statistik_View_Lesemethoden.md",
-        "to": "Lastenheft_IDbService_Interface.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_IDbService_Interface.md",
-        "to": "Lastenheft_MongoDB_Paritaet.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_MongoDB_Paritaet.md",
-        "to": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
-        "kind": "Precedes"
-      },
-      {
-        "from": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
-        "to": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
-        "kind": "Precedes"
-      }
-    ]
+    "dependencies": []
   },
   "campaign": {
     "manifestPath": "N/A",
