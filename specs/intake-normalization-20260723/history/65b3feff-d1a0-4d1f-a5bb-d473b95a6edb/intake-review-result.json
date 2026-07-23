@@ -1,13 +1,13 @@
 {
-  "schemaVersion": "1.1",
-  "reviewId": "07138bdd-24c3-4693-bb2f-38271144a94e",
+  "schemaVersion": "1.0",
+  "reviewId": "65b3feff-d1a0-4d1f-a5bb-d473b95a6edb",
   "mode": "Series",
   "status": "Ready",
   "policy": "inventar-worker-active-lastenhefte-v1",
-  "reviewedAt": "2026-07-23T17:46:14Z",
+  "reviewedAt": "2026-07-23T14:32:13Z",
   "repository": {
     "root": ".",
-    "head": "37bd5029ed1d0ed23c574d29fef1dd403b8647c5"
+    "head": "e5a35d2f090ed3ec6529837fb12e9a0e247b03ba"
   },
   "targets": [
     {
@@ -122,9 +122,5 @@
     "medium": 0,
     "low": 0
   },
-  "supersedes": "65b3feff-d1a0-4d1f-a5bb-d473b95a6edb",
-  "requestEvidence": {
-    "path": "specs/intake-normalization-20260723/intake-review-request.json",
-    "normalizedSha256": "4bad374bb72e7ff3014bf6ec7ccc4b9031f6cb97e8d720905dfe54b530c5dee1"
-  }
+  "supersedes": "N/A"
 }
