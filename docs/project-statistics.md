@@ -446,25 +446,25 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 125104 lines |
+| Textbasis / Text base | 125349 lines |
 | Textdateien / Text files | 876 |
 | Beobachtbarer Zeitraum / Observable period | 2025-07-27..2026-07-25 |
 | Aktivtage / Active days | 128 |
-| Relevante Commits / Relevant commits | 681 |
-| Zeilen je Aktivtag / Lines per active day | 977.4 |
+| Relevante Commits / Relevant commits | 682 |
+| Zeilen je Aktivtag / Lines per active day | 979.3 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
 | Speedup vs. 80 lines/day | 12.2x |
 | Speedup vs. 100 lines/day | 9.8x |
-| Methodik / Methodology | v2; source `9b79b3241bbf` |
+| Methodik / Methodology | v2; source `40c62f60c766` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [##..................]   8.2% | 10220
 Tests                           [#...................]   3.3% | 4174
-Dokumentation / Documentation   [###############.....]  76.8% | 96107
+Dokumentation / Documentation   [###############.....]  76.9% | 96352
 Skripte / Scripts               [##..................]   7.9% | 9844
 Konfiguration / Configuration   [#...................]   1.9% | 2356
 Daten und Medien / Data and media [#...................]   0.9% | 1150
@@ -604,7 +604,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..1000 lines/day
 Experienced manual [##..................] 80
 Thorsten solo      [##..................] 100
-Visible repository [####################] 977.4
+Visible repository [####################] 979.3
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -630,6 +630,6 @@ DE: Das Fenster beginnt am 2025-07-27 und endet am 2026-07-25. Es enthaelt 128 a
 | 2026-04 | 119744 |
 | 2026-05 | 13510 |
 | 2026-06 | 37685 |
-| 2026-07 | 56768 |
+| 2026-07 | 57377 |
 
 <!-- project-statistics-v2:end -->
