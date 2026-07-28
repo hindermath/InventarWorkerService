@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "IntakeSeriesManifest",
+  "seriesId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "title": "InventarWorkerService requirements series",
+  "policy": "requirements-intake-governance-v2",
+  "status": "Active",
+  "orderedTargets": [
+    {
+      "path": "Lastenheft_Secure-Development-Hardening.md",
+      "role": "Primary",
+      "normalizedSha256": "9eb32515a590aada78a5b33170e00aace834ce87d9b5f5ed9535445c6e50380f",
+      "status": "Eligible"
+    },
+    {
+      "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "3166f34e5d7003cfe28738785c322e3c3fd1431b7e2dec80c738cf0ec342268d",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "a2c55dbb43be5a77cd7cc02722af48fc00c20089ad853b7bda26a44d667abf94",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "17cd456fdf35b788666096abe67d1cb8b2a338dcc61be8bb84bf9e53ab62d374",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "9e4054f42c0d091efe7f7940b8dc6855e899a9926cd7c8feabcc3d52e9fc72a0",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "bca3cf505503fe10c3504e6c03a1e8c6922e10121fe2b3b9610b82de110934aa",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "d0431f7a5c02730f7c1141c1ce9d61a8aca328a3c554dd13e6318ac5bbf8675c",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_A11Y_TUI_API.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "6ee7cbadf3327b81924a2ed8963f53f6be9026e373a916aa987e4cb54a26b211",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "062f43f7910cab4c10c60e5e527cc6df1396537243e70d3fdf52dd5b5fe9ed6a",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_IDbService_Interface.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "62cb6a19e3535f12a295176a5146bac46add45dcbdd2932e04841ac2f0c2985a",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_MongoDB_Paritaet.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "b28296fe4883e6aeb16f02a5f70c27fea949a31e8cea0a237b693c18d30cdd7d",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "7581944e869f50cf8ce1c3d9cd510956c68b3ccb66ec03fe746f7138465ca024",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "ffd78d52538010696e63642296258776ea49fe3c3e831f1b93f1d7793c271ed0",
+      "status": "Blocked"
+    },
+    {
+      "path": "Lastenheft_Constitution_Change.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "b1056580db941172190a8fa5f2b153db5599900b09032595818d72de2ac09626",
+      "status": "Completed"
+    },
+    {
+      "path": "Lastenheft_TerminalGui_Migration.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "522d54fe6ae804a12ac8c4b8bcf45c304027bdd63612e972a34bbf1ef51e4f47",
+      "status": "Completed"
+    },
+    {
+      "path": "Lastenheft_SQLite_ViewQuery_Bugfix.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "e87695f309d7e361e66466bca53d79bf1580bbead9a8a2d52d71c7ea8992a4f4",
+      "status": "Completed"
+    },
+    {
+      "path": "Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md",
+      "role": "OrderedMember",
+      "normalizedSha256": "05e1d6561c7ab23b5e4ed268a7a6308da12f64263fb5f85afbe0958ac8b31412",
+      "status": "Completed"
+    }
+  ],
+  "roots": [
+    "Lastenheft_Secure-Development-Hardening.md",
+    "Lastenheft_Constitution_Change.md",
+    "Lastenheft_TerminalGui_Migration.md",
+    "Lastenheft_SQLite_ViewQuery_Bugfix.md",
+    "Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md"
+  ],
+  "dependencies": [
+    {
+      "from": "Lastenheft_Secure-Development-Hardening.md",
+      "to": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
+      "to": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
+      "to": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_TG_Elmish_Entscheidung.md",
+      "to": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_TG_Migration_InventarViewerApp.md",
+      "to": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md",
+      "to": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_TG_Migration_CtrlWorkerServiceApp.md",
+      "to": "Lastenheft_A11Y_TUI_API.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_A11Y_TUI_API.md",
+      "to": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_Statistik_View_Lesemethoden.md",
+      "to": "Lastenheft_IDbService_Interface.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_IDbService_Interface.md",
+      "to": "Lastenheft_MongoDB_Paritaet.md",
+      "kind": "HardCompletionGate",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_MongoDB_Paritaet.md",
+      "to": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "kind": "AssessmentBaseline",
+      "binding": true
+    },
+    {
+      "from": "Lastenheft_RL-SE-Checklist-Selbstpruefung.md",
+      "to": "Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md",
+      "kind": "FinalAuditInput",
+      "binding": true
+    }
+  ],
+  "evidencePaths": [
+    "Lastenheft_Abarbeitungsreihenfolge.md",
+    "requirements/intake-governance-config.json"
+  ]
+}
