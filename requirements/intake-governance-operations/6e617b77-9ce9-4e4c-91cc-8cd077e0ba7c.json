@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "2.0",
+  "documentType": "IntakeGovernanceMigrationJournal",
+  "operationId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "state": "Completed",
+  "authorityEvidence": "Feature 014 MergeAndSync pilot authority",
+  "beforeSha256": "N/A",
+  "afterSha256": "a7fe0858705c5a02d10f25d5bac1f9611b13db507305814b46ee8c7350d1d8ee",
+  "moves": [],
+  "updatedReferences": [
+    "Added portable index, roles, collections, and hash-bound Series without moving intakes"
+  ],
+  "validation": [
+    "All existing intake bytes preserved",
+    "Bash and PowerShell schema-2.0 validators passed"
+  ],
+  "rollback": "Remove the new requirements-governance files; existing intakes remain unchanged.",
+  "repairBoundary": "N/A"
+}
