@@ -55,7 +55,7 @@
     },
     {
       "path": "specs/002-secure-development-hardening/tasks.md",
-      "sha256": "f223b4fa02176d0567a6e9cf615da8b3ce61e0cab86b4bb60697a8b6f02cdbb9"
+      "sha256": "69e6b273e24734123443aa13fe32f437fea6851574248d0468ba86e673764a6d"
     },
     {
       "path": "specs/002-secure-development-hardening/checklists/autonomous-readiness.md",
@@ -68,8 +68,8 @@
   ],
   "tasks": {
     "path": "specs/002-secure-development-hardening/tasks.md",
-    "sha256": "f223b4fa02176d0567a6e9cf615da8b3ce61e0cab86b4bb60697a8b6f02cdbb9",
-    "completed": 108,
+    "sha256": "69e6b273e24734123443aa13fe32f437fea6851574248d0468ba86e673764a6d",
+    "completed": 109,
     "total": 122
   },
   "routing": {
@@ -238,12 +238,12 @@
       }
     ]
   },
-  "lastPassingGate": "Retrospective: the non-empty pre-candidate retrospective is validated and hash-bound; candidate statistics and delivery set are current, with post-T117 lineage isolated recoverably.",
-  "nextExactAction": "Create the exact Feature 002 candidate commit, then verify Patch equals the feature commit count for T109 before any push.",
+  "lastPassingGate": "Candidate correction: Version 1.2.2.65 has Patch 2 equal to the two Feature 002 commits; the real index and tracked worktree are clean and only local runtime evidence remains untracked.",
+  "nextExactAction": "Push branch 002-secure-development-hardening and create or update the complete pull request for T110.",
   "lastOperation": {
-    "kind": "ModelRoutingPhase:retrospective",
+    "kind": "CandidateCommitPatchVerification",
     "state": "Completed",
-    "summary": "Phase completed with profile 'codex-review-auto' and result SHA-256 562d85253482c10c77ce86d8b3885cde23423c826f00bd7b6b8f8901f196cf42."
+    "summary": "The corrected candidate has two feature commits and Version/Patch 1.2.2.65/2; no push or provider mutation has occurred yet."
   },
   "stop": {
     "reason": "N/A",
@@ -256,5 +256,5 @@
     "postMergeActions": "Pending",
     "finalValidation": "Pending"
   },
-  "updatedAt": "2026-08-30T13:37:53.8109340Z"
+  "updatedAt": "2026-08-30T13:41:27.2845270Z"
 }
