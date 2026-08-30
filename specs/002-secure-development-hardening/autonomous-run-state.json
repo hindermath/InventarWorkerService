@@ -7,7 +7,7 @@
   "authorityRevalidationRequired": false,
   "stage": "Implement",
   "status": "Active",
-  "checkpointCommit": "dc15bc4812245e71c1a5976b8241c7aeb518d4a9",
+  "checkpointCommit": "5202422ded30607889aca9af9ce22878dc8936d6",
   "acceptedArtifacts": [
     {
       "path": ".specify/feature.json",
@@ -39,7 +39,7 @@
     },
     {
       "path": "specs/002-secure-development-hardening/quickstart.md",
-      "sha256": "f14826c2ce0cedade030bd9dc61711d3dd8b4400d589fe9354cb81cd834e7354"
+      "sha256": "60b5d2d13d67ea217434deac4beddba01efa046b766e791ea01df6dd7e5578ba"
     },
     {
       "path": "specs/002-secure-development-hardening/contracts/classification-evidence-record.schema.json",
@@ -55,7 +55,7 @@
     },
     {
       "path": "specs/002-secure-development-hardening/tasks.md",
-      "sha256": "fac717428a4beff8a5a65a38563946b879289fd1ab38f2d30802facc505f2134"
+      "sha256": "4bb6c49e9a3814cc4fa298d4967daf33adac936c97caf6b1a0377cb1187b9969"
     },
     {
       "path": "specs/002-secure-development-hardening/checklists/autonomous-readiness.md",
@@ -68,7 +68,7 @@
   ],
   "tasks": {
     "path": "specs/002-secure-development-hardening/tasks.md",
-    "sha256": "fac717428a4beff8a5a65a38563946b879289fd1ab38f2d30802facc505f2134",
+    "sha256": "4bb6c49e9a3814cc4fa298d4967daf33adac936c97caf6b1a0377cb1187b9969",
     "completed": 110,
     "total": 122
   },
@@ -239,11 +239,11 @@
     ]
   },
   "lastPassingGate": "T111 remediation: the local Release solution test passed with 80 tests, 32 expected provider/platform skips and zero failures after adding Windows SQLite cleanup, serialized local API integration tests, a 120-second hosted-runner timeout, and PostgreSQL-backed coverage; Build 66 was consumed once.",
-  "nextExactAction": "Commit the technical gate repair with prospective Patch 6, create a ledger-only sixth commit, push PR #60, and evaluate only checks bound to the resulting exact head.",
+  "nextExactAction": "Commit the native-runtime and dual-format SBOM gate repair with prospective Patch 8, create the ledger-only eighth commit, push PR #60, and evaluate only checks bound to the resulting exact head.",
   "lastOperation": {
-    "kind": "TechnicalGateRepair",
+    "kind": "SbomGateDiagnosis",
     "state": "Completed",
-    "summary": "The deterministic statistics drift, Windows SQLite handle lifetime, hosted Windows inventory timeout, and PostgreSQL coverage environment defects were corrected locally; Admin-Bypass remains unused."
+    "summary": "A focused reproduction proved that Microsoft.Sbom.DotNetTool 4.1.5 loses package detection under a .NET 10 major roll-forward and that its validate command requires output and supports only SPDX 2.2; the bounded workflow and documentation repair is prepared, and Admin-Bypass remains unused."
   },
   "stop": {
     "reason": "N/A",
@@ -256,5 +256,5 @@
     "postMergeActions": "Pending",
     "finalValidation": "Pending"
   },
-  "updatedAt": "2026-08-30T13:49:33.3200970Z"
+  "updatedAt": "2026-08-30T14:09:28.2952360Z"
 }

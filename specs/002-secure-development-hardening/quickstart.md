@@ -236,7 +236,7 @@ For each distributable artefact set:
 5. Record the vulnerability snapshot and either a no-known-finding VEX decision or a full VEX-style disposition.
 6. Record OpenSSF Scorecard evidence for the repository and important dependencies.
 
-Pin the audited latest stable `Microsoft.Sbom.DotNetTool` version in `dotnet-tools.json`, restore it, publish the declared release set to `artifacts/release`, and use the official SPDX 3.0 commands below. PowerShell reads the aligned repository version directly:
+Pin the audited latest stable `Microsoft.Sbom.DotNetTool` version in `dotnet-tools.json`, restore it with its native .NET 8 runtime, and publish the declared release set to `artifacts/release`. Version 4.1.5 generates SPDX 3.0 but its official validator supports only SPDX 2.2. The workflow therefore checks the SPDX 3.0 graph and generates a same-build SPDX 2.2 mirror for the official file-hash and package validation. PowerShell reads the aligned repository version directly:
 
 ```powershell
 dotnet tool restore
@@ -248,15 +248,28 @@ dotnet tool run sbom-tool generate `
   -pv $releaseVersion `
   -ps "Thorsten Hindermann" `
   -nsb "https://github.com/hindermath/InventarWorkerService" `
-  -mi SPDX:3.0
+  -mi SPDX:3.0 `
+  -pm true
 
+New-Item -ItemType Directory -Path artifacts/spdx-2.2-validation -Force | Out-Null
+dotnet tool run sbom-tool generate `
+  -b artifacts/release `
+  -bc . `
+  -m artifacts/spdx-2.2-validation `
+  -pn InventarWorkerService `
+  -pv $releaseVersion `
+  -ps "Thorsten Hindermann" `
+  -mi SPDX:2.2 `
+  -pm true
 dotnet tool run sbom-tool validate `
   -b artifacts/release `
+  -m artifacts/spdx-2.2-validation/_manifest `
   -o artifacts/sbom-validation.json `
-  -mi SPDX:3.0
+  -mi SPDX:2.2 `
+  -n true
 ```
 
-The implementation evidence records the resolved tool version, exact expanded command, release-set SHA-256 values, generated manifest path, validation output, and official CLI reference. Tool installation/version is part of dependency evidence, not an implicit workstation prerequisite.
+The implementation evidence records the resolved tool and runtime versions, exact expanded commands, release-set SHA-256 values, generated manifest paths, explicit SPDX 3.0 content checks, the SPDX 2.2 validation output, and official CLI reference. Tool installation/version is part of dependency evidence, not an implicit workstation prerequisite.
 
 *Missing SBOM, provenance, vulnerability, or conditional VEX evidence blocks release.*
 

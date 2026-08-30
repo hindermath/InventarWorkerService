@@ -81,16 +81,23 @@ and are not claimed as a local pass.
 
 ## SBOM-Werkzeug / SBOM Tool
 
-DE: `Microsoft.Sbom.DotNetTool` `4.1.5` ist im lokalen Toolmanifest gepinnt und
-`dotnet tool restore` war erfolgreich. Das Tool zielt auf .NET 8; auf dem
-lokalen .NET-10-only-Runner wird deshalb `DOTNET_ROLL_FORWARD=Major` explizit
-gesetzt. Die CI erzeugt und validiert SPDX 3.0 mit `sbom-tool generate` und
-`sbom-tool validate`.
+DE: `Microsoft.Sbom.DotNetTool` `4.1.5` ist im lokalen Toolmanifest als aktuell
+verfügbare stabile Version gepinnt; `dotnet tool restore` war erfolgreich. Das
+Tool zielt auf .NET 8. Die CI installiert deshalb neben dem verbindlichen .NET-
+10-SDK die native .NET-8-Runtime für dieses Werkzeug, statt es mit einem
+Major-Roll-forward auszuführen. Die CI prüft die erzeugte SPDX-3.0-Struktur,
+Paketmenge und alle drei Release-Sätze. Weil der offizielle `validate`-Befehl
+in 4.1.5 nur SPDX 2.2 unterstützt, validiert er zusätzlich eine aus demselben
+Build erzeugte SPDX-2.2-Spiegeldatei einschließlich Dateihashes und Paketen.
 
-EN: `Microsoft.Sbom.DotNetTool` `4.1.5` is pinned in the local tool manifest and
-`dotnet tool restore` succeeded. The tool targets .NET 8, so the local .NET
-10-only runner explicitly sets `DOTNET_ROLL_FORWARD=Major`. CI generates and
-validates SPDX 3.0 with `sbom-tool generate` and `sbom-tool validate`.
+EN: `Microsoft.Sbom.DotNetTool` `4.1.5` is pinned in the local tool manifest as
+the latest available stable version, and `dotnet tool restore` succeeded. The
+tool targets .NET 8. CI therefore installs its native .NET 8 runtime alongside
+the binding .NET 10 SDK instead of using a major roll-forward. CI checks the
+generated SPDX 3.0 structure, package population, and all three release sets.
+Because the official `validate` command in 4.1.5 supports only SPDX 2.2, it
+also validates an SPDX 2.2 mirror generated from the same build, including
+file hashes and packages.
 
 ## Lokaler Abschluss / Local Close
 

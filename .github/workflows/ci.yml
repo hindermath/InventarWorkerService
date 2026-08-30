@@ -89,7 +89,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "10.0.x"
+          dotnet-version: |
+            8.0.x
+            10.0.x
       - run: dotnet tool restore
       - run: dotnet restore InventarWorkerService.sln
       - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
@@ -111,12 +113,33 @@ jobs:
           dotnet publish InventarWorkerService/InventarWorkerService.csproj -c Release --no-build -o artifacts/release/worker
           dotnet publish HarvesterWorkerService/HarvesterWorkerService.csproj -c Release --no-build -o artifacts/release/harvester
           dotnet publish InventarViewerApp/InventarViewerApp.csproj -c Release --no-build -o artifacts/release/viewer
-      - name: Generate and validate SPDX 3.0 SBOM
-        env:
-          DOTNET_ROLL_FORWARD: Major
+      - name: Generate and validate SPDX SBOMs
+        shell: pwsh
         run: |
-          dotnet tool run sbom-tool -- generate -b artifacts/release -bc . -pn InventarWorkerService -pv "$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' Directory.Build.props)" -ps Thorsten-Hindermann -mi SPDX:3.0
-          dotnet tool run sbom-tool -- validate -b artifacts/release -mi SPDX:3.0 -n true
+          $releaseVersion = ([xml](Get-Content -LiteralPath 'Directory.Build.props' -Raw -Encoding utf8)).Project.PropertyGroup.Version
+          dotnet tool run sbom-tool generate -b artifacts/release -bc . -pn InventarWorkerService -pv $releaseVersion -ps Thorsten-Hindermann -mi SPDX:3.0 -pm true
+          if ($LASTEXITCODE -ne 0) { throw 'SPDX 3.0 generation failed.' }
+
+          $spdx30Path = 'artifacts/release/_manifest/spdx_3.0/manifest.spdx.json'
+          $spdx30 = Get-Content -LiteralPath $spdx30Path -Raw -Encoding utf8 | ConvertFrom-Json
+          $graph = @($spdx30.'@graph')
+          $packages = @($graph | Where-Object { $_.type -eq 'software_Package' })
+          $files = @($graph | Where-Object { $_.type -eq 'software_File' } | ForEach-Object { $_.name })
+          if (@($spdx30.'@context') -notcontains 'https://spdx.org/rdf/3.0.1/spdx-context.json') { throw 'SPDX 3.0 context is missing.' }
+          if ($packages.Count -lt 2) { throw 'SPDX 3.0 contains no detected dependency package.' }
+          foreach ($releaseSet in @('worker', 'harvester', 'viewer')) {
+            if (-not ($files -match "^\./$releaseSet/")) { throw "SPDX 3.0 does not cover release set: $releaseSet" }
+          }
+
+          New-Item -ItemType Directory -Path artifacts/spdx-2.2-validation -Force | Out-Null
+          dotnet tool run sbom-tool generate -b artifacts/release -bc . -m artifacts/spdx-2.2-validation -pn InventarWorkerService -pv $releaseVersion -ps Thorsten-Hindermann -mi SPDX:2.2 -pm true
+          if ($LASTEXITCODE -ne 0) { throw 'SPDX 2.2 validation mirror generation failed.' }
+          dotnet tool run sbom-tool validate -b artifacts/release -m artifacts/spdx-2.2-validation/_manifest -o artifacts/sbom-validation.json -mi SPDX:2.2 -n true
+          $validation = Get-Content -LiteralPath artifacts/sbom-validation.json -Raw -Encoding utf8 | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0 -or $validation.Result -ne 'Success') { throw 'Official SBOM validation failed.' }
+
+      - name: Bind release and source hashes
+        run: |
           find artifacts/release -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/release-sha256.txt
           printf '%s\n' "$GITHUB_SHA" > artifacts/source-sha.txt
       - uses: actions/upload-artifact@v4

@@ -3,38 +3,45 @@
 ## Kandidatenvertrag / Candidate Contract
 
 DE: Der verteilbare Satz besteht aus Worker, Harvester und Viewer unter
-`artifacts/release`. Der lokale Quellkandidat ist
-`dc15bc4812245e71c1a5976b8241c7aeb518d4a9` plus aktuellem Arbeitsbaum,
-lokale Version `1.2.1.65`. Die CI bindet den endgültigen Commit mit
+`artifacts/release`. Die CI liest die ausgerichtete Repository-Version und
+bindet den endgültigen Commit mit
 `artifacts/source-sha.txt`, SHA-256-Hashes in `artifacts/release-sha256.txt` und
 einer SPDX-3.0-SBOM im `_manifest`-Verzeichnis. Generierte `artifacts/` bleiben
 untracked.
 
 EN: The distributable set contains Worker, Harvester, and Viewer under
-`artifacts/release`. The local source candidate is
-`dc15bc4812245e71c1a5976b8241c7aeb518d4a9` plus the current working tree,
-local version `1.2.1.65`. CI binds the final commit through
+`artifacts/release`. CI reads the aligned repository version and binds the
+final commit through
 `artifacts/source-sha.txt`, SHA-256 hashes in `artifacts/release-sha256.txt`,
 and an SPDX 3.0 SBOM in `_manifest`. Generated `artifacts/` remain untracked.
 
 ## Erzeugung, Validierung und Provenienz / Generation, Validation, and Provenance
 
 ```text
-dotnet tool run sbom-tool -- generate -b artifacts/release -bc . -pn InventarWorkerService -pv <version> -ps Thorsten-Hindermann -mi SPDX:3.0
-dotnet tool run sbom-tool -- validate -b artifacts/release -mi SPDX:3.0 -n true
+dotnet tool run sbom-tool generate -b artifacts/release -bc . -pn InventarWorkerService -pv <version> -ps Thorsten-Hindermann -mi SPDX:3.0 -pm true
+dotnet tool run sbom-tool generate -b artifacts/release -bc . -m artifacts/spdx-2.2-validation -pn InventarWorkerService -pv <version> -ps Thorsten-Hindermann -mi SPDX:2.2 -pm true
+dotnet tool run sbom-tool validate -b artifacts/release -m artifacts/spdx-2.2-validation/_manifest -o artifacts/sbom-validation.json -mi SPDX:2.2 -n true
 find artifacts/release -type f -print0 | sort -z | xargs -0 sha256sum
 ```
 
 DE: Builder ist der deklarierte GitHub-Actions-Runner `ubuntu-22.04` mit .NET
-10 und Toolmanifest. Checkout, Restore, Build, Test, Publish, SBOM, Validierung
-und Hashing sind getrennte Schritte. Der aktuelle SLSA-Iststand ist
+10, nativer .NET-8-Toolruntime und Toolmanifest. Die CI validiert SPDX 3.0
+inhaltlich auf Kontext, Paketpopulation und alle drei Release-Sätze. Da
+`sbom-tool validate` 4.1.5 nur SPDX 2.2 unterstützt, prüft der offizielle
+Validator zusätzlich eine Spiegeldatei aus demselben Build und wertet sein
+JSON-Ergebnis explizit aus. Checkout, Restore, Build, Test, Publish, SBOM,
+Validierung und Hashing sind getrennte Schritte. Der aktuelle SLSA-Iststand ist
 quellgebundene Build-Evidenz; signierte Provenienz ist das Ziel und bleibt
 providerseitiges `FollowUp`. Release-Entscheidung: lokal vorbereitet, aber erst
 nach grünen exakten Providerjobs freigegeben.
 
 EN: The builder is the declared GitHub Actions `ubuntu-22.04` runner with .NET
-10 and the tool manifest. Checkout, restore, build, test, publish, SBOM,
-validation, and hashing are separate steps. Current SLSA posture is
+10, a native .NET 8 tool runtime, and the tool manifest. CI validates SPDX 3.0
+content for its context, package population, and all three release sets. Since
+`sbom-tool validate` 4.1.5 supports only SPDX 2.2, the official validator also
+checks a mirror from the same build and its JSON result is evaluated
+explicitly. Checkout, restore, build, test, publish, SBOM, validation, and
+hashing are separate steps. Current SLSA posture is
 source-bound build evidence; signed provenance is the target and remains a
 provider-side `FollowUp`. Release decision: locally prepared, but released only
 after green exact provider jobs.
