@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "IntakeSeriesOperation",
+  "operationId": "ff749e16-4acb-4b6f-8ab8-de60ffbd93a2",
+  "seriesId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "type": "LegacyAdoption",
+  "status": "Validated",
+  "authorityEvidence": "Aktueller Nutzerauftrag vom 2026-08-30 autorisiert exakt die Feature-002-Archivierung und Serienfortschreibung ohne Start des Nachfolgers.",
+  "proposalNormalizedSha256": "e7d6a5d82a1375c9a866a613447084cd320dcb58cce754124280c5b2c01dff98",
+  "preparedPaths": [
+    "Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md",
+    "requirements/intakes/series/inventar-worker-service/manifest.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/intake-authoring-receipt.before.json",
+    "Lastenheft_Abarbeitungsreihenfolge.md",
+    "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/manifest.before.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/intake-authoring-receipt.before.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/series-receipt.json"
+  ],
+  "validation": {
+    "bash": "N/A; PowerShell 7 is available and is the preferred repository validator surface.",
+    "powerShell": "Pass at 2026-08-30: authoring receipt, series manifest, series receipt, and governance config all returned exit 0 with explicit -Repo .; JSON stdout and empty error channels were inspected."
+  },
+  "validatedAt": "2026-08-30T12:22:00Z",
+  "publication": {
+    "status": "NotPublished",
+    "publishedPaths": []
+  },
+  "rollback": "Use the two byte-identical before-images, reverse the unstaged Lastenheft rename, restore both order views, and rerun all four T106 validators.",
+  "repairBoundary": "No next intake, branch, feature, provider action, commit, or autonomous state mutation is authorized."
+}

@@ -1,9 +1,9 @@
 <!-- intake-authoring:begin -->
 # Lastenheft: Secure-Development-Hardening
 
-**Repository:** InventarWorkerService  
-**Dokumenttyp:** Spec-Kit Intake / Lastenheft  
-**Status:** vorbereitet fuer separaten Spec-Kit-Haertungslauf  
+**Repository:** InventarWorkerService
+**Dokumenttyp:** Spec-Kit Intake / Lastenheft
+**Status:** vorbereitet fuer separaten Spec-Kit-Haertungslauf
 **Stand:** 2026-06-17
 
 ## 1. Zweck

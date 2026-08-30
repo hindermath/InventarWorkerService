@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "IntakeSeriesReceipt",
+  "receiptId": "7fa3e82b-ddf9-4848-9338-6b9dee88ec2a",
+  "seriesId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "generator": {
+    "preset": "intake-sequencing-governance",
+    "version": "0.2.3"
+  },
+  "createdAt": "2026-08-30T12:20:32Z",
+  "operation": {
+    "operationId": "ff749e16-4acb-4b6f-8ab8-de60ffbd93a2",
+    "type": "LegacyAdoption",
+    "authorityEvidence": "Aktueller Nutzerauftrag vom 2026-08-30: Feature 002 archivieren, die Serie exakt fortschreiben und keinen nächsten Intake starten."
+  },
+  "status": "Ready",
+  "manifest": {
+    "path": "requirements/intakes/series/inventar-worker-service/manifest.json",
+    "normalizedSha256": "e7d6a5d82a1375c9a866a613447084cd320dcb58cce754124280c5b2c01dff98"
+  },
+  "supersedes": {
+    "receiptPath": "N/A",
+    "receiptNormalizedSha256": "N/A",
+    "manifestArchivePath": "N/A",
+    "manifestArchiveSha256": "N/A"
+  },
+  "tombstone": {
+    "path": "N/A",
+    "normalizedSha256": "N/A"
+  },
+  "lineage": {
+    "priorSeriesReceipt": {
+      "path": "N/A",
+      "normalizedSha256": "N/A",
+      "rationale": "Vor dieser Legacy-Adoption existierte kein Series-Receipt. Es wird kein Vorgängerpfad erfunden. / No prior series receipt existed before this legacy adoption; no predecessor path is invented."
+    },
+    "previousManifest": {
+      "path": "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/manifest.before.json",
+      "normalizedSha256": "12e437417f3b9fb357efca720b710ee7469bceec99b0486348c70b9b8c8dd02d"
+    },
+    "previousIntakeReceipt": {
+      "path": "specs/intake-authoring-archive/series/inventar-worker-service/002-secure-development-hardening/intake-authoring-receipt.before.json",
+      "normalizedSha256": "e22077defb30cf7fde8c4605653c84700eee8f8c99438c02eb4c7b99e7d6548f"
+    },
+    "rename": {
+      "from": "Lastenheft_Secure-Development-Hardening.md",
+      "to": "Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md",
+      "normalizedSha256Before": "9eb32515a590aada78a5b33170e00aace834ce87d9b5f5ed9535445c6e50380f",
+      "normalizedSha256After": "e8542e45f316a07487c38c02f8d4d61f21414c598ab6c709089b0cf048eb2c06"
+    },
+    "orderView": "Lastenheft_Abarbeitungsreihenfolge.md",
+    "rollback": "Restore the byte-identical archived manifest and intake receipt, reverse the unstaged rename, and restore both order views; never start or mutate the successor intake as part of rollback.",
+    "repairBoundary": "Only Feature 002 path/hash/status lineage and the first successor eligibility may change. All remaining order, roots, statuses, and dependency edges are preserved."
+  },
+  "nextAction": "Keep Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md eligible but do not start it in this run."
+}

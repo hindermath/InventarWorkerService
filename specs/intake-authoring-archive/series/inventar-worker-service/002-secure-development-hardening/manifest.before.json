@@ -7,16 +7,16 @@
   "status": "Active",
   "orderedTargets": [
     {
-      "path": "Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md",
+      "path": "Lastenheft_Secure-Development-Hardening.md",
       "role": "Primary",
-      "normalizedSha256": "e8542e45f316a07487c38c02f8d4d61f21414c598ab6c709089b0cf048eb2c06",
-      "status": "Completed"
+      "normalizedSha256": "9eb32515a590aada78a5b33170e00aace834ce87d9b5f5ed9535445c6e50380f",
+      "status": "Eligible"
     },
     {
       "path": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
       "role": "OrderedMember",
       "normalizedSha256": "3166f34e5d7003cfe28738785c322e3c3fd1431b7e2dec80c738cf0ec342268d",
-      "status": "Eligible"
+      "status": "Blocked"
     },
     {
       "path": "Lastenheft_Didactic-Inline-Code-Comment-Hardening.md",
@@ -110,7 +110,7 @@
     }
   ],
   "roots": [
-    "Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md",
+    "Lastenheft_Secure-Development-Hardening.md",
     "Lastenheft_Constitution_Change.md",
     "Lastenheft_TerminalGui_Migration.md",
     "Lastenheft_SQLite_ViewQuery_Bugfix.md",
@@ -118,7 +118,7 @@
   ],
   "dependencies": [
     {
-      "from": "Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md",
+      "from": "Lastenheft_Secure-Development-Hardening.md",
       "to": "Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md",
       "kind": "HardCompletionGate",
       "binding": true
