@@ -1,6 +1,6 @@
 # Lastenheft-Abarbeitungsreihenfolge / Requirements Processing Order
 
-Stand: 2026-06-19
+Stand: 2026-08-30
 
 ## Zweck / Purpose
 
@@ -32,6 +32,8 @@ the stabilizing preparation work.
 | 9 | `Lastenheft_Statistik_View_Lesemethoden.md` | Vor Interface-Schnitt spezifizieren / specify before interface cut | Die relationalen View-Lesemethoden erweitern die tatsaechliche Service-Oberflaeche und sollten vor dem Interface feststehen.<br>The relational view read methods extend the actual service surface and should be known before the interface is cut. |
 | 10 | `Lastenheft_IDbService_Interface.md` | Nach gereiftem relationalem Umfang spezifizieren / specify after relational scope matures | Das Interface sollte die bereinigten SQLite/PostgreSQL- und Statistik-Lesepfade abbilden, nicht einen Zwischenstand.<br>The interface should reflect the cleaned SQLite/PostgreSQL and statistics read paths, not an intermediate state. |
 | 11 | `Lastenheft_MongoDB_Paritaet.md` | Nach relationalem Interface pruefen / review after relational interface | MongoDB-Paritaet ist ein eigener Backend-Schnitt und sollte erst nach relationaler API-Klaerung geschnitten werden.<br>MongoDB parity is its own backend boundary and should be scoped after the relational API is clear. |
+| 12 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | Nach MongoDB-Paritaet pruefen / assess after MongoDB parity | Die Selbstpruefung bewertet den dann erreichten Entwicklungs- und Evidenzstand.<br>The self-assessment evaluates the development and evidence state reached by that point. |
+| 13 | `Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md` | Als abschliessenden Audit ausfuehren / run as the final audit | Die Intensivpruefung verwendet die Ergebnisse aller vorherigen aktiven Laeufe als verbindliche Eingabe.<br>The intensive audit uses the results of all preceding active runs as binding input. |
 
 ## Abgeschlossen oder nicht operativ / Completed or Non-Operative
 
@@ -65,11 +67,11 @@ the stabilizing preparation work.
 
 ## Pflegepruefung / Maintenance Check
 
-Jedes der aktuell bekannten vierzehn Lastenhefte steht in dieser Datei genau
+Jedes der aktuell bekannten siebzehn Lastenhefte steht in dieser Datei genau
 einmal in der aktiven Reihenfolge oder in der Status-Tabelle. Neue Lastenhefte
 werden ergaenzt, sobald sie als spaeterer Spec-Kit-Input vorgesehen sind.
 
-Each of the fourteen currently known requirements files appears exactly once in
+Each of the seventeen currently known requirements files appears exactly once in
 the active order or in the status table. Add new requirements files as soon as
 they are intended as input for a later Spec Kit run.
 
@@ -88,29 +90,29 @@ they are intended as input for a later Spec Kit run.
 
 
 <!-- secure-development-hardening-order:start -->
-## Automatisch ermittelte Lastenheft-Reihenfolge / Automatically Detected Requirements Order
+## Manifestgebundene Lastenheft-Reihenfolge / Manifest-Bound Requirements Order
 
-Diese Tabelle wird aus `Lastenheft*.md` im Repository-Root erzeugt. Sie ist eine Vorbereitung fuer spaetere Spec-Kit-Laeufe und startet selbst keinen Lauf. Manuelle Projektentscheidungen ausserhalb dieses markierten Abschnitts bleiben erhalten.
+Diese Tabelle bildet das validierte Serienmanifest unter `requirements/intakes/series/inventar-worker-service/manifest.json` ab. Sie ist eine Vorbereitung fuer spaetere Spec-Kit-Laeufe und startet selbst keinen Lauf. Bei Abweichungen ist das Serienmanifest verbindlich.
 
-*This table is generated from `Lastenheft*.md` in the repository root. It prepares later Spec Kit runs and does not start a run. Manual project decisions outside this marked section remain preserved.*
+*This table reflects the validated series manifest at `requirements/intakes/series/inventar-worker-service/manifest.json`. It prepares later Spec Kit runs and does not start a run. If values differ, the series manifest is authoritative.*
 
-| Rang | Lastenheft | Gruppe | Status |
+| Rang | Lastenheft | Gruppe | Manifeststatus |
 |---:|---|---|---|
-| 1 | `Lastenheft_Constitution_Change.md` | Governance/Baseline | aktiv / active |
-| 2 | `Lastenheft_TerminalGui_Migration.md` | Migration/Tooling | aktiv / active |
-| 3 | `Lastenheft_TG_Migration_CtrlWorkerServiceApp.md` | Migration/Tooling | aktiv / active |
-| 4 | `Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md` | Migration/Tooling | aktiv / active |
-| 5 | `Lastenheft_TG_Migration_InventarViewerApp.md` | Migration/Tooling | aktiv / active |
-| 6 | `Lastenheft_IDbService_Interface.md` | Kernlogik/Runtime | aktiv / active |
-| 7 | `Lastenheft_MongoDB_Paritaet.md` | Kernlogik/Runtime | aktiv / active |
-| 8 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Kernlogik/Runtime | archiviert oder abgeschlossen / archived or completed |
-| 9 | `Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md` | Kernlogik/Runtime | aktiv / active |
-| 10 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | aktiv / active |
-| 11 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | aktiv / active |
-| 12 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | UI/A11Y/Dokumentation | aktiv / active |
-| 13 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | RL-SE-/Checklist-Selbstpruefung | aktiv / active |
-| 14 | `Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md` | GSDB-Spec-Kit-Intensivpruefung | aktiv / active |
-| 15 | `Lastenheft_Secure-Development-Hardening.md` | Secure-Development-Hardening | aktiv / active |
-| 16 | `Lastenheft_Statistik_View_Lesemethoden.md` | Weitere Anforderungen | aktiv / active |
-| 17 | `Lastenheft_TG_Elmish_Entscheidung.md` | Weitere Anforderungen | aktiv / active |
+| 1 | `Lastenheft_Secure-Development-Hardening.md` | Sicherheit/Governance | bearbeitbar / eligible |
+| 2 | `Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md` | Sicherheit/Governance | blockiert / blocked |
+| 3 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | Dokumentation/Didaktik | blockiert / blocked |
+| 4 | `Lastenheft_TG_Elmish_Entscheidung.md` | Migration/Tooling | blockiert / blocked |
+| 5 | `Lastenheft_TG_Migration_InventarViewerApp.md` | Migration/Tooling | blockiert / blocked |
+| 6 | `Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md` | Migration/Tooling | blockiert / blocked |
+| 7 | `Lastenheft_TG_Migration_CtrlWorkerServiceApp.md` | Migration/Tooling | blockiert / blocked |
+| 8 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | blockiert / blocked |
+| 9 | `Lastenheft_Statistik_View_Lesemethoden.md` | Kernlogik/Runtime | blockiert / blocked |
+| 10 | `Lastenheft_IDbService_Interface.md` | Kernlogik/Runtime | blockiert / blocked |
+| 11 | `Lastenheft_MongoDB_Paritaet.md` | Kernlogik/Runtime | blockiert / blocked |
+| 12 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | Qualitaet/Audit | blockiert / blocked |
+| 13 | `Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md` | Qualitaet/Audit | blockiert / blocked |
+| 14 | `Lastenheft_Constitution_Change.md` | Governance/Baseline | abgeschlossen / completed |
+| 15 | `Lastenheft_TerminalGui_Migration.md` | Migration/Tooling | abgeschlossen / completed |
+| 16 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | abgeschlossen / completed |
+| 17 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Kernlogik/Runtime | abgeschlossen / completed |
 <!-- secure-development-hardening-order:end -->
