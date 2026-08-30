@@ -55,7 +55,7 @@
     },
     {
       "path": "specs/002-secure-development-hardening/tasks.md",
-      "sha256": "69e6b273e24734123443aa13fe32f437fea6851574248d0468ba86e673764a6d"
+      "sha256": "fac717428a4beff8a5a65a38563946b879289fd1ab38f2d30802facc505f2134"
     },
     {
       "path": "specs/002-secure-development-hardening/checklists/autonomous-readiness.md",
@@ -68,8 +68,8 @@
   ],
   "tasks": {
     "path": "specs/002-secure-development-hardening/tasks.md",
-    "sha256": "69e6b273e24734123443aa13fe32f437fea6851574248d0468ba86e673764a6d",
-    "completed": 109,
+    "sha256": "fac717428a4beff8a5a65a38563946b879289fd1ab38f2d30802facc505f2134",
+    "completed": 110,
     "total": 122
   },
   "routing": {
@@ -238,12 +238,12 @@
       }
     ]
   },
-  "lastPassingGate": "Candidate correction: Version 1.2.2.65 has Patch 2 equal to the two Feature 002 commits; the real index and tracked worktree are clean and only local runtime evidence remains untracked.",
-  "nextExactAction": "Push branch 002-secure-development-hardening and create or update the complete pull request for T110.",
+  "lastPassingGate": "T110: branch 002-secure-development-hardening is published and PR #60 targets main with the complete bilingual delivery evidence; the first duplicated event runs exposed the same actionable statistics-freshness defect and were not cancelled.",
+  "nextExactAction": "Commit the non-statistical T110 metadata with prospective Patch 4, then create a ledger-only fourth commit and rerun PR #60 gates on the resulting exact head.",
   "lastOperation": {
-    "kind": "CandidateCommitPatchVerification",
+    "kind": "PullRequestCreated",
     "state": "Completed",
-    "summary": "The corrected candidate has two feature commits and Version/Patch 1.2.2.65/2; no push or provider mutation has occurred yet."
+    "summary": "PR #60 was created at https://github.com/hindermath/InventarWorkerService/pull/60; Admin-Bypass has not been used."
   },
   "stop": {
     "reason": "N/A",
@@ -256,5 +256,5 @@
     "postMergeActions": "Pending",
     "finalValidation": "Pending"
   },
-  "updatedAt": "2026-08-30T13:41:27.2845270Z"
+  "updatedAt": "2026-08-30T13:46:10.6751610Z"
 }
