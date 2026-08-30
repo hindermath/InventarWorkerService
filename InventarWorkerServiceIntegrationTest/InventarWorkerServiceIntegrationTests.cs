@@ -8,6 +8,7 @@ namespace InventarWorkerServiceIntegrationTests;
 /// EN: Contains tests for InventarWorkerServiceApiTests.
 /// </summary>
 [TestClass]
+[DoNotParallelize]
 public class InventarWorkerServiceApiTests
 {
     private const string LocalBaseUrl = "http://127.0.0.1:8080";
@@ -78,6 +79,9 @@ public class InventarWorkerServiceApiTests
         {
             BaseURL = LocalBaseUrl,
             IgnoreHTTPSErrors = true,
+            // DE: Windows-Inventarisierung darf auf gehosteten Runnern länger als Playwrights 30-Sekunden-Standard dauern.
+            // EN: Windows inventory may take longer than Playwright's 30-second default on hosted runners.
+            Timeout = 120_000,
             ExtraHTTPHeaders = new Dictionary<string, string>
             {
                 ["X-Inventory-Api-Key"] = LocalServiceHostManager.IntegrationApiKey

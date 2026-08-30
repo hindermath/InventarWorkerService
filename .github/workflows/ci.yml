@@ -72,6 +72,19 @@ jobs:
   supply-chain:
     name: Supply chain and coverage
     runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:17.6-bookworm
+        env:
+          POSTGRES_DB: inventar_test
+          POSTGRES_USER: inventar
+          POSTGRES_PASSWORD: integration-only
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U inventar -d inventar_test"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      PGSQL_TEST_CONNECTION_STRING: Host=localhost;Port=5432;Database=inventar_test;Username=inventar;Password=integration-only;Pooling=false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4

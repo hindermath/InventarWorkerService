@@ -9,6 +9,7 @@ using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
+using Microsoft.Data.Sqlite;
 using Npgsql;
 
 namespace InventarWorkerCommonTest;
@@ -62,6 +63,9 @@ public class PgSqlDbServiceTest
 
         if (!string.IsNullOrWhiteSpace(_serviceStatusDirectory) && Directory.Exists(_serviceStatusDirectory))
         {
+            // DE: Der Initialisierungstest kann eine gepoolte SQLite-Verbindung hinterlassen; Windows sperrt dann inventar.db.
+            // EN: The initialization test may leave a pooled SQLite connection; Windows then locks inventar.db.
+            SqliteConnection.ClearAllPools();
             Directory.Delete(_serviceStatusDirectory, recursive: true);
         }
     }

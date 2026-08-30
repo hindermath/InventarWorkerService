@@ -41,6 +41,10 @@ public class SqliteDbServiceTest
     [TestCleanup]
     public void TestCleanup()
     {
+        // DE: Gepoolte Handles müssen vor dem Löschen freigegeben werden, besonders auf Windows-Runnern.
+        // EN: Pooled handles must be released before deletion, especially on Windows runners.
+        SqliteConnection.ClearAllPools();
+
         if (File.Exists(_databasePath))
         {
             File.Delete(_databasePath);
