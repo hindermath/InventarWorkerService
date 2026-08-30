@@ -1,8 +1,34 @@
 ﻿using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Service;
 using InventarWorkerCommon.Models.Software;
+using System.Text.Json;
 
 namespace InventarWorkerCommonTest;
+
+/// <summary>
+/// DE: Prüft den verbindlichen System.Text.Json-Vertrag der gemeinsamen Modelle.
+/// EN: Verifies the binding System.Text.Json contract of shared models.
+/// </summary>
+[TestClass]
+public sealed class SystemTextJsonContractTests
+{
+    /// <summary>
+    /// DE: Schreibt öffentliche Modellfelder in camelCase und ohne Newtonsoft.Json.
+    /// EN: Writes public model fields in camelCase without Newtonsoft.Json.
+    /// </summary>
+    [TestMethod]
+    public void Serialize_Model_UsesCamelCasePropertyNames()
+    {
+        var model = new CpuInfo { ProcessorCount = 4 };
+        var json = JsonSerializer.Serialize(model, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        });
+
+        StringAssert.Contains(json, "\"processorCount\":4");
+        Assert.IsFalse(json.Contains("\"ProcessorCount\"", StringComparison.Ordinal));
+    }
+}
 
 /// <summary>
 /// DE: Enthält Tests für CpuInfoTests.
@@ -70,7 +96,7 @@ public class CpuInfoTests
     {
         // Arrange & Act
         var cpuInfo = new CpuInfo();
-        
+
         // Assert
         Assert.AreEqual(0, cpuInfo.ProcessorCount);
         Assert.AreEqual(string.Empty, cpuInfo.ProcessorName);
@@ -93,7 +119,7 @@ public class CpuInfoTests
             Architecture = "x64",
             CurrentUsage = 67.5
         };
-        
+
         // Assert
         Assert.AreEqual(8, cpuInfo.ProcessorCount);
         Assert.AreEqual("Intel Core i7-12700K", cpuInfo.ProcessorName);
@@ -111,7 +137,7 @@ public class CpuInfoTests
         // Arrange
         var cpuInfo1 = new CpuInfo { ProcessorCount = 4, ProcessorName = "AMD Ryzen 5" };
         var cpuInfo2 = new CpuInfo { ProcessorCount = 4, ProcessorName = "AMD Ryzen 5" };
-        
+
         // Assert
         Assert.AreEqual(cpuInfo1, cpuInfo2);
     }
@@ -183,7 +209,7 @@ public class OsInfoTests
     {
         // Arrange & Act
         var osInfo = new OsInfo();
-        
+
         // Assert
         Assert.AreEqual(string.Empty, osInfo.Platform);
         Assert.AreEqual(string.Empty, osInfo.Version);
@@ -214,7 +240,7 @@ public class OsInfoTests
             ProcessorCount = 16,
             UserDomainName = "WORKGROUP"
         };
-        
+
         // Assert
         Assert.AreEqual("Win32NT", osInfo.Platform);
         Assert.AreEqual("10.0.22000", osInfo.Version);
@@ -235,7 +261,7 @@ public class OsInfoTests
     {
         // Arrange
         var osInfo = new OsInfo();
-        
+
         // Act & Assert
         Assert.IsFalse(osInfo.Is64Bit);
         osInfo.Is64Bit = true;
@@ -309,7 +335,7 @@ public class ServiceStatisticsTests
     {
         // Arrange & Act
         var stats = new ServiceStatistics();
-        
+
         // Assert
         Assert.AreEqual(0, stats.TotalProcessedItems);
         Assert.AreEqual(0.0, stats.AverageProcessingTime);
@@ -333,7 +359,7 @@ public class ServiceStatisticsTests
             Uptime = uptime,
             MemoryUsage = 2048576L
         };
-        
+
         // Assert
         Assert.AreEqual(1500, stats.TotalProcessedItems);
         Assert.AreEqual(125.75, stats.AverageProcessingTime);
@@ -364,7 +390,7 @@ public class ServiceStatisticsTests
             Uptime = uptime,
             MemoryUsage = 1024L
         };
-        
+
         // Assert
         Assert.AreEqual(stats1, stats2);
     }
@@ -436,7 +462,7 @@ public class SystemInfoTests
     {
         // Arrange & Act
         var systemInfo = new SystemInfo();
-        
+
         // Assert
         Assert.AreEqual(string.Empty, systemInfo.MachineName);
         Assert.AreEqual(string.Empty, systemInfo.UserName);
@@ -464,7 +490,7 @@ public class SystemInfoTests
             Platform = "Win32NT",
             Architecture = "AMD64"
         };
-        
+
         // Assert
         Assert.AreEqual("DESKTOP-ABC123", systemInfo.MachineName);
         Assert.AreEqual("testuser", systemInfo.UserName);
@@ -485,11 +511,11 @@ public class SystemInfoTests
         var systemInfo = new SystemInfo();
         var shortUptime = TimeSpan.FromMinutes(30);
         var longUptime = TimeSpan.FromDays(365);
-        
+
         // Act & Assert
         systemInfo.Uptime = shortUptime;
         Assert.AreEqual(shortUptime, systemInfo.Uptime);
-        
+
         systemInfo.Uptime = longUptime;
         Assert.AreEqual(longUptime, systemInfo.Uptime);
     }
@@ -561,7 +587,7 @@ public class SoftwareInfoTests
     {
         // Arrange & Act
         var softwareInfo = new SoftwareInfo();
-        
+
         // Assert
         Assert.AreEqual(string.Empty, softwareInfo.Name);
         Assert.AreEqual(string.Empty, softwareInfo.Version);
@@ -597,7 +623,7 @@ public class SoftwareInfoTests
             IsSystemComponent = false,
             Architecture = "x64"
         };
-        
+
         // Assert
         Assert.AreEqual("Visual Studio Code", softwareInfo.Name);
         Assert.AreEqual("1.80.0", softwareInfo.Version);
@@ -625,7 +651,7 @@ public class SoftwareInfoTests
             InstallDate = null,
             Size = null
         };
-        
+
         // Assert
         Assert.AreEqual("Test Software", softwareInfo.Name);
         Assert.IsNull(softwareInfo.InstallDate);
@@ -641,7 +667,7 @@ public class SoftwareInfoTests
     {
         // Arrange
         var softwareInfo = new SoftwareInfo();
-        
+
         // Act & Assert
         Assert.IsFalse(softwareInfo.IsSystemComponent);
         softwareInfo.IsSystemComponent = true;
@@ -669,7 +695,7 @@ public class SoftwareInfoTests
             Version = "1.0.0",
             InstallDate = installDate
         };
-        
+
         // Assert
         Assert.AreEqual(software1, software2);
     }

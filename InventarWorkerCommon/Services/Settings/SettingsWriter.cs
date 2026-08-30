@@ -6,7 +6,8 @@ using YamlDotNet.Serialization;
 namespace InventarWorkerCommon.Services.Settings;
 
 /// <summary>
-/// Provides functionality to handle the writing of application settings.
+/// DE: Schreibt Anwendungseinstellungen atomar in ein begrenztes Statusverzeichnis.
+/// EN: Writes application settings atomically to a bounded status directory.
 /// </summary>
 public class SettingsWriter
 {
@@ -14,10 +15,14 @@ public class SettingsWriter
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
-    /// Handles the writing of application settings to a specified directory in a JSON format.
+    /// DE: Initialisiert den Writer für genau ein sicheres Unterverzeichnis.
+    /// EN: Initializes the writer for exactly one safe subdirectory.
     /// </summary>
+    /// <param name="statusDirectory">DE: Einzelner Name des Status-Unterverzeichnisses. EN: Single name of the status subdirectory.</param>
+    /// <exception cref="ArgumentException">DE: Der Verzeichnisname ist nicht sicher. EN: The directory name is unsafe.</exception>
     public SettingsWriter(string statusDirectory = "inventar-service")
     {
+        statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
         if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)) is
             false)
         {
@@ -46,7 +51,7 @@ public class SettingsWriter
     {
         var settingsFile = Path.Combine(_statusDirectory, "settings.json");
         string json = JsonSerializer.Serialize(settings, _jsonOptions);
-        File.WriteAllText(settingsFile, json);
+        SecureFileWriter.WriteAllText(settingsFile, json);
     }
 
     /// <summary>
@@ -62,6 +67,6 @@ public class SettingsWriter
             .Build();
 
         var yaml = serializer.Serialize(settings);
-        File.WriteAllText(settingsFile, yaml);
+        SecureFileWriter.WriteAllText(settingsFile, yaml);
     }
 }

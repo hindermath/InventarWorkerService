@@ -2,45 +2,112 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - codex/**
-      - claude/**
-      - gemini/**
-      - copilot/**
+    branches: [main, "codex/**", "claude/**", "gemini/**", "copilot/**", "[0-9][0-9][0-9]-**"]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
-
+    name: Build and test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, macos-14, windows-2022]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "9.0.x"
+          dotnet-version: "10.0.x"
+      - run: dotnet restore InventarWorkerService.sln
+      - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
+      - run: dotnet test InventarWorkerService.sln --configuration Release --no-build
 
-      - name: Restore
-        run: dotnet restore InventarWorkerService.sln
-
-      - name: Build
-        run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
-
-      - name: Test (Unit)
-        run: |
-          dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj --configuration Release --no-build
-          dotnet test CtrlWorkerCommonTest/CtrlWorkerCommonTest.csproj --configuration Release --no-build
-
-      - name: Test (Coverage)
-        run: |
-          dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
-          dotnet test CtrlWorkerCommonTest/CtrlWorkerCommonTest.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
-
-      - name: Upload Coverage Artifacts
-        uses: actions/upload-artifact@v4
+  security-integration:
+    name: Security integration (ubuntu-22.04)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
-          name: test-results
-          path: TestResults
+          dotnet-version: "10.0.x"
+      - run: dotnet restore InventarWorkerService.sln
+      - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
+      - name: Worker and Viewer security contracts
+        run: dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj --configuration Release --no-build
+
+  provider-security:
+    name: Provider security (PostgreSQL 17.6, MongoDB 8.0.13)
+    runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:17.6-bookworm
+        env:
+          POSTGRES_DB: inventar_test
+          POSTGRES_USER: inventar
+          POSTGRES_PASSWORD: integration-only
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U inventar -d inventar_test"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+      mongodb:
+        image: mongo:8.0.13-noble
+        ports: ["27017:27017"]
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.runCommand({ ping: 1 }).ok'"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      PGSQL_TEST_CONNECTION_STRING: Host=localhost;Port=5432;Database=inventar_test;Username=inventar;Password=integration-only
+      MONGODB_TEST_CONNECTION_STRING: mongodb://localhost:27017
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - run: dotnet restore InventarWorkerService.sln
+      - run: dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj --configuration Release --filter "TestCategory=DatabaseIntegration"
+
+  supply-chain:
+    name: Supply chain and coverage
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - run: dotnet tool restore
+      - run: dotnet restore InventarWorkerService.sln
+      - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
+      - name: Coverage
+        run: dotnet test InventarWorkerService.sln --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults
+      - name: Enforce 70 percent and report 80 percent target
+        shell: pwsh
+        run: |
+          dotnet tool run reportgenerator "-reports:TestResults/**/coverage.cobertura.xml" "-targetdir:artifacts/coverage" "-reporttypes:HtmlSummary;TextSummary" "-assemblyfilters:+InventarWorker*;+CtrlWorker*"
+          $summary = Get-Content artifacts/coverage/Summary.txt -Raw
+          $line = [regex]::Match($summary, 'Line coverage:\s*([0-9.,]+)%')
+          if (-not $line.Success) { throw 'Line coverage could not be read.' }
+          $coverage = [double]::Parse($line.Groups[1].Value.Replace(',', '.'), [Globalization.CultureInfo]::InvariantCulture)
+          if ($coverage -lt 70) { throw "Coverage $coverage% is below 70%." }
+          "Coverage: $coverage%; target: at least 80%; security paths are included in the solution report."
+      - name: Publish deterministic release sets
+        run: |
+          mkdir -p artifacts/release
+          dotnet publish InventarWorkerService/InventarWorkerService.csproj -c Release --no-build -o artifacts/release/worker
+          dotnet publish HarvesterWorkerService/HarvesterWorkerService.csproj -c Release --no-build -o artifacts/release/harvester
+          dotnet publish InventarViewerApp/InventarViewerApp.csproj -c Release --no-build -o artifacts/release/viewer
+      - name: Generate and validate SPDX 3.0 SBOM
+        env:
+          DOTNET_ROLL_FORWARD: Major
+        run: |
+          dotnet tool run sbom-tool -- generate -b artifacts/release -bc . -pn InventarWorkerService -pv "$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' Directory.Build.props)" -ps Thorsten-Hindermann -mi SPDX:3.0
+          dotnet tool run sbom-tool -- validate -b artifacts/release -mi SPDX:3.0 -n true
+          find artifacts/release -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/release-sha256.txt
+          printf '%s\n' "$GITHUB_SHA" > artifacts/source-sha.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: candidate-supply-chain-${{ github.sha }}
+          path: artifacts
+          if-no-files-found: error

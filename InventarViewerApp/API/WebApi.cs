@@ -1,11 +1,20 @@
 using System.Reflection;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Encodings.Web;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -147,6 +156,17 @@ class WebApi
         // Configure Services
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
+        builder.Services
+            .AddAuthentication(ViewerApiKeyAuthenticationHandler.SchemeName)
+            .AddScheme<AuthenticationSchemeOptions, ViewerApiKeyAuthenticationHandler>(
+                ViewerApiKeyAuthenticationHandler.SchemeName,
+                _ => { });
+        builder.Services.AddAuthorization(options =>
+        {
+            options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+        });
         // Extended Swagger Configuration
         builder.Services.AddSwaggerGen(options =>
         {
@@ -266,23 +286,11 @@ class WebApi
         }
         else
         {
+            app.UseHttpsRedirection();
             // app.UseExceptionHandler("/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             // app.UseHsts();
         }
-
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "InventarViewerApp API V1");
-            options.RoutePrefix = "swagger"; // Swagger UI available at /swagger
-            options.DocExpansion(DocExpansion.None); // All endpoints initially collapsed
-            options.DisplayRequestDuration(); // Displays response times
-            options.EnableDeepLinking(); // Enables deep links to specific endpoints
-            options.EnableFilter(); // Activates search filters
-            options.ShowExtensions(); // Shows Vendor Extensions
-            options.EnableValidator(); // Activate validator
-        });
 
         // app.UseHttpsRedirection();
         // app.UseStaticFiles();
@@ -291,9 +299,7 @@ class WebApi
         // app.UseRouting();
         // app.UseRateLimiter();
         // app.UseRequestLocalization();
-        app.UseCors("AllowAll");
-
-        // app.UseAuthentication();
+        app.UseAuthentication();
         app.UseAuthorization();
         // app.UseSession();
         // app.UseResponseCompression();
@@ -307,6 +313,48 @@ class WebApi
         Console.WriteLine("Swagger UI available at http://localhost:80/swagger");
 
         await app.RunAsync(ctsToken);
+    }
+
+    private sealed class ViewerApiKeyAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+    {
+        internal const string SchemeName = "InventoryViewerApiKey";
+        private const string HeaderName = "X-Inventory-Api-Key";
+        private readonly IConfiguration _configuration;
+
+        public ViewerApiKeyAuthenticationHandler(
+            IOptionsMonitor<AuthenticationSchemeOptions> options,
+            ILoggerFactory logger,
+            UrlEncoder encoder,
+            IConfiguration configuration)
+            : base(options, logger, encoder)
+        {
+            _configuration = configuration;
+        }
+
+        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        {
+            var configuredKey = _configuration["InventoryApi:ApiKey"];
+            if (string.IsNullOrWhiteSpace(configuredKey))
+            {
+                return Task.FromResult(AuthenticateResult.Fail("API key is not configured."));
+            }
+
+            if (!Request.Headers.TryGetValue(HeaderName, out var suppliedHeader))
+            {
+                return Task.FromResult(AuthenticateResult.NoResult());
+            }
+
+            var expectedBytes = Encoding.UTF8.GetBytes(configuredKey);
+            var suppliedBytes = Encoding.UTF8.GetBytes(suppliedHeader.ToString());
+            if (!CryptographicOperations.FixedTimeEquals(expectedBytes, suppliedBytes))
+            {
+                return Task.FromResult(AuthenticateResult.Fail("Invalid API key."));
+            }
+
+            var identity = new ClaimsIdentity([new Claim(ClaimTypes.NameIdentifier, "inventory-viewer-api-client")], SchemeName);
+            var ticket = new AuthenticationTicket(new ClaimsPrincipal(identity), SchemeName);
+            return Task.FromResult(AuthenticateResult.Success(ticket));
+        }
     }
 
     // Add this class at the end of the file (outside of top-level statements)

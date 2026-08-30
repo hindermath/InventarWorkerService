@@ -1,10 +1,17 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Encodings.Web;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -32,6 +39,17 @@ builder.Services.AddOpenApi();
 // Add REST API Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services
+    .AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
+    .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(
+        ApiKeyAuthenticationHandler.SchemeName,
+        _ => { });
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+});
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -97,6 +115,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+    app.UseHttpsRedirection();
     // app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     // app.UseHsts();
@@ -109,9 +128,7 @@ else
 // app.UseRouting();
 // app.UseRateLimiter();
 // app.UseRequestLocalization();
-app.UseCors("AllowAll");
-
-// app.UseAuthentication();
+app.UseAuthentication();
 app.UseAuthorization();
 // app.UseSession();
 // app.UseResponseCompression();
@@ -122,3 +139,65 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/// <summary>
+/// DE: Authentifiziert Inventar-API-Aufrufe mit einem konfigurierten API-Schlüssel.
+/// EN: Authenticates inventory API requests with a configured API key.
+/// </summary>
+public sealed class ApiKeyAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+{
+    /// <summary>
+    /// DE: Name des Authentifizierungsschemas.
+    /// EN: Authentication scheme name.
+    /// </summary>
+    public const string SchemeName = "InventoryApiKey";
+
+    private const string HeaderName = "X-Inventory-Api-Key";
+    private readonly IConfiguration _configuration;
+
+    /// <summary>
+    /// DE: Initialisiert den Handler mit sicheren ASP.NET-Core-Diensten.
+    /// EN: Initializes the handler with secure ASP.NET Core services.
+    /// </summary>
+    /// <param name="options">DE: Laufende Schemaoptionen. EN: Monitored scheme options.</param>
+    /// <param name="logger">DE: Logger-Factory für interne Diagnosen. EN: Logger factory for internal diagnostics.</param>
+    /// <param name="encoder">DE: URL-Encoder des Frameworks. EN: Framework URL encoder.</param>
+    /// <param name="configuration">DE: Konfiguration mit dem extern bereitgestellten API-Schlüssel. EN: Configuration containing the externally supplied API key.</param>
+    public ApiKeyAuthenticationHandler(
+        IOptionsMonitor<AuthenticationSchemeOptions> options,
+        ILoggerFactory logger,
+        UrlEncoder encoder,
+        IConfiguration configuration)
+        : base(options, logger, encoder)
+    {
+        _configuration = configuration;
+    }
+
+    /// <inheritdoc />
+    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+    {
+        var configuredKey = _configuration["InventoryApi:ApiKey"];
+        if (string.IsNullOrWhiteSpace(configuredKey))
+        {
+            return Task.FromResult(AuthenticateResult.Fail("API key is not configured."));
+        }
+
+        if (!Request.Headers.TryGetValue(HeaderName, out var suppliedHeader))
+        {
+            return Task.FromResult(AuthenticateResult.NoResult());
+        }
+
+        var suppliedKey = suppliedHeader.ToString();
+        var expectedBytes = Encoding.UTF8.GetBytes(configuredKey);
+        var suppliedBytes = Encoding.UTF8.GetBytes(suppliedKey);
+        if (!CryptographicOperations.FixedTimeEquals(expectedBytes, suppliedBytes))
+        {
+            return Task.FromResult(AuthenticateResult.Fail("Invalid API key."));
+        }
+
+        var identity = new ClaimsIdentity([new Claim(ClaimTypes.NameIdentifier, "inventory-api-client")], SchemeName);
+        var principal = new ClaimsPrincipal(identity);
+        var ticket = new AuthenticationTicket(principal, SchemeName);
+        return Task.FromResult(AuthenticateResult.Success(ticket));
+    }
+}

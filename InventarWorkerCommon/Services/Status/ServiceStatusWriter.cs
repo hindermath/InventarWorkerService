@@ -12,8 +12,8 @@ using YamlDotNet.Serialization;
 namespace InventarWorkerCommon.Services.Status;
 
 /// <summary>
-/// The ServiceStatusWriter class is responsible for managing and writing the status, logs, statistics,
-/// performance metrics, and hardware inventory data of a service to files in a specified directory.
+/// DE: Schreibt Status, Logs, Statistik, Metriken und Hardwareinventar in sichere Statusdateien.
+/// EN: Writes status, logs, statistics, metrics, and hardware inventory to safe status files.
 /// </summary>
 public class ServiceStatusWriter
 {
@@ -21,13 +21,14 @@ public class ServiceStatusWriter
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
-    /// The <c>ServiceStatusWriter</c> class provides mechanisms for managing, serializing, and writing
-    /// service-related data such as status, logs, statistics, performance metrics, and hardware inventory
-    /// to a specified directory. This ensures that the service's state and activities are persistently
-    /// stored for tracking, diagnostics, and operational insights.
+    /// DE: Initialisiert den Writer für genau ein sicheres Unterverzeichnis.
+    /// EN: Initializes the writer for exactly one safe subdirectory.
     /// </summary>
+    /// <param name="statusDirectory">DE: Einzelner Name des Status-Unterverzeichnisses. EN: Single name of the status subdirectory.</param>
+    /// <exception cref="ArgumentException">DE: Der Verzeichnisname ist nicht sicher. EN: The directory name is unsafe.</exception>
     public ServiceStatusWriter(string statusDirectory = "inventar-service")
     {
+        statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
         if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)) is
             false)
         {
@@ -40,8 +41,8 @@ public class ServiceStatusWriter
             _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
         }
 
-        _jsonOptions = new JsonSerializerOptions 
-        { 
+        _jsonOptions = new JsonSerializerOptions
+        {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true,
             NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
@@ -89,19 +90,19 @@ public class ServiceStatusWriter
     private void WriteStatusYaml(ServiceStatus status)
     {
         var statusFile = Path.Combine(_statusDirectory, "status.yaml");
-        
+
         var serializer = new SerializerBuilder()
             .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.CamelCaseNamingConvention.Instance)
             .Build();
-        
+
         var yaml = serializer.Serialize(status);
-        File.WriteAllText(statusFile, yaml);
+        SecureFileWriter.WriteAllText(statusFile, yaml);
     }
 
     private void WriteStatusXml(ServiceStatus status)
     {
         var statusFile = Path.Combine(_statusDirectory, "status.xml");
-        
+
         var xmlSerializer = new XmlSerializer(typeof(ServiceStatus));
         var xmlSettings = new XmlWriterSettings
         {
@@ -221,7 +222,7 @@ public class ServiceStatusWriter
     {
         var statusFile = Path.Combine(_statusDirectory, "status.json");
         var json = JsonSerializer.Serialize(status, _jsonOptions);
-        File.WriteAllText(statusFile, json);
+        SecureFileWriter.WriteAllText(statusFile, json);
     }
 
     /// <summary>
@@ -247,7 +248,7 @@ public class ServiceStatusWriter
     {
         var statsFile = Path.Combine(_statusDirectory, "statistics.json");
         var json = JsonSerializer.Serialize(stats, _jsonOptions);
-        File.WriteAllText(statsFile, json);
+        SecureFileWriter.WriteAllText(statsFile, json);
     }
 
     /// <summary>
@@ -262,7 +263,7 @@ public class ServiceStatusWriter
     {
         var metricsFile = Path.Combine(_statusDirectory, "metrics.json");
         var json = JsonSerializer.Serialize(metrics, _jsonOptions);
-        File.WriteAllText(metricsFile, json);
+        SecureFileWriter.WriteAllText(metricsFile, json);
     }
 
     /// <summary>
@@ -281,6 +282,6 @@ public class ServiceStatusWriter
         var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         var inventoryFile = Path.Combine(_statusDirectory, $"hardware_inventory_{timestamp}.json");
         var json = JsonSerializer.Serialize(hardwareInfo, _jsonOptions);
-        await File.WriteAllTextAsync(inventoryFile, json);
+        await SecureFileWriter.WriteAllTextAsync(inventoryFile, json);
     }
 }

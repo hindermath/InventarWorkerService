@@ -1,17 +1,7 @@
-# Zero-Trust-Anwendbarkeit / Zero Trust Applicability: InventarWorkerService
+# Zero-Trust-Anwendbarkeit / Zero Trust Applicability
 
-**Projekt / Project**: InventarWorkerService (Level-2)
-**Datum / Date**: 2026-04-24
-**Status**: Stub — mit projektspezifischen Inhalten zu befuellen / Stub — to be populated
-**Template-Quelle / Template Source**: `.specify/templates/zero-trust-applicability-template.md`
+DE: NIST SP 800-207 ist wegen Worker, Harvester, Viewer und drei Datenbankgrenzen anwendbar. Netzwerkstandort allein begründet kein Vertrauen. Identität, Gerät, Ziel, Datenklasse und minimale Rechte werden pro Anfrage bewertet. API-Identität und segmentierte Providerrollen fehlen aktuell; Status Open.
 
-<!--
-  Dieses Dokument ist ein Stub. Die vollstaendige Struktur findet sich im
-  Template unter .specify/templates/zero-trust-applicability-template.md. Bei der Befuellung das Template als Vorlage
-  verwenden.
+EN: NIST SP 800-207 applies because Worker, Harvester, Viewer, and three database boundaries are distributed. Network location alone does not establish trust. Identity, device, target, data class, and least privilege are evaluated per request. API identity and segmented provider roles are missing; status Open.
 
-  This document is a stub. The complete structure can be found in the
-  template at .specify/templates/zero-trust-applicability-template.md. Use the template as a guide when populating.
--->
-
-[Zu befuellen / To be populated — see template]
+Owner: Projektverantwortung; Reviewer: Architektur/Security; Termin 2026-09-30; Trigger: neue Remote-Verbindung, Cloud, Identitätsprovider oder Deploymentgrenze. / Owner: project owner; reviewers: architecture/security; due 2026-09-30; trigger: new remote connection, cloud, identity provider, or deployment boundary.

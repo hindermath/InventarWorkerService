@@ -1,17 +1,13 @@
-# SAMM-Assessment / SAMM Assessment: InventarWorkerService
+# OWASP-SAMM-Bewertung / OWASP SAMM Assessment
 
-**Projekt / Project**: InventarWorkerService (Level-2)
-**Datum / Date**: 2026-04-24
-**Status**: Stub — mit projektspezifischen Inhalten zu befuellen / Stub — to be populated
-**Template-Quelle / Template Source**: `.specify/templates/samm-assessment-template.md`
+DE: Aktueller Reifegrad ist überwiegend 1. Governance und Spec-Kit-Evidenz sind vorhanden; Design erhält Threat Model und arc42; Implementierung nutzt Tests und sichere Sprachregeln; Verifikation besitzt lokale/CI-Gates; Betrieb hat Status und Recovery. Priorität haben API-Zugriff, Abhängigkeiten, Provider-Evidenz und wiederholbare SBOM. Review quartalsweise.
 
-<!--
-  Dieses Dokument ist ein Stub. Die vollstaendige Struktur findet sich im
-  Template unter .specify/templates/samm-assessment-template.md. Bei der Befuellung das Template als Vorlage
-  verwenden.
+EN: Current maturity is mostly level 1. Governance and Spec Kit evidence exist; design gains threat modelling and arc42; implementation uses tests and secure language rules; verification has local/CI gates; operations has status and recovery. API access, dependencies, provider evidence, and repeatable SBOM are priorities. Review quarterly.
 
-  This document is a stub. The complete structure can be found in the
-  template at .specify/templates/samm-assessment-template.md. Use the template as a guide when populating.
--->
-
-[Zu befuellen / To be populated — see template]
+| Practice | Current | Target | Owner / Due |
+|---|---:|---:|---|
+| Governance | 1 | 2 | Projektverantwortung / 2026-12-31 |
+| Design | 1 | 2 | Architektur / 2026-12-31 |
+| Implementation | 1 | 2 | Entwicklung / 2026-09-30 |
+| Verification | 1 | 2 | Test/Security / 2026-09-30 |
+| Operations | 1 | 2 | Betrieb / 2026-12-31 |

@@ -51,3 +51,6 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: pwsh -NoProfile -File scripts/check-homogeneity.ps1 -TargetDir $env:GITHUB_WORKSPACE -DryRun -NoPatch
+
+      - name: Validate agent surface parity
+        run: python3 -m unittest scripts/tests/test_spec_kit_agent_surface_parity.py

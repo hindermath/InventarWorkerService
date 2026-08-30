@@ -1,6 +1,7 @@
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace InventarViewerApp.Controllers;
 
@@ -15,6 +16,7 @@ namespace InventarViewerApp.Controllers;
 public class InventarController : ControllerBase
 {
     private readonly SqliteDbService _sqliteDbService;
+    private readonly ILogger<InventarController> _logger;
 
     /// <summary>
     /// DE: Initialisiert den Controller mit dem SQLite-Dienst für Maschinen- und Inventarabfragen.
@@ -24,9 +26,14 @@ public class InventarController : ControllerBase
     /// DE: Datenbankdienst für den Zugriff auf Maschinen-, Hardware- und Softwaredaten.
     /// EN: Database service used to access machine, hardware, and software data.
     /// </param>
-    public InventarController(SqliteDbService sqliteDbService)
+    /// <param name="logger">
+    /// DE: Logger für interne Diagnosen ohne vertrauliche Client-Ausgabe.
+    /// EN: Logger for internal diagnostics without confidential client output.
+    /// </param>
+    public InventarController(SqliteDbService sqliteDbService, ILogger<InventarController> logger)
     {
         _sqliteDbService = sqliteDbService;
+        _logger = logger;
     }
 
     /// <summary>
@@ -46,7 +53,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -70,7 +78,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -94,7 +103,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen des Maschinen-Namens", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -119,7 +129,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschine", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -143,7 +154,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Maschinen-ID", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -166,7 +178,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Daten", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -195,7 +208,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Daten", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -219,7 +233,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Software-Daten", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -247,7 +262,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Software-Daten", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 
@@ -287,7 +303,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { message = "Fehler beim Abrufen der Hardware-Übersicht", error = ex.Message });
+            _logger.LogError(ex, "Viewer-Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { message = "Interner Serverfehler" });
         }
     }
 }

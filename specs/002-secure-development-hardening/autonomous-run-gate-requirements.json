@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "1.0",
+  "gates": [
+    {
+      "gateId": "G-SPEC-001",
+      "applicability": "Applicable",
+      "requiredScope": "Accepted feature identity, specification, checklist, phase-result, and SHA-256 integrity at the reviewed head.",
+      "requiredCommandTokens": [
+        "validate-autonomous-phase-result.ps1",
+        "shasum -a 256"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "coordinator"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-TRACE-001",
+      "applicability": "Applicable",
+      "requiredScope": "Feature branch, installed twelve-preset stack, Level-2 registry binding, baseline versions, twelve checklists, and exactly 157 unique stable CL IDs.",
+      "requiredCommandTokens": [
+        "git branch --show-current",
+        "specify preset list",
+        "InventarWorkerCommonTest/SecureDevelopmentEvidenceContractTest.cs",
+        "IntakeClassification_UsesFiveAllowedStates_WithCompleteDisposition",
+        "InstalledPresetRegistry_ContainsExactTwelveEnabledManifests",
+        "BaselineManifest_CanonicalChecklists_ContainsExactly157UniqueControls"
+      ],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-ARCH-001",
+      "applicability": "Applicable",
+      "requiredScope": "All declared trust boundaries, CIA assets, STRIDE categories, highest-risk CAPEC paths, defense-in-depth controls, arc42 views, security decisions, Zero Trust, and SAMM evidence.",
+      "requiredCommandTokens": [
+        "dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj",
+        "SecureDevelopmentEvidenceContractTest",
+        "docs/security/threat-model.md",
+        "docs/security/arc42-security.md",
+        "docs/security/zero-trust-applicability.md",
+        "docs/security/samm-assessment.md",
+        "docs/architecture/"
+      ],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-SEC-001",
+      "applicability": "Applicable",
+      "requiredScope": "All 157 assessment records plus NIST SSDF, CWE Top 25, OWASP ASVS Level 2 for both HTTP/API hosts, secure C# and System.Text.Json, parameterized provider access, input/error/secret/outbound controls, and representative negative tests.",
+      "requiredCommandTokens": [
+        ".github/workflows/ci.yml",
+        "security-integration",
+        "provider-security",
+        "dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj",
+        "dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj",
+        "InventarWorkerServiceIntegrationTest/SecurityBoundaryIntegrationTests.cs",
+        "InventarWorkerServiceIntegrationTest/ViewerApiSecurityIntegrationTests.cs",
+        "docs/security/",
+        "System.Text.Json",
+        "OWASP ASVS Level 2"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "ubuntu-22.04"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-BUILD-001",
+      "applicability": "Applicable",
+      "requiredScope": ".NET 10 restore, Release build, unit and integration tests, provider/platform-scoped tests, negative tests, and coverage at least 70 percent with an 80 percent target at the exact candidate head.",
+      "requiredCommandTokens": [
+        "dotnet restore InventarWorkerService.sln",
+        "dotnet build InventarWorkerService.sln",
+        "dotnet test",
+        "XPlat Code Coverage",
+        "reportgenerator",
+        ".github/workflows/ci.yml",
+        "build-test",
+        "70"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "ubuntu-22.04",
+        "macos-14",
+        "windows-2022"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-A11Y-001",
+      "applicability": "Applicable",
+      "requiredScope": "German-first and English-second CEFR-B2 source evidence, text-first status parity, DocFX output, WCAG 2.2 AA-oriented Axe and manual review, and Lynx text-browser proof.",
+      "requiredCommandTokens": [
+        ".github/workflows/docs-pages.yml",
+        "build-docs",
+        "docfx docfx.json",
+        "postprocess-docfx-site.sh",
+        "lynx -dump",
+        "AxeBuilder"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "ubuntu-latest"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-SUPPLY-001",
+      "applicability": "Applicable",
+      "requiredScope": "Latest-stable direct and transitive dependency evidence, CVE and licence review, machine-readable SBOM per distributable artefact set, SLSA provenance, VEX decision, OpenSSF review, and secret scanning.",
+      "requiredCommandTokens": [
+        ".github/workflows/ci.yml",
+        "supply-chain",
+        "dotnet list InventarWorkerService.sln package --outdated",
+        "dotnet list InventarWorkerService.sln package --vulnerable --include-transitive",
+        "dotnet tool run sbom-tool generate",
+        "dotnet tool run sbom-tool validate",
+        "SLSA",
+        "VEX",
+        "OpenSSF",
+        "gitleaks",
+        "scan-agent-secrets"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "ubuntu-latest"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-AGENT-001",
+      "applicability": "Applicable",
+      "requiredScope": "Current installed-preset and shared-rule parity across five maintained agent guidance files, both constitutions, affected Spec-Kit templates, and maintained repository template sources, with historical prose preserved.",
+      "requiredCommandTokens": [
+        "python3 -m unittest scripts/tests/test_spec_kit_agent_surface_parity.py",
+        "scripts/check-homogeneity.ps1",
+        ".github/workflows/homogeneity-check.yml",
+        "check",
+        "specify preset list"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "ubuntu-22.04",
+        "macos-14",
+        "windows-2022"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-REGULATORY-001",
+      "applicability": "Applicable",
+      "requiredScope": "Technical CRA screening and explicit current N/A decisions with assumptions and triggers for NIS2, DORA, EU AI Act, AI-SBOM, BSI C3A, and BSI C5.",
+      "requiredCommandTokens": [
+        "dotnet test InventarWorkerCommonTest/InventarWorkerCommonTest.csproj",
+        "SecureDevelopmentEvidenceContractTest",
+        "docs/security/cra-applicability.md",
+        "docs/security/regulatory-applicability.md",
+        "AI-SBOM",
+        "NIS2",
+        "DORA",
+        "EU AI Act"
+      ],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-CLOSE-001",
+      "applicability": "Applicable",
+      "requiredScope": "Coordinator-owned exact-head MergeAndSync closeout: intended delivery set, aligned version, complete tasks, current technical checks and reviews, merge, default-branch synchronization, post-merge validation, and no bypass substitution for technical proof.",
+      "requiredCommandTokens": [
+        "validate-autonomous-gate-evidence.ps1",
+        ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/pre-merge-gate-evidence.json",
+        ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/post-merge-gate-evidence.json",
+        "schemaVersion 2.0",
+        "git diff --cached --check",
+        "gh pr checks",
+        "gh pr merge",
+        "git pull --ff-only",
+        "validate-autonomous-delivery-set.ps1",
+        "validate-autonomous-run-state.ps1"
+      ],
+      "requiredRunnerOrPlatformTokens": [
+        "coordinator"
+      ],
+      "rationale": "",
+      "reevaluationTrigger": ""
+    },
+    {
+      "gateId": "G-AI-SBOM-001",
+      "applicability": "N/A",
+      "requiredScope": "AI-SBOM evidence for released or operated AI components.",
+      "requiredCommandTokens": [],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "AI is used only as a development tool; no model, AI service, dataset, inference infrastructure, or AI runtime is shipped or operated as part of InventarWorkerService.",
+      "reevaluationTrigger": "Re-evaluate before any AI model, service, dataset, inference infrastructure, or runtime becomes part of the product or operated system."
+    },
+    {
+      "gateId": "G-CLOUD-001",
+      "applicability": "N/A",
+      "requiredScope": "BSI C3A cloud-autonomy and BSI C5 cloud-assurance evidence.",
+      "requiredCommandTokens": [],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "This feature introduces no cloud provider, managed service, provider-dependent hosting, or cloud assurance scope.",
+      "reevaluationTrigger": "Re-evaluate on SaaS, PaaS, IaaS, managed-service, provider-dependent deployment, shared-responsibility, or cloud-assurance scope."
+    },
+    {
+      "gateId": "G-SCRIPT-001",
+      "applicability": "N/A",
+      "requiredScope": "Paired Bash and PowerShell implementation, help, man page, dry-run, naming, platform proof, and parity evidence for a new or changed script-shaped tool.",
+      "requiredCommandTokens": [],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "The accepted plan uses existing repository commands and scripts plus later task-created C#/MSTest validator and security test files; it introduces no new or changed script-shaped tool.",
+      "reevaluationTrigger": "Re-evaluate immediately before implementation if any task proposes adding or changing a script."
+    },
+    {
+      "gateId": "G-GENERAL-ADR-001",
+      "applicability": "N/A",
+      "requiredScope": "General architecture ADR for a non-security structural component, interface, runtime, or deployment decision.",
+      "requiredCommandTokens": [],
+      "requiredRunnerOrPlatformTokens": [],
+      "rationale": "No non-security structural decision is selected by this assessment plan; security-significant decisions use S-ADRs and general arc42 views remain Applicable.",
+      "reevaluationTrigger": "Re-evaluate before any non-security restructuring of components, interfaces, runtime behavior, or deployment."
+    }
+  ]
+}

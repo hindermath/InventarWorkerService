@@ -1,17 +1,11 @@
-# Sicherheits-Querschnittskonzepte / Security Cross-Cutting Concepts: InventarWorkerService
+# arc42 Abschnitt 8 – Sicherheitskonzepte / arc42 Section 8 – Security Concepts
 
-**Projekt / Project**: InventarWorkerService (Level-2)
-**Datum / Date**: 2026-04-24
-**Status**: Stub — mit projektspezifischen Inhalten zu befuellen / Stub — to be populated
-**Template-Quelle / Template Source**: `.specify/templates/arc42-security-template.md`
+DE: Zugriff wird standardmäßig verweigert, sobald eine API mehr als lokal erreichbar ist. Authentifizierung und Autorisierung sind zentraler Host-Scope. TLS wird am Proxy oder Kestrel erzwungen. Eingaben erhalten Format-, Bereichs- und Längengrenzen. Außenfehler bleiben generisch; Diagnosen gehen in Secret-freie Logs. Connection Strings kommen aus sicheren Quellen. SQL-Werte sind parametrisiert. Outbound-Ziele nutzen Allowlist, HTTPS, Timeout und Cancellation. Dateien werden atomar ersetzt.
 
-<!--
-  Dieses Dokument ist ein Stub. Die vollstaendige Struktur findet sich im
-  Template unter .specify/templates/arc42-security-template.md. Bei der Befuellung das Template als Vorlage
-  verwenden.
+EN: Access is denied by default whenever an API is reachable beyond localhost. Authentication and authorization are central host concerns. TLS is enforced at proxy or Kestrel. Inputs have format, range, and length limits. External errors stay generic; diagnostics go to secret-free logs. Connection strings come from secure sources. SQL values are parameterized. Outbound targets use allowlist, HTTPS, timeout, and cancellation. Files are replaced atomically.
 
-  This document is a stub. The complete structure can be found in the
-  template at .specify/templates/arc42-security-template.md. Use the template as a guide when populating.
--->
+## S-ADR / Security ADR
 
-[Zu befuellen / To be populated — see template]
+DE: Die materielle Entscheidung API-Zugriff standardmäßig verweigern steht in docs/security/adr/002-api-access-default-deny.md. Ein allgemeiner ADR ist N/A, weil keine nicht-sicherheitsspezifische Strukturentscheidung entsteht. Trigger ist eine neue öffentliche API- oder Deploymentstruktur.
+
+EN: The material deny-by-default API decision is stored in docs/security/adr/002-api-access-default-deny.md. A general ADR is N/A because no non-security structural decision is introduced. A new public API or deployment structure is the trigger.

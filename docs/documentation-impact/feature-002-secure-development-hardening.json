@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "002-secure-development-hardening",
+  "entries": [
+    {
+      "changeId": "CHG002",
+      "scope": "Security, architecture, accessibility, supply-chain, governance, and feature assessment evidence",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Feature 002 ändert sicherheitsrelevante Laufzeit- und Governance-Verträge und benötigt synchronisierte, text-first Nachweise. EN: Feature 002 changes security-relevant runtime and governance contracts and requires synchronized text-first evidence.",
+      "documents": [
+        "docs/security/README.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md",
+        "docs/accessibility/secure-development-hardening.md",
+        "docs/architecture/context-view.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": ["Learners", "Operators", "Maintainers", "Security and accessibility reviewers"],
+      "readerPaths": ["docs/README.md", "docs/security/README.md", "feature assessment", "architecture and accessibility evidence"],
+      "canonicalSource": "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md",
+      "navigationImpact": "Add direct source links in the documentation and security indexes and in docs/toc.yml.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized sections at CEFR B2.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Local Darwin proof plus declared ubuntu-22.04, macos-14, and windows-2022 CI jobs; text-browser and Axe evidence are recorded separately.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/feature-002-secure-development-hardening.json",
+      "risk": "High if security status or follow-up obligations are hidden by navigation or visual-only presentation.",
+      "criticality": "Security",
+      "reevaluationTrigger": "Security scope, public API, documentation navigation, language strategy, platform matrix, or generated-site accessibility changes."
+    }
+  ]
+}

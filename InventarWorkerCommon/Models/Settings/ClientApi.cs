@@ -29,7 +29,9 @@ public class ClientApi
         {
             var host = string.IsNullOrWhiteSpace(ClientApiFqdn) ? "localhost" : ClientApiFqdn;
             var port = string.IsNullOrWhiteSpace(ClientApiPort) ? "80" : ClientApiPort;
-            return $"http://{host}:{port}";
+            var isLoopback = string.Equals(host, "localhost", StringComparison.OrdinalIgnoreCase) ||
+                             System.Net.IPAddress.TryParse(host, out var address) && System.Net.IPAddress.IsLoopback(address);
+            return $"{(isLoopback ? "http" : "https")}://{host}:{port}";
         }
     }
 }

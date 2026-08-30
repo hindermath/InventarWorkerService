@@ -1,0 +1,7 @@
+# Sichere C#/.NET-Regeln / Secure C#/.NET Rules
+
+DE: Eingaben an Trust Boundaries werden auf Typ, Format, Bereich und Länge geprüft. SQL-Datenwerte sind Parameter; dynamische Identifier nutzen feste Allowlists. JSON verwendet ausschließlich System.Text.Json mit camelCase. HTTP hat HTTPS, Ziel-Allowlist, Timeout, Cancellation und keine unbegrenzten Retries. Außenfehler enthalten keine Stack-Traces, Connection Strings oder interne Messages. Dateipfade bleiben unter festen Basen; Writes sind atomar. Prozessaufrufe verwenden validierte Namen und ArgumentList. Secrets stehen nicht in Source/Logs. Abhängigkeiten werden auf CVEs und Lizenzen geprüft.
+
+EN: Trust-boundary inputs are validated for type, format, range, and length. SQL data values are parameters; dynamic identifiers use fixed allowlists. JSON uses System.Text.Json with camelCase only. HTTP uses HTTPS, target allowlist, timeout, cancellation, and no unbounded retries. External errors expose no stack traces, connection strings, or internal messages. File paths remain under fixed roots; writes are atomic. Process calls use validated names and ArgumentList. Secrets are absent from source/logs. Dependencies are reviewed for CVEs and licences.
+
+Anti-Forgery ist N/A für GET-only ohne Cookie-Auth; Trigger: zustandsändernder Cookie-Endpunkt. Output-Encoding bleibt für HTML/DocFX anwendbar. / Anti-forgery is N/A for GET-only without cookie auth; trigger: state-changing cookie endpoint. Output encoding applies to HTML/DocFX.

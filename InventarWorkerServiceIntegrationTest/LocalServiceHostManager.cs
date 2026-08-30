@@ -6,6 +6,7 @@ namespace InventarWorkerServiceIntegrationTests;
 
 internal static class LocalServiceHostManager
 {
+    internal const string IntegrationApiKey = "integration-test-only-api-key";
     private static readonly object SyncLock = new();
     private static Process? _process;
     private static readonly StringBuilder OutputBuffer = new();
@@ -30,7 +31,7 @@ internal static class LocalServiceHostManager
         var startInfo = new ProcessStartInfo
         {
             FileName = "dotnet",
-            Arguments = $"run --project \"{projectPath}\" --no-build --no-launch-profile",
+            Arguments = $"run --project \"{projectPath}\" --configuration Release --no-build --no-launch-profile",
             WorkingDirectory = repoRoot.FullName,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -40,6 +41,7 @@ internal static class LocalServiceHostManager
         startInfo.Environment["ASPNETCORE_URLS"] = baseUrl;
         startInfo.Environment["Kestrel__Endpoints__Http__Url"] = baseUrl;
         startInfo.Environment["ASPNETCORE_ENVIRONMENT"] = "Development";
+        startInfo.Environment["InventoryApi__ApiKey"] = IntegrationApiKey;
 
         var process = new Process { StartInfo = startInfo };
         process.OutputDataReceived += (_, args) =>
@@ -77,6 +79,7 @@ internal static class LocalServiceHostManager
         }
 
         using var client = new HttpClient { Timeout = TimeSpan.FromSeconds(2) };
+        client.DefaultRequestHeaders.Add("X-Inventory-Api-Key", IntegrationApiKey);
         var statusEndpoint = $"{baseUrl.TrimEnd('/')}/api/inventar/status";
         var deadline = DateTime.UtcNow.AddSeconds(startupTimeoutSeconds);
 
