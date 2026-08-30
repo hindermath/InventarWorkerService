@@ -17,6 +17,16 @@ public sealed class CrossPlatformServiceControllerTest
     [TestClass]
     public class CrossPlatformServiceControllerTests
     {
+        /// <summary>
+        /// DE: Weist Service-Namen mit Prozessargument-Metazeichen ab.
+        /// EN: Rejects service names containing process-argument metacharacters.
+        /// </summary>
+        [TestMethod]
+        public void Constructor_ServiceNameWithMetacharacters_ThrowsArgumentException()
+        {
+            Assert.ThrowsExactly<ArgumentException>(() => new CrossPlatformServiceController("worker;--now"));
+        }
+
         private CrossPlatformServiceController? _controller;
         private const string TestServiceName = "TestService";
         private const string InvalidServiceName = "NonExistentService";
@@ -52,7 +62,7 @@ public sealed class CrossPlatformServiceControllerTest
         {
             // Act
             var controller = new CrossPlatformServiceController("MyTestService");
-            
+
             // Assert
             Assert.IsNotNull(controller);
         }

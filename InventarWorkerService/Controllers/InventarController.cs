@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace InventarWorkerService.Controllers;
 
 /// <summary>
-/// Provides inventory-related API endpoints to retrieve hardware, software, and combined inventory data
-/// from the worker services.
+/// DE: Stellt abgesicherte API-Endpunkte für Hardware-, Software- und kombinierte Inventardaten bereit.
+/// EN: Provides secured API endpoints for hardware, software, and combined inventory data.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -14,16 +14,26 @@ public class InventarController : ControllerBase
 {
     private readonly HardwareInventoryService _hardwareService;
     private readonly SoftwareInventoryService _softwareService;
+    private readonly ILogger<InventarController> _logger;
 
     /// <summary>
-    /// Creates a new instance of the InventarController with required inventory services.
+    /// DE: Initialisiert den Controller mit Inventardiensten und internem Logger.
+    /// EN: Initializes the controller with inventory services and an internal logger.
     /// </summary>
-    /// <param name="hardwareService">Service used to read hardware inventory information.</param>
-    /// <param name="softwareService">Service used to read software inventory information.</param>
-    public InventarController(HardwareInventoryService hardwareService, SoftwareInventoryService softwareService)
+    /// <param name="hardwareService">DE: Dienst für Hardwaredaten. EN: Service for hardware data.</param>
+    /// <param name="softwareService">DE: Dienst für Softwaredaten. EN: Service for software data.</param>
+    /// <param name="logger">
+    /// DE: Logger für interne Diagnosen ohne Ausgabe vertraulicher Details an Clients.
+    /// EN: Logger for internal diagnostics without exposing sensitive details to clients.
+    /// </param>
+    public InventarController(
+        HardwareInventoryService hardwareService,
+        SoftwareInventoryService softwareService,
+        ILogger<InventarController> logger)
     {
         _hardwareService = hardwareService;
         _softwareService = softwareService;
+        _logger = logger;
     }
 
     /// <summary>
@@ -40,7 +50,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { error = ex.Message });
+            _logger.LogError(ex, "Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { error = "Interner Serverfehler" });
         }
     }
 
@@ -58,7 +69,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { error = ex.Message });
+            _logger.LogError(ex, "Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { error = "Interner Serverfehler" });
         }
     }
 
@@ -83,7 +95,8 @@ public class InventarController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new { error = ex.Message });
+            _logger.LogError(ex, "Inventar-Endpunkt ist intern fehlgeschlagen.");
+            return StatusCode(500, new { error = "Interner Serverfehler" });
         }
     }
 

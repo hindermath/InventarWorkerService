@@ -36,7 +36,12 @@ public static class Initialize
         string pgSqlDbPort = "5432",
         string pgSqlDbName = "inventar")
     {
-        var apiService = new ApiService($"http://{clientApiFqdn}:{clientApiPort}");
+        var isLoopback = string.Equals(clientApiFqdn, "localhost", StringComparison.OrdinalIgnoreCase) ||
+                         System.Net.IPAddress.TryParse(clientApiFqdn, out var address) && System.Net.IPAddress.IsLoopback(address);
+        var scheme = isLoopback ? "http" : "https";
+        var apiService = new ApiService(
+            $"{scheme}://{clientApiFqdn}:{clientApiPort}",
+            Environment.GetEnvironmentVariable("INVENTORY_API_KEY"));
 
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
@@ -70,7 +75,9 @@ public static class Initialize
     /// </returns>
     public static ServiceContainer Services(InventarWorkerCommon.Models.Settings.Settings settings)
     {
-        var apiService = new ApiService(settings.ClientApi.ClientApiUrl);
+        var apiService = new ApiService(
+            settings.ClientApi.ClientApiUrl,
+            Environment.GetEnvironmentVariable("INVENTORY_API_KEY"));
 
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");

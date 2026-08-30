@@ -157,6 +157,17 @@ public class SettingsAndStatusServiceTest
         Assert.IsFalse(staleReader.IsServiceRunning());
     }
 
+    /// <summary>
+    /// DE: Weist Status-Unterverzeichnisse mit Pfadtrennzeichen ab, bevor Dateien geschrieben werden.
+    /// EN: Rejects status subdirectories containing path separators before files are written.
+    /// </summary>
+    [TestMethod]
+    public void Writers_PathTraversalName_ThrowsArgumentException()
+    {
+        Assert.ThrowsExactly<ArgumentException>(() => new SettingsWriter("../outside"));
+        Assert.ThrowsExactly<ArgumentException>(() => new ServiceStatusWriter("../outside"));
+    }
+
     private static Settings CreateSettings(bool writeEnabled)
     {
         return new Settings

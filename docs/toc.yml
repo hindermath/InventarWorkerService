@@ -22,5 +22,20 @@
   href: README9.md
 - name: 1AzubiBarCamp
   href: 1AzubiBarCamp.md
-
+- name: Sicherheit / Security
+  items:
+  - name: Sicherheitsindex / Security index
+    href: security/README.md
+  - name: Feature 002 Assessment
+    href: security/secure-development/2026-08-30-secure-development-hardening/README.md
+  - name: Lieferkette / Supply chain
+    href: security/supply-chain-evidence.md
+- name: Architektur / Architecture
+  items:
+  - name: Kontextsicht / Context view
+    href: architecture/context-view.md
+  - name: Laufzeitsicht / Runtime view
+    href: architecture/runtime-view.md
+- name: Barrierefreiheit / Accessibility
+  href: accessibility/secure-development-hardening.md
 

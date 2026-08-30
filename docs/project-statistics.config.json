@@ -51,6 +51,13 @@
       "labelDe": "002 Versionierung",
       "labelEn": "002 versioning",
       "netLines": 41
+    },
+    {
+      "slot": 6,
+      "id": "002-secure-hardening",
+      "labelDe": "002 Secure Hardening",
+      "labelEn": "002 secure hardening",
+      "netLines": 13089
     }
   ],
   "excludedPaths": [],

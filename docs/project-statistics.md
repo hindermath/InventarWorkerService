@@ -294,6 +294,7 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-06-18 | Claude-Code-Review fuer Release-Please-PRs freigegeben | Der automatische `Claude Code Review`-Workflow blockierte Release-Please-PRs, weil `github-actions[bot]` als nicht-menschlicher Actor nicht in `allowed_bots` freigegeben war. `.github/workflows/claude-code-review.yml` erlaubt nun gezielt den Bot-Slug `github-actions`, ohne alle Bots per Wildcard zuzulassen. Sichtbares Zusatzvolumen: `0` Produktionscode-Zeilen, `0` Testcode-Zeilen, ca. `+3` Workflow-Konfigurationszeilen und diese Ledger-Fortschreibung. Konservative Manualreferenz: grob `4 / 80 = 0.1` Arbeitstage bzw. `0.4` Stunden; Thorsten-Solo-Referenz: `4 / 100 = 0.0` Arbeitstage bzw. `0.3` Stunden; sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-06-18. |
 | 2026-06-19 | Lastenheft-Abarbeitungsreihenfolge fuer spaetere Spec-Kit-Laeufe dokumentiert | `Lastenheft_Abarbeitungsreihenfolge.md` wurde als dauerhaft einsehbares Root-Artefakt angelegt. Es ordnet die offenen Lastenhefte fuer spaetere Spec-Kit-Laeufe, markiert bereits geloeste oder ueberholte Lastenhefte separat und verlinkt die Reihenfolge aus `README.md` sowie `docs/README.md`. Diese Runde war reine Dokumentationsarbeit ohne Produktions- oder Testcodeaenderung; die Validierung erfolgt ueber Markdown-Suchchecks und `git diff --check`, ein Build-/Test-/DocFX-Lauf ist fuer diese reine Ordnungsdokumentation nicht erforderlich. Sichtbares Zusatzvolumen vor dieser Ledger-Zeile: ca. `+91` Dokumentationszeilen netto. Konservative Manualreferenz: grob `91 / 80 = 1.1` Arbeitstage bzw. `8.9` Stunden; Thorsten-Solo-Referenz: `91 / 100 = 0.9` Arbeitstage bzw. `7.1` Stunden; sichtbares Arbeitsfenster: 1 kurze Agentensitzung am 2026-06-19. |
 | 2026-07-23 | Intake Authoring und Review | 13 aktive Lastenhefte als hashgebundene Legacy-Intakes normalisiert; Einzel- und Serienreview `Ready` mit null offenen Findings, Fragen oder Risiken; keine Produktcode- oder Laufzeitänderung. |
+| 2026-08-30 | Feature 002 – finaler lokaler Vor-Kandidaten-Stand T107 | Branch `002-secure-development-hardening`; beobachtbares Arbeitsfenster: eine agentische Implementierungsphase am 2026-08-30. Der tatsächliche PR-Kandidaten-Arbeitsbaum umfasst `+562 / -163` Produktions-, Paket- und Workflowzeilen, `+502 / -8` Testzeilen sowie `+12347 / -151` Dokumentations-, Security-, Architektur-, A11Y-, Spec- und Retrospektivzeilen. Hauptpakete sind die 157-Kontrollen-Bewertung, finding-gesteuerte API-/Datei-/Prozesshärtung, .NET-10-/CI-/Supply-Chain-Ausrichtung, drei Testprojekte, T095-Vollregression mit 110 bestandenen Tests und 90,1 Prozent Zeilenabdeckung, lokale Gate-Dispositionen und eine nicht leere Retrospektive. Die validierte Intake-Lineage ist recoverbar in einem lokalen Stash vorbereitet, aus diesem PR-Kandidaten ausgeschlossen und wird erst nach T117 angewendet. Das Bruttoänderungsvolumen von `13733` Zeilen entspricht bei 80 Zeilen/Arbeitstag `171,7` Arbeitstagen, `1339,0` Stunden und `8,0` Monaten; bei der repo-spezifischen Thorsten-Solo-Basis von 100 Zeilen/Arbeitstag `137,3` Arbeitstagen, `1071,2` Stunden und `6,4` Monaten. Annahmen: 21,5 Arbeitstage pro Monat und 7,8 Stunden pro Arbeitstag. Gegen einen sichtbaren Git-Aktivtag beträgt der blended repository speedup `171,7x` beziehungsweise `137,3x`; das ist eine sichtbare AI-unterstützte Lieferdichte und keine Stoppuhrmessung. / *Feature 002 final local pre-candidate state includes the 157-control assessment, finding-driven hardening, CI/supply-chain alignment, 110 passing T095 tests at 90.1% line coverage, gate dispositions, and a non-empty retrospective. The validated intake lineage is prepared recoverably in a local stash, excluded from this PR candidate, and applied only after T117. The 80- and 100-lines/day comparisons use 21.5 workdays/month and 7.8 hours/day and are blended repository speedups, not stopwatch measurements.* |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -446,29 +447,29 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 147767 lines |
-| Textdateien / Text files | 1041 |
+| Textbasis / Text base | 160928 lines |
+| Textdateien / Text files | 1091 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-07..2026-08-30 |
 | Aktivtage / Active days | 121 |
-| Relevante Commits / Relevant commits | 551 |
-| Zeilen je Aktivtag / Lines per active day | 1221.2 |
+| Relevante Commits / Relevant commits | 556 |
+| Zeilen je Aktivtag / Lines per active day | 1330.0 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 15.3x |
-| Speedup vs. 100 lines/day | 12.2x |
-| Methodik / Methodology | v2; source `694c72a3e6ec` |
+| Speedup vs. 80 lines/day | 16.6x |
+| Speedup vs. 100 lines/day | 13.3x |
+| Methodik / Methodology | v2; source `dda64775863e` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [#...................]   6.9% | 10220
-Tests                           [#...................]   5.3% | 7789
-Dokumentation / Documentation   [##############......]  69.9% | 103263
-Skripte / Scripts               [###.................]  14.5% | 21410
-Konfiguration / Configuration   [#...................]   1.8% | 2682
-Daten und Medien / Data and media [#...................]   0.8% | 1150
-Sonstiger Text / Other text     [#...................]   0.8% | 1253
+Produktiv / Production          [#...................]   6.6% | 10545
+Tests                           [#...................]   5.4% | 8749
+Dokumentation / Documentation   [##############......]  70.9% | 114064
+Skripte / Scripts               [###.................]  13.3% | 21410
+Konfiguration / Configuration   [#...................]   2.3% | 3758
+Daten und Medien / Data and media [#...................]   0.7% | 1150
+Sonstiger Text / Other text     [#...................]   0.8% | 1252
 ```
 
 Die Balken teilen die aktuelle getrackte Textbasis in stabile Kategorien. Prozent und Zeilenwert sind die genaue, textorientierte Aussage.
@@ -490,7 +491,7 @@ Sa/Sa  0 0 0 0 0 0 2 2 3 2 4 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0
 
 ```text
 Wochen / Weeks 27..52 | 2026-03-08..2026-09-05
-So/Su  4 0 4 0 0 2 4 0 0 0 0 0 1 0 4 0 0 0 1 4 3 1 4 4 0 1
+So/Su  4 0 4 0 0 2 4 0 0 0 0 0 1 0 4 0 0 0 1 4 3 1 4 4 0 4
 Mo/Mo  0 0 0 2 0 1 4 0 4 0 0 0 0 0 0 0 3 1 4 4 0 0 0 2 0 -
 Di/Tu  2 0 0 3 0 0 0 0 3 0 0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 -
 Mi/We  0 0 1 0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 -
@@ -562,15 +563,15 @@ Die kumulative Kurve summiert nur das Brutto-Aenderungsvolumen im Fenster. Sie d
 ### Phasenvolumen / Phase Volume
 
 ```text
-Slots 0..5
-   cap 10000 | . . . . . .
-        8333 | . . . . . .
-        6667 | . . # . . .
-        5000 | . . # . # .
-        3333 | . . # . # .
-        1667 | # # # . # .
-           0 +-------------
-             00 01 02 03 04 05
+Slots 0..6
+   cap 20000 | . . . . . . .
+       16667 | . . . . . . .
+       13333 | . . . . . . .
+       10000 | . . . . . . #
+        6667 | . . # . . . #
+        3333 | . . # . # . #
+           0 +---------------
+             00 01 02 03 04 05 06
 ```
 
 | Slot | Phase | Nettozeilen / Net lines |
@@ -581,6 +582,7 @@ Slots 0..5
 | 3 | Metrik / Metric | 580 |
 | 4 | Governance und CI / Governance and CI | 6438 |
 | 5 | 002 Versionierung / 002 versioning | 41 |
+| 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -590,8 +592,8 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [###############.....] 15.3x
-100 lines/day      [############........] 12.2x
+80 lines/day       [#################...] 16.6x
+100 lines/day      [#############.......] 13.3x
 ```
 
 Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen Referenzen. Sie messen keine Arbeitszeit.
@@ -604,7 +606,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [############........] 1221.2
+Visible repository [#############.......] 1330.0
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -630,6 +632,6 @@ DE: Das Fenster beginnt am 2025-09-07 und endet am 2026-08-30. Es enthaelt 121 a
 | 2026-05 | 13510 |
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
-| 2026-08 | 12291 |
+| 2026-08 | 26350 |
 
 <!-- project-statistics-v2:end -->

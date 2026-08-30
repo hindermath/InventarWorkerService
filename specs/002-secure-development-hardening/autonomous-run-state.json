@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "1.1",
+  "runId": "d6d5e58e-0acc-404c-b5b4-4f97eba83c9f",
+  "featurePath": "specs/002-secure-development-hardening",
+  "branch": "002-secure-development-hardening",
+  "deliveryMode": "MergeAndSync",
+  "authorityRevalidationRequired": false,
+  "stage": "Implement",
+  "status": "Active",
+  "checkpointCommit": "5202422ded30607889aca9af9ce22878dc8936d6",
+  "acceptedArtifacts": [
+    {
+      "path": ".specify/feature.json",
+      "sha256": "4db7ea964cce1ccebb6f93c0b1cfeea2ab9556d2082aa4be91cb2b40e2e9acdd"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/spec.md",
+      "sha256": "968b03bfc05eacb18527dc4be074de4c3fd1a595ada9a36ed1ca3bba5486f519"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/checklists/requirements.md",
+      "sha256": "91bf2fe0eafa0ecbedc2c1375478a7c15bb527e54abdee8e7aceae7983873e4c"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/checklists/security.md",
+      "sha256": "441abdbc0675e23d8c41727a73b574ed939026442b36ebf9abd00e75e4b1bf6d"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/plan.md",
+      "sha256": "58086c7f59d3e717c16a6cfefc6b1ac00bd487a317b137d0f39cbb8a69233a09"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/research.md",
+      "sha256": "5660fa89b9d095e93eb0779508a458c104b01693581e0772c189409eab773889"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/data-model.md",
+      "sha256": "5ea819b8241556340762c97dab4a3f3dc6660ab6282fafb88adf25464fc656e3"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/quickstart.md",
+      "sha256": "60b5d2d13d67ea217434deac4beddba01efa046b766e791ea01df6dd7e5578ba"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/contracts/classification-evidence-record.schema.json",
+      "sha256": "04466e15f65553dfb0845ba5c7d069489cb4062a8553fd4d88db175eafd4e084"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/autonomous-run-gate-requirements.json",
+      "sha256": "ab1c11e4c7d9781b66450049a3172eb465ff4be63c45e5d17336e3f93f56c6e7"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/checklists/plan.md",
+      "sha256": "1c22a7a9e2420befe19595bf72e57b79f13f4a2c2649d20e72831f58eb85342c"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/tasks.md",
+      "sha256": "4bb6c49e9a3814cc4fa298d4967daf33adac936c97caf6b1a0377cb1187b9969"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/checklists/autonomous-readiness.md",
+      "sha256": "0c1b4c0ad8554ccd35df2c7c82905e3325a40ad68b55d7e5d3614c5709a06cb5"
+    },
+    {
+      "path": "specs/002-secure-development-hardening/retrospective.md",
+      "sha256": "ef8aed3096d3a51779dc3711178687c2dd9340251f475fcb78c49d774ecad86b"
+    }
+  ],
+  "tasks": {
+    "path": "specs/002-secure-development-hardening/tasks.md",
+    "sha256": "4bb6c49e9a3814cc4fa298d4967daf33adac936c97caf6b1a0377cb1187b9969",
+    "completed": 110,
+    "total": 122
+  },
+  "routing": {
+    "policy": "balanced-v1",
+    "fallbackPolicy": "fail-closed",
+    "phases": [
+      {
+        "phaseId": "specify",
+        "command": "speckit.specify",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T10:41:59.316047Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/specify.result.json",
+        "resultSha256": "2fcecf49d5651c8ecc96f1267d61e9ee5af09d00c857f0c92acb1bf7fce763a0"
+      },
+      {
+        "phaseId": "clarify",
+        "command": "speckit.clarify",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "specify"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T10:44:14.374965Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/clarify.result.json",
+        "resultSha256": "2f5ff58dd9e70f8b22bce20ef6983c04d2ec8875ac64aae6206a7e7bd1ba8154"
+      },
+      {
+        "phaseId": "requirements-checklist",
+        "command": "speckit.checklist",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "clarify"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T09:11:06.126256Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/requirements-checklist.result.json",
+        "resultSha256": "ff5bbc0697754434b44a75790ba6517ebd7290fda148db557c1c16d19afde7bf"
+      },
+      {
+        "phaseId": "plan",
+        "command": "speckit.plan",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "requirements-checklist"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T10:46:39.398398Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/plan.result.json",
+        "resultSha256": "a9915654debb85bcc367eb140f908ec8596251a9ddfb502297ce4e50f82d3d5d"
+      },
+      {
+        "phaseId": "plan-review",
+        "command": "speckit.checklist",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "plan"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T09:46:10.044147Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/plan-review.result.json",
+        "resultSha256": "a760372c60dd43f9a4e20fb542854c94ddcca5a3f2677b9ff18918e8bba88aad"
+      },
+      {
+        "phaseId": "tasks",
+        "command": "speckit.tasks",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "plan-review"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T10:48:47.321712Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/tasks.result.json",
+        "resultSha256": "f2dd8d74e5a8bdfefb0645a67007e6e6b8ccf7f27d950e070318a267e85bbec4"
+      },
+      {
+        "phaseId": "analyze",
+        "command": "speckit.analyze",
+        "routingRole": "frontier-reasoning",
+        "runnerProfile": "codex-frontier-auto",
+        "dependsOn": [
+          "tasks"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T13:01:31.363097Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/analyze.result.json",
+        "resultSha256": "b2fa93b939aa90bb72adc55e0f81461743b60415b7e00730daca1e62c3290eb6"
+      },
+      {
+        "phaseId": "implement",
+        "command": "speckit.implement",
+        "routingRole": "long-running-implementation",
+        "runnerProfile": "codex-implementation-auto",
+        "dependsOn": [
+          "analyze"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T13:24:02.867348Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/implement.result.json",
+        "resultSha256": "ccb964004871803c68998af24b218f1401209a633d5fc222d95a99b8e6546e60"
+      },
+      {
+        "phaseId": "retrospective",
+        "command": "speckit.autonomous-retrospective",
+        "routingRole": "coding-review",
+        "runnerProfile": "codex-review-auto",
+        "dependsOn": [
+          "implement"
+        ],
+        "status": "Completed",
+        "agentFamily": "Codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "high",
+        "preflight": "Completed",
+        "exitCode": 0,
+        "updatedAt": "2026-08-30T13:33:35.0525400Z",
+        "resultPath": ".specify/runtime/autonomous-routing/d6d5e58e-0acc-404c-b5b4-4f97eba83c9f/retrospective.result.json",
+        "resultSha256": "562d85253482c10c77ce86d8b3885cde23423c826f00bd7b6b8f8901f196cf42"
+      }
+    ]
+  },
+  "lastPassingGate": "T111 remediation: the local Release solution test passed with 80 tests, 32 expected provider/platform skips and zero failures after adding Windows SQLite cleanup, serialized local API integration tests, a 120-second hosted-runner timeout, and PostgreSQL-backed coverage; Build 66 was consumed once.",
+  "nextExactAction": "Commit the native-runtime and dual-format SBOM gate repair with prospective Patch 8, create the ledger-only eighth commit, push PR #60, and evaluate only checks bound to the resulting exact head.",
+  "lastOperation": {
+    "kind": "SbomGateDiagnosis",
+    "state": "Completed",
+    "summary": "A focused reproduction proved that Microsoft.Sbom.DotNetTool 4.1.5 loses package detection under a .NET 10 major roll-forward and that its validate command requires output and supports only SPDX 2.2; the bounded workflow and documentation repair is prepared, and Admin-Bypass remains unused."
+  },
+  "stop": {
+    "reason": "N/A",
+    "requestedAt": "N/A",
+    "safeBoundary": "N/A"
+  },
+  "closeout": {
+    "mergeOrPublication": "Pending",
+    "defaultBranchSync": "Pending",
+    "postMergeActions": "Pending",
+    "finalValidation": "Pending"
+  },
+  "updatedAt": "2026-08-30T14:09:28.2952360Z"
+}

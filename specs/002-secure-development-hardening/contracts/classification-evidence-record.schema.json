@@ -1,0 +1,470 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:inventar-worker-service:secure-development-hardening:classification-evidence-record:1.0",
+  "title": "Secure-development classification and evidence record",
+  "description": "DE: Verbindlicher Vertrag für genau eine projektspezifische Bewertung einer stabilen CL-ID. EN: Binding contract for exactly one project assessment of a stable CL ID.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "checkpointId",
+    "checklistId",
+    "baselineVersion",
+    "checklistVersion",
+    "learningStage",
+    "applicability",
+    "implementationStatus",
+    "role",
+    "owner",
+    "reviewer",
+    "rationale",
+    "evidence",
+    "residualRisk",
+    "nextAction",
+    "dueDate",
+    "reevaluationTrigger",
+    "findingIds",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^CL-(0[1-9]|1[0-2])-[0-9]{2}$"
+    },
+    "checkpointId": {
+      "type": "string",
+      "pattern": "^CL-(0[1-9]|1[0-2])-[0-9]{2}$"
+    },
+    "checklistId": {
+      "type": "string",
+      "pattern": "^CL-(0[1-9]|1[0-2])$"
+    },
+    "baselineVersion": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "checklistVersion": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "learningStage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "applicability": {
+      "type": "string",
+      "enum": [
+        "Applicable",
+        "N/A",
+        "Open"
+      ]
+    },
+    "implementationStatus": {
+      "type": "string",
+      "enum": [
+        "Fulfilled",
+        "Partly Fulfilled",
+        "Not Fulfilled",
+        "Not Assessed"
+      ]
+    },
+    "role": {
+      "$ref": "#/$defs/nonBlankText"
+    },
+    "owner": {
+      "$ref": "#/$defs/nonBlankText"
+    },
+    "reviewer": {
+      "$ref": "#/$defs/nonBlankText"
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 20
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "residualRisk": {
+      "type": "string",
+      "minLength": 5
+    },
+    "nextAction": {
+      "type": "string",
+      "minLength": 5
+    },
+    "dueDate": {
+      "type": "string",
+      "pattern": "^(N/A|[0-9]{4}-[0-9]{2}-[0-9]{2})$"
+    },
+    "reevaluationTrigger": {
+      "type": "string",
+      "minLength": 10
+    },
+    "findingIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^FIND-[0-9]{3,}$"
+      }
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "implementationStatus": {
+            "const": "Fulfilled"
+          }
+        },
+        "required": [
+          "implementationStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "applicability": {
+            "const": "Applicable"
+          },
+          "evidence": {
+            "minItems": 1,
+            "contains": {
+              "properties": {
+                "result": {
+                  "const": "Pass"
+                }
+              },
+              "required": [
+                "result"
+              ]
+            },
+            "minContains": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "applicability": {
+            "const": "N/A"
+          }
+        },
+        "required": [
+          "applicability"
+        ]
+      },
+      "then": {
+        "properties": {
+          "implementationStatus": {
+            "const": "Not Assessed"
+          },
+          "evidence": {
+            "not": {
+              "contains": {
+                "properties": {
+                  "result": {
+                    "const": "Pass"
+                  }
+                },
+                "required": [
+                  "result"
+                ]
+              }
+            }
+          },
+          "dueDate": {
+            "const": "N/A"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "applicability": {
+            "const": "Applicable"
+          },
+          "implementationStatus": {
+            "const": "Not Assessed"
+          }
+        },
+        "required": [
+          "applicability",
+          "implementationStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "dueDate": {
+            "$ref": "#/$defs/isoDate"
+          },
+          "findingIds": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "applicability": {
+            "const": "Open"
+          }
+        },
+        "required": [
+          "applicability"
+        ]
+      },
+      "then": {
+        "properties": {
+          "implementationStatus": {
+            "enum": [
+              "Partly Fulfilled",
+              "Not Fulfilled",
+              "Not Assessed"
+            ]
+          },
+          "dueDate": {
+            "$ref": "#/$defs/isoDate"
+          },
+          "findingIds": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "implementationStatus": {
+            "enum": [
+              "Partly Fulfilled",
+              "Not Fulfilled"
+            ]
+          }
+        },
+        "required": [
+          "implementationStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "dueDate": {
+            "$ref": "#/$defs/isoDate"
+          },
+          "findingIds": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonBlankText": {
+      "type": "string",
+      "pattern": "^.*\\S.*$"
+    },
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "isoDate": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "value"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": [
+            "sha256",
+            "git-sha"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$|^[0-9a-f]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "algorithm": {
+                "const": "sha256"
+              }
+            },
+            "required": [
+              "algorithm"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "algorithm": {
+                "const": "git-sha"
+              }
+            },
+            "required": [
+              "algorithm"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "pattern": "^[0-9a-f]{40}$|^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceId",
+        "kind",
+        "source",
+        "scope",
+        "observedAt",
+        "reviewer",
+        "runnerOrPlatform",
+        "candidateGitSha",
+        "result",
+        "evidenceReference",
+        "integrity",
+        "validUntil",
+        "freshnessBasis",
+        "invalidationTriggers"
+      ],
+      "properties": {
+        "evidenceId": {
+          "type": "string",
+          "pattern": "^EV-[A-Z0-9][A-Z0-9-]{2,}$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "CommandOutput",
+            "TestResult",
+            "SourceReview",
+            "ConfigurationReview",
+            "ArchitectureRecord",
+            "CIRecord",
+            "ProviderRecord",
+            "ReleaseArtifact",
+            "RiskAcceptance"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/nonBlankText"
+        },
+        "command": {
+          "type": "string",
+          "minLength": 3
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 5
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewer": {
+          "$ref": "#/$defs/nonBlankText"
+        },
+        "runnerOrPlatform": {
+          "$ref": "#/$defs/nonBlankText"
+        },
+        "candidateGitSha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$|^[0-9a-f]{64}$"
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "Pass",
+            "Fail",
+            "Partial",
+            "Informational"
+          ]
+        },
+        "evidenceReference": {
+          "$ref": "#/$defs/nonBlankText"
+        },
+        "integrity": {
+          "$ref": "#/$defs/integrity"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "^(N/A|[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z)$"
+        },
+        "freshnessBasis": {
+          "type": "string",
+          "minLength": 10
+        },
+        "invalidationTriggers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "CommandOutput",
+                  "TestResult",
+                  "CIRecord",
+                  "ProviderRecord"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "command",
+              "runnerOrPlatform"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

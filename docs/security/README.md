@@ -13,19 +13,57 @@ werden hier mit projektspezifischen Inhalten befuellt.
 InventarWorkerService. Templates originate from `.specify/templates/` and are
 populated here with project-specific content.*
 
+## Feature-002-Einstieg / Feature 002 Entry
+
+DE: Der kanonische Prüfpfad beginnt beim
+[Feature-Assessment](secure-development/2026-08-30-secure-development-hardening/README.md),
+führt über [Bedrohungsmodell](threat-model.md),
+[arc42-Sicherheitskonzept](arc42-security.md),
+[Abhängigkeits-Audit](dependency-audit.md) und
+[Supply-Chain-Evidenz](supply-chain-evidence.md) zum
+[Barrierefreiheitsnachweis](../accessibility/secure-development-hardening.md).
+
+EN: The canonical review path starts with the
+[feature assessment](secure-development/2026-08-30-secure-development-hardening/README.md)
+and continues through the [threat model](threat-model.md),
+[arc42 security concept](arc42-security.md),
+[dependency audit](dependency-audit.md), [supply-chain evidence](supply-chain-evidence.md),
+and [accessibility evidence](../accessibility/secure-development-hardening.md).
+
 ## Dokumente / Documents
 
 | Dokument / Document | Template-Quelle / Template Source | Status |
 |---|---|---|
-| [threat-model.md](threat-model.md) | `threat-model-template.md` | Stub |
-| [security-checklist.md](security-checklist.md) | `security-checklist-template.md` | Stub |
-| [arc42-security.md](arc42-security.md) | `arc42-security-template.md` | Stub |
-| [dependency-audit.md](dependency-audit.md) | `dependency-audit-template.md` | Stub |
-| [security-quality-scenarios.md](security-quality-scenarios.md) | `security-quality-scenarios-template.md` | Stub |
-| [asvs-verification.md](asvs-verification.md) | `asvs-verification-template.md` | Stub |
-| [supply-chain-evidence.md](supply-chain-evidence.md) | `supply-chain-evidence-template.md` | Stub |
-| [zero-trust-applicability.md](zero-trust-applicability.md) | `zero-trust-applicability-template.md` | Stub |
-| [samm-assessment.md](samm-assessment.md) | `samm-assessment-template.md` | Stub |
+| [threat-model.md](threat-model.md) | `threat-model-template.md` | Assessed / Bewertet |
+| [security-checklist.md](security-checklist.md) | `security-checklist-template.md` | Assessed / Bewertet |
+| [arc42-security.md](arc42-security.md) | `arc42-security-template.md` | Assessed / Bewertet |
+| [dependency-audit.md](dependency-audit.md) | `dependency-audit-template.md` | Local complete; remote follow-up / Lokal vollständig; Remote-Folgepflicht |
+| [security-quality-scenarios.md](security-quality-scenarios.md) | `security-quality-scenarios-template.md` | Assessed / Bewertet |
+| [asvs-verification.md](asvs-verification.md) | `asvs-verification-template.md` | ASVS 5.0 L2 assessed / ASVS 5.0 L2 bewertet |
+| [supply-chain-evidence.md](supply-chain-evidence.md) | `supply-chain-evidence-template.md` | Local complete; provider evidence pending / Lokal vollständig; Provider-Evidenz offen |
+| [zero-trust-applicability.md](zero-trust-applicability.md) | `zero-trust-applicability-template.md` | Assessed / Bewertet |
+| [samm-assessment.md](samm-assessment.md) | `samm-assessment-template.md` | Assessed / Bewertet |
+
+## Feature-002-Abschlussstatus / Feature 002 Closeout Status
+
+DE: Die maschinenlesbare Projektbewertung enthält exakt 157 eindeutige
+Kontrollen. 126 sind ehrlich `Open / Not Assessed`; 31 sind begründet
+`N/A / Not Assessed`. Jeder offene Datensatz besitzt Owner, Reviewer,
+Restrisiko, Maßnahme, Priorität über sein Finding, ISO-Termin und
+Neubewertungs-Trigger. Dieser Index behauptet deshalb keine vollständige
+Normkonformität. Die lokale Implementierung, Vollregression und Coverage sind
+belegt; Axe/Chromium, Provider-SBOM/Provenienz/OpenSSF/Scanlogs, historische
+Credential-Disposition und unabhängige Remote-Reviews bleiben vor Release
+offen.
+
+EN: The machine-readable project assessment contains exactly 157 unique
+controls. 126 honestly remain `Open / Not Assessed`; 31 have reasoned
+`N/A / Not Assessed` dispositions. Every open record has an owner, reviewer,
+residual risk, action, finding priority, ISO due date, and re-evaluation
+trigger. This index therefore makes no claim of full standards compliance.
+Local implementation, full regression, and coverage are evidenced;
+Axe/Chromium, provider SBOM/provenance/OpenSSF/scan logs, historical credential
+disposition, and independent remote reviews remain open before release.
 
 ## Anwendungshinweise / Usage Notes
 

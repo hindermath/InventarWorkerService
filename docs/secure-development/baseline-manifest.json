@@ -25,10 +25,10 @@
     { "id": "CL-06", "path": "checklisten/CL_06_Schwachstellenoffenlegung.md", "version": "2.0.0" },
     { "id": "CL-07", "path": "checklisten/CL_07_CRA-Anwendbarkeit.md", "version": "2.0.0" },
     { "id": "CL-08", "path": "checklisten/CL_08_Sicherheits-Code-Review.md", "version": "2.0.0" },
-    { "id": "CL-09", "path": "checklisten/CL_09_KI-Codeerzeugung.md", "version": "2.1.0" },
+    { "id": "CL-09", "path": "checklisten/CL_09_KI-Codeerzeugung.md", "version": "2.2.0" },
     { "id": "CL-10", "path": "checklisten/CL_10_Sichere-Entwicklungsumgebung.md", "version": "2.0.0" },
     { "id": "CL-11", "path": "checklisten/CL_11_Datenschutz-Folgenabschaetzung.md", "version": "2.0.0" },
-    { "id": "CL-12", "path": "checklisten/CL_12_Agentische-KI-Sandbox.md", "version": "2.1.0" }
+    { "id": "CL-12", "path": "checklisten/CL_12_Agentische-KI-Sandbox.md", "version": "2.2.0" }
   ],
   "relatedDocuments": [
     { "path": "mitgeltende-dokumente/BCM-Notfallhandbuch.md", "version": "1.0.0" },

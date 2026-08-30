@@ -8,9 +8,11 @@ namespace InventarWorkerServiceIntegrationTests;
 /// EN: Contains tests for InventarWorkerServiceApiTests.
 /// </summary>
 [TestClass]
-public class InventarWorkerServiceApiTests : PlaywrightTest
+[DoNotParallelize]
+public class InventarWorkerServiceApiTests
 {
     private const string LocalBaseUrl = "http://127.0.0.1:8080";
+    private static IPlaywright? _playwright;
     private IAPIRequestContext? _apiContext;
     private readonly JsonSerializerOptions _jsonOptions;
 
@@ -42,6 +44,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
     [ClassInitialize]
     public static async Task ClassInitialize(TestContext context)
     {
+        _playwright = await Microsoft.Playwright.Playwright.CreateAsync();
         await LocalServiceHostManager.StartAsync(LocalBaseUrl);
     }
 
@@ -57,6 +60,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
     public static async Task ClassCleanup()
     {
         await LocalServiceHostManager.StopAsync();
+        _playwright?.Dispose();
     }
 
     /// <summary>
@@ -70,10 +74,18 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
     [TestInitialize]
     public async Task Setup()
     {
-        _apiContext = await Playwright.APIRequest.NewContextAsync(new()
+        _apiContext = await (_playwright ?? throw new InvalidOperationException("Playwright was not initialized."))
+            .APIRequest.NewContextAsync(new()
         {
             BaseURL = LocalBaseUrl,
-            IgnoreHTTPSErrors = true
+            IgnoreHTTPSErrors = true,
+            // DE: Windows-Inventarisierung darf auf gehosteten Runnern länger als Playwrights 30-Sekunden-Standard dauern.
+            // EN: Windows inventory may take longer than Playwright's 30-second default on hosted runners.
+            Timeout = 120_000,
+            ExtraHTTPHeaders = new Dictionary<string, string>
+            {
+                ["X-Inventory-Api-Key"] = LocalServiceHostManager.IntegrationApiKey
+            }
         });
 
         await EnsureReachableOrFailAsync(LocalBaseUrl);
@@ -119,10 +131,10 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Status check failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Response content should not be empty");
-        
+
         // Verify JSON format with System.Text.Json
         try
         {
@@ -158,10 +170,10 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Hardware inventory request failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Hardware inventory should not be empty");
-        
+
         // Verify JSON format with System.Text.Json
         try
         {
@@ -197,10 +209,10 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Software inventory request failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Software inventory should not be empty");
-        
+
         // Verify JSON format with System.Text.Json
         try
         {
@@ -236,10 +248,10 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Full inventory request failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Full inventory should not be empty");
-        
+
         // Verify JSON format with System.Text.Json
         try
         {
@@ -265,10 +277,15 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
     public async Task Test_LocalhostIP()
     {
         // Arrange
-        var localApiContext = await Playwright.APIRequest.NewContextAsync(new()
+        var localApiContext = await (_playwright ?? throw new InvalidOperationException("Playwright was not initialized."))
+            .APIRequest.NewContextAsync(new()
         {
             BaseURL = LocalBaseUrl,
-            IgnoreHTTPSErrors = true
+            IgnoreHTTPSErrors = true,
+            ExtraHTTPHeaders = new Dictionary<string, string>
+            {
+                ["X-Inventory-Api-Key"] = LocalServiceHostManager.IntegrationApiKey
+            }
         });
 
         try
@@ -284,7 +301,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
             // Assert
             Assert.IsTrue(response.Ok, $"Localhost IP test failed with status {response.Status}");
-            
+
             var content = await response.TextAsync();
             Assert.IsFalse(string.IsNullOrEmpty(content), "Response content should not be empty");
 
@@ -319,7 +336,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
     {
         // Arrange
         var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
-        
+
         // Act
         var response = await _apiContext!.GetAsync("/api/inventar/full", new APIRequestContextOptions
         {
@@ -333,7 +350,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Custom headers test failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Response content should not be empty");
 
@@ -372,10 +389,10 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Swagger documentation request failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Swagger HTML should not be empty");
-        Assert.IsTrue(content.Contains("swagger", StringComparison.OrdinalIgnoreCase), 
+        Assert.IsTrue(content.Contains("swagger", StringComparison.OrdinalIgnoreCase),
             "Response should contain swagger content");
     }
 
@@ -402,9 +419,9 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         // Health endpoint might not exist, so we check for either success or 404
-        Assert.IsTrue(response.Ok || response.Status == 404, 
+        Assert.IsTrue(response.Ok || response.Status == 404,
             $"Health check failed with unexpected status {response.Status}");
-        
+
         if (response.Ok)
         {
             var content = await response.TextAsync();
@@ -449,16 +466,16 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
 
         // Assert
         Assert.IsTrue(response.Ok, $"Swagger JSON request failed with status {response.Status}");
-        
+
         var content = await response.TextAsync();
         Assert.IsFalse(string.IsNullOrEmpty(content), "Swagger JSON should not be empty");
-        
+
         // Verify JSON format with System.Text.Json
         try
         {
             using var document = JsonDocument.Parse(content);
             Assert.AreNotEqual(JsonValueKind.Undefined, document.RootElement.ValueKind, "JSON should be parseable");
-            
+
             // Additional validation for Swagger/OpenAPI structure
             Assert.IsTrue(
                 document.RootElement.TryGetProperty("openapi", out _) ||
@@ -488,7 +505,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         var endpoints = new[]
         {
             "/api/inventar/hardware",
-            "/api/inventar/software", 
+            "/api/inventar/software",
             "/api/inventar/status"
         };
 
@@ -511,7 +528,7 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         foreach (var response in responses)
         {
             Assert.IsTrue(response.Ok, $"One of the performance test requests failed with status {response.Status}");
-            
+
             var content = await response.TextAsync();
             Assert.IsFalse(string.IsNullOrEmpty(content), "Response content should not be empty");
 
@@ -531,6 +548,34 @@ public class InventarWorkerServiceApiTests : PlaywrightTest
         foreach (var response in responses)
         {
             await response.DisposeAsync();
+        }
+    }
+
+    /// <summary>
+    /// DE: Prüft, dass ein API-Aufruf ohne Schlüssel vor der Fachlogik abgewiesen wird.
+    /// EN: Verifies that an API call without a key is rejected before domain logic.
+    /// </summary>
+    [TestMethod]
+    public async Task Security_MissingApiKey_ReturnsUnauthorized()
+    {
+        var anonymousContext = await (_playwright ?? throw new InvalidOperationException("Playwright was not initialized."))
+            .APIRequest.NewContextAsync(new()
+        {
+            BaseURL = LocalBaseUrl,
+            IgnoreHTTPSErrors = true
+        });
+
+        try
+        {
+            var response = await anonymousContext.GetAsync("/api/inventar/status");
+            Assert.AreEqual(401, response.Status);
+            var body = await response.TextAsync();
+            Assert.IsFalse(body.Contains("stack", StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(body.Contains("connection", StringComparison.OrdinalIgnoreCase));
+        }
+        finally
+        {
+            await anonymousContext.DisposeAsync();
         }
     }
 

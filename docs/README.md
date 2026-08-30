@@ -1,4 +1,18 @@
-﻿# Erläuterungen zum Einführungscode-Beispiel
+﻿# Projektdokumentation / Project Documentation
+
+## Sicherheits- und Architekturpfad / Security and Architecture Path
+
+DE: Für Feature 002 beginne beim [Sicherheitsindex](security/README.md), lies
+danach das [Feature-Assessment](security/secure-development/2026-08-30-secure-development-hardening/README.md),
+die [Architektur-Sicht](architecture/context-view.md) und den
+[Barrierefreiheitsnachweis](accessibility/secure-development-hardening.md).
+
+EN: For Feature 002, start at the [security index](security/README.md), then
+read the [feature assessment](security/secure-development/2026-08-30-secure-development-hardening/README.md),
+the [architecture view](architecture/context-view.md), and the
+[accessibility evidence](accessibility/secure-development-hardening.md).
+
+# Erläuterungen zum Einführungscode-Beispiel
 ## Die wichtigsten Begriffe noch einmal ausführlich erklärt
 
 ## 1. Einfaches Konsolenprogramm
@@ -211,16 +225,16 @@ In C# bezeichnet eine **Bibliothek** (englisch: *library*) eine Sammlung von wie
 
 ### 📚 Arten von Bibliotheken in C#
 
-- **Klassenbibliotheken**  
+- **Klassenbibliotheken**
   Enthalten Klassen, Methoden, Schnittstellen usw., die du in deinen Projekten verwenden kannst. Beispiel: `System.IO` für Dateizugriffe.
 
-- **.NET Framework / .NET Core / .NET Standard Libraries**  
+- **.NET Framework / .NET Core / .NET Standard Libraries**
   Microsoft stellt eine riesige Standardbibliothek bereit, die grundlegende Funktionen wie Dateioperationen, Netzwerkkommunikation, Datenbankzugriffe usw. abdeckt.
 
-- **Externe Bibliotheken (Third-Party Libraries)**  
+- **Externe Bibliotheken (Third-Party Libraries)**
   Von anderen Entwicklern erstellt, z. B. `Newtonsoft.Json` für JSON-Verarbeitung oder `Entity Framework` für Datenbankzugriffe.
 
-- **Eigene Bibliotheken**  
+- **Eigene Bibliotheken**
   Du kannst selbst eine Bibliothek schreiben, z. B. zur Wiederverwendung von Code in mehreren Projekten. Diese wird meist als `.dll` (Dynamic Link Library) kompiliert.
 
 ### 🛠 Beispiel: Verwendung einer Bibliothek
@@ -248,10 +262,10 @@ namespace ClassLibrary1;
 public class Calculator
 {
     public static double Calculation(double number1, double number2, string operation)
-    { 
-        
+    {
+
         switch (operation)
-        {             
+        {
             case "+":
                 return number1 + number2;
             case "-":
@@ -343,7 +357,7 @@ try
     int zahl = 0;
     if (zahl == 0)
         throw new DivideByZeroException("Division durch Null ist nicht erlaubt.");
-    
+
     int ergebnis = 10 / zahl;
 }
 catch (DivideByZeroException ex)
@@ -534,7 +548,7 @@ Dies ergibt den neuen URL https://www.toptal.com/developers/gitignore/api/csharp
 und der Inhalt wird im Browser-Fenster angezeigt. Diesen markieren, kopieren und in die gerade angelegte Datei einfügen.
 
 ### 6.2 Git-Repository anlegen
-Über den Menüpunkt `VCS` oder `Git` den Punkt `Enable Version Control Integration` auswählen und `Git` 
+Über den Menüpunkt `VCS` oder `Git` den Punkt `Enable Version Control Integration` auswählen und `Git`
 als Versionskontrollsystem auswählen.
 
 ![img.png](../images/img.png)
@@ -576,7 +590,7 @@ In einem Browser zu eurem Gitlab-Repo wechseln, das dem folgen URL-Format entspr
 https://gitlab-ce.gwdg.de/ausbildung/`euer_Vorname`
 
 Oben rechts die Schaltfläche "Neues Projekt" anklicken. Die Kachel `Leeres Projekt anlegen` anklicken.
-Das Projekt benennen durch eingeben eines Namens in dem Eingabefeld `Projektname`. Den Haken vor "Repository mit 
+Das Projekt benennen durch eingeben eines Namens in dem Eingabefeld `Projektname`. Den Haken vor "Repository mit
 einem README initialisieren" anklicken und somit abwählen. Jetzt auf `Projekt anlegen` klicken.
 
 ![img_10.png](../images/img_10.png)

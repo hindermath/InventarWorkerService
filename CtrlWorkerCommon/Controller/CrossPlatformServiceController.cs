@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using System.Text.RegularExpressions;
 
 namespace CtrlWorkerCommon.Controller;
 
@@ -29,14 +30,15 @@ public class CrossPlatformServiceController
     private readonly string _serviceName;
 
     /// <summary>
-    /// Initializes a new instance of the CrossPlatformServiceController for the specified service.
+    /// DE: Initialisiert den plattformübergreifenden Controller für einen begrenzten Dienstnamen.
+    /// EN: Initializes the cross-platform controller for a bounded service name.
     /// </summary>
-    /// <param name="serviceName">The OS service name to manage (e.g., Windows service name, systemd unit on Linux).</param>
+    /// <param name="serviceName">DE: Sicherer Name des zu verwaltenden Betriebssystemdienstes. EN: Safe name of the operating-system service to manage.</param>
     /// <exception cref="ArgumentNullException">
-    /// Thrown when <paramref name="serviceName"/> is <see langword="null"/>.
+    /// DE: <paramref name="serviceName"/> ist <see langword="null"/>. EN: <paramref name="serviceName"/> is <see langword="null"/>.
     /// </exception>
     /// <exception cref="ArgumentException">
-    /// Thrown when <paramref name="serviceName"/> is empty or whitespace.
+    /// DE: Der Name ist leer oder enthält nicht erlaubte Zeichen. EN: The name is empty or contains forbidden characters.
     /// </exception>
     public CrossPlatformServiceController(string serviceName)
     {
@@ -48,6 +50,13 @@ public class CrossPlatformServiceController
         if (string.IsNullOrWhiteSpace(serviceName))
         {
             throw new ArgumentException("Service name must not be empty or whitespace.", nameof(serviceName));
+        }
+
+        if (!Regex.IsMatch(serviceName, "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$", RegexOptions.CultureInvariant))
+        {
+            throw new ArgumentException(
+                "DE: Der Dienstname enthält unzulässige Zeichen. EN: The service name contains invalid characters.",
+                nameof(serviceName));
         }
 
         _serviceName = serviceName;
@@ -154,27 +163,27 @@ public class CrossPlatformServiceController
     {
         ExecuteCommand("systemctl", $"start {_serviceName.ToLower()}.service");
     }
-    
+
     private void StopLinuxService()
     {
         ExecuteCommand("systemctl", $"stop {_serviceName.ToLower()}.service");
     }
-    
+
     private void StartMacOSService()
     {
         ExecuteCommand("launchctl", $"load {Environment.GetEnvironmentVariable("HOME")}/Library/LaunchAgents/com.{_serviceName.ToLower()}.plist");
     }
-    
+
     private void StopMacOSService()
     {
         ExecuteCommand("launchctl", $"unload {Environment.GetEnvironmentVariable("HOME")}/Library/LaunchAgents/com.{_serviceName.ToLower()}.plist");
     }
-    
+
     private void StartFreeBSDService()
     {
         ExecuteCommand("service", $"{_serviceName.ToLower()} start");
     }
-    
+
     private void StopFreeBSDService()
     {
         ExecuteCommand("service", $"{_serviceName.ToLower()} stop");
@@ -200,9 +209,9 @@ public class CrossPlatformServiceController
                 RedirectStandardOutput = true,
                 RedirectStandardError = true
             });
-            
+
             process?.WaitForExit();
-            
+
             if (process?.ExitCode != 0)
             {
                 var error = process?.StandardError.ReadToEnd();

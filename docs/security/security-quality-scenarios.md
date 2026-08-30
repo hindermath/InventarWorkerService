@@ -1,17 +1,16 @@
-# Sicherheits-Qualitätsszenarien / Security Quality Scenarios: InventarWorkerService
+# Sicherheits-Qualitätsszenarien / Security Quality Scenarios
 
-**Projekt / Project**: InventarWorkerService (Level-2)
-**Datum / Date**: 2026-04-24
-**Status**: Stub — mit projektspezifischen Inhalten zu befuellen / Stub — to be populated
-**Template-Quelle / Template Source**: `.specify/templates/security-quality-scenarios-template.md`
+| ID | Szenario / Scenario | Messbares Ergebnis / Measurable response |
+|---|---|---|
+| SQ-01 | Unberechtigter HTTP-Aufruf / unauthorized call | 401/403, keine Daten und kein Stack-Trace / no data or stack trace |
+| SQ-02 | Fehlerhafte ID/Name / malformed ID/name | 400, generischer Fehler; Secret-freies Log / generic error; secret-free log |
+| SQ-03 | Unerlaubtes Ziel / disallowed target | vor Netzwerkzugriff abgelehnt; endlicher Timeout / rejected before network; finite timeout |
+| SQ-04 | Provider-Ausfall / provider failure | keine übertragene Provider-Parität; sichere Teilfehlerinfo / no inferred parity; safe partial failure |
+| SQ-05 | Teilwrite / partial write | alte Datei bleibt; Gate erneut / old file remains; rerun gate |
+| SQ-06 | Veraltete Evidenz / stale evidence | Status wird Open; Owner/Trigger sichtbar / status becomes Open; owner/trigger visible |
+| SQ-07 | Plattform / platform | explizite Plattformevidenz; keine Übertragung / explicit platform evidence; no inference |
+| SQ-08 | A11Y | Textstatus, DE/EN, Lynx/Axe ohne anwendbaren Fehler / text status, DE/EN, no applicable failure |
 
-<!--
-  Dieses Dokument ist ein Stub. Die vollstaendige Struktur findet sich im
-  Template unter .specify/templates/security-quality-scenarios-template.md. Bei der Befuellung das Template als Vorlage
-  verwenden.
+DE: Owner ist die Projektverantwortung; Security-, Architektur- und A11Y-Reviewer prüfen. Offene Szenarien sind bis 2026-09-30 fällig.
 
-  This document is a stub. The complete structure can be found in the
-  template at .specify/templates/security-quality-scenarios-template.md. Use the template as a guide when populating.
--->
-
-[Zu befuellen / To be populated — see template]
+EN: The project owner is accountable; security, architecture, and accessibility reviewers review. Open scenarios are due 2026-09-30.

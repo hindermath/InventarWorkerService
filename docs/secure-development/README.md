@@ -63,6 +63,12 @@
 
 ## Projektnachweise / Project Evidence
 
+**DE:** Die aktuelle projektspezifische Instanz für Feature 002 liegt im
+[Secure-Development-Hardening-Assessment](../security/secure-development/2026-08-30-secure-development-hardening/README.md).
+
+**EN:** The current project-specific instance for Feature 002 is available in
+the [secure-development hardening assessment](../security/secure-development/2026-08-30-secure-development-hardening/README.md).
+
 **DE:** Diese Dateien sind Vorlagen. Ausgefüllte Nachweise liegen unter `docs/security/secure-development/<datum>-<scope>/`. Eine positive Aussage ist nur belastbar, wenn die genannte Evidenz existiert und zum geprüften Stand gehört. `N/A` ist eine begründete Anwendbarkeitsentscheidung, kein Ersatz für eine fehlende Umsetzung.
 
 **EN:** These files are templates. Completed evidence lives under `docs/security/secure-development/<date>-<scope>/`. A positive statement is reliable only when the cited evidence exists and belongs to the assessed state. `N/A` is a justified applicability decision, not a substitute for missing implementation.

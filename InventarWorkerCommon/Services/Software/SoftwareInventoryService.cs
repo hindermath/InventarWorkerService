@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.ServiceProcess;
+using System.Text.RegularExpressions;
 using InventarWorkerCommon.Models.Software;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
@@ -13,6 +14,10 @@ namespace InventarWorkerCommon.Services.Software;
 /// </summary>
 public class SoftwareInventoryService
 {
+    private static readonly Regex SensitiveEnvironmentName = new(
+        "(^|_)(PASSWORD|PASSWD|PWD|SECRET|TOKEN|API_KEY|ACCESS_KEY|PRIVATE_KEY|CONNECTION_STRING|CONNECTIONSTRING|CREDENTIALS?)($|_)",
+        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
     private readonly ILogger<SoftwareInventoryService> _logger;
 
     /// <summary>
@@ -49,7 +54,7 @@ public class SoftwareInventoryService
             };
 
             await Task.WhenAll(tasks);
-            
+
             _logger.LogInformation("Software-Inventar erfolgreich gesammelt");
         }
         catch (Exception ex)
@@ -134,7 +139,7 @@ public class SoftwareInventoryService
                             var installDateString = subKey.GetValue("InstallDate")?.ToString();
                             if (!string.IsNullOrEmpty(installDateString) && installDateString.Length == 8)
                             {
-                                if (DateTime.TryParseExact(installDateString, "yyyyMMdd", null, 
+                                if (DateTime.TryParseExact(installDateString, "yyyyMMdd", null,
                                     System.Globalization.DateTimeStyles.None, out var installDate))
                                 {
                                     softwareInfo.InstallDate = installDate;
@@ -222,14 +227,14 @@ public class SoftwareInventoryService
             if (Directory.Exists(applicationsPath))
             {
                 var appDirectories = Directory.GetDirectories(applicationsPath, "*.app");
-                
+
                 foreach (var appDir in appDirectories)
                 {
                     try
                     {
                         var appName = Path.GetFileNameWithoutExtension(appDir);
                         var infoPlistPath = Path.Combine(appDir, "Contents", "Info.plist");
-                        
+
                         var softwareInfo = new SoftwareInfo
                         {
                             Name = appName,
@@ -497,11 +502,16 @@ public class SoftwareInventoryService
         try
         {
             var variables = Environment.GetEnvironmentVariables();
-            
+
             foreach (var key in variables.Keys.Cast<string>().OrderBy(k => k))
             {
                 var value = variables[key]?.ToString() ?? string.Empty;
-                environmentVariables.Add($"{key}={value}");
+
+                // DE: Das Inventar benötigt Variablennamen für die Betriebsdiagnose, aber
+                // geheimnisverdächtige Werte dürfen die lokale Vertrauensgrenze nie verlassen.
+                // EN: Inventory needs variable names for operational diagnostics, but
+                // secret-like values must never leave the local trust boundary.
+                environmentVariables.Add($"{key}={(SensitiveEnvironmentName.IsMatch(key) ? "[REDACTED]" : value)}");
             }
         }
         catch (Exception ex)
@@ -801,11 +811,11 @@ public class SoftwareInventoryService
         try
         {
             _logger.LogInformation("Sammle Software-Informationen...");
-        
+
             var softwareInventory = await CollectSoftwareInventoryAsync();
-        
+
             _logger.LogInformation("Software-Informationen erfolgreich gesammelt");
-        
+
             return softwareInventory;
         }
         catch (Exception ex)
