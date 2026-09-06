@@ -1356,3 +1356,9 @@ Die lebende Projektstatistik steht in `docs/project-statistics.md`. Sie wird rep
 
 *The living project statistics are stored in `docs/project-statistics.md`. They are rendered reproducibly from `docs/project-statistics.config.json` with the Bash or PowerShell renderer. Every chart is ASCII-only, at most 100 characters wide, and accompanied by exact values plus German and English text alternatives.*
 <!-- statistics-profile-2-readme:end -->
+
+## Secure Development Assurance – Projektintegration / Project Integration
+
+Das ausdrücklich freigegebene 13-Preset-Profil ergänzt die bisherigen zwölf Presets unverändert. [Bedienung und Integrationsnachweis](docs/maintenance/secure-development-assurance-integration.md).
+
+*The explicitly approved thirteen-preset profile preserves the existing twelve presets. See the linked usage and integration record.*
