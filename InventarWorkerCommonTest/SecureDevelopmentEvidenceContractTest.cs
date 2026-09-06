@@ -63,7 +63,7 @@ public sealed partial class SecureDevelopmentEvidenceContractTest
     [TestMethod]
     public void IntakeClassification_UsesFiveAllowedStates_WithCompleteDisposition()
     {
-        var intake = File.ReadAllText(PathInRepository("Lastenheft_Secure-Development-Hardening.md"));
+        var intake = File.ReadAllText(PathInRepository("Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md"));
         foreach (var state in AllowedIntakeStates)
         {
             StringAssert.Contains(intake, $"`{state}`", $"Missing intake classification state {state}.");
@@ -71,18 +71,34 @@ public sealed partial class SecureDevelopmentEvidenceContractTest
     }
 
     /// <summary>
-    /// DE: Prüft exakt zwölf aktivierte Presets in der installierten Registry.
-    /// EN: Verifies exactly twelve enabled presets in the installed registry.
+    /// DE: Prüft die freigegebene 13er-Matrix samt Version, Priorität und Aktivierung.
+    /// EN: Verifies the approved thirteen-preset matrix, versions, priorities and activation.
     /// </summary>
     [TestMethod]
-    public void InstalledPresetRegistry_ContainsExactTwelveEnabledManifests()
+    public void InstalledPresetRegistry_MatchesApprovedThirteenPresetProfile()
     {
         using var registry = JsonDocument.Parse(File.ReadAllText(PathInRepository(".specify/presets/.registry")));
+        using var matrix = JsonDocument.Parse(File.ReadAllText(PathInRepository("scripts/config/spec-kit-secure-development-assurance-governance-presets.json")));
         var presets = registry.RootElement.GetProperty("presets").EnumerateObject().ToArray();
+        var expected = matrix.RootElement.GetProperty("presets").EnumerateArray().ToArray();
 
-        Assert.AreEqual(12, presets.Length);
+        Assert.AreEqual(13, expected.Length);
+        Assert.AreEqual(13, expected.Select(preset => preset.GetProperty("id").GetString())
+            .Distinct(StringComparer.Ordinal).Count());
+        Assert.AreEqual(expected.Length, presets.Length);
         Assert.IsTrue(presets.All(preset => preset.Value.GetProperty("enabled").GetBoolean()));
-        Assert.AreEqual(12, presets.Select(preset => preset.Name).Distinct(StringComparer.Ordinal).Count());
+        Assert.AreEqual(13, presets.Select(preset => preset.Name).Distinct(StringComparer.Ordinal).Count());
+        // DE: Die Profilquelle verhindert Drift zwischen isolierten Testkonstanten und Rollout.
+        // EN: Binding to the profile avoids drift between isolated test constants and rollout.
+        foreach (var definition in expected)
+        {
+            var id = definition.GetProperty("id").GetString()!;
+            var installed = registry.RootElement.GetProperty("presets").GetProperty(id);
+            Assert.AreEqual(definition.GetProperty("version").GetString()!.TrimStart('v'),
+                installed.GetProperty("version").GetString(), $"Version mismatch: {id}");
+            Assert.AreEqual(definition.GetProperty("priority").GetInt32(),
+                installed.GetProperty("priority").GetInt32(), $"Priority mismatch: {id}");
+        }
     }
 
     /// <summary>

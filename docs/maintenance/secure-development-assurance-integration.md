@@ -100,6 +100,30 @@ decision, or next evidence action is inferred. Baseline 3.1.0, policies,
 checklists and existing evidence stay unchanged. C5 is a limited relationship,
 not attestation, certification, or full readiness. No substantive review starts.*
 
+## CI-Vertragskorrektur / CI Contract Correction
+
+Der erste PR-Lauf zeigte zwei konkrete rote Tests. Der Installationstest
+forderte noch starr zwölf Presets; er prüft jetzt die freigegebene 13er-Matrix
+einschließlich Versionen, Prioritäten und Aktivierungszuständen. Der zweite
+Test verwendete einen veralteten Intake-Dateinamen. Derselbe Fehler bestand
+bereits auf `main` (CI-Lauf `33536603664`); die Referenz zeigt jetzt auf das
+vorhandene, unveränderte branchgestempelte Lastenheft. Es wurde keine
+Ersatzkopie erzeugt und keine historische Anforderung verändert.
+
+Rot-Nachweis: PR-CI `34055696149`, Testklasse
+`SecureDevelopmentEvidenceContractTest`, `FileNotFoundException` und
+`Expected 12 / Actual 13`. Grün-Nachweis folgt über denselben PR-Workflow
+mit Build/Test auf Linux, macOS und Windows sowie Supply-Chain-/Coverage-Gate.
+Der Test prüft nun mehr als nur die Anzahl; Produktlogik bleibt unverändert.
+
+*The first PR CI found a stale twelve-preset assertion and an obsolete intake
+filename. The registry test now checks the approved thirteen-preset matrix,
+including versions, priorities and enabled state. The filename failure already
+exists on main run 33536603664; its reference now targets the unchanged
+branch-stamped intake, without creating a duplicate. Run 34055696149 provides
+the red proof; the same multi-platform CI and coverage workflow must provide
+green proof. This changes test contracts, not product behavior.*
+
 ## Dokumentationsauswirkung / Documentation Impact
 
 `UpdateRequired`, Owner: Thorsten Hindermann. Zielgruppen: Lernende, Maintainer
