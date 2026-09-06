@@ -296,6 +296,7 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-07-23 | Intake Authoring und Review | 13 aktive Lastenhefte als hashgebundene Legacy-Intakes normalisiert; Einzel- und Serienreview `Ready` mit null offenen Findings, Fragen oder Risiken; keine Produktcode- oder Laufzeitänderung. |
 | 2026-08-30 | Feature 002 – finaler lokaler Vor-Kandidaten-Stand T107 | Branch `002-secure-development-hardening`; beobachtbares Arbeitsfenster: eine agentische Implementierungsphase am 2026-08-30. Der tatsächliche PR-Kandidaten-Arbeitsbaum umfasst `+562 / -163` Produktions-, Paket- und Workflowzeilen, `+502 / -8` Testzeilen sowie `+12347 / -151` Dokumentations-, Security-, Architektur-, A11Y-, Spec- und Retrospektivzeilen. Hauptpakete sind die 157-Kontrollen-Bewertung, finding-gesteuerte API-/Datei-/Prozesshärtung, .NET-10-/CI-/Supply-Chain-Ausrichtung, drei Testprojekte, T095-Vollregression mit 110 bestandenen Tests und 90,1 Prozent Zeilenabdeckung, lokale Gate-Dispositionen und eine nicht leere Retrospektive. Die validierte Intake-Lineage ist recoverbar in einem lokalen Stash vorbereitet, aus diesem PR-Kandidaten ausgeschlossen und wird erst nach T117 angewendet. Das Bruttoänderungsvolumen von `13733` Zeilen entspricht bei 80 Zeilen/Arbeitstag `171,7` Arbeitstagen, `1339,0` Stunden und `8,0` Monaten; bei der repo-spezifischen Thorsten-Solo-Basis von 100 Zeilen/Arbeitstag `137,3` Arbeitstagen, `1071,2` Stunden und `6,4` Monaten. Annahmen: 21,5 Arbeitstage pro Monat und 7,8 Stunden pro Arbeitstag. Gegen einen sichtbaren Git-Aktivtag beträgt der blended repository speedup `171,7x` beziehungsweise `137,3x`; das ist eine sichtbare AI-unterstützte Lieferdichte und keine Stoppuhrmessung. / *Feature 002 final local pre-candidate state includes the 157-control assessment, finding-driven hardening, CI/supply-chain alignment, 110 passing T095 tests at 90.1% line coverage, gate dispositions, and a non-empty retrospective. The validated intake lineage is prepared recoverably in a local stash, excluded from this PR candidate, and applied only after T117. The 80- and 100-lines/day comparisons use 21.5 workdays/month and 7.8 hours/day and are blended repository speedups, not stopwatch measurements.* |
 | 2026-09-06 | Assurance-Profil v0.1.2 integriert / Assurance profile v0.1.2 integrated | Arbeitsfenster: eine sichtbare Agentensitzung am 2026-09-06; Branch `codex/assurance-preset-integration`. Nur freigegebene Repository-Integration, keine Produktcode- oder Produkttest-Aenderung. Wiederverwendetes Paket und Dokumentations-/Konfigurationsdelta vor Statistik-Selbstnachweis: +4241 / -15 Zeilen; importiertes Paket ist keine neu entwickelte Produktlogik. Zwoelf bestehende Presets, alte Profile, projektgefuehrte Baseline und menschliche Entscheidungen bleiben unveraendert. Paketbindung, exakte 13er-Matrix, Byte-Erhalt, isolierte Vertrags-/Oberflaechentests und lesender Status sind im Integrationsnachweis dokumentiert; Lieferung folgt per fokussiertem PR mit CI und MergeAndSync. Keine Home-Verteilung oder fachlichen Reviews. Referenzen bleiben im unveraenderten Statistikprofil konfiguriert. / One visible session integrates only the approved repository profile. Imported package content is reuse, not new product logic. Product code/tests and the original twelve presets remain unchanged; see the integration record for tests and boundaries. |
+| 2026-09-06 | Assurance v0.1.3 – genehmigte Korrekturadoption / approved patch adoption | Eine sichtbare Agentensitzung; Branch `codex/assurance-v013-adoption`. Oeffentliches unveraendertes Paket ersetzt ausschliesslich Assurance, zwoelf weitere Presets und bestehende Profile bleiben erhalten. Gestagter Paket-/Konfigurations-/Dokumentationsdelta: +506 / -31 Zeilen vor Statistik-Selbstnachweis; importierte Zeilen sind wiederverwendetes Paket, keine neu entwickelte Produktlogik. Keine Runtime-/API-Aenderung und keine neue fachliche Freigabe. Technische Bindungen und vorgeschriebene Build-Metadaten werden nur soweit erforderlich mitgefuehrt. Nachweise: `docs/maintenance/assurance-v013-adoption.md`. Lieferung ueber CI, Review und MergeAndSync; kein Home-Sync. / One visible session adopts the immutable public patch, preserving twelve presets and profiles. Reused package volume is not new product logic. No runtime/API or human-approval change; only required technical bindings and build metadata follow. See adoption evidence; CI/review gate MergeAndSync. |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -448,26 +449,26 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 165478 lines |
-| Textdateien / Text files | 1123 |
+| Textbasis / Text base | 165953 lines |
+| Textdateien / Text files | 1125 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-06 |
 | Aktivtage / Active days | 120 |
-| Relevante Commits / Relevant commits | 523 |
-| Zeilen je Aktivtag / Lines per active day | 1379.0 |
+| Relevante Commits / Relevant commits | 524 |
+| Zeilen je Aktivtag / Lines per active day | 1382.9 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 17.2x |
+| Speedup vs. 80 lines/day | 17.3x |
 | Speedup vs. 100 lines/day | 13.8x |
-| Methodik / Methodology | v2; source `a5d5a9f59891` |
+| Methodik / Methodology | v2; source `b93bad8ebc56` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [#...................]   6.4% | 10545
 Tests                           [#...................]   5.3% | 8765
-Dokumentation / Documentation   [##############......]  71.5% | 118292
-Skripte / Scripts               [###.................]  13.0% | 21432
+Dokumentation / Documentation   [##############......]  71.6% | 118767
+Skripte / Scripts               [###.................]  12.9% | 21432
 Konfiguration / Configuration   [#...................]   2.4% | 4041
 Daten und Medien / Data and media [#...................]   0.7% | 1150
 Sonstiger Text / Other text     [#...................]   0.8% | 1253
@@ -593,7 +594,7 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [#################...] 17.2x
+80 lines/day       [#################...] 17.3x
 100 lines/day      [##############......] 13.8x
 ```
 
@@ -607,7 +608,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1379.0
+Visible repository [##############......] 1382.9
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -633,6 +634,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-06. Es enthaelt 120 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 4309 |
+| 2026-09 | 4846 |
 
 <!-- project-statistics-v2:end -->
