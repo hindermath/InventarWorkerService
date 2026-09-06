@@ -1,5 +1,11 @@
 # Secure Development Assurance – Projektintegration / Project Integration
 
+> Aktuell gilt [der v0.1.3-Nachtrag](assurance-v013-adoption.md).
+> Der folgende Text erhält den historischen Stand der ersten Integration.
+>
+> Current installation follows the v0.1.3 addendum linked above.
+> The text below preserves the historical initial-integration record.
+
 ## Zweck und freigegebener Umfang / Purpose and Approved Scope
 
 InventarWorkerService verwendet ausdrücklich das Profil
