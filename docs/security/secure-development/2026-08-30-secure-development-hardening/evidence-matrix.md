@@ -5,8 +5,9 @@
 Dieser am 2026-09-07 erstellte Index erschließt die **vorhandenen historischen**
 Kontrollbewertungen. Er ist kein neuer fachlicher Review und bestätigt weder
 Aktualität noch Erfüllung der referenzierten Nachweise. Die Statuswerte werden
-unverändert aus [assessment-records.json](assessment-records.json) übernommen, nicht in Assurance-Gate-Ergebnisse
-umgedeutet. Rollen in der Quelle sind keine nachträglich erteilten Freigaben.
+unverändert aus [assessment-records.json](assessment-records.json) übernommen,
+nicht in Assurance-Gate-Ergebnisse umgedeutet. Rollen in der Quelle sind keine
+nachträglich erteilten Freigaben.
 
 *This index, added on 2026-09-07, exposes existing historical assessments. It is
 not a new domain review or a freshness/fulfilment confirmation. Source states
@@ -16,10 +17,12 @@ roles do not constitute newly granted approvals.*
 ## Quellenbindung / Source Binding
 
 - Kontext / context: `2026-08-30-secure-development-hardening`.
-- Kanonische Bewertungsquelle / canonical assessment source: [assessment-records.json](assessment-records.json).
+- Kanonische Bewertungsquelle / canonical assessment source:
+  [assessment-records.json](assessment-records.json).
 - SHA-256 der unveränderten Dateibytes / SHA-256 of unchanged file bytes:
   `4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524`.
-- Git-Stand vor Indexergänzung / Git HEAD before adding this index: `82b9e17743235fc0d656972cf637470392a76604`.
+- Git-Stand vor Indexergänzung / Git HEAD before adding this index:
+  `82b9e17743235fc0d656972cf637470392a76604`.
 - Umfang / scope: 157 eindeutige Kontroll-IDs / unique control IDs.
 - Hash oben ist ein Dateibyte-Hash, keine neue normalisierte Baseline-Bindung.
   / The hash above is a raw file hash, not a new normalized baseline binding.
