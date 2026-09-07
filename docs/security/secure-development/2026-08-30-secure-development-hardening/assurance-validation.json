@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0",
+  "checkedAt": "2026-09-07T21:15:49Z",
+  "platform": "Darwin; Bash first, PowerShell 7 cross-check; not native Windows",
+  "context": "docs/security/secure-development/2026-08-30-secure-development-hardening",
+  "sourceSha256": "4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524",
+  "controlMappingsVerified": 157,
+  "gateOutcomes": "Blocked",
+  "humanDecisions": "All four Open",
+  "protectedFiles": {
+    "baselineHead": "efe8fdf4c754f63dfc27f78d4f65777f1fb0d99e",
+    "inventorySha256": "ff4ba05582951b80bdf4c09097082c5881afd2906a57c0400c82dec989def345",
+    "count": 1155
+  },
+  "gateFileHashes": {
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/baseline.json": "652343574d55080f4e317c6d92db5927bda003de049dff13e4c7899a31412547",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/deltas/2026-09-07-assurance-migration.json": "7c6353fc05a6c688e4834a6cd9f11b288fd82fe98767454d0b1347356e511062",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/closure.json": "206a6e28a624ba6307d84fd1b2642d19f3677b4edd87962e03d2790605eda4d5",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/image-impact.json": "5455e01f9c02314e0ba5e16f39595eb650072b89bba405b4cca4511b974d6619"
+  },
+  "readOnlyPreservation": true,
+  "shellParity": true,
+  "calls": [
+    {
+      "operation": "status-before",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh status docs/security/secure-development/2026-08-30-secure-development-hardening",
+      "exitCode": 2,
+      "output": "Blocked: Richtlinienversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "status-before",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Status -EvidenceDirectory docs/security/secure-development/2026-08-30-secure-development-hardening",
+      "exitCode": 2,
+      "output": "Blocked: Dokumentversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "baseline",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh review baseline secure-development-hardening development",
+      "exitCode": 2,
+      "output": "Blocked: Richtlinienversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "baseline",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Review -Gate baseline -ContextId secure-development-hardening -Mode development",
+      "exitCode": 2,
+      "output": "Blocked: Dokumentversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "delta",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh review delta secure-development-hardening development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=delta context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "delta",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Review -Gate delta -ContextId secure-development-hardening -Mode development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=delta context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "closure",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh review closure secure-development-hardening development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=closure context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "closure",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Review -Gate closure -ContextId secure-development-hardening -Mode development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=closure context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "image-impact",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh review image-impact secure-development-hardening development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=image-impact context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "image-impact",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Review -Gate image-impact -ContextId secure-development-hardening -Mode development",
+      "exitCode": 0,
+      "output": "Reviewed: gate=image-impact context=secure-development-hardening mode=development outcome=Blocked",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "status-after",
+      "shell": "Bash",
+      "command": "bash .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.sh status docs/security/secure-development/2026-08-30-secure-development-hardening",
+      "exitCode": 2,
+      "output": "Blocked: Richtlinienversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    },
+    {
+      "operation": "status-after",
+      "shell": "PowerShell",
+      "command": "pwsh -NoProfile -File .specify/presets/secure-development-assurance-governance/scripts/validate-secure-development-assurance.ps1 -Action Status -EvidenceDirectory docs/security/secure-development/2026-08-30-secure-development-hardening",
+      "exitCode": 2,
+      "output": "Blocked: Dokumentversion stimmt nicht: Richtlinie_Sichere-Entwicklung.md",
+      "outcome": "Blocked"
+    }
+  ],
+  "interpretation": "Exit 0 may mean valid blocked evidence; never treat it as substantive Ready."
+}

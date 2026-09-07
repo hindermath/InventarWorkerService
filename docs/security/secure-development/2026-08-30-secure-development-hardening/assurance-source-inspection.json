@@ -1,0 +1,2552 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "AssuranceMigrationInspection",
+  "inspectedAt": "2026-09-07T21:02:09Z",
+  "scope": "DE: Lesende Prüfung von Quellenidentität, Versionen und Referenzen; keine fachliche Wirksamkeitsprüfung. EN: Read-only source identity, version and reference inspection; not a domain effectiveness review.",
+  "sourcePath": "docs/security/secure-development/2026-08-30-secure-development-hardening/assessment-records.json",
+  "sourceSha256": "4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524",
+  "sourceControlCount": 157,
+  "baselineVersion": "3.1.0",
+  "documentDrift": [
+    {
+      "declaredVersion": "3.1.0",
+      "observedVersion": "3.2.0",
+      "kind": "VersionDrift",
+      "path": "Richtlinie_Sichere-Entwicklung.md"
+    },
+    {
+      "declaredVersion": "2.1.0",
+      "observedVersion": "2.2.0",
+      "kind": "VersionDrift",
+      "path": "Checklistensammelband_Sichere-Entwicklung.md"
+    },
+    {
+      "declaredVersion": "1.1.0",
+      "observedVersion": "1.2.0",
+      "kind": "VersionDrift",
+      "path": "mitgeltende-dokumente/Richtlinie_Secure-Development-Life-Cycle.md"
+    },
+    {
+      "declaredVersion": "3.1.0",
+      "observedVersion": "3.2.0",
+      "kind": "BaselineVersionDrift",
+      "path": "Checklistensammelband_Sichere-Entwicklung.md"
+    }
+  ],
+  "referenceChecks": [
+    {
+      "id": "EV-CL1201-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1201-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-01",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1202-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1202-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-02",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1203-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1203-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-03",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1204-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1204-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-04",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1205-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1205-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-05",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1206-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1206-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-06",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1207-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1207-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-07",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1208-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1208-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-08",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1209-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1209-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-09",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1210-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1210-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-10",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1211-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1211-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-11",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1212-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_12_Agentische-KI-Sandbox.md",
+      "expectedSha256": "",
+      "observedSha256": "2ef55845c8d66e7cd1da1ef4a3cb36c7c29b79a3ec1bc6b3a7edb4b4a0505784",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1212-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_12_Agentische-KI-Sandbox.md#cl-12-12",
+      "expectedSha256": "",
+      "observedSha256": "9ca0f91905fa7a73db786db7e5ccc54fb272aa3551589aba6b6a50b2bfb833d8",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0701-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0701-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-01",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0702-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0702-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-02",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0703-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0703-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-03",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0704-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0704-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-04",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0705-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0705-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-05",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0706-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0706-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-06",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0707-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0707-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-07",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0708-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0708-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-08",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0709-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0709-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-09",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0710-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0710-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-10",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0711-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0711-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-11",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0712-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_07_CRA-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b661bb1ab93a5d8a4105f39ab77e2738d80664ac0c1057be04dfa02069de9874",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0712-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_07_CRA-Anwendbarkeit.md#cl-07-12",
+      "expectedSha256": "",
+      "observedSha256": "76d721f9ef74eeeee10cb36a0aec3847a08ba7270e2abd2d5756a32f57f6830e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1101-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1101-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-01",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1102-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1102-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-02",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1103-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1103-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-03",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1104-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1104-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-04",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1105-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1105-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-05",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1106-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1106-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-06",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1107-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1107-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-07",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1108-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1108-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-08",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1109-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1109-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-09",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1110-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1110-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-10",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1111-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1111-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-11",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1112-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_11_Datenschutz-Folgenabschaetzung.md",
+      "expectedSha256": "",
+      "observedSha256": "f04655647392351e1fd283d39c7ac874a5974eb597068e286d11508fc4c16381",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1112-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_11_Datenschutz-Folgenabschaetzung.md#cl-11-12",
+      "expectedSha256": "",
+      "observedSha256": "1e3b565b2393e15530b077d3f0a147c9864a09c1d0dcf1a3b9ae510a630721be",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0201-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0201-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-01",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0202-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0202-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-02",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0203-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0203-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-03",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0204-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0204-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-04",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0205-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0205-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-05",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0206-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0206-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-06",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0207-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0207-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-07",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0208-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0208-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-08",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0209-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0209-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-09",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0210-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0210-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-10",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0211-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0211-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-11",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0212-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0212-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-12",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0213-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_02_Sichere-Softwarearchitektur.md",
+      "expectedSha256": "",
+      "observedSha256": "1b387329009286ce7a0a67b7af1f4bd3f60d290413f57c2eab307ca4b257ec9d",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0213-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_02_Sichere-Softwarearchitektur.md#cl-02-13",
+      "expectedSha256": "",
+      "observedSha256": "e013059764ce1bb795796a9ef2ed850a72b699e3152a7f2c361b86bd638bf02b",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0301-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0301-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-01",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0302-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0302-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-02",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0303-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0303-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-03",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0304-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0304-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-04",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0305-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0305-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-05",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0306-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0306-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-06",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0307-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0307-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-07",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0308-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0308-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-08",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0309-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0309-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-09",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0310-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0310-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-10",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0311-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0311-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-11",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0312-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0312-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-12",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0313-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0313-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-13",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0314-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0314-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-14",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0315-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_03_Krypto-Mindestvorgaben.md",
+      "expectedSha256": "",
+      "observedSha256": "031cc40fa44877e34cafc1b398f4ea582c1088647cae4659824e8ff7b5e6b5e9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0315-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_03_Krypto-Mindestvorgaben.md#cl-03-15",
+      "expectedSha256": "",
+      "observedSha256": "ad4a1e762d328a941116e4b3f92f651abfa67554294cde5f255f56e65e5667c9",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0401-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0401-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-01",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0402-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0402-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-02",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0403-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0403-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-03",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0404-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0404-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-04",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0405-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0405-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-05",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0406-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0406-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-06",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0407-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0407-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-07",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0408-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0408-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-08",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0409-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0409-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-09",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0410-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_04_Bedrohungsmodellierung.md",
+      "expectedSha256": "",
+      "observedSha256": "12d26d0051f4b6de966c7c67c5f0004e25c3136a269fd586a4a3f0f9418d512e",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0410-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_04_Bedrohungsmodellierung.md#cl-04-10",
+      "expectedSha256": "",
+      "observedSha256": "bbf4cd2729e9fa580b7e3a093f6a53527edf7447d764db48a6c60de85676e486",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1001-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1001-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-01",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1002-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1002-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-02",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1003-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1003-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-03",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1004-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1004-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-04",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1005-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1005-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-05",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1006-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1006-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-06",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1007-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1007-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-07",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1008-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1008-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-08",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1009-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1009-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-09",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1010-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1010-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-10",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1011-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1011-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-11",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1012-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1012-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-12",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1013-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1013-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-13",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1014-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1014-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-14",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1015-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1015-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-15",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1016-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1016-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-16",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1017-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_10_Sichere-Entwicklungsumgebung.md",
+      "expectedSha256": "",
+      "observedSha256": "f99e707e4a4186c6ab4031cccdb796981b766ff3d4e09f43798d223e37715f25",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL1017-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_10_Sichere-Entwicklungsumgebung.md#cl-10-17",
+      "expectedSha256": "",
+      "observedSha256": "c6d318b383b32283ad092d0d8340b1508d3835f8043e7e93c2ab5c5ae2708fa3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0901-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0901-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-01",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0902-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0902-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-02",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0903-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0903-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-03",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0904-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0904-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-04",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0905-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0905-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-05",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0906-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0906-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-06",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0907-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0907-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-07",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0908-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0908-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-08",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0909-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0909-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-09",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0910-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0910-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-10",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0911-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0911-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-11",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0912-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0912-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-12",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0913-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0913-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-13",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0914-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0914-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-14",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0915-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0915-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-15",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0916-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0916-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-16",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0917-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_09_KI-Codeerzeugung.md",
+      "expectedSha256": "",
+      "observedSha256": "071ed93b5c2bcdfa585f54e7c5386db8cc265d92c6b0bc018ed77d0adfabb766",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0917-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_09_KI-Codeerzeugung.md#cl-09-17",
+      "expectedSha256": "",
+      "observedSha256": "85a7fb280378084f919d6068187b592f485fb2876c715d0062ec21acdd1783e1",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0101-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0101-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-01",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0102-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0102-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-02",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0103-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0103-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-03",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0104-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0104-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-04",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0105-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0105-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-05",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0106-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0106-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-06",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0107-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0107-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-07",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0108-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0108-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-08",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0109-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0109-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-09",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0110-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0110-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-10",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0111-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0111-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-11",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0112-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_01_Standards-Anwendbarkeit.md",
+      "expectedSha256": "",
+      "observedSha256": "b0b3b15c1ad7d46a8f83f563583d9538d72332787f4468d63e691ec37fc4decf",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0112-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_01_Standards-Anwendbarkeit.md#cl-01-12",
+      "expectedSha256": "",
+      "observedSha256": "af753b2b89d4a15e31a89064c693df1db12d1c8d16a33610d2ce95630a8ae7c3",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0601-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0601-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-01",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0602-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0602-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-02",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0603-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0603-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-03",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0604-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0604-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-04",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0605-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0605-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-05",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0606-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0606-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-06",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0607-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0607-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-07",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0608-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0608-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-08",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0609-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0609-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-09",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0610-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0610-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-10",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0611-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_06_Schwachstellenoffenlegung.md",
+      "expectedSha256": "",
+      "observedSha256": "b5392a2109a08770aa06d5c2a318653058b9687029cdb404ebb08c615b81b972",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0611-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_06_Schwachstellenoffenlegung.md#cl-06-11",
+      "expectedSha256": "",
+      "observedSha256": "1e977fdeab02905fb96fcf3f83979f8571868d8df18eced6abcc6df9885f8919",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0801-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0801-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-01",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0802-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0802-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-02",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0803-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0803-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-03",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0804-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0804-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-04",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0805-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0805-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-05",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0806-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0806-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-06",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0807-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0807-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-07",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0808-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0808-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-08",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0809-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0809-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-09",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0810-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0810-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-10",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0811-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0811-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-11",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0812-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0812-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-12",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0813-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_08_Sicherheits-Code-Review.md",
+      "expectedSha256": "",
+      "observedSha256": "59e55eba03904d1a1e80f2ad4fd67c700b998006adda6a0be838f60d09a17207",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0813-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_08_Sicherheits-Code-Review.md#cl-08-13",
+      "expectedSha256": "",
+      "observedSha256": "8d99668b2476218d598d0ef5f2d2a099d035907d9b841d9440ca18e5d00778bb",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0501-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0501-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-01",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0502-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0502-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-02",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0503-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0503-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-03",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0504-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0504-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-04",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0505-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0505-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-05",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0506-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0506-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-06",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0507-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0507-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-07",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0508-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0508-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-08",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0509-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0509-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-09",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0510-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0510-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-10",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0511-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0511-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-11",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0512-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0512-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-12",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0513-REVIEW",
+      "path": "docs/secure-development/checklisten/CL_05_Lieferkette-Build-Integritaet.md",
+      "expectedSha256": "",
+      "observedSha256": "058f9118d955f710953c1ef352189aaad2dda2dd833f82f26d350c5ae54260ec",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    },
+    {
+      "id": "EV-CL0513-REVIEW",
+      "path": "docs/security/secure-development/2026-08-30-secure-development-hardening/CL_05_Lieferkette-Build-Integritaet.md#cl-05-13",
+      "expectedSha256": "",
+      "observedSha256": "cb14c5d5d46ad3a49cae491d4317bea67b00655ea1a734dc40293b5bea832025",
+      "result": "ExistsOnly",
+      "anchorChecked": false
+    }
+  ],
+  "referenceBoundary": "DE: Nur Dateiexistenz/Hashes; Markdown-Anker und externe URLs nicht geprüft; keine Aussage zur Kontrollwirksamkeit. EN: File existence/hash only; Markdown anchors and external URLs not verified; no claim of control effectiveness.",
+  "humanDecisionBoundary": "DE: Keine historische Freigabe übertragen oder neue Freigabe erteilt. EN: No historical approval transferred or new approval granted."
+}
