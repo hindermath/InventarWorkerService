@@ -41,9 +41,11 @@ roles do not constitute newly granted approvals.*
 Jede Zeile benennt die unveränderte Quellbewertung, vorhandene Evidence-IDs und
 den nullbasierten JSON-Array-Pfad in der oben verlinkten Datei. Fehlende
 Referenzen bleiben ausdrücklich sichtbar. Verweis-IDs sind keine Prüfung ihrer
-Aktualität oder Wirksamkeit. / Each row retains its source state and existing
+Aktualität oder Wirksamkeit.
+
+*Each row retains its source state and existing
 evidence IDs, with a zero-based JSON array path. Missing references stay visible;
-an evidence ID does not prove freshness or effectiveness.
+an evidence ID does not prove freshness or effectiveness.*
 
 | Kontroll-ID / Control ID | Quellenstatus / Source state | Evidence-ID | JSON-Pfad / JSON path |
 |---|---|---|---|
@@ -245,15 +247,21 @@ attestation-readiness or certification claim is made.*
 - [CL_12_Agentische-KI-Sandbox](CL_12_Agentische-KI-Sandbox.md)
 - [README](README.md)
 
-Documentation Impact: `UpdateRequired`. Zielgruppen / audiences: Maintainer,
-Security-Reviewer und KI-Agenten. Leserpfad / reader path: Integrationsnachweis →
+Documentation Impact: `UpdateRequired`. Zielgruppen: Maintainer,
+Security-Reviewer und KI-Agenten. Leserpfad: Integrationsnachweis →
 Matrix → kanonisches JSON → bestehende Detaildokumente → separat genehmigte
 nächste Aktion. Owner: Repository-Maintainer (Thorsten Hindermann). Dokumentklasse:
 Evidence-Navigation, keine normative Richtlinie. DE/EN im selben Dokument;
 textorientierte Tabelle, keine farbabhängige Aussage. Repository-lokal, kein
 Home-Sync. Re-Evaluation bei Quellhash-, Scope-, Baseline- oder Vertragsänderung.
 Prüfung: 157 eindeutige IDs, quellentreue Werte, Dateihash und read-only Status
-unter Bash und PowerShell. / Repository-local evidence navigation; same-document
-bilingual text, no colour-only meaning, no Home sync. Reevaluate when the source
-hash, scope, baseline or contract changes. Validation checks all 157 IDs, literal
-source values, file hash and read-only status under both shells.
+unter Bash und PowerShell.
+
+*Documentation Impact: UpdateRequired. Audiences: maintainers, security reviewers
+and agents. Reader path: integration record → matrix → canonical JSON → existing
+detail documents → separately authorized next action. Owner: repository
+maintainer Thorsten Hindermann. Document class: evidence navigation, not policy.
+Bilingual text-first tables, no colour-only meaning, repository-local, no Home
+sync. Reevaluate when the source hash, scope, baseline or contract changes.
+Validation checks all 157 IDs, literal source values, the file hash and read-only
+status under Bash and PowerShell.*
