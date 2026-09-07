@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
   "checkedAt": "2026-09-07T21:15:49Z",
-  "platform": "Darwin; Bash first, PowerShell 7 cross-check; not native Windows",
+  "platform": "DE: Darwin; zuerst Bash, Gegenprüfung mit PowerShell 7; kein natives Windows. EN: Darwin; Bash first, PowerShell 7 cross-check; not native Windows.",
   "context": "docs/security/secure-development/2026-08-30-secure-development-hardening",
   "sourceSha256": "4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524",
   "controlMappingsVerified": 157,
   "gateOutcomes": "Blocked",
-  "humanDecisions": "All four Open",
+  "humanDecisions": "DE: Alle vier Entscheidungen Open. EN: All four decisions Open.",
   "protectedFiles": {
     "baselineHead": "efe8fdf4c754f63dfc27f78d4f65777f1fb0d99e",
     "inventorySha256": "ff4ba05582951b80bdf4c09097082c5881afd2906a57c0400c82dec989def345",
@@ -118,5 +118,5 @@
       "outcome": "Blocked"
     }
   ],
-  "interpretation": "Exit 0 may mean valid blocked evidence; never treat it as substantive Ready."
+  "interpretation": "DE: Exit 0 kann gültige gesperrte Evidence bedeuten; niemals als fachliches Ready werten. EN: Exit 0 may mean valid blocked evidence; never treat it as substantive Ready."
 }
