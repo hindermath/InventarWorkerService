@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "checkedAt": "2026-09-07T21:15:49Z",
+  "checkedAt": "2026-09-07T21:26:35Z",
   "platform": "DE: Darwin; zuerst Bash, Gegenprüfung mit PowerShell 7; kein natives Windows. EN: Darwin; Bash first, PowerShell 7 cross-check; not native Windows.",
   "context": "docs/security/secure-development/2026-08-30-secure-development-hardening",
   "sourceSha256": "4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524",
@@ -8,15 +8,17 @@
   "gateOutcomes": "Blocked",
   "humanDecisions": "DE: Alle vier Entscheidungen Open. EN: All four decisions Open.",
   "protectedFiles": {
-    "baselineHead": "efe8fdf4c754f63dfc27f78d4f65777f1fb0d99e",
+    "metadataException": null,
+    "comparison": "DE: Vor Fingerprint-Vergleich nur die geprüfte Metadatenausnahme rechnerisch zurücknehmen; alle anderen geschützten Dateien bytegleich. EN: Restore only the validated metadata exception before comparing the original fingerprint; all other protected files byte-identical.",
+    "count": 1155,
     "inventorySha256": "ff4ba05582951b80bdf4c09097082c5881afd2906a57c0400c82dec989def345",
-    "count": 1155
+    "baselineHead": "efe8fdf4c754f63dfc27f78d4f65777f1fb0d99e"
   },
   "gateFileHashes": {
-    "docs/security/secure-development/2026-08-30-secure-development-hardening/baseline.json": "652343574d55080f4e317c6d92db5927bda003de049dff13e4c7899a31412547",
-    "docs/security/secure-development/2026-08-30-secure-development-hardening/deltas/2026-09-07-assurance-migration.json": "7c6353fc05a6c688e4834a6cd9f11b288fd82fe98767454d0b1347356e511062",
-    "docs/security/secure-development/2026-08-30-secure-development-hardening/closure.json": "206a6e28a624ba6307d84fd1b2642d19f3677b4edd87962e03d2790605eda4d5",
-    "docs/security/secure-development/2026-08-30-secure-development-hardening/image-impact.json": "5455e01f9c02314e0ba5e16f39595eb650072b89bba405b4cca4511b974d6619"
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/baseline.json": "5754fe852254f85f39d8c453e6af93e1a229d7019e44f73de754700e6c6047b3",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/deltas/2026-09-07-assurance-migration.json": "1dee74d82c0fec205e38b841cdbc56f2ec08c2d6f65a2a9e89cd26165410b2c5",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/closure.json": "46181c2754f0cfc19c2c4239647c6eda719e0a60e5444ea957a7559fd8b44a7c",
+    "docs/security/secure-development/2026-08-30-secure-development-hardening/image-impact.json": "5a5c1e909adec4aa1240022be937b69a45e582405eaaadb4220295a853e00da3"
   },
   "readOnlyPreservation": true,
   "shellParity": true,
