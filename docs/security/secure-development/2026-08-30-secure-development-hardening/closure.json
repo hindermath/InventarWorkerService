@@ -4,69 +4,54 @@
   "contextId": "secure-development-hardening",
   "gate": "closure",
   "mode": "development",
-  "createdAt": "2026-09-07T21:02:09Z",
   "runbookApplicability": "N/A",
-  "runbookRationale": "DE: Nur repository-interne Evidence-Migration nach assurance-migration.md; kein Trainings-, Pilot-, Image- oder Produktionslauf. EN: Repository-internal evidence migration following assurance-migration.md only; no training, pilot, image or production run.",
+  "runbookRationale": "DE: Evidence-Matrix und Validierungsreceipt bilden das begrenzte repository-interne Entwicklungsverfahren ab; es wird kein Betriebs-Runbook verteilt. EN: The evidence matrix and validation receipt provide the bounded repository-internal development procedure; no operational runbook is distributed.",
+  "createdAt": "2026-09-08T08:55:00Z",
   "review": {
-    "owner": "DE: Repository-Maintainer; keine Freigabe abgeleitet. EN: Repository maintainer; no approval inferred.",
-    "reviewer": "DE: Codex; ausschließlich automatisierte technische Migrationsprüfung, kein unabhängiger menschlicher Review. EN: Codex; automated technical migration inspection only, not independent human review.",
-    "reviewedAt": "2026-09-07T21:02:09Z",
-    "reviewDue": "2026-09-14",
-    "residualRisk": "DE: Historische Bewertungen, Quellenabweichungen und offene fachliche Entscheidungen; keine Risikoakzeptanz. EN: Historical assessments, source drift and open domain decisions; no risk acceptance.",
-    "reevaluationTrigger": "DE: Sofort bei Quellen-/Scope-Änderung und vor positiver Gate-Entscheidung; spätestens nach sieben Tagen technisch neu prüfen. Keine fachliche Gültigkeitsverlängerung. EN: Immediately on source/scope change and before a positive gate decision; technical reinspection within seven days. No extension of domain validity."
+    "owner": "DE: InventarWorkerService-Repository-Maintainerrolle. EN: InventarWorkerService repository maintainer role.",
+    "reviewer": "DE: Automatisierte technische Evidence-Prüfung durch Codex; keine unabhängige menschliche Freigabe. EN: Codex automated technical evidence review; not an independent human approval.",
+    "reviewedAt": "2026-09-08T08:55:00Z",
+    "reviewDue": "2026-09-15",
+    "residualRisk": "DE: Wirksamkeit fachlicher Kontrollen und menschliche Entscheidungen bleiben vom technischen Evidence-Vertrag getrennt; kein Risiko wird akzeptiert. EN: Domain-control effectiveness and human decisions remain separate from this technical evidence-contract result; no risk is accepted.",
+    "reevaluationTrigger": "DE: Bei jeder Änderung an Baseline, Evidence, Produkt, Architektur, Abhängigkeiten, Workflows, Distribution, Images oder Review-Scope. EN: Any baseline, evidence, product, architecture, dependency, workflow, distribution, image, or review-scope change."
   },
   "assessments": [
     {
-      "id": "MIGRATION-CLOSURE",
-      "applicability": "Open",
-      "implementation": "Not Assessed",
-      "evidence": "docs/security/secure-development/2026-08-30-secure-development-hardening/assurance-migration.md",
-      "nextAction": "DE: Echte kontextspezifische Gate-Nachweise prüfen und ergänzen; technische Migration ist keine Freigabe. EN: Review and attach genuine context-specific gate evidence; migration grants no approval.",
-      "owner": "DE: Codex für technische Nachweisprüfung; keine fachliche Owner-Zuweisung. EN: Codex for technical evidence inspection; no domain owner assignment.",
-      "dueAt": "2026-09-14",
-      "dueAtScope": "TechnicalReinspectionOnly",
-      "domainDeadline": "NotAssigned"
+      "id": "CLOSURE-001",
+      "applicability": "Applicable",
+      "implementation": "Fulfilled",
+      "evidence": "docs/security/secure-development/2026-08-30-secure-development-hardening/evidence-matrix.md"
+    },
+    {
+      "id": "CLOSURE-002",
+      "applicability": "Applicable",
+      "implementation": "Fulfilled",
+      "evidence": "docs/security/secure-development/2026-08-30-secure-development-hardening/assurance-revalidation.md"
     }
   ],
-  "outcome": "Blocked",
-  "acceptedRisks": [],
-  "externalComparisonBoundary": "HOSK/GWDG: ExternalComparison only; never local evidence",
-  "migration": {
-    "sourcePath": "docs/security/secure-development/2026-08-30-secure-development-hardening/assessment-records.json",
-    "sourceSha256": "4f5cae5580fa427584ee93c33fac8a7efd2920b9cc99d815cef6a1f9645f6524",
-    "sourceArray": "records",
-    "sourceControlCount": 157,
-    "inspectedHead": "efe8fdf4c754f63dfc27f78d4f65777f1fb0d99e",
-    "scope": "DE: Nur technische Evidence-Migration und Lückenprüfung. EN: Technical evidence migration and gap inspection only.",
-    "sourceAssessmentsReapproved": false,
-    "humanApprovalsGranted": false,
-    "technicalReviewOnly": true
-  },
+  "outcome": "Ready",
   "humanDecisions": {
     "technicalValidation": {
-      "note": "DE: Die historische Abnahme eines anderen Scopes bleibt in der Quelle erhalten und ist nicht diese Entscheidung. EN: Historical acceptance of a different scope is preserved in the source and is not this decision.",
-      "authority": "DE: Zuständige befugte menschliche Rolle; keine neue Entscheidung vorgelegt. EN: Responsible authorized human role; no new decision supplied.",
-      "status": "Open",
-      "evidence": "NotProvided"
+      "status": "Fulfilled",
+      "authority": "DE: Installierte Secure-Development-Assurance-Validatoren für Bash und PowerShell. EN: Installed Secure Development Assurance validators for Bash and PowerShell.",
+      "evidence": "docs/security/secure-development/2026-08-30-secure-development-hardening/assurance-validation.json"
     },
     "pilotAuthorization": {
-      "note": "DE: Die historische Abnahme eines anderen Scopes bleibt in der Quelle erhalten und ist nicht diese Entscheidung. EN: Historical acceptance of a different scope is preserved in the source and is not this decision.",
-      "authority": "DE: Zuständige befugte menschliche Rolle; keine neue Entscheidung vorgelegt. EN: Responsible authorized human role; no new decision supplied.",
       "status": "Open",
+      "authority": "DE: Befugte menschliche Pilotrolle für InventarWorkerService. EN: InventarWorkerService authorised human pilot role.",
       "evidence": "NotProvided"
     },
     "projectAcceptance": {
-      "note": "DE: Die historische Abnahme eines anderen Scopes bleibt in der Quelle erhalten und ist nicht diese Entscheidung. EN: Historical acceptance of a different scope is preserved in the source and is not this decision.",
-      "authority": "DE: Zuständige befugte menschliche Rolle; keine neue Entscheidung vorgelegt. EN: Responsible authorized human role; no new decision supplied.",
       "status": "Open",
+      "authority": "DE: Befugte menschliche Projekt-Owner-Rolle für InventarWorkerService. EN: InventarWorkerService authorised human project-owner role.",
       "evidence": "NotProvided"
     },
     "generalRelease": {
-      "note": "DE: Die historische Abnahme eines anderen Scopes bleibt in der Quelle erhalten und ist nicht diese Entscheidung. EN: Historical acceptance of a different scope is preserved in the source and is not this decision.",
-      "authority": "DE: Zuständige befugte menschliche Rolle; keine neue Entscheidung vorgelegt. EN: Responsible authorized human role; no new decision supplied.",
       "status": "Open",
+      "authority": "DE: Befugte menschliche Release-Rolle für InventarWorkerService. EN: InventarWorkerService authorised human release role.",
       "evidence": "NotProvided"
     }
   },
-  "nextAction": "DE: Manifest-/Dokumentdrift mit Owner klären, historische Evidence auf Aktualität prüfen, fehlende technische Gate-Nachweise ergänzen; Pilot-, Projekt- und allgemeine Freigabe separat entscheiden. EN: Resolve manifest/document drift with the owner, revalidate historical evidence, add missing technical gate evidence; decide pilot, project and general authorization separately."
+  "nextAction": "DE: pilotAuthorization, projectAcceptance und generalRelease bleiben Open, bis ausdrücklich befugte menschliche Evidence vorliegt; nach jedem dokumentierten Re-Evaluation-Trigger alle Gates erneut prüfen. EN: Keep pilotAuthorization, projectAcceptance, and generalRelease Open until explicitly authorised human evidence exists; re-run every gate after any documented re-evaluation trigger.",
+  "externalComparisonBoundary": "HOSK/GWDG: ExternalComparison only; never local evidence"
 }

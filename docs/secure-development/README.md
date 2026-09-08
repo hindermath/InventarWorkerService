@@ -1,7 +1,7 @@
 # Generischer Leitfaden Sichere Entwicklung / Generic Secure Development Guide
 
-**Stand / Date:** 2026-07-10
-**Baseline-Version / Baseline version:** 3.0.0
+**Stand / Date:** 2026-07-19
+**Baseline-Version / Baseline version:** 3.2.0
 **Zielgruppe / Audience:** Fachinformatik-Auszubildende, Entwickler*innen, Reviewer und KI-Agenten in Level-2-Projekten / IT specialist apprentices, developers, reviewers, and AI agents in level-2 projects
 
 ## Zweck / Purpose
@@ -62,12 +62,6 @@
 **EN:** The twelve files under `checklisten/` are canonical. The compendium is generated with the Bash or functionally equivalent PowerShell generator. Check mode verifies that manifest, versions, 157 stable IDs, and compendium match. Direct compendium edits are not allowed.
 
 ## Projektnachweise / Project Evidence
-
-**DE:** Die aktuelle projektspezifische Instanz für Feature 002 liegt im
-[Secure-Development-Hardening-Assessment](../security/secure-development/2026-08-30-secure-development-hardening/README.md).
-
-**EN:** The current project-specific instance for Feature 002 is available in
-the [secure-development hardening assessment](../security/secure-development/2026-08-30-secure-development-hardening/README.md).
 
 **DE:** Diese Dateien sind Vorlagen. Ausgefüllte Nachweise liegen unter `docs/security/secure-development/<datum>-<scope>/`. Eine positive Aussage ist nur belastbar, wenn die genannte Evidenz existiert und zum geprüften Stand gehört. `N/A` ist eine begründete Anwendbarkeitsentscheidung, kein Ersatz für eine fehlende Umsetzung.
 

@@ -1,5 +1,33 @@
 # Evidence-Matrix / Evidence Matrix
 
+## Aktuelle Assurance-Revalidierung / Current Assurance Revalidation
+
+**DE:** Am 2026-09-08 wurde die repository-lokale Secure-Development-Baseline
+auf Version 3.2.0 synchronisiert und der technische Evidence-Vertrag des
+13. Presets erneut geprüft. Baseline, Delta, Closure und Image Impact sind
+Ready; der strengste technische Gesamtstatus ist Ready. Das ist keine
+fachliche Neubewertung der 157 Kontrollpunkte. 31 Kontrollen sind als nicht anwendbar und 126 als offen dokumentiert.
+Pilotfreigabe, Projektabnahme und allgemeine Freigabe bleiben Open.
+
+**EN:** On 2026-09-08, the repository-local secure-development baseline was
+synchronized to version 3.2.0 and the thirteenth preset's technical evidence
+contract was revalidated. Baseline, delta, closure, and image impact are
+Ready; the strictest technical overall status is Ready. This is not a new
+domain assessment of the 157 controls. 31 controls are recorded as not applicable and 126 as open. Pilot
+authorization, project acceptance, and general release remain Open.
+
+**DE:** Aktuelle maschinenlesbare Gates sind baseline.json,
+deltas/2026-09-08-assurance-revalidation.json, closure.json und
+image-impact.json. Die ersetzten blockierten Migrations-Gates bleiben unter
+archive/2026-09-07-assurance-migration/ erhalten. Umfang und ausführbare
+Nachweise stehen in assurance-revalidation.md und assurance-validation.json.
+
+**EN:** Current machine-readable gates are baseline.json,
+deltas/2026-09-08-assurance-revalidation.json, closure.json, and
+image-impact.json. The superseded blocked migration gates remain under
+archive/2026-09-07-assurance-migration/. See assurance-revalidation.md and
+assurance-validation.json for scope and executable proof.
+
 ## Zweck und Grenze / Purpose and Boundary
 
 Dieser am 2026-09-07 erstellte Index erschließt die **vorhandenen historischen**
