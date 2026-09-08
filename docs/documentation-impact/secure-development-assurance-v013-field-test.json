@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "secure-development-assurance-v013-field-test",
+  "entries": [
+    {
+      "changeId": "CHG001",
+      "scope": "Secure Development Assurance v0.1.3 project field-test closeout",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Der Projektfeldtest benoetigt einen kanonischen Bericht, aktuelle C5-/CRA-Scopeentscheidungen und Jahreswiedervorlagen. EN: The project field test requires a canonical report, current C5/CRA scope decisions, and annual review dates.",
+      "documents": [
+        "docs/maintenance/secure-development-assurance-v013-field-test.md",
+        "docs/security/cloud-compliance-assurance.md",
+        "docs/security/cra-applicability.md",
+        "docs/security/regulatory-applicability.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/evidence-matrix.md"
+      ],
+      "owner": "Thorsten Hindermann",
+      "audiences": ["Maintainers and technical reviewers", "Learners"],
+      "readerPaths": ["Assurance v0.1.3 adoption", "Project field-test report", "Security scope documents", "Machine-readable evidence"],
+      "canonicalSource": "docs/maintenance/secure-development-assurance-v013-field-test.md",
+      "navigationImpact": "DE: Der v0.1.3-Nachtrag verweist auf den Feldbericht; Produktnavigation bleibt unveraendert. EN: The v0.1.3 addendum links to the report; product navigation is unchanged.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "DE: Deutsch zuerst, Englisch danach. EN: German first, English second.",
+      "languagePartners": [],
+      "platformAndExampleProof": "DE: Textorientierter Bericht mit Bash-/PowerShell- und Zeilenendungsparitaet. EN: Text-first report with shell and line-ending parity.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/secure-development-assurance-v013-field-test.json",
+      "risk": "DE: Niedrig; Evidence und Dokumentation, menschliche Freigaben bleiben offen. EN: Low; evidence and documentation only, human approvals remain open.",
+      "criticality": "Security",
+      "reevaluationTrigger": "DE: Preset-, Baseline-, Produkt-, Delivery-, Cloud- oder Scopeaenderung. EN: Preset, baseline, product, delivery, cloud, or scope change."
+    }
+  ]
+}
