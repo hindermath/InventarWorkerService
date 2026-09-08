@@ -31,7 +31,7 @@ Deployment wurden nicht geändert.
 | Assurance-Preset | `0.1.3`, Priorität 15 |
 | Profil | 13 Presets, exakt |
 | Host | macOS 26.6.2, Apple Silicon; Bash 3.2.57; PowerShell 7.6.5 |
-| Delivery | InventarWorkerService PR #67; Evidence-Commit wird nach der Git-Bindung ergänzt |
+| Delivery | [InventarWorkerService PR #67](https://github.com/hindermath/InventarWorkerService/pull/67); geprüfter Evidence-Commit `2f5eda54f10bd58cf5dabd8129bce055059a16ad` |
 
 ## Technische Prüfung / Technical Validation
 
