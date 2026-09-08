@@ -28,8 +28,10 @@ pilot, project, or release approval is inferred.
 - Der frühere blockierte Migrations-Gate-Satz bleibt unter
   archive/2026-09-07-assurance-migration/ als historische Evidence der
   damaligen Abweichung erhalten.
-- Die aktiven Gates bewerten nur den technischen Evidence-Vertrag. Fachliche
-  Kontrolldispositionen werden nicht zu erfüllten Zuständen hochgestuft.
+- Die aktiven Gates bewerten nur den technischen Evidence-Vertrag. C5, CRA und
+  formale Produktkonformität sind für den aktuellen nichtkommerziellen
+  Ausbildungs- und Beispielscope `N/A`; die historische 157-Punkte-Quelle wird
+  nicht rückwirkend umgeschrieben oder zu erfüllten Zuständen hochgestuft.
 
 **EN:**
 
@@ -38,9 +40,10 @@ pilot, project, or release approval is inferred.
   CL-09, and CL-12 2.2.0, SDLC guideline 1.2.0, and integration map 1.4.0.
 - The former blocked migration gate set is retained under
   archive/2026-09-07-assurance-migration/; it remains historical evidence of the earlier drift.
-- Active gates assess the technical evidence-contract layer. The unchanged
-  domain source is [assessment-records.json](assessment-records.json); its
-  values are not promoted to fulfilled states.
+- Active gates assess the technical evidence-contract layer. C5, CRA, and
+  formal product conformity are `N/A` for the current non-commercial training
+  and example scope. The historical [assessment-records.json](assessment-records.json)
+  source is not rewritten retroactively or promoted to fulfilled states.
 ## Gate-Nachweise / Gate Evidence
 
 | Gate | Ergebnis / Outcome | Evidence-Grenze / Evidence boundary |
@@ -68,7 +71,9 @@ Revalidierungsbericht, Validierungsreceipt und Projektstatistik. Der Leserpfad
 führt von der Matrix über die Gates zur fachlichen Quelle. Die Evidence ist
 repository-lokal, DE-zuerst/EN-danach, textorientiert und benötigt keinen
 Home-Sync. Nach jeder relevanten Quellen-, Scope-, Produkt- oder
-Infrastrukturänderung, spätestens am 2026-09-15, ist neu zu bewerten.
+Infrastrukturänderung, spätestens am 2027-09-08, ist neu zu bewerten. Die
+regulatorische Scopeentscheidung besitzt zusätzlich die Wiedervorlage
+2026-12-31.
 
 **EN:**
 
@@ -91,14 +96,18 @@ Infrastrukturänderung, spätestens am 2026-09-15, ist neu zu bewerten.
   NoHomeSyncRequired.
 - Re-evaluation: immediately after any baseline, evidence, product,
   architecture, dependency, workflow, distribution, image, or scope change,
-  and no later than 2026-09-15.
+  and no later than 2027-09-08. The regulatory scope decision is additionally
+  reviewed on 2026-12-31.
 
 ## Naechste Aktion / Next Action
 
 **DE:** pilotAuthorization, projectAcceptance und generalRelease bleiben
-Open, bis ausdrücklich befugte menschliche Evidence vorliegt. Nach jedem
-Re-Evaluation-Trigger sind alle Gates erneut zu prüfen.
+Open, bis ausdrücklich befugte menschliche Evidence vorliegt. Der
+projektbezogene v0.1.3-Feldtest empfiehlt `ReleaseAccepted` nur für das Preset;
+die zentrale Preset-Abnahme wartet auf alle fünf Projekte und
+`github/spec-kit#4455`.
 
 **EN:** Keep pilotAuthorization, projectAcceptance, and generalRelease Open
-until explicitly authorised human evidence exists. Re-run all gates whenever a
-re-evaluation trigger occurs.
+until explicitly authorised human evidence exists. The project field test
+recommends `ReleaseAccepted` for the preset only; the central preset decision
+waits for all five projects and `github/spec-kit#4455`.

@@ -235,29 +235,30 @@ an evidence ID does not prove freshness or effectiveness.*
 | CL-05-12 | Open / Not Assessed | EV-CL0512-REVIEW | `records[155]` |
 | CL-05-13 | N/A / Not Assessed | EV-CL0513-REVIEW | `records[156]` |
 
-## Assurance-Lücke und nächste Aktion / Assurance Gap and Next Action
+## Aktuelles Assurance-Ergebnis und nächste Aktion / Current Assurance Result and Next Action
 
-Die Matrix ergänzt nur die zuvor fehlende Navigation. In diesem Kontext fehlen
-weiterhin `baseline.json`, mindestens ein `deltas/*.json`, `closure.json` und
-`image-impact.json` im Assurance-Vertrag. Deshalb bleibt der lesende Status
-`Blocked`. Die vorhandene Selbstprüfung wird nicht nachträglich zu einem
-Assurance-Review erklärt. `technicalValidation`, `pilotAuthorization`,
-`projectAcceptance` und `generalRelease` werden weder abgeleitet noch geändert.
+Alle vier Gate-Dateien sind für den exakt gebundenen Development-Kontext
+vorhanden und technisch `Ready`; `technicalValidation` ist `Fulfilled`.
+`pilotAuthorization`, `projectAcceptance` und `generalRelease` bleiben `Open`.
+Die technische Evidence wird am 2027-09-08 erneut geprüft. C5 sowie CRA und
+formale Produktkonformität sind für den aktuellen nichtkommerziellen
+Ausbildungs- und Beispielscope `N/A`; regulatorische Scopeprüfung ist
+2026-12-31 oder früher bei einem dokumentierten Kommerzialisierungs-,
+Marktbereitstellungs-, Kundenübergabe-, Support-, Cloud- oder Rollen-Trigger.
 
-Nächster fachlicher Schritt ist ein separat beauftragter Review/Migrationslauf:
-Quellenaktualität und Manifestbindung prüfen, fehlende Gate-Evidence mit realen
-Owner-/Reviewdaten erstellen und menschliche Entscheidungen getrennt belassen.
-Erst danach erneut `status` ausführen. Keine vollständige C5-Prüfung und keine
-Aussage zu C5-Konformität, Testatreife oder Zertifizierung. `CL-02-13` bleibt
-die unveränderte projektbezogene Bewertung in der Quelle.
+Die 157-Punkte-Matrix bleibt eine historische Fachbewertung vom 2026-08-30;
+ihre offenen Werte werden durch die heutige begrenzte Scopeentscheidung nicht
+rückwirkend verändert. InventarWorkerService empfiehlt `ReleaseAccepted` nur
+für den v0.1.3-Preset-Feldtest. Die zentrale Preset-Abnahme wartet auf alle fünf
+Projektberichte und `github/spec-kit#4455`.
 
-*Only the missing navigation is added. The four gate JSON contracts are still
-absent, so read-only status remains Blocked. Existing self-review is not
-reclassified as an Assurance review; none of the four human decision boundaries
-is inferred or changed. A separately authorized domain review/migration must
-check freshness and manifest bindings, provide real gate evidence and review
-metadata, then rerun status. No complete C5 assessment or conformity,
-attestation-readiness or certification claim is made.*
+*All four gates are technically Ready for the exact development context, while
+the three human decisions remain Open. Technical evidence is reviewed again on
+2027-09-08 and regulatory scope on 2026-12-31 or an earlier defined trigger.
+The 157-control matrix remains a historical 2026-08-30 domain assessment and
+is not rewritten retroactively. InventarWorkerService recommends
+`ReleaseAccepted` for the v0.1.3 preset field test only. Central acceptance
+waits for all five reports and github/spec-kit#4455.*
 
 ## Leserpfad und Dokumentationsauswirkung / Reader Path and Documentation Impact
 

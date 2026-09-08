@@ -10,8 +10,8 @@
   "review": {
     "owner": "DE: InventarWorkerService-Repository-Maintainerrolle. EN: InventarWorkerService repository maintainer role.",
     "reviewer": "DE: Automatisierte technische Evidence-Prüfung durch Codex; keine unabhängige menschliche Freigabe. EN: Codex automated technical evidence review; not an independent human approval.",
-    "reviewedAt": "2026-09-08T08:55:00Z",
-    "reviewDue": "2026-09-15",
+    "reviewedAt": "2026-09-08T13:05:00Z",
+    "reviewDue": "2027-09-08",
     "residualRisk": "DE: Wirksamkeit fachlicher Kontrollen und menschliche Entscheidungen bleiben vom technischen Evidence-Vertrag getrennt; kein Risiko wird akzeptiert. EN: Domain-control effectiveness and human decisions remain separate from this technical evidence-contract result; no risk is accepted.",
     "reevaluationTrigger": "DE: Bei jeder Änderung an Baseline, Evidence, Produkt, Architektur, Abhängigkeiten, Workflows, Distribution, Images oder Review-Scope. EN: Any baseline, evidence, product, architecture, dependency, workflow, distribution, image, or review-scope change."
   },
@@ -52,6 +52,6 @@
       "evidence": "NotProvided"
     }
   },
-  "nextAction": "DE: pilotAuthorization, projectAcceptance und generalRelease bleiben Open, bis ausdrücklich befugte menschliche Evidence vorliegt; nach jedem dokumentierten Re-Evaluation-Trigger alle Gates erneut prüfen. EN: Keep pilotAuthorization, projectAcceptance, and generalRelease Open until explicitly authorised human evidence exists; re-run every gate after any documented re-evaluation trigger.",
+  "nextAction": "DE: Alle menschlichen Entscheidungen Open halten und vor der getrennten zentralen Preset-Abnahme die übrigen Projektfeldtests sowie github/spec-kit#4455 abwarten. EN: Keep all human decisions Open and wait for the other project field tests plus github/spec-kit#4455 before the separate central preset decision.",
   "externalComparisonBoundary": "HOSK/GWDG: ExternalComparison only; never local evidence"
 }

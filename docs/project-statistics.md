@@ -301,6 +301,7 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-09-07 | Assurance-Evidence-Vertrag / Assurance evidence contract | Branch `codex/assurance-evidence-migration`, sichtbare Sitzung 2026-09-07. 157 historische Kontrollen quellengebunden abgebildet, vier Gates Blocked, vier menschliche Entscheidungen Open; 5198 neue Evidence-/Dokumentationszeilen vor Ledger und Delivery-Metadaten, 0 neue Produkt-/Testlogikzeilen. Quellen- und Shell-Paritätsprüfung: docs/security/secure-development/2026-08-30-secure-development-hardening/assurance-validation.json. Presets und Altbewertungen unverändert. / Source-bound migration and read-only parity verification; no approval inferred, no Home sync. Manual reference: 80 lines/workday and the repository-specific configuration; speedup is delivery density, not stopwatch time. |
 
 | 2026-09-08 | Assurance-Baseline und Gate-Revalidierung / Assurance baseline and gate revalidation | Branch `codex/assurance-evidence-ready`; sichtbare Sitzung 2026-09-08. Die verwaltete Baseline ist auf 3.2.0 synchronisiert, der fruehere blockierte Gate-Satz auditierbar archiviert und der aktive Evidence-Vertrag fuer Baseline, Delta, Closure und Image Impact in Bash und PowerShell mit Gesamtstatus `Ready` geprueft. Die 157 fachlichen Bewertungen bleiben unveraendert; technische Validierung ist `Fulfilled`, Pilotfreigabe, Projektabnahme und allgemeine Freigabe bleiben `Open`. Umfang vor Statistik-Metadaten: `+2877 / -2272` Dokumentations-, Governance- und Evidence-Zeilen, `0` Produkt- und `0` Testcode-Zeilen. Dreizehn Presets bleiben unveraendert; keine Produkt-, API-, Paket-, Image- oder Home-Sync-Aenderung. / Synchronize baseline 3.2.0, archive the superseded blocked gate set, and validate all active gates plus overall status as `Ready` in Bash and PowerShell. Preserve 157 domain assessments and all human approval boundaries. No product, package, image, or Home-sync change; manual references remain defined by the repository statistics configuration. |
+| 2026-09-08 | Assurance-v0.1.3-Feldtest abgeschlossen / Assurance v0.1.3 field test completed | Branch `codex/assurance-v013-field-test-closeout`; eine sichtbare Agentensitzung. Das unveraenderliche Preset-Paket wurde im exakten 13-Preset-Profil unter Bash und PowerShell, mit Vertrags-, Negativ-, Zeilenendungs-, BOM-, Oberflaechen-, Kompositions- und Read-only-Pruefungen validiert. Alle vier aktiven Gates und der Gesamtstatus sind `Ready`; `technicalValidation` ist `Fulfilled`. C5, CRA und formale Produktkonformitaet sind im aktuellen nichtkommerziellen Ausbildungs- und Beispielscope `N/A`; die technische Wiedervorlage ist `2027-09-08`, die regulatorische Scope-Wiedervorlage `2026-12-31`. Die Empfehlung `ReleaseAccepted` gilt nur fuer Preset v0.1.3; Pilotfreigabe, Projektabnahme und allgemeine Freigabe bleiben `Open`. Evidence-Umfang vor Statistik-Selbstnachweis: `+244 / -55` Dokumentations-, Governance- und Evidence-Zeilen, `0` Produkt- und `0` Testcode-Zeilen. Keine API-, Runtime-, Paket-, Image- oder Home-Sync-Aenderung. / The immutable preset package passed the exact 13-preset profile and the complete cross-shell evidence suite. ReleaseAccepted applies only to preset v0.1.3; human approvals remain Open. No product, package, image, or Home-sync change. |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -453,26 +454,26 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 172082 lines |
-| Textdateien / Text files | 1139 |
+| Textbasis / Text base | 172271 lines |
+| Textdateien / Text files | 1141 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-08 |
 | Aktivtage / Active days | 122 |
-| Relevante Commits / Relevant commits | 532 |
-| Zeilen je Aktivtag / Lines per active day | 1410.5 |
+| Relevante Commits / Relevant commits | 534 |
+| Zeilen je Aktivtag / Lines per active day | 1412.1 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 17.6x |
+| Speedup vs. 80 lines/day | 17.7x |
 | Speedup vs. 100 lines/day | 14.1x |
-| Methodik / Methodology | v2; source `91040d504dd6` |
+| Methodik / Methodology | v2; source `b0d80450b36d` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [#...................]   6.1% | 10545
-Tests                           [#...................]   5.1% | 8765
-Dokumentation / Documentation   [###############.....]  72.6% | 124896
-Skripte / Scripts               [##..................]  12.5% | 21432
+Tests                           [#...................]   5.2% | 8892
+Dokumentation / Documentation   [###############.....]  72.5% | 124958
+Skripte / Scripts               [##..................]  12.4% | 21432
 Konfiguration / Configuration   [#...................]   2.3% | 4041
 Daten und Medien / Data and media [#...................]   0.7% | 1150
 Sonstiger Text / Other text     [#...................]   0.7% | 1253
@@ -598,7 +599,7 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [##################..] 17.6x
+80 lines/day       [##################..] 17.7x
 100 lines/day      [##############......] 14.1x
 ```
 
@@ -612,7 +613,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1410.5
+Visible repository [##############......] 1412.1
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -638,6 +639,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-08. Es enthaelt 122 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 15675 |
+| 2026-09 | 15976 |
 
 <!-- project-statistics-v2:end -->
