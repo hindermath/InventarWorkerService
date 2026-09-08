@@ -453,25 +453,25 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 172042 lines |
+| Textbasis / Text base | 172082 lines |
 | Textdateien / Text files | 1139 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-08 |
 | Aktivtage / Active days | 122 |
-| Relevante Commits / Relevant commits | 531 |
-| Zeilen je Aktivtag / Lines per active day | 1410.2 |
+| Relevante Commits / Relevant commits | 532 |
+| Zeilen je Aktivtag / Lines per active day | 1410.5 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
 | Speedup vs. 80 lines/day | 17.6x |
 | Speedup vs. 100 lines/day | 14.1x |
-| Methodik / Methodology | v2; source `d1b9027fd8dd` |
+| Methodik / Methodology | v2; source `91040d504dd6` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [#...................]   6.1% | 10545
 Tests                           [#...................]   5.1% | 8765
-Dokumentation / Documentation   [###############.....]  72.6% | 124856
+Dokumentation / Documentation   [###############.....]  72.6% | 124896
 Skripte / Scripts               [##..................]  12.5% | 21432
 Konfiguration / Configuration   [#...................]   2.3% | 4041
 Daten und Medien / Data and media [#...................]   0.7% | 1150
@@ -612,7 +612,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1410.2
+Visible repository [##############......] 1410.5
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -638,6 +638,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-08. Es enthaelt 122 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 15539 |
+| 2026-09 | 15675 |
 
 <!-- project-statistics-v2:end -->
