@@ -720,7 +720,7 @@ function Get-SdhOrderSection {
     if ($manifest) {
         return Get-SdhLinkedIntakeOrderSection -Repo $Repo -ManifestPath $manifest -ViewPath $ViewPath
     }
-    return Get-SdhLegacyOrderSection -Repo $Repo
+    throw 'LIE004: eindeutiges Series-Manifest fehlt / unique series manifest is missing'
 }
 
 function New-SdhOrderFileCandidate {
@@ -786,6 +786,39 @@ function Restore-SdhLinkedIntakeOutputs {
             if (Test-Path -LiteralPath $restoreTemp) { Remove-Item -LiteralPath $restoreTemp -Force }
         }
     }
+}
+
+function Write-SdhExclusivePublishTemp {
+    param([string]$Directory, [string]$Content)
+
+    $bytes = [Text.UTF8Encoding]::new($false).GetBytes($Content)
+    for ($attempt = 0; $attempt -lt 10; $attempt++) {
+        $path = Join-Path $Directory ('.sdh-publish-{0}.tmp' -f [guid]::NewGuid().ToString('N'))
+        $stream = $null
+        $created = $false
+        try {
+            $stream = [IO.File]::Open($path, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write, [IO.FileShare]::None)
+            $created = $true
+            $stream.Write($bytes, 0, $bytes.Length)
+            $stream.Flush($true)
+            $stream.Dispose()
+            $stream = $null
+            $item = Get-Item -LiteralPath $path -Force
+            if ($item.LinkType) {
+                throw 'LIE010: unsicherer Publication-Temp abgelehnt / unsafe publication temp rejected'
+            }
+            return $path
+        } catch [IO.IOException] {
+            if ($stream) { $stream.Dispose() }
+            if ($created -and (Test-Path -LiteralPath $path)) { Remove-Item -LiteralPath $path -Force }
+            continue
+        } catch {
+            if ($stream) { $stream.Dispose() }
+            if ($created -and (Test-Path -LiteralPath $path)) { Remove-Item -LiteralPath $path -Force }
+            throw
+        }
+    }
+    throw 'LIE010: exklusiver Publication-Temp konnte nicht erzeugt werden / exclusive publication temp could not be created'
 }
 
 function Get-SdhLinkedIntakeInputPaths {
@@ -973,8 +1006,7 @@ function Invoke-SdhLinkedIntakeProjection {
             $target = Join-Path $Repo $OutputPaths[$index]
             $backup = Join-Path $backupDirectory "${index}.file"
             if (Test-Path -LiteralPath $target -PathType Leaf) { [IO.File]::Copy($target, $backup, $true) }
-            $publishTemp = Join-Path (Split-Path -Parent $target) (".sdh-publish-{0}-{1}.tmp" -f $PID, $index)
-            [IO.File]::WriteAllText($publishTemp, $candidates[$index], [Text.UTF8Encoding]::new($false))
+            $publishTemp = Write-SdhExclusivePublishTemp -Directory (Split-Path -Parent $target) -Content $candidates[$index]
             $publishTemps.Add($publishTemp)
         }
 
@@ -1050,10 +1082,15 @@ function Invoke-RequirementsIntakeGovernanceRender {
 
     $outputs = @($OutputPath)
     if ($outputs.Count -eq 0) {
-        $seriesDirectory = [IO.Path]::GetDirectoryName($ManifestPath).Replace('\', '/')
+        $seriesDirectory = [IO.Path]::GetDirectoryName($ManifestPath)
+        $seriesOutput = if ([string]::IsNullOrEmpty($seriesDirectory)) {
+            'order.md'
+        } else {
+            $seriesDirectory.Replace('\', '/') + '/order.md'
+        }
         $outputs = @(
             'Lastenheft_Abarbeitungsreihenfolge.md',
-            "${seriesDirectory}/order.md"
+            $seriesOutput
         )
     }
 

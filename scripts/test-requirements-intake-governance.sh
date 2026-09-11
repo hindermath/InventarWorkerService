@@ -295,6 +295,17 @@ if ! declare -F sdh_render_linked_intake_views >/dev/null; then
   printf '%s\n' 'FEHLER / FAIL: oeffentliche Check-/Write-Transaktionsfunktion fehlt / public check/write transaction function is missing' >&2
   failures=$((failures + 1))
 else
+  no_manifest_repo="$fixture_repo/cases/no-manifest"
+  mkdir -p -- "$no_manifest_repo/.git"
+  set +e
+  no_manifest_output="$(sdh_build_order_section "$no_manifest_repo" 2>&1)"
+  no_manifest_exit=$?
+  set -e
+  if [ "$no_manifest_exit" -ne 4 ] || ! grep -Fq -- 'LIE004' <<< "$no_manifest_output"; then
+    printf '%s\n' 'FEHLER / FAIL: fehlendes Series-Manifest liefert keine kontrollierte LIE004-Diagnose / missing series manifest lacks a controlled LIE004 diagnostic' >&2
+    failures=$((failures + 1))
+  fi
+
   create_transaction_fixture transaction
   run_projection "$CASE_REPO" "$CASE_MANIFEST_REL" write '' '' "$CASE_ROOT_OUTPUT" "$CASE_SERIES_OUTPUT"
   assert_projection 'write-update' '' zero 2
@@ -318,6 +329,19 @@ else
   assert_projection 'stale-check-output' 'LIE009' nonzero 0
   run_projection "$CASE_REPO" "$CASE_MANIFEST_REL" write '' '' "$CASE_ROOT_OUTPUT"
   assert_projection 'write-repair' '' zero 1
+
+  create_transaction_fixture exclusive-publish-temp
+  publish_outside="$fixture_repo/publish-outside.md"
+  printf '%s\n' 'outside-sentinel' > "$publish_outside"
+  predictable_publish_temp="$(dirname "$CASE_REPO/$CASE_ROOT_OUTPUT")/.sdh-publish-$$-0.tmp"
+  sdh_create_test_file_symlink "$publish_outside" "$predictable_publish_temp"
+  run_projection "$CASE_REPO" "$CASE_MANIFEST_REL" write '' '' "$CASE_ROOT_OUTPUT"
+  assert_projection 'exclusive-publication-temp' '' zero 1
+  if [ "$(cat "$publish_outside")" != 'outside-sentinel' ]; then
+    printf '%s\n' 'FEHLER / FAIL: vorhersehbarer Publication-Symlink veraenderte ein externes Ziel / predictable publication symlink changed an outside target' >&2
+    failures=$((failures + 1))
+  fi
+  rm -f -- "$predictable_publish_temp"
 
   sed 's/| 39 | Completed |/| 39 | Broken |/' "$CASE_REPO/$CASE_ROOT_OUTPUT" > "$CASE_REPO/$CASE_ROOT_OUTPUT.tmp"
   mv "$CASE_REPO/$CASE_ROOT_OUTPUT.tmp" "$CASE_REPO/$CASE_ROOT_OUTPUT"
@@ -384,6 +408,18 @@ else
   fi
   if find "$CASE_REPO" -type f -name '.sdh-*-*.tmp' -print -quit | grep -q .; then
     printf '%s\n' 'FEHLER / FAIL: Rollback hinterliess renderer-owned temporaere Dateien / rollback left renderer-owned temporary files' >&2
+    failures=$((failures + 1))
+  fi
+
+  create_transaction_fixture rollback-failure
+  run_projection "$CASE_REPO" "$CASE_MANIFEST_REL" write '' '' "$CASE_ROOT_OUTPUT" "$CASE_SERIES_OUTPUT"
+  assert_projection 'rollback-failure-baseline' '' zero 2
+  sdh_jq '.orderedTargets[0].status = "Eligible"' "$CASE_MANIFEST" > "$CASE_MANIFEST.tmp"
+  mv "$CASE_MANIFEST.tmp" "$CASE_MANIFEST"
+  run_projection "$CASE_REPO" "$CASE_MANIFEST_REL" write rollback-failure '' "$CASE_ROOT_OUTPUT" "$CASE_SERIES_OUTPUT"
+  assert_projection 'rollback-failure-propagation' 'LIE010' nonzero 0
+  if ! grep -Fq -- 'Publication und Rollback fehlgeschlagen' <<< "$PROJECTION_OUTPUT"; then
+    printf '%s\n' 'FEHLER / FAIL: Rollback-Fehler wird nicht getrennt fail-closed gemeldet / rollback failure is not reported separately and fail closed' >&2
     failures=$((failures + 1))
   fi
 

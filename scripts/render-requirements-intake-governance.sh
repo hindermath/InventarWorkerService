@@ -810,7 +810,8 @@ sdh_build_order_section() {
   if [ -n "$manifest" ]; then
     sdh_build_linked_intake_order_section "$repo" "$manifest" "$view_path"
   else
-    sdh_build_legacy_order_section "$repo"
+    sdh_log 'LIE004: eindeutiges Series-Manifest fehlt / unique series manifest is missing' >&2
+    return 4
   fi
 }
 
@@ -872,18 +873,32 @@ sdh_restore_linked_intake_outputs() {
   local repo="$1"
   local backup_dir="$2"
   shift 2
-  local index=0 relative target restore_tmp
+  local index=0 relative target restore_tmp failed=0
+
+  if [ "${SDH_TEST_FAULT:-}" = "rollback-failure" ]; then
+    sdh_assert_fixture_fault_scope "$repo" || return 1
+    return 1
+  fi
 
   for relative in "$@"; do
     target="$repo/$relative"
-    restore_tmp="$(dirname "$target")/.sdh-restore-$$-$index.tmp"
+    restore_tmp=""
     if [ -f "$backup_dir/$index.file" ]; then
-      cp "$backup_dir/$index.file" "$restore_tmp" && mv "$restore_tmp" "$target"
+      restore_tmp="$(mktemp "$(dirname "$target")/.sdh-restore.XXXXXXXXXX")" || {
+        failed=1
+        index=$((index + 1))
+        continue
+      }
+      if [ -L "$restore_tmp" ] || ! cp "$backup_dir/$index.file" "$restore_tmp" || ! mv "$restore_tmp" "$target"; then
+        failed=1
+        rm -f -- "$restore_tmp" || failed=1
+      fi
     else
-      rm -f -- "$target" "$restore_tmp"
+      rm -f -- "$target" || failed=1
     fi
     index=$((index + 1))
   done
+  return "$failed"
 }
 
 sdh_render_linked_intake_views() {
@@ -893,7 +908,7 @@ sdh_render_linked_intake_views() {
   shift 3
   local -a outputs=("$@") candidates=() rechecks=() publish_temps=()
   local work_dir backup_dir input_fingerprint_before input_fingerprint_after relative target candidate recheck outside_target
-  local index=0 other_index stale_count=0 replaced=0 publish_tmp fault="${SDH_TEST_FAULT:-}" vanish_path="${SDH_TEST_VANISH_PATH:-}"
+  local index=0 other_index stale_count=0 replaced=0 publish_tmp rollback_failed=0 fault="${SDH_TEST_FAULT:-}" vanish_path="${SDH_TEST_VANISH_PATH:-}"
 
   SDH_RENDER_RESULT="Failed"
   SDH_RENDER_WRITE_COUNT=0
@@ -982,7 +997,7 @@ sdh_render_linked_intake_views() {
         rm -f -- "$repo/$vanish_path"
         sdh_create_test_file_symlink "$outside_target" "$repo/$vanish_path"
         ;;
-      after-first-replace) ;;
+      after-first-replace|rollback-failure) ;;
       *) rm -rf -- "$work_dir"; sdh_log 'LIE010: unbekannte Testfehlerinjektion / unknown test fault injection' >&2; return 10 ;;
     esac
   fi
@@ -1005,11 +1020,17 @@ sdh_render_linked_intake_views() {
   for ((index = 0; index < ${#outputs[@]}; index++)); do
     target="$repo/${outputs[$index]}"
     [ ! -f "$target" ] || cp "$target" "$backup_dir/$index.file"
-    publish_tmp="$(dirname "$target")/.sdh-publish-$$-$index.tmp"
-    if ! cp "${candidates[$index]}" "$publish_tmp"; then
+    publish_tmp="$(mktemp "$(dirname "$target")/.sdh-publish.XXXXXXXXXX")" || {
+      for candidate in "${publish_temps[@]+"${publish_temps[@]}"}"; do rm -f -- "$candidate"; done
+      rm -rf -- "$work_dir"
+      sdh_log 'LIE010: exklusiver Publication-Temp konnte nicht erzeugt werden / exclusive publication temp could not be created' >&2
+      return 10
+    }
+    if [ -L "$publish_tmp" ] || ! cp "${candidates[$index]}" "$publish_tmp"; then
       for candidate in "${publish_temps[@]+"${publish_temps[@]}"}"; do rm -f -- "$candidate"; done
       rm -f -- "$publish_tmp"
       rm -rf -- "$work_dir"
+      sdh_log 'LIE010: unsicherer Publication-Temp abgelehnt / unsafe publication temp rejected' >&2
       return 10
     fi
     publish_temps+=("$publish_tmp")
@@ -1022,19 +1043,29 @@ sdh_render_linked_intake_views() {
       continue
     fi
     if ! mv "${publish_temps[$index]}" "$target"; then
-      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}"
+      rollback_failed=0
+      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}" || rollback_failed=1
       for candidate in "${publish_temps[@]}"; do rm -f -- "$candidate"; done
       rm -rf -- "$work_dir"
+      if [ "$rollback_failed" -ne 0 ]; then
+        sdh_log 'LIE010: atomare Publication und Rollback fehlgeschlagen / atomic publication and rollback failed' >&2
+        return 10
+      fi
       sdh_log 'LIE010: atomare Publication fehlgeschlagen; Altzustand wiederhergestellt / atomic publication failed; prior state restored' >&2
       return 10
     fi
     replaced=$((replaced + 1))
     SDH_RENDER_ATTEMPTED_WRITES="$replaced"
-    if [ "$fault" = "after-first-replace" ] && [ "$replaced" = "1" ]; then
-      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}"
+    if { [ "$fault" = "after-first-replace" ] || [ "$fault" = "rollback-failure" ]; } && [ "$replaced" = "1" ]; then
+      rollback_failed=0
+      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}" || rollback_failed=1
       for candidate in "${publish_temps[@]}"; do rm -f -- "$candidate"; done
       rm -rf -- "$work_dir"
       SDH_RENDER_WRITE_COUNT=0
+      if [ "$rollback_failed" -ne 0 ]; then
+        sdh_log 'LIE010: simulierte Publication und Rollback fehlgeschlagen / simulated publication and rollback failed' >&2
+        return 10
+      fi
       sdh_log 'LIE010: simulierte Publication fehlgeschlagen; vollstaendiger Rollback / simulated publication failed; complete rollback' >&2
       return 10
     fi
@@ -1042,10 +1073,15 @@ sdh_render_linked_intake_views() {
 
   for ((index = 0; index < ${#outputs[@]}; index++)); do
     cmp -s "$repo/${outputs[$index]}" "${candidates[$index]}" || {
-      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}"
+      rollback_failed=0
+      sdh_restore_linked_intake_outputs "$repo" "$backup_dir" "${outputs[@]}" || rollback_failed=1
       for candidate in "${publish_temps[@]}"; do rm -f -- "$candidate"; done
       rm -rf -- "$work_dir"
       SDH_RENDER_WRITE_COUNT=0
+      if [ "$rollback_failed" -ne 0 ]; then
+        sdh_log 'LIE010: Post-Write-Verifikation und Rollback fehlgeschlagen / post-write verification and rollback failed' >&2
+        return 10
+      fi
       sdh_log 'LIE010: Post-Write-Verifikation fehlgeschlagen; vollstaendiger Rollback / post-write verification failed; complete rollback' >&2
       return 10
     }

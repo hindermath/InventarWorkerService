@@ -305,6 +305,17 @@ function Test-RequirementsIntakeGovernance {
         if (-not (Get-Command Invoke-SdhLinkedIntakeProjection -CommandType Function -ErrorAction SilentlyContinue)) {
             $failures.Add('oeffentliche Check-/Write-Transaktionsfunktion fehlt / public check/write transaction function is missing')
         } else {
+            $noManifestRepo = Join-Path $fixtureRepo 'cases/no-manifest'
+            New-Item -ItemType Directory -Path (Join-Path $noManifestRepo '.git') -Force | Out-Null
+            try {
+                $null = Get-SdhOrderSection -Repo $noManifestRepo
+                $failures.Add('fehlendes Series-Manifest wurde akzeptiert / missing series manifest was accepted')
+            } catch {
+                if (-not ([string]$_.Exception.Message).Contains('LIE004', [StringComparison]::Ordinal)) {
+                    $failures.Add('fehlendes Series-Manifest liefert keine kontrollierte LIE004-Diagnose / missing series manifest lacks a controlled LIE004 diagnostic')
+                }
+            }
+
             $transaction = New-TransactionFixture -CaseId transaction
             $actual = Invoke-ProjectionCase -Fixture $transaction -Mode Write -Outputs @($transaction.RootOutput, $transaction.SeriesOutput)
             Assert-ProjectionCase -CaseId 'write-update' -Actual $actual -ExpectedCode '' -ExpectedExitClass zero -ExpectedWrites 2
@@ -331,6 +342,29 @@ function Test-RequirementsIntakeGovernance {
             Assert-ProjectionCase -CaseId 'stale-check-output' -Actual $actual -ExpectedCode LIE009 -ExpectedExitClass nonzero -ExpectedWrites 0
             $actual = Invoke-ProjectionCase -Fixture $transaction -Mode Write -Outputs @($transaction.RootOutput)
             Assert-ProjectionCase -CaseId 'write-repair' -Actual $actual -ExpectedCode '' -ExpectedExitClass zero -ExpectedWrites 1
+
+            $exclusiveTemp = New-TransactionFixture -CaseId exclusive-publish-temp
+            $publishOutside = Join-Path $fixtureRepo 'powershell-publish-outside.md'
+            [IO.File]::WriteAllText($publishOutside, "outside-sentinel`n", [Text.UTF8Encoding]::new($false))
+            $predictablePublishTemp = Join-Path $exclusiveTemp.Repo ('.sdh-publish-{0}-0.tmp' -f $PID)
+            New-Item -ItemType SymbolicLink -Path $predictablePublishTemp -Target $publishOutside | Out-Null
+            $actual = Invoke-ProjectionCase -Fixture $exclusiveTemp -Mode Write -Outputs @($exclusiveTemp.RootOutput)
+            Assert-ProjectionCase -CaseId 'exclusive-publication-temp' -Actual $actual -ExpectedCode '' -ExpectedExitClass zero -ExpectedWrites 1
+            if ([IO.File]::ReadAllText($publishOutside, [Text.UTF8Encoding]::new($false)) -cne "outside-sentinel`n") {
+                $failures.Add('vorhersehbarer Publication-Symlink veraenderte ein externes Ziel / predictable publication symlink changed an outside target')
+            }
+            Remove-Item -LiteralPath $predictablePublishTemp -Force
+
+            $rootManifest = New-TransactionFixture -CaseId root-manifest-default-output
+            Copy-Item -LiteralPath $rootManifest.ManifestPath -Destination (Join-Path $rootManifest.Repo 'manifest.json')
+            try {
+                $null = Invoke-RequirementsIntakeGovernanceRender -RepositoryRoot $rootManifest.Repo -ManifestPath 'manifest.json' -Write -Confirm:$false
+                if (-not (Test-Path -LiteralPath (Join-Path $rootManifest.Repo 'order.md') -PathType Leaf)) {
+                    $failures.Add('Root-Manifest erzeugte die Standard-Series-Ausgabe order.md nicht / root manifest did not create the default series output order.md')
+                }
+            } catch {
+                $failures.Add("Root-Manifest mit Standardausgaben schlug fehl / root manifest with default outputs failed: $([string]$_.Exception.Message)")
+            }
 
             $rootContent = [IO.File]::ReadAllText($rootPath, [Text.UTF8Encoding]::new($false)).Replace('| 39 | Completed |', '| 39 | Broken |')
             [IO.File]::WriteAllText($rootPath, $rootContent, [Text.UTF8Encoding]::new($false))
