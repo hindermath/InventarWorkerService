@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "rootFallback": "— (Root / keine direkte Abhängigkeit)",
+  "cases": [
+    {"id":"zero-incoming","target":"requirements/intakes/active/Lastenheft_Überblick.md","incoming":[],"expected":"— (Root / keine direkte Abhängigkeit)"},
+    {"id":"one-incoming","target":"requirements/intakes/active/Lastenheft_Einzelkante.md","incoming":[{"from":"requirements/intakes/active/Lastenheft_Überblick.md","to":"requirements/intakes/active/Lastenheft_Einzelkante.md","kind":"HardCompletionGate","binding":true}]},
+    {"id":"multiple-incoming","target":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","incoming":[{"from":"requirements/intakes/active/Lastenheft_Überblick.md","to":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","kind":"HardCompletionGate","binding":true},{"from":"requirements/intakes/active/Lastenheft_Zusatz.md","to":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","kind":"PreferredSerialOrder","binding":false}]}
+  ]
+}

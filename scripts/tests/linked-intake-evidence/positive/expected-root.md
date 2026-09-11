@@ -1,0 +1,6 @@
+| Position | Status | Lastenheft/Intake | Abhängigkeiten / Dependencies | Spec-Kit-Feature |
+|---:|---|---|---|---|
+| 39 | Completed | [Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md](Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md) | [Lastenheft_Überblick.md](requirements/intakes/active/Lastenheft_%C3%9Cberblick.md) → current (`HardCompletionGate`, binding: true)<br>[Lastenheft_Zusatz.md](requirements/intakes/active/Lastenheft_Zusatz.md) → current (`PreferredSerialOrder`, binding: false) | [032-linked-intake-evidence](specs/032-linked-intake-evidence/) |
+| 1 | Eligible | [Lastenheft_Überblick.md](requirements/intakes/active/Lastenheft_%C3%9Cberblick.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 2 | Eligible | [Lastenheft_Zusatz.md](requirements/intakes/active/Lastenheft_Zusatz.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 40 | Completed | [Lastenheft_Einzelkante.md](requirements/intakes/active/Lastenheft_Einzelkante.md) | [Lastenheft_Überblick.md](requirements/intakes/active/Lastenheft_%C3%9Cberblick.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |

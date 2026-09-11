@@ -1,0 +1,6 @@
+Position: 1
+Status: Eligible
+Lastenheft/Intake: Lastenheft_Überblick.md
+Abhängigkeiten / Dependencies: Root; keine direkte Abhängigkeit / no direct dependency
+Spec-Kit-Feature: kein Spec-Kit-Feature / no Spec Kit feature
+Nächste Aktion / Next action: Kanonisches Manifest und Feature-Evidence prüfen / Review the canonical manifest and feature evidence

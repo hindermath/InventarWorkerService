@@ -1,0 +1,7 @@
+Position: 39
+Status: Completed
+Lastenheft/Intake: Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md
+Abhängigkeiten / Dependencies: Lastenheft_Überblick.md; HardCompletionGate; binding true
+Abhängigkeiten / Dependencies: Lastenheft_Zusatz.md; PreferredSerialOrder; binding false
+Spec-Kit-Feature: 032-linked-intake-evidence
+Nächste Aktion / Next action: Direkte Kanten einzeln gegen das Manifest prüfen / Review each direct edge against the manifest

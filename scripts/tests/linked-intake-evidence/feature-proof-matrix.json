@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "cases": [
+    {"id":"feature-binding","proofKind":"FeatureBinding","proofCount":1,"targetExists":true,"expectedState":"Linked"},
+    {"id":"archived-closeout-binding","proofKind":"ArchivedCloseoutBinding","proofCount":1,"targetExists":true,"expectedState":"Linked"},
+    {"id":"reviewed-legacy-mapping","proofKind":"ReviewedLegacyMapping","proofCount":1,"targetExists":true,"expectedState":"Linked"},
+    {"id":"no-evidence","proofKind":null,"proofCount":0,"targetExists":false,"expectedState":"NoEvidence","expectedCell":"— (kein Spec-Kit-Feature / no Spec Kit feature)"},
+    {"id":"ambiguous","proofKinds":["FeatureBinding","ArchivedCloseoutBinding"],"proofCount":2,"targetExists":true,"expectedState":"Ambiguous","expectedDiagnostic":"LIE008"},
+    {"id":"invalid","proofKind":"FeatureBinding","proofCount":1,"targetExists":false,"expectedState":"Invalid","expectedDiagnostic":"LIE008"},
+    {"id":"similarity-is-not-proof","intake":"Lastenheft_032-linked-intake-evidence.md","candidate":"specs/032-linked-intake-evidence","proofCount":0,"numericOrSlugSimilarity":true,"expectedState":"NoEvidence","rule":"Number or slug similarity alone is never proof."}
+  ]
+}
