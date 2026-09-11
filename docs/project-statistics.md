@@ -454,27 +454,27 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 176522 lines |
-| Textdateien / Text files | 1163 |
+| Textbasis / Text base | 176624 lines |
+| Textdateien / Text files | 1164 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-12 |
 | Aktivtage / Active days | 123 |
-| Relevante Commits / Relevant commits | 535 |
-| Zeilen je Aktivtag / Lines per active day | 1435.1 |
+| Relevante Commits / Relevant commits | 536 |
+| Zeilen je Aktivtag / Lines per active day | 1436.0 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
 | Speedup vs. 80 lines/day | 17.9x |
 | Speedup vs. 100 lines/day | 14.4x |
-| Methodik / Methodology | v2; source `a000d4eceac1` |
+| Methodik / Methodology | v2; source `61bd7c85fd18` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [#...................]   6.0% | 10545
 Tests                           [#...................]   5.1% | 9030
-Dokumentation / Documentation   [##############......]  71.0% | 125277
+Dokumentation / Documentation   [##############......]  70.9% | 125277
 Skripte / Scripts               [###.................]  14.3% | 25226
-Konfiguration / Configuration   [#...................]   2.3% | 4041
+Konfiguration / Configuration   [#...................]   2.3% | 4143
 Daten und Medien / Data and media [#...................]   0.7% | 1150
 Sonstiger Text / Other text     [#...................]   0.7% | 1253
 ```
@@ -590,7 +590,7 @@ Slots 0..7
 | 4 | Governance und CI / Governance and CI | 6438 |
 | 5 | 002 Versionierung / 002 versioning | 41 |
 | 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
-| 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4243 |
+| 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4345 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -614,7 +614,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1435.1
+Visible repository [##############......] 1436.0
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -640,6 +640,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-12. Es enthaelt 123 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 20341 |
+| 2026-09 | 20445 |
 
 <!-- project-statistics-v2:end -->
