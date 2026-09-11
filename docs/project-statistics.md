@@ -455,18 +455,18 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 176624 lines |
+| Textbasis / Text base | 176767 lines |
 | Textdateien / Text files | 1164 |
 | Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-12 |
 | Aktivtage / Active days | 123 |
-| Relevante Commits / Relevant commits | 536 |
-| Zeilen je Aktivtag / Lines per active day | 1436.0 |
+| Relevante Commits / Relevant commits | 538 |
+| Zeilen je Aktivtag / Lines per active day | 1437.1 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 17.9x |
+| Speedup vs. 80 lines/day | 18.0x |
 | Speedup vs. 100 lines/day | 14.4x |
-| Methodik / Methodology | v2; source `61bd7c85fd18` |
+| Methodik / Methodology | v2; source `e082f5c8bc72` |
 
 ### Artefaktmix / Artifact Mix
 
@@ -474,7 +474,7 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 Produktiv / Production          [#...................]   6.0% | 10545
 Tests                           [#...................]   5.1% | 9030
 Dokumentation / Documentation   [##############......]  70.9% | 125277
-Skripte / Scripts               [###.................]  14.3% | 25226
+Skripte / Scripts               [###.................]  14.4% | 25369
 Konfiguration / Configuration   [#...................]   2.3% | 4143
 Daten und Medien / Data and media [#...................]   0.7% | 1150
 Sonstiger Text / Other text     [#...................]   0.7% | 1253
@@ -591,7 +591,7 @@ Slots 0..7
 | 4 | Governance und CI / Governance and CI | 6438 |
 | 5 | 002 Versionierung / 002 versioning | 41 |
 | 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
-| 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4345 |
+| 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4488 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -601,7 +601,7 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [##################..] 17.9x
+80 lines/day       [##################..] 18.0x
 100 lines/day      [##############......] 14.4x
 ```
 
@@ -615,7 +615,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1436.0
+Visible repository [##############......] 1437.1
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -641,6 +641,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-12. Es enthaelt 123 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 20445 |
+| 2026-09 | 20626 |
 
 <!-- project-statistics-v2:end -->
