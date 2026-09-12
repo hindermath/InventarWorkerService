@@ -946,7 +946,7 @@ workspace family consists of:
 | `a11y-governance` | `v0.4.1` | `40` | WCAG 2.2 AA, bilingual DE/EN, CEFR B2, inclusive artefacts, didactic inline-code-comment review |
 | `cross-platform-governance` | `v0.2.1` | `50` | Bash/PowerShell parity, macOS/Linux/Windows script governance |
 | `agent-parity-governance` | `v0.4.0` | `60` | synchronized agent guidance, fleet-completion evidence, and agent-neutral Spec-Kit model routing |
-| `autonomous-run-governance` | `v0.4.1` | `70` | permission-bounded, evidence-first governance with resumable, validated closeout |
+| `autonomous-run-governance` | `v0.4.2` | `70` | permission-bounded, evidence-first governance with resumable, validated closeout |
 | `parallel-autonomous-run-governance` | `v0.2.1` | `80` | isolated bounded campaigns, mixed runner profiles, cooperative stop/resume, provider-gated resumable consolidation, and declared post-merge closeout |
 
 `autonomous-run-governance` is installed as part of the mandatory eight-preset
