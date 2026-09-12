@@ -1,30 +1,21 @@
 <!--
 Sync Impact Report
-Version change: 1.15.0 -> 1.16.0
+Version change: 1.16.0 -> 1.16.1
 Modified principles:
-- VII. Inclusion & Accessibility By Default (bind first-year learner audiences and text-first dependency evidence)
-- VIII. DE-First / EN-Second Bilingual Delivery (explain first-use terms and require no prior Spec Kit experience)
+- None (corrected the mirrored autonomous-run-governance preset version)
 Added sections:
 - None
 Removed sections:
 - None
 Templates requiring updates:
-- ✅ .specify/templates/constitution-template.md
-- ✅ .specify/templates/plan-template.md
-- ✅ .specify/templates/spec-template.md
-- ✅ .specify/templates/supply-chain-evidence-template.md
-- ✅ .specify/templates/tasks-template.md
-Runtime guidance requiring updates:
-- ✅ AGENTS.md
-- ✅ CLAUDE.md
-- ✅ GEMINI.md
-- ✅ .github/copilot-instructions.md
 - ✅ .specify/memory/constitution.md (mirror)
+Runtime guidance requiring updates:
+- None (no behavioral rule changed)
 Follow-up TODOs:
 - None
 -->
 
-# Constitution v1.16.0
+# Constitution v1.16.1
 
 # home-baseline Constitution
 
@@ -955,7 +946,7 @@ workspace family consists of:
 | `a11y-governance` | `v0.4.1` | `40` | WCAG 2.2 AA, bilingual DE/EN, CEFR B2, inclusive artefacts, didactic inline-code-comment review |
 | `cross-platform-governance` | `v0.2.1` | `50` | Bash/PowerShell parity, macOS/Linux/Windows script governance |
 | `agent-parity-governance` | `v0.4.0` | `60` | synchronized agent guidance, fleet-completion evidence, and agent-neutral Spec-Kit model routing |
-| `autonomous-run-governance` | `v0.3.0` | `70` | permission-bounded, evidence-first governance with resumable, validated closeout |
+| `autonomous-run-governance` | `v0.4.1` | `70` | permission-bounded, evidence-first governance with resumable, validated closeout |
 | `parallel-autonomous-run-governance` | `v0.2.1` | `80` | isolated bounded campaigns, mixed runner profiles, cooperative stop/resume, provider-gated resumable consolidation, and declared post-merge closeout |
 
 `autonomous-run-governance` is installed as part of the mandatory eight-preset
@@ -1033,7 +1024,7 @@ Community/catalog coordination is tracked in `github/spec-kit#2362`.
 `.github/copilot-instructions.md` for per-agent operational guidance. This
 constitution is the authoritative policy layer above all agent-specific files.
 
-**Version**: 1.16.0 | **Ratified**: 2026-03-31 | **Last Amended**: 2026-07-25
+**Version**: 1.16.1 | **Ratified**: 2026-03-31 | **Last Amended**: 2026-09-12
 
 <!-- EN: constitution.md placeholder
 [DE-Zusammenfassung: constitution.md beschreibt die Prinzipien und Standards für alle home-baseline Workspaces.]

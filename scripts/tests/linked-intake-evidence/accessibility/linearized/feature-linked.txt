@@ -1,0 +1,6 @@
+Position: 39
+Status: Completed
+Lastenheft/Intake: Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md
+Abhängigkeiten / Dependencies: zwei direkte Kanten / two direct edges
+Spec-Kit-Feature: 032-linked-intake-evidence; eindeutig belegt / uniquely proven
+Nächste Aktion / Next action: Relatives Intake- und Feature-Ziel prüfen / Verify the relative intake and feature targets

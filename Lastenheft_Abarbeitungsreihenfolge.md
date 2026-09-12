@@ -90,29 +90,29 @@ they are intended as input for a later Spec Kit run.
 
 
 <!-- secure-development-hardening-order:start -->
-## Manifestgebundene Lastenheft-Reihenfolge / Manifest-Bound Requirements Order
+## Verlinkte Lastenheft-Reihenfolge / Linked Requirements Order
 
-Diese Tabelle bildet das validierte Serienmanifest unter `requirements/intakes/series/inventar-worker-service/manifest.json` ab. Sie ist eine Vorbereitung fuer spaetere Spec-Kit-Laeufe und startet selbst keinen Lauf. Bei Abweichungen ist das Serienmanifest verbindlich.
+Diese Tabelle wird aus dem kanonischen Series-Manifest und ausdruecklicher Feature-Evidence erzeugt. Vollstaendige Dateinamen, direkte eingehende Kanten und sichtbare Positionen bleiben erhalten. Manuelle Abschnitte ausserhalb dieses Markers bleiben unberuehrt.
 
-*This table reflects the validated series manifest at `requirements/intakes/series/inventar-worker-service/manifest.json`. It prepares later Spec Kit runs and does not start a run. If values differ, the series manifest is authoritative.*
+*This table is generated from the canonical series manifest and explicit feature evidence. Complete filenames, direct incoming edges, and visible positions are preserved. Manual sections outside this marker remain unchanged.*
 
-| Rang | Lastenheft | Gruppe | Manifeststatus |
-|---:|---|---|---|
-| 1 | `Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md` | Sicherheit/Governance | abgeschlossen / completed |
-| 2 | `Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md` | Sicherheit/Governance | bearbeitbar; in diesem Lauf nicht gestartet / eligible; not started in this run |
-| 3 | `Lastenheft_Didactic-Inline-Code-Comment-Hardening.md` | Dokumentation/Didaktik | blockiert / blocked |
-| 4 | `Lastenheft_TG_Elmish_Entscheidung.md` | Migration/Tooling | blockiert / blocked |
-| 5 | `Lastenheft_TG_Migration_InventarViewerApp.md` | Migration/Tooling | blockiert / blocked |
-| 6 | `Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md` | Migration/Tooling | blockiert / blocked |
-| 7 | `Lastenheft_TG_Migration_CtrlWorkerServiceApp.md` | Migration/Tooling | blockiert / blocked |
-| 8 | `Lastenheft_A11Y_TUI_API.md` | UI/A11Y/Dokumentation | blockiert / blocked |
-| 9 | `Lastenheft_Statistik_View_Lesemethoden.md` | Kernlogik/Runtime | blockiert / blocked |
-| 10 | `Lastenheft_IDbService_Interface.md` | Kernlogik/Runtime | blockiert / blocked |
-| 11 | `Lastenheft_MongoDB_Paritaet.md` | Kernlogik/Runtime | blockiert / blocked |
-| 12 | `Lastenheft_RL-SE-Checklist-Selbstpruefung.md` | Qualitaet/Audit | blockiert / blocked |
-| 13 | `Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md` | Qualitaet/Audit | blockiert / blocked |
-| 14 | `Lastenheft_Constitution_Change.md` | Governance/Baseline | abgeschlossen / completed |
-| 15 | `Lastenheft_TerminalGui_Migration.md` | Migration/Tooling | abgeschlossen / completed |
-| 16 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Kernlogik/Runtime | abgeschlossen / completed |
-| 17 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Kernlogik/Runtime | abgeschlossen / completed |
+| Position | Status | Lastenheft/Intake | Abhängigkeiten / Dependencies | Spec-Kit-Feature |
+|---:|---|---|---|---|
+| 1 | Completed | [Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md](Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md) | — (Root / keine direkte Abhängigkeit) | [002-secure-development-hardening](specs/002-secure-development-hardening/) |
+| 2 | Eligible | [Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md](Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md) | [Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md](Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 3 | Blocked | [Lastenheft_Didactic-Inline-Code-Comment-Hardening.md](Lastenheft_Didactic-Inline-Code-Comment-Hardening.md) | [Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md](Lastenheft_Sandbox-gestuetzte-Secure-Development-Haertung.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 4 | Blocked | [Lastenheft_TG_Elmish_Entscheidung.md](Lastenheft_TG_Elmish_Entscheidung.md) | [Lastenheft_Didactic-Inline-Code-Comment-Hardening.md](Lastenheft_Didactic-Inline-Code-Comment-Hardening.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 5 | Blocked | [Lastenheft_TG_Migration_InventarViewerApp.md](Lastenheft_TG_Migration_InventarViewerApp.md) | [Lastenheft_TG_Elmish_Entscheidung.md](Lastenheft_TG_Elmish_Entscheidung.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 6 | Blocked | [Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md](Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md) | [Lastenheft_TG_Migration_InventarViewerApp.md](Lastenheft_TG_Migration_InventarViewerApp.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 7 | Blocked | [Lastenheft_TG_Migration_CtrlWorkerServiceApp.md](Lastenheft_TG_Migration_CtrlWorkerServiceApp.md) | [Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md](Lastenheft_TG_Migration_CtrlWorkerServiceCmdlet.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 8 | Blocked | [Lastenheft_A11Y_TUI_API.md](Lastenheft_A11Y_TUI_API.md) | [Lastenheft_TG_Migration_CtrlWorkerServiceApp.md](Lastenheft_TG_Migration_CtrlWorkerServiceApp.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 9 | Blocked | [Lastenheft_Statistik_View_Lesemethoden.md](Lastenheft_Statistik_View_Lesemethoden.md) | [Lastenheft_A11Y_TUI_API.md](Lastenheft_A11Y_TUI_API.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 10 | Blocked | [Lastenheft_IDbService_Interface.md](Lastenheft_IDbService_Interface.md) | [Lastenheft_Statistik_View_Lesemethoden.md](Lastenheft_Statistik_View_Lesemethoden.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 11 | Blocked | [Lastenheft_MongoDB_Paritaet.md](Lastenheft_MongoDB_Paritaet.md) | [Lastenheft_IDbService_Interface.md](Lastenheft_IDbService_Interface.md) → current (`HardCompletionGate`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 12 | Blocked | [Lastenheft_RL-SE-Checklist-Selbstpruefung.md](Lastenheft_RL-SE-Checklist-Selbstpruefung.md) | [Lastenheft_MongoDB_Paritaet.md](Lastenheft_MongoDB_Paritaet.md) → current (`AssessmentBaseline`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 13 | Blocked | [Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md](Lastenheft_GSDB-Spec-Kit-Intensivpruefung.md) | [Lastenheft_RL-SE-Checklist-Selbstpruefung.md](Lastenheft_RL-SE-Checklist-Selbstpruefung.md) → current (`FinalAuditInput`, binding: true) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 14 | Completed | [Lastenheft_Constitution_Change.md](Lastenheft_Constitution_Change.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 15 | Completed | [Lastenheft_TerminalGui_Migration.md](Lastenheft_TerminalGui_Migration.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 16 | Completed | [Lastenheft_SQLite_ViewQuery_Bugfix.md](Lastenheft_SQLite_ViewQuery_Bugfix.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
+| 17 | Completed | [Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md](Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
 <!-- secure-development-hardening-order:end -->

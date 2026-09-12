@@ -58,6 +58,14 @@
       "labelDe": "002 Secure Hardening",
       "labelEn": "002 secure hardening",
       "netLines": 13089
+    },
+    {
+      "slot": 7,
+      "id": "linked-intake-evidence-032-slice",
+      "labelDe": "Feature 032 verlinkte Intake-Evidence",
+      "labelEn": "Feature 032 linked intake evidence",
+      "netLines": 4488,
+      "activeDays": 1
     }
   ],
   "excludedPaths": [],

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "contract": "linked-intake-view",
+  "entries": [
+    {"manifestIndex":1,"displayPosition":39,"status":"Completed","role":"Primary","intakePath":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","incomingDependencies":[{"from":"requirements/intakes/active/Lastenheft_Überblick.md","to":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","kind":"HardCompletionGate","binding":true},{"from":"requirements/intakes/active/Lastenheft_Zusatz.md","to":"Lastenheft_Verlinkte-Abarbeitungsreihenfolgen-und-Spec-Kit-Feature-Nachweise.md","kind":"PreferredSerialOrder","binding":false}],"featureState":"Linked","featureDirectory":"specs/032-linked-intake-evidence","proofKind":"FeatureBinding"},
+    {"manifestIndex":2,"displayPosition":1,"status":"Eligible","role":"Root","intakePath":"requirements/intakes/active/Lastenheft_Überblick.md","incomingDependencies":[],"featureState":"NoEvidence","featureCell":"— (kein Spec-Kit-Feature / no Spec Kit feature)"},
+    {"manifestIndex":3,"displayPosition":2,"status":"Eligible","role":"Supporting","intakePath":"requirements/intakes/active/Lastenheft_Zusatz.md","incomingDependencies":[],"featureState":"NoEvidence","featureCell":"— (kein Spec-Kit-Feature / no Spec Kit feature)"},
+    {"manifestIndex":4,"displayPosition":40,"status":"Completed","role":"Supporting","intakePath":"requirements/intakes/active/Lastenheft_Einzelkante.md","incomingDependencies":[{"from":"requirements/intakes/active/Lastenheft_Überblick.md","to":"requirements/intakes/active/Lastenheft_Einzelkante.md","kind":"HardCompletionGate","binding":true}],"featureState":"NoEvidence","featureCell":"— (kein Spec-Kit-Feature / no Spec Kit feature)"}
+  ],
+  "expectedHeader": ["Position", "Status", "Lastenheft/Intake", "Abhängigkeiten / Dependencies", "Spec-Kit-Feature"],
+  "expectedOutputs": [
+    {"path":"expected-root.md","sha256":"ad108d7df4edd67ecad107755abd853c7b28abeb1183f7f82257ffd6ac1679ac"},
+    {"path":"expected-series.md","sha256":"1b3036c70c79d872708091e65e7c6af49f948fed61df331000c91eebc437272d"}
+  ]
+}

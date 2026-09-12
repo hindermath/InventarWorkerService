@@ -302,6 +302,7 @@ und auf explizite Anforderung fortgeschrieben.
 
 | 2026-09-08 | Assurance-Baseline und Gate-Revalidierung / Assurance baseline and gate revalidation | Branch `codex/assurance-evidence-ready`; sichtbare Sitzung 2026-09-08. Die verwaltete Baseline ist auf 3.2.0 synchronisiert, der fruehere blockierte Gate-Satz auditierbar archiviert und der aktive Evidence-Vertrag fuer Baseline, Delta, Closure und Image Impact in Bash und PowerShell mit Gesamtstatus `Ready` geprueft. Die 157 fachlichen Bewertungen bleiben unveraendert; technische Validierung ist `Fulfilled`, Pilotfreigabe, Projektabnahme und allgemeine Freigabe bleiben `Open`. Umfang vor Statistik-Metadaten: `+2877 / -2272` Dokumentations-, Governance- und Evidence-Zeilen, `0` Produkt- und `0` Testcode-Zeilen. Dreizehn Presets bleiben unveraendert; keine Produkt-, API-, Paket-, Image- oder Home-Sync-Aenderung. / Synchronize baseline 3.2.0, archive the superseded blocked gate set, and validate all active gates plus overall status as `Ready` in Bash and PowerShell. Preserve 157 domain assessments and all human approval boundaries. No product, package, image, or Home-sync change; manual references remain defined by the repository statistics configuration. |
 | 2026-09-08 | Assurance-v0.1.3-Feldtest abgeschlossen / Assurance v0.1.3 field test completed | Branch `codex/assurance-v013-field-test-closeout`; eine sichtbare Agentensitzung. Das unveraenderliche Preset-Paket wurde im exakten 13-Preset-Profil unter Bash und PowerShell, mit Vertrags-, Negativ-, Zeilenendungs-, BOM-, Oberflaechen-, Kompositions- und Read-only-Pruefungen validiert. Alle vier aktiven Gates und der Gesamtstatus sind `Ready`; `technicalValidation` ist `Fulfilled`. C5, CRA und formale Produktkonformitaet sind im aktuellen nichtkommerziellen Ausbildungs- und Beispielscope `N/A`; die technische Wiedervorlage ist `2027-09-08`, die regulatorische Scope-Wiedervorlage `2026-12-31`. Die Empfehlung `ReleaseAccepted` gilt nur fuer Preset v0.1.3; Pilotfreigabe, Projektabnahme und allgemeine Freigabe bleiben `Open`. Evidence-Umfang vor Statistik-Selbstnachweis: `+244 / -55` Dokumentations-, Governance- und Evidence-Zeilen, `0` Produkt- und `0` Testcode-Zeilen. Keine API-, Runtime-, Paket-, Image- oder Home-Sync-Aenderung. / The immutable preset package passed the exact 13-preset profile and the complete cross-shell evidence suite. ReleaseAccepted applies only to preset v0.1.3; human approvals remain Open. No product, package, image, or Home-sync change. |
+| 2026-09-11 | Feature 032 – verlinkte Intake-Evidence / linked intake evidence | Branch `003-linked-intake-evidence`; eine sichtbare agentische Lieferphase. Das kanonische 17-Ziel-/12-Kanten-Manifest rendert nun die Root- und Series-Ansicht ueber gleichwertige Bash-/PowerShell-Vertraege mit positiven, negativen, A11Y-, Paritaets-, Idempotenz-, Rollback- und sicheren Publication-Tests. Der PR-Review fuehrte zusaetzlich zu kontrollierter LIE004-Behandlung ohne Manifest, exklusiven nicht vorhersagbaren Publication-Temps, fail-closed Rollbackfehlern und korrekten Standardausgaben fuer Root-Manifeste. Umfang vor Statistik-Selbstnachweis und ohne die acht Konfigurationszeilen: `+4545 / -57`, netto `4488` Governance-, Test-, Workflow- und Dokumentationszeilen; `0` Produkt-, API-, Runtime-, Paket- oder Versionszeilen. `Directory.Build.props` bleibt byteidentisch bei `1.2.8.66`. Referenzen: 80 Zeilen/Arbeitstag konservativ und 100 Zeilen/Arbeitstag Thorsten-Solo; bei einem sichtbaren Aktivtag entspricht das `56.1x` beziehungsweise `44.9x` Lieferdichte, nicht Stoppuhrzeit. Distribution `sourceOnly`, kein Home-Sync. / One visible delivery phase adds the manifest-backed views, cross-shell contracts, native proof and review hardening. The net 4488 lines exclude statistics configuration and ledger self-evidence; product/runtime/version remain unchanged. Manual references are 80 and 100 lines per workday; speedup denotes visible delivery density, not elapsed time. |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -454,27 +455,27 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 172271 lines |
-| Textdateien / Text files | 1141 |
-| Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-08 |
-| Aktivtage / Active days | 122 |
-| Relevante Commits / Relevant commits | 534 |
-| Zeilen je Aktivtag / Lines per active day | 1412.1 |
+| Textbasis / Text base | 176767 lines |
+| Textdateien / Text files | 1164 |
+| Beobachtbarer Zeitraum / Observable period | 2025-09-14..2026-09-12 |
+| Aktivtage / Active days | 123 |
+| Relevante Commits / Relevant commits | 538 |
+| Zeilen je Aktivtag / Lines per active day | 1437.1 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 11 days |
-| Speedup vs. 80 lines/day | 17.7x |
-| Speedup vs. 100 lines/day | 14.1x |
-| Methodik / Methodology | v2; source `b0d80450b36d` |
+| Speedup vs. 80 lines/day | 18.0x |
+| Speedup vs. 100 lines/day | 14.4x |
+| Methodik / Methodology | v2; source `e082f5c8bc72` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [#...................]   6.1% | 10545
-Tests                           [#...................]   5.2% | 8892
-Dokumentation / Documentation   [###############.....]  72.5% | 124958
-Skripte / Scripts               [##..................]  12.4% | 21432
-Konfiguration / Configuration   [#...................]   2.3% | 4041
+Produktiv / Production          [#...................]   6.0% | 10545
+Tests                           [#...................]   5.1% | 9030
+Dokumentation / Documentation   [##############......]  70.9% | 125277
+Skripte / Scripts               [###.................]  14.4% | 25369
+Konfiguration / Configuration   [#...................]   2.3% | 4143
 Daten und Medien / Data and media [#...................]   0.7% | 1150
 Sonstiger Text / Other text     [#...................]   0.7% | 1253
 ```
@@ -501,10 +502,10 @@ Wochen / Weeks 27..52 | 2026-03-15..2026-09-12
 So/Su  0 4 0 0 2 4 0 0 0 0 0 1 0 4 0 0 0 1 4 3 1 4 4 0 4 4
 Mo/Mo  0 0 2 0 1 4 0 4 0 0 0 0 0 0 0 3 1 4 4 0 0 0 2 0 0 4
 Di/Tu  0 0 3 0 0 0 0 3 0 0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 1 4
-Mi/We  0 1 0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 -
-Do/Th  0 0 0 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 -
-Fr/Fr  0 2 4 0 2 4 0 0 0 4 2 2 0 3 2 3 4 4 4 1 0 0 0 0 0 -
-Sa/Sa  0 2 0 0 0 0 0 0 0 0 0 0 0 4 0 4 4 0 4 2 0 2 0 0 0 -
+Mi/We  0 1 0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 0
+Do/Th  0 0 0 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0
+Fr/Fr  0 2 4 0 2 4 0 0 0 4 2 2 0 3 2 3 4 4 4 1 0 0 0 0 0 0
+Sa/Sa  0 2 0 0 0 0 0 0 0 0 0 0 0 4 0 4 4 0 4 2 0 2 0 0 0 4
 ```
 
 DE: 0 = keine Aenderung; 1 = 1..79; 2 = 80..399; 3 = 400..1599; 4 = 1600+ geaenderte Textzeilen; - = noch nicht abgelaufen.
@@ -555,7 +556,7 @@ Wochen / Weeks 01..26 | 2025-09-14..2026-03-14
 ```text
 Wochen / Weeks 27..52 | 2026-03-15..2026-09-12
   cap 500000 | . . . . . . . . . . . . . . . . . . . . . . . . . .
-      416667 | . . . . . . . . . . . . . . . . . . . . . . . . . .
+      416667 | . . . . . . . . . . . . . . . . . . . . . . . . . #
       333333 | . . . . . . . . . . . . . . . . . . # # # # # # # #
       250000 | . . . . . . . # # # # # # # # # # # # # # # # # # #
       166667 | . . . . . # # # # # # # # # # # # # # # # # # # # #
@@ -570,15 +571,15 @@ Die kumulative Kurve summiert nur das Brutto-Aenderungsvolumen im Fenster. Sie d
 ### Phasenvolumen / Phase Volume
 
 ```text
-Slots 0..6
-   cap 20000 | . . . . . . .
-       16667 | . . . . . . .
-       13333 | . . . . . . .
-       10000 | . . . . . . #
-        6667 | . . # . . . #
-        3333 | . . # . # . #
-           0 +---------------
-             00 01 02 03 04 05 06
+Slots 0..7
+   cap 20000 | . . . . . . . .
+       16667 | . . . . . . . .
+       13333 | . . . . . . . .
+       10000 | . . . . . . # .
+        6667 | . . # . . . # .
+        3333 | . . # . # . # #
+           0 +-----------------
+             00 01 02 03 04 05 06 07
 ```
 
 | Slot | Phase | Nettozeilen / Net lines |
@@ -590,6 +591,7 @@ Slots 0..6
 | 4 | Governance und CI / Governance and CI | 6438 |
 | 5 | 002 Versionierung / 002 versioning | 41 |
 | 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
+| 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4488 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -599,8 +601,8 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..20x
-80 lines/day       [##################..] 17.7x
-100 lines/day      [##############......] 14.1x
+80 lines/day       [##################..] 18.0x
+100 lines/day      [##############......] 14.4x
 ```
 
 Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen Referenzen. Sie messen keine Arbeitszeit.
@@ -613,7 +615,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##############......] 1412.1
+Visible repository [##############......] 1437.1
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -622,9 +624,9 @@ Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schre
 
 ### Textalternative / Text Alternative
 
-DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-08. Es enthaelt 122 aktive und 238 inaktive vergangene Tage. Peak-Tag: 2026-04-19 / 107974. Peak-Woche: 2026-04-19 / 114277. Laengste Serie: 11 Tage (2025-10-25..2025-11-04).
+DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-12. Es enthaelt 123 aktive und 241 inaktive vergangene Tage. Peak-Tag: 2026-04-19 / 107974. Peak-Woche: 2026-04-19 / 114277. Laengste Serie: 11 Tage (2025-10-25..2025-11-04).
 
-*EN: The window starts on 2025-09-14 and ends on 2026-09-08. It contains 122 active and 238 inactive elapsed days. Peak day: 2026-04-19 / 107974. Peak week: 2026-04-19 / 114277. Longest streak: 11 days (2025-10-25..2025-11-04).*
+*EN: The window starts on 2025-09-14 and ends on 2026-09-12. It contains 123 active and 241 inactive elapsed days. Peak day: 2026-04-19 / 107974. Peak week: 2026-04-19 / 114277. Longest streak: 11 days (2025-10-25..2025-11-04).*
 
 | Monat / Month | Geaenderte Textzeilen / Changed text lines |
 |---|---:|
@@ -639,6 +641,6 @@ DE: Das Fenster beginnt am 2025-09-14 und endet am 2026-09-08. Es enthaelt 122 a
 | 2026-06 | 37685 |
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
-| 2026-09 | 15976 |
+| 2026-09 | 20626 |
 
 <!-- project-statistics-v2:end -->

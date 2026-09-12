@@ -1,0 +1,6 @@
+Position: 40
+Status: Completed
+Lastenheft/Intake: Lastenheft_Einzelkante.md
+Abhängigkeiten / Dependencies: Lastenheft_Überblick.md; HardCompletionGate; binding true
+Spec-Kit-Feature: kein Spec-Kit-Feature / no Spec Kit feature
+Nächste Aktion / Next action: Fehlenden eindeutigen Feature-Nachweis prüfen / Review the missing unique feature evidence
