@@ -38,7 +38,7 @@ the stabilizing preparation work.
 
 | Lastenheft | Einordnung / Classification | Begruendung / Rationale |
 |---|---|---|
-| `Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md` | Abgeschlossen und branch-suffig archiviert / completed and archived with branch suffix | Der lokale Implementierungsumfang T001–T107 des Laufs `002-secure-development-hardening` ist traceable vorbereitet; Remote-Delivery und Closeout bleiben T108–T122 beim Koordinator.<br>The local T001–T107 implementation scope of `002-secure-development-hardening` is traceably prepared; remote delivery and closeout T108–T122 remain coordinator-owned. |
+| `Lastenheft_Secure-Development-Hardening.002-secure-development-hardening.md` | Abgeschlossen und branch-suffig archiviert / completed and archived with branch suffix | Der Lauf `002-secure-development-hardening` ist mit MergeAndSync und 122 von 122 abgeschlossenen Aufgaben vollständig geliefert.<br>The `002-secure-development-hardening` run is fully delivered through MergeAndSync with 122 of 122 tasks completed. |
 | `Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md` | Abgeschlossen und branch-suffig archiviert / completed and archived with branch suffix | Der Lauf `001-pgsql-paritaet` ist umgesetzt und in `specs/001-pgsql-paritaet/` dokumentiert.<br>The `001-pgsql-paritaet` run is implemented and documented in `specs/001-pgsql-paritaet/`. |
 | `Lastenheft_SQLite_ViewQuery_Bugfix.md` | Bereits im aktuellen Code geloest / already resolved in current code | Die betroffenen View-Abfragen verwenden im aktuellen `SqliteDbService` die View-Namen mit `ORDER BY Name`.<br>The affected view queries in the current `SqliteDbService` use the view names with `ORDER BY Name`. |
 | `Lastenheft_Constitution_Change.md` | Durch aktuelle Governance ueberholt / superseded by current governance | Die Kernpunkte sind durch Constitution, Agent-Guidance und Spec-Kit-Preset-Governance aktueller abgedeckt.<br>The main points are covered more up to date by the constitution, agent guidance, and Spec Kit preset governance. |
@@ -55,6 +55,10 @@ the stabilizing preparation work.
   `Lastenheft_<Thema>.<feature-branch>.md`.
 - Wenn sich Status oder Reihenfolge aendern, wird diese Datei vor dem naechsten
   Spec-Kit-Lauf aktualisiert.
+- Abhaengigkeiten duerfen zusaetzlich als Mermaid-Diagramm dargestellt werden.
+  Eine vollstaendige textuelle Lesefassung steht immer unmittelbar davor;
+  Status, Kantenart und Reihenfolge duerfen nicht nur durch Farbe vermittelt
+  werden.
 
 - Before a later Spec Kit run, use the first active requirements file that has
   not yet been processed.
@@ -64,6 +68,9 @@ the stabilizing preparation work.
   requirements file according to the repository rule:
   `Lastenheft_<Topic>.<feature-branch>.md`.
 - If status or order changes, update this file before the next Spec Kit run.
+- Dependencies may additionally be shown as a Mermaid diagram. A complete
+  textual representation always appears immediately before it; status, edge
+  type, and order must never rely on color alone.
 
 ## Pflegepruefung / Maintenance Check
 
@@ -116,3 +123,72 @@ Diese Tabelle wird aus dem kanonischen Series-Manifest und ausdruecklicher Featu
 | 16 | Completed | [Lastenheft_SQLite_ViewQuery_Bugfix.md](Lastenheft_SQLite_ViewQuery_Bugfix.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
 | 17 | Completed | [Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md](Lastenheft_PostgreSQL_Implementation.001-pgsql-paritaet.md) | — (Root / keine direkte Abhängigkeit) | — (kein Spec-Kit-Feature / no Spec Kit feature) |
 <!-- secure-development-hardening-order:end -->
+
+## Text-first Seriensicht und Mermaid-Diagramm / Text-first Series View and Mermaid Diagram
+
+Die bindende Hauptkette beginnt beim abgeschlossenen Secure-Development-
+Hardening. Als naechster Kandidat ist ausschliesslich die Sandbox-Haertung
+bearbeitbar. Danach folgen, jeweils noch blockiert: didaktische Inline-
+Kommentare, Elmish-Entscheidung, die drei Terminal.Gui-Migrationen, A11Y,
+Statistik-Lesemethoden, `IDbService`, MongoDB-Paritaet, RL-SE-Selbstpruefung
+und die GSDB-Intensivpruefung. Die ersten zehn Kanten sind
+`HardCompletionGate`; MongoDB zu RL-SE ist `AssessmentBaseline`, RL-SE zu
+GSDB ist `FinalAuditInput`. Alle zwoelf Kanten sind bindend. Constitution,
+Terminal.Gui-Uebersicht, SQLite-Bugfix und PostgreSQL-Implementierung sind
+weitere abgeschlossene Roots ohne eingehende Kante.
+
+*The binding main chain starts with the completed secure-development
+hardening. Sandbox hardening is the only currently eligible candidate. The
+following targets remain blocked: didactic inline comments, the Elmish
+decision, three Terminal.Gui migrations, accessibility, statistics read
+methods, `IDbService`, MongoDB parity, the RL-SE self-assessment, and the GSDB
+intensive assessment. The first ten edges are `HardCompletionGate`; MongoDB to
+RL-SE is `AssessmentBaseline`, and RL-SE to GSDB is `FinalAuditInput`. All
+twelve edges are binding. Constitution, the Terminal.Gui overview, the SQLite
+bugfix, and the PostgreSQL implementation are additional completed roots with
+no incoming edge.*
+
+```mermaid
+flowchart TD
+    SDH["Completed<br/>Secure-Development-Hardening<br/>Feature 002"]
+    SBX["Eligible<br/>Sandbox-gestuetzte<br/>Secure-Development-Haertung"]
+    DID["Blocked<br/>Didactic Inline-Code-Comment<br/>Hardening"]
+    ELM["Blocked<br/>Terminal.Gui Elmish<br/>Entscheidung"]
+    VIEW["Blocked<br/>Terminal.Gui Migration<br/>InventarViewerApp"]
+    CMD["Blocked<br/>Terminal.Gui Migration<br/>CtrlWorkerServiceCmdlet"]
+    APP["Blocked<br/>Terminal.Gui Migration<br/>CtrlWorkerServiceApp"]
+    A11Y["Blocked<br/>A11Y TUI und API"]
+    STAT["Blocked<br/>Statistik-View-Lesemethoden"]
+    IDB["Blocked<br/>IDbService Interface"]
+    MONGO["Blocked<br/>MongoDB-Paritaet"]
+    RLSE["Blocked<br/>RL-SE-Checklist-Selbstpruefung"]
+    GSDB["Blocked<br/>GSDB Spec-Kit-Intensivpruefung"]
+
+    SDH -->|HardCompletionGate| SBX
+    SBX -->|HardCompletionGate| DID
+    DID -->|HardCompletionGate| ELM
+    ELM -->|HardCompletionGate| VIEW
+    VIEW -->|HardCompletionGate| CMD
+    CMD -->|HardCompletionGate| APP
+    APP -->|HardCompletionGate| A11Y
+    A11Y -->|HardCompletionGate| STAT
+    STAT -->|HardCompletionGate| IDB
+    IDB -->|HardCompletionGate| MONGO
+    MONGO -->|AssessmentBaseline| RLSE
+    RLSE -->|FinalAuditInput| GSDB
+
+    subgraph completedRoots["Weitere abgeschlossene Roots / Additional completed roots"]
+        CON["Completed<br/>Constitution Change"]
+        TGUI["Completed<br/>Terminal.Gui Migration<br/>Uebersichts-Intake"]
+        SQL["Completed<br/>SQLite ViewQuery Bugfix"]
+        PG["Completed<br/>PostgreSQL Implementation<br/>Feature 001"]
+    end
+
+    class SDH,CON,TGUI,SQL,PG completed
+    class SBX eligible
+    class DID,ELM,VIEW,CMD,APP,A11Y,STAT,IDB,MONGO,RLSE,GSDB blocked
+
+    classDef completed fill:#dbeafe,stroke:#1e3a8a,color:#111827
+    classDef eligible fill:#fef3c7,stroke:#92400e,color:#111827
+    classDef blocked fill:#f3f4f6,stroke:#4b5563,color:#111827
+```

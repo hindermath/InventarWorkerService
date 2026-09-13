@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "IntakeSeriesReceipt",
+  "receiptId": "d3d95040-e4b1-42ba-8031-e58b1e6cd421",
+  "seriesId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "generator": {
+    "preset": "intake-sequencing-governance",
+    "version": "0.2.6"
+  },
+  "createdAt": "2026-09-13T17:49:18Z",
+  "operation": {
+    "operationId": "32c40cc2-8900-4166-bf10-88763136496a",
+    "type": "Update",
+    "authorityEvidence": "Expliziter Nutzerauftrag vom 2026-09-13: die veraltete T108-T122-Aussage korrigieren und die text-first Mermaid-Ergaenzung dauerhaft aufnehmen."
+  },
+  "status": "Ready",
+  "manifest": {
+    "path": "requirements/intakes/series/inventar-worker-service/manifest.json",
+    "normalizedSha256": "e7d6a5d82a1375c9a866a613447084cd320dcb58cce754124280c5b2c01dff98"
+  },
+  "supersedes": {
+    "receiptPath": "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/series-receipt.before.json",
+    "receiptNormalizedSha256": "9b76b5eb4fc39f886a38f5cc31f3b7f0f70d74cd0389cef34ce506555b03cee5",
+    "manifestArchivePath": "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/manifest.before.json",
+    "manifestArchiveSha256": "e7d6a5d82a1375c9a866a613447084cd320dcb58cce754124280c5b2c01dff98"
+  },
+  "tombstone": {
+    "path": "N/A",
+    "normalizedSha256": "N/A"
+  },
+  "evidenceChange": {
+    "path": "Lastenheft_Abarbeitungsreihenfolge.md",
+    "normalizedSha256": "9bf22953711a4f51883a55c1d2a7f638d7785c345d518b28d8129acb2ec62215",
+    "summary": "Korrigiert den Feature-002-Abschluss auf MergeAndSync mit 122/122 und ergaenzt eine vollstaendige text-first Seriensicht mit zusaetzlichem Mermaid-Diagramm.",
+    "targetCountBefore": 17,
+    "targetCountAfter": 17,
+    "rootCountBefore": 5,
+    "rootCountAfter": 5,
+    "dependencyCountBefore": 12,
+    "dependencyCountAfter": 12,
+    "lifecycleChanges": []
+  },
+  "nextAction": "$speckit-intake-series-status"
+}
