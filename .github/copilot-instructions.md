@@ -420,3 +420,37 @@ shell commands, and other important information, read the current plan
 - Bedienung, Paketbindung, Erhaltungsnachweis und Grenzen: [Integrationsnachweis](../docs/maintenance/secure-development-assurance-integration.md), relativ zur Repository-Wurzel.
 
 *This repository explicitly opts into the thirteen-preset profile: its existing twelve presets plus Secure Development Assurance v0.1.3, enabled at priority 15. Other profiles and global defaults stay unchanged. Published standalone GitHub repositories are the only product sources; installed copies are integrations, not competing sources. Status is read-only; a gate review requires explicit context-specific authority. Installation starts no reviews and grants no human approvals. This is not a C5 attestation, certification, or full readiness check; `Ready` is evidence-context-specific. The project baseline retains its own version. See the integration record relative to the repository root.*
+
+<!-- BEGIN spec-kit-diagrams-completion -->
+## Mermaid und Spec-Kit-Abschlussbericht / Mermaid and Spec Kit completion report
+
+Neue Lastenhefte enthalten bei hilfreichen Abläufen, Zuständen oder Abhängigkeiten
+lesbaren Mermaid-Quelltext im Markdown und eine gleichwertige Textalternative.
+Bei einfachen Inhalten die Nichtanwendung kurz begründen. Diagramme bilden die
+verbindlichen Text-/Manifestquellen ab; Farbe allein trägt keine Bedeutung.
+Nach jedem vollständig abgeschlossenen Spec-Kit-Feature-Lauf den vollständigen
+Ergebnisbericht im Chat anzeigen und im Feature-Verzeichnis als
+`completion-report.md` versionieren. Einzelne Planungs-/Status-/Review-Kommandos
+lösen keinen solchen Bericht aus; blockierte oder pausierte Läufe als
+Zwischenbericht kennzeichnen. Vorlage: `.specify/templates/completion-report-template.md`;
+Regel: `docs/spec-kit-diagrams-and-completion-reports.md`.
+Ergebnis, Tests, Dokumentation, Git-gebundene Umfangszahlen, Verlauf und Restpunkte
+belegen. Programmlogik von generierter Evidence, Git-Wandzeit von aktiver
+Arbeitszeit und bestandene von ausgefallenen Prüfungen unterscheiden. Finale
+Merge-/Sync-Evidence im Chat und bestehenden Closeout-Nachweis ergänzen; keine
+zusätzlichen Commits allein für selbstreferenzielle Berichts-/Statistikwerte.
+Diese Projektregel und lokale Vorlagen bei Spec-Kit-Updates erhalten.
+
+*New intakes use readable Mermaid Markdown and equivalent text alternatives for
+useful workflows, states or dependencies; justify omission for simple content.
+Diagrams reflect authoritative text/manifests and never rely on color alone.
+After each completed feature run, show the full outcome report in chat and
+version completion-report.md in the feature directory using the shared template
+and rule above. Individual planning/status/review commands do not trigger it;
+paused/blocked runs receive interim reports. Evidence outcomes, tests, docs,
+Git-bound counts, delivery history and remaining work. Distinguish code from
+volume generated as evidence, elapsed from active time, and passed from failed
+checks. Add final merge/sync proof in chat and existing closeout evidence, without
+commits solely for self-referential counts or IDs. Preserve local rules/templates
+across Spec Kit updates.*
+<!-- END spec-kit-diagrams-completion -->

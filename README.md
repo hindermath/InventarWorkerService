@@ -1362,3 +1362,11 @@ Die lebende Projektstatistik steht in `docs/project-statistics.md`. Sie wird rep
 Das ausdrücklich freigegebene 13-Preset-Profil ergänzt die bisherigen zwölf Presets unverändert. [Bedienung und Integrationsnachweis](docs/maintenance/secure-development-assurance-integration.md).
 
 *The explicitly approved thirteen-preset profile preserves the existing twelve presets. See the linked usage and integration record.*
+
+<!-- BEGIN spec-kit-diagrams-completion -->
+## Diagramme und Ergebnisberichte / Diagrams and outcome reports
+
+[Mermaid- und Abschlussbericht-Regeln](docs/spec-kit-diagrams-and-completion-reports.md)
+führen vom neuen Lastenheft zum belegten Feature-Ergebnisbericht. / The linked
+rules explain accessible intake diagrams and evidence-based feature reports.
+<!-- END spec-kit-diagrams-completion -->
