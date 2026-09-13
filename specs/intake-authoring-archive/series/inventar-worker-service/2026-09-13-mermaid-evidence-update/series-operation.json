@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "documentType": "IntakeSeriesOperation",
+  "operationId": "32c40cc2-8900-4166-bf10-88763136496a",
+  "seriesId": "6e617b77-9ce9-4e4c-91cc-8cd077e0ba7c",
+  "type": "Update",
+  "status": "Validated",
+  "authorityEvidence": "Expliziter Nutzerauftrag vom 2026-09-13: die veraltete T108-T122-Aussage korrigieren und die text-first Mermaid-Ergaenzung dauerhaft aufnehmen.",
+  "proposalNormalizedSha256": "9bf22953711a4f51883a55c1d2a7f638d7785c345d518b28d8129acb2ec62215",
+  "preparedPaths": [
+    "Lastenheft_Abarbeitungsreihenfolge.md",
+    "requirements/intakes/series/inventar-worker-service/manifest.json",
+    "requirements/intakes/series/inventar-worker-service/receipt.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/manifest.before.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/series-receipt.before.json",
+    "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/series-operation.json"
+  ],
+  "cardinalityChanges": {
+    "targets": "17 -> 17",
+    "roots": "5 -> 5",
+    "dependencies": "12 -> 12",
+    "lifecycle": "unchanged"
+  },
+  "validation": {
+    "bash": "N/A; PowerShell 7 ist auf macOS verfuegbar und die bevorzugte Repository-Oberflaeche.",
+    "powerShell": "Pass am 2026-09-13: Serienmanifest und Nachfolger-Receipt wurden mit explizitem -Repo . validiert; beide Befehle lieferten Exitcode 0. Die zusaetzliche Governance-Inventarpruefung meldet den vorbestehenden, ausserhalb dieses Evidence-Auftrags liegenden Befund RIG017."
+  },
+  "publication": {
+    "status": "Published",
+    "publishedPaths": [
+      "Lastenheft_Abarbeitungsreihenfolge.md",
+      "requirements/intakes/series/inventar-worker-service/manifest.json",
+      "requirements/intakes/series/inventar-worker-service/receipt.json",
+      "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/manifest.before.json",
+      "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/series-receipt.before.json",
+      "specs/intake-authoring-archive/series/inventar-worker-service/2026-09-13-mermaid-evidence-update/series-operation.json"
+    ]
+  }
+}
