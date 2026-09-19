@@ -68,6 +68,6 @@
       "activeDays": 1
     }
   ],
-  "excludedPaths": [],
+  "excludedPaths": ["docs/project-statistics/*"],
   "categoryOverrides": []
 }
