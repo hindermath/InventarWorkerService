@@ -71,23 +71,23 @@ public sealed partial class SecureDevelopmentEvidenceContractTest
     }
 
     /// <summary>
-    /// DE: Prüft die freigegebene 13er-Matrix samt Version, Priorität und Aktivierung.
-    /// EN: Verifies the approved thirteen-preset matrix, versions, priorities and activation.
+    /// DE: Prüft die freigegebene 14er-Matrix samt Version, Priorität und Aktivierung.
+    /// EN: Verifies the approved fourteen-preset matrix, versions, priorities and activation.
     /// </summary>
     [TestMethod]
-    public void InstalledPresetRegistry_MatchesApprovedThirteenPresetProfile()
+    public void InstalledPresetRegistry_MatchesApprovedFourteenPresetProfile()
     {
         using var registry = JsonDocument.Parse(File.ReadAllText(PathInRepository(".specify/presets/.registry")));
-        using var matrix = JsonDocument.Parse(File.ReadAllText(PathInRepository("scripts/config/spec-kit-secure-development-assurance-governance-presets.json")));
+        using var matrix = JsonDocument.Parse(File.ReadAllText(PathInRepository("scripts/config/spec-kit-project-statistics-governance-presets.json")));
         var presets = registry.RootElement.GetProperty("presets").EnumerateObject().ToArray();
         var expected = matrix.RootElement.GetProperty("presets").EnumerateArray().ToArray();
 
-        Assert.AreEqual(13, expected.Length);
-        Assert.AreEqual(13, expected.Select(preset => preset.GetProperty("id").GetString())
+        Assert.AreEqual(14, expected.Length);
+        Assert.AreEqual(14, expected.Select(preset => preset.GetProperty("id").GetString())
             .Distinct(StringComparer.Ordinal).Count());
         Assert.AreEqual(expected.Length, presets.Length);
         Assert.IsTrue(presets.All(preset => preset.Value.GetProperty("enabled").GetBoolean()));
-        Assert.AreEqual(13, presets.Select(preset => preset.Name).Distinct(StringComparer.Ordinal).Count());
+        Assert.AreEqual(14, presets.Select(preset => preset.Name).Distinct(StringComparer.Ordinal).Count());
         // DE: Die Profilquelle verhindert Drift zwischen isolierten Testkonstanten und Rollout.
         // EN: Binding to the profile avoids drift between isolated test constants and rollout.
         foreach (var definition in expected)

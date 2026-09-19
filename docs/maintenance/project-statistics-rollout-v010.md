@@ -66,6 +66,19 @@ change: this is not a numbered feature branch. Leave the release PR untouched.
 
 ## Dokumentationsauswirkung und Sicherheit / Documentation impact and security
 
+CI-Finding im ersten PR-Lauf: Der bestehende Governance-Test
+`InstalledPresetRegistry_MatchesApprovedThirteenPresetProfile` erwartete noch
+13 Presets. Er wird auf die freigegebene 14er-Matrix gebunden und entsprechend
+umbenannt. Exakte Anzahl, eindeutige IDs, Aktivierung, Version und Prioritaet
+bleiben strikt geprueft. Keine Produktlogik-Aenderung oder Testumgehung.
+Die nachfolgende Messung ersetzt den ersten Snapshot; CI wird neu ausgefuehrt.
+
+Initial CI exposed a stale thirteen-preset expectation in the existing
+governance contract test. Bind it to the approved fourteen-preset matrix,
+retaining exact count, uniqueness, activation, version and priority checks.
+This is no product behavior change or test bypass. Remeasure after the
+correction and rerun CI; the original failed run remains audit evidence.
+
 `UpdateRequired`; Owner Thorsten Hindermann. Zielgruppen: Lernende ab Jahr 1,
 Maintainer und Reviewer. README -> Kontextanleitung -> Bericht/Snapshot ->
 Integrationsbeleg. ActiveSemantic, Deutsch zuerst/Englisch danach, text-first.
