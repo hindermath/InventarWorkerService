@@ -21,6 +21,9 @@
     "secure-development-assurance-thirteen-governance-presets": {
       "presetConfig": "scripts/config/spec-kit-secure-development-assurance-governance-presets.json"
     },
+    "project-statistics-fourteen-governance-presets": {
+      "presetConfig": "scripts/config/spec-kit-project-statistics-governance-presets.json"
+    },
     "none": {
       "presetConfig": null
     }

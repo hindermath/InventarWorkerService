@@ -1359,9 +1359,22 @@ Die lebende Projektstatistik steht in `docs/project-statistics.md`. Sie wird rep
 
 ## Secure Development Assurance – Projektintegration / Project Integration
 
-Das ausdrücklich freigegebene 13-Preset-Profil ergänzt die bisherigen zwölf Presets unverändert. [Bedienung und Integrationsnachweis](docs/maintenance/secure-development-assurance-integration.md).
+Die erhaltene 13-Preset-Assurance-Basis ergaenzt die bisherigen zwoelf Presets unveraendert. Das aktuelle 14-Preset-Profil ergaenzt Statistik v0.1.0. [Assurance-Integrationsnachweis](docs/maintenance/secure-development-assurance-integration.md).
 
-*The explicitly approved thirteen-preset profile preserves the existing twelve presets. See the linked usage and integration record.*
+*The preserved thirteen-preset assurance base retains the original twelve presets. The current fourteen-preset profile adds statistics v0.1.0. See the assurance integration record.*
+
+## Reproduzierbare Projekttransparenz / Reproducible Project Transparency
+
+Der [getrennte Statistik-Kontext](docs/project-statistics/README.md) zeigt
+Git-getrackten Text und sichtbare Aenderungsaktivitaet. Profil 2 bleibt kanonisch;
+der neue UTC-Kontext nutzt keine Referenzmodelle. Kein Nachweis von Qualitaet,
+Lernleistung oder KI-Produktivitaet. Einstieg: Anleitung -> lesender Status ->
+Bericht und Quellenbindung.
+
+*The separate context reports tracked text and visible Git activity. Keep
+Profile 2 authoritative; disable reference estimates in the UTC context.
+This does not measure quality, learning or AI productivity. Start with the
+guide, read-only status, report and source binding.*
 
 <!-- BEGIN spec-kit-diagrams-completion -->
 ## Diagramme und Ergebnisberichte / Diagrams and outcome reports
