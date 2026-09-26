@@ -9,27 +9,27 @@ Git-bound inventory and activity; not a measure of quality, learning performance
 
 | Kennzahl / Metric | Wert / Value |
 | --- | --- |
-| Textdateien / Text files | 1242 |
-| Textzeilen / Text lines | 190698 |
-| Aktivtage / Active days | 125 |
-| Stichtag / As of | 2026-09-20 |
+| Textdateien / Text files | 1245 |
+| Textzeilen / Text lines | 190890 |
+| Aktivtage / Active days | 126 |
+| Stichtag / As of | 2026-09-26 |
 | Fensterbeginn / Window start | 2025-09-28 |
 | Zeitzone / Time zone | UTC |
 
 Quellrevision / Source revision:
-01828456c71b59e87687415d81573a415ef0bb17
+504b4f5deaf2ff6a1613e7e01a7044673c518bf6
 
 ### Artefakte / Artifacts
 
 | Kategorie / Category | Dateien / Files | Zeilen / Lines |
 | --- | ---: | ---: |
-| Production | 71 | 10545 |
-| Tests | 70 | 9773 |
-| Documentation | 896 | 132667 |
-| Scripts | 119 | 30767 |
-| Configuration | 62 | 4543 |
+| Production | 72 | 10549 |
+| Tests | 70 | 9821 |
+| Documentation | 897 | 132733 |
+| Scripts | 119 | 30802 |
+| Configuration | 62 | 4577 |
 | DataMedia | 11 | 1150 |
-| Other | 13 | 1253 |
+| Other | 14 | 1258 |
 
 ### Aktivitaet / Activity
 
@@ -51,12 +51,12 @@ Sa/Sa  0 0 0 2 2 3 2 4 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 2
 ```text
 Wochen / Weeks 27..52 | 2026-03-29..2026-09-26
 So/Su  0 0 2 4 0 0 0 0 0 0 0 4 0 0 0 1 4 3 0 4 0 0 4 4 4 3
-Mo/Mo  2 0 1 4 0 4 0 0 0 0 0 0 0 3 1 4 0 0 0 0 2 0 0 4 0 -
-Di/Tu  3 0 0 0 0 3 0 0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 1 4 0 -
-Mi/We  0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 0 0 -
-Do/Th  4 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0 0 -
-Fr/Fr  0 0 2 4 0 0 0 4 2 2 0 4 2 3 4 4 4 1 0 0 0 0 0 4 0 -
-Sa/Sa  0 2 4 0 0 0 0 0 1 0 0 3 0 4 4 0 4 2 0 4 0 0 0 3 4 -
+Mo/Mo  2 0 1 4 0 4 0 0 0 0 0 0 0 3 1 4 0 0 0 0 2 0 0 4 0 0
+Di/Tu  3 0 0 0 0 3 0 0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 1 4 0 0
+Mi/We  0 0 0 3 0 2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 0 0 0
+Do/Th  4 0 0 0 4 0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0 0 0
+Fr/Fr  0 0 2 4 0 0 0 4 2 2 0 4 2 3 4 4 4 1 0 0 0 0 0 4 0 0
+Sa/Sa  0 2 4 0 0 0 0 0 1 0 0 3 0 4 4 0 4 2 0 4 0 0 0 3 4 2
 ```
 
 | Datum / Date | Hinzu / Added | Entfernt / Removed |
@@ -186,6 +186,7 @@ Sa/Sa  0 2 4 0 0 0 0 0 1 0 0 3 0 4 4 0 4 2 0 4 0 0 0 3 4 -
 | 2026-09-13 | 5652 | 986 |
 | 2026-09-19 | 7605 | 115 |
 | 2026-09-20 | 1374 | 31 |
+| 2026-09-26 | 214 | 22 |
 
 ### Abdeckung / Coverage
 
