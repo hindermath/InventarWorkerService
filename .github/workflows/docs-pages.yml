@@ -81,6 +81,8 @@ jobs:
           bash .github/scripts/postprocess-docfx-site.sh "$fixture_dir"
           test "$(grep -c '<button type="button"' "$fixture_dir/index.html")" -eq 2
           test "$(grep -c '<button type="button"' "$fixture_dir/public/docfx.min.js")" -eq 2
+          test "$(grep -c '<i aria-hidden="true"' "$fixture_dir/index.html")" -eq 2
+          test "$(grep -c '<i aria-hidden="true"' "$fixture_dir/public/docfx.min.js")" -eq 2
           grep -F 'aria-expanded="false"' "$fixture_dir/index.html"
           grep -F "aria-expanded='true'" "$fixture_dir/index.html"
           grep -F '<a class="nav-link dropdown-toggle" href="#" role="button"' "$fixture_dir/index.html"

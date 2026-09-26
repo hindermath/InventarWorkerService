@@ -16,13 +16,17 @@ Bearbeitet ausschliesslich den angegebenen erzeugten Seitenordner, Standard
 Logo als dekorativ. Theme-Schalter ohne Linkziel werden im HTML und in
 `public/docfx.min.js` in native Buttons umgewandelt. `aria-expanded` bleibt
 erhalten: Bootstrap darf den Zustand auch nach Tastaturbedienung aktualisieren.
+Dekorative Schalter-Icons werden vor Hilfsmitteln verborgen, damit der
+lokalisierte Titel den zugaenglichen Namen liefert, nicht eine Icon-Font-Glyphe.
 Echte Navigationslinks bleiben unveraendert. Wiederholung ist idempotent.
 
 Processes only the specified generated site directory, default `_site`.
 Adds missing German document language, marks the redundant logo decorative,
 and converts linkless theme toggles to native buttons in HTML and generated
 JavaScript. Preserve `aria-expanded` for Bootstrap state updates and keyboard
-interaction. Real navigation links remain unchanged; reruns are idempotent.
+interaction. Decorative toggle icons are hidden from assistive technology so
+the localized title supplies the accessible name, not an icon-font glyph.
+Real navigation links remain unchanged; reruns are idempotent.
 
 ## PRUEFUNG / VALIDATION
 
