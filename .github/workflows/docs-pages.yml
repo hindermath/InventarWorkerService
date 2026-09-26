@@ -13,6 +13,8 @@ on:
       - "**/*.cs"
       - "**/*.csproj"
       - ".github/workflows/docs-pages.yml"
+      - ".github/scripts/postprocess-docfx-site.sh"
+      - ".github/fixtures/docfx-theme-toggle.*"
   pull_request:
     paths:
       - "docfx.json"
@@ -23,6 +25,8 @@ on:
       - "**/*.cs"
       - "**/*.csproj"
       - ".github/workflows/docs-pages.yml"
+      - ".github/scripts/postprocess-docfx-site.sh"
+      - ".github/fixtures/docfx-theme-toggle.*"
   workflow_dispatch:
 
 permissions:
@@ -66,6 +70,24 @@ jobs:
       - name: Build DocFX site
         run: docfx docfx.json
 
+      - name: Test DocFX theme postprocessor fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          fixture_dir="$(mktemp -d)"
+          mkdir -p "$fixture_dir/public"
+          cp .github/fixtures/docfx-theme-toggle.html "$fixture_dir/index.html"
+          cp .github/fixtures/docfx-theme-toggle.js "$fixture_dir/public/docfx.min.js"
+          bash .github/scripts/postprocess-docfx-site.sh "$fixture_dir"
+          test "$(grep -c '<button type="button"' "$fixture_dir/index.html")" -eq 2
+          test "$(grep -c '<button type="button"' "$fixture_dir/public/docfx.min.js")" -eq 2
+          grep -F 'aria-expanded="false"' "$fixture_dir/index.html"
+          grep -F "aria-expanded='true'" "$fixture_dir/index.html"
+          grep -F '<a class="nav-link dropdown-toggle" href="#" role="button"' "$fixture_dir/index.html"
+          before="$(sha256sum "$fixture_dir/index.html" "$fixture_dir/public/docfx.min.js")"
+          bash .github/scripts/postprocess-docfx-site.sh "$fixture_dir"
+          test "$before" = "$(sha256sum "$fixture_dir/index.html" "$fixture_dir/public/docfx.min.js")"
+
       - name: Post-process DocFX HTML for accessibility
         run: bash .github/scripts/postprocess-docfx-site.sh _site
 
@@ -81,13 +103,13 @@ jobs:
             exit 1
           fi
 
-          if rg -n '<a[^>]*dropdown-toggle[^>]*aria-expanded=' _site/**/*.html _site/index.html; then
-            echo "Found unsupported aria-expanded on DocFX theme links after post-processing." >&2
+          if rg -n --pcre2 '<a(?=[^>]*dropdown-toggle)(?![^>]*\bhref=)[^>]*>' _site/**/*.html _site/index.html; then
+            echo "Found a linkless DocFX theme anchor instead of a native button." >&2
             exit 1
           fi
 
-          if rg -n "dropdown-toggle[^\\n]*aria-expanded='false'|dropdown-toggle[^\\n]*aria-expanded=\\\"false\\\"" _site/public/docfx.min.js; then
-            echo "Found unsupported aria-expanded in generated DocFX JavaScript after post-processing." >&2
+          if rg -n --pcre2 '<a(?=[^>]*dropdown-toggle)(?![^>]*\bhref=)[^>]*>' _site/public/docfx.min.js; then
+            echo "Found a linkless theme anchor in generated DocFX JavaScript." >&2
             exit 1
           fi
 
@@ -109,6 +131,16 @@ jobs:
           const context = await browser.newContext();
           const page = await context.newPage();
           await page.goto('http://127.0.0.1:8080/');
+
+          const themeToggle = page.getByRole('button', { name: 'Change theme', exact: true });
+          if (await themeToggle.evaluate(element => element.tagName) !== 'BUTTON') {
+            throw new Error('Theme toggle must be a native button.');
+          }
+          await themeToggle.focus();
+          await themeToggle.press('Space');
+          await page.waitForFunction(() => document.querySelector('button.dropdown-toggle')?.getAttribute('aria-expanded') === 'true');
+          await themeToggle.press('Escape');
+          await page.waitForFunction(() => document.querySelector('button.dropdown-toggle')?.getAttribute('aria-expanded') === 'false');
 
           const results = await new AxeBuilder({ page }).analyze();
           if (results.violations.length > 0) {
