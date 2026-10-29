@@ -476,26 +476,26 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 191676 lines |
-| Textdateien / Text files | 1246 |
+| Textbasis / Text base | 192129 lines |
+| Textdateien / Text files | 1249 |
 | Beobachtbarer Zeitraum / Observable period | 2025-11-02..2026-10-29 |
 | Aktivtage / Active days | 115 |
-| Relevante Commits / Relevant commits | 499 |
-| Zeilen je Aktivtag / Lines per active day | 1666.7 |
+| Relevante Commits / Relevant commits | 501 |
+| Zeilen je Aktivtag / Lines per active day | 1670.7 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 8 days |
-| Speedup vs. 80 lines/day | 20.8x |
+| Speedup vs. 80 lines/day | 20.9x |
 | Speedup vs. 100 lines/day | 16.7x |
-| Methodik / Methodology | v2; source `b7756dfd72f9` |
+| Methodik / Methodology | v2; source `cd7ca00fb6fe` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [#...................]   5.6% | 10728
-Tests                           [#...................]   5.4% | 10270
-Dokumentation / Documentation   [##############......]  69.4% | 132972
-Skripte / Scripts               [###.................]  16.1% | 30808
+Produktiv / Production          [#...................]   5.7% | 10879
+Tests                           [#...................]   5.4% | 10448
+Dokumentation / Documentation   [##############......]  69.3% | 133096
+Skripte / Scripts               [###.................]  16.0% | 30808
 Konfiguration / Configuration   [#...................]   2.4% | 4577
 Daten und Medien / Data and media [#...................]   0.6% | 1057
 Sonstiger Text / Other text     [#...................]   0.7% | 1264
@@ -524,7 +524,7 @@ So/Su  0 0 0 0 1 0 4 0 0 0 1 4 3 1 4 4 0 4 4 4 4 0 0 0 0 0
 Mo/Mo  4 0 0 0 0 0 0 0 3 1 4 4 0 0 0 2 0 0 4 0 0 0 0 0 0 0
 Di/Tu  3 0 0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 1 4 0 0 0 0 0 0 0
 Mi/We  2 0 0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 0 0 0 0 0 0 0 0
-Do/Th  0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0 0 0 0 0 0 0 3
+Do/Th  0 0 0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0 0 0 0 0 0 0 4
 Fr/Fr  0 0 4 2 2 0 3 2 3 4 4 4 1 0 0 0 0 0 0 0 0 0 0 0 0 -
 Sa/Sa  0 0 0 0 0 0 4 0 4 4 0 4 2 0 2 0 0 0 4 4 2 0 0 0 0 -
 ```
@@ -592,15 +592,15 @@ Die kumulative Kurve summiert nur das Brutto-Aenderungsvolumen im Fenster. Sie d
 ### Phasenvolumen / Phase Volume
 
 ```text
-Slots 0..9
-   cap 20000 | . . . . . . . . . .
-       16667 | . . . . . . . . . .
-       13333 | . . . . . . . . . .
-       10000 | . . . . . . # . . .
-        6667 | . . # . . . # . . .
-        3333 | . . # . # . # # . .
-           0 +---------------------
-             00 01 02 03 04 05 06 07 08 09
+Slots 0..10
+   cap 20000 | . . . . . . . . . . .
+       16667 | . . . . . . . . . . .
+       13333 | . . . . . . . . . . .
+       10000 | . . . . . . # . . . .
+        6667 | . . # . . . # . . . .
+        3333 | . . # . # . # # . . .
+           0 +-----------------------
+             00 01 02 03 04 05 06 07 08 09 10
 ```
 
 | Slot | Phase | Nettozeilen / Net lines |
@@ -615,6 +615,7 @@ Slots 0..9
 | 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4488 |
 | 8 | Storage-Check-only-Make-Härtung / Storage check-only Make hardening | 187 |
 | 9 | MongoDB-Schreib-Gate / MongoDB write gate | 289 |
+| 10 | API-Transport-TLS-Gate / API transport TLS gate | 412 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -624,7 +625,7 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..50x
-80 lines/day       [########............] 20.8x
+80 lines/day       [########............] 20.9x
 100 lines/day      [#######.............] 16.7x
 ```
 
@@ -638,7 +639,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [#################...] 1666.7
+Visible repository [#################...] 1670.7
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -664,6 +665,6 @@ DE: Das Fenster beginnt am 2025-11-02 und endet am 2026-10-29. Es enthaelt 115 a
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
 | 2026-09 | 37821 |
-| 2026-10 | 1154 |
+| 2026-10 | 1731 |
 
 <!-- project-statistics-v2:end -->
