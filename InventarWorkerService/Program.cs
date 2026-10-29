@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Encodings.Web;
+using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
@@ -16,6 +17,14 @@ using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
+
+ApiTransportSecurity.EnsureSecureBindings(
+    builder.Configuration
+        .GetSection("Kestrel:Endpoints")
+        .GetChildren()
+        .Select(endpoint => endpoint["Url"]),
+    builder.Configuration["urls"],
+    builder.Configuration["HTTP_PORTS"]);
 
 // Add Windows Service Support
 builder.Services.AddWindowsService(options =>
@@ -115,13 +124,11 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseHttpsRedirection();
     // app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     // app.UseHsts();
 }
 
-// app.UseHttpsRedirection();
 // app.UseStaticFiles();
 // app.UseCookiePolicy();
 

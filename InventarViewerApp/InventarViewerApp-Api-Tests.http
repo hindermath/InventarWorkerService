@@ -1,6 +1,11 @@
+### Transport contract: HTTP is loopback-only. Use HTTPS for every remote base URL.
+### Transportvertrag: HTTP ist nur auf Loopback erlaubt. Remote-Basis-URLs verwenden immer HTTPS.
+@apiKey = replace-with-local-development-key
+
 ### GET: Retrieve all machines (example server)
 GET http://localhost:5000/api/inventar/machines
 Accept: application/json
+X-Inventory-Api-Key: {{apiKey}}
 
 
 ### GET: Retrieve a machine by ID (example server)
@@ -86,6 +91,7 @@ Accept: application/json
 ###
 GET {{baseUrl}}{{apiPath}}/machines
 Accept: application/json
+X-Inventory-Api-Key: {{apiKey}}
 
 > {%
     client.test("Request executed successfully", function() {

@@ -11,8 +11,8 @@ EN: Protected assets are inventory, machine/user/domain information, databases, 
 
 | ID | Grenze / Boundary | Hauptrisiko / Main risk | Unabhängige Kontrollen / Independent controls |
 |---|---|---|---|
-| TB-01 | Client → Worker HTTP | Spoofing, disclosure; CAPEC-115 | AuthZ + TLS; aktuell Open / currently open |
-| TB-02 | Client → Viewer HTTP | IDOR, disclosure; CAPEC-122 | AuthZ + Eingabegrenzen / input bounds |
+| TB-01 | Client → Worker API | Spoofing, disclosure; CAPEC-115 | API-Key-AuthZ + Fail-fast-Transportgrenze: HTTP nur Loopback, remote HTTPS |
+| TB-02 | Client → Viewer API | IDOR, disclosure; CAPEC-122 | API-Key-AuthZ + dieselbe Transportgrenze; Eingabegrenzen separat Open |
 | TB-03 | Harvester → Worker | SSRF, timeout; CAPEC-664 | Ziel-Allowlist + Timeout/Cancellation |
 | TB-04 | Dienste → SQLite | SQL-Injection, Korruption | Parameter + Transaktion/Recovery |
 | TB-05 | Dienste → PostgreSQL | Rechteausweitung | Parameter + Least-Privilege-Rolle |
@@ -24,3 +24,7 @@ EN: Protected assets are inventory, machine/user/domain information, databases, 
 DE: Credentials haben hohe Vertraulichkeit; Inventar ist mittel. Datenbanken, Status und Releases benötigen hohe Integrität und Verfügbarkeit. Hohe Pfade benötigen zwei Kontrollen. Teilwrites ersetzen das Ziel erst nach Erfolg; lesende Fehler brauchen keinen Rollback.
 
 EN: Credentials have high confidentiality; inventory is medium. Databases, status, and releases need high integrity and availability. High paths need two controls. Partial writes replace the target only after success; read-only failures need no rollback.
+
+DE: Die Transportgrenze wird vor dem Kestrel-Start ausgewertet. Loopback-HTTP bleibt für lokale Clients und einen Reverse Proxy auf demselben Host zulässig. Remote- und Wildcard-Bindungen benötigen HTTPS; eine unsichere oder reine `HTTP_PORTS`-Konfiguration beendet den Start. Weiterleitungen gelten nicht als Schutz für den ersten Request mit API-Key.
+
+EN: The transport boundary is evaluated before Kestrel starts. Loopback HTTP remains available to local clients and a reverse proxy on the same host. Remote and wildcard bindings require HTTPS; an insecure or port-only `HTTP_PORTS` configuration stops startup. Redirects are not treated as protection for the first request carrying an API key.

@@ -82,6 +82,14 @@
       "labelEn": "MongoDB write gate",
       "netLines": 289,
       "activeDays": 1
+    },
+    {
+      "slot": 10,
+      "id": "api-transport-tls",
+      "labelDe": "API-Transport-TLS-Gate",
+      "labelEn": "API transport TLS gate",
+      "netLines": 412,
+      "activeDays": 1
     }
   ],
   "excludedPaths": ["docs/project-statistics/*"],
