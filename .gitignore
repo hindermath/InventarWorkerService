@@ -911,6 +911,12 @@ modules.xml
 .junie/.onboarding_migrated
 .opencode/node_modules/
 
+# Machine-local inventory exports; may contain environment or host data
+/HardwareInventories.csv
+/Machines.csv
+/Machines2.csv
+/SoftwareInventories.csv
+
 # Spec-Kit Presets (Policy-Dateien tracken, lokalen Cache ignorieren)
 !.specify/presets/
 !.specify/presets/**

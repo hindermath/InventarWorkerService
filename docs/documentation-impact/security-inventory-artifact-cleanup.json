@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-inventory-artifact-cleanup",
+  "entries": [
+    {
+      "changeId": "CHG024",
+      "scope": "Remove machine-local inventory exports and an obsolete SQLite build database from the current tracked source snapshot",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Bereinigung ändert die Security-Evidence und muss die Grenze zwischen aktuellem Git-Stand, unveränderter Historie und externer Credential-Disposition klar dokumentieren. EN: The cleanup changes security evidence and must clearly document the boundary between the current Git snapshot, unchanged history, and external credential disposition.",
+      "documents": [
+        "docs/security/supply-chain-evidence.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Security reviewers",
+        "Operators"
+      ],
+      "readerPaths": [
+        "docs/security/README.md",
+        "docs/security/supply-chain-evidence.md",
+        "secure-development gate register"
+      ],
+      "canonicalSource": "docs/security/supply-chain-evidence.md",
+      "navigationImpact": "No navigation change; existing security reader paths remain authoritative.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 evidence text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Darwin verification confirms that the five files remain locally available while the Git index and ignore rules exclude them; provider credential status is documented separately.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-inventory-artifact-cleanup.json",
+      "risk": "High if current-tree cleanup is misrepresented as history removal or complete credential revocation.",
+      "criticality": "Security",
+      "reevaluationTrigger": "History rewrite, credential disposition, provider-log evidence, inventory export policy, or secret-redaction behavior changes."
+    }
+  ]
+}
