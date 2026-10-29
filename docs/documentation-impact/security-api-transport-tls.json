@@ -41,6 +41,39 @@
       "risk": "High if an API key or inventory response can traverse a remote plaintext connection.",
       "criticality": "Security",
       "reevaluationTrigger": "Kestrel endpoint configuration, proxy or certificate deployment, API hosting, URL precedence, or authentication transport changes."
+    },
+    {
+      "changeId": "CHG030",
+      "scope": "Render the API transport TLS-gate delivery phase into the living project statistics ledger",
+      "decision": "GeneratedUpdate",
+      "rationale": "DE: Die Repository-Governance verlangt nach abgeschlossenen Features eine reproduzierbare Fortschreibung aus der kanonischen Konfiguration. EN: Repository governance requires a reproducible statistics update from the canonical configuration after completed features.",
+      "documents": [
+        "docs/project-statistics.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Contributors"
+      ],
+      "readerPaths": [
+        "docs/project-statistics.md"
+      ],
+      "canonicalSource": "docs/project-statistics.config.json",
+      "navigationImpact": "No navigation change; the existing statistics ledger receives one chronological entry and one generated phase slot.",
+      "documentClass": "Generated",
+      "languageStrategy": "German first and English second in the manual ledger entry; generated Profile 2 remains bilingual.",
+      "languagePartners": [],
+      "platformAndExampleProof": "The Bash renderer is previewed, executed, and then verified in check-only mode on macOS.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-api-transport-tls.json",
+      "risk": "Low if the generated statistics are rendered from the canonical source and checked for drift.",
+      "criticality": "Normal",
+      "reevaluationTrigger": "The API transport change volume, statistics methodology, or generated Profile 2 contract changes.",
+      "generatedSource": {
+        "path": "docs/project-statistics.config.json",
+        "renderer": "bash scripts/render-project-statistics.sh"
+      }
     }
   ]
 }
