@@ -474,26 +474,26 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 191151 lines |
+| Textbasis / Text base | 191346 lines |
 | Textdateien / Text files | 1244 |
 | Beobachtbarer Zeitraum / Observable period | 2025-11-02..2026-10-29 |
 | Aktivtage / Active days | 115 |
-| Relevante Commits / Relevant commits | 494 |
-| Zeilen je Aktivtag / Lines per active day | 1662.2 |
+| Relevante Commits / Relevant commits | 496 |
+| Zeilen je Aktivtag / Lines per active day | 1663.9 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 8 days |
 | Speedup vs. 80 lines/day | 20.8x |
 | Speedup vs. 100 lines/day | 16.6x |
-| Methodik / Methodology | v2; source `c02a37d71018` |
+| Methodik / Methodology | v2; source `d7395205a95d` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
 Produktiv / Production          [#...................]   5.6% | 10693
-Tests                           [#...................]   5.2% | 9897
-Dokumentation / Documentation   [##############......]  69.5% | 132861
-Skripte / Scripts               [###.................]  16.1% | 30802
+Tests                           [#...................]   5.3% | 10066
+Dokumentation / Documentation   [##############......]  69.4% | 132881
+Skripte / Scripts               [###.................]  16.1% | 30808
 Konfiguration / Configuration   [#...................]   2.4% | 4577
 Daten und Medien / Data and media [#...................]   0.6% | 1057
 Sonstiger Text / Other text     [#...................]   0.7% | 1264
@@ -590,15 +590,15 @@ Die kumulative Kurve summiert nur das Brutto-Aenderungsvolumen im Fenster. Sie d
 ### Phasenvolumen / Phase Volume
 
 ```text
-Slots 0..7
-   cap 20000 | . . . . . . . .
-       16667 | . . . . . . . .
-       13333 | . . . . . . . .
-       10000 | . . . . . . # .
-        6667 | . . # . . . # .
-        3333 | . . # . # . # #
-           0 +-----------------
-             00 01 02 03 04 05 06 07
+Slots 0..8
+   cap 20000 | . . . . . . . . .
+       16667 | . . . . . . . . .
+       13333 | . . . . . . . . .
+       10000 | . . . . . . # . .
+        6667 | . . # . . . # . .
+        3333 | . . # . # . # # .
+           0 +-------------------
+             00 01 02 03 04 05 06 07 08
 ```
 
 | Slot | Phase | Nettozeilen / Net lines |
@@ -611,6 +611,7 @@ Slots 0..7
 | 5 | 002 Versionierung / 002 versioning | 41 |
 | 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
 | 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4488 |
+| 8 | Storage-Check-only-Make-Härtung / Storage check-only Make hardening | 187 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -634,7 +635,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [#################...] 1662.2
+Visible repository [#################...] 1663.9
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -660,6 +661,6 @@ DE: Das Fenster beginnt am 2025-11-02 und endet am 2026-10-29. Es enthaelt 115 a
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
 | 2026-09 | 37821 |
-| 2026-10 | 531 |
+| 2026-10 | 808 |
 
 <!-- project-statistics-v2:end -->
