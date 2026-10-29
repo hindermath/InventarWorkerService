@@ -8,15 +8,23 @@ namespace InventarWorkerServiceIntegrationTests;
 public sealed class SecurityBoundaryIntegrationTests
 {
     /// <summary>
-    /// DE: Fordert Authentifizierung und HTTPS im Pipelinevertrag.
-    /// EN: Requires authentication and HTTPS in the pipeline contract.
+    /// DE: Fordert Authentifizierung und die Transportpruefung vor dem Listener-Aufbau.
+    /// EN: Requires authentication and transport validation before listener construction.
     /// </summary>
     [TestMethod]
-    public void WorkerHost_SecurityPipeline_RequiresAuthenticationAndHttps()
+    public void WorkerHost_SecurityPipeline_RequiresAuthenticationAndPreBindTransportGate()
     {
         var program = File.ReadAllText(PathInRepository("InventarWorkerService/Program.cs"));
+        var configuration = File.ReadAllText(PathInRepository("InventarWorkerService/appsettings.json"));
+        var transportGate = program.IndexOf("ApiTransportSecurity.EnsureSecureBindings(", StringComparison.Ordinal);
+        var hostBuild = program.IndexOf("var app = builder.Build();", StringComparison.Ordinal);
+
         StringAssert.Contains(program, "app.UseAuthentication();");
-        StringAssert.Contains(program, "app.UseHttpsRedirection();");
+        Assert.IsTrue(transportGate >= 0, "Das Transport-Gate fehlt im Worker-Host.");
+        Assert.IsTrue(hostBuild > transportGate, "Das Transport-Gate muss vor builder.Build() laufen.");
+        StringAssert.Contains(program, "builder.Configuration[\"HTTP_PORTS\"]");
+        StringAssert.Contains(configuration, "http://127.0.0.1:80");
+        Assert.IsFalse(configuration.Contains("http://0.0.0.0", StringComparison.Ordinal));
     }
 
     /// <summary>

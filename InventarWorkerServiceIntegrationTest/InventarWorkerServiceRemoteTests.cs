@@ -11,8 +11,10 @@ namespace InventarWorkerServiceIntegrationTests;
 public class InventarWorkerServiceRemoteTests : PlaywrightTest
 {
     private const string RunRemoteTestsEnvVar = "INVENTAR_RUN_REMOTE_TESTS";
-    private const string RemoteUrl = "http://192.168.2.169:5000";
+    private const string RemoteUrlEnvVar = "INVENTAR_REMOTE_BASE_URL";
+    private const string RemoteApiKeyEnvVar = "INVENTAR_REMOTE_API_KEY";
     private IAPIRequestContext? _remoteApiContext;
+    private string _remoteUrl = string.Empty;
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
@@ -45,10 +47,28 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
                 $"Remote-Tests sind deaktiviert. Setze {RunRemoteTestsEnvVar}=true, um sie auszuführen.");
         }
 
+        _remoteUrl = Environment.GetEnvironmentVariable(RemoteUrlEnvVar) ?? string.Empty;
+        if (!Uri.TryCreate(_remoteUrl, UriKind.Absolute, out var remoteUri) ||
+            remoteUri.Scheme != Uri.UriSchemeHttps)
+        {
+            Assert.Fail($"{RemoteUrlEnvVar} muss eine absolute HTTPS-URL enthalten.");
+        }
+
+        var apiKey = Environment.GetEnvironmentVariable(RemoteApiKeyEnvVar);
+        if (string.IsNullOrWhiteSpace(apiKey))
+        {
+            Assert.Fail($"{RemoteApiKeyEnvVar} muss fuer aktivierte Remote-Tests gesetzt sein.");
+        }
+
         _remoteApiContext = await Playwright.APIRequest.NewContextAsync(new()
         {
-            BaseURL = RemoteUrl,
-            IgnoreHTTPSErrors = true,
+            BaseURL = _remoteUrl,
+            IgnoreHTTPSErrors = false,
+            ExtraHTTPHeaders = new Dictionary<string, string>
+            {
+                ["X-Inventory-Api-Key"] = apiKey
+            },
+            MaxRedirects = 0,
             Timeout = 10000 // 10 Sekunden Timeout für Remote-Tests
         });
     }
@@ -112,11 +132,11 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
         }
         catch (PlaywrightException ex)
         {
-            Assert.Inconclusive($"Remote server not reachable at {RemoteUrl}: {ex.Message}");
+            Assert.Inconclusive($"Remote server not reachable at {_remoteUrl}: {ex.Message}");
         }
         catch (TimeoutException ex)
         {
-            Assert.Inconclusive($"Remote server timeout at {RemoteUrl}: {ex.Message}");
+            Assert.Inconclusive($"Remote server timeout at {_remoteUrl}: {ex.Message}");
         }
     }
 
@@ -162,11 +182,11 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
         }
         catch (PlaywrightException ex)
         {
-            Assert.Inconclusive($"Remote server not reachable at {RemoteUrl}: {ex.Message}");
+            Assert.Inconclusive($"Remote server not reachable at {_remoteUrl}: {ex.Message}");
         }
         catch (TimeoutException ex)
         {
-            Assert.Inconclusive($"Remote server timeout at {RemoteUrl}: {ex.Message}");
+            Assert.Inconclusive($"Remote server timeout at {_remoteUrl}: {ex.Message}");
         }
     }
 

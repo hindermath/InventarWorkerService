@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-api-transport-tls",
+  "entries": [
+    {
+      "changeId": "CHG029",
+      "scope": "Enforce loopback-only HTTP and HTTPS for remote or wildcard bindings at both inventory API hosts before listener startup",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Korrektur schliesst die Klartext-Transportgrenze fuer API-Schluessel und Inventardaten und aendert den dokumentierten Betriebsvertrag. EN: The fix closes the plaintext transport boundary for API keys and inventory data and changes the documented deployment contract.",
+      "documents": [
+        "README.md",
+        "docs/architecture/deployment-view.md",
+        "docs/architecture/architecture-risks.md",
+        "docs/security/threat-model.md",
+        "docs/security/asvs-verification.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md",
+        "InventarWorkerService/InventarWorkerService-Api-Tests.http",
+        "InventarViewerApp/InventarViewerApp-Api-Tests.http"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Operators",
+        "Security reviewers"
+      ],
+      "readerPaths": [
+        "README REST API and service deployment examples",
+        "docs/security/README.md",
+        "deployment view",
+        "threat model TB-01 and TB-02"
+      ],
+      "canonicalSource": "InventarWorkerCommon/Services/Api/ApiTransportSecurity.cs",
+      "navigationImpact": "No new navigation path; existing deployment and security documents describe the enforced transport boundary.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 security and deployment text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Focused tests cover IPv4 and IPv6 loopback HTTP, remote and wildcard HTTPS, remote and wildcard HTTP rejection, mixed URL lists, endpoint precedence, invalid schemes, and port-only HTTP rejection. A process-level negative startup check rejects a remote HTTP override before Kestrel binds; the full solution test run preserves local loopback clients.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-api-transport-tls.json",
+      "risk": "High if an API key or inventory response can traverse a remote plaintext connection.",
+      "criticality": "Security",
+      "reevaluationTrigger": "Kestrel endpoint configuration, proxy or certificate deployment, API hosting, URL precedence, or authentication transport changes."
+    }
+  ]
+}

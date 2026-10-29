@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Encodings.Web;
+using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
 using Microsoft.AspNetCore.Builder;
@@ -103,7 +104,7 @@ class WebApi
 
             _cts = new CancellationTokenSource();
             var effectiveArgs = args
-                .Where(a => a is not "--start" and not "--stop")
+                .Where(a => a is not "--api" and not "--start" and not "--stop")
                 .ToArray();
 
             _runningTask = RunWebApiInternalAsync(effectiveArgs, _cts.Token);
@@ -148,6 +149,14 @@ class WebApi
         {
             builder.WebHost.UseUrls(urls);
         }
+
+        var effectiveBindings = ApiTransportSecurity.EnsureSecureBindings(
+            builder.Configuration
+                .GetSection("Kestrel:Endpoints")
+                .GetChildren()
+                .Select(endpoint => endpoint["Url"]),
+            string.IsNullOrWhiteSpace(urls) ? builder.Configuration["urls"] : urls,
+            builder.Configuration["HTTP_PORTS"]);
 
         // Add services to the container.
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -286,13 +295,11 @@ class WebApi
         }
         else
         {
-            app.UseHttpsRedirection();
             // app.UseExceptionHandler("/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             // app.UseHsts();
         }
 
-        // app.UseHttpsRedirection();
         // app.UseStaticFiles();
         // app.UseCookiePolicy();
 
@@ -309,8 +316,11 @@ class WebApi
 
         app.MapControllers();
 
-        Console.WriteLine("Inventory API runs on http://localhost:80");
-        Console.WriteLine("Swagger UI available at http://localhost:80/swagger");
+        var bindingSummary = effectiveBindings.Count == 0
+            ? "Kestrel-Standardbindung auf localhost"
+            : string.Join(", ", effectiveBindings);
+        Console.WriteLine($"Inventar-API-Endpunkte: {bindingSummary}");
+        Console.WriteLine("Die Swagger UI ist nur in der Development-Umgebung verfuegbar.");
 
         await app.RunAsync(ctsToken);
     }

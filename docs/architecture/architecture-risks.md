@@ -2,7 +2,7 @@
 
 | ID | Risiko / Risk | Status | Owner / Termin / Trigger |
 |---|---|---|---|
-| AR-01 | HTTP ohne wirksame AuthZ/TLS / HTTP without effective AuthZ/TLS | Open, High | Entwicklung / 2026-09-30 / Host- oder Deploymentänderung |
+| AR-01 | HTTP ohne wirksame AuthZ/TLS / HTTP without effective AuthZ/TLS | Mitigated locally / lokal entschärft | Entwicklung / erneute Prüfung bei Host-, Proxy-, Zertifikats- oder Deploymentänderung |
 | AR-02 | Outbound-Ziele und Timeouts / outbound targets and timeouts | Open, High | Entwicklung / 2026-09-30 / neue Zieladresse |
 | AR-03 | Provider-Parität ohne gleiche Umgebung / inferred provider parity | Open, Medium | Test / 2026-09-30 / Provideränderung |
 | AR-04 | Prozessargumente aus Service-Name / process args from service name | Open, High | Entwicklung / 2026-09-30 / Service-Control change |
@@ -13,3 +13,7 @@
 DE: Keine offene Frage wird still geschlossen. Geringere lokale Reichweite wird als Open oder Follow-up geführt und niemals als Provider-Pass übertragen.
 
 EN: No open question is silently closed. Limited local reach remains Open or Follow-up and is never transferred as a provider pass.
+
+DE: `AR-01` ist lokal durch zwei unabhängige Grenzen entschärft: API-Key-Authentifizierung und die vor dem Listener-Start erzwungene Transportregel. Provider- oder Deployment-Evidenz wird dadurch nicht vorweggenommen.
+
+EN: `AR-01` is locally mitigated by two independent boundaries: API-key authentication and the transport rule enforced before listener startup. This does not pre-claim provider or deployment evidence.

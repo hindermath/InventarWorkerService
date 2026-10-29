@@ -135,6 +135,20 @@ write sinks. `false` and missing or unreadable settings remain write-disabled;
 reads and explicitly enabled writes remain available. Changes made in the
 settings dialog take effect after restart, as indicated there.
 
+Beide eingehenden Inventar-APIs prüfen ihre wirksamen Kestrel-Bindungen vor dem
+Listener-Start. HTTP bleibt ausschließlich auf Loopback zulässig. Remote- und
+Wildcard-Bindungen benötigen HTTPS; reine `HTTP_PORTS`-Konfigurationen werden
+fail-closed abgewiesen. Lokale Clients und ein Reverse Proxy auf demselben Host
+bleiben unterstützt. Fokussierte Tests decken IPv4-/IPv6-Loopback, entfernte
+HTTPS-Bindungen, Wildcards, gemischte URL-Listen und unsichere Port-Defaults ab.
+
+Both inbound inventory APIs validate their effective Kestrel bindings before
+listener startup. HTTP remains limited to loopback. Remote and wildcard
+bindings require HTTPS; port-only `HTTP_PORTS` configuration fails closed.
+Local clients and a reverse proxy on the same host remain supported. Focused
+tests cover IPv4/IPv6 loopback, remote HTTPS bindings, wildcards, mixed URL
+lists, and insecure port defaults.
+
 ## Lokales Gate-Register / Local Gate Register
 
 | Gate | Ergebnis / Result | Evidenz / Evidence |

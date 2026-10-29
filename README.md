@@ -108,7 +108,7 @@ KillSignal=SIGINT
 SyslogIdentifier=inventarworkerservice
 User=<aktueller_benutzername>
 Environment=ASPNETCORE_ENVIRONMENT=Production
-Environment=ASPNETCORE_URLS=http://localhost:5000
+Environment=Kestrel__Endpoints__Http__Url=http://127.0.0.1:5000
 
 [Install]
 WantedBy=multi-user.target
@@ -155,8 +155,8 @@ Inhalt:
       <dict>
          <key>ASPNETCORE_ENVIRONMENT</key>
          <string>Development</string>
-         <key>ASPNETCORE_URLS</key>
-         <string>http://localhost:5000;https://localhost:5001</string>
+         <key>Kestrel__Endpoints__Http__Url</key>
+         <string>http://127.0.0.1:5000</string>
 
          <!-- Detailliertes Logging aktivieren -->
          <key>ASPNETCORE_LOGGING__LOGLEVEL__DEFAULT</key>
@@ -170,10 +170,6 @@ Inhalt:
 
          <!-- Console-Logging aktivieren -->
          <key>ASPNETCORE_LOGGING__CONSOLE__INCLUDESCOPES</key>
-         <string>true</string>
-
-         <!-- Swagger in allen Umgebungen aktivieren -->
-         <key>ASPNETCORE_ENABLE_SWAGGER</key>
          <string>true</string>
 
          <!-- .NET Core Debug-Features -->
@@ -477,24 +473,35 @@ Compress-Archive -Path .\MyWorkerService\* -DestinationPath .\MyWorkerService.zi
 
 ## Verwendung der REST API
 Nach der Implementierung können Sie den Service folgendermaßen abfragen:
+
+### Sichere Transportgrenze / Secure transport boundary
+
+HTTP ist ausschließlich auf Loopback (`localhost`, `127.0.0.0/8`, `::1`) zulässig, zum Beispiel hinter einem Reverse Proxy auf demselben Host. Remote- und Wildcard-Bindungen müssen HTTPS verwenden; eine unsichere Konfiguration beendet den Start, bevor Kestrel einen Port öffnet. Der API-Schlüssel wird über `X-Inventory-Api-Key` übertragen und darf deshalb nie über Remote-HTTP gesendet werden.
+
+HTTP is allowed only on loopback, for example behind a reverse proxy on the same host. Remote and wildcard bindings must use HTTPS; an insecure configuration stops startup before Kestrel opens a port. The API key is sent in `X-Inventory-Api-Key` and must therefore never be transmitted over remote HTTP.
+
+Für direktes Kestrel-TLS werden URL und Zertifikat außerhalb des Repositories konfiguriert, zum Beispiel mit `Kestrel__Endpoints__Http__Url=https://0.0.0.0:5000`, `Kestrel__Certificates__Default__Path=/sicherer/pfad/inventory-api.pfx` und einem geheimen `Kestrel__Certificates__Default__Password`. Alternativ terminiert ein Reverse Proxy TLS und leitet nur lokal an `http://127.0.0.1:5000` weiter. Zertifikat und Kennwort dürfen nicht committed oder geloggt werden.
+
 ### Beispiel-Aufrufe:
-1. **Service Status**: `GET http://[IP-Adresse]:5000/api/inventar/status`
-2. **Hardware Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/hardware`
-3. **Software Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/software`
-4. **Komplettes Inventar**: `GET http://[IP-Adresse]:5000/api/inventar/full`
+1. **Service Status**: `GET https://[IP-Adresse]:5000/api/inventar/status`
+2. **Hardware Inventar**: `GET https://[IP-Adresse]:5000/api/inventar/hardware`
+3. **Software Inventar**: `GET https://[IP-Adresse]:5000/api/inventar/software`
+4. **Komplettes Inventar**: `GET https://[IP-Adresse]:5000/api/inventar/full`
 
 ### Mit curl
 ```bash
-curl -X GET "http://192.168.1.100:5000/api/inventar/full" \
-  -H "accept: application/json"
+curl -X GET "https://192.168.1.100:5000/api/inventar/full" \
+  -H "accept: application/json" \
+  -H "X-Inventory-Api-Key: $INVENTORY_API_KEY"
 ```
 
 ### Mit PowerShell
 ```powershell
-Invoke-RestMethod -Uri "http://192.168.1.100:5000/api/inventar/full" -Method Get
+$headers = @{ "X-Inventory-Api-Key" = $env:INVENTORY_API_KEY }
+Invoke-RestMethod -Uri "https://192.168.1.100:5000/api/inventar/full" -Headers $headers -Method Get
 ```
 ### Mit Swagger
-Die Swagger UI ist unter `http://[IP-Adresse]:5000/swagger` verfügbar und bietet eine interaktive Dokumentation der API.
+Die Swagger UI ist nur in der `Development`-Umgebung verfügbar. Lokal ist sie unter `http://127.0.0.1:5000/swagger` erreichbar; ein entfernter Entwicklungszugriff benötigt HTTPS und den API-Schlüssel.
 
 ## 🚀 Verwendung des .http Files
 1. **Speichern Sie die Datei** als `api-tests.http` in Ihrem Projekt
@@ -504,7 +511,7 @@ Die Swagger UI ist unter `http://[IP-Adresse]:5000/swagger` verfügbar und biete
     - Über das Kontextmenü "Run" auswählen
 
 ### 📝 Anpassungen
-- **IP-Adressen**: Ändern Sie `192.168.1.100` zu Ihrer tatsächlichen Server-IP
+- **IP-Adressen**: Ändern Sie `192.168.1.100` zu Ihrer tatsächlichen Server-IP und verwenden Sie remote immer HTTPS
 - **Port**: Falls Ihr Service auf einem anderen Port läuft, passen Sie `5000` entsprechend an
 - **Endpoints**: Fügen Sie weitere API-Endpunkte hinzu, falls vorhanden
 
