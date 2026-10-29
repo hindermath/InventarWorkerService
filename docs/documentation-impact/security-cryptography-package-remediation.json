@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-cryptography-package-remediation",
+  "entries": [
+    {
+      "changeId": "CHG026",
+      "scope": "Update the direct System.Security.Cryptography.Xml pins and the resulting transitive System.Security.Cryptography.Pkcs dependency beyond five published security advisories",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Paketaktualisierung schließt fünf bestätigte NuGet-Advisories an einer gemeinsamen Abhängigkeitsgrenze und benötigt nachvollziehbare Auflösungs-, Scan- und Regressionsnachweise. EN: The package update closes five confirmed NuGet advisories at a shared dependency boundary and needs traceable resolution, scan, and regression evidence.",
+      "documents": [
+        "docs/security/dependency-audit.md",
+        "docs/security/supply-chain-evidence.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Security reviewers",
+        "Release reviewers"
+      ],
+      "readerPaths": [
+        "docs/security/README.md",
+        "dependency audit",
+        "secure-development gate register"
+      ],
+      "canonicalSource": "docs/security/supply-chain-evidence.md",
+      "navigationImpact": "No navigation change; the existing supply-chain evidence and secure-development gate register remain authoritative.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 evidence text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Both direct System.Security.Cryptography.Xml references resolve to 10.0.14 and transitively resolve System.Security.Cryptography.Pkcs 10.0.14 across all affected project assets. Restore and the repeated transitive vulnerability scan report no known vulnerable packages. A Release solution build, the full test suite, and a PowerShell cmdlet import smoke test preserve legitimate behavior.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-cryptography-package-remediation.json",
+      "risk": "High if signed-XML or CMS processing reaches the vulnerable package versions directly or through PowerShell and WCF dependency paths.",
+      "criticality": "Security",
+      "reevaluationTrigger": "A new cryptography-package advisory, dependency-resolution drift, target-framework change, or new direct use of signed-XML or CMS APIs."
+    }
+  ]
+}

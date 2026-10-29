@@ -46,10 +46,11 @@ public class SettingsReader
         try
         {
             if (_statusDirectory is null) return null;
+            SecureFileWriter.ProtectExistingSettingsArtifacts(_statusDirectory);
             var settingsFile = Path.Combine(_statusDirectory, "settings.json");
             if (!File.Exists(settingsFile)) return null;
 
-            var json = File.ReadAllText(settingsFile);
+            var json = SecureFileWriter.ReadAllTextOwnerOnly(settingsFile);
             return JsonSerializer.Deserialize<Models.Settings.Settings>(json, _jsonOptions);
         }
         catch (Exception ex)

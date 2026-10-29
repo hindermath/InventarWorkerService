@@ -54,8 +54,53 @@ public class SettingsAndStatusServiceTest
         writer.WriteSettings(settings);
         writer.WriteSettingsYaml(settings);
 
+        var settingsDirectory = Path.Combine(
+            InventarWorkerCommon.Services.Paths.ServicePath.GetServiceStatusPath(),
+            "settings-case");
+        var jsonPath = Path.Combine(settingsDirectory, "settings.json");
+        var yamlPath = Path.Combine(settingsDirectory, "settings.yaml");
+
+        Assert.IsTrue(File.Exists(jsonPath));
+        Assert.IsTrue(File.Exists(yamlPath));
+
+        if (!OperatingSystem.IsWindows())
+        {
+            const UnixFileMode ownerReadWrite = UnixFileMode.UserRead | UnixFileMode.UserWrite;
+            var legacyMode = ownerReadWrite | UnixFileMode.GroupRead | UnixFileMode.OtherRead;
+
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(jsonPath));
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(yamlPath));
+
+            File.SetUnixFileMode(jsonPath, legacyMode);
+            File.SetUnixFileMode(yamlPath, legacyMode);
+
+            writer.WriteSettings(settings);
+            writer.WriteSettingsYaml(settings);
+
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(jsonPath));
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(yamlPath));
+
+            File.SetUnixFileMode(jsonPath, legacyMode);
+            File.SetUnixFileMode(yamlPath, legacyMode);
+        }
+
+        var legacyJsonTemporaryPath = Path.Combine(settingsDirectory, $".settings.json.{Guid.NewGuid():N}.tmp");
+        var legacyYamlTemporaryPath = Path.Combine(settingsDirectory, $".settings.yaml.{Guid.NewGuid():N}.tmp");
+        File.WriteAllText(legacyJsonTemporaryPath, "legacy-json-marker");
+        File.WriteAllText(legacyYamlTemporaryPath, "legacy-yaml-marker");
+
         var reader = new SettingsReader("settings-case");
         var readSettings = reader.ReadSettings();
+
+        Assert.IsFalse(File.Exists(legacyJsonTemporaryPath));
+        Assert.IsFalse(File.Exists(legacyYamlTemporaryPath));
+        Assert.AreEqual(0, Directory.GetFiles(settingsDirectory, ".settings.*.tmp").Length);
+        if (!OperatingSystem.IsWindows())
+        {
+            const UnixFileMode ownerReadWrite = UnixFileMode.UserRead | UnixFileMode.UserWrite;
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(jsonPath));
+            Assert.AreEqual(ownerReadWrite, File.GetUnixFileMode(yamlPath));
+        }
 
         Assert.IsNotNull(readSettings);
         Assert.AreEqual("api.local", readSettings.ClientApi.ClientApiFqdn);
@@ -166,6 +211,37 @@ public class SettingsAndStatusServiceTest
     {
         Assert.ThrowsExactly<ArgumentException>(() => new SettingsWriter("../outside"));
         Assert.ThrowsExactly<ArgumentException>(() => new ServiceStatusWriter("../outside"));
+    }
+
+    /// <summary>
+    /// DE: Verhindert Settings-Schreibzugriffe in Verzeichnissen, in denen andere Unix-Benutzer Dateinamen austauschen könnten.
+    /// EN: Prevents settings writes in directories where other Unix users could replace file names.
+    /// </summary>
+    [TestMethod]
+    public void SettingsWriter_GroupWritableDirectoryOnUnix_ThrowsUnauthorizedAccessException()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var writer = new SettingsWriter("settings-unsafe-case");
+        var settingsDirectory = Path.Combine(
+            InventarWorkerCommon.Services.Paths.ServicePath.GetServiceStatusPath(),
+            "settings-unsafe-case");
+        var originalMode = File.GetUnixFileMode(settingsDirectory);
+
+        try
+        {
+            File.SetUnixFileMode(settingsDirectory, originalMode | UnixFileMode.GroupWrite);
+
+            Assert.ThrowsExactly<UnauthorizedAccessException>(() => writer.WriteSettings(CreateSettings(writeEnabled: false)));
+            Assert.AreEqual(0, Directory.GetFiles(settingsDirectory, ".settings.*.tmp").Length);
+        }
+        finally
+        {
+            File.SetUnixFileMode(settingsDirectory, originalMode);
+        }
     }
 
     private static Settings CreateSettings(bool writeEnabled)

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-settings-file-permissions",
+  "entries": [
+    {
+      "changeId": "CHG025",
+      "scope": "Restrict credential-bearing settings files to their owning Unix account while preserving atomic replacement and Windows behavior",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Änderung schließt ein lokales Credential-Leserisiko und benötigt einen nachvollziehbaren plattformspezifischen Sicherheitsnachweis. EN: The change closes a local credential-read risk and needs traceable platform-specific security evidence.",
+      "documents": [
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md",
+        "docs/security/supply-chain-evidence.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Operators",
+        "Security reviewers"
+      ],
+      "readerPaths": [
+        "docs/security/README.md",
+        "secure-development gate register"
+      ],
+      "canonicalSource": "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md",
+      "navigationImpact": "No navigation change; the existing secure-development gate register remains authoritative.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 evidence text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Unix-focused tests assert exact 0600 permissions after initial creation, replacement, and read-time migration of legacy-readable files; they also verify stale settings-temp cleanup and rejection of group-writable directories. Windows CI preserves the existing write and round-trip behavior without Unix APIs. The current NuGet vulnerability output is retained as separate follow-up evidence rather than being misreported as green.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-settings-file-permissions.json",
+      "risk": "High if temporary or final settings files expose database credentials to other local users.",
+      "criticality": "Security",
+      "reevaluationTrigger": "Settings storage paths, serialization formats, Unix deployment identities, Windows ACL requirements, or atomic-write behavior change."
+    }
+  ]
+}
