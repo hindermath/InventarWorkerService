@@ -12,6 +12,7 @@ public class MongoDbService
 {
     private readonly string _connectionString;
     private readonly IMongoClient _mongoClient;
+    private readonly bool _writeEnabled;
     private IMongoDatabase _mongoSoftwareDatabase = null!;
     private IMongoDatabase _mongoHardwareDatabase = null!;
 
@@ -21,10 +22,28 @@ public class MongoDbService
     /// </summary>
     /// <param name="connectionString">The MongoDB connection string.</param>
     public MongoDbService(string connectionString)
+        : this(connectionString, writeEnabled: true)
+    {
+    }
+
+    /// <summary>
+    /// DE: Initialisiert eine MongoDB-Verbindung mit einer unveränderlichen Schreibberechtigung.
+    /// EN: Initializes a MongoDB connection with an immutable write capability.
+    /// </summary>
+    /// <param name="connectionString">DE: MongoDB-Verbindungszeichenfolge. EN: MongoDB connection string.</param>
+    /// <param name="writeEnabled">DE: Erlaubt Schreibzugriffe, wenn <c>true</c>. EN: Allows writes when <c>true</c>.</param>
+    public MongoDbService(string connectionString, bool writeEnabled)
     {
         _connectionString = connectionString;
         _mongoClient = new MongoClient(_connectionString);
+        _writeEnabled = writeEnabled;
     }
+
+    /// <summary>
+    /// DE: Gibt an, ob diese Instanz MongoDB-Schreibzugriffe ausführen darf.
+    /// EN: Indicates whether this instance may perform MongoDB writes.
+    /// </summary>
+    public bool WriteEnabled => _writeEnabled;
 
     /// <summary>
     /// Initializes the MongoDB database used by this service.
@@ -49,6 +68,12 @@ public class MongoDbService
     /// <param name="software">The software inventory to persist.</param>
     public async Task SaveSoftwareInventoryAsync(int machineId, SoftwareInventory software)
     {
+        // The sink enforces the capability so future callers cannot bypass a disabled setting.
+        if (!_writeEnabled)
+        {
+            return;
+        }
+
         var collection = _mongoSoftwareDatabase.GetCollection<BsonDocument>($"{machineId}");
         await collection.InsertOneAsync(software.ToBsonDocument());
     }
@@ -60,6 +85,11 @@ public class MongoDbService
     /// <param name="hardware">The hardware inventory to persist.</param>
     public async Task SaveHardwareInventoryAsync(int machineId, HardwareInventory hardware)
     {
+        if (!_writeEnabled)
+        {
+            return;
+        }
+
         var collection = _mongoHardwareDatabase.GetCollection<BsonDocument>($"{machineId}");
         await collection.InsertOneAsync(hardware.ToBsonDocument());
     }

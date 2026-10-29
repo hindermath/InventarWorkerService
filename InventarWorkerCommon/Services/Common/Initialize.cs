@@ -48,7 +48,10 @@ public static class Initialize
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         dbService.InitializeDatabase();
 
-        var mongoDbService = new MongoDbService($"mongodb://{mongoDbFqdn}:{mongoDbPort}");
+        // Missing or unreadable settings must not silently enable an external write sink.
+        var mongoDbService = new MongoDbService(
+            $"mongodb://{mongoDbFqdn}:{mongoDbPort}",
+            writeEnabled: false);
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();
 
@@ -84,7 +87,9 @@ public static class Initialize
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         dbService.InitializeDatabase();
 
-        var mongoDbService = new MongoDbService(settings.MongoDb.MongoDbConnectionString);
+        var mongoDbService = new MongoDbService(
+            settings.MongoDb.MongoDbConnectionString,
+            settings.MongoDb.WriteEnabled);
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();
 

@@ -1,7 +1,7 @@
 # Bedrohungsmodell / Threat Model
 
 **Methode / Method:** CIA, STRIDE und CAPEC
-**Stand / Date:** 2026-08-30
+**Stand / Date:** 2026-10-29
 
 ## Assets und neun Trust Boundaries / Assets and Nine Trust Boundaries
 
@@ -16,7 +16,7 @@ EN: Protected assets are inventory, machine/user/domain information, databases, 
 | TB-03 | Harvester → Worker | SSRF, timeout; CAPEC-664 | Ziel-Allowlist + Timeout/Cancellation |
 | TB-04 | Dienste → SQLite | SQL-Injection, Korruption | Parameter + Transaktion/Recovery |
 | TB-05 | Dienste → PostgreSQL | Rechteausweitung | Parameter + Least-Privilege-Rolle |
-| TB-06 | Dienste → MongoDB | Query-/Credential-Missbrauch | typisierte Filter + Least Privilege |
+| TB-06 | Dienste → MongoDB | Unbeabsichtigte Schreibzugriffe, Query-/Credential-Missbrauch | unveränderliches Write-Gate + typisierte Filter + Least Privilege |
 | TB-07 | Prozess → Dateien/CSV | Pfad-/Teilwrite; CAPEC-126 | feste Basis + atomarer Ersatz |
 | TB-08 | Service-Control → OS | Command Injection; CAPEC-88 | Name-Allowlist + ArgumentList |
 | TB-09 | Repository → CI/Release | Supply Chain; CAPEC-438 | gepinnte Tools + Hash/SBOM/Scans |

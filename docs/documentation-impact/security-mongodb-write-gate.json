@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-mongodb-write-gate",
+  "entries": [
+    {
+      "changeId": "CHG027",
+      "scope": "Enforce MongoDb.WriteEnabled at both shared MongoDB write sinks and fail closed when settings are unavailable",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Änderung schließt unbeabsichtigte externe Schreibzugriffe und ändert die dokumentierte TB-06-Kontrolle. EN: The change closes unintended external writes and changes the documented TB-06 control.",
+      "documents": [
+        "docs/security/threat-model.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Operators",
+        "Security reviewers"
+      ],
+      "readerPaths": [
+        "docs/security/README.md",
+        "secure-development gate register",
+        "threat model TB-06"
+      ],
+      "canonicalSource": "InventarWorkerCommon/Services/Database/MongoDbService.cs",
+      "navigationImpact": "No new navigation path; the existing security register and threat model document the stronger MongoDB boundary.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 evidence text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Focused unit tests cover configured true/false, fail-closed fallback, compatibility constructor, and pre-database sink returns. MongoDB 8.0.13 provider tests prove zero documents for disabled writes, preserved reads, and one document per enabled sink.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-write-gate.json",
+      "risk": "Medium if disabled or unavailable settings still allow external inventory writes.",
+      "criticality": "Security",
+      "reevaluationTrigger": "MongoDB settings, service construction, write methods, settings fallback behavior, or runtime reconfiguration semantics change."
+    },
+    {
+      "changeId": "CHG028",
+      "scope": "Render the MongoDB write-gate delivery phase into the living project statistics ledger",
+      "decision": "GeneratedUpdate",
+      "rationale": "DE: Die Repository-Governance verlangt nach abgeschlossenen Features eine reproduzierbare Fortschreibung aus der kanonischen Konfiguration. EN: Repository governance requires a reproducible statistics update from the canonical configuration after completed features.",
+      "documents": [
+        "docs/project-statistics.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Contributors"
+      ],
+      "readerPaths": [
+        "docs/project-statistics.md"
+      ],
+      "canonicalSource": "docs/project-statistics.config.json",
+      "navigationImpact": "No navigation change; the existing statistics ledger receives one chronological entry and one generated phase slot.",
+      "documentClass": "Generated",
+      "languageStrategy": "German first and English second in the manual ledger entry; generated Profile 2 remains bilingual.",
+      "languagePartners": [],
+      "platformAndExampleProof": "The Bash renderer is previewed, executed, and then verified in check-only mode on macOS.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-write-gate.json",
+      "risk": "Low if the generated statistics are rendered from the canonical source and checked for drift.",
+      "criticality": "Normal",
+      "reevaluationTrigger": "The MongoDB write-gate change volume, statistics methodology, or generated Profile 2 contract changes.",
+      "generatedSource": {
+        "path": "docs/project-statistics.config.json",
+        "renderer": "bash scripts/render-project-statistics.sh"
+      }
+    }
+  ]
+}

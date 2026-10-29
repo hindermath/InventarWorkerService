@@ -116,6 +116,12 @@ Umgebungsvariablen. SQLite/PostgreSQL waren bereits parametrisiert; MongoDB
 verwendet den typisierten Filter-Builder. Dafür wurden keine künstlichen
 Provideränderungen erzeugt.
 
+Der MongoDB-Dienst erzwingt `MongoDb.WriteEnabled` zusätzlich an beiden
+gemeinsamen Schreibsenken. `false` sowie fehlende oder unlesbare Settings
+bleiben schreibgeschützt; Lesezugriffe und ausdrücklich aktivierte
+Schreibzugriffe bleiben verfügbar. Änderungen aus dem Settings-Dialog werden
+wie dort angezeigt nach einem Neustart wirksam.
+
 EN: Only evidenced gaps were changed: API-key fallback authentication in both
 HTTP hosts, generic external errors with internal logging, HTTPS for remote
 targets, a 30-second timeout and cancellation in the API client, bounded
@@ -123,6 +129,11 @@ service/file paths, atomic status/settings writes, `System.Text.Json` camelCase,
 and redaction of secret-like environment variables. SQLite/PostgreSQL were
 already parameterised and MongoDB uses the typed filter builder. No artificial
 provider edit was created.
+
+The MongoDB service additionally enforces `MongoDb.WriteEnabled` at both shared
+write sinks. `false` and missing or unreadable settings remain write-disabled;
+reads and explicitly enabled writes remain available. Changes made in the
+settings dialog take effect after restart, as indicated there.
 
 ## Lokales Gate-Register / Local Gate Register
 

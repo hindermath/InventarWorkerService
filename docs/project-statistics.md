@@ -308,6 +308,7 @@ und auf explizite Anforderung fortgeschrieben.
 | 2026-09-13 | Mermaid und Abschlussberichte | Neue textbasierte Diagrammregel, Berichtsvorlage, Agent-Paritaet und versionierte Governance; kein Produktcode. / Text-first diagram and completion-report governance; no product code. Branch codex/mermaid-completion-governance-20260913; Phase Governance-Rollout; Git-Fenster 2026-09-13T23:01:59+02:00 bis 2026-09-13T23:12:10+02:00 (keine aktive Arbeitszeit). Messstand c45d5fd67dba..7460954955a5, ohne Ledger: 22 Dateien, +856/-6 Dokumentations-/Governance-/Evidence-Zeilen; Produktion 0, Produkt-Tests 0 (N/A: keine Produktlogik). Arbeitspakete: Regel, Profile/Agenten/Bootstrap, Berichtsvorlage, Quellenbindung, Lieferung. Validierung: lokale Paritaet/Erhalt, Mermaid-Rendernachweis, Staged-Gate bestanden; finale CI und Merge/Sync siehe PR https://github.com/hindermath/InventarWorkerService/pull/73. Referenzen 80/100 Zeilen pro Tag: 10.7/8.56 rechnerische Tage, keine Aufwandmessung. / Declared Git-window and net documentation/evidence diff; no product code or tests; gate evidence in PR; reference days are not measured effort. |
 
 | 2026-09-19 | Statistik-Preset v0.1.0 / Statistics preset v0.1.0 | Branch codex/project-statistics-rollout-v010; eine sichtbare Sitzung. Additive Paketinstallation, getrennter UTC-Kontext, Pflegeanleitung und native CI; kein Produktcode oder Produkttest geaendert. Importierte Preset-Dateien sind wiederverwendete Quellen, keine eigene Neuentwicklung. Profil-2-Referenzen bleiben 80/100 Zeilen pro Tag; neue Referenzmodelle aus. Exakte Messung und Quellenbindung im neuen Snapshot, Pruefungen und Umfang im PR; keine Stoppuhr-/KI-Produktivitaetsbehauptung. / One visible session; additive package, separate context and native evidence. Existing product code/tests and manual references remain unchanged; exact measurement in the snapshot, proof in the PR. |
+| 2026-10-29 | MongoDB-Schreib-Gate / MongoDB write gate | Branch `codex/mongodb-write-gate`; eine sichtbare Sicherheitskorrektur. `MongoDb.WriteEnabled` wird nun an beiden gemeinsamen Schreib-Sinks fail-closed durchgesetzt, waehrend Lesezugriffe und explizit aktivierte Schreibzugriffe erhalten bleiben. Umfang vor Statistik-Selbstnachweis: netto `289` Zeilen (`35` Produktcode, `204` Tests, `50` Sicherheits- und Evidence-Dokumentation). Ein realer MongoDB-8.0.13-Lauf belegt null Dokumente bei deaktiviertem Schreiben und je ein Dokument bei expliziter Aktivierung; der vollstaendige lokale Testlauf bestand mit 86 Tests und 34 erwarteten Provider-/Plattform-Skips. Referenzen: 80 und 100 Zeilen pro Arbeitstag; Lieferdichte ist keine Stoppuhrmessung. Distribution `sourceOnly`, kein Home-Sync. / One visible security-fix phase enforces the persisted write setting at both shared sinks while preserving reads and explicit opt-in writes. Net volume is 289 lines before statistics self-evidence; real-provider and full-suite proof passed. Delivery density is not elapsed time; source-only distribution and no Home sync. |
 
 ## Statistikprofil-1-Archiv / Statistics Profile 1 Archive
 Basis dieses Schlussblocks sind die aktuell dokumentierten Snapshot- und
@@ -474,25 +475,25 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 191346 lines |
-| Textdateien / Text files | 1244 |
+| Textbasis / Text base | 191676 lines |
+| Textdateien / Text files | 1246 |
 | Beobachtbarer Zeitraum / Observable period | 2025-11-02..2026-10-29 |
 | Aktivtage / Active days | 115 |
-| Relevante Commits / Relevant commits | 496 |
-| Zeilen je Aktivtag / Lines per active day | 1663.9 |
+| Relevante Commits / Relevant commits | 499 |
+| Zeilen je Aktivtag / Lines per active day | 1666.7 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 8 days |
 | Speedup vs. 80 lines/day | 20.8x |
-| Speedup vs. 100 lines/day | 16.6x |
-| Methodik / Methodology | v2; source `d7395205a95d` |
+| Speedup vs. 100 lines/day | 16.7x |
+| Methodik / Methodology | v2; source `b7756dfd72f9` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [#...................]   5.6% | 10693
-Tests                           [#...................]   5.3% | 10066
-Dokumentation / Documentation   [##############......]  69.4% | 132881
+Produktiv / Production          [#...................]   5.6% | 10728
+Tests                           [#...................]   5.4% | 10270
+Dokumentation / Documentation   [##############......]  69.4% | 132972
 Skripte / Scripts               [###.................]  16.1% | 30808
 Konfiguration / Configuration   [#...................]   2.4% | 4577
 Daten und Medien / Data and media [#...................]   0.6% | 1057
@@ -590,15 +591,15 @@ Die kumulative Kurve summiert nur das Brutto-Aenderungsvolumen im Fenster. Sie d
 ### Phasenvolumen / Phase Volume
 
 ```text
-Slots 0..8
-   cap 20000 | . . . . . . . . .
-       16667 | . . . . . . . . .
-       13333 | . . . . . . . . .
-       10000 | . . . . . . # . .
-        6667 | . . # . . . # . .
-        3333 | . . # . # . # # .
-           0 +-------------------
-             00 01 02 03 04 05 06 07 08
+Slots 0..9
+   cap 20000 | . . . . . . . . . .
+       16667 | . . . . . . . . . .
+       13333 | . . . . . . . . . .
+       10000 | . . . . . . # . . .
+        6667 | . . # . . . # . . .
+        3333 | . . # . # . # # . .
+           0 +---------------------
+             00 01 02 03 04 05 06 07 08 09
 ```
 
 | Slot | Phase | Nettozeilen / Net lines |
@@ -612,6 +613,7 @@ Slots 0..8
 | 6 | 002 Secure Hardening / 002 secure hardening | 13089 |
 | 7 | Feature 032 verlinkte Intake-Evidence / Feature 032 linked intake evidence | 4488 |
 | 8 | Storage-Check-only-Make-Härtung / Storage check-only Make hardening | 187 |
+| 9 | MongoDB-Schreib-Gate / MongoDB write gate | 289 |
 
 Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter ergaenzten Werten stabil.
 
@@ -622,7 +624,7 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 ```text
 Scale: 0..50x
 80 lines/day       [########............] 20.8x
-100 lines/day      [#######.............] 16.6x
+100 lines/day      [#######.............] 16.7x
 ```
 
 Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen Referenzen. Sie messen keine Arbeitszeit.
@@ -635,7 +637,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..2000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [#################...] 1663.9
+Visible repository [#################...] 1666.7
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -661,6 +663,6 @@ DE: Das Fenster beginnt am 2025-11-02 und endet am 2026-10-29. Es enthaelt 115 a
 | 2026-07 | 72048 |
 | 2026-08 | 26735 |
 | 2026-09 | 37821 |
-| 2026-10 | 808 |
+| 2026-10 | 1154 |
 
 <!-- project-statistics-v2:end -->
