@@ -51,7 +51,7 @@ public class SettingsWriter
     {
         var settingsFile = Path.Combine(_statusDirectory, "settings.json");
         string json = JsonSerializer.Serialize(settings, _jsonOptions);
-        SecureFileWriter.WriteAllText(settingsFile, json);
+        SecureFileWriter.WriteAllTextOwnerOnly(settingsFile, json);
     }
 
     /// <summary>
@@ -67,6 +67,6 @@ public class SettingsWriter
             .Build();
 
         var yaml = serializer.Serialize(settings);
-        SecureFileWriter.WriteAllText(settingsFile, yaml);
+        SecureFileWriter.WriteAllTextOwnerOnly(settingsFile, yaml);
     }
 }

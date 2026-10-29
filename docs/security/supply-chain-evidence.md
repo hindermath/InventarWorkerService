@@ -54,17 +54,22 @@ after green exact provider jobs.
 | SharpCompress 0.30.1 | fixed | Transitiv auf 0.48.1 aktualisiert; Trigger ist ein neuer NuGet-Fund. / Transitively updated to 0.48.1; a new NuGet finding is the trigger. |
 | Snappier 1.0.0 | fixed | Transitiv auf 1.3.1 aktualisiert. / Transitively updated to 1.3.1. |
 | SQLitePCLRaw 2.1.11 | fixed | Transitiv auf 2.1.12 aktualisiert. / Transitively updated to 2.1.12. |
-| System.Security.Cryptography.Xml 10.0.6 | fixed | Direkt auf 10.0.11 aktualisiert. / Directly updated to 10.0.11. |
+| System.Security.Cryptography.Xml 10.0.11 | under investigation | Der aktuelle Restore meldet drei High-Advisories (`GHSA-r955-8q5j-3h83`, `GHSA-7hqp-7c5m-4vq6`, `GHSA-c399-9853-6jmj`). Owner: Repository Maintainer; Reviewer: Security Reviewer; Wiedervorlage 2026-11-05; Trigger: Paketaktualisierung und erneuter Vulnerability-Scan. / The current restore reports three high-severity advisories. Owner: Repository Maintainer; Reviewer: Security Reviewer; review due 2026-11-05; trigger: package update and repeated vulnerability scan. |
+| System.Security.Cryptography.Pkcs 10.0.11 | under investigation | Das transitive Paket meldet ein High- und ein Moderate-Advice (`GHSA-846f-f764-76mx`, `GHSA-2fmv-rv2c-59x7`). Owner: Repository Maintainer; Reviewer: Security Reviewer; Wiedervorlage 2026-11-05; Trigger: Paketaktualisierung und erneuter Vulnerability-Scan. / The transitive package reports one high- and one moderate-severity advisory. Owner: Repository Maintainer; Reviewer: Security Reviewer; review due 2026-11-05; trigger: package update and repeated vulnerability scan. |
 | Provider-Scorecard und signierte Provenienz / Provider Scorecard and signed provenance | under investigation | Owner: Repository Maintainer; Reviewer: Security Reviewer; Termin/due 2026-09-15; Trigger: erster Providerlauf oder Release. |
 | Historische Inventarexporte / Historical inventory exports | under investigation | Vier maschinenlokale CSV-Exporte und eine veraltete SQLite-Builddatei sind aus dem aktuellen Git-Stand entfernt und werden lokal ignoriert. Die Git-Historie bleibt absichtlich unverändert; Commit `028bfdc` enthält weiterhin mögliche Schlüsselwerte. Der zugeordnete Bing-Maps-Schlüssel wurde am 2026-10-29 nach Bestätigung des Repository-Owners deaktiviert. Die zwei historischen OpenAI-Schlüssel sind noch nicht als widerrufen oder ungültig belegt. Aktuelle Produktlogik redigiert Secret-Umgebungswerte. Owner: Security Reviewer; kritisch; Wiedervorlage 2026-11-05; Trigger: OpenAI-Credential-Disposition. / Four machine-local CSV exports and one obsolete SQLite build database are removed from the current Git snapshot and ignored locally. Git history intentionally remains unchanged; commit `028bfdc` still contains potential key values. The mapped Bing Maps key was disabled on 2026-10-29 after confirmation by the repository owner. The two historical OpenAI keys are not yet proven revoked or invalid. Current product logic redacts secret environment values. |
 
-DE: Das aktuelle `--vulnerable --include-transitive`-Ergebnis meldet keine
-bekannte Schwachstelle. Diese zeit- und scopegebundene Negativentscheidung gilt
-nur für den genannten Restore und ersetzt keine spätere VEX-Neubewertung.
+DE: Das aktuelle `--vulnerable --include-transitive`-Ergebnis meldet die oben
+aufgeführten Findings für `System.Security.Cryptography.Xml` und
+`System.Security.Cryptography.Pkcs`. Reichweite und sichere Zielversion werden
+in einer separaten Abhängigkeitsaufgabe geprüft; dieser Dateirechte-Fix ändert
+keine Pakete.
 
-EN: The current `--vulnerable --include-transitive` result reports no known
-vulnerability. This time- and scope-bound negative decision applies only to
-the named restore and does not replace later VEX reassessment.
+EN: The current `--vulnerable --include-transitive` result reports the findings
+listed above for `System.Security.Cryptography.Xml` and
+`System.Security.Cryptography.Pkcs`. Reachability and a safe target version are
+handled by a separate dependency task; this file-permission fix changes no
+packages.
 
 ## OpenSSF und Secret-Scans / OpenSSF and Secret Scans
 
