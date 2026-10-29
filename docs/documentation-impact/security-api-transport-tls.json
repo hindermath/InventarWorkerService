@@ -74,6 +74,41 @@
         "path": "docs/project-statistics.config.json",
         "renderer": "bash scripts/render-project-statistics.sh"
       }
+    },
+    {
+      "changeId": "CHG031",
+      "scope": "Refresh the isolated project-statistics-governance pilot context for the delivered API transport change",
+      "decision": "GeneratedUpdate",
+      "rationale": "DE: Der separat installierte Statistik-Pilot muss denselben gelieferten Quellstand reproduzierbar abbilden. EN: The separately installed statistics pilot must reproducibly represent the same delivered source state.",
+      "documents": [
+        "docs/project-statistics/report.md",
+        "docs/project-statistics/snapshot.json"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Contributors"
+      ],
+      "readerPaths": [
+        "docs/project-statistics/README.md",
+        "docs/project-statistics/report.md"
+      ],
+      "canonicalSource": "docs/project-statistics/config.json",
+      "navigationImpact": "No navigation change; the existing isolated pilot report and snapshot are refreshed.",
+      "documentClass": "Generated",
+      "languageStrategy": "The generated pilot report retains its existing bilingual text-first contract.",
+      "languagePartners": [],
+      "platformAndExampleProof": "The preset renderer is previewed, executed, and checked for reproducibility on macOS; native Ubuntu and Windows CI verify the exact delivery head.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-api-transport-tls.json",
+      "risk": "Low if both statistics contexts remain reproducible and current at the delivered source revision.",
+      "criticality": "Normal",
+      "reevaluationTrigger": "The API transport delivery head, pilot configuration, statistics methodology, or generated pilot contract changes.",
+      "generatedSource": {
+        "path": "docs/project-statistics/config.json",
+        "renderer": "bash .specify/presets/project-statistics-governance/scripts/project-statistics.sh update"
+      }
     }
   ]
 }
