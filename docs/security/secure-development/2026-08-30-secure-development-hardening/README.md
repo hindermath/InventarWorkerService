@@ -135,6 +135,21 @@ write sinks. `false` and missing or unreadable settings remain write-disabled;
 reads and explicitly enabled writes remain available. Changes made in the
 settings dialog take effect after restart, as indicated there.
 
+Die gemeinsame MongoDB-Clientgrenze weist entfernte Klartextverbindungen und
+deaktivierte Zertifikatsprüfungen vor dem Erzeugen des Clients ab. Das
+Settings-Modell aktiviert TLS automatisch für entfernte Hosts und escaped
+Credentials treiberkonform; lokale Loopback-Entwicklung bleibt ohne TLS
+möglich. Multi-Seed- und SRV-Verbindungen werden anhand der wirksamen
+Treibereinstellungen geprüft. Ein realer TLS-Provider- und Zertifikatsnachweis
+bleibt Deployment-Evidence und wird hier nicht vorweggenommen.
+
+The shared MongoDB client boundary rejects remote plaintext and disabled
+certificate validation before creating the client. The settings model enables
+TLS automatically for remote hosts and escapes credentials through the driver;
+local loopback development remains possible without TLS. Multi-seed and SRV
+connections are checked from their effective driver settings. Real TLS provider
+and certificate proof remains deployment evidence and is not pre-claimed here.
+
 Beide eingehenden Inventar-APIs prüfen ihre wirksamen Kestrel-Bindungen vor dem
 Listener-Start. HTTP bleibt ausschließlich auf Loopback zulässig. Remote- und
 Wildcard-Bindungen benötigen HTTPS; reine `HTTP_PORTS`-Konfigurationen werden

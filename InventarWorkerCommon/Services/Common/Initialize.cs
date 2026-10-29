@@ -50,7 +50,7 @@ public static class Initialize
 
         // Missing or unreadable settings must not silently enable an external write sink.
         var mongoDbService = new MongoDbService(
-            $"mongodb://{mongoDbFqdn}:{mongoDbPort}",
+            MongoDbTransportSecurity.CreateConnectionString(mongoDbFqdn, mongoDbPort),
             writeEnabled: false);
         mongoDbService.InitializeSoftwareMongoDatabase();
         mongoDbService.InitializeHardwareMongoDatabase();

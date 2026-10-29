@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-mongodb-transport-tls",
+  "entries": [
+    {
+      "changeId": "CHG032",
+      "scope": "Enforce TLS with normal server certificate validation for every remote MongoDB seed at the shared client boundary",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Korrektur schliesst die Klartext-Transportgrenze fuer MongoDB-Credentials und Inventardaten und aendert den dokumentierten Deployment-Vertrag. EN: The fix closes the plaintext transport boundary for MongoDB credentials and inventory data and changes the documented deployment contract.",
+      "documents": [
+        "README.md",
+        "docs/architecture/deployment-view.md",
+        "docs/architecture/architecture-risks.md",
+        "docs/security/threat-model.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Operators",
+        "Security reviewers"
+      ],
+      "readerPaths": [
+        "README secure transport boundary",
+        "docs/security/README.md",
+        "deployment view",
+        "threat model TB-06"
+      ],
+      "canonicalSource": "InventarWorkerCommon/Services/Database/MongoDbTransportSecurity.cs",
+      "navigationImpact": "No new navigation path; existing deployment and security documents describe the strengthened MongoDB boundary.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 security and deployment text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Focused tests cover IPv4, IPv6 and mapped loopback, remote single and mixed seeds, SRV defaults, explicit TLS disablement, insecure certificate validation, credential escaping, port and host injection, topology discovery, and the public service constructor. A local MongoDB 8.0.13 provider run preserves both read and write behavior through a direct loopback connection; real remote TLS provider and certificate proof remains a separate deployment gate.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-transport-tls.json",
+      "risk": "High if MongoDB credentials or inventory can traverse a remote plaintext or unauthenticated TLS connection.",
+      "criticality": "Security",
+      "reevaluationTrigger": "MongoDB connection construction, driver settings, seed discovery, trust-store provisioning, certificates, or deployment topology changes."
+    }
+  ]
+}

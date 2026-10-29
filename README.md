@@ -482,6 +482,23 @@ HTTP is allowed only on loopback, for example behind a reverse proxy on the same
 
 Für direktes Kestrel-TLS werden URL und Zertifikat außerhalb des Repositories konfiguriert, zum Beispiel mit `Kestrel__Endpoints__Http__Url=https://0.0.0.0:5000`, `Kestrel__Certificates__Default__Path=/sicherer/pfad/inventory-api.pfx` und einem geheimen `Kestrel__Certificates__Default__Password`. Alternativ terminiert ein Reverse Proxy TLS und leitet nur lokal an `http://127.0.0.1:5000` weiter. Zertifikat und Kennwort dürfen nicht committed oder geloggt werden.
 
+MongoDB-Klartext ist ebenfalls nur für eindeutige Loopback-Ziele zulässig. Die
+aus den Einstellungen erzeugte Verbindung aktiviert für entfernte Hosts
+automatisch TLS und die normale Serverzertifikatsprüfung. Direkt übergebene
+Verbindungszeichenfolgen müssen remote `tls=true` verwenden;
+`mongodb+srv` verwendet den sicheren Treiberstandard. `tls=false`,
+`tlsInsecure=true` und eine deaktivierte Zertifikatsprüfung werden remote
+abgewiesen. Private Zertifizierungsstellen müssen außerhalb des Repositories im
+System-Truststore bereitgestellt werden.
+
+MongoDB plaintext is likewise limited to explicit loopback targets. The
+connection generated from settings automatically enables TLS and normal server
+certificate validation for remote hosts. Directly supplied connection strings
+must use `tls=true` remotely; `mongodb+srv` uses the driver's secure default.
+Remote `tls=false`, `tlsInsecure=true`, and disabled certificate validation are
+rejected. Private certificate authorities must be provisioned in the system
+trust store outside the repository.
+
 ### Beispiel-Aufrufe:
 1. **Service Status**: `GET https://[IP-Adresse]:5000/api/inventar/status`
 2. **Hardware Inventar**: `GET https://[IP-Adresse]:5000/api/inventar/hardware`

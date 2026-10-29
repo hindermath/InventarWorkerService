@@ -1,3 +1,5 @@
+using InventarWorkerCommon.Services.Database;
+
 namespace InventarWorkerCommon.Models.Settings;
 
 /// <summary>
@@ -36,17 +38,10 @@ public class MongoDb
     /// </summary>
     public string MongoDbConnectionString
     {
-        get
-        {
-            var host = string.IsNullOrWhiteSpace(MongoDbFqdn) ? "localhost" : MongoDbFqdn;
-            var port = string.IsNullOrWhiteSpace(MongoDbPort) ? "27017" : MongoDbPort;
-
-            if (string.IsNullOrWhiteSpace(MongoDbUser) is false && string.IsNullOrWhiteSpace(MongoDbPassword) is false)
-            {
-                return $"mongodb://{MongoDbUser}:{MongoDbPassword}@{host}:{port}";
-            }
-
-            return $"mongodb://{host}:{port}";
-        }
+        get => MongoDbTransportSecurity.CreateConnectionString(
+            MongoDbFqdn,
+            MongoDbPort,
+            MongoDbUser,
+            MongoDbPassword);
     }
 }

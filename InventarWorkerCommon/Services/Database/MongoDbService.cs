@@ -10,7 +10,6 @@ namespace InventarWorkerCommon.Services.Database;
 /// </summary>
 public class MongoDbService
 {
-    private readonly string _connectionString;
     private readonly IMongoClient _mongoClient;
     private readonly bool _writeEnabled;
     private IMongoDatabase _mongoSoftwareDatabase = null!;
@@ -34,8 +33,8 @@ public class MongoDbService
     /// <param name="writeEnabled">DE: Erlaubt Schreibzugriffe, wenn <c>true</c>. EN: Allows writes when <c>true</c>.</param>
     public MongoDbService(string connectionString, bool writeEnabled)
     {
-        _connectionString = connectionString;
-        _mongoClient = new MongoClient(_connectionString);
+        var clientSettings = MongoDbTransportSecurity.CreateClientSettings(connectionString);
+        _mongoClient = new MongoClient(clientSettings);
         _writeEnabled = writeEnabled;
     }
 
