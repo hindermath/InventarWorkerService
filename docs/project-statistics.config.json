@@ -74,6 +74,14 @@
       "labelEn": "Storage check-only Make hardening",
       "netLines": 187,
       "activeDays": 1
+    },
+    {
+      "slot": 9,
+      "id": "mongodb-write-gate",
+      "labelDe": "MongoDB-Schreib-Gate",
+      "labelEn": "MongoDB write gate",
+      "netLines": 289,
+      "activeDays": 1
     }
   ],
   "excludedPaths": ["docs/project-statistics/*"],
