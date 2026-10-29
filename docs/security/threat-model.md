@@ -16,7 +16,7 @@ EN: Protected assets are inventory, machine/user/domain information, databases, 
 | TB-03 | Harvester → Worker | SSRF, timeout; CAPEC-664 | Ziel-Allowlist + Timeout/Cancellation |
 | TB-04 | Dienste → SQLite | SQL-Injection, Korruption | Parameter + Transaktion/Recovery |
 | TB-05 | Dienste → PostgreSQL | Rechteausweitung | Parameter + Least-Privilege-Rolle |
-| TB-06 | Dienste → MongoDB | Unbeabsichtigte Schreibzugriffe, Query-/Credential-Missbrauch | unveränderliches Write-Gate + typisierte Filter + Least Privilege |
+| TB-06 | Dienste → MongoDB | Offenlegung, unbeabsichtigte Schreibzugriffe, Query-/Credential-Missbrauch | Remote-TLS-Gate + unveränderliches Write-Gate + typisierte Filter + Least Privilege |
 | TB-07 | Prozess → Dateien/CSV | Pfad-/Teilwrite; CAPEC-126 | feste Basis + atomarer Ersatz |
 | TB-08 | Service-Control → OS | Command Injection; CAPEC-88 | Name-Allowlist + ArgumentList |
 | TB-09 | Repository → CI/Release | Supply Chain; CAPEC-438 | gepinnte Tools + Hash/SBOM/Scans |
@@ -28,3 +28,7 @@ EN: Credentials have high confidentiality; inventory is medium. Databases, statu
 DE: Die Transportgrenze wird vor dem Kestrel-Start ausgewertet. Loopback-HTTP bleibt für lokale Clients und einen Reverse Proxy auf demselben Host zulässig. Remote- und Wildcard-Bindungen benötigen HTTPS; eine unsichere oder reine `HTTP_PORTS`-Konfiguration beendet den Start. Weiterleitungen gelten nicht als Schutz für den ersten Request mit API-Key.
 
 EN: The transport boundary is evaluated before Kestrel starts. Loopback HTTP remains available to local clients and a reverse proxy on the same host. Remote and wildcard bindings require HTTPS; an insecure or port-only `HTTP_PORTS` configuration stops startup. Redirects are not treated as protection for the first request carrying an API key.
+
+DE: Die MongoDB-Transportgrenze wird vor dem Erzeugen des Clients ausgewertet. Klartext bleibt nur für genau einen direkten Loopback-Endpunkt zulässig. Sobald ein Seed entfernt ist oder Topologieerkennung benötigt wird, sind TLS und die normale Serverzertifikatsprüfung Pflicht; unsichere TLS-Optionen und Remote-Klartext werden fail-closed abgewiesen. Der lokale Quellnachweis ersetzt keinen konkreten Zertifikats- oder Provider-Nachweis.
+
+EN: The MongoDB transport boundary is evaluated before the client is created. Plaintext remains available only for exactly one direct loopback endpoint. As soon as any seed is remote or topology discovery is needed, TLS and normal server certificate validation are mandatory; insecure TLS options and remote plaintext fail closed. Local source evidence does not replace concrete certificate or provider evidence.

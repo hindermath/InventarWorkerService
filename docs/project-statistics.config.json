@@ -90,6 +90,14 @@
       "labelEn": "API transport TLS gate",
       "netLines": 412,
       "activeDays": 1
+    },
+    {
+      "slot": 11,
+      "id": "mongodb-transport-tls",
+      "labelDe": "MongoDB-Transport-TLS-Gate",
+      "labelEn": "MongoDB transport TLS gate",
+      "netLines": 467,
+      "activeDays": 1
     }
   ],
   "excludedPaths": ["docs/project-statistics/*"],

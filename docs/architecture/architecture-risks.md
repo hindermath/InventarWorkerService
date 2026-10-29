@@ -9,6 +9,7 @@
 | AR-05 | Nicht atomare Status-/Settingswrites / non-atomic writes | Open, Medium | Entwicklung / 2026-09-30 / file format change |
 | AR-06 | Paket-CVEs/SBOM-Provenance | Open, High | Release / 2026-09-30 / dependency change |
 | AR-07 | Provider-/Remote-Evidenz fehlt lokal | Accepted as local limitation, not Pass | Koordinator / PreMerge / CI available |
+| AR-08 | MongoDB-Credentials oder Inventar über Remote-Klartext / MongoDB credentials or inventory over remote plaintext | Mitigated in source; provider proof open | Entwicklung / erneute Prüfung bei MongoDB-, Zertifikats- oder Deploymentänderung |
 
 DE: Keine offene Frage wird still geschlossen. Geringere lokale Reichweite wird als Open oder Follow-up geführt und niemals als Provider-Pass übertragen.
 
@@ -17,3 +18,7 @@ EN: No open question is silently closed. Limited local reach remains Open or Fol
 DE: `AR-01` ist lokal durch zwei unabhängige Grenzen entschärft: API-Key-Authentifizierung und die vor dem Listener-Start erzwungene Transportregel. Provider- oder Deployment-Evidenz wird dadurch nicht vorweggenommen.
 
 EN: `AR-01` is locally mitigated by two independent boundaries: API-key authentication and the transport rule enforced before listener startup. This does not pre-claim provider or deployment evidence.
+
+DE: `AR-08` wird im Quellcode an der gemeinsamen MongoDB-Clientgrenze entschärft: Nur ein direkter, eindeutiger Loopback-Endpunkt darf Klartext verwenden; jeder entfernte Seed und jede Topologieerkennung benötigt TLS mit normaler Zertifikatsprüfung. Ein konkretes Serverzertifikat oder Provider-Deployment wird dadurch nicht als geprüft behauptet.
+
+EN: `AR-08` is mitigated in source at the shared MongoDB client boundary: only one direct, explicit loopback endpoint may use plaintext, while every remote seed and topology discovery requires TLS with normal certificate validation. This does not claim proof for a concrete server certificate or provider deployment.

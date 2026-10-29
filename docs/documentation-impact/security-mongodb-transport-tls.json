@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.1",
+  "feature": "security-mongodb-transport-tls",
+  "entries": [
+    {
+      "changeId": "CHG032",
+      "scope": "Enforce TLS with normal server certificate validation for every remote MongoDB seed at the shared client boundary",
+      "decision": "UpdateRequired",
+      "rationale": "DE: Die Korrektur schliesst die Klartext-Transportgrenze fuer MongoDB-Credentials und Inventardaten und aendert den dokumentierten Deployment-Vertrag. EN: The fix closes the plaintext transport boundary for MongoDB credentials and inventory data and changes the documented deployment contract.",
+      "documents": [
+        "README.md",
+        "docs/architecture/deployment-view.md",
+        "docs/architecture/architecture-risks.md",
+        "docs/security/threat-model.md",
+        "docs/security/secure-development/2026-08-30-secure-development-hardening/README.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Operators",
+        "Security reviewers"
+      ],
+      "readerPaths": [
+        "README secure transport boundary",
+        "docs/security/README.md",
+        "deployment view",
+        "threat model TB-06"
+      ],
+      "canonicalSource": "InventarWorkerCommon/Services/Database/MongoDbTransportSecurity.cs",
+      "navigationImpact": "No new navigation path; existing deployment and security documents describe the strengthened MongoDB boundary.",
+      "documentClass": "ActiveSemantic",
+      "languageStrategy": "German first and English second in synchronized CEFR-B2 security and deployment text.",
+      "languagePartners": [],
+      "platformAndExampleProof": "Focused tests cover IPv4, IPv6 and mapped loopback, remote single and mixed seeds, SRV defaults, explicit TLS disablement, insecure certificate validation, credential escaping, port and host injection, topology discovery, and the public service constructor. A local MongoDB 8.0.13 provider run preserves both read and write behavior through a direct loopback connection; real remote TLS provider and certificate proof remains a separate deployment gate.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-transport-tls.json",
+      "risk": "High if MongoDB credentials or inventory can traverse a remote plaintext or unauthenticated TLS connection.",
+      "criticality": "Security",
+      "reevaluationTrigger": "MongoDB connection construction, driver settings, seed discovery, trust-store provisioning, certificates, or deployment topology changes."
+    },
+    {
+      "changeId": "CHG033",
+      "scope": "Render the MongoDB transport TLS-gate delivery phase into the living project statistics ledger",
+      "decision": "GeneratedUpdate",
+      "rationale": "DE: Die Repository-Governance verlangt nach abgeschlossenen Features eine reproduzierbare Fortschreibung aus der kanonischen Konfiguration. EN: Repository governance requires a reproducible statistics update from the canonical configuration after completed features.",
+      "documents": [
+        "docs/project-statistics.md"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Contributors"
+      ],
+      "readerPaths": [
+        "docs/project-statistics.md"
+      ],
+      "canonicalSource": "docs/project-statistics.config.json",
+      "navigationImpact": "No navigation change; the existing statistics ledger receives one chronological entry and one generated phase slot.",
+      "documentClass": "Generated",
+      "languageStrategy": "German first and English second in the manual ledger entry; generated Profile 2 remains bilingual.",
+      "languagePartners": [],
+      "platformAndExampleProof": "The Bash renderer is previewed, executed, and then verified in check-only mode on macOS.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-transport-tls.json",
+      "risk": "Low if the generated statistics are rendered from the canonical source and checked for drift.",
+      "criticality": "Normal",
+      "reevaluationTrigger": "The MongoDB transport change volume, statistics methodology, or generated Profile 2 contract changes.",
+      "generatedSource": {
+        "path": "docs/project-statistics.config.json",
+        "renderer": "bash scripts/render-project-statistics.sh"
+      }
+    },
+    {
+      "changeId": "CHG034",
+      "scope": "Refresh the isolated project-statistics-governance pilot context for the MongoDB transport change",
+      "decision": "GeneratedUpdate",
+      "rationale": "DE: Der separat installierte Statistik-Pilot muss denselben fachlichen Quellstand reproduzierbar abbilden. EN: The separately installed statistics pilot must reproducibly represent the same functional source state.",
+      "documents": [
+        "docs/project-statistics/report.md",
+        "docs/project-statistics/snapshot.json"
+      ],
+      "owner": "Repository Maintainer",
+      "audiences": [
+        "Maintainers",
+        "Contributors"
+      ],
+      "readerPaths": [
+        "docs/project-statistics/README.md",
+        "docs/project-statistics/report.md"
+      ],
+      "canonicalSource": "docs/project-statistics/config.json",
+      "navigationImpact": "No navigation change; the existing isolated pilot report and snapshot are refreshed.",
+      "documentClass": "Generated",
+      "languageStrategy": "The generated pilot report retains its existing bilingual text-first contract.",
+      "languagePartners": [],
+      "platformAndExampleProof": "The preset renderer is previewed, executed, and checked for reproducibility on macOS; native Ubuntu and Windows CI remain delivery-head evidence.",
+      "distributionClass": "sourceOnly",
+      "homeSyncRequired": false,
+      "evidence": "docs/documentation-impact/security-mongodb-transport-tls.json",
+      "risk": "Low if both statistics contexts remain reproducible and current at the functional source revision.",
+      "criticality": "Normal",
+      "reevaluationTrigger": "The MongoDB transport source head, pilot configuration, statistics methodology, or generated pilot contract changes.",
+      "generatedSource": {
+        "path": "docs/project-statistics/config.json",
+        "renderer": "bash .specify/presets/project-statistics-governance/scripts/project-statistics.sh update"
+      }
+    }
+  ]
+}
