@@ -45,20 +45,26 @@ reports no known vulnerability for all eleven solution projects.
 
 ## Aktualisierungen und Ausnahmen / Updates and Exceptions
 
-DE: Sicherheitsrelevante Microsoft-.NET-Pakete wurden auf `10.0.11`, MongoDB
-Driver auf `3.11.1` und nach dem Outdated-Nachweis kompatible Patch-/Minor-
-Versionen von Serilog, Swashbuckle, Dapper, Npgsql, PowerShell SDK und
-Testwerkzeugen aktualisiert. Terminal.Gui `1.19.0` sowie YamlDotNet `16.3.0`
-bleiben wegen Major-Version-Risiko vorerst gepinnt. Owner: Application
-Maintainer; Risiko: mittel; Ablaufdatum: 2026-09-30; Trigger: eigener
-Migrations-RED/GREEN-Lauf oder neues CVE.
+DE: Die Microsoft-.NET-Paketlinie bleibt grundsätzlich auf `10.0.11`; die
+direkten Sicherheits-Pins für `System.Security.Cryptography.Xml` wurden am
+29. Oktober 2026 auf `10.0.14` angehoben und lösen dadurch auch
+`System.Security.Cryptography.Pkcs 10.0.14` auf. MongoDB Driver wurde auf
+`3.11.1` und nach dem Outdated-Nachweis kompatible Patch-/Minor-Versionen von
+Serilog, Swashbuckle, Dapper, Npgsql, PowerShell SDK und Testwerkzeugen
+aktualisiert. Terminal.Gui `1.19.0` sowie YamlDotNet `16.3.0` bleiben wegen
+Major-Version-Risiko vorerst gepinnt. Owner: Application Maintainer; Risiko:
+mittel; Ablaufdatum: 2026-11-05; Trigger: eigener Migrations-RED/GREEN-Lauf
+oder neues CVE.
 
-EN: Security-relevant Microsoft .NET packages were updated to `10.0.11`, the
-MongoDB Driver to `3.11.1`, and compatible patch/minor versions of Serilog,
+EN: The Microsoft .NET package line generally remains at `10.0.11`; the direct
+security pins for `System.Security.Cryptography.Xml` were raised to `10.0.14`
+on 29 October 2026 and therefore also resolve
+`System.Security.Cryptography.Pkcs 10.0.14`. The MongoDB Driver was updated to
+`3.11.1`, together with compatible patch/minor versions of Serilog,
 Swashbuckle, Dapper, Npgsql, PowerShell SDK, and test tools after the outdated
 proof. Terminal.Gui `1.19.0` and YamlDotNet `16.3.0` remain pinned because a
 major-version migration needs dedicated evidence. Owner: Application
-Maintainer; risk: medium; expiry: 2026-09-30; trigger: dedicated migration
+Maintainer; risk: medium; expiry: 2026-11-05; trigger: dedicated migration
 RED/GREEN run or a new CVE.
 
 ## Automation und OpenSSF / Automation and OpenSSF
