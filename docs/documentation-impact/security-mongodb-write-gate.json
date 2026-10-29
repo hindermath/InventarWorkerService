@@ -61,10 +61,12 @@
       "homeSyncRequired": false,
       "evidence": "docs/documentation-impact/security-mongodb-write-gate.json",
       "risk": "Low if the generated statistics are rendered from the canonical source and checked for drift.",
-      "criticality": "Documentation",
+      "criticality": "Normal",
       "reevaluationTrigger": "The MongoDB write-gate change volume, statistics methodology, or generated Profile 2 contract changes.",
-      "generatedSource": "docs/project-statistics.config.json",
-      "renderer": "bash scripts/render-project-statistics.sh"
+      "generatedSource": {
+        "path": "docs/project-statistics.config.json",
+        "renderer": "bash scripts/render-project-statistics.sh"
+      }
     }
   ]
 }
