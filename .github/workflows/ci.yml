@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-22.04, macos-15, windows-2022]
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "10.0.x"
       - run: dotnet restore InventarWorkerService.sln
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "10.0.x"
       - run: dotnet restore InventarWorkerService.sln
@@ -63,7 +63,7 @@ jobs:
       MONGODB_TEST_CONNECTION_STRING: mongodb://localhost:27017
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "10.0.x"
       - run: dotnet restore InventarWorkerService.sln
@@ -87,7 +87,7 @@ jobs:
       PGSQL_TEST_CONNECTION_STRING: Host=localhost;Port=5432;Database=inventar_test;Username=inventar;Password=integration-only;Pooling=false
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             8.0.x
