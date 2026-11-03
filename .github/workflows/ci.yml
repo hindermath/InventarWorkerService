@@ -142,7 +142,7 @@ jobs:
         run: |
           find artifacts/release -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/release-sha256.txt
           printf '%s\n' "$GITHUB_SHA" > artifacts/source-sha.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: candidate-supply-chain-${{ github.sha }}
           path: artifacts
