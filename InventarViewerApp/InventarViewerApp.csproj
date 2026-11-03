@@ -25,7 +25,7 @@
       <PackageReference Include="MongoDB.Driver" Version="3.13.0" />
       <PackageReference Include="RestSharp" Version="114.1.0" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
-      <PackageReference Include="Terminal.Gui" Version="1.19.0" />
+      <PackageReference Include="Terminal.Gui" Version="2.5.0" />
     </ItemGroup>
 
     <ItemGroup>
