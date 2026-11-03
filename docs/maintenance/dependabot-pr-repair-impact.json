@@ -5,13 +5,15 @@
         "Maintainers",
         "AI agents"
       ],
-      "canonicalSource": ".github/DEPENDENCY-MAINTENANCE.md",
+      "canonicalSource": ".github/workflows/docs-pages.yml",
       "changeId": "CHG001",
-      "criticality": "Normal",
-      "decision": "NoUpdateRequired",
+      "criticality": "Usage",
+      "decision": "UpdateRequired",
       "distributionClass": "sourceOnly",
       "documentClass": "ActiveSemantic",
-      "documents": [],
+      "documents": [
+        ".github/DEPENDENCY-MAINTENANCE.md"
+      ],
       "evidence": ".github/DEPENDENCY-MAINTENANCE.md",
       "homeSyncRequired": false,
       "languagePartners": [],
@@ -19,7 +21,7 @@
       "navigationImpact": "Existing maintenance and statistics entry points remain valid",
       "owner": "Repository Maintainer",
       "platformAndExampleProof": "macOS Bash renderer preview/update/check; exact staged validation, secret scan and exact-head hosted platform checks",
-      "rationale": "DE: Bestehende Versionspflege; keine neue Bedienung oder API. EN: Existing dependency maintenance; no new user workflow or API.",
+      "rationale": "DE: Nach beobachtetem Abbruch von PR #104 die Pages-Konkurrenzgruppe je PR isolieren; gemeinsame Deployment-Gruppe und alle technischen Checks erhalten. EN: After the observed #104 cancellation, isolate Pages concurrency per PR while retaining the shared deployment group and every technical check.",
       "readerPaths": [
         ".github/DEPENDENCY-MAINTENANCE.md -> dependency PR -> technical checks"
       ],
