@@ -74,6 +74,42 @@ Local Claude tools and CLAUDE.md remain independent development tools.
 Technical checks and human reviews remain required; dependency PRs receive
 no auto-merge.
 
+## Terminal.Gui: 1.x bis zur Produktmigration / 1.x until product migration
+
+DE: InventarViewerApp, CtrlWorkerServiceApp und CtrlWorkerServiceCmdlet bleiben
+bis zu einer ausdruecklich beauftragten und geprueften Migration bei Terminal.Gui
+1.x. Am 3. November 2026 ist 1.19.0 die neueste stabile 1.x-Version auf NuGet und
+bereits in allen drei Produktmanifesten eingetragen. Dependabot bietet weiterhin
+Minor-/Patch-Updates innerhalb von 1.x an; regulaere Major-Versionsupdates fuer
+genau das Paket Terminal.Gui sind vorerst ausgenommen. Terminal.Gui.Elmish hat
+eine eigene Versionsfolge und wird von dieser Regel nicht erfasst.
+
+Sicherheitsmeldungen und Sicherheitsupdate-Gruppen bleiben aktiv. Die Ausnahme
+verwendet nur `update-types`, keinen pauschalen Versionsbereich: Ein erforderlicher
+Sicherheits-PR kann daher weiterhin einen Major-Wechsel vorschlagen. Auch dieser
+PR darf erst nach der notwendigen Produktmigration, Kompatibilitaetspruefung und
+Freigabe gemergt werden; es gibt kein Auto-Merge. Die Grenze nach der gelieferten
+2.x-Migration erneut pruefen und die Ausnahme dann bewusst entfernen.
+
+EN: InventarViewerApp, CtrlWorkerServiceApp and CtrlWorkerServiceCmdlet remain on
+Terminal.Gui 1.x until an explicitly commissioned and reviewed product migration.
+On 3 November 2026, 1.19.0 is the latest stable 1.x NuGet release and is already
+used by all three product manifests. Dependabot continues minor/patch updates
+within 1.x; regular major version updates for the exact Terminal.Gui package are
+temporarily ignored. Terminal.Gui.Elmish follows its own version sequence and
+is outside this rule.
+
+Security alerts and security-update groups remain active. The exception uses
+only `update-types`, without a blanket version range, so a required security PR
+may still propose a major change. Such a PR also needs product migration,
+compatibility validation and approval before merge; no auto-merge is configured.
+Reevaluate and deliberately remove the exception after delivering the 2.x migration.
+
+Owner: Repository-Maintainer. UpdateRequired; Source-only, kein / no Home Sync.
+Leserpfad / reader path: Dependabot configuration -> this policy -> reviewed
+migration PR. Quellen / sources: product manifests, [NuGet version index](https://api.nuget.org/v3-flatcontainer/terminal.gui/index.json),
+[Dependabot options](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#ignore).
+
 ## CI-Runner / CI runners
 
 DE: Technische macOS-Pruefungen verwenden macos-15, da GitHub macos-14 am
