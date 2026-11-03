@@ -5,13 +5,15 @@
         "Maintainers",
         "AI agents"
       ],
-      "canonicalSource": ".github/DEPENDENCY-MAINTENANCE.md",
+      "canonicalSource": ".github/dependabot.yml",
       "changeId": "CHG001",
-      "criticality": "Normal",
-      "decision": "NoUpdateRequired",
+      "criticality": "Usage",
+      "decision": "UpdateRequired",
       "distributionClass": "sourceOnly",
       "documentClass": "ActiveSemantic",
-      "documents": [],
+      "documents": [
+        ".github/DEPENDENCY-MAINTENANCE.md"
+      ],
       "evidence": ".github/DEPENDENCY-MAINTENANCE.md",
       "homeSyncRequired": false,
       "languagePartners": [],
@@ -19,13 +21,13 @@
       "navigationImpact": "Existing maintenance and statistics entry points remain valid",
       "owner": "Repository Maintainer",
       "platformAndExampleProof": "macOS Bash renderer preview/update/check; exact staged validation, secret scan and exact-head hosted platform checks",
-      "rationale": "DE: Bestehende Versionspflege; keine neue Bedienung oder API. EN: Existing dependency maintenance; no new user workflow or API.",
+      "rationale": "DE: Regulaere Terminal.Gui-Major-Updates zurueckstellen, 1.x-Wartung und Sicherheits-PRs erhalten; 2.x erfordert eine eigene Produktmigration. EN: Defer regular Terminal.Gui major updates while preserving 1.x maintenance and security PRs; 2.x requires a separate product migration.",
       "readerPaths": [
         ".github/DEPENDENCY-MAINTENANCE.md -> dependency PR -> technical checks"
       ],
       "reevaluationTrigger": "Changed dependency paths, manifest, runtime or update policy",
       "risk": "Dependency compatibility requires technical checks; generated statistics are not product acceptance",
-      "scope": "Dependency maintenance PR hindermath/InventarWorkerService#98"
+      "scope": "Terminal.Gui 1.x maintenance until an explicitly reviewed 2.x product migration"
     },
     {
       "audiences": [
@@ -95,6 +97,6 @@
       "scope": "Current installed statistics context: project-statistics"
     }
   ],
-  "feature": "dependabot-pr-98-repair",
+  "feature": "terminal-gui-v1-maintenance",
   "schemaVersion": "1.1"
 }
