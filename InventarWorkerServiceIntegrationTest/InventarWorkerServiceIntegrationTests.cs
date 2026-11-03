@@ -201,6 +201,10 @@ public class InventarWorkerServiceApiTests
         // Arrange & Act
         var response = await _apiContext!.GetAsync("/api/inventar/software", new APIRequestContextOptions
         {
+            // DE: Das vollstaendige Inventar grosser Windows-Runner braucht ein begrenztes Kaltstartbudget.
+            // EN: Full inventory on large Windows runners needs a bounded cold-start budget.
+            // Keep the response, JSON and authentication assertions below unchanged.
+            Timeout = OperatingSystem.IsWindows() ? 300_000 : null,
             Headers = new Dictionary<string, string>
             {
                 ["Accept"] = "application/json"

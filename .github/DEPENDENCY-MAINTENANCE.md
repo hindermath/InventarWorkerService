@@ -73,3 +73,37 @@ PR/issue workflows. This repository no longer starts Claude Code GitHub Actions.
 Local Claude tools and CLAUDE.md remain independent development tools.
 Technical checks and human reviews remain required; dependency PRs receive
 no auto-merge.
+
+## CI-Runner / CI runners
+
+DE: Technische macOS-Pruefungen verwenden macos-15, da GitHub macos-14 am
+2. November 2026 eingestellt hat. Pruefumfang, Berechtigungen und SHA-Pins bleiben erhalten.
+EN: Technical macOS checks use macos-15 because GitHub retired macos-14 on
+2 November 2026. Test coverage, permissions and SHA pins are retained.
+
+Quelle / Source: https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement/
+
+## Native Contract-Laufzeit / Native contract runtime
+
+DE: Der vollstaendige Linked-Intake-Nachweis darf unter Windows hoechstens 45 Minuten
+laufen, unter Linux weiterhin 20 Minuten. Beide Shell-Suiten und die Pruefung auf
+Repository-Schreibzugriffe bleiben Pflicht. Hintergrund ist ein beobachteter Abbruch
+an der bisherigen Windows-Grenze von 20 Minuten.
+
+EN: The complete linked-intake proof has a 45-minute Windows budget and retains
+the 20-minute Linux budget. Both shell suites and the zero-repository-writes check
+remain mandatory. This addresses an observed cancellation at the previous
+20-minute Windows limit.
+
+## Vollstaendige Windows-Inventarisierung / Full Windows inventory
+
+DE: Der Software-Inventar-Integrationstest erlaubt unter Windows hoechstens fuenf
+Minuten fuer die vollstaendige lokale Inventarisierung eines gehosteten Runners.
+Die Standardgrenze anderer Requests und Plattformen bleibt unveraendert.
+HTTP-Erfolg, nicht leerer Inhalt, gueltiges JSON und API-Authentifizierung werden
+weiterhin geprueft; dies aendert keinen Produkt-Timeout und kein Antwortzeit-SLO.
+
+EN: On Windows, the software inventory integration test allows at most five
+minutes for full local inventory of a hosted runner. Other requests and platforms
+retain their existing limit. HTTP success, nonempty content, valid JSON and API
+authentication remain checked; no product timeout or response-time SLO changes.

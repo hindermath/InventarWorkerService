@@ -21,7 +21,9 @@ jobs:
       matrix:
         os: [ubuntu-22.04, windows-2022]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    # DE: Native Windows-Prozesse brauchen mehr Anlaufzeit; alle Contracts bleiben Pflicht.
+    # EN: Native Windows processes need more startup time; every contract remains required.
+    timeout-minutes: ${{ matrix.os == 'windows-2022' && 45 || 20 }}
 
     steps:
       - name: Configure byte-stable checkout
