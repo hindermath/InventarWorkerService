@@ -25,7 +25,7 @@
       ],
       "reevaluationTrigger": "Changed dependency paths, manifest, runtime or update policy",
       "risk": "Dependency compatibility requires technical checks; generated statistics are not product acceptance",
-      "scope": "Dependency maintenance PR hindermath/InventarWorkerService#91"
+      "scope": "Dependency maintenance PR hindermath/InventarWorkerService#92"
     },
     {
       "audiences": [
@@ -95,6 +95,6 @@
       "scope": "Current installed statistics context: project-statistics"
     }
   ],
-  "feature": "dependabot-pr-91-repair",
+  "feature": "dependabot-pr-92-repair",
   "schemaVersion": "1.1"
 }
