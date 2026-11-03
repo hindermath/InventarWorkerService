@@ -35,7 +35,9 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  # DE: PR-Pruefungen duerfen weder andere PRs noch das Deployment abbrechen.
+  # EN: PR checks must not cancel other PRs or the deployment.
+  group: github-pages-${{ github.event_name == 'pull_request' && github.ref || 'deployment' }}
   cancel-in-progress: true
 
 jobs:
@@ -184,4 +186,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

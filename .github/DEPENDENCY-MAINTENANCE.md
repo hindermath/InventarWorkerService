@@ -119,6 +119,25 @@ EN: Technical macOS checks use macos-15 because GitHub retired macos-14 on
 
 Quelle / Source: https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement/
 
+## Pages-Pruefungen und Deployment / Pages checks and deployment
+
+DE: Docs-Pages-Pruefungen verwenden je Pull Request eine eigene Konkurrenzgruppe.
+Ein neuerer Stand desselben PRs darf den alten ersetzen; verschiedene PRs und
+das Deployment verdraengen einander nicht mehr. Automatische und manuelle
+Deployments behalten ihre gemeinsame Gruppe, damit neuere Deployments aeltere
+ersetzen koennen. Hintergrund ist der beobachtete Abbruch von PR #104 durch
+einen anderen PR-Lauf in der bisherigen gemeinsamen Gruppe `github-pages`.
+Berechtigungen, Trigger, Build-, Sicherheits- und Barrierefreiheitspruefungen
+bleiben erhalten. Ein abgebrochener Check gilt nicht als bestanden.
+
+EN: Docs Pages checks use a separate concurrency group for each pull request.
+A newer revision of the same PR may replace its old run; different PRs and
+the deployment no longer cancel each other. Automatic and manual deployments
+retain their shared group so newer deployments can replace older ones.
+This addresses the observed cancellation of PR #104 by another PR in the old
+shared `github-pages` group. Permissions, triggers, build, security and
+accessibility checks are retained. A cancelled check is not a passing check.
+
 ## Native Contract-Laufzeit / Native contract runtime
 
 DE: Der vollstaendige Linked-Intake-Nachweis darf unter Windows hoechstens 45 Minuten
