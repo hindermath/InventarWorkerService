@@ -94,3 +94,16 @@ EN: The complete linked-intake proof has a 45-minute Windows budget and retains
 the 20-minute Linux budget. Both shell suites and the zero-repository-writes check
 remain mandatory. This addresses an observed cancellation at the previous
 20-minute Windows limit.
+
+## Vollstaendige Windows-Inventarisierung / Full Windows inventory
+
+DE: Der Software-Inventar-Integrationstest erlaubt unter Windows hoechstens fuenf
+Minuten fuer die vollstaendige lokale Inventarisierung eines gehosteten Runners.
+Die Standardgrenze anderer Requests und Plattformen bleibt unveraendert.
+HTTP-Erfolg, nicht leerer Inhalt, gueltiges JSON und API-Authentifizierung werden
+weiterhin geprueft; dies aendert keinen Produkt-Timeout und kein Antwortzeit-SLO.
+
+EN: On Windows, the software inventory integration test allows at most five
+minutes for full local inventory of a hosted runner. Other requests and platforms
+retain their existing limit. HTTP success, nonempty content, valid JSON and API
+authentication remain checked; no product timeout or response-time SLO changes.
