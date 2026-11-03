@@ -82,3 +82,15 @@ EN: Technical macOS checks use macos-15 because GitHub retired macos-14 on
 2 November 2026. Test coverage, permissions and SHA pins are retained.
 
 Quelle / Source: https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement/
+
+## Native Contract-Laufzeit / Native contract runtime
+
+DE: Der vollstaendige Linked-Intake-Nachweis darf unter Windows hoechstens 45 Minuten
+laufen, unter Linux weiterhin 20 Minuten. Beide Shell-Suiten und die Pruefung auf
+Repository-Schreibzugriffe bleiben Pflicht. Hintergrund ist ein beobachteter Abbruch
+an der bisherigen Windows-Grenze von 20 Minuten.
+
+EN: The complete linked-intake proof has a 45-minute Windows budget and retains
+the 20-minute Linux budget. Both shell suites and the zero-repository-writes check
+remain mandatory. This addresses an observed cancellation at the previous
+20-minute Windows limit.
