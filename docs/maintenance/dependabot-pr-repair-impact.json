@@ -5,15 +5,13 @@
         "Maintainers",
         "AI agents"
       ],
-      "canonicalSource": ".github/workflows/docs-pages.yml",
+      "canonicalSource": ".github/DEPENDENCY-MAINTENANCE.md",
       "changeId": "CHG001",
-      "criticality": "Usage",
-      "decision": "UpdateRequired",
+      "criticality": "Normal",
+      "decision": "NoUpdateRequired",
       "distributionClass": "sourceOnly",
       "documentClass": "ActiveSemantic",
-      "documents": [
-        ".github/DEPENDENCY-MAINTENANCE.md"
-      ],
+      "documents": [],
       "evidence": ".github/DEPENDENCY-MAINTENANCE.md",
       "homeSyncRequired": false,
       "languagePartners": [],
@@ -21,13 +19,13 @@
       "navigationImpact": "Existing maintenance and statistics entry points remain valid",
       "owner": "Repository Maintainer",
       "platformAndExampleProof": "macOS Bash renderer preview/update/check; exact staged validation, secret scan and exact-head hosted platform checks",
-      "rationale": "DE: Nach beobachtetem Abbruch von PR #104 die Pages-Konkurrenzgruppe je PR isolieren; gemeinsame Deployment-Gruppe und alle technischen Checks erhalten. EN: After the observed #104 cancellation, isolate Pages concurrency per PR while retaining the shared deployment group and every technical check.",
+      "rationale": "DE: Bestehende Versionspflege; keine neue Bedienung oder API. EN: Existing dependency maintenance; no new user workflow or API.",
       "readerPaths": [
         ".github/DEPENDENCY-MAINTENANCE.md -> dependency PR -> technical checks"
       ],
       "reevaluationTrigger": "Changed dependency paths, manifest, runtime or update policy",
       "risk": "Dependency compatibility requires technical checks; generated statistics are not product acceptance",
-      "scope": "Dependency maintenance PR hindermath/InventarWorkerService#104"
+      "scope": "Dependency maintenance PR hindermath/InventarWorkerService#105"
     },
     {
       "audiences": [
@@ -97,6 +95,6 @@
       "scope": "Current installed statistics context: project-statistics"
     }
   ],
-  "feature": "dependabot-pr-104-repair",
+  "feature": "dependabot-pr-105-repair",
   "schemaVersion": "1.1"
 }
