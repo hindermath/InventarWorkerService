@@ -487,6 +487,14 @@ documentation decision and delivery scope are checked before commit;
 hosted results are recorded on the PR. No packages updated. Profile 2 keeps
 its existing references; this is not measured AI time savings.
 
+### 2026-11-03 - Claude-GitHub-Integration entfernt / Claude GitHub integration retired
+
+DE: Zwei Claude-PR-/Issue-Workflows auf Ownerwunsch entfernt; GitHub-App widerrufen.
+Technische Checks und manuelle Review-Grenzen bleiben verbindlich. Source-only.
+
+EN: Removes two Claude PR/issue workflows at the owner's request and revokes the app.
+Technical checks and manual review boundaries remain binding. Source-only.
+
 ## Gesamtstatistik / Overall Statistics
 
 <!-- project-statistics-v2:begin -->
