@@ -467,6 +467,26 @@ passed. Documentation Impact: UpdateRequired; the man page documents the safe
 mode boundary. Statistics provide Git-based transparency, not measured AI
 productivity.
 
+### 2026-11-03 - Dependabot-Wartung / Dependabot maintenance
+
+DE: Branch `codex/dependabot-maintenance-20261103`, beobachtbares Arbeitsfenster
+2026-11-03. Woechentliche Versionspruefungen, Minor-/Patch-Gruppen, einzelne
+Major-Updates und getrennte Sicherheitsgruppen sind konfiguriert. Umfang vor
+diesem Statistik-Selbstnachweis: 0 Produktionscode-, 0 Testcode-, 61
+Dokumentations- und 105 Konfigurations-/Evidence-Zeilen. YAML/Schema,
+Manifestabdeckung, Policy, Dokumentationsentscheidung und Liefermenge werden
+vor Commit geprueft; CI-Ergebnisse stehen am PR. Keine Pakete aktualisiert.
+Profil 2 behaelt die bestehenden Referenzwerte; keine gemessene KI-Zeitersparnis.
+
+EN: Branch `codex/dependabot-maintenance-20261103`, observable work window
+2026-11-03. Configures weekly version checks, minor/patch groups, separate major
+updates and independent security groups. Before this statistics self-record:
+0 production-code, 0 test-code, 61 documentation and 105
+configuration/evidence lines. YAML/schema, manifest coverage, policy,
+documentation decision and delivery scope are checked before commit;
+hosted results are recorded on the PR. No packages updated. Profile 2 keeps
+its existing references; this is not measured AI time savings.
+
 ## Gesamtstatistik / Overall Statistics
 
 <!-- project-statistics-v2:begin -->
