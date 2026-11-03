@@ -17,7 +17,7 @@ Git-bound inventory and activity; not a measure of quality, learning performance
 | Zeitzone / Time zone | UTC |
 
 Quellrevision / Source revision:
-6b81e4dfac25d4619a13c997b24c18aa752e9715
+7eecbaa902cc30fcd466f494480a066c2ff2e25a
 
 ### Artefakte / Artifacts
 
@@ -171,7 +171,7 @@ Sa/Sa  0 0 1 0 0 3 0 4 4 0 4 2 0 4 0 0 0 3 4 2 0 0 0 0 0 -
 | 2026-09-20 | 1374 | 31 |
 | 2026-09-26 | 214 | 22 |
 | 2026-10-29 | 2084 | 267 |
-| 2026-11-03 | 927 | 553 |
+| 2026-11-03 | 930 | 556 |
 
 ### Abdeckung / Coverage
 
