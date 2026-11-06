@@ -106,7 +106,12 @@ Restart=on-failure
 RestartSec=5
 KillSignal=SIGINT
 SyslogIdentifier=inventarworkerservice
-User=<aktueller_benutzername>
+User=inventarworker
+Group=inventarworker
+StateDirectory=InventarWorkerService
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=Kestrel__Endpoints__Http__Url=http://127.0.0.1:5000
 

@@ -121,6 +121,28 @@ public class SqliteDbServiceTest
     }
 
     /// <summary>
+    /// DE: Prüft, dass auch von extern übergebene Inventare keine Umgebungswerte persistieren können.
+    /// EN: Verifies that inventories supplied externally cannot persist environment values either.
+    /// </summary>
+    [TestMethod]
+    public async Task SaveSoftwareInventoryAsync_ExternalEnvironmentValue_RedactsBeforePersistence()
+    {
+        const string secret = "sqlite-persistence-secret";
+        var machineId = await _service.SaveOrUpdateMachineAsync(CreateMachine("Sqlite-Redaction-01", "Linux"));
+        var software = new SoftwareInventory
+        {
+            EnvironmentVariables = [$"LICENSE_KEY={secret}", secret]
+        };
+
+        await _service.SaveSoftwareInventoryAsync(machineId, software);
+        var latestSoftware = await _service.GetLatestSoftwareInventoryAsync(machineId);
+
+        Assert.IsNotNull(latestSoftware);
+        StringAssert.Contains(latestSoftware.EnvironmentJson, "LICENSE_KEY=[REDACTED]");
+        Assert.DoesNotContain(secret, latestSoftware.EnvironmentJson);
+    }
+
+    /// <summary>
     /// DE: Prüft die Status-Views für aktiv, mit Netzwerk, deaktiviert und deprovisioniert.
     /// EN: Verifies the status views for active, with-network, disabled and deprovisioned machines.
     /// </summary>

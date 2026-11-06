@@ -429,7 +429,7 @@ public class SqliteDbService
             ProcessesJson = System.Text.Json.JsonSerializer.Serialize(software.RunningProcesses),
             InstalledSoftwareJson = System.Text.Json.JsonSerializer.Serialize(software.InstalledSoftware),
             ServicesJson = System.Text.Json.JsonSerializer.Serialize(software.WindowsServices),
-            EnvironmentJson = System.Text.Json.JsonSerializer.Serialize(software.EnvironmentVariables),
+            EnvironmentJson = System.Text.Json.JsonSerializer.Serialize(EnvironmentVariableRedactor.RedactAll(software.EnvironmentVariables)),
             StartupProgramsJson = System.Text.Json.JsonSerializer.Serialize(software.StartupPrograms),
             RuntimeJson = System.Text.Json.JsonSerializer.Serialize(software.Runtime),
             CreatedAt = DateTime.UtcNow

@@ -38,6 +38,23 @@ public sealed class SecurityBoundaryIntegrationTests
         Assert.IsFalse(controller.Contains("ex.Message", StringComparison.Ordinal));
     }
 
+    /// <summary>
+    /// DE: Stellt sicher, dass teure Live-Inventare ohne Warteschlange zentral begrenzt werden.
+    /// EN: Ensures expensive live inventories are centrally limited without a queue.
+    /// </summary>
+    [TestMethod]
+    public void WorkerHost_LiveInventoryEndpoints_UseSingleConcurrencyLimiter()
+    {
+        var program = File.ReadAllText(PathInRepository("InventarWorkerService/Program.cs"));
+        var controller = File.ReadAllText(PathInRepository("InventarWorkerService/Controllers/InventarController.cs"));
+
+        StringAssert.Contains(program, "options.AddConcurrencyLimiter(\"LiveInventory\"");
+        StringAssert.Contains(program, "limiterOptions.PermitLimit = 1;");
+        StringAssert.Contains(program, "limiterOptions.QueueLimit = 0;");
+        StringAssert.Contains(program, "app.UseRateLimiter();");
+        Assert.AreEqual(3, controller.Split("[EnableRateLimiting(\"LiveInventory\")]", StringSplitOptions.None).Length - 1);
+    }
+
     private static string PathInRepository(string relativePath)
     {
         var current = new DirectoryInfo(AppContext.BaseDirectory);

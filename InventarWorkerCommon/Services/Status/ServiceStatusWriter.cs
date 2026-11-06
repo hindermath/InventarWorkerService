@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using IniParser;
@@ -29,17 +30,8 @@ public class ServiceStatusWriter
     public ServiceStatusWriter(string statusDirectory = "inventar-service")
     {
         statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
-        if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)) is
-            false)
-        {
-            var directory =
-                ServicePath.CreateServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory));
-            _statusDirectory = directory.FullName;
-        }
-        else
-        {
-            _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
-        }
+        var directory = ServicePath.CreateServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory));
+        _statusDirectory = directory.FullName;
 
         _jsonOptions = new JsonSerializerOptions
         {
@@ -112,8 +104,13 @@ public class ServiceStatusWriter
             NewLineHandling = NewLineHandling.Replace
         };
 
-        using var writer = XmlWriter.Create(statusFile, xmlSettings);
-        xmlSerializer.Serialize(writer, status);
+        using var stringWriter = new StringWriter();
+        using (var writer = XmlWriter.Create(stringWriter, xmlSettings))
+        {
+            xmlSerializer.Serialize(writer, status);
+        }
+
+        SecureFileWriter.WriteAllText(statusFile, stringWriter.ToString());
     }
 
     private void WriteStatusIni(ServiceStatus status)
@@ -161,7 +158,14 @@ public class ServiceStatusWriter
             }
         }
 
-        parser.WriteFile(statusFile, iniData);
+        using var stream = new MemoryStream();
+        using (var writer = new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false), leaveOpen: true))
+        {
+            parser.WriteData(writer, iniData);
+            writer.Flush();
+        }
+
+        SecureFileWriter.WriteAllText(statusFile, Encoding.UTF8.GetString(stream.ToArray()));
     }
 
     private static void AddComplexObjectSection(IniData iniData, string sectionName, object obj)
@@ -233,7 +237,7 @@ public class ServiceStatusWriter
     {
         var logFile = Path.Combine(_statusDirectory, "service.log");
         var logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}\n";
-        File.AppendAllText(logFile, logEntry);
+        SecureFileWriter.AppendAllText(logFile, logEntry);
     }
 
     /// <summary>

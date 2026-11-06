@@ -2,7 +2,6 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.ServiceProcess;
-using System.Text.RegularExpressions;
 using InventarWorkerCommon.Models.Software;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
@@ -14,10 +13,6 @@ namespace InventarWorkerCommon.Services.Software;
 /// </summary>
 public class SoftwareInventoryService
 {
-    private static readonly Regex SensitiveEnvironmentName = new(
-        "(^|_)(PASSWORD|PASSWD|PWD|SECRET|TOKEN|API_KEY|ACCESS_KEY|PRIVATE_KEY|CONNECTION_STRING|CONNECTIONSTRING|CREDENTIALS?)($|_)",
-        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
-
     private readonly ILogger<SoftwareInventoryService> _logger;
 
     /// <summary>
@@ -505,13 +500,15 @@ public class SoftwareInventoryService
 
             foreach (var key in variables.Keys.Cast<string>().OrderBy(k => k))
             {
-                var value = variables[key]?.ToString() ?? string.Empty;
-
-                // DE: Das Inventar benötigt Variablennamen für die Betriebsdiagnose, aber
-                // geheimnisverdächtige Werte dürfen die lokale Vertrauensgrenze nie verlassen.
-                // EN: Inventory needs variable names for operational diagnostics, but
-                // secret-like values must never leave the local trust boundary.
-                environmentVariables.Add($"{key}={(SensitiveEnvironmentName.IsMatch(key) ? "[REDACTED]" : value)}");
+                // DE: Umgebungen enthalten auch bei harmlos wirkenden Namen häufig Zugangsdaten.
+                // Deshalb verlassen ausschließlich Namen, niemals Werte, die Prozessgrenze.
+                // EN: Environments often contain credentials even under harmless-looking names.
+                // Therefore only names, never values, leave the process boundary.
+                var redactedEntry = EnvironmentVariableRedactor.Redact($"{key}=");
+                if (redactedEntry is not null)
+                {
+                    environmentVariables.Add(redactedEntry);
+                }
             }
         }
         catch (Exception ex)

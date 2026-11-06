@@ -74,7 +74,14 @@ public class MongoDbService
         }
 
         var collection = _mongoSoftwareDatabase.GetCollection<BsonDocument>($"{machineId}");
-        await collection.InsertOneAsync(software.ToBsonDocument());
+        var document = software.ToBsonDocument();
+
+        // DE: Remote Inventare sind eine Vertrauensgrenze; auch ältere Agenten dürfen keine Werte einschleusen.
+        // EN: Remote inventories are a trust boundary; even older agents must not inject values.
+        document[nameof(SoftwareInventory.EnvironmentVariables)] =
+            new BsonArray(EnvironmentVariableRedactor.RedactAll(software.EnvironmentVariables).Select(value => new BsonString(value)));
+
+        await collection.InsertOneAsync(document);
     }
 
     /// <summary>

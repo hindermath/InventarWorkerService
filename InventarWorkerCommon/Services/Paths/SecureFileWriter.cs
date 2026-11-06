@@ -42,7 +42,8 @@ public static class SecureFileWriter
     /// <exception cref="IOException">DE: Schreiben oder Ersetzen ist fehlgeschlagen. EN: Writing or replacement failed.</exception>
     public static void WriteAllText(string destinationPath, string contents)
     {
-        WriteAllTextCore(destinationPath, contents, ownerOnlyOnUnix: false);
+        ServicePath.EnsurePrivateFilePath(destinationPath);
+        WriteAllTextCore(destinationPath, contents);
     }
 
     /// <summary>
@@ -53,8 +54,8 @@ public static class SecureFileWriter
     /// <param name="contents">DE: Zu schreibender vertraulicher Text. EN: Confidential text to write.</param>
     internal static void WriteAllTextOwnerOnly(string destinationPath, string contents)
     {
-        EnsureOwnerOnlyDirectoryBoundary(destinationPath);
-        WriteAllTextCore(destinationPath, contents, ownerOnlyOnUnix: true);
+        ServicePath.EnsurePrivateFilePath(destinationPath);
+        WriteAllTextCore(destinationPath, contents);
     }
 
     /// <summary>
@@ -68,7 +69,7 @@ public static class SecureFileWriter
             return File.ReadAllText(path);
         }
 
-        EnsureOwnerOnlyDirectoryBoundary(path);
+        ServicePath.EnsurePrivateFilePath(path);
 
         using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
         File.SetUnixFileMode(stream.SafeFileHandle, OwnerReadWrite);
@@ -77,16 +78,29 @@ public static class SecureFileWriter
     }
 
     /// <summary>
+    /// DE: Liest Text aus einem vorab geprüften Statusartefakt ohne dessen Berechtigungen zu verändern.
+    /// EN: Reads text from a prevalidated status artifact without changing its permissions.
+    /// </summary>
+    /// <param name="path">DE: Pfad zum Statusartefakt. EN: Path to the status artifact.</param>
+    /// <returns>DE: Inhalt der Datei. EN: File contents.</returns>
+    internal static string ReadAllText(string path)
+    {
+        ServicePath.EnsurePrivateFilePath(path);
+        return File.ReadAllText(path);
+    }
+
+    /// <summary>
     /// DE: Migriert vorhandene Settings-Dateien auf Eigentümerrechte und entfernt ausschließlich alte atomare Settings-Temporärdateien.
     /// EN: Migrates existing settings files to owner-only permissions and removes only stale atomic settings temporary files.
     /// </summary>
     internal static void ProtectExistingSettingsArtifacts(string directoryPath)
     {
-        EnsureOwnerOnlyDirectoryBoundary(Path.Combine(directoryPath, "settings.json"));
+        ServicePath.EnsurePrivateFilePath(Path.Combine(directoryPath, "settings.json"));
 
         foreach (var fileName in new[] { "settings.json", "settings.yaml" })
         {
             var settingsPath = Path.Combine(directoryPath, fileName);
+            ServicePath.EnsurePrivateFilePath(settingsPath);
             ProtectExistingOwnerOnlyFile(settingsPath);
 
             foreach (var candidatePath in Directory.EnumerateFiles(directoryPath, $".{fileName}.*.tmp"))
@@ -99,12 +113,36 @@ public static class SecureFileWriter
         }
     }
 
-    private static void WriteAllTextCore(string destinationPath, string contents, bool ownerOnlyOnUnix)
+    /// <summary>
+    /// DE: Beschränkt ein vorhandenes Dienstartefakt auf Eigentümerrechte, wenn die Plattform Unix-Rechte unterstützt.
+    /// EN: Restricts an existing service artifact to owner permissions when the platform supports Unix permissions.
+    /// </summary>
+    /// <param name="path">DE: Pfad des vorhandenen Artefakts. EN: Path of the existing artifact.</param>
+    public static void ProtectExistingArtifact(string path)
+    {
+        ServicePath.EnsurePrivateFilePath(path);
+        ProtectExistingOwnerOnlyFile(path);
+    }
+
+    /// <summary>
+    /// DE: Beschränkt eine SQLite-Datenbank und ihre bekannten Nebenartefakte auf Eigentümerrechte.
+    /// EN: Restricts a SQLite database and its known sidecar artifacts to owner permissions.
+    /// </summary>
+    /// <param name="databasePath">DE: Pfad zur SQLite-Hauptdatei. EN: Path to the SQLite main file.</param>
+    public static void ProtectSqliteArtifacts(string databasePath)
+    {
+        foreach (var path in new[] { databasePath, $"{databasePath}-wal", $"{databasePath}-shm", $"{databasePath}-journal" })
+        {
+            ProtectExistingArtifact(path);
+        }
+    }
+
+    private static void WriteAllTextCore(string destinationPath, string contents)
     {
         var temporaryPath = CreateTemporaryPath(destinationPath);
         try
         {
-            if (ownerOnlyOnUnix && !OperatingSystem.IsWindows())
+            if (!OperatingSystem.IsWindows())
             {
                 WriteAllTextOwnerOnlyOnUnix(temporaryPath, contents);
             }
@@ -114,6 +152,7 @@ public static class SecureFileWriter
             }
 
             File.Move(temporaryPath, destinationPath, overwrite: true);
+            ProtectExistingOwnerOnlyFile(destinationPath);
         }
         finally
         {
@@ -150,7 +189,13 @@ public static class SecureFileWriter
 
     private static void ProtectExistingOwnerOnlyFile(string path)
     {
-        if (OperatingSystem.IsWindows() || !File.Exists(path))
+        if (OperatingSystem.IsWindows())
+        {
+            WindowsStateSecurity.ProtectFile(path);
+            return;
+        }
+
+        if (!File.Exists(path))
         {
             return;
         }
@@ -159,23 +204,34 @@ public static class SecureFileWriter
         File.SetUnixFileMode(stream.SafeFileHandle, OwnerReadWrite);
     }
 
-    private static void EnsureOwnerOnlyDirectoryBoundary(string filePath)
+    /// <summary>
+    /// DE: Fügt Text nur an eine vorab geprüfte Statusdatei an.
+    /// EN: Appends text only to a prevalidated status file.
+    /// </summary>
+    /// <param name="destinationPath">DE: Zielpfad im geschützten Dienstzustand. EN: Destination in protected service state.</param>
+    /// <param name="contents">DE: Anzuhängender Text. EN: Text to append.</param>
+    internal static void AppendAllText(string destinationPath, string contents)
     {
+        ServicePath.EnsurePrivateFilePath(destinationPath);
         if (OperatingSystem.IsWindows())
         {
+            ProtectExistingOwnerOnlyFile(destinationPath);
+            File.AppendAllText(destinationPath, contents);
+            ProtectExistingOwnerOnlyFile(destinationPath);
             return;
         }
 
-        var directoryPath = Path.GetDirectoryName(filePath)
-            ?? throw new ArgumentException("DE: Zielpfad ohne Verzeichnis. EN: Destination path has no directory.", nameof(filePath));
-        var mode = File.GetUnixFileMode(directoryPath);
-        const UnixFileMode unsafeWriteBits = UnixFileMode.GroupWrite | UnixFileMode.OtherWrite;
-        if ((mode & unsafeWriteBits) != 0)
+        var options = new FileStreamOptions
         {
-            throw new UnauthorizedAccessException(
-                "DE: Vertrauliche Settings dürfen nicht in einem gruppen- oder weltbeschreibbaren Verzeichnis liegen. " +
-                "EN: Confidential settings must not reside in a group- or world-writable directory.");
-        }
+            Access = FileAccess.Write,
+            Mode = FileMode.Append,
+            Share = FileShare.Read,
+            UnixCreateMode = OwnerReadWrite
+        };
+        using var stream = new FileStream(destinationPath, options);
+        File.SetUnixFileMode(stream.SafeFileHandle, OwnerReadWrite);
+        using var writer = new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+        writer.Write(contents);
     }
 
     private static bool IsAtomicTemporaryFile(string candidatePath, string fileName)
@@ -208,11 +264,32 @@ public static class SecureFileWriter
         string contents,
         CancellationToken cancellationToken = default)
     {
+        ServicePath.EnsurePrivateFilePath(destinationPath);
         var temporaryPath = CreateTemporaryPath(destinationPath);
         try
         {
-            await File.WriteAllTextAsync(temporaryPath, contents, cancellationToken).ConfigureAwait(false);
+            if (OperatingSystem.IsWindows())
+            {
+                await File.WriteAllTextAsync(temporaryPath, contents, cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                var options = new FileStreamOptions
+                {
+                    Access = FileAccess.Write,
+                    Mode = FileMode.CreateNew,
+                    Share = FileShare.None,
+                    Options = FileOptions.Asynchronous,
+                    UnixCreateMode = OwnerReadWrite
+                };
+                await using var stream = new FileStream(temporaryPath, options);
+                File.SetUnixFileMode(stream.SafeFileHandle, OwnerReadWrite);
+                await using var writer = new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+                await writer.WriteAsync(contents.AsMemory(), cancellationToken).ConfigureAwait(false);
+            }
+
             File.Move(temporaryPath, destinationPath, overwrite: true);
+            ProtectExistingOwnerOnlyFile(destinationPath);
         }
         finally
         {

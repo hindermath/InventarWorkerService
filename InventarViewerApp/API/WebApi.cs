@@ -6,6 +6,7 @@ using System.Text.Encodings.Web;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
+using InventarWorkerCommon.Services.Paths;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -242,6 +243,7 @@ class WebApi
         var dbPath =
             Path.Combine(Initialize.GetDbBasePath(),
                 "inventar.db"); //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "inventar.db");
+        SecureFileWriter.ProtectExistingArtifact(dbPath);
         builder.Services.AddSingleton<SqliteDbService>(provider =>
             new SqliteDbService($"Data Source={dbPath}"));
 
@@ -257,6 +259,9 @@ class WebApi
         });
 
         var app = builder.Build();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         // Make documentation from _site folder available under /apidoc
         var docPath = Path.Combine(builder.Environment.ContentRootPath, "_site");
@@ -274,6 +279,7 @@ class WebApi
         {
             var dbService = scope.ServiceProvider.GetRequiredService<SqliteDbService>();
             dbService.InitializeDatabase();
+            SecureFileWriter.ProtectSqliteArtifacts(dbPath);
         }
 
         // Configure Pipeline
@@ -306,8 +312,6 @@ class WebApi
         // app.UseRouting();
         // app.UseRateLimiter();
         // app.UseRequestLocalization();
-        app.UseAuthentication();
-        app.UseAuthorization();
         // app.UseSession();
         // app.UseResponseCompression();
         // app.UseResponseCaching();

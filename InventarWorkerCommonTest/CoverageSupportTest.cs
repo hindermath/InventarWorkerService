@@ -14,6 +14,7 @@ namespace InventarWorkerCommonTest;
 /// EN: Closes smaller coverage gaps in helper classes, path utilities and remaining models.
 /// </summary>
 [TestClass]
+[DoNotParallelize]
 public class CoverageSupportTest
 {
     /// <summary>
@@ -121,8 +122,11 @@ public class CoverageSupportTest
             LastError = string.Empty
         };
 
-        Assert.AreEqual("Host=db.local;Port=5432;Database=inventar;Username=inventar;Password=secret;", pgWithAuth.PgSqlConnectionString);
-        Assert.AreEqual("Host=localhost;Port=5432;Database=postgres;", pgWithoutAuth.PgSqlConnectionString);
+        var remoteBuilder = new Npgsql.NpgsqlConnectionStringBuilder(pgWithAuth.PgSqlConnectionString);
+        var loopbackBuilder = new Npgsql.NpgsqlConnectionStringBuilder(pgWithoutAuth.PgSqlConnectionString);
+
+        Assert.AreEqual(Npgsql.SslMode.VerifyFull, remoteBuilder.SslMode);
+        Assert.AreEqual(Npgsql.SslMode.Disable, loopbackBuilder.SslMode);
         Assert.AreEqual("en0", hardwareInfo.NetworkInterfaces[0].Name);
         Assert.AreEqual(9.5, metrics.CpuUsage);
         Assert.AreEqual("Running", serviceStatus.State);
@@ -135,14 +139,32 @@ public class CoverageSupportTest
     [TestMethod]
     public void PathServices_CreateAndDetectDirectories()
     {
-        var basePath = BasePath.GetBasePath();
-        var serviceStatusPath = ServicePath.GetServiceStatusPath();
-        var testPath = Path.Combine(serviceStatusPath, $"coverage-path-{Guid.NewGuid():N}");
+        var previousBasePath = BasePath.UnixBasePathOverride;
+        var previousDirectory = Environment.GetEnvironmentVariable("SERVICESTATUSDIRECTORY");
+        var testBasePath = Path.Combine(Path.GetTempPath(), $"inventar-coverage-base-{Guid.NewGuid():N}");
+        BasePath.UnixBasePathOverride = testBasePath;
+        Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", $"inventar-coverage-{Guid.NewGuid():N}");
 
-        var directory = ServicePath.CreateServiceStatusPath(testPath);
+        try
+        {
+            var basePath = BasePath.GetBasePath();
+            var serviceStatusPath = ServicePath.GetServiceStatusPath();
+            var testPath = Path.Combine(serviceStatusPath, $"coverage-path-{Guid.NewGuid():N}");
 
-        Assert.IsFalse(string.IsNullOrWhiteSpace(basePath));
-        Assert.IsFalse(string.IsNullOrWhiteSpace(serviceStatusPath));
-        Assert.IsTrue(ServicePath.ExistsServiceStatusPath(directory.FullName));
+            var directory = ServicePath.CreateServiceStatusPath(testPath);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(basePath));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(serviceStatusPath));
+            Assert.IsTrue(ServicePath.ExistsServiceStatusPath(directory.FullName));
+        }
+        finally
+        {
+            BasePath.UnixBasePathOverride = previousBasePath;
+            Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", previousDirectory);
+            if (Directory.Exists(testBasePath))
+            {
+                Directory.Delete(testBasePath, recursive: true);
+            }
+        }
     }
 }

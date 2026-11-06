@@ -243,7 +243,19 @@ public class Worker : BackgroundService
                             ?? activeMachineWithNetworkInfo.IPv6
                             ?? "localhost";
 
-                        await using var workerServiceContainer = Services(clientApiFqdn: resolvedApiAddress);
+                        if (!WorkerTargetAuthorization.IsAuthorized(resolvedApiAddress, out var targetRejectionReason))
+                        {
+                            _statusWriter.WriteLog($"Worker target for '{activeMachineWithNetworkInfo.Name}' rejected: {targetRejectionReason}");
+                            continue;
+                        }
+
+                        if (!WorkerApiKeyResolver.TryResolve(activeMachineWithNetworkInfo, out var workerApiKey))
+                        {
+                            _statusWriter.WriteLog($"Worker target for '{activeMachineWithNetworkInfo.Name}' skipped: no dedicated API key mapping.");
+                            continue;
+                        }
+
+                        await using var workerServiceContainer = Services(clientApiFqdn: resolvedApiAddress, apiKey: workerApiKey);
                         _apiService = workerServiceContainer.ApiService;
                         _serviceStatus = await _apiService.GetServiceStatusAsync();
 

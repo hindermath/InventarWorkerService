@@ -1,6 +1,7 @@
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace InventarWorkerService.Controllers;
 
@@ -41,6 +42,7 @@ public class InventarController : ControllerBase
     /// </summary>
     /// <returns>HTTP 200 with hardware info on success; HTTP 500 with an error message on failure.</returns>
     [HttpGet("hardware")]
+    [EnableRateLimiting("LiveInventory")]
     public async Task<IActionResult> GetHardwareInventory()
     {
         try
@@ -60,6 +62,7 @@ public class InventarController : ControllerBase
     /// </summary>
     /// <returns>HTTP 200 with software info on success; HTTP 500 with an error message on failure.</returns>
     [HttpGet("software")]
+    [EnableRateLimiting("LiveInventory")]
     public async Task<IActionResult> GetSoftwareInventory()
     {
         try
@@ -79,6 +82,7 @@ public class InventarController : ControllerBase
     /// </summary>
     /// <returns>HTTP 200 with combined inventory; HTTP 500 with an error message on failure.</returns>
     [HttpGet("full")]
+    [EnableRateLimiting("LiveInventory")]
     public async Task<IActionResult> GetFullInventory()
     {
         try

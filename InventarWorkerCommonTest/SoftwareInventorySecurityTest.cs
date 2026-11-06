@@ -37,4 +37,31 @@ public sealed class SoftwareInventorySecurityTest
             Environment.SetEnvironmentVariable(variableName, previous);
         }
     }
+
+    /// <summary>
+    /// DE: Redigiert auch Werte mit nicht geheimnisverdächtigen Namen vollständig.
+    /// EN: Fully redacts values even when their names do not look secret-like.
+    /// </summary>
+    [TestMethod]
+    public async Task CollectSoftwareInventory_OrdinaryNamedEnvironmentVariable_IsRedacted()
+    {
+        const string variableName = "FEATURE002_TEST_LICENSE_LABEL";
+        const string secretValue = "feature002-license-value";
+        var previous = Environment.GetEnvironmentVariable(variableName);
+        Environment.SetEnvironmentVariable(variableName, secretValue);
+
+        try
+        {
+            var service = new SoftwareInventoryService(NullLogger<SoftwareInventoryService>.Instance);
+            var inventory = await service.CollectSoftwareInventoryAsync();
+            var entry = inventory.EnvironmentVariables.Single(value => value.StartsWith($"{variableName}=", StringComparison.Ordinal));
+
+            Assert.AreEqual($"{variableName}=[REDACTED]", entry);
+            Assert.IsFalse(inventory.EnvironmentVariables.Any(value => value.Contains(secretValue, StringComparison.Ordinal)));
+        }
+        finally
+        {
+            Environment.SetEnvironmentVariable(variableName, previous);
+        }
+    }
 }

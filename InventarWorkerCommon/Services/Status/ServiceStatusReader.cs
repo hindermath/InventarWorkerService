@@ -22,8 +22,10 @@ public class ServiceStatusReader
     /// </remarks>
     public ServiceStatusReader(string statusDirectory = "inventar-service")
     {
-        if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)))
-            _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
+        statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
+        var candidateDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
+        if (ServicePath.ExistsServiceStatusPath(candidateDirectory))
+            _statusDirectory = candidateDirectory;
         _jsonOptions = new JsonSerializerOptions 
         { 
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -48,7 +50,7 @@ public class ServiceStatusReader
             var statusFile = System.IO.Path.Combine(_statusDirectory, "status.json");
             if (!File.Exists(statusFile)) return null;
             
-            var json = File.ReadAllText(statusFile);
+            var json = SecureFileWriter.ReadAllText(statusFile);
             return JsonSerializer.Deserialize<ServiceStatus>(json, _jsonOptions);
         }
         catch (Exception ex)
@@ -74,7 +76,7 @@ public class ServiceStatusReader
             var statsFile = System.IO.Path.Combine(_statusDirectory, "statistics.json");
             if (!File.Exists(statsFile)) return null;
             
-            var json = File.ReadAllText(statsFile);
+            var json = SecureFileWriter.ReadAllText(statsFile);
             return JsonSerializer.Deserialize<ServiceStatistics>(json, _jsonOptions);
         }
         catch (Exception ex)
@@ -99,7 +101,8 @@ public class ServiceStatusReader
             var logFile = System.IO.Path.Combine(_statusDirectory, "service.log");
             if (!File.Exists(logFile)) return new List<string>();
             
-            var lines = File.ReadAllLines(logFile);
+            var lines = SecureFileWriter.ReadAllText(logFile)
+                .Split(["\r\n", "\n"], StringSplitOptions.RemoveEmptyEntries);
             return lines.TakeLast(maxLines).ToList();
         }
         catch (Exception ex)

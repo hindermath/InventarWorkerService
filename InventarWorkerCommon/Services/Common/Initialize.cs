@@ -23,6 +23,7 @@ public static class Initialize
     /// <param name="pgSqlDbFqdn">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
     /// <param name="pgSqlDbPort">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
     /// <param name="pgSqlDbName">DE: Unbenutzt im Fallback-Pfad, fuer API-Kompatibilitaet beibehalten. EN: Unused on the fallback path, kept for API compatibility.</param>
+    /// <param name="apiKey">DE: Optionaler zielgebundener API-Schlüssel; <c>null</c> verwendet nur für lokale Einzelziel-Clients die Umgebungsvariable. EN: Optional target-bound API key; <c>null</c> uses the environment variable only for local single-target clients.</param>
     /// <returns>
     /// DE: Ein Container mit initialisierten Diensten; <see cref="ServiceContainer.PgSqlDbService"/> ist <c>null</c>.
     /// EN: A container with initialized services; <see cref="ServiceContainer.PgSqlDbService"/> is <c>null</c>.
@@ -34,19 +35,22 @@ public static class Initialize
         string mongoDbPort = "27017",
         string pgSqlDbFqdn = "localhost",
         string pgSqlDbPort = "5432",
-        string pgSqlDbName = "inventar")
+        string pgSqlDbName = "inventar",
+        string? apiKey = null)
     {
         var isLoopback = string.Equals(clientApiFqdn, "localhost", StringComparison.OrdinalIgnoreCase) ||
                          System.Net.IPAddress.TryParse(clientApiFqdn, out var address) && System.Net.IPAddress.IsLoopback(address);
         var scheme = isLoopback ? "http" : "https";
         var apiService = new ApiService(
             $"{scheme}://{clientApiFqdn}:{clientApiPort}",
-            Environment.GetEnvironmentVariable("INVENTORY_API_KEY"));
+            apiKey ?? Environment.GetEnvironmentVariable("INVENTORY_API_KEY"));
 
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
+        ServicePath.EnsurePrivateFilePath(dbPath);
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         dbService.InitializeDatabase();
+        SecureFileWriter.ProtectSqliteArtifacts(dbPath);
 
         // Missing or unreadable settings must not silently enable an external write sink.
         var mongoDbService = new MongoDbService(
@@ -84,8 +88,10 @@ public static class Initialize
 
         var basePath = GetDbBasePath();
         var dbPath = Path.Combine(basePath, "inventar.db");
+        ServicePath.EnsurePrivateFilePath(dbPath);
         var dbService = new SqliteDbService($"Data Source={dbPath}");
         dbService.InitializeDatabase();
+        SecureFileWriter.ProtectSqliteArtifacts(dbPath);
 
         var mongoDbService = new MongoDbService(
             settings.MongoDb.MongoDbConnectionString,
@@ -114,13 +120,7 @@ public static class Initialize
     /// </returns>
     public static string GetDbBasePath()
     {
-        if (ServicePath.ExistsServiceStatusPath(ServicePath.GetServiceStatusPath()) is false)
-        {
-            var directory = ServicePath.CreateServiceStatusPath(ServicePath.GetServiceStatusPath());
-            return directory.FullName;
-        }
-
-        return ServicePath.GetServiceStatusPath();
+        return ServicePath.CreateServiceStatusPath(ServicePath.GetServiceStatusPath()).FullName;
     }
 }
 

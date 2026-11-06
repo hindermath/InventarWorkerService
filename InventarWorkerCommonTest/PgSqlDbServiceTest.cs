@@ -9,6 +9,7 @@ using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
+using InventarWorkerCommon.Services.Paths;
 using Microsoft.Data.Sqlite;
 using Npgsql;
 
@@ -25,6 +26,7 @@ public class PgSqlDbServiceTest
     private const string IntegrationCategory = "Integration";
     private static string? _integrationConnectionString;
     private static string _serviceStatusDirectory = string.Empty;
+    private static string _serviceStateBasePath = string.Empty;
     private PgSqlDbService _svc = null!;
 
     /// <summary>
@@ -40,8 +42,9 @@ public class PgSqlDbServiceTest
     {
         _ = context;
         _integrationConnectionString = Environment.GetEnvironmentVariable("PGSQL_TEST_CONNECTION_STRING");
-        _serviceStatusDirectory = Path.Combine(Path.GetTempPath(), $"inventar-pgsql-tests-{Guid.NewGuid():N}");
-        Directory.CreateDirectory(_serviceStatusDirectory);
+        _serviceStateBasePath = Path.Combine(Path.GetTempPath(), $"inventar-pgsql-base-{Guid.NewGuid():N}");
+        _serviceStatusDirectory = $"inventar-pgsql-tests-{Guid.NewGuid():N}";
+        BasePath.UnixBasePathOverride = _serviceStateBasePath;
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", _serviceStatusDirectory);
     }
 
@@ -60,13 +63,14 @@ public class PgSqlDbServiceTest
         }
 
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", null);
+        BasePath.UnixBasePathOverride = null;
 
-        if (!string.IsNullOrWhiteSpace(_serviceStatusDirectory) && Directory.Exists(_serviceStatusDirectory))
+        if (!string.IsNullOrWhiteSpace(_serviceStateBasePath) && Directory.Exists(_serviceStateBasePath))
         {
             // DE: Der Initialisierungstest kann eine gepoolte SQLite-Verbindung hinterlassen; Windows sperrt dann inventar.db.
             // EN: The initialization test may leave a pooled SQLite connection; Windows then locks inventar.db.
             SqliteConnection.ClearAllPools();
-            Directory.Delete(_serviceStatusDirectory, recursive: true);
+            Directory.Delete(_serviceStateBasePath, recursive: true);
         }
     }
 
@@ -104,6 +108,34 @@ public class PgSqlDbServiceTest
         using var container = Initialize.Services(settings);
 
         Assert.IsNull(container.PgSqlDbService);
+    }
+
+    /// <summary>
+    /// DE: Erzwingt für entfernte PostgreSQL-Ziele TLS mit vollständiger Zertifikatsprüfung.
+    /// EN: Enforces TLS with full certificate verification for remote PostgreSQL targets.
+    /// </summary>
+    [TestMethod]
+    public void PgSqlTransportSecurity_RemoteTarget_EnforcesVerifiedTls()
+    {
+        var normalized = PgSqlTransportSecurity.NormalizeConnectionString(
+            "Host=db.example.test;Database=inventar;Username=worker;Password=secret;SSL Mode=Disable;Trust Server Certificate=true;");
+        var builder = new NpgsqlConnectionStringBuilder(normalized);
+
+        Assert.AreEqual(SslMode.VerifyFull, builder.SslMode);
+        Assert.AreEqual(GssEncryptionMode.Disable, builder.GssEncryptionMode);
+    }
+
+    /// <summary>
+    /// DE: Erlaubt Klartext ausschließlich für direkte Loopback-Testziele.
+    /// EN: Allows plaintext exclusively for direct loopback test targets.
+    /// </summary>
+    [TestMethod]
+    public void PgSqlTransportSecurity_LoopbackTarget_AllowsExplicitLocalException()
+    {
+        var normalized = PgSqlTransportSecurity.NormalizeConnectionString("Host=127.0.0.1;Database=inventar;SSL Mode=VerifyFull;");
+        var builder = new NpgsqlConnectionStringBuilder(normalized);
+
+        Assert.AreEqual(SslMode.Disable, builder.SslMode);
     }
 
     /// <summary>
