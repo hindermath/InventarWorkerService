@@ -4,12 +4,15 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Encodings.Web;
+using System.Threading.RateLimiting;
 using InventarWorkerCommon.Services.Api;
 using InventarWorkerCommon.Services.Hardware;
 using InventarWorkerCommon.Services.Software;
 using InventarWorkerService;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
@@ -47,6 +50,18 @@ builder.Services.AddOpenApi();
 
 // Add REST API Services
 builder.Services.AddControllers();
+builder.Services.AddRateLimiter(options =>
+{
+    // DE: Ein Live-Scan beansprucht lokale Prozesse und Systemabfragen; Warteschlangen würden den Verbrauch nur verzögern.
+    // EN: A live scan consumes local processes and system queries; queues would merely delay that consumption.
+    options.AddConcurrencyLimiter("LiveInventory", limiterOptions =>
+    {
+        limiterOptions.PermitLimit = 1;
+        limiterOptions.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        limiterOptions.QueueLimit = 0;
+    });
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services
     .AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
@@ -104,6 +119,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 // Configure Development Environment
 if (app.Environment.IsDevelopment())
 {
@@ -133,10 +151,8 @@ else
 // app.UseCookiePolicy();
 
 // app.UseRouting();
-// app.UseRateLimiter();
+app.UseRateLimiter();
 // app.UseRequestLocalization();
-app.UseAuthentication();
-app.UseAuthorization();
 // app.UseSession();
 // app.UseResponseCompression();
 // app.UseResponseCaching();

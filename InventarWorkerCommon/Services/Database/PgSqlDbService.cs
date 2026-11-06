@@ -3,6 +3,7 @@ using System.Text.Json;
 using CsvHelper;
 using Dapper;
 using InventarWorkerCommon.Models.Hardware;
+using InventarWorkerCommon.Models.Settings;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
 using InventarWorkerCommon.Services.Csv;
@@ -28,7 +29,7 @@ public class PgSqlDbService
     /// </param>
     public PgSqlDbService(string connectionString)
     {
-        _connectionString = connectionString;
+        _connectionString = PgSqlTransportSecurity.NormalizeConnectionString(connectionString);
     }
 
     /// <summary>
@@ -409,7 +410,7 @@ public class PgSqlDbService
                 ProcessesJson = JsonSerializer.Serialize(software.RunningProcesses),
                 InstalledSoftwareJson = JsonSerializer.Serialize(software.InstalledSoftware),
                 ServicesJson = JsonSerializer.Serialize(software.WindowsServices),
-                EnvironmentJson = JsonSerializer.Serialize(software.EnvironmentVariables),
+                EnvironmentJson = JsonSerializer.Serialize(EnvironmentVariableRedactor.RedactAll(software.EnvironmentVariables)),
                 StartupProgramsJson = JsonSerializer.Serialize(software.StartupPrograms),
                 RuntimeJson = JsonSerializer.Serialize(software.Runtime),
                 CreatedAt = DateTime.UtcNow

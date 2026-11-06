@@ -1,3 +1,5 @@
+using Npgsql;
+
 namespace InventarWorkerCommon.Models.Settings;
 
 /// <summary>
@@ -30,6 +32,11 @@ public class PgSqlDb
     public string PgSqlPassword { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the optional PEM root certificate used to verify a private PostgreSQL CA.
+    /// </summary>
+    public string PgSqlRootCertificatePath { get; set; } = string.Empty;
+
+    /// <summary>
     /// Indicates whether the application should write data to PostgreSQL.
     /// </summary>
     public bool WriteEnabled { get; set; }
@@ -44,15 +51,37 @@ public class PgSqlDb
         get
         {
             var host = string.IsNullOrWhiteSpace(PgSqlDbFqdn) ? "localhost" : PgSqlDbFqdn;
-            var port = string.IsNullOrWhiteSpace(PgSqlDbPort) ? "5432" : PgSqlDbPort;
             var dbName = string.IsNullOrWhiteSpace(PgSqlDbName) ? "postgres" : PgSqlDbName;
+            var port = string.IsNullOrWhiteSpace(PgSqlDbPort) ? 5432 : ParsePort(PgSqlDbPort);
+            var connectionBuilder = new NpgsqlConnectionStringBuilder
+            {
+                Host = host,
+                Port = port,
+                Database = dbName
+            };
 
             if (string.IsNullOrWhiteSpace(PgSqlUser) is false && (string.IsNullOrWhiteSpace(PgSqlPassword) is false))
             {
-                return $"Host={host};Port={port};Database={dbName};Username={PgSqlUser};Password={PgSqlPassword};";
+                connectionBuilder.Username = PgSqlUser;
+                connectionBuilder.Password = PgSqlPassword;
             }
 
-            return $"Host={host};Port={port};Database={dbName};";
+            if (string.IsNullOrWhiteSpace(PgSqlRootCertificatePath) is false)
+            {
+                connectionBuilder.RootCertificate = PgSqlRootCertificatePath;
+            }
+
+            return PgSqlTransportSecurity.NormalizeConnectionString(connectionBuilder.ConnectionString);
         }
+    }
+
+    private static int ParsePort(string value)
+    {
+        if (!int.TryParse(value, out var port) || port is < 1 or > 65535)
+        {
+            throw new InvalidOperationException("The PostgreSQL port must be between 1 and 65535.");
+        }
+
+        return port;
     }
 }

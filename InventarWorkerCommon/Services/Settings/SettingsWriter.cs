@@ -23,17 +23,8 @@ public class SettingsWriter
     public SettingsWriter(string statusDirectory = "inventar-service")
     {
         statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
-        if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)) is
-            false)
-        {
-            var directory =
-                ServicePath.CreateServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory));
-            _statusDirectory = directory.FullName;
-        }
-        else
-        {
-            _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
-        }
+        var directory = ServicePath.CreateServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory));
+        _statusDirectory = directory.FullName;
 
         _jsonOptions = new JsonSerializerOptions
         {

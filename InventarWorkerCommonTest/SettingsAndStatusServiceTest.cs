@@ -5,6 +5,7 @@ using InventarWorkerCommon.Models.Settings;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Settings;
 using InventarWorkerCommon.Services.Status;
+using InventarWorkerCommon.Services.Paths;
 
 namespace InventarWorkerCommonTest;
 
@@ -28,6 +29,7 @@ public class SettingsAndStatusServiceTest
     {
         _previousServiceStatusDirectory = Environment.GetEnvironmentVariable("SERVICESTATUSDIRECTORY");
         _serviceStatusRoot = $"inventar-status-tests-{Guid.NewGuid():N}";
+        BasePath.UnixBasePathOverride = Path.Combine(Path.GetTempPath(), $"inventar-base-tests-{Guid.NewGuid():N}");
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", _serviceStatusRoot);
     }
 
@@ -39,6 +41,12 @@ public class SettingsAndStatusServiceTest
     public void TestCleanup()
     {
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", _previousServiceStatusDirectory);
+        var testBasePath = BasePath.UnixBasePathOverride;
+        BasePath.UnixBasePathOverride = null;
+        if (!string.IsNullOrWhiteSpace(testBasePath) && Directory.Exists(testBasePath))
+        {
+            Directory.Delete(testBasePath, recursive: true);
+        }
     }
 
     /// <summary>
@@ -211,6 +219,144 @@ public class SettingsAndStatusServiceTest
     {
         Assert.ThrowsExactly<ArgumentException>(() => new SettingsWriter("../outside"));
         Assert.ThrowsExactly<ArgumentException>(() => new ServiceStatusWriter("../outside"));
+        Assert.ThrowsExactly<ArgumentException>(() => new SettingsReader("../outside"));
+        Assert.ThrowsExactly<ArgumentException>(() => new ServiceStatusReader("../outside"));
+    }
+
+    /// <summary>
+    /// DE: Lehnt eine verwurzelte oder traversierende Zustandsstamm-Umgebung ab, bevor ein Dienstpfad gebildet wird.
+    /// EN: Rejects a rooted or traversing state-root environment value before a service path is formed.
+    /// </summary>
+    [TestMethod]
+    public void ServicePath_UnsafeEnvironmentDirectoryName_ThrowsArgumentException()
+    {
+        Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", "../outside");
+
+        Assert.ThrowsExactly<ArgumentException>(() => ServicePath.GetServiceStatusPath());
+    }
+
+    /// <summary>
+    /// DE: Lehnt einen vorab platzierten symbolischen Link anstelle des Dienstzustandsstamms ab.
+    /// EN: Rejects a pre-positioned symbolic link in place of the service-state root.
+    /// </summary>
+    [TestMethod]
+    public void ServicePath_SymlinkedStateRootOnUnix_ThrowsUnauthorizedAccessException()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var stateRoot = ServicePath.GetServiceStatusPath();
+        var targetDirectory = Path.Combine(Path.GetTempPath(), $"inventar-state-target-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(BasePath.GetBasePath());
+        Directory.CreateDirectory(targetDirectory);
+        Directory.CreateSymbolicLink(stateRoot, targetDirectory);
+
+        try
+        {
+            Assert.ThrowsExactly<UnauthorizedAccessException>(() => new ServiceStatusWriter("status-case"));
+        }
+        finally
+        {
+            Directory.Delete(stateRoot);
+            Directory.Delete(targetDirectory);
+        }
+    }
+
+    /// <summary>
+    /// DE: Lehnt einen symbolischen Link für ein vorhersehbares Statusartefakt ab und verändert dessen Ziel nicht.
+    /// EN: Rejects a symbolic link for a predictable status artifact and leaves its target unchanged.
+    /// </summary>
+    [TestMethod]
+    public void ServiceStatusWriter_SymlinkedStatusFileOnUnix_ThrowsUnauthorizedAccessException()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var writer = new ServiceStatusWriter("status-symlink-case");
+        var statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), "status-symlink-case");
+        var targetFile = Path.Combine(Path.GetTempPath(), $"inventar-status-target-{Guid.NewGuid():N}.json");
+        var statusFile = Path.Combine(statusDirectory, "status.json");
+        File.WriteAllText(targetFile, "sentinel");
+        File.CreateSymbolicLink(statusFile, targetFile);
+
+        try
+        {
+            Assert.ThrowsExactly<UnauthorizedAccessException>(() => writer.WriteStatus(new ServiceStatus { State = "Running" }));
+            Assert.AreEqual("sentinel", File.ReadAllText(targetFile));
+        }
+        finally
+        {
+            File.Delete(statusFile);
+            File.Delete(targetFile);
+        }
+    }
+
+    /// <summary>
+    /// DE: Lehnt auch einen hängenden Log-Symlink ab, bevor das Ziel erstellt oder beschrieben werden kann.
+    /// EN: Rejects even a dangling log symlink before its target can be created or written.
+    /// </summary>
+    [TestMethod]
+    public void ServiceStatusWriter_DanglingLogSymlinkOnUnix_ThrowsUnauthorizedAccessException()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var writer = new ServiceStatusWriter("log-symlink-case");
+        var statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), "log-symlink-case");
+        var targetFile = Path.Combine(Path.GetTempPath(), $"inventar-missing-log-target-{Guid.NewGuid():N}.log");
+        var logFile = Path.Combine(statusDirectory, "service.log");
+        File.CreateSymbolicLink(logFile, targetFile);
+
+        try
+        {
+            Assert.ThrowsExactly<UnauthorizedAccessException>(() => writer.WriteLog("must not be written"));
+            Assert.IsFalse(File.Exists(targetFile));
+        }
+        finally
+        {
+            File.Delete(logFile);
+        }
+    }
+
+    /// <summary>
+    /// DE: Liest keine Settings über einen symbolischen Link und ändert dessen Zielrechte nicht.
+    /// EN: Does not read settings through a symbolic link or change its target permissions.
+    /// </summary>
+    [TestMethod]
+    public void SettingsReader_SymlinkedSettingsFileOnUnix_ReturnsNullWithoutChangingTarget()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var writer = new SettingsWriter("settings-symlink-case");
+        var settingsDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), "settings-symlink-case");
+        var targetFile = Path.Combine(Path.GetTempPath(), $"inventar-settings-target-{Guid.NewGuid():N}.json");
+        var settingsFile = Path.Combine(settingsDirectory, "settings.json");
+        File.WriteAllText(targetFile, "sentinel");
+        var targetMode = File.GetUnixFileMode(targetFile);
+        File.CreateSymbolicLink(settingsFile, targetFile);
+
+        try
+        {
+            var reader = new SettingsReader("settings-symlink-case");
+
+            Assert.IsNull(reader.ReadSettings());
+            Assert.AreEqual("sentinel", File.ReadAllText(targetFile));
+            Assert.AreEqual(targetMode, File.GetUnixFileMode(targetFile));
+        }
+        finally
+        {
+            File.Delete(settingsFile);
+            File.Delete(targetFile);
+        }
     }
 
     /// <summary>

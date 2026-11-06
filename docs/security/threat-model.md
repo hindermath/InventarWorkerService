@@ -11,11 +11,11 @@ EN: Protected assets are inventory, machine/user/domain information, databases, 
 
 | ID | Grenze / Boundary | Hauptrisiko / Main risk | Unabhängige Kontrollen / Independent controls |
 |---|---|---|---|
-| TB-01 | Client → Worker API | Spoofing, disclosure; CAPEC-115 | API-Key-AuthZ + Fail-fast-Transportgrenze: HTTP nur Loopback, remote HTTPS |
+| TB-01 | Client → Worker API | Spoofing, disclosure, Ressourcenerschöpfung; CAPEC-115, CAPEC-130 | API-Key-AuthZ + Fail-fast-Transportgrenze: HTTP nur Loopback, remote HTTPS + ein Live-Scan ohne Warteschlange |
 | TB-02 | Client → Viewer API | IDOR, disclosure; CAPEC-122 | API-Key-AuthZ + dieselbe Transportgrenze; Eingabegrenzen separat Open |
 | TB-03 | Harvester → Worker | SSRF, timeout; CAPEC-664 | Ziel-Allowlist + Timeout/Cancellation |
 | TB-04 | Dienste → SQLite | SQL-Injection, Korruption | Parameter + Transaktion/Recovery |
-| TB-05 | Dienste → PostgreSQL | Rechteausweitung | Parameter + Least-Privilege-Rolle |
+| TB-05 | Dienste → PostgreSQL | Rechteausweitung, MITM; CAPEC-94 | Parameter + Least-Privilege-Rolle + Remote `VerifyFull` |
 | TB-06 | Dienste → MongoDB | Offenlegung, unbeabsichtigte Schreibzugriffe, Query-/Credential-Missbrauch | Remote-TLS-Gate + unveränderliches Write-Gate + typisierte Filter + Least Privilege |
 | TB-07 | Prozess → Dateien/CSV | Pfad-/Teilwrite; CAPEC-126 | feste Basis + atomarer Ersatz |
 | TB-08 | Service-Control → OS | Command Injection; CAPEC-88 | Name-Allowlist + ArgumentList |

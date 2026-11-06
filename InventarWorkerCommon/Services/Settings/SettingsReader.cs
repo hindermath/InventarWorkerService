@@ -21,8 +21,10 @@ public class SettingsReader
     /// </summary>
     public SettingsReader(string statusDirectory = "inventar-service")
     {
-        if (ServicePath.ExistsServiceStatusPath(Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory)))
-            _statusDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
+        statusDirectory = SecureFileWriter.ValidateDirectoryName(statusDirectory);
+        var candidateDirectory = Path.Combine(ServicePath.GetServiceStatusPath(), statusDirectory);
+        if (ServicePath.ExistsServiceStatusPath(candidateDirectory))
+            _statusDirectory = candidateDirectory;
         _jsonOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,

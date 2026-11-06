@@ -3,6 +3,7 @@ using InventarWorkerCommon.Models.Settings;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Services.Common;
 using InventarWorkerCommon.Services.Database;
+using InventarWorkerCommon.Services.Paths;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -18,6 +19,7 @@ public class MongoDbServiceTest
 {
     private const string DatabaseIntegrationCategory = "DatabaseIntegration";
     private static string _serviceStatusDirectory = string.Empty;
+    private static string _serviceStateBasePath = string.Empty;
     private static string? _integrationConnectionString;
 
     /// <summary>
@@ -29,8 +31,9 @@ public class MongoDbServiceTest
     {
         _ = context;
         _integrationConnectionString = Environment.GetEnvironmentVariable("MONGODB_TEST_CONNECTION_STRING");
-        _serviceStatusDirectory = Path.Combine(Path.GetTempPath(), $"inventar-mongodb-gate-tests-{Guid.NewGuid():N}");
-        Directory.CreateDirectory(_serviceStatusDirectory);
+        _serviceStateBasePath = Path.Combine(Path.GetTempPath(), $"inventar-mongodb-base-{Guid.NewGuid():N}");
+        _serviceStatusDirectory = $"inventar-mongodb-gate-tests-{Guid.NewGuid():N}";
+        BasePath.UnixBasePathOverride = _serviceStateBasePath;
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", _serviceStatusDirectory);
     }
 
@@ -42,10 +45,11 @@ public class MongoDbServiceTest
     public static void ClassCleanup()
     {
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", null);
+        BasePath.UnixBasePathOverride = null;
         Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
-        if (Directory.Exists(_serviceStatusDirectory))
+        if (Directory.Exists(_serviceStateBasePath))
         {
-            Directory.Delete(_serviceStatusDirectory, recursive: true);
+            Directory.Delete(_serviceStateBasePath, recursive: true);
         }
     }
 

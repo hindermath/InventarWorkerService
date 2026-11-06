@@ -12,6 +12,7 @@ namespace InventarWorkerCommon.Services.Api
     /// </summary>
     public class ApiService
     {
+        private const long MaximumResponseBytes = 5 * 1024 * 1024;
         private readonly RestClient _client;
         private readonly JsonSerializerOptions _jsonOptions;
         private readonly string? _apiKey;
@@ -46,7 +47,13 @@ namespace InventarWorkerCommon.Services.Api
 
             _client = new RestClient(new RestClientOptions(baseUri)
             {
-                Timeout = TimeSpan.FromSeconds(30)
+                Timeout = TimeSpan.FromSeconds(30),
+                ConfigureMessageHandler = handler => new BoundedResponseHandler(MaximumResponseBytes, handler),
+                // DE: Credentialed Inventar-Aufrufe folgen keinen Umleitungen. Eine Weiterleitung
+                // könnte sonst die bereits autorisierte Zielidentität gegen ein fremdes Ziel austauschen.
+                // EN: Credentialed inventory calls do not follow redirects. A redirect could otherwise
+                // replace the already authorized target identity with an untrusted destination.
+                FollowRedirects = false
             });
             _apiKey = string.IsNullOrWhiteSpace(apiKey) ? null : apiKey;
             _jsonOptions = new JsonSerializerOptions

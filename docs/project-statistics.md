@@ -495,6 +495,12 @@ Technische Checks und manuelle Review-Grenzen bleiben verbindlich. Source-only.
 EN: Removes two Claude PR/issue workflows at the owner's request and revokes the app.
 Technical checks and manual review boundaries remain binding. Source-only.
 
+### 2026-11-07 - Deep-Security-Scan-Remediation / Deep security scan remediation
+
+DE: Branch `codex/security-remediation`, beobachtbares Arbeitsfenster 2026-11-06 bis 2026-11-07. Zwei hohe, acht mittlere und zwei niedrige Scan-Befunde wurden geprüft. Die Änderungen betreffen Unix-/Windows-Zustandsrechte, zielgebundene Harvester-Credentials, PostgreSQL-Transportprüfung, Umgebungswert-Redaktion, API- und Response-Grenzen, Swagger-Schutz sowie CI-Token- und Action-Pins. Der sichtbare Umfang umfasst Produktions-, Test-, Dokumentations- und Workflow-Zeilen; die konservative Referenz bleibt 80 Zeilen/Arbeitstag, die Thorsten-Solo-Basis 100 Zeilen/Arbeitstag. Mit zwei sichtbaren aktiven Tagen ist die Lieferdichte ein blended repository speedup, keine Stoppuhrmessung. Lokale Evidenz: Lösungsbuild grün, 119 Common-Tests grün, 32 Provider-Tests ohne bereitgestellte Datenbanken übersprungen.
+
+EN: Branch `codex/security-remediation`, observable work window 2026-11-06 to 2026-11-07. Two high, eight medium, and two low scan findings were reviewed. Changes cover Unix/Windows state permissions, target-bound Harvester credentials, PostgreSQL transport verification, environment-value redaction, API and response limits, Swagger protection, and CI token/action pins. The visible scope includes production, test, documentation, and workflow lines; the conservative reference remains 80 lines per workday and the Thorsten-solo baseline 100 lines per workday. With two visible active days, delivery density is a blended repository speedup, not a stopwatch measurement. Local evidence: solution build passed, 119 Common tests passed, and 32 provider tests were skipped because no databases were supplied.
+
 ## Gesamtstatistik / Overall Statistics
 
 <!-- project-statistics-v2:begin -->
