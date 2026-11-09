@@ -162,3 +162,18 @@ EN: On Windows, the software inventory integration test allows at most five
 minutes for full local inventory of a hosted runner. Other requests and platforms
 retain their existing limit. HTTP success, nonempty content, valid JSON and API
 authentication remain checked; no product timeout or response-time SLO changes.
+
+## PR #108: technische Wartung / Technical maintenance
+
+DE: Die fuer diesen Abhaengigkeits-PR erforderlichen CI-/Test-Anpassungen
+erhalten Versionsbindung, Sicherheitspruefungen und Plattform-Gates. Die
+konkrete Reparatur und technische Evidence stehen im PR; keine Paketmigration
+aus einem anderen zurueckgestellten PR wird uebernommen. Owner: Repository-
+Maintainer. Source-only, kein Home-Sync. Bei Manifest-, Pin- oder Workflow-
+Aenderungen erneut pruefen.
+
+EN: CI/test repairs needed for this dependency PR retain version binding,
+security checks and platform gates. The PR records the specific repair and
+technical evidence; it does not adopt a migration from another deferred PR.
+Owner: repository maintainer. Source-only, no Home sync. Re-evaluate after
+manifest, pin or workflow changes.

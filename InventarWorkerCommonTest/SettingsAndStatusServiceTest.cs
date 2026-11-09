@@ -43,6 +43,9 @@ public class SettingsAndStatusServiceTest
         Environment.SetEnvironmentVariable("SERVICESTATUSDIRECTORY", _previousServiceStatusDirectory);
         var testBasePath = BasePath.UnixBasePathOverride;
         BasePath.UnixBasePathOverride = null;
+        // DE: Dispose gibt SQLite-Verbindungen in den Pool zurueck; vor dem Loeschen Handles schliessen.
+        // EN: Dispose returns SQLite connections to the pool; close handles before deleting files.
+        Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
         if (!string.IsNullOrWhiteSpace(testBasePath) && Directory.Exists(testBasePath))
         {
             Directory.Delete(testBasePath, recursive: true);
