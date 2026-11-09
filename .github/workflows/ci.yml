@@ -22,6 +22,17 @@ jobs:
         with:
           dotnet-version: "10.0.x"
       - run: dotnet restore InventarWorkerService.sln
+      # DE: CI richtet wie ein Dienstmanager ein privates Verzeichnis fuer das Runner-Dienstkonto ein.
+      # EN: CI provisions a private directory for the runner service account, as a service manager would.
+      - name: Provision private native service state
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          service_root=/var/lib/InventarWorkerService
+          if [[ "$RUNNER_OS" == macOS ]]; then
+            service_root='/Library/Application Support/InventarWorkerService'
+          fi
+          sudo install -d -m 0700 -o "$(id -un)" -g "$(id -gn)" "$service_root"
       - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
       - run: dotnet test InventarWorkerService.sln --configuration Release --no-build
 
@@ -34,6 +45,17 @@ jobs:
         with:
           dotnet-version: "10.0.x"
       - run: dotnet restore InventarWorkerService.sln
+      # DE: CI richtet wie ein Dienstmanager ein privates Verzeichnis fuer das Runner-Dienstkonto ein.
+      # EN: CI provisions a private directory for the runner service account, as a service manager would.
+      - name: Provision private native service state
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          service_root=/var/lib/InventarWorkerService
+          if [[ "$RUNNER_OS" == macOS ]]; then
+            service_root='/Library/Application Support/InventarWorkerService'
+          fi
+          sudo install -d -m 0700 -o "$(id -un)" -g "$(id -gn)" "$service_root"
       - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
       - name: Worker and Viewer security contracts
         run: dotnet test InventarWorkerServiceIntegrationTest/InventarWorkerServiceIntegrationTest.csproj --configuration Release --no-build
@@ -94,6 +116,17 @@ jobs:
             10.0.x
       - run: dotnet tool restore
       - run: dotnet restore InventarWorkerService.sln
+      # DE: CI richtet wie ein Dienstmanager ein privates Verzeichnis fuer das Runner-Dienstkonto ein.
+      # EN: CI provisions a private directory for the runner service account, as a service manager would.
+      - name: Provision private native service state
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          service_root=/var/lib/InventarWorkerService
+          if [[ "$RUNNER_OS" == macOS ]]; then
+            service_root='/Library/Application Support/InventarWorkerService'
+          fi
+          sudo install -d -m 0700 -o "$(id -un)" -g "$(id -gn)" "$service_root"
       - run: dotnet build InventarWorkerService.sln --configuration Release --no-restore
       - name: Coverage
         run: dotnet test InventarWorkerService.sln --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./TestResults

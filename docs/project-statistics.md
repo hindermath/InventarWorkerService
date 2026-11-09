@@ -501,6 +501,22 @@ DE: Branch `codex/security-remediation`, beobachtbares Arbeitsfenster 2026-11-06
 
 EN: Branch `codex/security-remediation`, observable work window 2026-11-06 to 2026-11-07. Two high, eight medium, and two low scan findings were reviewed. Changes cover Unix/Windows state permissions, target-bound Harvester credentials, PostgreSQL transport verification, environment-value redaction, API and response limits, Swagger protection, and CI token/action pins. The visible scope includes production, test, documentation, and workflow lines; the conservative reference remains 80 lines per workday and the Thorsten-solo baseline 100 lines per workday. With two visible active days, delivery density is a blended repository speedup, not a stopwatch measurement. Local evidence: solution build passed, 119 Common tests passed, and 32 provider tests were skipped because no databases were supplied.
 
+### 2026-11-09 - Dependabot PR #108 / Dependabot maintenance
+
+DE: Branch codex/dependabot-repair-20261109-inventarworkerservice--108; sichtbares Wartungsfenster 09.11.2026, keine
+Stoppuhrmessung. chore(deps): bump actions/setup-dotnet from 5.4.0 to 6.1.0. Dokumentationsentscheidung: UpdateRequired
+fuer die technische Aenderung; GeneratedUpdate fuer beide vorhandenen
+Statistikprofile. Bestehende Referenzwerte bleiben erhalten. Die beobachtete
+Liefermenge ist keine Messung von Lernleistung oder KI-Zeitersparnis.
+Aktuelle Head-/Plattform-Pruefungen sind vor dem Merge erforderlich.
+Owner: Repository-Maintainer; Source-only, kein Home-Sync.
+
+EN: Branch codex/dependabot-repair-20261109-inventarworkerservice--108; observable maintenance window 9 November 2026,
+not stopwatch time. chore(deps): bump actions/setup-dotnet from 5.4.0 to 6.1.0. Documentation impact: UpdateRequired for
+the technical change; GeneratedUpdate for the existing statistics profiles.
+Existing references remain unchanged. Delivery volume is not a measurement
+of learning outcomes or AI time savings. Current head/platform checks are
+required before merge. Owner: repository maintainer; source-only, no Home sync.
 ## Gesamtstatistik / Overall Statistics
 
 <!-- project-statistics-v2:begin -->

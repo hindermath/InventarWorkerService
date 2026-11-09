@@ -531,6 +531,12 @@ public class InventarWorkerServiceApiTests
         // Assert
         foreach (var response in responses)
         {
+            // DE: Gleichzeitige Live-Scans duerfen mit 429 abgewiesen werden; andere Fehler bleiben Fehler.
+            // EN: Concurrent live scans may be rejected with 429; other failures remain failures.
+            if (response.Status == 429)
+            {
+                continue;
+            }
             Assert.IsTrue(response.Ok, $"One of the performance test requests failed with status {response.Status}");
 
             var content = await response.TextAsync();
@@ -545,6 +551,23 @@ public class InventarWorkerServiceApiTests
             catch (JsonException ex)
             {
                 Assert.Fail($"Response should be valid JSON: {ex.Message}");
+            }
+        }
+
+        Assert.IsTrue(responses.Any(response => response.Ok), "At least one live request must complete successfully.");
+
+        // DE: Nach Abschluss muss jedes Inventar wieder erreichbar sein; der Limiter darf nicht haengen.
+        // EN: After completion every inventory must be reachable again; the limiter must not stay locked.
+        foreach (var endpoint in endpoints)
+        {
+            var recovered = await _apiContext!.GetAsync(endpoint);
+            try
+            {
+                Assert.IsTrue(recovered.Ok, $"Request after concurrent scans failed with status {recovered.Status}");
+            }
+            finally
+            {
+                await recovered.DisposeAsync();
             }
         }
 
