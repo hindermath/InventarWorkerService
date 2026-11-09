@@ -338,7 +338,10 @@ public class PgSqlDbServiceTest
         Assert.AreEqual(JsonSerializer.Serialize(software.RunningProcesses), latestSoftware.ProcessesJson);
         Assert.AreEqual(JsonSerializer.Serialize(software.InstalledSoftware), latestSoftware.InstalledSoftwareJson);
         Assert.AreEqual(JsonSerializer.Serialize(software.WindowsServices), latestSoftware.ServicesJson);
-        Assert.AreEqual(JsonSerializer.Serialize(software.EnvironmentVariables), latestSoftware.EnvironmentJson);
+        // DE: Auch der reale PostgreSQL-Provider muss Werte entfernen, Namen aber erhalten.
+        // EN: The real PostgreSQL provider must remove values while retaining their names.
+        CollectionAssert.AreEqual(new[] { "PATH=[REDACTED]", "HOME=[REDACTED]" },
+            JsonSerializer.Deserialize<string[]>(latestSoftware.EnvironmentJson!));
         Assert.AreEqual(JsonSerializer.Serialize(software.StartupPrograms), latestSoftware.StartupProgramsJson);
         Assert.AreEqual(JsonSerializer.Serialize(software.Runtime), latestSoftware.RuntimeJson);
     }
