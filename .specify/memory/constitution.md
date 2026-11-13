@@ -1000,7 +1000,7 @@ All eight presets are published as standalone repositories under
 `https://github.com/hindermath/spec-kit-preset-*`. The original six have been
 listed in the `github/spec-kit` community preset catalog since 2026-05-04;
 `autonomous-run-governance` v0.2.2 was verified there on 2026-07-17.
-`parallel-autonomous-run-governance` v0.2.1 was submitted to the community
+`parallel-autonomous-run-governance` v0.2.13 was submitted to the community
 catalog as `github/spec-kit#3591`. Registered Level-0, Level-1, and Level-2
 repositories with Spec Kit SHOULD install all eight presets from the central
 matrix unless the repository documents a narrow exception. Fleet evidence MUST
