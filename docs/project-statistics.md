@@ -534,6 +534,43 @@ Documentation Impact: UpdateRequired; see the evidence path above.
 No product logic changed; CodeQL under Tools is configured separately after
 delivery. No AI Scan activation or new practical accessibility acceptance.
 
+### 2026-11-13 — Gemeinsame Preset-Sicherheitswartung / Shared preset security maintenance
+
+Vierzehn veroeffentlichte Patch-Releases sind ueber echte Quellen- und Installationsbindungen uebernommen. Gemeinsame Workflow-Rechte sind explizit begrenzt; Produktlogik und Lifecycle bleiben unveraendert. Offene CodeQL-Belegluecken bleiben offen, ohne automatische Alert-Verwerfung.
+
+Fourteen published patches are recorded through real source and installed bindings. Shared workflow permissions are explicitly restricted; product logic and lifecycle remain unchanged. Open CodeQL evidence gaps remain open without automatic alert dismissal.
+
+Documentation Impact: UpdateRequired; [Wartungsnachweis / maintenance evidence](maintenance/shared-security-rollout-2026-11-13.md).
+
+### 2026-11-13 — Intake Authoring 0.3.14 / Intake-Authoring-Folgekorrektur
+
+DE: Die geprüfte Patch-Version 0.3.14 ergänzt den Sicherheitsrollout; Quellen- und Installationsbindungen sowie kompatible Nachweise bleiben getrennt nachvollziehbar. Keine neue Produktfunktion oder menschliche Sicherheitsabnahme.
+
+EN: Verified patch 0.3.14 supplements the security rollout; source, installation and compatible evidence remain separately traceable. No new product feature or human security acceptance.
+
+Documentation Impact: UpdateRequired; [Nachweis / evidence](maintenance/shared-security-rollout-2026-11-13.md).
+
+### 2026-11-13 — npm-Agent-Proben begrenzt / Bound npm agent probes
+
+DE: Die verteilten Wartungsskripte begrenzen npm-Agent-Proben vor der Ausfuehrung. TinyPl0 behaelt seine ausdrueckliche Freigabe fuer alternative Registries. Es wird kein Spec-Kit-Lauf hinzugezaehlt.
+
+EN: Distributed maintenance scripts bound npm agent probes before execution. TinyPl0 retains its explicit opt-in for alternate registries. No Spec Kit run is added.
+
+Documentation Impact: UpdateRequired; [Nachweis / evidence](maintenance/shared-security-rollout-2026-11-13.md).
+
++### 2026-11-13 — npm-Cachepfad gebunden / Bound npm cache path
+
+DE: Die verteilte Speicherwartung liest den tatsächlich konfigurierten
+npm-Cachepfad, prüft ihn innerhalb des Home-Verzeichnisses und bindet genau
+diesen Pfad an verify und clean. Eine abweichende Projekt-.npmrc kann die
+spätere Bereinigung nicht mehr umleiten. Kein Spec-Kit-Lauf wird ergänzt.
+
+EN: Distributed storage maintenance reads npm's effective cache path, checks
+it inside home, and binds that exact path to verify and clean. A different
+project .npmrc path can no longer redirect the later cleanup. No Spec Kit run
+is added.
+
+Documentation Impact: UpdateRequired; [Nachweis / evidence](documentation-impact/npm-cache-boundary-2026-11-13.json).
 ## Gesamtstatistik / Overall Statistics
 
 <!-- project-statistics-v2:begin -->
@@ -544,29 +581,29 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 194537 lines |
-| Textdateien / Text files | 1267 |
-| Beobachtbarer Zeitraum / Observable period | 2025-11-16..2026-11-12 |
-| Aktivtage / Active days | 108 |
-| Relevante Commits / Relevant commits | 475 |
-| Zeilen je Aktivtag / Lines per active day | 1801.3 |
+| Textbasis / Text base | 246176 lines |
+| Textdateien / Text files | 1772 |
+| Beobachtbarer Zeitraum / Observable period | 2025-11-16..2026-11-13 |
+| Aktivtage / Active days | 109 |
+| Relevante Commits / Relevant commits | 482 |
+| Zeilen je Aktivtag / Lines per active day | 2258.5 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 8 days |
-| Speedup vs. 80 lines/day | 22.5x |
-| Speedup vs. 100 lines/day | 18.0x |
-| Methodik / Methodology | v2; source `83c7180cc380` |
+| Speedup vs. 80 lines/day | 28.2x |
+| Speedup vs. 100 lines/day | 22.6x |
+| Methodik / Methodology | v2; source `5fca96357de5` |
 
 ### Artefaktmix / Artifact Mix
 
 ```text
-Produktiv / Production          [#...................]   6.1% | 11812
-Tests                           [#...................]   5.7% | 11019
-Dokumentation / Documentation   [##############......]  68.9% | 133941
-Skripte / Scripts               [###.................]  15.8% | 30808
-Konfiguration / Configuration   [#...................]   2.4% | 4636
-Daten und Medien / Data and media [#...................]   0.5% | 1057
-Sonstiger Text / Other text     [#...................]   0.6% | 1264
+Produktiv / Production          [#...................]   4.8% | 11812
+Tests                           [#...................]   5.1% | 12584
+Dokumentation / Documentation   [###############.....]  73.1% | 179909
+Skripte / Scripts               [###.................]  14.2% | 34845
+Konfiguration / Configuration   [#...................]   1.9% | 4705
+Daten und Medien / Data and media [#...................]   0.4% | 1057
+Sonstiger Text / Other text     [#...................]   0.5% | 1264
 ```
 
 Die Balken teilen die aktuelle getrackte Textbasis in stabile Kategorien. Prozent und Zeilenwert sind die genaue, textorientierte Aussage.
@@ -593,7 +630,7 @@ Mo/Mo  0 0 0 0 0 0 3 1 4 4 0 0 0 2 0 0 4 0 0 0 0 0 0 0 0 2
 Di/Tu  0 3 0 0 0 0 2 0 3 4 4 0 0 0 0 1 4 0 0 0 0 0 0 0 3 0
 Mi/We  0 0 2 0 4 0 2 0 0 2 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 Do/Th  0 1 0 4 1 0 0 0 1 4 0 0 4 0 0 0 0 0 0 0 0 0 0 4 0 2
-Fr/Fr  4 2 2 0 3 2 3 4 4 4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -
+Fr/Fr  4 2 2 0 3 2 3 4 4 4 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
 Sa/Sa  0 0 0 0 4 0 4 4 0 4 2 0 2 0 0 0 4 4 2 0 0 0 0 0 3 -
 ```
 
@@ -616,12 +653,12 @@ Wochen / Weeks 01..26 | 2025-11-16..2026-05-16
 
 ```text
 Wochen / Weeks 27..52 | 2026-05-17..2026-11-14
-   cap 50000 | . . . . . . . . . . . . . . . . . . . . . . . . . .
-       41667 | . . . . . . . . . . . . . . . . . . . . . . . . . .
-       33333 | . . . . . . . . . # . . . . . . . . . . . . . . . .
-       25000 | . . . . # . . . . # . . . . . . . . . . . . . . . .
-       16667 | . . . . # . . . . # . . . . . . # . . . . . . . . .
-        8333 | . . . . # . . # . # # . # . . # # # . . . . . . . .
+  cap 100000 | . . . . . . . . . . . . . . . . . . . . . . . . . .
+       83333 | . . . . . . . . . . . . . . . . . . . . . . . . . .
+       66667 | . . . . . . . . . . . . . . . . . . . . . . . . . .
+       50000 | . . . . . . . . . . . . . . . . . . . . . . . . . #
+       33333 | . . . . . . . . . # . . . . . . . . . . . . . . . #
+       16667 | . . . . # . . . . # . . . . . . # . . . . . . . . #
            0 +-----------------------------------------------------
 ```
 
@@ -694,8 +731,8 @@ Die festen Slots halten den Phasenvergleich auch bei fehlenden oder spaeter erga
 
 ```text
 Scale: 0..50x
-80 lines/day       [#########...........] 22.5x
-100 lines/day      [#######.............] 18.0x
+80 lines/day       [###########.........] 28.2x
+100 lines/day      [#########...........] 22.6x
 ```
 
 Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen Referenzen. Sie messen keine Arbeitszeit.
@@ -705,10 +742,10 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 ### Durchsatzvergleich / Throughput Comparison
 
 ```text
-Scale: 0..2000 lines/day
+Scale: 0..5000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##################..] 1801.3
+Visible repository [#########...........] 2258.5
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -717,9 +754,9 @@ Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schre
 
 ### Textalternative / Text Alternative
 
-DE: Das Fenster beginnt am 2025-11-16 und endet am 2026-11-12. Es enthaelt 108 aktive und 254 inaktive vergangene Tage. Peak-Tag: 2026-04-19 / 107974. Peak-Woche: 2026-04-19 / 114277. Laengste Serie: 8 Tage (2025-11-21..2025-11-28).
+DE: Das Fenster beginnt am 2025-11-16 und endet am 2026-11-13. Es enthaelt 109 aktive und 254 inaktive vergangene Tage. Peak-Tag: 2026-04-19 / 107974. Peak-Woche: 2026-04-19 / 114277. Laengste Serie: 8 Tage (2025-11-21..2025-11-28).
 
-*EN: The window starts on 2025-11-16 and ends on 2026-11-12. It contains 108 active and 254 inactive elapsed days. Peak day: 2026-04-19 / 107974. Peak week: 2026-04-19 / 114277. Longest streak: 8 days (2025-11-21..2025-11-28).*
+*EN: The window starts on 2025-11-16 and ends on 2026-11-13. It contains 109 active and 254 inactive elapsed days. Peak day: 2026-04-19 / 107974. Peak week: 2026-04-19 / 114277. Longest streak: 8 days (2025-11-21..2025-11-28).*
 
 | Monat / Month | Geaenderte Textzeilen / Changed text lines |
 |---|---:|
@@ -734,6 +771,6 @@ DE: Das Fenster beginnt am 2025-11-16 und endet am 2026-11-12. Es enthaelt 108 a
 | 2026-08 | 26735 |
 | 2026-09 | 37821 |
 | 2026-10 | 2351 |
-| 2026-11 | 3302 |
+| 2026-11 | 60953 |
 
 <!-- project-statistics-v2:end -->
