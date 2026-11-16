@@ -11,8 +11,8 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.14" />
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.14" />
-        <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="10.0.14" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0" />
+        <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="11.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="10.0.14" />
         <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="10.0.14" />
