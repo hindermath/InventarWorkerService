@@ -17,7 +17,7 @@
         <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="11.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="11.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0" />
-        <PackageReference Include="MongoDB.Driver" Version="3.14.0" />
+        <PackageReference Include="MongoDB.Driver" Version="3.14.1" />
     </ItemGroup>
 
     <ItemGroup>
