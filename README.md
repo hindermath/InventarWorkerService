@@ -26,6 +26,14 @@ and WCAG 2.2 Level AA are the review baseline wherever applicable.*
 >
 > API-Referenz auf GitHub Pages / API reference on GitHub Pages: <https://hindermath.github.io/InventarWorkerService/api/>
 
+## SDK und Laufzeit / SDK and runtime
+
+Zum Bauen das in `global.json` angegebene .NET SDK 11 verwenden. Die Tests und
+Anwendungen benötigen weiterhin die .NET-10-Laufzeit (`net10.0`).
+
+Build with the .NET 11 SDK specified in `global.json`. Tests and applications
+still require the .NET 10 runtime (`net10.0`).
+
 ## Generelles Beispielprojekt
 Gerne! Hier ist ein kleines Beispiel für ein plattformübergreifendes .NET Worker Service-Projekt, das unter Windows als Service, unter Linux als systemd-Daemon und unter macOS als launchd-Daemon laufen kann.
 
