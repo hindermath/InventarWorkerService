@@ -57,7 +57,7 @@ On numbered Spec-Kit branches, align those three version fields before pushing.
 
 ## Architecture
 
-This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
+This is a .NET 11 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
 
 **Data flow:**
 ```

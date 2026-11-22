@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net11.0</TargetFramework>
         <LangVersion>14.0</LangVersion>
         <IsTestProject>true</IsTestProject>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -16,14 +16,13 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Playwright.MSTest" Version="1.64.1" />
+        <PackageReference Include="Microsoft.Playwright" Version="1.64.1" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
         <PackageReference Include="MSTest.TestAdapter" Version="4.5.3" />
         <PackageReference Include="MSTest.TestFramework" Version="4.5.3" />
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Microsoft.Playwright.MSTest" />
         <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
         <Using Include="System.Text.RegularExpressions" />
         <Using Include="System.Threading.Tasks" />

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net11.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>dotnet-HarvesterWorkerService-26d415d3-a5ba-44bf-97b0-16a28f268377</UserSecretsId>
@@ -17,7 +17,7 @@
         <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="11.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="11.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0" />
-        <PackageReference Include="MongoDB.Driver" Version="3.14.0" />
+        <PackageReference Include="MongoDB.Driver" Version="3.14.1" />
     </ItemGroup>
 
     <ItemGroup>

@@ -29,10 +29,19 @@ and WCAG 2.2 Level AA are the review baseline wherever applicable.*
 ## SDK und Laufzeit / SDK and runtime
 
 Zum Bauen das in `global.json` angegebene .NET SDK 11 verwenden. Die Tests und
-Anwendungen benötigen weiterhin die .NET-10-Laufzeit (`net10.0`).
+Anwendungen benötigen die .NET-11-Laufzeit (`net11.0`).
 
 Build with the .NET 11 SDK specified in `global.json`. Tests and applications
-still require the .NET 10 runtime (`net10.0`).
+require the .NET 11 runtime (`net11.0`).
+
+Die eingebettete PowerShell verwendet die NuGet-Pakete 7.7.0; der
+MongoDB-Treiber steht auf 3.14.1. Zum Laden des neu gebauten binären
+Dienststeuerungsmoduls PowerShell 7.7 verwenden. Die Migration installiert
+keine PowerShell auf dem Host.
+
+Embedded PowerShell uses the 7.7.0 NuGet packages and the MongoDB driver is
+pinned to 3.14.1. Use PowerShell 7.7 to load the rebuilt binary service control
+module. The migration does not install PowerShell on the host.
 
 ## Generelles Beispielprojekt
 Gerne! Hier ist ein kleines Beispiel für ein plattformübergreifendes .NET Worker Service-Projekt, das unter Windows als Service, unter Linux als systemd-Daemon und unter macOS als launchd-Daemon laufen kann.
@@ -153,7 +162,7 @@ Inhalt:
       <string>com.inventarworkerservice</string>
       <key>ProgramArguments</key>
       <array>
-<string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/InventarWorkerService</string>
+<string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net11.0/InventarWorkerService</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -161,7 +170,7 @@ Inhalt:
       <true/>
       <!-- Arbeitsverzeichnis -->
       <key>WorkingDirectory</key>
-      <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/</string>
+      <string>/Users/thorstenhindermann/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net11.0/</string>
 
       <!-- Umgebungsvariablen -->
       <key>EnvironmentVariables</key>
@@ -260,7 +269,7 @@ dotnet publish -c Release -r win-x64 --self-contained false
 #### Installieren mit sc.exe:
 Das Terminal, die PowerShell oder Kommandozeile als _**Administrator bzw. mit Administrator-Rechten**_ öffnen und den Service mit `sc.exe` registrieren.
 ```cmd
-sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net10.0\InventarWorkerService.exe"
+sc create "InventarWorkerService" binPath= "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net11.0\InventarWorkerService.exe"
 ```
 Die erfolgreiche Installation wird mit `[SC] CreateService SUCCESS` oder `[SC] CreateService ERFOLG` bestätigt.
 
@@ -271,7 +280,7 @@ Der Dienste-Eintrag in der services.msc-Ansicht in der mmc.exe ist dann sichtbar
 Alternativ via PowerShell mit New-Service:
 ```powershell
 New-Service -Name "InventarWorkerService" `
-            -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net10.0\InventarWorkerService.exe" `
+            -BinaryPathName "C:\Users\hinde\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debug\net11.0\InventarWorkerService.exe" `
             -DisplayName "InventarWorkerService" `
             -StartupType Manual
 ```
@@ -1030,17 +1039,17 @@ Import-Module PSSQLite
 sie nicht existiert)
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net10.0\mydatabase.db' -Query 'CREATE TABLE IF NOT EXISTS users
+bin\Debug\net11.0\mydatabase.db' -Query 'CREATE TABLE IF NOT EXISTS users
 (id INTEGER PRIMARY KEY, name TEXT);'
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net10.0\mydatabase.db' -Query 'INSERT INTO users (name) VALUES (
+bin\Debug\net11.0\mydatabase.db' -Query 'INSERT INTO users (name) VALUES (
 "John Doe"), ("Jane Doe");'
 
 # Daten abfragen und anzeigen
 Invoke-SqliteQuery -DataSource 'C
 :\Users\thinder\RiderProjects\InventarWorkerService\InventarWorkerService\
-bin\Debug\net10.0\mydatabase.db' -Query 'SELECT * FROM users;'
+bin\Debug\net11.0\mydatabase.db' -Query 'SELECT * FROM users;'
 ```
 Eine andere Möglichkeit ist die direkte Verwendung der .NET-Bibliothek
 Microsoft.Data.Sqlite, die ebenfalls plattformübergreifend ist, aber die
@@ -1085,7 +1094,7 @@ Import-Module SQLitePS
 # Erstelle ein neues PSDrive, das auf deine Datenbankdatei zeigt
 New-PSDrive -Name "MyDB" -PSProvider "SQLite" -Root "C:\Users\t
 hinder\RiderProjects\InventarWorkerService\InventarWorkerService\bin\Debu
-g\net10.0\mydatabase.db"
+g\net11.0\mydatabase.db"
 
 # Wechsle in das neue Laufwerk
 cd MyDB:
@@ -1121,8 +1130,8 @@ sind jedoch leistungsfähig und haben ihre Berechtigung.
 ### QuickFixes
 Wenn unter Linux/Ubuntu mit normalen USer-Rechten der InventarWorkerService nicht gestartet werden kann, dann versuche
 ```bash
-sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net10.0/InventarWorkerService
-sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarViewerApp/bin/Debug/net10.0/InventarViewerApp
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarWorkerService/bin/Debug/net11.0/InventarWorkerService
+sudo setcap 'cap_net_bind_service=+ep' /home/thinder/RiderProjects/InventarWorkerService/InventarViewerApp/bin/Debug/net11.0/InventarViewerApp
 # Auflösen des SymLink
 readlink -f /usr/bin/dotnet
 # Antwort

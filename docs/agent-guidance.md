@@ -8,7 +8,7 @@ Start with [AGENTS.md](../AGENTS.md). The following sections apply to the named 
 
 Geltung / Applies to: `AGENTS.md`
 
-This repository is a multi-project .NET 10 / C# 14.0 solution (`InventarWorkerService.sln`). Core domain logic lives in `InventarWorkerCommon/` (`Models/`, `Services/`, `Helpers/`). Runtime services are in `InventarWorkerService/` (agent + API), `HarvesterWorkerService/` (collector), and `InventarViewerApp/` (Terminal UI client). Service control utilities are in `CtrlWorkerCommon/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`, and `CtrlWorkerServicePS/`.
+This repository is a multi-project .NET 11 / C# 14.0 solution (`InventarWorkerService.sln`). Core domain logic lives in `InventarWorkerCommon/` (`Models/`, `Services/`, `Helpers/`). Runtime services are in `InventarWorkerService/` (agent + API), `HarvesterWorkerService/` (collector), and `InventarViewerApp/` (Terminal UI client). Service control utilities are in `CtrlWorkerCommon/`, `CtrlWorkerServiceApp/`, `CtrlWorkerServiceCmdlet/`, and `CtrlWorkerServicePS/`.
 
 Tests are split by scope: `InventarWorkerCommonTest/`, `CtrlWorkerCommonTest/`, and `InventarWorkerServiceIntegrationTest/`. Documentation sources are under `docs/` with DocFX config in `docfx.json`; generated DocFX metadata in `api/` and generated HTML output in `_site/` are local or CI artifacts and MUST remain untracked.
 
@@ -41,7 +41,7 @@ Tests use MSTest (`[TestClass]`, `[TestMethod]`). Prefer descriptive test names 
 
 Geltung / Applies to: `AGENTS.md`
 
-This is a .NET 10 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
+This is a .NET 11 / C# 14.0 multi-project solution for cross-platform IT hardware/software inventory.
 
 **Data flow:**
 ```
@@ -75,7 +75,7 @@ Each machine runs InventarWorkerService (REST agent)
 
 **Async:** All I/O-bound public service methods return `Task` or `Task<T>`.
 
-**Toolchain:** Use `.NET 10` with `C# 14.0`.
+**Toolchain:** Use `.NET 11` with `C# 14.0`.
 
 **Serialization:** `System.Text.Json` with camelCase naming policy throughout. Do not use Newtonsoft.Json. All existing usage of `Newtonsoft.Json` MUST be migrated to `System.Text.Json` and the `Newtonsoft.Json` NuGet package MUST be removed from all projects and the solution.
 
@@ -226,7 +226,7 @@ and passing evidence are distinct; bypass is not technical proof.*
 
 Geltung / Applies to: `CLAUDE.md`
 
-This is a multi-project .NET 10 / C# 14.0 solution for hardware/software inventory management across machines.
+This is a multi-project .NET 11 / C# 14.0 solution for hardware/software inventory management across machines.
 
 ### Data Flow
 
@@ -268,7 +268,7 @@ InventarViewerApp (TUI) →  queries InventarWorkerService API  →  persists in
 ### Key Technical Conventions
 
 - **Nullable reference types** are enabled throughout; use `string?` where values may be absent
-- **Toolchain baseline**: .NET 10 with C# 14.0
+- **Toolchain baseline**: .NET 11 with C# 14.0
 - **Async/await** for all I/O-bound operations; public service methods return `Task` or `Task<T>`
 - **System.Text.Json** with camelCase naming policy — avoid Newtonsoft.Json; all existing `Newtonsoft.Json` usage MUST be migrated to `System.Text.Json` and the package removed from all projects
 - **Dependency currency**: keep NuGet packages on latest stable versions; document any pinning exceptions
@@ -508,7 +508,7 @@ Geltung / Applies to: `.github/copilot-instructions.md`, `.github/agents/copilot
 
 **Nullable reference types** are enabled everywhere — use `string?` for optional values.
 
-**Toolchain:** Use `.NET 10` with `C# 14.0`.
+**Toolchain:** Use `.NET 11` with `C# 14.0`.
 
 **Async:** All I/O-bound public service methods return `Task` or `Task<T>`.
 
