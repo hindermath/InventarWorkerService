@@ -8,12 +8,13 @@ namespace InventarWorkerServiceIntegrationTests;
 /// EN: Contains tests for InventarWorkerServiceRemoteTests.
 /// </summary>
 [TestClass]
-public class InventarWorkerServiceRemoteTests : PlaywrightTest
+public class InventarWorkerServiceRemoteTests
 {
     private const string RunRemoteTestsEnvVar = "INVENTAR_RUN_REMOTE_TESTS";
     private const string RemoteUrlEnvVar = "INVENTAR_REMOTE_BASE_URL";
     private const string RemoteApiKeyEnvVar = "INVENTAR_REMOTE_API_KEY";
     private IAPIRequestContext? _remoteApiContext;
+    private IPlaywright? _playwright;
     private string _remoteUrl = string.Empty;
     private readonly JsonSerializerOptions _jsonOptions;
 
@@ -60,7 +61,8 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
             Assert.Fail($"{RemoteApiKeyEnvVar} muss fuer aktivierte Remote-Tests gesetzt sein.");
         }
 
-        _remoteApiContext = await Playwright.APIRequest.NewContextAsync(new()
+        _playwright = await Microsoft.Playwright.Playwright.CreateAsync();
+        _remoteApiContext = await _playwright.APIRequest.NewContextAsync(new()
         {
             BaseURL = _remoteUrl,
             IgnoreHTTPSErrors = false,
@@ -84,9 +86,16 @@ public class InventarWorkerServiceRemoteTests : PlaywrightTest
     [TestCleanup]
     public async Task Cleanup()
     {
-        if (_remoteApiContext is not null)
+        try
         {
-            await _remoteApiContext.DisposeAsync();
+            if (_remoteApiContext is not null)
+            {
+                await _remoteApiContext.DisposeAsync();
+            }
+        }
+        finally
+        {
+            _playwright?.Dispose();
         }
     }
 

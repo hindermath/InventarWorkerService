@@ -131,6 +131,10 @@ public sealed class MongoDbTransportSecurityTest
         Assert.AreEqual("user@example", url.Username);
         Assert.AreEqual("p@ss:/?#[]", url.Password);
         Assert.AreEqual("inventory.example.test", url.Server.Host);
+        using var json = System.Text.Json.JsonDocument.Parse(System.Text.Json.JsonSerializer.Serialize(model));
+        Assert.IsFalse(json.RootElement.TryGetProperty(nameof(MongoDb.MongoDbConnectionString), out _));
+        var yaml = new YamlDotNet.Serialization.SerializerBuilder().Build().Serialize(model);
+        Assert.IsFalse(yaml.Contains(nameof(MongoDb.MongoDbConnectionString), StringComparison.Ordinal));
     }
 
     /// <summary>

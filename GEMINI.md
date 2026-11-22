@@ -11,7 +11,7 @@ before working. They supplement the binding work, security, verification and app
 Dieses Dokument dient als zentrale Orientierungshilfe für die Arbeit an diesem Repository. Es ergänzt die `README.md` und `CLAUDE.md`.
 
 ## 🚀 Projektübersicht
-**InventarWorkerService** ist eine plattformübergreifende Inventarisierungslösung für IT-Infrastrukturen, entwickelt mit **.NET 10.0** und **C# 14.0**. Das System erfasst Hardware- und Software-Informationen von Windows-, macOS- und Linux-Systemen.
+**InventarWorkerService** ist eine plattformübergreifende Inventarisierungslösung für IT-Infrastrukturen, entwickelt mit **.NET 11.0** und **C# 14.0**. Das System erfasst Hardware- und Software-Informationen von Windows-, macOS- und Linux-Systemen.
 
 ### Kernkomponenten:
 1.  **InventarWorkerService**: Ein ASP.NET Core "Agent", der auf jedem zu überwachenden Rechner läuft. Er erfasst lokale Daten und stellt sie über eine REST-API bereit.
@@ -56,7 +56,7 @@ Das Projekt nutzt die Standard .NET-CLI.
   - Erklärende Texte in Kommentaren/Dokumentation: zweisprachig (Deutsch zuerst, dann Englisch) auf CEFR-B2-Niveau.
   - UI-Labels & Logs: Deutsch.
 - **Coding Style**:
-  - Toolchain-Basis: `.NET 10` und `C# 14.0`.
+  - Toolchain-Basis: `.NET 11` und `C# 14.0`.
   - Nullable Reference Types sind aktiviert.
   - Asynchrone Programmierung (`async/await`) ist Standard für I/O.
   - Test-Namensschema: `<UnitUnderTest>_<Scenario>_<ExpectedOutcome>`.

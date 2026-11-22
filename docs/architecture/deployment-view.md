@@ -5,7 +5,7 @@
 | Windows | Worker als Service, Viewer/Harvester; Kestrel konfiguriert | Servicekonto mit minimalen Rechten; Credential Store |
 | macOS | launchd-LaunchDaemon mit dediziertem Dienstkonto | Keychain; `/Library/Application Support/InventarWorkerService` gehört dem Dienstkonto und hat Modus 0700 |
 | Linux | systemd-Systemdienst mit dediziertem Dienstkonto | `StateDirectory=InventarWorkerService`; systemd erzeugt `/var/lib/InventarWorkerService` dienstkontobesessen mit Modus 0700 |
-| GitHub Actions | .NET 10 Jobs; Provider-Container | read-only Checkout; kurzlebige Tokens; keine Secrets in Logs |
+| GitHub Actions | .NET 11 Anwendungsjobs; Provider-Container / .NET 11 application jobs; provider containers | read-only Checkout; kurzlebige Tokens; keine Secrets in Logs / read-only checkout; short-lived tokens; no secrets in logs |
 | Datenbanken | SQLite-Datei, PostgreSQL, MongoDB | eigene Rollen, minimale DB-/Dateirechte |
 
 DE: Beide API-Hosts starten standardmäßig nur mit einer Loopback-HTTP-Bindung. Sie unterstützen zwei Betriebsarten: direktes Kestrel-HTTPS mit extern bereitgestelltem Zertifikat oder TLS-Terminierung an einem Reverse Proxy auf demselben Host, der nur an Loopback-HTTP weiterleitet. Remote- und Wildcard-HTTP sowie reine `HTTP_PORTS`-Konfigurationen werden vor dem Listener-Start abgewiesen. Swagger ist nur in Development aktiv. Debug-Funktionen sind in Release aus.

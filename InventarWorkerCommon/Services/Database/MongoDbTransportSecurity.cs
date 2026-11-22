@@ -50,7 +50,9 @@ public static class MongoDbTransportSecurity
                 builder.Password = password;
             }
 
-            return builder.ToString();
+            // DE: Nur an den Treiber weitergeben, nie protokollieren. ToString maskiert Zugangsdaten.
+            // EN: Pass only to the driver; never log it. ToString redacts credentials.
+            return builder.ToMongoUrl().Url;
         }
         catch (Exception exception) when (exception is ArgumentException or FormatException or MongoConfigurationException)
         {

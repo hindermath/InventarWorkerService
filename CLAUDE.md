@@ -12,6 +12,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Run Commands
 
+DE: Die Anwendung und ihre Tests verwenden .NET 11 (`net11.0`) mit C# 14.
+EN: The application and its tests use .NET 11 (`net11.0`) with C# 14.
+
 ```bash
 # Build the entire solution
 dotnet build InventarWorkerService.sln

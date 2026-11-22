@@ -36,6 +36,8 @@ public class MongoDb
     /// Gets the connection string used to connect to the MongoDB database, including authentication
     /// credentials (if provided) and host/port information.
     /// </summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    [YamlDotNet.Serialization.YamlIgnore]
     public string MongoDbConnectionString
     {
         get => MongoDbTransportSecurity.CreateConnectionString(

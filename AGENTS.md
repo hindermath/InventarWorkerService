@@ -19,7 +19,7 @@ before working. They supplement the binding work, security, verification and app
 - `dotnet test --filter "FullyQualifiedName~TestClassName.TestMethodName"`: run a single test method.
 - `dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults`: collect CI-ready coverage artifacts.
 - `dotnet list package --outdated`: identify packages not on latest stable versions.
-- `pwsh InventarWorkerServiceIntegrationTest/bin/Debug/net10.0/playwright.ps1 install`: install Playwright browsers after first build.
+- `pwsh InventarWorkerServiceIntegrationTest/bin/Debug/net11.0/playwright.ps1 install`: install Playwright browsers after first build.
 - `docfx docfx.json`: build API and Markdown documentation.
 
 ## Commit & Pull Request Guidelines
