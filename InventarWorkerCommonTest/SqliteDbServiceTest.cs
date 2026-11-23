@@ -242,7 +242,8 @@ public class SqliteDbServiceTest
     [TestMethod]
     public async Task InitializeMachinesFromCsvAsync_AliasesAndOptionalColumns_PreserveImport()
     {
-        var file = Path.Combine(Path.GetTempPath(), $"csv-alias-{Guid.NewGuid():N}.csv");
+        var directory = Directory.CreateTempSubdirectory("inventar-csv-alias-");
+        var file = Path.Combine(directory.FullName, "input.csv");
         try
         {
             await File.WriteAllTextAsync(file, "Computer,Disable,Deprovision\nAlias-PC,true,false\n");
@@ -252,7 +253,7 @@ public class SqliteDbServiceTest
             Assert.IsTrue(machine.Disabled);
             Assert.IsFalse(machine.Deprovisioned);
         }
-        finally { File.Delete(file); }
+        finally { File.Delete(file); directory.Delete(); }
     }
 
     /// <summary>
@@ -265,14 +266,15 @@ public class SqliteDbServiceTest
     [DataRow("Name,Disabled,Deprovisioned\nPC,false,false\n\"broken,false,false\n")]
     public async Task InitializeMachinesFromCsvAsync_InvalidCsv_RollsBack(string content)
     {
-        var file = Path.Combine(Path.GetTempPath(), $"csv-invalid-{Guid.NewGuid():N}.csv");
+        var directory = Directory.CreateTempSubdirectory("inventar-csv-invalid-");
+        var file = Path.Combine(directory.FullName, "input.csv");
         try
         {
             await File.WriteAllTextAsync(file, content);
             await Assert.ThrowsAsync<Exception>(() => _service.InitializeMachinesFromCsvAsync(file));
             Assert.AreEqual(0, (await _service.GetMachinesAsync()).Count);
         }
-        finally { File.Delete(file); }
+        finally { File.Delete(file); directory.Delete(); }
     }
 
     private async Task SeedMachineDirectAsync(string name, bool disabled, bool deprovisioned)
