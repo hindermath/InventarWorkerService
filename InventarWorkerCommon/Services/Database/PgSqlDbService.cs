@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Text.Json;
 using CsvHelper;
 using Dapper;
@@ -6,7 +5,6 @@ using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Settings;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
-using InventarWorkerCommon.Services.Csv;
 using Npgsql;
 
 namespace InventarWorkerCommon.Services.Database;
@@ -760,9 +758,16 @@ public class PgSqlDbService
         try
         {
             using var reader = new StreamReader(csvFilePath);
-            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            using var csv = CsvReader.Create(reader, new CsvReaderOptions
+            {
+                Separator = ',',
+                TrimWhitespace = false,
+                MalformedData = CsvMalformedDataHandling.Throw,
+                MissingField = CsvMissingFieldHandling.Throw
+            });
 
-            csv.Context.RegisterClassMap<MachineMapFromCsv>();
+            // DE: CsvHelper 34 registriert die generierte Zuordnung automatisch.
+            // EN: CsvHelper 34 registers the generated mapping automatically.
 
             var machines = csv.GetRecords<MachineFromCsv>().ToList();
 

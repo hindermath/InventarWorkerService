@@ -119,3 +119,21 @@ without package errors. The release build passed with zero warnings and zero
 errors after one finding-conditioned import correction. Added Coverlet
 collectors remain pinned to the compatible test-platform version; an attempted
 test-framework update was reverted after a proven discovery regression.
+
+## CsvHelper 34 (2026-11-23)
+
+DE: Der CSV-Import verwendet jetzt die generierte CsvRecordMap-Zuordnung von
+CsvHelper 34.1.0. Bestehende Header-Aliase, optionale Spalten und Transaktionen
+bleiben erhalten. Komma-Trenner, unveränderte Feld-Leerzeichen und Ablehnung
+fehlerhafter Anführungszeichen sowie fehlender Pflichtfelder sind explizit gesetzt.
+Die SQLite-Regression prüft Aliase, optionale Spalten, ungültige Werte und Rollback.
+Die PostgreSQL-Prüfung bleibt im vorhandenen nativen CI-Providerjob verbindlich.
+
+EN: CSV import now uses CsvHelper 34.1.0 generated CsvRecordMap mappings.
+Existing header aliases, optional columns and transactions are retained. Comma
+separators, unchanged field whitespace and rejection of malformed quotes or
+missing required fields are explicit. SQLite regression tests cover aliases,
+optional columns, invalid values and rollback. PostgreSQL remains covered by
+the existing native CI provider job.
+
+Upstream: https://joshclose.github.io/CsvHelper/migration/v34.0.0.html
