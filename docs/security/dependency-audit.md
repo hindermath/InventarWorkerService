@@ -120,6 +120,20 @@ errors after one finding-conditioned import correction. Added Coverlet
 collectors remain pinned to the compatible test-platform version; an attempted
 test-framework update was reverted after a proven discovery regression.
 
+## OpenAPI-Kompatibilität / OpenAPI compatibility (2026-11-23)
+
+DE: Das Update auf Microsoft.AspNetCore.OpenApi 11 benötigt die dazu passende
+Microsoft.OpenApi-3-Abhängigkeit. Worker und Viewer verwenden deshalb gemeinsam
+Swashbuckle.AspNetCore 11.0.1. Der bestehende Swagger-JSON-Integrationstest bleibt
+verbindlich; Endpunkte, Zugriffsschutz und fachlicher API-Vertrag werden nicht erweitert.
+
+EN: Microsoft.AspNetCore.OpenApi 11 requires the matching Microsoft.OpenApi 3
+dependency. Worker and viewer therefore use Swashbuckle.AspNetCore 11.0.1 together.
+The existing Swagger JSON integration test remains binding; endpoints, access
+controls and the functional API contract are not extended.
+
+Upstream: https://github.com/domaindrivendev/Swashbuckle.AspNetCore/releases/tag/v11.0.1
+
 ## CsvHelper 34 (2026-11-23)
 
 DE: Der CSV-Import verwendet jetzt die generierte CsvRecordMap-Zuordnung von

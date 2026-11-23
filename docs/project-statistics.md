@@ -581,12 +581,12 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 
 | Kennzahl / Metric | Wert / Value |
 |---|---:|
-| Textbasis / Text base | 246342 lines |
+| Textbasis / Text base | 246356 lines |
 | Textdateien / Text files | 1773 |
 | Beobachtbarer Zeitraum / Observable period | 2025-11-30..2026-11-24 |
 | Aktivtage / Active days | 103 |
-| Relevante Commits / Relevant commits | 393 |
-| Zeilen je Aktivtag / Lines per active day | 2391.7 |
+| Relevante Commits / Relevant commits | 395 |
+| Zeilen je Aktivtag / Lines per active day | 2391.8 |
 | Peak-Tag im Fenster / Peak day in window | 2026-04-19 / 107974 |
 | Peak-Woche im Fenster / Peak week in window | 2026-04-19 / 114277 |
 | Laengste Serie / Longest streak | 8 days |
@@ -599,7 +599,7 @@ Profil 2 verwendet Git-getrackte Textdateien und sichtbare Git-Aktivitaet. Die W
 ```text
 Produktiv / Production          [#...................]   4.8% | 11839
 Tests                           [#...................]   5.1% | 12638
-Dokumentation / Documentation   [###############.....]  73.1% | 179976
+Dokumentation / Documentation   [###############.....]  73.1% | 179990
 Skripte / Scripts               [###.................]  14.1% | 34845
 Konfiguration / Configuration   [#...................]   1.9% | 4723
 Daten und Medien / Data and media [#...................]   0.4% | 1057
@@ -745,7 +745,7 @@ Die Faktoren vergleichen sichtbare Lieferdichte mit den dokumentierten manuellen
 Scale: 0..5000 lines/day
 Experienced manual [#...................] 80
 Thorsten solo      [#...................] 100
-Visible repository [##########..........] 2391.7
+Visible repository [##########..........] 2391.8
 ```
 
 Die gemeinsame Skala vergleicht Referenzen und sichtbare Lieferdichte. Sie schreibt die Git-Aktivitaet keiner Person oder KI pauschal zu.
@@ -771,6 +771,6 @@ DE: Das Fenster beginnt am 2025-11-30 und endet am 2026-11-24. Es enthaelt 103 a
 | 2026-08 | 26735 |
 | 2026-09 | 37821 |
 | 2026-10 | 2351 |
-| 2026-11 | 63493 |
+| 2026-11 | 63525 |
 
 <!-- project-statistics-v2:end -->
