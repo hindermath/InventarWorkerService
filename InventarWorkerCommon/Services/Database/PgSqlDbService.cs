@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Text.Json;
 using CsvHelper;
 using Dapper;
@@ -6,7 +5,6 @@ using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Settings;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
-using InventarWorkerCommon.Services.Csv;
 using Npgsql;
 
 namespace InventarWorkerCommon.Services.Database;

@@ -1,10 +1,8 @@
-using System.Globalization;
 using CsvHelper;
 using Dapper;
 using InventarWorkerCommon.Models.Hardware;
 using InventarWorkerCommon.Models.Software;
 using InventarWorkerCommon.Models.SqlDatabase;
-using InventarWorkerCommon.Services.Csv;
 using Microsoft.Data.Sqlite;
 
 namespace InventarWorkerCommon.Services.Database;
@@ -731,7 +729,6 @@ public class SqliteDbService
                 MissingField = CsvMissingFieldHandling.Throw
             });
 
-            // Register CSV header (optional, if the columns are named differently)
             // DE: CsvHelper 34 registriert die generierte Zuordnung automatisch.
             // EN: CsvHelper 34 registers the generated mapping automatically.
 
