@@ -235,6 +235,46 @@ public class SqliteDbServiceTest
         File.Delete(csvFile);
     }
 
+    /// <summary>
+    /// DE: Erhält Header-Aliase und optionale Spalten beim Bibliothekswechsel.
+    /// EN: Preserves header aliases and optional columns across the library upgrade.
+    /// </summary>
+    [TestMethod]
+    public async Task InitializeMachinesFromCsvAsync_AliasesAndOptionalColumns_PreserveImport()
+    {
+        var file = Path.Combine(Path.GetTempPath(), $"csv-alias-{Guid.NewGuid():N}.csv");
+        try
+        {
+            await File.WriteAllTextAsync(file, "Computer,Disable,Deprovision\nAlias-PC,true,false\n");
+            Assert.AreEqual(1, await _service.InitializeMachinesFromCsvAsync(file));
+            var machine = (await _service.GetMachinesAsync()).Single();
+            Assert.AreEqual("Alias-PC", machine.Name);
+            Assert.IsTrue(machine.Disabled);
+            Assert.IsFalse(machine.Deprovisioned);
+        }
+        finally { File.Delete(file); }
+    }
+
+    /// <summary>
+    /// DE: Ungültige CSV-Daten dürfen keine teilweise importierten Maschinen hinterlassen.
+    /// EN: Invalid CSV data must not leave partially imported machines behind.
+    /// </summary>
+    [TestMethod]
+    [DataRow("Name,Disabled\nPC,false\n")]
+    [DataRow("Name,Disabled,Deprovisioned\nPC,not-a-bool,false\n")]
+    [DataRow("Name,Disabled,Deprovisioned\nPC,false,false\n\"broken,false,false\n")]
+    public async Task InitializeMachinesFromCsvAsync_InvalidCsv_RollsBack(string content)
+    {
+        var file = Path.Combine(Path.GetTempPath(), $"csv-invalid-{Guid.NewGuid():N}.csv");
+        try
+        {
+            await File.WriteAllTextAsync(file, content);
+            await Assert.ThrowsAsync<Exception>(() => _service.InitializeMachinesFromCsvAsync(file));
+            Assert.AreEqual(0, (await _service.GetMachinesAsync()).Count);
+        }
+        finally { File.Delete(file); }
+    }
+
     private async Task SeedMachineDirectAsync(string name, bool disabled, bool deprovisioned)
     {
         await using var connection = new SqliteConnection($"Data Source={_databasePath}");
