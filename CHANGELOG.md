@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.4.1](https://github.com/hindermath/InventarWorkerService/compare/v0.4.0...v0.4.1) (2026-11-23)
+
+
+### Bug Fixes / Fehlerbehebungen
+
+* **deps:** align Swagger generation with OpenAPI 11 dependencies ([4b38b81](https://github.com/hindermath/InventarWorkerService/commit/4b38b818b017527a2882ba66c068a34b7457d075))
+* **deps:** migrate CSV mappings to CsvHelper 34 ([540c2a6](https://github.com/hindermath/InventarWorkerService/commit/540c2a6a006b1986ed3e30631f77155e1ae70137))
+* **test:** own temporary directories for CSV regression cases ([c57284f](https://github.com/hindermath/InventarWorkerService/commit/c57284f0f02f1cb87cd57ae8b1ccb1aab79c0f5f))
+
+
+### Documentation / Dokumentation
+
+* clarify generated CSV mapping ownership in both languages ([80c8a86](https://github.com/hindermath/InventarWorkerService/commit/80c8a86c405cbd3a1061488617bc50a9833e9e49))
+* refresh dependency update statistics evidence ([8888e29](https://github.com/hindermath/InventarWorkerService/commit/8888e29127a6233bab9bb02e71c7bccb00e257d6))
+* refresh dependency update statistics evidence ([a9f8f89](https://github.com/hindermath/InventarWorkerService/commit/a9f8f8915936d95edb552cfb74a8cd62eb36e02f))
+* refresh dependency update statistics evidence ([1beb6dd](https://github.com/hindermath/InventarWorkerService/commit/1beb6ddc0d10d12051249086354cdc91f20291c4))
+* refresh dependency update statistics evidence ([f50792e](https://github.com/hindermath/InventarWorkerService/commit/f50792ecda6e88caff3496415dfea1ff17f1b7b2))
+* refresh dependency update statistics evidence ([757a367](https://github.com/hindermath/InventarWorkerService/commit/757a36731dfeb8fdaa070d4aaacfbc9545793e3a))
+* refresh dependency update statistics evidence ([bdbc61c](https://github.com/hindermath/InventarWorkerService/commit/bdbc61cb1c6af94f85ddaac76a39811783abb839))
+* refresh dependency update statistics evidence ([ad89771](https://github.com/hindermath/InventarWorkerService/commit/ad89771991b23b7549fbccd8e6ed819dbb852716))
+* refresh dependency update statistics evidence ([1a23306](https://github.com/hindermath/InventarWorkerService/commit/1a233064f97f0007283fe69218e46d951d415d16))
+* refresh dependency update statistics evidence ([916cd35](https://github.com/hindermath/InventarWorkerService/commit/916cd35110efb573417a3cd478b7248304d07382))
+* refresh dependency update statistics evidence ([613136c](https://github.com/hindermath/InventarWorkerService/commit/613136c4b40f0ea4608a22c29e19bace1b04dd5d))
+* refresh dependency update statistics evidence ([0bfda71](https://github.com/hindermath/InventarWorkerService/commit/0bfda7184f507a728fd1d0113c449173ee65f3ea))
+* refresh statistics for dependency update ([e926964](https://github.com/hindermath/InventarWorkerService/commit/e926964899718924b9ea91d195ef3f9fe6899923))
+* regenerate Profile 2 after evidence refresh ([1ae4136](https://github.com/hindermath/InventarWorkerService/commit/1ae4136d659923feb7908ea091b6ff42869aa6e0))
+* regenerate Profile 2 after evidence refresh ([cb9862c](https://github.com/hindermath/InventarWorkerService/commit/cb9862c900a58fdf8934e974aa44aeb2ba537264))
+* regenerate Profile 2 after evidence refresh ([681fc1c](https://github.com/hindermath/InventarWorkerService/commit/681fc1cc4e65146b0e3f23d8030159a8ae063d08))
+* regenerate Profile 2 after evidence refresh ([3befa03](https://github.com/hindermath/InventarWorkerService/commit/3befa03c35f559073cab60799d87702b9dd71566))
+* regenerate Profile 2 after evidence refresh ([d6f0692](https://github.com/hindermath/InventarWorkerService/commit/d6f0692a6b1bfd874dda804ca461b0fb0dce8f4c))
+* regenerate Profile 2 after evidence refresh ([d7739c3](https://github.com/hindermath/InventarWorkerService/commit/d7739c342be1cd1abcb73157f9ce91590e6f1065))
+* regenerate Profile 2 after evidence refresh ([b0cfce5](https://github.com/hindermath/InventarWorkerService/commit/b0cfce51f561304edece747a0b5e600a64fc7c67))
+* regenerate Profile 2 after evidence refresh ([425f1a6](https://github.com/hindermath/InventarWorkerService/commit/425f1a6b747752ef34dbff1ee6227b5e0c726940))
+* regenerate Profile 2 after evidence refresh ([9393cd8](https://github.com/hindermath/InventarWorkerService/commit/9393cd885971054817bed42f03f96da81e28484e))
+* regenerate Profile 2 after evidence refresh ([1d891dd](https://github.com/hindermath/InventarWorkerService/commit/1d891ddd7059bb40243d7f7d0132cc354b25f784))
+
+
+### Maintenance / Wartung
+
+* **deps:** bump astral-sh/setup-uv ([f5a48d1](https://github.com/hindermath/InventarWorkerService/commit/f5a48d1077207b44baf28522474b05e033bf3eee))
+* **deps:** bump astral-sh/setup-uv from 10.3.3 to 10.4.0 in the github-actions-minor-patch group ([4b209e2](https://github.com/hindermath/InventarWorkerService/commit/4b209e221db45eb29276148dd77ee5c4820b39c6))
+
 ## [0.4.0](https://github.com/hindermath/InventarWorkerService/compare/v0.3.0...v0.4.0) (2026-11-22)
 
 
