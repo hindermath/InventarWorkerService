@@ -133,3 +133,21 @@ The existing Swagger JSON integration test remains binding; endpoints, access
 controls and the functional API contract are not extended.
 
 Upstream: https://github.com/domaindrivendev/Swashbuckle.AspNetCore/releases/tag/v11.0.1
+
+## CsvHelper 34 (2026-11-23)
+
+DE: Der CSV-Import verwendet jetzt die generierte CsvRecordMap-Zuordnung von
+CsvHelper 34.1.0. Bestehende Header-Aliase, optionale Spalten und Transaktionen
+bleiben erhalten. Komma-Trenner, unveränderte Feld-Leerzeichen und Ablehnung
+fehlerhafter Anführungszeichen sowie fehlender Pflichtfelder sind explizit gesetzt.
+Die SQLite-Regression prüft Aliase, optionale Spalten, ungültige Werte und Rollback.
+Die PostgreSQL-Prüfung bleibt im vorhandenen nativen CI-Providerjob verbindlich.
+
+EN: CSV import now uses CsvHelper 34.1.0 generated CsvRecordMap mappings.
+Existing header aliases, optional columns and transactions are retained. Comma
+separators, unchanged field whitespace and rejection of malformed quotes or
+missing required fields are explicit. SQLite regression tests cover aliases,
+optional columns, invalid values and rollback. PostgreSQL remains covered by
+the existing native CI provider job.
+
+Upstream: https://joshclose.github.io/CsvHelper/migration/v34.0.0.html
